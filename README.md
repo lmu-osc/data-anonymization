@@ -1,4 +1,4 @@
-# Tutorial Template
+# Data Anonymisation Cousrse
 
 This repo serves as the template/basis for our Quarto tutorials.
 
