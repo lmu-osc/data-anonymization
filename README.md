@@ -1,6 +1,6 @@
 # Data Anonymisation Course
 
-This repo serves as the template/basis for our Quarto tutorials.
+This repository is work in progress. Please check later in 2025 :)
 
 ## Check `CITATION.cff` Format
 
