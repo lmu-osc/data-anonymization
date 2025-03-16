@@ -1,8 +1,8 @@
 ---
-title: "Welcome to the TOPIC Tutorial!"
+title: "Welcome to the Data Anonymisation Course"
 ---
 
-THIS IS YOUR HOME PAGE FILE. DO NOT RENAME OR DELETE THIS FILE.
+This website is work in progress. Please come back later in 2025 :)
 
 
 # Tutorial Overview
