@@ -53,13 +53,13 @@ website:
             text: "FOUNDATIONS Legal Framework"
           - href: FOUNDATIONS/page3.qmd
             text: "FOUNDATIONS Key Concepts and Principles"
-      - section: "TOPIC 2"
+      - section: "FOUNDATIONS: DATA ANONYMISATION"
         contents:
-          - href: TOPIC2/page1.qmd
+          - href: DATA-ANONYMISATION/page1.qmd
             text: "TOPIC2 Page1 Title"
-          - href: TOPIC2/page2.qmd
+          - href: DATA-ANONYMISATION//page2.qmd
             text: "TOPIC2 Page2 Title"
-          - href: TOPIC2/page3.qmd
+          - href: DATA-ANONYMISATION//page3.qmd
             text: "TOPIC2 Page3 Title"
 # End Website
 
