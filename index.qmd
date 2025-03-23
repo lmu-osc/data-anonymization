@@ -11,7 +11,7 @@ This **self-paced tutorial** is intended to take X hours to complete.
 
 The tutorial is split into the following sections:
 
-1.  [**TOPIC1**]() talks about TOPIC1
+1.  [**FOUNDATIONS OF DATA PRIVACY**](FOUNDATIONS) talks about Foundations of Data Privacy, in the European Framework
 2.  [**TOPIC2**]() discusses TOPIC2
 
 

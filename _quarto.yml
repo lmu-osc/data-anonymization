@@ -51,6 +51,8 @@ website:
             text: "FOUNDATIONS Introduction"
           - href: FOUNDATIONS/page2.qmd
             text: "FOUNDATIONS Legal Framework"
+          - href: FOUNDATIONS/page3.qmd
+            text: "FOUNDATIONS Key Concepts and Principles"
       - section: "TOPIC 2"
         contents:
           - href: TOPIC2/page1.qmd
