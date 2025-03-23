@@ -98,49 +98,49 @@
   {
     "objectID": "TOPIC1/page1.html",
     "href": "TOPIC1/page1.html",
-    "title": "Page Title Here",
+    "title": "Introduction to Data Privacy",
     "section": "",
     "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
     "crumbs": [
       "Home",
       "TOPIC 1",
-      "TOPIC1 Page1 Title"
+      "FOUNDATION Page1 Title"
     ]
   },
   {
     "objectID": "TOPIC1/page1.html#level-two",
     "href": "TOPIC1/page1.html#level-two",
-    "title": "Page Title Here",
+    "title": "Introduction to Data Privacy",
     "section": "Level Two",
     "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
     "crumbs": [
       "Home",
       "TOPIC 1",
-      "TOPIC1 Page1 Title"
+      "FOUNDATION Page1 Title"
     ]
   },
   {
     "objectID": "TOPIC1/page1.html#another-level-two",
     "href": "TOPIC1/page1.html#another-level-two",
-    "title": "Page Title Here",
+    "title": "Introduction to Data Privacy",
     "section": "Another Level Two",
     "text": "Another Level Two",
     "crumbs": [
       "Home",
       "TOPIC 1",
-      "TOPIC1 Page1 Title"
+      "FOUNDATION Page1 Title"
     ]
   },
   {
     "objectID": "TOPIC1/page1.html#level-two-1",
     "href": "TOPIC1/page1.html#level-two-1",
-    "title": "Page Title Here",
+    "title": "Introduction to Data Privacy",
     "section": "Level Two",
     "text": "Level Two",
     "crumbs": [
       "Home",
       "TOPIC 1",
-      "TOPIC1 Page1 Title"
+      "FOUNDATION Page1 Title"
     ]
   },
   {
