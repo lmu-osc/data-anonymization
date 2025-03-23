@@ -45,12 +45,12 @@ website:
     contents:
       - text: "Overview"
         href: index.qmd
-      - section: "TOPIC 1"
+      - section: "FOUNDATIONS"
         contents:
-          - href: TOPIC1/page1.qmd
-            text: "FOUNDATION Page1 Title"
-          - href: TOPIC1/page2.qmd
-            text: "TOPIC1 Page2 Title"
+          - href: FOUNDATIONS/page1.qmd
+            text: "FOUNDATIONS Introduction"
+          - href: FOUNDATIONS/page2.qmd
+            text: "FOUNDATIONS Legal Framework"
       - section: "TOPIC 2"
         contents:
           - href: TOPIC2/page1.qmd
