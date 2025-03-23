@@ -48,7 +48,7 @@ website:
       - section: "TOPIC 1"
         contents:
           - href: TOPIC1/page1.qmd
-            text: "TOPIC1 Page1 Title"
+            text: "FOUNDATION Page1 Title"
           - href: TOPIC1/page2.qmd
             text: "TOPIC1 Page2 Title"
       - section: "TOPIC 2"
