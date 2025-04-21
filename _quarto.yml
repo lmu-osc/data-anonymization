@@ -47,20 +47,34 @@ website:
         href: index.qmd
       - section: "FOUNDATIONS"
         contents:
-          - href: FOUNDATIONS/page1.qmd
+          - href: 1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.qmd
             text: "FOUNDATIONS Introduction"
-          - href: FOUNDATIONS/page2.qmd
+          - href: 1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.qmd
             text: "FOUNDATIONS Legal Framework"
-          - href: FOUNDATIONS/page3.qmd
+          - href: 1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.qmd
             text: "FOUNDATIONS Key Concepts and Principles"
       - section: "FOUNDATIONS: DATA ANONYMISATION"
         contents:
-          - href: DATA-ANONYMISATION/page1.qmd
-            text: "TOPIC2 Page1 Title"
-          - href: DATA-ANONYMISATION//page2.qmd
-            text: "TOPIC2 Page2 Title"
-          - href: DATA-ANONYMISATION//page3.qmd
-            text: "TOPIC2 Page3 Title"
+          - href: 2_DATA-ANONYMISATION/2_1_Introduction.qmd
+            text: "DATA-ANONYMISATION Introduction"
+          - href: 2_DATA-ANONYMISATION/2_2_Key_concepts.qmd
+            text: "DATA-ANONYMISATION Key Concepts"
+      - section: "PROTECTION"
+        contents:
+          - href: 3_PROTECTION/3_1_Data_security_fundamentals.qmd
+            text: "PROTECTION Data Security Fundamentals"
+          - href: 3_PROTECTION/3_2_Individual_rights.qmd
+            text: "PROTECTION Individual rights"
+          - href: 3_PROTECTION/3_3_Risk_management.qmd
+            text: "PROTECTION Risk management"
+      - section: "ANONYMISATION TECHNIQUES"
+        contents:
+          - href: 4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.qmd
+            text: "ANONYMISATION Basic methods"
+          - href: 4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.qmd
+            text: "ANONYMISATION Advanced techniques"
+          - href: 4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.qmd
+            text: "ANONYMISATION Specialised approaches"
 # End Website
 
 
