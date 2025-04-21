@@ -1,146 +1,194 @@
 [
   {
-    "objectID": "DATA-ANONYMISATION/page3.html",
-    "href": "DATA-ANONYMISATION/page3.html",
+    "objectID": "3_PROTECTION/3_3_Risk_management.html",
+    "href": "3_PROTECTION/3_3_Risk_management.html",
     "title": "Page Title Here",
     "section": "",
     "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page3 Title"
+      "PROTECTION",
+      "PROTECTION Risk management"
     ]
   },
   {
-    "objectID": "DATA-ANONYMISATION/page3.html#level-two",
-    "href": "DATA-ANONYMISATION/page3.html#level-two",
+    "objectID": "3_PROTECTION/3_3_Risk_management.html#level-two",
+    "href": "3_PROTECTION/3_3_Risk_management.html#level-two",
     "title": "Page Title Here",
     "section": "Level Two",
     "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page3 Title"
+      "PROTECTION",
+      "PROTECTION Risk management"
     ]
   },
   {
-    "objectID": "DATA-ANONYMISATION/page3.html#another-level-two",
-    "href": "DATA-ANONYMISATION/page3.html#another-level-two",
+    "objectID": "3_PROTECTION/3_3_Risk_management.html#another-level-two",
+    "href": "3_PROTECTION/3_3_Risk_management.html#another-level-two",
     "title": "Page Title Here",
     "section": "Another Level Two",
     "text": "Another Level Two",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page3 Title"
+      "PROTECTION",
+      "PROTECTION Risk management"
     ]
   },
   {
-    "objectID": "DATA-ANONYMISATION/page3.html#level-two-1",
-    "href": "DATA-ANONYMISATION/page3.html#level-two-1",
+    "objectID": "3_PROTECTION/3_3_Risk_management.html#level-two-1",
+    "href": "3_PROTECTION/3_3_Risk_management.html#level-two-1",
     "title": "Page Title Here",
     "section": "Level Two",
     "text": "Level Two",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page3 Title"
+      "PROTECTION",
+      "PROTECTION Risk management"
     ]
   },
   {
-    "objectID": "DATA-ANONYMISATION/page1.html",
-    "href": "DATA-ANONYMISATION/page1.html",
+    "objectID": "3_PROTECTION/3_2_Individual_rights.html",
+    "href": "3_PROTECTION/3_2_Individual_rights.html",
     "title": "Page Title Here",
     "section": "",
     "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page1 Title"
+      "PROTECTION",
+      "PROTECTION Individual rights"
     ]
   },
   {
-    "objectID": "DATA-ANONYMISATION/page1.html#level-two",
-    "href": "DATA-ANONYMISATION/page1.html#level-two",
+    "objectID": "3_PROTECTION/3_2_Individual_rights.html#level-two",
+    "href": "3_PROTECTION/3_2_Individual_rights.html#level-two",
     "title": "Page Title Here",
     "section": "Level Two",
     "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page1 Title"
+      "PROTECTION",
+      "PROTECTION Individual rights"
     ]
   },
   {
-    "objectID": "DATA-ANONYMISATION/page1.html#another-level-two",
-    "href": "DATA-ANONYMISATION/page1.html#another-level-two",
+    "objectID": "3_PROTECTION/3_2_Individual_rights.html#another-level-two",
+    "href": "3_PROTECTION/3_2_Individual_rights.html#another-level-two",
     "title": "Page Title Here",
     "section": "Another Level Two",
     "text": "Another Level Two",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page1 Title"
+      "PROTECTION",
+      "PROTECTION Individual rights"
     ]
   },
   {
-    "objectID": "DATA-ANONYMISATION/page1.html#level-two-1",
-    "href": "DATA-ANONYMISATION/page1.html#level-two-1",
+    "objectID": "3_PROTECTION/3_2_Individual_rights.html#level-two-1",
+    "href": "3_PROTECTION/3_2_Individual_rights.html#level-two-1",
     "title": "Page Title Here",
     "section": "Level Two",
     "text": "Level Two",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page1 Title"
+      "PROTECTION",
+      "PROTECTION Individual rights"
     ]
   },
   {
-    "objectID": "FOUNDATIONS/page2.html",
-    "href": "FOUNDATIONS/page2.html",
-    "title": "Legal Framework with a Focus on Germany",
+    "objectID": "2_DATA-ANONYMISATION/2_1_Introduction.html",
+    "href": "2_DATA-ANONYMISATION/2_1_Introduction.html",
+    "title": "Introduction",
     "section": "",
     "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
     "crumbs": [
       "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Legal Framework"
+      "FOUNDATIONS: DATA ANONYMISATION",
+      "DATA-ANONYMISATION Introduction"
     ]
   },
   {
-    "objectID": "FOUNDATIONS/page2.html#level-two",
-    "href": "FOUNDATIONS/page2.html#level-two",
-    "title": "Legal Framework with a Focus on Germany",
+    "objectID": "2_DATA-ANONYMISATION/2_1_Introduction.html#level-two",
+    "href": "2_DATA-ANONYMISATION/2_1_Introduction.html#level-two",
+    "title": "Introduction",
     "section": "Level Two",
     "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
     "crumbs": [
       "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Legal Framework"
+      "FOUNDATIONS: DATA ANONYMISATION",
+      "DATA-ANONYMISATION Introduction"
     ]
   },
   {
-    "objectID": "FOUNDATIONS/page2.html#another-level-two",
-    "href": "FOUNDATIONS/page2.html#another-level-two",
-    "title": "Legal Framework with a Focus on Germany",
+    "objectID": "2_DATA-ANONYMISATION/2_1_Introduction.html#another-level-two",
+    "href": "2_DATA-ANONYMISATION/2_1_Introduction.html#another-level-two",
+    "title": "Introduction",
     "section": "Another Level Two",
     "text": "Another Level Two",
     "crumbs": [
       "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Legal Framework"
+      "FOUNDATIONS: DATA ANONYMISATION",
+      "DATA-ANONYMISATION Introduction"
     ]
   },
   {
-    "objectID": "FOUNDATIONS/page2.html#level-two-1",
-    "href": "FOUNDATIONS/page2.html#level-two-1",
-    "title": "Legal Framework with a Focus on Germany",
+    "objectID": "2_DATA-ANONYMISATION/2_1_Introduction.html#level-two-1",
+    "href": "2_DATA-ANONYMISATION/2_1_Introduction.html#level-two-1",
+    "title": "Introduction",
     "section": "Level Two",
     "text": "Level Two",
     "crumbs": [
       "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Legal Framework"
+      "FOUNDATIONS: DATA ANONYMISATION",
+      "DATA-ANONYMISATION Introduction"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html",
+    "title": "Page Title Here",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Basic methods"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#level-two",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#level-two",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Basic methods"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#another-level-two",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#another-level-two",
+    "title": "Page Title Here",
+    "section": "Another Level Two",
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Basic methods"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#level-two-1",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#level-two-1",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Basic methods"
     ]
   },
   {
@@ -173,84 +221,144 @@
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html",
     "title": "Legal Framework with a Focus on Germany",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible."
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Legal Framework"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#level-two",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#level-two",
     "title": "Legal Framework with a Focus on Germany",
     "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time"
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Legal Framework"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#another-level-two",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#another-level-two",
     "title": "Legal Framework with a Focus on Germany",
     "section": "Another Level Two",
-    "text": "Another Level Two"
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Legal Framework"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#level-two-1",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#level-two-1",
     "title": "Legal Framework with a Focus on Germany",
     "section": "Level Two",
-    "text": "Level Two"
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Legal Framework"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html",
     "title": "Introduction to Data Privacy",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible."
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Introduction"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#level-two",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#level-two",
     "title": "Introduction to Data Privacy",
     "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time"
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Introduction"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#another-level-two",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#another-level-two",
     "title": "Introduction to Data Privacy",
     "section": "Another Level Two",
-    "text": "Another Level Two"
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Introduction"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#level-two-1",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#level-two-1",
     "title": "Introduction to Data Privacy",
     "section": "Level Two",
-    "text": "Level Two"
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Introduction"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html",
     "title": "Key Concepts and Principles - planning anonymity in data collection",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible."
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Key Concepts and Principles"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#level-two",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#level-two",
     "title": "Key Concepts and Principles - planning anonymity in data collection",
     "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time"
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Key Concepts and Principles"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#another-level-two",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#another-level-two",
     "title": "Key Concepts and Principles - planning anonymity in data collection",
     "section": "Another Level Two",
-    "text": "Another Level Two"
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Key Concepts and Principles"
+    ]
   },
   {
     "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#level-two-1",
     "href": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#level-two-1",
     "title": "Key Concepts and Principles - planning anonymity in data collection",
     "section": "Level Two",
-    "text": "Level Two"
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS",
+      "FOUNDATIONS Key Concepts and Principles"
+    ]
   },
   {
     "objectID": "LICENSE-CODE.html",
@@ -267,147 +375,195 @@
     "text": "Contributors\nThis site was authored by AUTHORS, and edits/contributions were made by EDITORS/AUTHORS.\n\n\nLicenses\nThe overall project is available under the CC BY-SA 4.0 license found at LICENSE; all code without any narrative text is also (at your option) available under the CC0 1.0 Universal license found at LICENSE-CODE.\nWhy two licenses? The CC BY-SA 4.0 license is for the content of the website, while the CC0 1.0 Universal license is for the code and configuration files. This is a common practice for websites that include code snippets and other content that may be reused in other projects, particularly because the CC BY-SA 4.0 license is not intended to be used with software.\n\n\nNotes\nThis tutorial was primarily written in YYYY using SOFTWARE-NAME SOFTWARE-VERSION. Major changes to the SOFTWARE-NAME can be found at the package’s website for the most up-to-date information, and to confirm that our tutorial is not out-of-date.\n\n\n\n\n Back to topCitationBibTeX citation:@online{1,\n  author = {1, AUTHOR},\n  title = {TITLE {HERE}},\n  date = {},\n  url = {https://lmu-osc.github.io/},\n  doi = {DOI HERE},\n  langid = {en}\n}\nFor attribution, please cite this work as:\n1, AUTHOR. n.d. “TITLE HERE.” LMU Open Science Center. https://doi.org/DOI HERE."
   },
   {
-    "objectID": "FOUNDATIONS/page1.html",
-    "href": "FOUNDATIONS/page1.html",
-    "title": "Introduction to Data Privacy",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Introduction"
-    ]
-  },
-  {
-    "objectID": "FOUNDATIONS/page1.html#level-two",
-    "href": "FOUNDATIONS/page1.html#level-two",
-    "title": "Introduction to Data Privacy",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Introduction"
-    ]
-  },
-  {
-    "objectID": "FOUNDATIONS/page1.html#another-level-two",
-    "href": "FOUNDATIONS/page1.html#another-level-two",
-    "title": "Introduction to Data Privacy",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Introduction"
-    ]
-  },
-  {
-    "objectID": "FOUNDATIONS/page1.html#level-two-1",
-    "href": "FOUNDATIONS/page1.html#level-two-1",
-    "title": "Introduction to Data Privacy",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Introduction"
-    ]
-  },
-  {
-    "objectID": "FOUNDATIONS/page3.html",
-    "href": "FOUNDATIONS/page3.html",
-    "title": "Key Concepts and Principles - planning anonymity in data collection",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Key Concepts and Principles"
-    ]
-  },
-  {
-    "objectID": "FOUNDATIONS/page3.html#level-two",
-    "href": "FOUNDATIONS/page3.html#level-two",
-    "title": "Key Concepts and Principles - planning anonymity in data collection",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Key Concepts and Principles"
-    ]
-  },
-  {
-    "objectID": "FOUNDATIONS/page3.html#another-level-two",
-    "href": "FOUNDATIONS/page3.html#another-level-two",
-    "title": "Key Concepts and Principles - planning anonymity in data collection",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Key Concepts and Principles"
-    ]
-  },
-  {
-    "objectID": "FOUNDATIONS/page3.html#level-two-1",
-    "href": "FOUNDATIONS/page3.html#level-two-1",
-    "title": "Key Concepts and Principles - planning anonymity in data collection",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Key Concepts and Principles"
-    ]
-  },
-  {
-    "objectID": "DATA-ANONYMISATION/page2.html",
-    "href": "DATA-ANONYMISATION/page2.html",
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html",
     "title": "Page Title Here",
     "section": "",
     "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page2 Title"
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Advanced techniques"
     ]
   },
   {
-    "objectID": "DATA-ANONYMISATION/page2.html#level-two",
-    "href": "DATA-ANONYMISATION/page2.html#level-two",
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Advanced techniques"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#another-level-two",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#another-level-two",
+    "title": "Page Title Here",
+    "section": "Another Level Two",
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Advanced techniques"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two-1",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two-1",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Advanced techniques"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html",
+    "title": "Page Title Here",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Specialised approaches"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#level-two",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#level-two",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Specialised approaches"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#another-level-two",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#another-level-two",
+    "title": "Page Title Here",
+    "section": "Another Level Two",
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Specialised approaches"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#level-two-1",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#level-two-1",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Specialised approaches"
+    ]
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_2_Key_concepts.html",
+    "href": "2_DATA-ANONYMISATION/2_2_Key_concepts.html",
+    "title": "Page Title Here",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS: DATA ANONYMISATION",
+      "DATA-ANONYMISATION Key Concepts"
+    ]
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#level-two",
+    "href": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#level-two",
     "title": "Page Title Here",
     "section": "Level Two",
     "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
     "crumbs": [
       "Home",
       "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page2 Title"
+      "DATA-ANONYMISATION Key Concepts"
     ]
   },
   {
-    "objectID": "DATA-ANONYMISATION/page2.html#another-level-two",
-    "href": "DATA-ANONYMISATION/page2.html#another-level-two",
+    "objectID": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#another-level-two",
+    "href": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#another-level-two",
     "title": "Page Title Here",
     "section": "Another Level Two",
     "text": "Another Level Two",
     "crumbs": [
       "Home",
       "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page2 Title"
+      "DATA-ANONYMISATION Key Concepts"
     ]
   },
   {
-    "objectID": "DATA-ANONYMISATION/page2.html#level-two-1",
-    "href": "DATA-ANONYMISATION/page2.html#level-two-1",
+    "objectID": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#level-two-1",
+    "href": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#level-two-1",
     "title": "Page Title Here",
     "section": "Level Two",
     "text": "Level Two",
     "crumbs": [
       "Home",
       "FOUNDATIONS: DATA ANONYMISATION",
-      "TOPIC2 Page2 Title"
+      "DATA-ANONYMISATION Key Concepts"
+    ]
+  },
+  {
+    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html",
+    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html",
+    "title": "Data protection in practice",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "PROTECTION",
+      "PROTECTION Data Security Fundamentals"
+    ]
+  },
+  {
+    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two",
+    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two",
+    "title": "Data protection in practice",
+    "section": "Level Two",
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "PROTECTION",
+      "PROTECTION Data Security Fundamentals"
+    ]
+  },
+  {
+    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html#another-level-two",
+    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html#another-level-two",
+    "title": "Data protection in practice",
+    "section": "Another Level Two",
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "PROTECTION",
+      "PROTECTION Data Security Fundamentals"
+    ]
+  },
+  {
+    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two-1",
+    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two-1",
+    "title": "Data protection in practice",
+    "section": "Level Two",
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "PROTECTION",
+      "PROTECTION Data Security Fundamentals"
     ]
   }
 ]
