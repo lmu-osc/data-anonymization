@@ -75,6 +75,10 @@ website:
             text: "ANONYMISATION Advanced techniques"
           - href: 4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.qmd
             text: "ANONYMISATION Specialised approaches"
+      - section: "PRIVACY AND OPENNESS"
+        contents:
+          - href: 5_PRIVACY_OPENNESS/5_1_Introduction.qmd
+            text: "PRIVACY AND OPENNESS"
 # End Website
 
 
