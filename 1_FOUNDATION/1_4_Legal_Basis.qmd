@@ -1,0 +1,11 @@
+---
+title: "Legal Basis for Data Processing"
+---
+
+In general, the storage and processing of personal data is prohibited.
+The so called "legal basis" for data processing refer to the specific justifications that is needed to perform any operation on personal data.
+
+
+-Data collection and consent mechanisms
+-Data minimization and purpose limitation
+-Privacy by design and default

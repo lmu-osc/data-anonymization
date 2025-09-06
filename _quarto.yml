@@ -53,7 +53,7 @@ website:
             text: "GDPR"
           - href: 1_FOUNDATION/1_3_Personal_Data.qmd
             text: "Personal Data"
-          - href: 1_FOUNDATION/1_4_Legitimate_Interest.qmd
+          - href: 1_FOUNDATION/1_4_Legal_Basis.qmd
             text: "Legitimate Interest"
       - section: "FOUNDATIONS: DATA ANONYMISATION"
         contents:

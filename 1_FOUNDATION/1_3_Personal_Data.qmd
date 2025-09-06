@@ -2,20 +2,83 @@
 title: "Personal Data"
 ---
 
+<img src="https://c.pxhere.com/images/50/bb/b66ced3b0f6c8130875ec570a3c4-1588499.jpg!d" srcset="https://c.pxhere.com/images/50/bb/b66ced3b0f6c8130875ec570a3c4-1588499.jpg!d" 
+    alt="id, driving license, personal identity"
+    style="display:block; margin:auto; width:300px;">
 
-The headers below cause the table of contents/dropdown on the right to be visible. 
+# What are  Personal Data?
 
-# Level One Header
+In order to decide whether you need to undertake steps to protect personal information, you first need to find out whether your data contains personal data.
 
-## Level Two
+## Definition of Personal Data
 
-### L3
+According to Article 4(1) GDPR, **Personal Data** is  defined as any information relating to an identified or identifiable natural person (also named *data subject*.)
+This definition is a cornerstone of privacy regulations, particularly the EU General Data Protection Regulation (GDPR), and extends far beyond obvious identifiers.
 
-### L3 Again
+An individual is considered **identifiable** if they can be recognized, either directly or indirectly, through various identifiers or factors. These identifiers can include:
 
-### And one more time
+- **Direct identifiers**. These are information that can directly point out and identify an individual, such as address, social security number, bank accounts, or an email address.
 
-## Another Level Two
+- **Indirect or quasi identifiers**. These are data that can, when combined with other pieces of data, lead to the identification of an individual. Examples include date of birth, age, gender, geographic location (like a ZIP or postal code), marital status, or details about events (e.g., admission dates, procedure codes).
 
 
-# Level One Again
+The assessment of whether a person is identifiable takes into account all means reasonably likely to be used by either the data controller or another person to identify the natural person, 
+including methods like "singling out". This "reasonably likely" criterion considers objective factors such as the costs, time, effort, and available technological means at the time of processing and potential 
+future technological developments. For instance, a dynamic IP address can qualify as personal data if it can be linked to a specific person, even if that linking capability resides with an Internet Service Provider  and requires a court order (see also legal case Breyer v. Germany).
+
+## Special Types of Personal Data
+
+1. Personally Identifiable Information (PII): This includes data unique or nearly unique to an individual, specified in policy and regulations. 
+Examples are full name, email address, physical address, phone numbers, date of birth, age, gender, marital status, national identification numbers (e.g Sozialversicherungsnummer), 
+credit card numbers, vehicle registration, driving license details, employment details (salary), and educational qualifications (see also "direct identifiers")
+
+2. Protected Health Information (PHI): In the healthcare context, PHI refers to past, present, or future physical or mental health information that directly or indirectly identifies an individual. 
+This is considered highly sensitive and often includes diagnoses, treatment records, or even genetic information.
+
+3. Special categories of personal data (Art 9 GDPR): The GDPR describes furthermore several categories of **sensitive data** which receive heightened protection:
+    - racial or ethnic origin, 
+    - political opinions, 
+    - religious or philosophical beliefs, 
+    - trade union membership, 
+    - genetic data, biometric data (for unique identification), 
+    - health data, and data concerning a natural person's sex life or sexual orientation. 
+
+
+
+## Otherwise sensitive data
+
+
+ - information about criminal convictions and offenses
+ - financial data
+ 
+
+
+## Exercise
+
+::: {.callout-caution collapse="true"}
+| CustomerID | Name            | Age | ZIPCode | Email                         | Diagnosis       | PoliticalOpinion        | PurchaseAmount |
+|------------|-----------------|-----|---------|-------------------------------|-----------------|-------------------------|----------------|
+| 001        | Maria Schmidt   | 34  | 53111   | maria.schmidt@example.com     | Migraine        | None                    | 120.50         |
+| 002        | Max Müller      | 29  | 80331   | max.mueller@web.de            | None            | Green Party supporter   | 75.00          |
+| 003        | Anna Fischer    | 45  | 10115   | anna.fischer@gmail.com        | Diabetes        | None                    | 220.00         |
+| 004        | —               | 54  | 20095   | —                             | None            | None                    | 15.00          |
+| 005        | Lukas Weber     | 38  | 40210   | lukas.weber@mail.de           | Hypertension    | None                    | 330.00         |
+| 006        | Sophie Klein    | 27  | 70173   | sophie.klein@outlook.com      | None            | Conservative voter      | 60.00          |
+| 007        | —               | 62  | 04109   | —                             | Heart disease   | None                    | 500.00         |
+| 008        | Peter Braun     | 31  | 50667   | peter.braun@yahoo.com         | None            | None                    | 42.00          |
+| 009        | Julia Meyer     | 22  | 68159   | julia.meyer@uni-heidelberg.de | Depression      | None                    | 250.00         |
+| 010        | David Wolf      | 40  | 23552   | david.wolf@gmail.com          | None            | Social Democrat         | 99.90          |
+| 011        | Elena Schwarz   | 36  | 90402   | elena.schwarz@posteo.de       | Asthma          | None                    | 185.00         |
+| 012        | Thomas Becker   | 52  | 28195   | thomas.becker@gmx.de          | None            | None                    | 305.00         |
+| 013        | Clara Hofmann   | 28  | 01067   | clara.hofmann@stud.uni-dresden.de | None        | Liberal voter           | 75.00          |
+| 014        | Jonas Lehmann   | 47  | 99084   | jonas.lehmann@arcor.de        | Cancer          | None                    | 800.00         |
+| 015        | Paula Richter   | 33  | 17489   | paula.richter@uni-greifswald.de | Anxiety       | None                    | 220.00         |
+
+:::
+
+## Questions
+
+1. Which columns contain direct identifiers?
+2. Which contains indirect identifiers?
+3. Which contain special categories of personal data?
+4. Is there any column that does not contain personal data?
