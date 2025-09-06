@@ -1,0 +1,14 @@
+---
+title: "Introduction to Data Privacy"
+---
+
+The headers below cause the table of contents/dropdown on the right to be visible. 
+# Definition and importance of data privacy
+
+## What is data privacy?
+
+
+- Definition and importance of data privacy and anonymization
+
+
+# Historical context and evolution of privacy regulations (Optional sub-topic - short & collapsable)

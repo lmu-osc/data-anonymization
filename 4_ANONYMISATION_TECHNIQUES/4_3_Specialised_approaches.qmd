@@ -3,21 +3,32 @@ title: "Page Title Here"
 ---
 
 
-The headers below cause the table of contents/dropdown on the right to be visible. 
+# K-anonymity
 
-# Level One Header
+Definition and Initial Purpose
+K-anonymity was developed by computer scientist Latanya Sweeney following her demonstration of how she could re-identify supposedly anonymized medical records released by the State of Massachusetts. By linking public medical records with voter registration records using quasi-identifiers like age, zip code, and gender, she was able to single out individuals, including the governor's medical records (p 54, @jarmul2023practical). The principle of k-anonymity attempts to mitigate such linkage attacks by ensuring that in any released dataset, each record is indistinguishable from at least k-1 other records concerning a set of "quasi-identifiers" (attributes that, when combined, can uniquely identify an individual). This means grouping people with similar sensitive attributes, and not releasing groups that have fewer than k people.
 
-## Level Two
+An example of K-anonnymity is given below.
 
-### L3
+Let's generate some fake data:
 
-### L3 Again
+```{r}
+data <- data.frame(
+  age = c(34, 35, 36, 36, 36, 40, 40, 41, 42, 42),
+  gender = c("M", "M", "M", "F", "F", "M", "F", "F", "M", "M"),
+  zipcode = c("12345", "12345", "12345", "12345", "12345", "67890", "67890", "67890", "67890", "67890"),
+  diagnosis = c("Flu", "Cold", "Flu", "Cold", "Allergy", "HIV", "HIV", "Flu", "Cold", "Allergy")
+)
 
-### And one more time
+```
+```{r}
+#| echo: false
+knitr::kable(
+  head(data),
+  caption = "Raw data example"
+)
+```
 
-## Another Level Two
 
 
-# Level One Again
-
-## Level Two
+# Differential privacy (Optional sub-topic - short & collapsable)

@@ -1,5 +1,5 @@
 ---
-title: "Legal Framework with a Focus on Germany"
+title: "Personal Data"
 ---
 
 
@@ -19,5 +19,3 @@ The headers below cause the table of contents/dropdown on the right to be visibl
 
 
 # Level One Again
-
-## Level Two

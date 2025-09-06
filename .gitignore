@@ -58,6 +58,7 @@ rsconnect/
 .httr-oauth
 .quarto
 _site/
+.vscode/*
 
 # Tutorials should pull custom.scss from our central branding repo
 lmu-osc-custom.scss

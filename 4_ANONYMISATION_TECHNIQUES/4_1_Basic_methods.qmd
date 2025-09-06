@@ -1,23 +1,48 @@
 ---
-title: "Page Title Here"
+title: "Basic methods of data anonymisation"
+bibliography: ../references.bib
 ---
 
 
 The headers below cause the table of contents/dropdown on the right to be visible. 
 
-# Level One Header
+# Data masking and nulling
 
-## Level Two
+## Data masking
 
-### L3
+Data masking is a summary term for a variety of techniques that refer to the anonymisation of data. 
+In data masking, the data entry or field is concealed or encrypted. The length of the masked characters stays the same as the original entry.
 
-### L3 Again
-
-### And one more time
-
-## Another Level Two
+Colloquially, the term data masking is often interchangeably used with the terms data anonymisation, data de-identification, and data obfuscation.
 
 
-# Level One Again
 
-## Level Two
+# Data suppression
+
+In contrast to data masking, data suppression includes the removal of an entry, a field or a column in a data set. This means that the entry cannot be re-identified, as it is missing [@el2013anonymizing]. For example, the column with the social security number could be entirely removed from a data frame. 
+
+Data suppression is not suitable for all circumstances. [@el2013anonymizing,p.5]
+
+Can you think of a situation where data suppression might not be a suitable solution?
+
+Reply:
+- Software tests
+
+## Nullifing
+
+**Nullifing**, or **Nulling Out**, is a simple method of the family of  data masking teqchniques in which a column of sensitive values is replaced by the null value [@raghunathan2013complete]. This method is useful, but only for a limited set of cases. For example, nullifying is only possible for columns for which the values are nullable. (note: find example of non-nullable column).
+
+A variation of Nullifing is the **Character Replacement Technique** or **Character Masking**, in which the value is replaced by a character different than null (such as spaces, ' ', 'Y' or 'N'). One example application of this technique could be replacing the very sensitive column "Previous Criminal Conviction" in a spreadsheet with "N" for all subjects once all yes entries ("Y") have been carried over into a more secure data base. Another example is the replacement of credit card number values with XXX. In the credit card example, the application of teh character masking technique can be *partial*, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.
+
+A further variation is **Conditional Nullifing**, which means replacing data entries with zero based on a condition. For example entries in a column "Customer Feedback" could be nullified if the customer feedback was negative [@raghunathan2013complete].
+
+
+
+
+
+# Pseudonymisation
+
+Psyeudonymisation is a data protection technique that replaces original, directly identifying information with false data or pseudonyms [p. 226, @raghunathan2013complete]. 
+
+
+# Further reading

@@ -1,0 +1,8 @@
+---
+title: "Key concepts"
+---
+
+
+## What is data anonymisation?
+
+Data anonymisation is a process of transforming sensitive data to protect the privacy of individuals [@el2013anonymizing]. ts primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual [@el2013anonymizing]

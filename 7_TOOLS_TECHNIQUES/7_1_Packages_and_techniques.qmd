@@ -1,0 +1,11 @@
+---
+title: "Packages"
+---
+
+
+The headers below cause the table of contents/dropdown on the right to be visible. 
+
+# The sdcMicro R package
+
+sdcMicro is a R package specialized on the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).
+

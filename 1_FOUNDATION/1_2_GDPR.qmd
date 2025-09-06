@@ -1,0 +1,93 @@
+---
+title: "The GDPR"
+---
+
+# What is the GDPR?
+
+The GDPR 
+The  General Data Protection Regulation (GDPR), in German  Datenschutz-Grundverordnung (DSGVO) is a legal framework for the protection of person-centric data within the European Union. The 
+The regulation was finalized in 2016 and came into force in 2018 and applies to all companies that process data of EU citizens, regardless of the company’s location. [p. 221, @jarmul2023practical].
+
+# The GDPR in brief
+
+All laws and articles of the GDPR can be found online: https://gdpr-info.eu/. 
+
+The GDPR guarantees 8 fundamental rights for people residing in the EU, and for their data:
+
+| Data Right                         | Description                                                                                   |
+|-----------------------------------|-----------------------------------------------------------------------------------------------|
+| Right to be informed              | People must be informed on how their data is being used, processed, collected, and so forth. |
+| Right to access                   | People can access what information is held about them.                                        |
+| Right to rectification            | People can correct information that is false or misleading.                                   |
+| Right to deletion/erasure         | People can ensure companies delete their data.                                                |
+| Right to restrict processing      | People can opt out or restrict how their data is being used and processed.                    |
+| Right to data portability         | People can take their data with them—to use themselves or to try competitor services.         |
+| Right to object                   | People can object to the usage of their data for particular uses (like marketing, research).  |
+| Right to opt out of automated decision making | People can opt out of automated decision making processes, such as algorithmic or machine learning systems. |
+
+
+# What does the GDPR regulate?
+
+- the protection of natural persons with regard to the processing of personal data and rules relating to the free movement of personal data.
+
+- fundamental rights and freedoms of natural persons and in particular their right to the protection of personal data.
+
+- the free movement of personal data within the Union shall be neither restricted nor prohibited for reasons connected with the protection of natural persons with regard to the processing of personal data.
+
+The GDPR is based directly on EU law (Article 16 TFEU) and replaced the older Data Protection Directive (1995). Unlike a directive, which requires member states to implement it in their national laws, the GDPR is a 'Regulation', meaning it applies directly throughout the entire EU. This also means that all EU countries must not provide less data protection and privacy than laid out within the GDPR. (Hildrebrant, 136).
+
+# When does the GDPR apply?
+
+- when personal data is being processed  (art 2)
+- 
+
+# Definitions in the GDPR
+
+Below are some definitions that the GDPR operates on. Click on the arrow to the right to expand.
+
+
+
+::: {.callout-note collapse="true"}
+# Personal data
+
+ is any information connected to a person who can be identified, either directly (for example, by their name or ID number) or indirectly (for example, through location, online accounts, or details about their body, health, finances, culture, or social life).
+:::
+
+::: {.callout-note collapse="true"}
+# Processing
+
+ means doing anything with personal data, whether by hand or with a computer. This includes things like collecting, recording, organizing, storing, changing, looking up, using, sharing, combining, limiting, deleting, or destroying the data.
+
+:::
+
+::: {.callout-note collapse="true"}
+# Controller
+
+ Controller means the person, company, public authority, or organization that decides why personal data is processed and how it is processed. In some cases, the law itself decides who the controller is or sets rules for how the controller is chosen.
+
+:::
+
+::: {.callout-note collapse="true"}
+# Processor
+
+Processor means the person, company, or organization that processes personal data on behalf of the controller. They follow the controller’s instructions and don’t decide the purpose or the means of the processing themselves.
+
+:::
+
+
+It is important to know that these rights apply to all EU residents, whether the are currently in the EU or not.
+
+
+::: {.callout-important collapse=true}
+### Data collection. 
+If you
+
+This content is inside a collapsible tip box.
+
+- Item 1
+- Item 2
+:::
+
+# Integration with other legal frameworks
+
+ To date, an overarching international framework for anonymisation does not exist - it would also be quite hard to find a common group between varying legal frameworks.

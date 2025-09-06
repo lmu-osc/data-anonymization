@@ -45,20 +45,22 @@ website:
     contents:
       - text: "Overview"
         href: index.qmd
-      - section: "FOUNDATIONS"
+      - section: "FOUNDATION"
         contents:
-          - href: 1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.qmd
-            text: "FOUNDATIONS Introduction"
-          - href: 1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.qmd
-            text: "FOUNDATIONS Legal Framework"
-          - href: 1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.qmd
-            text: "FOUNDATIONS Key Concepts and Principles"
+          - href: 1_FOUNDATION/1_1_Introduction_data_privacy.qmd
+            text: "Introduction"
+          - href: 1_FOUNDATION/1_2_GDPR.qmd
+            text: "GDPR"
+          - href: 1_FOUNDATION/1_3_Personal_Data.qmd
+            text: "Personal Data"
+          - href: 1_FOUNDATION/1_4_Legitimate_Interest.qmd
+            text: "Legitimate Interest"
       - section: "FOUNDATIONS: DATA ANONYMISATION"
         contents:
-          - href: 2_DATA-ANONYMISATION/2_1_Introduction.qmd
-            text: "DATA-ANONYMISATION Introduction"
-          - href: 2_DATA-ANONYMISATION/2_2_Key_concepts.qmd
-            text: "DATA-ANONYMISATION Key Concepts"
+          - href: 2_DATA-ANONYMISATION/2_1_Key_concepts.qmd
+            text: "Key Concepts"
+          - href: 2_DATA-ANONYMISATION/2_2_In_practice.qmd
+            text: "In Practice"
       - section: "PROTECTION"
         contents:
           - href: 3_PROTECTION/3_1_Data_security_fundamentals.qmd
@@ -77,8 +79,12 @@ website:
             text: "ANONYMISATION Specialised approaches"
       - section: "PRIVACY AND OPENNESS"
         contents:
-          - href: 5_PRIVACY_OPENNESS/5_1_Introduction.qmd
+          - href: 6_PRIVACY_OPENNESS/6_1_Tensions.qmd
             text: "PRIVACY AND OPENNESS"
+      - section: "TOOLS AND TECHNIQUES"
+        contents:
+          - href: 7_TOOLS_TECHNIQUES/7_1_Packages_and_techniques.qmd
+            text: "TOOLS AND TECHNIQUES Packages and techniques"  
 # End Website
 
 
