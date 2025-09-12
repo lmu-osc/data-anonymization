@@ -3,7 +3,63 @@ title: "Legal Basis for Data Processing"
 ---
 
 In general, the storage and processing of personal data is prohibited.
-The so called "legal basis" for data processing refer to the specific justifications that is needed to perform any operation on personal data.
+The so called "legal basis" for data processing refer to the specific justifications that is needed to perform any operation on personal data (@Hildebrandt2020-lx).
+
+There are six legal bases that can be used to justify data processing. Not all are suitable for a research context.
+
+
+
+::: {.callout-tip collapse="true"}
+## 1. Consent (Article 6(1)(a))
+**Definition**: Processing is lawful if "the data subject has given consent to the processing
+of his or her personal data for one or more specific purposes". Consent must be "freely given, specific, 
+     informed and unambiguous". It cannot be implied from silence or hidden within terms and conditions.
+    "Freely Given" is a critical aspect. Consent is often considered not freely given if there's a clear 
+    imbalance between the data subject and the controller (e.g., public authorities), or if access to a service is 
+    conditional on consenting to data processing that isn't strictly necessary for that service. 
+
+**Example**  "Tracking walls" that force users to accept cookies or lose access to content typically do not result in valid consent.
+
+**Withdrawal**: It must be as easy for a data subject to withdraw consent as it was to give it. If consent is withdrawn, the controller cannot simply switch to another legal basis, as the legal basis must be determined from the start.
+:::
+
+    - Consent is often a basis for legal processing in research. 
+
+2. Contractual Necessity (Article 6(1)(b))
+    - Definition: Processing is lawful if it is "necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract".
+    - Examples: A publisher needing a subscriber's address to deliver newspapers, or a pizza delivery service requiring a customer's address to deliver pizza.
+    - Scope: This basis only covers data strictly necessary for the contract. Once the contract is performed and the data is no longer necessary for that purpose, this legal ground for processing ends. A written contract or signatures are not always required.
+
+3. Legal Obligation (Article 6(1)(c))
+    - Definition: Processing is lawful if it is "necessary for compliance with a legal obligation to which the controller is subject".
+    - Examples: Tax laws requiring companies to retain bookkeeping records for a certain period, which may include customer personal data.
+    - Requirements: This processing must be based on a Member State or Union law, explicitly state the purpose(s) of processing, and include relevant limitations and safeguards.
+
+4. Vital Interests (Article 6(1)(d))
+    - Definition: Processing is lawful if it is "necessary in order to protect the vital interests of the data subject or of another natural person".
+    - Scope: This ground is narrowly interpreted and typically applies to life-threatening situations.
+    - Example: Ambulance personnel accessing an unconscious person's wallet to find medical information (like blood type) to save their life.
+
+5. Public Interest or Official Authority (Article 6(1)(e))
+
+    - Definition: Processing is lawful if it is "necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller".
+    - Examples: A city council maintaining a citizen registry. Government agencies collecting information on energy usage to develop policies.
+    - Necessity: This basis applies only if processing personal data is truly necessary; if aggregated or anonymized data would suffice, then personal data processing cannot be justified under this ground. Like legal obligation, it must be based on Member State or Union law, specify purposes, and include limitations and safeguards.
+
+6. Legitimate Interests (Article 6(1)(f))
+
+    - Definition: Processing is lawful if it is "necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child".
+    - Scope: This is a flexible but highly scrutinized basis, primarily used by the commercial sector (e.g., financial institutions, social networks, search engines). It does not apply to processing by public authorities in the performance of their tasks.
+    - Three-Step Balancing Test: Controllers must perform a "balancing test" to rely on this ground:
+        1. Purpose Test: Is there a genuine "legitimate interest" behind the processing? Commercial interests, such as innovation or competitive edge, can constitute a legitimate interest.
+        2. Necessity Test: Is the processing truly necessary for that legitimate interest?.
+        3. Balancing Test: Do the legitimate interests of the controller (or third party) outweigh the interests, fundamental rights, and freedoms of the data subject?. Factors considered include the nature/source of the interest, the impact on the data subject (including reasonable expectations), the nature and sensitivity of the data, and the presence of additional safeguards (e.g., data minimization, privacy-enhancing technologies, increased transparency, general right to opt-out).
+    - Examples: An online forum storing IP addresses of banned users to block future access. A pizza delivery service retaining customer addresses for a short period to improve future service.
+    - Right to Object: Data subjects have a (non-absolute) right to object to processing based on legitimate interests, and an absolute right to object in cases of direct marketing.
+    - Pseudonymization: Using pseudonymization can reduce risks and strengthen the case for relying on legitimate interests.
+
+## Which of legal bases can be suitable in a research context?
+
 
 
 -Data collection and consent mechanisms

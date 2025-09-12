@@ -3,12 +3,13 @@ project:
   type: website
   pre-render: wget -nc https://raw.githubusercontent.com/lmu-osc/branding-resources/refs/heads/main/lmu-osc-custom.scss
   post-render: rm lmu-osc-custom.scss
+bibliography: references.bib
 # End Project
 
 
 # Begin Website
 website:
-  title: "TUTORIAL TITLE HERE"
+  title: "Data Anonymisation Course"
   page-footer: 
     center: "Copyright, 2024 Open Science Center at LMU Munich"
     border: false
@@ -54,7 +55,7 @@ website:
           - href: 1_FOUNDATION/1_3_Personal_Data.qmd
             text: "Personal Data"
           - href: 1_FOUNDATION/1_4_Legal_Basis.qmd
-            text: "Legitimate Interest"
+            text: "Legal Basis"
       - section: "FOUNDATIONS: DATA ANONYMISATION"
         contents:
           - href: 2_DATA-ANONYMISATION/2_1_Key_concepts.qmd
