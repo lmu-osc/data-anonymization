@@ -77,6 +77,35 @@ Processor means the person, company, or organization that processes personal dat
 
 It is important to know that these rights apply to all EU residents, whether the are currently in the EU or not.
 
+# Principles of lawful processing
+
+To ensure the lawful processing of personal data, organizations, particularly data controllers, must adhere to a set of fundamental principles, as outlined prominently in Article 5 of the EU General Data Protection Regulation (GDPR). These principles serve as overarching requirements that must be met in addition to having a valid legal basis for processing.
+
+The seven core principles of lawful processing under the GDPR are:
+
+1. Lawfulness, Fairness, and Transparency (@Hildebrandt2020):
+
+ - Lawfulness requires that all processing operations have a valid legal basis, as exhaustively listed in Article 6 of the GDPR (see legal basis)
+ - Fairness implies balancing and proportionality tests, considering the relevant interests and fundamental rights at stake.
+ - Transparency necessitates providing clear and accessible information to data subjects, for instance, through privacy notices, and is further detailed in Articles 13, 14, and 15 GDPR. It ensures that data subjects can predict how their data will be handled and what outcomes to expect.
+
+2. Purpose Limitation:
+
+- Personal data must be "collected for specified, explicit and legitimate purposes and not further processed in a manner that is incompatible with those purposes". Vague or broad goals, such as "data might become useful" or "for commercial goals," are prohibited.
+- Further processing for a new purpose is permissible if it is "not incompatible" with the original purpose. Factors for determining compatibility include the link between purposes, collection context, data nature/sensitivity, potential consequences for the data subject, and the existence of safeguards like encryption or pseudonymization.
+- Notably, further processing for archiving in the public interest, scientific or historical research, or statistical purposes is explicitly deemed compatible with the initial purposes, provided suitable safeguards are in place.
+
+3. Data Minimization:
+
+- Data collected must be "adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed"
+
+4. Accuracy
+
+5. Storage Limitation
+
+6. Integrity and Confidentiality
+
+7. Accountability
 
 ::: {.callout-important collapse=true}
 ### Data collection. 
