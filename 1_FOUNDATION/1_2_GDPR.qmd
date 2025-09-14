@@ -106,11 +106,22 @@ The seven core principles of lawful processing under the GDPR are:
 
 5. Storage Limitation
 
-- Personal data must be
+- Personal data must be "kept in a form which permits identification of data subjects for no longer than is necessary for the purposes for which the personal data are processed".
+
+- This also prevents keeping the data for longer than necessary for "just in case".
+
 
 6. Integrity and Confidentiality
 
+- Personal data must be "processed in a manner that ensures appropriate security of the personal data, including protection against unauthorised or unlawful processing and against accidental loss, destruction or damage, using appropriate technical or organisational measures".
+
+- The GDPR mandates "appropriate" security, not "perfect" security. This principle connects directly to the requirement of security by design (Article 32 GDPR) and the obligation for controllers to notify supervisory authorities and data subjects in case of data breaches (Articles 33 and 34 GDPR). Pseudonymization and encryption are examples of security measures that can be implemented.
+
 7. Accountability
+
+-  "The controller shall be responsible for, and be able to demonstrate compliance with" all the aforementioned principles.
+
+- This principle makes the data controller the focal point of responsibility and liability under the GDPR. It requires controllers to maintain records of processing activities, and in some cases, to appoint a Data Protection Officer (DPO). The accountability principle underscores a proactive approach to compliance, moving beyond merely reactive measures.
 
 ::: {.callout-important collapse=true}
 ### Data collection. 
