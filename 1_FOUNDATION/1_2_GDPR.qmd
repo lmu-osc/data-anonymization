@@ -101,7 +101,12 @@ The seven core principles of lawful processing under the GDPR are:
 
 4. Accuracy
 
+- Personal data must be accurate, and when necessary, kept up to date.
+- Controllers are legally obliged to  take every reasonable step to ensure that inaccurate personal data is erased or rectified without delay, especially concerning the purposes for which it is processed.
+
 5. Storage Limitation
+
+- Personal data must be
 
 6. Integrity and Confidentiality
 
