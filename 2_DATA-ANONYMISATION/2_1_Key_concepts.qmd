@@ -2,7 +2,21 @@
 title: "Key concepts"
 ---
 
+# Data Anonymization and Psudonymisation
 
-## What is data anonymisation?
+Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.
 
-Data anonymisation is a process of transforming sensitive data to protect the privacy of individuals [@el2013anonymizing]. ts primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual [@el2013anonymizing]
+
+## What is data Anonymisation?
+
+Anonymization is defined as the process that removes the association between the identifying data and the data subject. It is an overarching term for everything done to protect individual identities in a dataset. The fundamental goal of anonymization is to transform personal data so thoroughly that it cannot be traced back to a particular individual so that the original source cannot be known (jarmul2023practical, el2013anonymizing).
+
+## What is data Pseudonymisation?
+
+Pseudonymization is a process by which "original data are replaced with false data". It is characterized by "the use of a false name" or other replacement values instead of real, direct identifiers.
+
+Important:
+
+While pseudonymized data is still subject to the GDPR, anonymized data is not. However, until data is fully anonymized, it must be treated in accordance with the GDPR. That means that all actions, until the anonymisation, including the anonymisation itself, still fall under GDPR regulations.
+
+
