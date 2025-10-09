@@ -1,22 +1,95 @@
 ---
-title: "Key concepts"
+title: "Data Anonymization and Pseudonymisation"
 ---
 
-# Data Anonymization and Psudonymisation
-
-Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.
+Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.The primary difference is that anonymization aims to make data non-identifiable, removing it from the scope of data protection regulations, whereas pseudonymization only reduces the ease of identification, meaning the data remains personal and subject to those regulations. Hence, pseudonymized data is still subject to the regulations of the GDPR, while anonymized data is not.
 
 
 ## What is data Anonymisation?
 
 Anonymization is defined as the process that removes the association between the identifying data and the data subject. It is an overarching term for everything done to protect individual identities in a dataset. The fundamental goal of anonymization is to transform personal data so thoroughly that it cannot be traced back to a particular individual so that the original source cannot be known (jarmul2023practical, el2013anonymizing).
 
+True and full anpnymisation is actually really hard to achieve (see also differential privacy).
+
+
 ## What is data Pseudonymisation?
 
-Pseudonymization is a process by which "original data are replaced with false data". It is characterized by "the use of a false name" or other replacement values instead of real, direct identifiers.
+Pseudonymization (rec.28)[https://gdpr-info.eu/recitals/no-28/] is a process by which "original data are replaced with false data". It is characterized by "the use of a false name" or other replacement values instead of real, direct identifiers. 
+The most critical distinction is that pseudonymized data is still personal information. The EU GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (https://www.privacy-regulation.eu/en/recital-26-GDPR.htm). Hence, pseudonymized data is still personal data, and has to be treated as such.
 
-Important:
+Pseudonymized data "can be traced back to original data value" because "indirect identifiers that remain in pseudonymized data are known to pose a potential re-identification risk". This re-identification often occurs via linkage attacks, where seemingly innocuous indirect identifiers (like age, ZIP code, and gender) are combined with external information to identify individuals.
 
-While pseudonymized data is still subject to the GDPR, anonymized data is not. However, until data is fully anonymized, it must be treated in accordance with the GDPR. That means that all actions, until the anonymisation, including the anonymisation itself, still fall under GDPR regulations.
+The GDPR considers peudonymisation as a first step towards reducing re-identificaton.
 
+## What is Privacy?
 
+::: {.callout-important}
+## Attention
+
+While pseudonymized data is still subject to the GDPR, anonymized data is not.  
+However, until data is fully anonymized, it must be treated in accordance with the GDPR.
+:::
+
+## Exercises
+
+### Exercise: Anonymised, Pseudonymised, or Not Clear?
+
+#### Scenario 1: Medical Records for Research
+::: {.callout-tip collapse="true"}
+# A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.   
+**Pseudonymised** — because the re-identification key still exists.
+:::
+
+---
+
+#### Scenario 2: City Council Survey
+::: {.callout-tip collapse="true"}
+# The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.  
+
+**Anonymised** — the data is aggregated, no individuals can be singled out.
+:::
+
+---
+
+#### Scenario 3: Fitness Tracker Data
+::: {.callout-tip collapse="true"}
+# A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.  
+
+**Not clear** — technically pseudonymised, but GPS traces might allow re-identification.
+:::
+
+---
+
+#### Scenario 4: University Exam Scores
+::: {.callout-tip collapse="true"}
+# Exam results are shared with teachers identified only by student number. The university has the key to look up the names behind the numbers.  
+
+**Pseudonymised** — student number acts as a pseudonym with a key in the system.
+:::
+
+---
+
+#### Scenario 5: Online Store Reviews
+::: {.callout-tip collapse="true"}
+#  
+
+ **Not clear** — identifiers are removed, but free text may reveal identity.
+:::
+
+---
+
+#### Scenario 6: Traffic Accident Database
+::: {.callout-tip collapse="true"}
+# A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.  
+
+**Not clear / borderline anonymised** — no key exists, but rare event details may still re-identify.
+:::
+
+---
+
+#### Scenario 7: Genetic Study
+::: {.callout-tip collapse="true"}
+# DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.  
+
+**Pseudonymised** — the lab can re-link using the mapping file.
+:::

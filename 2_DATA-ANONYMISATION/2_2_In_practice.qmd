@@ -1,8 +1,21 @@
 ---
-title: "Page Title Here"
+title: "Anonymisation and Pseudonymisation in Practice"
 ---
 
 
+# Differential Privacy
+
+Let's return to one of the  " Not Clear" Cases from the exercises before, for example this one:
+
+Customer reviews are published without names or emails, but the full free-text is kept. Some reviews contain details like *“As a doctor at Klinikum Grosshadern…”* or *“My husband, John, surprised me with this gift.”* 
+
+You might have realized that the amount of anonymisation or pseudonymisation here is not binary, but more a gradient dependent on the situation, 
+the process and the algorithm used to
+
+
+
 The headers below cause the table of contents/dropdown on the right to be visible. 
+
+
 
 References to external resources on topics like Data Security Fundamentals, Risk Management, and Individual Rights
