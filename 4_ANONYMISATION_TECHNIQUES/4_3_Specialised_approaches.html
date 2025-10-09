@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Page Title Here – TUTORIAL TITLE HERE</title>
+<title>Page Title Here – Data Anonymisation Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../5_PRIVACY_OPENNESS/5_1_Introduction.qmd" rel="next">
+<link href="../6_PRIVACY_OPENNESS/6_1_Tensions.html" rel="next">
 <link href="../4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html" rel="prev">
 <link href="../assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -87,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">TUTORIAL TITLE HERE</span>
+    <span class="navbar-title">Data Anonymisation Course</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -165,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">FOUNDATIONS</span></a>
+ <span class="menu-text">FOUNDATION</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -173,20 +228,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FOUNDATIONS Introduction</span></a>
+  <a href="../1_FOUNDATION/1_1_Introduction_data_privacy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FOUNDATIONS Legal Framework</span></a>
+  <a href="../1_FOUNDATION/1_2_GDPR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GDPR</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FOUNDATIONS Key Concepts and Principles</span></a>
+  <a href="../1_FOUNDATION/1_3_Personal_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Personal Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_FOUNDATION/1_4_Legal_Basis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Legal Basis</span></a>
   </div>
 </li>
       </ul>
@@ -202,14 +263,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_DATA-ANONYMISATION/2_1_Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DATA-ANONYMISATION Introduction</span></a>
+  <a href="../2_DATA-ANONYMISATION/2_1_Key_concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Key Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_DATA-ANONYMISATION/2_2_Key_concepts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DATA-ANONYMISATION Key Concepts</span></a>
+  <a href="../2_DATA-ANONYMISATION/2_2_In_practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">In Practice</span></a>
   </div>
 </li>
       </ul>
@@ -283,8 +344,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../5_PRIVACY_OPENNESS/5_1_Introduction.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../6_PRIVACY_OPENNESS/6_1_Tensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PRIVACY AND OPENNESS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">TOOLS AND TECHNIQUES</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_TOOLS_TECHNIQUES/7_1_Packages_and_techniques.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TOOLS AND TECHNIQUES Packages and techniques</span></a>
   </div>
 </li>
       </ul>
@@ -301,20 +379,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#level-one-header" id="toc-level-one-header" class="nav-link active" data-scroll-target="#level-one-header">Level One Header</a>
-  <ul class="collapse">
-  <li><a href="#level-two" id="toc-level-two" class="nav-link" data-scroll-target="#level-two">Level Two</a>
-  <ul class="collapse">
-  <li><a href="#l3" id="toc-l3" class="nav-link" data-scroll-target="#l3">L3</a></li>
-  <li><a href="#l3-again" id="toc-l3-again" class="nav-link" data-scroll-target="#l3-again">L3 Again</a></li>
-  <li><a href="#and-one-more-time" id="toc-and-one-more-time" class="nav-link" data-scroll-target="#and-one-more-time">And one more time</a></li>
-  </ul></li>
-  <li><a href="#another-level-two" id="toc-another-level-two" class="nav-link" data-scroll-target="#another-level-two">Another Level Two</a></li>
-  </ul></li>
-  <li><a href="#level-one-again" id="toc-level-one-again" class="nav-link" data-scroll-target="#level-one-again">Level One Again</a>
-  <ul class="collapse">
-  <li><a href="#level-two-1" id="toc-level-two-1" class="nav-link" data-scroll-target="#level-two-1">Level Two</a></li>
-  </ul></li>
+  <li><a href="#k-anonymity" id="toc-k-anonymity" class="nav-link active" data-scroll-target="#k-anonymity">K-anonymity</a></li>
+  <li><a href="#differential-privacy-optional-sub-topic---short-collapsable" id="toc-differential-privacy-optional-sub-topic---short-collapsable" class="nav-link" data-scroll-target="#differential-privacy-optional-sub-topic---short-collapsable">Differential privacy (Optional sub-topic - short &amp; collapsable)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -340,35 +406,85 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The headers below cause the table of contents/dropdown on the right to be visible.</p>
-<section id="level-one-header" class="level1">
-<h1>Level One Header</h1>
-<section id="level-two" class="level2">
-<h2 class="anchored" data-anchor-id="level-two">Level Two</h2>
-<section id="l3" class="level3">
-<h3 class="anchored" data-anchor-id="l3">L3</h3>
+<section id="k-anonymity" class="level1">
+<h1>K-anonymity</h1>
+<p>Definition and Initial Purpose K-anonymity was developed by computer scientist Latanya Sweeney following her demonstration of how she could re-identify supposedly anonymized medical records released by the State of Massachusetts. By linking public medical records with voter registration records using quasi-identifiers like age, zip code, and gender, she was able to single out individuals, including the governor’s medical records (p 54, <span class="citation" data-cites="jarmul2023practical">Jarmul (<a href="#ref-jarmul2023practical" role="doc-biblioref">2023</a>)</span>). The principle of k-anonymity attempts to mitigate such linkage attacks by ensuring that in any released dataset, each record is indistinguishable from at least k-1 other records concerning a set of “quasi-identifiers” (attributes that, when combined, can uniquely identify an individual). This means grouping people with similar sensitive attributes, and not releasing groups that have fewer than k people.</p>
+<p>An example of K-anonnymity is given below.</p>
+<p>Let’s generate some fake data:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">42</span>, <span class="dv">42</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">zipcode =</span> <span class="fu">c</span>(<span class="st">"12345"</span>, <span class="st">"12345"</span>, <span class="st">"12345"</span>, <span class="st">"12345"</span>, <span class="st">"12345"</span>, <span class="st">"67890"</span>, <span class="st">"67890"</span>, <span class="st">"67890"</span>, <span class="st">"67890"</span>, <span class="st">"67890"</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">diagnosis =</span> <span class="fu">c</span>(<span class="st">"Flu"</span>, <span class="st">"Cold"</span>, <span class="st">"Flu"</span>, <span class="st">"Cold"</span>, <span class="st">"Allergy"</span>, <span class="st">"HIV"</span>, <span class="st">"HIV"</span>, <span class="st">"Flu"</span>, <span class="st">"Cold"</span>, <span class="st">"Allergy"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Raw data example</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">age</th>
+<th style="text-align: left;">gender</th>
+<th style="text-align: left;">zipcode</th>
+<th style="text-align: left;">diagnosis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">34</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Flu</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">35</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Cold</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Flu</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Cold</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Allergy</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">67890</td>
+<td style="text-align: left;">HIV</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
-<section id="l3-again" class="level3">
-<h3 class="anchored" data-anchor-id="l3-again">L3 Again</h3>
-</section>
-<section id="and-one-more-time" class="level3">
-<h3 class="anchored" data-anchor-id="and-one-more-time">And one more time</h3>
-</section>
-</section>
-<section id="another-level-two" class="level2">
-<h2 class="anchored" data-anchor-id="another-level-two">Another Level Two</h2>
-</section>
-</section>
-<section id="level-one-again" class="level1">
-<h1>Level One Again</h1>
-<section id="level-two-1" class="level2">
-<h2 class="anchored" data-anchor-id="level-two-1">Level Two</h2>
+<section id="differential-privacy-optional-sub-topic---short-collapsable" class="level1">
+
+
 
 
 </section>
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Differential privacy (Optional sub-topic - short &amp; collapsable)</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-jarmul2023practical" class="csl-entry" role="listitem">
+Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. " O’Reilly Media, Inc.".
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -776,7 +892,7 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../5_PRIVACY_OPENNESS/5_1_Introduction.qmd" class="pagination-link" aria-label="PRIVACY AND OPENNESS">
+      <a href="../6_PRIVACY_OPENNESS/6_1_Tensions.html" class="pagination-link" aria-label="PRIVACY AND OPENNESS">
         <span class="nav-page-text">PRIVACY AND OPENNESS</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

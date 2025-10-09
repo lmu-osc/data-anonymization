@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Page Title Here – TUTORIAL TITLE HERE</title>
+<title>Basic methods of data anonymisation – Data Anonymisation Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -87,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">TUTORIAL TITLE HERE</span>
+    <span class="navbar-title">Data Anonymisation Course</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -165,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">FOUNDATIONS</span></a>
+ <span class="menu-text">FOUNDATION</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -173,20 +193,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FOUNDATIONS Introduction</span></a>
+  <a href="../1_FOUNDATION/1_1_Introduction_data_privacy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FOUNDATIONS Legal Framework</span></a>
+  <a href="../1_FOUNDATION/1_2_GDPR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GDPR</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FOUNDATIONS Key Concepts and Principles</span></a>
+  <a href="../1_FOUNDATION/1_3_Personal_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Personal Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_FOUNDATION/1_4_Legal_Basis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Legal Basis</span></a>
   </div>
 </li>
       </ul>
@@ -202,14 +228,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_DATA-ANONYMISATION/2_1_Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DATA-ANONYMISATION Introduction</span></a>
+  <a href="../2_DATA-ANONYMISATION/2_1_Key_concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Key Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_DATA-ANONYMISATION/2_2_Key_concepts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DATA-ANONYMISATION Key Concepts</span></a>
+  <a href="../2_DATA-ANONYMISATION/2_2_In_practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">In Practice</span></a>
   </div>
 </li>
       </ul>
@@ -283,8 +309,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../5_PRIVACY_OPENNESS/5_1_Introduction.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../6_PRIVACY_OPENNESS/6_1_Tensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PRIVACY AND OPENNESS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">TOOLS AND TECHNIQUES</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_TOOLS_TECHNIQUES/7_1_Packages_and_techniques.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TOOLS AND TECHNIQUES Packages and techniques</span></a>
   </div>
 </li>
       </ul>
@@ -301,20 +344,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#level-one-header" id="toc-level-one-header" class="nav-link active" data-scroll-target="#level-one-header">Level One Header</a>
+  <li><a href="#data-masking-and-nulling" id="toc-data-masking-and-nulling" class="nav-link active" data-scroll-target="#data-masking-and-nulling">Data masking and nulling</a>
   <ul class="collapse">
-  <li><a href="#level-two" id="toc-level-two" class="nav-link" data-scroll-target="#level-two">Level Two</a>
+  <li><a href="#data-masking" id="toc-data-masking" class="nav-link" data-scroll-target="#data-masking">Data masking</a></li>
+  </ul></li>
+  <li><a href="#data-suppression" id="toc-data-suppression" class="nav-link" data-scroll-target="#data-suppression">Data suppression</a>
   <ul class="collapse">
-  <li><a href="#l3" id="toc-l3" class="nav-link" data-scroll-target="#l3">L3</a></li>
-  <li><a href="#l3-again" id="toc-l3-again" class="nav-link" data-scroll-target="#l3-again">L3 Again</a></li>
-  <li><a href="#and-one-more-time" id="toc-and-one-more-time" class="nav-link" data-scroll-target="#and-one-more-time">And one more time</a></li>
+  <li><a href="#nullifing" id="toc-nullifing" class="nav-link" data-scroll-target="#nullifing">Nullifing</a></li>
   </ul></li>
-  <li><a href="#another-level-two" id="toc-another-level-two" class="nav-link" data-scroll-target="#another-level-two">Another Level Two</a></li>
-  </ul></li>
-  <li><a href="#level-one-again" id="toc-level-one-again" class="nav-link" data-scroll-target="#level-one-again">Level One Again</a>
-  <ul class="collapse">
-  <li><a href="#level-two-1" id="toc-level-two-1" class="nav-link" data-scroll-target="#level-two-1">Level Two</a></li>
-  </ul></li>
+  <li><a href="#pseudonymisation" id="toc-pseudonymisation" class="nav-link" data-scroll-target="#pseudonymisation">Pseudonymisation</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -323,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html">ANONYMISATION TECHNIQUES</a></li><li class="breadcrumb-item"><a href="../4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html">ANONYMISATION Basic methods</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Page Title Here</h1>
+<h1 class="title">Basic methods of data anonymisation</h1>
 </div>
 
 
@@ -341,34 +380,46 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>The headers below cause the table of contents/dropdown on the right to be visible.</p>
-<section id="level-one-header" class="level1">
-<h1>Level One Header</h1>
-<section id="level-two" class="level2">
-<h2 class="anchored" data-anchor-id="level-two">Level Two</h2>
-<section id="l3" class="level3">
-<h3 class="anchored" data-anchor-id="l3">L3</h3>
-</section>
-<section id="l3-again" class="level3">
-<h3 class="anchored" data-anchor-id="l3-again">L3 Again</h3>
-</section>
-<section id="and-one-more-time" class="level3">
-<h3 class="anchored" data-anchor-id="and-one-more-time">And one more time</h3>
+<section id="data-masking-and-nulling" class="level1">
+<h1>Data masking and nulling</h1>
+<section id="data-masking" class="level2">
+<h2 class="anchored" data-anchor-id="data-masking">Data masking</h2>
+<p>Data masking is a summary term for a variety of techniques that refer to the anonymisation of data. In data masking, the data entry or field is concealed or encrypted. The length of the masked characters stays the same as the original entry.</p>
+<p>Colloquially, the term data masking is often interchangeably used with the terms data anonymisation, data de-identification, and data obfuscation.</p>
 </section>
 </section>
-<section id="another-level-two" class="level2">
-<h2 class="anchored" data-anchor-id="another-level-two">Another Level Two</h2>
+<section id="data-suppression" class="level1">
+<h1>Data suppression</h1>
+<p>In contrast to data masking, data suppression includes the removal of an entry, a field or a column in a data set. This means that the entry cannot be re-identified, as it is missing <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013</a>)</span>. For example, the column with the social security number could be entirely removed from a data frame.</p>
+<p>Data suppression is not suitable for all circumstances. <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013, 5</a>)</span></p>
+<p>Can you think of a situation where data suppression might not be a suitable solution?</p>
+<p>Reply: - Software tests</p>
+<section id="nullifing" class="level2">
+<h2 class="anchored" data-anchor-id="nullifing">Nullifing</h2>
+<p><strong>Nullifing</strong>, or <strong>Nulling Out</strong>, is a simple method of the family of data masking teqchniques in which a column of sensitive values is replaced by the null value <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>. This method is useful, but only for a limited set of cases. For example, nullifying is only possible for columns for which the values are nullable. (note: find example of non-nullable column).</p>
+<p>A variation of Nullifing is the <strong>Character Replacement Technique</strong> or <strong>Character Masking</strong>, in which the value is replaced by a character different than null (such as spaces, ’ ‘, ’Y’ or ‘N’). One example application of this technique could be replacing the very sensitive column “Previous Criminal Conviction” in a spreadsheet with “N” for all subjects once all yes entries (“Y”) have been carried over into a more secure data base. Another example is the replacement of credit card number values with XXX. In the credit card example, the application of teh character masking technique can be <em>partial</em>, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.</p>
+<p>A further variation is <strong>Conditional Nullifing</strong>, which means replacing data entries with zero based on a condition. For example entries in a column “Customer Feedback” could be nullified if the customer feedback was negative <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>.</p>
 </section>
 </section>
-<section id="level-one-again" class="level1">
-<h1>Level One Again</h1>
-<section id="level-two-1" class="level2">
-<h2 class="anchored" data-anchor-id="level-two-1">Level Two</h2>
+<section id="pseudonymisation" class="level1">
+<h1>Pseudonymisation</h1>
+<p>Psyeudonymisation is a data protection technique that replaces original, directly identifying information with false data or pseudonyms <span class="citation" data-cites="raghunathan2013complete">(p.&nbsp;226, <a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>.</p>
+</section>
+<section id="further-reading" class="level1">
+
+
 
 
 </section>
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Further reading</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-el2013anonymizing" class="csl-entry" role="listitem">
+El Emam, Khaled, and Luk Arbuckle. 2013. <em>Anonymizing Health Data: Case Studies and Methods to Get You Started</em>. " O’Reilly Media, Inc.".
+</div>
+<div id="ref-raghunathan2013complete" class="csl-entry" role="listitem">
+Raghunathan, Balaji. 2013. <em>The Complete Book of Data Anonymization: From Planning to Implementation</em>. CRC Press.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

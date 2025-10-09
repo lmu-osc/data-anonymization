@@ -7,467 +7,57 @@
     "text": "Creative Commons Zero v1.0 Universal\nCREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS INFORMATION ON AN “AS-IS” BASIS. CREATIVE COMMONS MAKES NO WARRANTIES REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED HEREUNDER.\n\nStatement of Purpose\nThe laws of most jurisdictions throughout the world automatically confer exclusive Copyright and Related Rights (defined below) upon the creator and subsequent owner(s) (each and all, an “owner”) of an original work of authorship and/or a database (each, a “Work”).\nCertain owners wish to permanently relinquish those rights to a Work for the purpose of contributing to a commons of creative, cultural and scientific works (“Commons”) that the public can reliably and without fear of later claims of infringement build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever and for any purposes, including without limitation commercial purposes. These owners may contribute to the Commons to promote the ideal of a free culture and the further production of creative, cultural and scientific works, or to gain reputation or greater distribution for their Work in part through the use and efforts of others.\nFor these and/or other purposes and motivations, and without any expectation of additional consideration or compensation, the person associating CC0 with a Work (the “Affirmer”), to the extent that he or she is an owner of Copyright and Related Rights in the Work, voluntarily elects to apply CC0 to the Work and publicly distribute the Work under its terms, with knowledge of his or her Copyright and Related Rights in the Work and the meaning and intended legal effect of CC0 on those rights.\n\nCopyright and Related Rights. A Work made available under CC0 may be protected by copyright and related or neighboring rights (“Copyright and Related Rights”). Copyright and Related Rights include, but are not limited to, the following:\n\nthe right to reproduce, adapt, distribute, perform, display, communicate, and translate a Work;\nmoral rights retained by the original author(s) and/or performer(s);\npublicity and privacy rights pertaining to a person’s image or likeness depicted in a Work;\nrights protecting against unfair competition in regards to a Work, subject to the limitations in paragraph 4(a), below;\nrights protecting the extraction, dissemination, use and reuse of data in a Work;\ndatabase rights (such as those arising under Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, and under any national implementation thereof, including any amended or successor version of such directive); and\nother similar, equivalent or corresponding rights throughout the world based on applicable law or treaty, and any national implementations thereof.\n\nWaiver. To the greatest extent permitted by, but not in contravention of, applicable law, Affirmer hereby overtly, fully, permanently, irrevocably and unconditionally waives, abandons, and surrenders all of Affirmer’s Copyright and Related Rights and associated claims and causes of action, whether now known or unknown (including existing as well as future claims and causes of action), in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the “Waiver”). Affirmer makes the Waiver for the benefit of each member of the public at large and to the detriment of Affirmer’s heirs and successors, fully intending that such Waiver shall not be subject to revocation, rescission, cancellation, termination, or any other legal or equitable action to disrupt the quiet enjoyment of the Work by the public as contemplated by Affirmer’s express Statement of Purpose.\nPublic License Fallback. Should any part of the Waiver for any reason be judged legally invalid or ineffective under applicable law, then the Waiver shall be preserved to the maximum extent permitted taking into account Affirmer’s express Statement of Purpose. In addition, to the extent the Waiver is so judged Affirmer hereby grants to each affected person a royalty-free, non transferable, non sublicensable, non exclusive, irrevocable and unconditional license to exercise Affirmer’s Copyright and Related Rights in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the “License”). The License shall be deemed effective as of the date CC0 was applied by Affirmer to the Work. Should any part of the License for any reason be judged legally invalid or ineffective under applicable law, such partial invalidity or ineffectiveness shall not invalidate the remainder of the License, and in such case Affirmer hereby affirms that he or she will not (i) exercise any of his or her remaining Copyright and Related Rights in the Work or (ii) assert any associated claims and causes of action with respect to the Work, in either case contrary to Affirmer’s express Statement of Purpose.\nLimitations and Disclaimers.\n\nNo trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\nAffirmer offers the Work as-is and makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non infringement, or the absence of latent or other defects, accuracy, or the present or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.\nAffirmer disclaims responsibility for clearing rights of other persons that may apply to the Work or any use thereof, including without limitation any person’s Copyright and Related Rights in the Work. Further, Affirmer disclaims responsibility for obtaining any necessary consents, permissions or other rights required for any use of the Work.\nAffirmer understands and acknowledges that Creative Commons is not a party to this document and has no duty or obligation with respect to this CC0 or use of the Work.\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "2_DATA-ANONYMISATION/2_2_Key_concepts.html",
-    "href": "2_DATA-ANONYMISATION/2_2_Key_concepts.html",
-    "title": "Page Title Here",
+    "objectID": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html",
+    "href": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html",
+    "title": "Privacy by design",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "DATA-ANONYMISATION Key Concepts"
-    ]
+    "text": "Privacy by Design (PbD) is a foundational concept and a set of principles requiring that privacy protection measures be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning."
   },
   {
-    "objectID": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#level-two",
-    "href": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "DATA-ANONYMISATION Key Concepts"
-    ]
-  },
-  {
-    "objectID": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#another-level-two",
-    "href": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "DATA-ANONYMISATION Key Concepts"
-    ]
-  },
-  {
-    "objectID": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#level-two-1",
-    "href": "2_DATA-ANONYMISATION/2_2_Key_concepts.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "DATA-ANONYMISATION Key Concepts"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html#data-privacy-by-design",
+    "href": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html#data-privacy-by-design",
+    "title": "Privacy by design",
     "section": "",
-    "text": "Contributors\nThis site was authored by AUTHORS, and edits/contributions were made by EDITORS/AUTHORS.\n\n\nLicenses\nThe overall project is available under the CC BY-SA 4.0 license found at LICENSE; all code without any narrative text is also (at your option) available under the CC0 1.0 Universal license found at LICENSE-CODE.\nWhy two licenses? The CC BY-SA 4.0 license is for the content of the website, while the CC0 1.0 Universal license is for the code and configuration files. This is a common practice for websites that include code snippets and other content that may be reused in other projects, particularly because the CC BY-SA 4.0 license is not intended to be used with software.\n\n\nNotes\nThis tutorial was primarily written in YYYY using SOFTWARE-NAME SOFTWARE-VERSION. Major changes to the SOFTWARE-NAME can be found at the package’s website for the most up-to-date information, and to confirm that our tutorial is not out-of-date.\n\n\n\n\n Back to topCitationBibTeX citation:@online{1,\n  author = {1, AUTHOR},\n  title = {TITLE {HERE}},\n  date = {},\n  url = {https://lmu-osc.github.io/},\n  doi = {DOI HERE},\n  langid = {en}\n}\nFor attribution, please cite this work as:\n1, AUTHOR. n.d. “TITLE HERE.” LMU Open Science Center. https://doi.org/DOI HERE."
+    "text": "Privacy by Design (PbD) is a foundational concept and a set of principles requiring that privacy protection measures be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning."
   },
   {
-    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html",
-    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html",
-    "title": "Data protection in practice",
+    "objectID": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html#privacy-by-design-pbd-as-a-guiding-principle",
+    "href": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html#privacy-by-design-pbd-as-a-guiding-principle",
+    "title": "Privacy by design",
+    "section": "Privacy by Design (PbD) as a Guiding Principle",
+    "text": "Privacy by Design (PbD) as a Guiding Principle\nPbD, originally developed by former privacy commissioner Dr. Ann Cavoukian, outlines measures that technologists can use to ensure privacy is architected and software is designed with privacy in mind from the start.\nPbD is goverened by several principles that have an impact on the research setting, which are outlined below.\n\nProactive and Preventative Approach: PbD mandates that researchers and data architects anticipate and prevent privacy invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.\nPrivacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.\nBalancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy is not a feature that can be “sacrificed” for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find sweet spot between information and privacy—enabling enough data utility for the purpose it was collected while preserving privacy for the individuals."
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html#data-minimisation-datensparsamkeit",
+    "href": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html#data-minimisation-datensparsamkeit",
+    "title": "Privacy by design",
+    "section": "Data minimisation (Datensparsamkeit)",
+    "text": "Data minimisation (Datensparsamkeit)\nData minimisation (or in German, Datensparsamkeit) referes to the principle of “No Data, No Risk” (or less data, less risk), meaning that the threat of privacy breaches is reduced with the reduction of the amount of data collected. Datensparsamkeit pushes the data collector to consider to think about the mimimum amount of data that is needed to get the job done. Reducing the amount of stored data can also reduce the treat of the data storage to become target of a privacy attack."
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html#federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline",
+    "href": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html#federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline",
+    "title": "Privacy by design",
+    "section": "Federated learning and distributed data analysis. Data privacy in a pipeline",
+    "text": "Federated learning and distributed data analysis. Data privacy in a pipeline\nFederated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on premised or on the local device. In a second step, only (anonymous) summary results are collected later. Federate learning techniques are often the only option to process very sensitive, such as health data that are not permitted to leave protective hospital environments or firewalls.\nFederated learning and distributed data analysis needs to be planned in advance. This is because the algorithms for federate analysis are different from those that would be run on the entire data set, and because they need to be tested for data shift or data drift, hence that processing the data locally and then aggregating does lead to the same results as running the algorithm on the entire data set."
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html#exercise",
+    "href": "2_DATA-ANONYMISATION/2_3_Planning_Privacy.html#exercise",
+    "title": "Privacy by design",
+    "section": "Exercise",
+    "text": "Exercise\nYou have three data sets, and you want to calculate the mean across all data sets.\n\nData set 1\n\n\n\nPatient ID\nName\nAge\nDepression score\n\n\n\n\n001\nMaria Schmidt\n34\n15\n\n\n002\nMax Müller\n29\n0\n\n\n003\nAnna Fischer\n45\n8\n\n\n004\n—\n54\n12\n\n\n005\nLukas Weber\n38\n3\n\n\n006\nSophie Klein\n27\n18\n\n\n\n\n\nData set 2\n\n\n\nPatient ID\nName\nAge\nDepression score\n\n\n\n\n001\n—\n62\n2\n\n\n002\nPeter Braun\n31\n24\n\n\n003\nJulia Meyer\n22\n12\n\n\n004\nDavid Wolf\n40\n0\n\n\n\n\n\nData set 3\n\n\n\nPatient ID\nName\nAge\nDepression score\n\n\n\n\n001\nElena Schwarz\n36\n17\n\n\n002\nThomas Becker\n52\n6\n\n\n003\nClara Hofmann\n28\n6\n\n\n004\nJonas Lehmann\n47\n9\n\n\n055\nPaula Richter\n33\n20\n\n\n\nCalculate the average Depression Score per indivdiual, in a federated way.\nData anonymisation is a process of transforming sensitive data to protect the privacy of individuals (El Emam and Arbuckle 2013). ts primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual (El Emam and Arbuckle 2013)"
+  },
+  {
+    "objectID": "7_TOOLS_TECHNIQUES/7_1_Packages_and_techniques.html",
+    "href": "7_TOOLS_TECHNIQUES/7_1_Packages_and_techniques.html",
+    "title": "Packages",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.\n\nThe sdcMicro R package\nsdcMicro is a R package specialized on the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
-      "PROTECTION",
-      "PROTECTION Data Security Fundamentals"
-    ]
-  },
-  {
-    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two",
-    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two",
-    "title": "Data protection in practice",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "PROTECTION",
-      "PROTECTION Data Security Fundamentals"
-    ]
-  },
-  {
-    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html#another-level-two",
-    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html#another-level-two",
-    "title": "Data protection in practice",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "PROTECTION",
-      "PROTECTION Data Security Fundamentals"
-    ]
-  },
-  {
-    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two-1",
-    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two-1",
-    "title": "Data protection in practice",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "PROTECTION",
-      "PROTECTION Data Security Fundamentals"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html",
-    "title": "Introduction to Data Privacy",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Introduction"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#level-two",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#level-two",
-    "title": "Introduction to Data Privacy",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Introduction"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#another-level-two",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#another-level-two",
-    "title": "Introduction to Data Privacy",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Introduction"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#level-two-1",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_1_Introduction_data_privacy.html#level-two-1",
-    "title": "Introduction to Data Privacy",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Introduction"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html",
-    "title": "Legal Framework with a Focus on Germany",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Legal Framework"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#level-two",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#level-two",
-    "title": "Legal Framework with a Focus on Germany",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Legal Framework"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#another-level-two",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#another-level-two",
-    "title": "Legal Framework with a Focus on Germany",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Legal Framework"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#level-two-1",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_2_Legal_Framework.html#level-two-1",
-    "title": "Legal Framework with a Focus on Germany",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Legal Framework"
-    ]
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "Creative Commons Attribution-ShareAlike 4.0 International",
-    "section": "",
-    "text": "Creative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n\nConsiderations for licensors: Our public licenses are intended for use by those authorized to give the public permission to use material in ways otherwise restricted by copyright and certain other rights. Our licenses are irrevocable. Licensors should read and understand the terms and conditions of the license they choose before applying it. Licensors should also secure all rights necessary before applying our licenses so that the public can reuse the material as expected. Licensors should clearly mark any material not subject to the license. This includes other CC-licensed material, or material used under an exception or limitation to copyright. More considerations for licensors.\nConsiderations for the public: By using one of our public licenses, a licensor grants the public permission to use the licensed material under specified terms and conditions. If the licensor’s permission is not necessary for any reason–for example, because of any applicable exception or limitation to copyright–then that use is not regulated by the license. Our licenses grant only permissions under copyright and certain other rights that a licensor has authority to grant. Use of the licensed material may still be restricted for other reasons, including because others have copyright or other rights in the material. A licensor may make special requests, such as asking that all changes be marked or described. Although not required by our licenses, you are encouraged to respect those requests where reasonable. More considerations for the public.\n\n\n\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\n\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\n\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\n\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\n\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\n\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\n\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\n\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\n\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
-  },
-  {
-    "objectID": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
-    "href": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
-    "title": "Creative Commons Attribution-ShareAlike 4.0 International",
-    "section": "",
-    "text": "By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\n\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\n\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\n\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\n\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\n\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\n\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\n\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\n\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Advanced techniques"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Advanced techniques"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#another-level-two",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Advanced techniques"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two-1",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Advanced techniques"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Specialised approaches"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#level-two",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Specialised approaches"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#another-level-two",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Specialised approaches"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#level-two-1",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Specialised approaches"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Basic methods"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#level-two",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Basic methods"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#another-level-two",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Basic methods"
-    ]
-  },
-  {
-    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#level-two-1",
-    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "ANONYMISATION TECHNIQUES",
-      "ANONYMISATION Basic methods"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to the Data Anonymisation Course",
-    "section": "",
-    "text": "This website is work in progress. Please come back later in 2025 :)\n\nTutorial Overview\nThis self-paced tutorial is intended to take X hours to complete.\nThe tutorial is split into the following sections:\n\nFOUNDATIONS OF DATA PRIVACY talks about Foundations of Data Privacy, in the European Framework\nTOPIC2 discusses TOPIC2\n\n\n\n\n\n\n\nTipRecommended Software\n\n\n\nThis tutorial assumes you have the following software installed:\n\nSOME SOFTWARE + LINK HERE\n\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Home",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html",
-    "title": "Key Concepts and Principles - planning anonymity in data collection",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Key Concepts and Principles"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#level-two",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#level-two",
-    "title": "Key Concepts and Principles - planning anonymity in data collection",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Key Concepts and Principles"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#another-level-two",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#another-level-two",
-    "title": "Key Concepts and Principles - planning anonymity in data collection",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Key Concepts and Principles"
-    ]
-  },
-  {
-    "objectID": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#level-two-1",
-    "href": "1_FOUNDATIONS_DATA_PRIVACY/1_3_Key_concepts.html#level-two-1",
-    "title": "Key Concepts and Principles - planning anonymity in data collection",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "FOUNDATIONS",
-      "FOUNDATIONS Key Concepts and Principles"
-    ]
-  },
-  {
-    "objectID": "3_PROTECTION/3_3_Risk_management.html",
-    "href": "3_PROTECTION/3_3_Risk_management.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "PROTECTION",
-      "PROTECTION Risk management"
-    ]
-  },
-  {
-    "objectID": "3_PROTECTION/3_3_Risk_management.html#level-two",
-    "href": "3_PROTECTION/3_3_Risk_management.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "PROTECTION",
-      "PROTECTION Risk management"
-    ]
-  },
-  {
-    "objectID": "3_PROTECTION/3_3_Risk_management.html#another-level-two",
-    "href": "3_PROTECTION/3_3_Risk_management.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "PROTECTION",
-      "PROTECTION Risk management"
-    ]
-  },
-  {
-    "objectID": "3_PROTECTION/3_3_Risk_management.html#level-two-1",
-    "href": "3_PROTECTION/3_3_Risk_management.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "PROTECTION",
-      "PROTECTION Risk management"
+      "TOOLS AND TECHNIQUES",
+      "TOOLS AND TECHNIQUES Packages and techniques"
     ]
   },
   {
@@ -519,58 +109,450 @@
     ]
   },
   {
-    "objectID": "5_PRIVACY_OPENNESS/5_1_Tensions.html",
-    "href": "5_PRIVACY_OPENNESS/5_1_Tensions.html",
-    "title": "TUTORIAL TITLE HERE",
-    "section": "",
-    "text": "Back to top"
-  },
-  {
-    "objectID": "2_DATA-ANONYMISATION/2_1_Introduction.html",
-    "href": "2_DATA-ANONYMISATION/2_1_Introduction.html",
-    "title": "Introduction",
+    "objectID": "3_PROTECTION/3_3_Risk_management.html",
+    "href": "3_PROTECTION/3_3_Risk_management.html",
+    "title": "Page Title Here",
     "section": "",
     "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "DATA-ANONYMISATION Introduction"
+      "PROTECTION",
+      "PROTECTION Risk management"
     ]
   },
   {
-    "objectID": "2_DATA-ANONYMISATION/2_1_Introduction.html#level-two",
-    "href": "2_DATA-ANONYMISATION/2_1_Introduction.html#level-two",
-    "title": "Introduction",
+    "objectID": "3_PROTECTION/3_3_Risk_management.html#level-two",
+    "href": "3_PROTECTION/3_3_Risk_management.html#level-two",
+    "title": "Page Title Here",
     "section": "Level Two",
     "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "DATA-ANONYMISATION Introduction"
+      "PROTECTION",
+      "PROTECTION Risk management"
     ]
   },
   {
-    "objectID": "2_DATA-ANONYMISATION/2_1_Introduction.html#another-level-two",
-    "href": "2_DATA-ANONYMISATION/2_1_Introduction.html#another-level-two",
-    "title": "Introduction",
+    "objectID": "3_PROTECTION/3_3_Risk_management.html#another-level-two",
+    "href": "3_PROTECTION/3_3_Risk_management.html#another-level-two",
+    "title": "Page Title Here",
     "section": "Another Level Two",
     "text": "Another Level Two",
     "crumbs": [
       "Home",
-      "FOUNDATIONS: DATA ANONYMISATION",
-      "DATA-ANONYMISATION Introduction"
+      "PROTECTION",
+      "PROTECTION Risk management"
     ]
   },
   {
-    "objectID": "2_DATA-ANONYMISATION/2_1_Introduction.html#level-two-1",
-    "href": "2_DATA-ANONYMISATION/2_1_Introduction.html#level-two-1",
-    "title": "Introduction",
+    "objectID": "3_PROTECTION/3_3_Risk_management.html#level-two-1",
+    "href": "3_PROTECTION/3_3_Risk_management.html#level-two-1",
+    "title": "Page Title Here",
     "section": "Level Two",
     "text": "Level Two",
     "crumbs": [
       "Home",
+      "PROTECTION",
+      "PROTECTION Risk management"
+    ]
+  },
+  {
+    "objectID": "1_FOUNDATION/1_2_GDPR.html",
+    "href": "1_FOUNDATION/1_2_GDPR.html",
+    "title": "The GDPR",
+    "section": "",
+    "text": "What is the GDPR?\nThe GDPR The General Data Protection Regulation (GDPR), in German Datenschutz-Grundverordnung (DSGVO) is a legal framework for the protection of person-centric data within the European Union. The The regulation was finalized in 2016 and came into force in 2018 and applies to all companies that process data of EU citizens, regardless of the company’s location. (p. 221, Jarmul 2023).\n\n\nThe GDPR in brief\nAll laws and articles of the GDPR can be found online: https://gdpr-info.eu/.\nThe GDPR guarantees 8 fundamental rights for people residing in the EU, and for their data:\n\n\n\n\n\n\n\nData Right\nDescription\n\n\n\n\nRight to be informed\nPeople must be informed on how their data is being used, processed, collected, and so forth.\n\n\nRight to access\nPeople can access what information is held about them.\n\n\nRight to rectification\nPeople can correct information that is false or misleading.\n\n\nRight to deletion/erasure\nPeople can ensure companies delete their data.\n\n\nRight to restrict processing\nPeople can opt out or restrict how their data is being used and processed.\n\n\nRight to data portability\nPeople can take their data with them—to use themselves or to try competitor services.\n\n\nRight to object\nPeople can object to the usage of their data for particular uses (like marketing, research).\n\n\nRight to opt out of automated decision making\nPeople can opt out of automated decision making processes, such as algorithmic or machine learning systems.\n\n\n\n\n\nWhat does the GDPR regulate?\n\nthe protection of natural persons with regard to the processing of personal data and rules relating to the free movement of personal data.\nfundamental rights and freedoms of natural persons and in particular their right to the protection of personal data.\nthe free movement of personal data within the Union shall be neither restricted nor prohibited for reasons connected with the protection of natural persons with regard to the processing of personal data.\n\nThe GDPR is based directly on EU law (Article 16 TFEU) and replaced the older Data Protection Directive (1995). Unlike a directive, which requires member states to implement it in their national laws, the GDPR is a ‘Regulation’, meaning it applies directly throughout the entire EU. This also means that all EU countries must not provide less data protection and privacy than laid out within the GDPR. (Hildrebrant, 136).\n\n\nWhen does the GDPR apply?\n\nwhen personal data is being processed (art 2)\n\n\n\n\nDefinitions in the GDPR\nBelow are some definitions that the GDPR operates on. Click on the arrow to the right to expand.\n\n\n\n\n\n\nNotePersonal data\n\n\n\n\n\nis any information connected to a person who can be identified, either directly (for example, by their name or ID number) or indirectly (for example, through location, online accounts, or details about their body, health, finances, culture, or social life).\n\n\n\n\n\n\n\n\n\nNoteProcessing\n\n\n\n\n\nmeans doing anything with personal data, whether by hand or with a computer. This includes things like collecting, recording, organizing, storing, changing, looking up, using, sharing, combining, limiting, deleting, or destroying the data.\n\n\n\n\n\n\n\n\n\nNoteController\n\n\n\n\n\nController means the person, company, public authority, or organization that decides why personal data is processed and how it is processed. In some cases, the law itself decides who the controller is or sets rules for how the controller is chosen.\n\n\n\n\n\n\n\n\n\nNoteProcessor\n\n\n\n\n\nProcessor means the person, company, or organization that processes personal data on behalf of the controller. They follow the controller’s instructions and don’t decide the purpose or the means of the processing themselves.\n\n\n\nIt is important to know that these rights apply to all EU residents, whether the are currently in the EU or not.\n\n\nPrinciples of lawful processing\nTo ensure the lawful processing of personal data, organizations, particularly data controllers, must adhere to a set of fundamental principles, as outlined prominently in Article 5 of the EU General Data Protection Regulation (GDPR). These principles serve as overarching requirements that must be met in addition to having a valid legal basis for processing.\nThe seven core principles of lawful processing under the GDPR are:\n\nLawfulness, Fairness, and Transparency ((Hildebrandt2020?)):\n\n\nLawfulness requires that all processing operations have a valid legal basis, as exhaustively listed in Article 6 of the GDPR (see legal basis)\nFairness implies balancing and proportionality tests, considering the relevant interests and fundamental rights at stake.\nTransparency necessitates providing clear and accessible information to data subjects, for instance, through privacy notices, and is further detailed in Articles 13, 14, and 15 GDPR. It ensures that data subjects can predict how their data will be handled and what outcomes to expect.\n\n\nPurpose Limitation:\n\n\nPersonal data must be “collected for specified, explicit and legitimate purposes and not further processed in a manner that is incompatible with those purposes”. Vague or broad goals, such as “data might become useful” or “for commercial goals,” are prohibited.\nFurther processing for a new purpose is permissible if it is “not incompatible” with the original purpose. Factors for determining compatibility include the link between purposes, collection context, data nature/sensitivity, potential consequences for the data subject, and the existence of safeguards like encryption or pseudonymization.\nNotably, further processing for archiving in the public interest, scientific or historical research, or statistical purposes is explicitly deemed compatible with the initial purposes, provided suitable safeguards are in place.\n\n\nData Minimization:\n\n\nData collected must be “adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed”\n\n\nAccuracy\n\n\nPersonal data must be accurate, and when necessary, kept up to date.\nControllers are legally obliged to take every reasonable step to ensure that inaccurate personal data is erased or rectified without delay, especially concerning the purposes for which it is processed.\n\n\nStorage Limitation\n\n\nPersonal data must be “kept in a form which permits identification of data subjects for no longer than is necessary for the purposes for which the personal data are processed”.\nThis also prevents keeping the data for longer than necessary for “just in case”.\n\n\nIntegrity and Confidentiality\n\n\nPersonal data must be “processed in a manner that ensures appropriate security of the personal data, including protection against unauthorised or unlawful processing and against accidental loss, destruction or damage, using appropriate technical or organisational measures”.\nThe GDPR mandates “appropriate” security, not “perfect” security. This principle connects directly to the requirement of security by design (Article 32 GDPR) and the obligation for controllers to notify supervisory authorities and data subjects in case of data breaches (Articles 33 and 34 GDPR). Pseudonymization and encryption are examples of security measures that can be implemented.\n\n\nAccountability\n\n\n“The controller shall be responsible for, and be able to demonstrate compliance with” all the aforementioned principles.\nThis principle makes the data controller the focal point of responsibility and liability under the GDPR. It requires controllers to maintain records of processing activities, and in some cases, to appoint a Data Protection Officer (DPO). The accountability principle underscores a proactive approach to compliance, moving beyond merely reactive measures.\n\n\n\n\n\n\n\nImportantData collection.\n\n\n\n\n\nIf you\nThis content is inside a collapsible tip box.\n\nItem 1\nItem 2\n\n\n\n\n\n\nIntegration with other legal frameworks\nTo date, an overarching international framework for anonymisation does not exist - it would also be quite hard to find a common group between varying legal frameworks.\n\n\n\n\n\n Back to topReferences\n\nJarmul, Katharine. 2023. Practical Data Privacy. \" O’Reilly Media, Inc.\".",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "GDPR"
+    ]
+  },
+  {
+    "objectID": "1_FOUNDATION/1_3_Personal_Data.html#am-i-using-personal-data",
+    "href": "1_FOUNDATION/1_3_Personal_Data.html#am-i-using-personal-data",
+    "title": "Personal Data",
+    "section": "Am I using personal data?",
+    "text": "Am I using personal data?\nIn order to decide whether you need to undertake steps to protect personal information, you first need to find out whether your data contains personal data.",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "Personal Data"
+    ]
+  },
+  {
+    "objectID": "1_FOUNDATION/1_3_Personal_Data.html#definition-of-personal-data",
+    "href": "1_FOUNDATION/1_3_Personal_Data.html#definition-of-personal-data",
+    "title": "Personal Data",
+    "section": "Definition of Personal Data",
+    "text": "Definition of Personal Data\nAccording to Article 4(1) GDPR, Personal Data is defined as any information relating to an identified or identifiable natural person (also named data subject.) This definition is a cornerstone of privacy regulations, particularly the EU General Data Protection Regulation (GDPR), and extends far beyond obvious identifiers.\nAn individual is considered identifiable if they can be recognized, either directly or indirectly, through various identifiers or factors. These identifiers can include:\n\nDirect identifiers. These are information that can directly point out and identify an individual, such as address, social security number, bank accounts, or an email address.\nIndirect or quasi identifiers. These are data that can, when combined with other pieces of data, lead to the identification of an individual. Examples include date of birth, age, gender, geographic location (like a ZIP or postal code), marital status, or details about events (e.g., admission dates, procedure codes).\n\nThe assessment of whether a person is identifiable takes into account all means reasonably likely to be used by either the data controller or another person to identify the natural person, including methods like “singling out”. This “reasonably likely” criterion considers objective factors such as the costs, time, effort, and available technological means at the time of processing and potential future technological developments. For instance, a dynamic IP address can qualify as personal data if it can be linked to a specific person, even if that linking capability resides with an Internet Service Provider and requires a court order (see also legal case Breyer v. Germany).",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "Personal Data"
+    ]
+  },
+  {
+    "objectID": "1_FOUNDATION/1_3_Personal_Data.html#special-types-of-personal-data",
+    "href": "1_FOUNDATION/1_3_Personal_Data.html#special-types-of-personal-data",
+    "title": "Personal Data",
+    "section": "Special Types of Personal Data",
+    "text": "Special Types of Personal Data\n\nPersonally Identifiable Information (PII): This includes data unique or nearly unique to an individual, specified in policy and regulations. Examples are full name, email address, physical address, phone numbers, date of birth, age, gender, marital status, national identification numbers (e.g Sozialversicherungsnummer), credit card numbers, vehicle registration, driving license details, employment details (salary), and educational qualifications (see also “direct identifiers”)\nProtected Health Information (PHI): In the healthcare context, PHI refers to past, present, or future physical or mental health information that directly or indirectly identifies an individual. This is considered highly sensitive and often includes diagnoses, treatment records, or even genetic information.\nSpecial categories of personal data (Art 9 GDPR): The GDPR describes furthermore several categories of sensitive data which receive heightened protection:\n\nracial or ethnic origin,\npolitical opinions,\nreligious or philosophical beliefs,\ntrade union membership,\ngenetic data, biometric data (for unique identification),\nhealth data, and data concerning a natural person’s sex life or sexual orientation.",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "Personal Data"
+    ]
+  },
+  {
+    "objectID": "1_FOUNDATION/1_3_Personal_Data.html#otherwise-sensitive-data",
+    "href": "1_FOUNDATION/1_3_Personal_Data.html#otherwise-sensitive-data",
+    "title": "Personal Data",
+    "section": "Otherwise sensitive data",
+    "text": "Otherwise sensitive data\n\ninformation about criminal convictions and offenses\nfinancial data",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "Personal Data"
+    ]
+  },
+  {
+    "objectID": "1_FOUNDATION/1_3_Personal_Data.html#exercise",
+    "href": "1_FOUNDATION/1_3_Personal_Data.html#exercise",
+    "title": "Personal Data",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCustomerID\nName\nAge\nZIPCode\nEmail\nDiagnosis\nPoliticalOpinion\nPurchaseAmount\n\n\n\n\n001\nMaria Schmidt\n34\n53111\nmaria.schmidt@example.com\nMigraine\nNone\n120.50\n\n\n002\nMax Müller\n29\n80331\nmax.mueller@web.de\nNone\nGreen Party supporter\n75.00\n\n\n003\nAnna Fischer\n45\n10115\nanna.fischer@gmail.com\nDiabetes\nNone\n220.00\n\n\n004\n—\n54\n20095\n—\nNone\nNone\n15.00\n\n\n005\nLukas Weber\n38\n40210\nlukas.weber@mail.de\nHypertension\nNone\n330.00\n\n\n006\nSophie Klein\n27\n70173\nsophie.klein@outlook.com\nNone\nConservative voter\n60.00\n\n\n007\n—\n62\n04109\n—\nHeart disease\nNone\n500.00\n\n\n008\nPeter Braun\n31\n50667\npeter.braun@yahoo.com\nNone\nNone\n42.00\n\n\n009\nJulia Meyer\n22\n68159\njulia.meyer@uni-heidelberg.de\nDepression\nNone\n250.00\n\n\n010\nDavid Wolf\n40\n23552\ndavid.wolf@gmail.com\nNone\nSocial Democrat\n99.90\n\n\n011\nElena Schwarz\n36\n90402\nelena.schwarz@posteo.de\nAsthma\nNone\n185.00\n\n\n012\nThomas Becker\n52\n28195\nthomas.becker@gmx.de\nNone\nNone\n305.00\n\n\n013\nClara Hofmann\n28\n01067\nclara.hofmann@stud.uni-dresden.de\nNone\nLiberal voter\n75.00\n\n\n014\nJonas Lehmann\n47\n99084\njonas.lehmann@arcor.de\nCancer\nNone\n800.00\n\n\n015\nPaula Richter\n33\n17489\npaula.richter@uni-greifswald.de\nAnxiety\nNone\n220.00",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "Personal Data"
+    ]
+  },
+  {
+    "objectID": "1_FOUNDATION/1_3_Personal_Data.html#questions",
+    "href": "1_FOUNDATION/1_3_Personal_Data.html#questions",
+    "title": "Personal Data",
+    "section": "Questions",
+    "text": "Questions\n\nWhich columns contain direct identifiers?\nWhich contains indirect identifiers?\nWhich contain special categories of personal data?\nIs there any column that does not contain personal data?",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "Personal Data"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the Data Anonymisation Course",
+    "section": "",
+    "text": "This website is work in progress. Please come back later in 2025 :)\n\nTutorial Overview\nThis self-paced tutorial is intended to take X hours to complete.\nThe tutorial is split into the following sections:\n\nFOUNDATIONS OF DATA PRIVACY talks about Foundations of Data Privacy, in the European Framework\nTOPIC2 discusses TOPIC2\n\n\n\n\n\n\n\nTipRecommended Software\n\n\n\nThis tutorial assumes you have the following software installed:\n\nSOME SOFTWARE + LINK HERE\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "6_PRIVACY_OPENNESS/6_1_Tensions.html",
+    "href": "6_PRIVACY_OPENNESS/6_1_Tensions.html",
+    "title": "Cyber crime",
+    "section": "",
+    "text": "Cyber crime\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "PRIVACY AND OPENNESS",
+      "PRIVACY AND OPENNESS"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html",
+    "title": "Page Title Here",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Advanced techniques"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Advanced techniques"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#another-level-two",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#another-level-two",
+    "title": "Page Title Here",
+    "section": "Another Level Two",
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Advanced techniques"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two-1",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html#level-two-1",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two\nDifferential Privacy",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Advanced techniques"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html",
+    "title": "Page Title Here",
+    "section": "",
+    "text": "K-anonymity\nDefinition and Initial Purpose K-anonymity was developed by computer scientist Latanya Sweeney following her demonstration of how she could re-identify supposedly anonymized medical records released by the State of Massachusetts. By linking public medical records with voter registration records using quasi-identifiers like age, zip code, and gender, she was able to single out individuals, including the governor’s medical records (p 54, Jarmul (2023)). The principle of k-anonymity attempts to mitigate such linkage attacks by ensuring that in any released dataset, each record is indistinguishable from at least k-1 other records concerning a set of “quasi-identifiers” (attributes that, when combined, can uniquely identify an individual). This means grouping people with similar sensitive attributes, and not releasing groups that have fewer than k people.\nAn example of K-anonnymity is given below.\nLet’s generate some fake data:\n\ndata &lt;- data.frame(\n  age = c(34, 35, 36, 36, 36, 40, 40, 41, 42, 42),\n  gender = c(\"M\", \"M\", \"M\", \"F\", \"F\", \"M\", \"F\", \"F\", \"M\", \"M\"),\n  zipcode = c(\"12345\", \"12345\", \"12345\", \"12345\", \"12345\", \"67890\", \"67890\", \"67890\", \"67890\", \"67890\"),\n  diagnosis = c(\"Flu\", \"Cold\", \"Flu\", \"Cold\", \"Allergy\", \"HIV\", \"HIV\", \"Flu\", \"Cold\", \"Allergy\")\n)\n\n\n\n\nRaw data example\n\n\nage\ngender\nzipcode\ndiagnosis\n\n\n\n\n34\nM\n12345\nFlu\n\n\n35\nM\n12345\nCold\n\n\n36\nM\n12345\nFlu\n\n\n36\nF\n12345\nCold\n\n\n36\nF\n12345\nAllergy\n\n\n40\nM\n67890\nHIV\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to topDifferential privacy (Optional sub-topic - short & collapsable)\n\nJarmul, Katharine. 2023. Practical Data Privacy. \" O’Reilly Media, Inc.\".",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Specialised approaches"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html",
+    "title": "Basic methods of data anonymisation",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Basic methods"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#data-masking",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#data-masking",
+    "title": "Basic methods of data anonymisation",
+    "section": "Data masking",
+    "text": "Data masking\nData masking is a summary term for a variety of techniques that refer to the anonymisation of data. In data masking, the data entry or field is concealed or encrypted. The length of the masked characters stays the same as the original entry.\nColloquially, the term data masking is often interchangeably used with the terms data anonymisation, data de-identification, and data obfuscation.",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Basic methods"
+    ]
+  },
+  {
+    "objectID": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#nullifing",
+    "href": "4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html#nullifing",
+    "title": "Basic methods of data anonymisation",
+    "section": "Nullifing",
+    "text": "Nullifing\nNullifing, or Nulling Out, is a simple method of the family of data masking teqchniques in which a column of sensitive values is replaced by the null value (Raghunathan 2013). This method is useful, but only for a limited set of cases. For example, nullifying is only possible for columns for which the values are nullable. (note: find example of non-nullable column).\nA variation of Nullifing is the Character Replacement Technique or Character Masking, in which the value is replaced by a character different than null (such as spaces, ’ ‘, ’Y’ or ‘N’). One example application of this technique could be replacing the very sensitive column “Previous Criminal Conviction” in a spreadsheet with “N” for all subjects once all yes entries (“Y”) have been carried over into a more secure data base. Another example is the replacement of credit card number values with XXX. In the credit card example, the application of teh character masking technique can be partial, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.\nA further variation is Conditional Nullifing, which means replacing data entries with zero based on a condition. For example entries in a column “Customer Feedback” could be nullified if the customer feedback was negative (Raghunathan 2013).",
+    "crumbs": [
+      "Home",
+      "ANONYMISATION TECHNIQUES",
+      "ANONYMISATION Basic methods"
+    ]
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "Creative Commons Attribution-ShareAlike 4.0 International",
+    "section": "",
+    "text": "Creative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n\nConsiderations for licensors: Our public licenses are intended for use by those authorized to give the public permission to use material in ways otherwise restricted by copyright and certain other rights. Our licenses are irrevocable. Licensors should read and understand the terms and conditions of the license they choose before applying it. Licensors should also secure all rights necessary before applying our licenses so that the public can reuse the material as expected. Licensors should clearly mark any material not subject to the license. This includes other CC-licensed material, or material used under an exception or limitation to copyright. More considerations for licensors.\nConsiderations for the public: By using one of our public licenses, a licensor grants the public permission to use the licensed material under specified terms and conditions. If the licensor’s permission is not necessary for any reason–for example, because of any applicable exception or limitation to copyright–then that use is not regulated by the license. Our licenses grant only permissions under copyright and certain other rights that a licensor has authority to grant. Use of the licensed material may still be restricted for other reasons, including because others have copyright or other rights in the material. A licensor may make special requests, such as asking that all changes be marked or described. Although not required by our licenses, you are encouraged to respect those requests where reasonable. More considerations for the public.\n\n\n\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\n\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\n\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\n\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\n\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\n\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\n\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\n\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\n\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
+  },
+  {
+    "objectID": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
+    "href": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
+    "title": "Creative Commons Attribution-ShareAlike 4.0 International",
+    "section": "",
+    "text": "By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\n\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\n\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\n\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\n\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\n\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\n\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\n\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\n\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
+  },
+  {
+    "objectID": "1_FOUNDATION/1_4_Legal_Basis.html",
+    "href": "1_FOUNDATION/1_4_Legal_Basis.html",
+    "title": "Legal Basis for Data Processing",
+    "section": "",
+    "text": "In general, the storage and processing of personal data is prohibited. The so called “legal basis” for data processing refer to the specific justifications that is needed to perform any operation on personal data (Hildebrandt (2020)).\nThere are six legal bases that can be used to justify data processing. Not all are suitable for a research context.",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "Legal Basis"
+    ]
+  },
+  {
+    "objectID": "1_FOUNDATION/1_4_Legal_Basis.html#which-legal-bases-can-be-suitable-in-a-research-context",
+    "href": "1_FOUNDATION/1_4_Legal_Basis.html#which-legal-bases-can-be-suitable-in-a-research-context",
+    "title": "Legal Basis for Data Processing",
+    "section": "Which legal bases can be suitable in a research context?",
+    "text": "Which legal bases can be suitable in a research context?\n\nConsentContractual Necessity\n\n\nConsent is often a basis for legal processing in research, even if it not always the best one. It must be - freely given - specific - informed - unambiguous - revocable\n\n\n\n\n\n\n-Data collection and consent mechanisms -Data minimization and purpose limitation -Privacy by design and default",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "Legal Basis"
+    ]
+  },
+  {
+    "objectID": "1_FOUNDATION/1_1_Introduction_data_privacy.html",
+    "href": "1_FOUNDATION/1_1_Introduction_data_privacy.html",
+    "title": "Introduction to Data Privacy",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible. # Definition and importance of data privacy",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "1_FOUNDATION/1_1_Introduction_data_privacy.html#what-is-data-privacy",
+    "href": "1_FOUNDATION/1_1_Introduction_data_privacy.html#what-is-data-privacy",
+    "title": "Introduction to Data Privacy",
+    "section": "What is data privacy?",
+    "text": "What is data privacy?\n\nDefinition and importance of data privacy and anonymization",
+    "crumbs": [
+      "Home",
+      "FOUNDATION",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "5_IMPLEMENTATION/5_1_AssessmentClarification.html",
+    "href": "5_IMPLEMENTATION/5_1_AssessmentClarification.html",
+    "title": "Data Anonymisation Course",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html",
+    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html",
+    "title": "Data protection in practice",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "PROTECTION",
+      "PROTECTION Data Security Fundamentals"
+    ]
+  },
+  {
+    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two",
+    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two",
+    "title": "Data protection in practice",
+    "section": "Level Two",
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "PROTECTION",
+      "PROTECTION Data Security Fundamentals"
+    ]
+  },
+  {
+    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html#another-level-two",
+    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html#another-level-two",
+    "title": "Data protection in practice",
+    "section": "Another Level Two",
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "PROTECTION",
+      "PROTECTION Data Security Fundamentals"
+    ]
+  },
+  {
+    "objectID": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two-1",
+    "href": "3_PROTECTION/3_1_Data_security_fundamentals.html#level-two-1",
+    "title": "Data protection in practice",
+    "section": "Level Two",
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "PROTECTION",
+      "PROTECTION Data Security Fundamentals"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Contributors\nThis site was authored by AUTHORS, and edits/contributions were made by EDITORS/AUTHORS.\n\n\nLicenses\nThe overall project is available under the CC BY-SA 4.0 license found at LICENSE; all code without any narrative text is also (at your option) available under the CC0 1.0 Universal license found at LICENSE-CODE.\nWhy two licenses? The CC BY-SA 4.0 license is for the content of the website, while the CC0 1.0 Universal license is for the code and configuration files. This is a common practice for websites that include code snippets and other content that may be reused in other projects, particularly because the CC BY-SA 4.0 license is not intended to be used with software.\n\n\nNotes\nThis tutorial was primarily written in YYYY using SOFTWARE-NAME SOFTWARE-VERSION. Major changes to the SOFTWARE-NAME can be found at the package’s website for the most up-to-date information, and to confirm that our tutorial is not out-of-date.\n\n\n\n\n Back to topCitationBibTeX citation:@online{1,\n  author = {1, AUTHOR},\n  title = {TITLE {HERE}},\n  date = {},\n  url = {https://lmu-osc.github.io/},\n  doi = {DOI HERE},\n  langid = {en}\n}\nFor attribution, please cite this work as:\n1, AUTHOR. n.d. “TITLE HERE.” LMU Open Science Center. https://doi.org/DOI HERE."
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_1_Key_concepts.html",
+    "href": "2_DATA-ANONYMISATION/2_1_Key_concepts.html",
+    "title": "Data Anonymization and Pseudonymisation",
+    "section": "",
+    "text": "Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.The primary difference is that anonymization aims to make data non-identifiable, removing it from the scope of data protection regulations, whereas pseudonymization only reduces the ease of identification, meaning the data remains personal and subject to those regulations. Hence, pseudonymized data is still subject to the regulations of the GDPR, while anonymized data is not.",
+    "crumbs": [
+      "Home",
       "FOUNDATIONS: DATA ANONYMISATION",
-      "DATA-ANONYMISATION Introduction"
+      "Key Concepts"
+    ]
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_1_Key_concepts.html#what-is-data-anonymisation",
+    "href": "2_DATA-ANONYMISATION/2_1_Key_concepts.html#what-is-data-anonymisation",
+    "title": "Data Anonymization and Pseudonymisation",
+    "section": "What is data Anonymisation?",
+    "text": "What is data Anonymisation?\nAnonymization is defined as the process that removes the association between the identifying data and the data subject. It is an overarching term for everything done to protect individual identities in a dataset. The fundamental goal of anonymization is to transform personal data so thoroughly that it cannot be traced back to a particular individual so that the original source cannot be known (jarmul2023practical, el2013anonymizing).\nTrue and full anpnymisation is actually really hard to achieve (see also differential privacy).",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS: DATA ANONYMISATION",
+      "Key Concepts"
+    ]
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_1_Key_concepts.html#what-is-data-pseudonymisation",
+    "href": "2_DATA-ANONYMISATION/2_1_Key_concepts.html#what-is-data-pseudonymisation",
+    "title": "Data Anonymization and Pseudonymisation",
+    "section": "What is data Pseudonymisation?",
+    "text": "What is data Pseudonymisation?\nPseudonymization (rec.28)[https://gdpr-info.eu/recitals/no-28/] is a process by which “original data are replaced with false data”. It is characterized by “the use of a false name” or other replacement values instead of real, direct identifiers. The most critical distinction is that pseudonymized data is still personal information. The EU GDPR explicitly states that “personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person” (https://www.privacy-regulation.eu/en/recital-26-GDPR.htm). Hence, pseudonymized data is still personal data, and has to be treated as such.\nPseudonymized data “can be traced back to original data value” because “indirect identifiers that remain in pseudonymized data are known to pose a potential re-identification risk”. This re-identification often occurs via linkage attacks, where seemingly innocuous indirect identifiers (like age, ZIP code, and gender) are combined with external information to identify individuals.\nThe GDPR considers peudonymisation as a first step towards reducing re-identificaton.",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS: DATA ANONYMISATION",
+      "Key Concepts"
+    ]
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_1_Key_concepts.html#what-is-privacy",
+    "href": "2_DATA-ANONYMISATION/2_1_Key_concepts.html#what-is-privacy",
+    "title": "Data Anonymization and Pseudonymisation",
+    "section": "What is Privacy?",
+    "text": "What is Privacy?\n\n\n\n\n\n\nImportantAttention\n\n\n\nWhile pseudonymized data is still subject to the GDPR, anonymized data is not.\nHowever, until data is fully anonymized, it must be treated in accordance with the GDPR.",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS: DATA ANONYMISATION",
+      "Key Concepts"
+    ]
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_1_Key_concepts.html#exercises",
+    "href": "2_DATA-ANONYMISATION/2_1_Key_concepts.html#exercises",
+    "title": "Data Anonymization and Pseudonymisation",
+    "section": "Exercises",
+    "text": "Exercises\n\nExercise: Anonymised, Pseudonymised, or Not Clear?\n\nScenario 1: Medical Records for Research\n\n\n\n\n\n\nTipA hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.\n\n\n\n\n\nPseudonymised — because the re-identification key still exists.\n\n\n\n\n\n\nScenario 2: City Council Survey\n\n\n\n\n\n\nTipThe council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.\n\n\n\n\n\nAnonymised — the data is aggregated, no individuals can be singled out.\n\n\n\n\n\n\nScenario 3: Fitness Tracker Data\n\n\n\n\n\n\nTipA company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.\n\n\n\n\n\nNot clear — technically pseudonymised, but GPS traces might allow re-identification.\n\n\n\n\n\n\nScenario 4: University Exam Scores\n\n\n\n\n\n\nTipExam results are shared with teachers identified only by student number. The university has the key to look up the names behind the numbers.\n\n\n\n\n\nPseudonymised — student number acts as a pseudonym with a key in the system.\n\n\n\n\n\n\nScenario 5: Online Store Reviews\n\n\n\n\n\n\nTip\n\n\n\n\n\nNot clear — identifiers are removed, but free text may reveal identity.\n\n\n\n\n\n\nScenario 6: Traffic Accident Database\n\n\n\n\n\n\nTipA dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.\n\n\n\n\n\nNot clear / borderline anonymised — no key exists, but rare event details may still re-identify.\n\n\n\n\n\n\nScenario 7: Genetic Study\n\n\n\n\n\n\nTipDNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.\n\n\n\n\n\nPseudonymised — the lab can re-link using the mapping file.",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS: DATA ANONYMISATION",
+      "Key Concepts"
+    ]
+  },
+  {
+    "objectID": "2_DATA-ANONYMISATION/2_2_In_practice.html",
+    "href": "2_DATA-ANONYMISATION/2_2_In_practice.html",
+    "title": "Anonymisation and Pseudonymisation in Practice",
+    "section": "",
+    "text": "Differential Privacy\nLet’s return to one of the ” Not Clear” Cases from the exercises before, for example this one:\nCustomer reviews are published without names or emails, but the full free-text is kept. Some reviews contain details like “As a doctor at Klinikum Grosshadern…” or “My husband, John, surprised me with this gift.”\nYou might have realized that the amount of anonymisation or pseudonymisation here is not binary, but more a gradient dependent on the situation, the process and the algorithm used to\nThe headers below cause the table of contents/dropdown on the right to be visible.\nReferences to external resources on topics like Data Security Fundamentals, Risk Management, and Individual Rights\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "FOUNDATIONS: DATA ANONYMISATION",
+      "In Practice"
     ]
   }
 ]
