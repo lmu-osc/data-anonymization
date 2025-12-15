@@ -1,6 +1,6 @@
 # Data Anonymisation Course
 
-This repository is work in progress. Please check later in 2025 :)
+This repository is work in progress. Please check back mid 2026 :)
 
 ## Check `CITATION.cff` Format
 
