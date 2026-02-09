@@ -1,86 +1,8 @@
 ---
-title: "Mechanisms of Data Protection in Research"
+title: "Data Anonymization and Pseudonymisation"
 ---
 
-# Overview
-
-Arising from researchers' ethical and legal obligations, there are several contact points of data protection throughout the research process.
-
-(Include graph with research process and all mechanisms)
-
-List of mechanisms and stages:
-
-| Stage | Mechanism |
-|-----------------|-------------------------------------------------------|
-| Plan | Data Management Plan, IRB Approval |
-| Collect | Informed Consent, Data Minimization |
-| Process | Technical and Organizational Measures, Anonymization, Data Subject Rights |
-| Analyze | Technical and Organizational Measures, Anonymization, Data Subject Rights |
-| Preserve | Technical and Organizational Measures, Anonymization, Data Subject Rights |
-| Publish | Anonymization |
-| Re-Use | Data Minimization |
-
-Data Management Plan:
-
--   great measure, helps with data minimization and purpose orientation
-
-Institutional Review Board:
-
--   usually purely ethical
-
--   might also consider data protection
-
-Informed Consent:
-
--   usually ethically motivated
-
--   according to GDPR, participants have the right to information at data collection
-
--   consent as one possible legal basis for processing of data (but not solely)
-
--   non-compliance is the norm
-
--   tutorial paper (box?)
-
-Data Minimization:
-
--   principle in GDPR
-
--   no purposeless collection of data (e.g., demographics)
-
--   anonymous data collection?
-
--   whenever possible: re-use data (no collection = best kind of data protection) and make own data re-usable (FAIR)
-
-Technical and Organizational Measures (TOMs):
-
--   list of measures in GDPR that build additional layers of protection around data
-
--   example: secure storage location
-
--   example: pseudonymization (data are still personal, but adds an additional layer of protection; see below)
-
--   example: storage limitation
-
-Anonymization:
-
--   process of deleting any relation to an identifiable person
-
--   when successful: GDPR does not apply anymore, no personal data anymore
-
--   depending on the data: complex process (focus of this tutorial)
-
--   strongest data protection mechanism?
-
--   does not necessarily solve all ethical mandates for data protection?
-
-Data Subject Rights:
-
--   access rights
-
--   data deletion/withdrawal of consent
-
-# Pseudonymization
+(Moved to mechanisms, then deprecated)
 
 Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.The primary difference is that anonymization aims to make data non-identifiable, removing it from the scope of data protection regulations, whereas pseudonymization only reduces the ease of identification, meaning the data remains personal and subject to those regulations. Hence, pseudonymized data is still subject to the regulations of the GDPR, while anonymized data is not.
 
@@ -92,7 +14,7 @@ True and full anpnymisation is actually really hard to achieve (see also differe
 
 ## What is data Pseudonymisation?
 
-Pseudonymization (rec.28)\[[https://gdpr-info.eu/recitals/no-28/\]](https://gdpr-info.eu/recitals/no-28/]) is a process by which "original data are replaced with false data". It is characterized by "the use of a false name" or other replacement values instead of real, direct identifiers. The most critical distinction is that pseudonymized data is still personal information. The EU GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (<https://www.privacy-regulation.eu/en/recital-26-GDPR.htm).> Hence, pseudonymized data is still personal data, and has to be treated as such.
+Pseudonymization (rec.28)\[https://gdpr-info.eu/recitals/no-28/\] is a process by which "original data are replaced with false data". It is characterized by "the use of a false name" or other replacement values instead of real, direct identifiers. The most critical distinction is that pseudonymized data is still personal information. The EU GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (https://www.privacy-regulation.eu/en/recital-26-GDPR.htm). Hence, pseudonymized data is still personal data, and has to be treated as such.
 
 Pseudonymized data "can be traced back to original data value" because "indirect identifiers that remain in pseudonymized data are known to pose a potential re-identification risk". This re-identification often occurs via linkage attacks, where seemingly innocuous indirect identifiers (like age, ZIP code, and gender) are combined with external information to identify individuals.
 
