@@ -3,8 +3,8 @@ title: "Overview Anonymization Techniques"
 bibliography: ../references.bib
 ---
 
+- following [@Carvalho2023_SurveyPrivacyPreservingTechniques] 
 
-The headers below cause the table of contents/dropdown on the right to be visible. 
 
 # Data masking and nulling
 
