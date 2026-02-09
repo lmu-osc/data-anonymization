@@ -328,8 +328,7 @@ div.csl-indent {
    
   <ul>
   <li><a href="#data-privacy-by-design" id="toc-data-privacy-by-design" class="nav-link active" data-scroll-target="#data-privacy-by-design">Data privacy by design</a></li>
-  <li><a href="#privacy-by-design-pbd-as-a-guiding-principle" id="toc-privacy-by-design-pbd-as-a-guiding-principle" class="nav-link" data-scroll-target="#privacy-by-design-pbd-as-a-guiding-principle">Privacy by Design (PbD) as a Guiding Principle</a></li>
-  <li><a href="#data-minimisation-datensparsamkeit" id="toc-data-minimisation-datensparsamkeit" class="nav-link" data-scroll-target="#data-minimisation-datensparsamkeit">Data minimisation (Datensparsamkeit)</a></li>
+  <li><a href="#data-minimization-datensparsamkeit" id="toc-data-minimization-datensparsamkeit" class="nav-link" data-scroll-target="#data-minimization-datensparsamkeit">Data minimization (Datensparsamkeit)</a></li>
   <li><a href="#federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline" id="toc-federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline" class="nav-link" data-scroll-target="#federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline">Federated learning and distributed data analysis. Data privacy in a pipeline</a></li>
   <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
   <ul class="collapse">
@@ -362,33 +361,37 @@ div.csl-indent {
 </header>
 
 
-<p>Include in mechanisms?</p>
+<p><em>Decide whether to leave this information here or move to mechanisms</em></p>
+<p><em>Contextualize in process (before data collection, when planning)</em></p>
+<p><em>Add a section on data management plans</em></p>
+<p><em>Introduce privacy-by-design and data minimization as requirements by GDPR</em></p>
 <section id="data-privacy-by-design" class="level2">
 <h2 class="anchored" data-anchor-id="data-privacy-by-design">Data privacy by design</h2>
-<p>Privacy by Design (PbD) is a foundational concept and a set of principles requiring that privacy protection measures be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning.</p>
-</section>
-<section id="privacy-by-design-pbd-as-a-guiding-principle" class="level2">
-<h2 class="anchored" data-anchor-id="privacy-by-design-pbd-as-a-guiding-principle">Privacy by Design (PbD) as a Guiding Principle</h2>
-<p>PbD, originally developed by former privacy commissioner Dr.&nbsp;Ann Cavoukian, outlines measures that technologists can use to ensure privacy is architected and software is designed with privacy in mind from the start.</p>
-<p>PbD is goverened by several principles that have an impact on the research setting, which are outlined below.</p>
+<p>Privacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning <span class="citation" data-cites="Cavoukian2011_PrivacyDesignLaw">(<a href="#ref-Cavoukian2011_PrivacyDesignLaw" role="doc-biblioref">Cavoukian 2011</a>)</span>.</p>
+<p><em>Move the principles to a call-out box</em></p>
+<p>PbD is guided by seven principles outlined below:</p>
 <ol type="1">
-<li><p>Proactive and Preventative Approach: PbD mandates that researchers and data architects anticipate and prevent privacy invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.</p></li>
+<li><p>Proactive and Preventive Approach: PbD mandates that researchers and data architects anticipate and prevent privacy-invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.</p></li>
 <li><p>Privacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.</p></li>
-<li><p>Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy is not a feature that can be “sacrificed” for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find sweet spot between information and privacy—enabling enough data utility for the purpose it was collected while preserving privacy for the individuals.</p></li>
+<li><p>Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy cannot be “sacrificed” for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find a sweet spot between information and privacy—enabling sufficient data utility for the purpose for which it was collected while preserving privacy for individuals.</p></li>
 </ol>
+<p><em>Explain other principles</em></p>
 </section>
-<section id="data-minimisation-datensparsamkeit" class="level2">
-<h2 class="anchored" data-anchor-id="data-minimisation-datensparsamkeit">Data minimisation (Datensparsamkeit)</h2>
-<p>Data minimisation (or in German, Datensparsamkeit) referes to the principle of “No Data, No Risk” (or less data, less risk), meaning that the threat of privacy breaches is reduced with the reduction of the amount of data collected. Datensparsamkeit pushes the data collector to consider to think about the mimimum amount of data that is needed to get the job done. Reducing the amount of stored data can also reduce the treat of the data storage to become target of a privacy attack.</p>
+<section id="data-minimization-datensparsamkeit" class="level2">
+<h2 class="anchored" data-anchor-id="data-minimization-datensparsamkeit">Data minimization (Datensparsamkeit)</h2>
+<p>Data minimization (or in German, Datensparsamkeit) is the principle of “No Data, No Risk” (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.</p>
+<p><em>Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)</em></p>
 </section>
 <section id="federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline" class="level2">
 <h2 class="anchored" data-anchor-id="federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline">Federated learning and distributed data analysis. Data privacy in a pipeline</h2>
-<p>Federated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on premised or on the local device. In a second step, only (anonymous) summary results are collected later. Federate learning techniques are often the only option to process very sensitive, such as health data that are not permitted to leave protective hospital environments or firewalls.</p>
-<p>Federated learning and distributed data analysis needs to be planned in advance. This is because the algorithms for federate analysis are different from those that would be run on the entire data set, and because they need to be tested for <strong>data shift</strong> or <strong>data drift</strong>, hence that processing the data locally and then aggregating does lead to the same results as running the algorithm on the entire data set.</p>
+<p><em>move to callout box or delete</em></p>
+<p><em>Delete exercise?</em></p>
+<p>Federated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on-premises, or on the local device. In a second step, only anonymous summary results are collected later. Federated learning techniques are often the only option for processing very sensitive data, such as health data, that are not permitted to leave protected hospital environments or firewalls.</p>
+<p>Federated learning and distributed data analysis need to be planned in advance. This is because the algorithms for federated analysis are different from those that would be run on the entire data set, and because they need to be tested for <strong>data shift</strong> or <strong>data drift</strong>, hence that processing the data locally and then aggregating does lead to the same results as running the algorithm on the entire data set.</p>
 </section>
 <section id="exercise" class="level2">
 <h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
-<p>You have three data sets, and you want to calculate the mean across all data sets.</p>
+<p>You have three data sets and want to calculate the mean across them.</p>
 <section id="data-set-1" class="level3">
 <h3 class="anchored" data-anchor-id="data-set-1">Data set 1</h3>
 <table class="caption-top table">
@@ -523,17 +526,42 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<p>Calculate the average Depression Score per indivdiual, in a federated way.</p>
-<p>Data anonymisation is a process of transforming sensitive data to protect the privacy of individuals <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013</a>)</span>. ts primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013</a>)</span></p>
+<p>Calculate the average Depression Score per individual, in a federated way.</p>
+<section id="learning-objective" class="level4">
+<h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
+<ul>
+<li>After completing this part of the tutorial, you will be able to plan your data collection in a privacy-conscious manner</li>
+</ul>
+</section>
+<section id="exercises" class="level4">
+<h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
+<ul>
+<li>Idea: Identify ways to minimize data collection in relation to a specific research question</li>
+</ul>
+</section>
+<section id="resources-links-examples" class="level4">
+<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+<ul>
+<li><p>Reference to an instruction/checklist for data management plans (preferably by LMU)</p></li>
+<li><p>Reference/call-out box to randomized response technique</p></li>
+<li><p>link to mechanisms</p></li>
+</ul>
+</section>
+<section id="to-do-list" class="level4">
+<h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
+<ul>
+<li>Decide on federated learning</li>
+</ul>
 
 
 
+</section>
 </section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-el2013anonymizing" class="csl-entry" role="listitem">
-El Emam, Khaled, and Luk Arbuckle. 2013. <em>Anonymizing Health Data: Case Studies and Methods to Get You Started</em>. " O’Reilly Media, Inc.".
+<div id="ref-Cavoukian2011_PrivacyDesignLaw" class="csl-entry" role="listitem">
+Cavoukian, Ann. 2011. <span>“Privacy by Design in Law, Policy and Practice. <span>A</span> White Paper for Regulators, Decision-Makers and Policy-Makers.”</span> Ontario, Canada: <span>Canadian Information and Privacy Commissioner</span>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

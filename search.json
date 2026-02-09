@@ -23,7 +23,7 @@
     "href": "1_FOUNDATION/1_1_Introduction_data_privacy.html",
     "title": "Introduction to Data Privacy",
     "section": "",
-    "text": "What is data privacy?\n\nSomewhat hard to define\nNissenbaum’s concept (shortly and easy)\n\nIn this tutorial, I will use the term data protection. Privacy is a larger term, encompassing values, attitudes, and behaviors, while data protection is more technical and closer to actual mechanisms.\n\n\nWhy is data protection important?\nSome personal reflection tasks\nAs researchers, our obligation to data protection arises from two (not totally distinct) directions: ethics and law.\n\n\nData Protection in Research Ethics\nTrust of participants in research and researchers extend to handling personal data - Participants probably do not read consent forms\nEthical conventions (Helsinki etc.)\nProfessional obligations (e.g., as Psychologists)\n\n\nData Protection in Law\nMany laws around the globe Most important and always applies in EU: GDPR (short intro) - applies in the case of personal data\nDefine controller and processor in terms of usual research business\nLegal basis?\n\n\n\n\n Back to top",
+    "text": "What is data privacy?\n\nSomewhat hard to define\nNissenbaum’s concept (short and easy)\n\nIn this tutorial, I will (mostly) use the term data protection. Privacy is a larger term, encompassing values, attitudes, and behaviors, while data protection is more technical and closer to actual mechanisms.\n\n\nWhy is data protection important?\nSome personal reflection tasks\nAs researchers, our obligation to data protection arises from two (not totally distinct) directions: ethics and law.\n\n\nData Protection in Research Ethics\nTrust of participants in research and researchers extends to handling personal data - Participants probably do not read consent forms\nEthical conventions (Helsinki etc.)\nProfessional obligations (e.g., as Psychologists)\n\n\nData Protection in Law\nMany laws around the globe Most important and always applies in EU: GDPR (short intro) - applies in the case of personal data\nDefine controller and processor in terms of usual research business\nLegal basis?\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
       "FOUNDATIONS",
@@ -95,7 +95,7 @@
     "href": "2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.html",
     "title": "Choosing the right technique",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "text": "contextual factors are important (e.g., sampling strategy (guo2025?))",
     "crumbs": [
       "Home",
       "ANONYMIZATION PROCESS",
@@ -143,31 +143,7 @@
     "href": "2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html",
     "title": "Non-Perturbative Techniques",
     "section": "",
-    "text": "Data masking is a summary term for a variety of techniques that refer to the anonymisation of data. In data masking, the data entry or field is concealed or encrypted. The length of the masked characters stays the same as the original entry.\nColloquially, the term data masking is often interchangeably used with the terms data anonymisation, data de-identification, and data obfuscation.",
-    "crumbs": [
-      "Home",
-      "ANONYMIZATION PROCESS",
-      "Non-Perturbative Techniques"
-    ]
-  },
-  {
-    "objectID": "2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html#data-masking",
-    "href": "2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html#data-masking",
-    "title": "Non-Perturbative Techniques",
-    "section": "",
-    "text": "Data masking is a summary term for a variety of techniques that refer to the anonymisation of data. In data masking, the data entry or field is concealed or encrypted. The length of the masked characters stays the same as the original entry.\nColloquially, the term data masking is often interchangeably used with the terms data anonymisation, data de-identification, and data obfuscation.",
-    "crumbs": [
-      "Home",
-      "ANONYMIZATION PROCESS",
-      "Non-Perturbative Techniques"
-    ]
-  },
-  {
-    "objectID": "2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html#nullifing",
-    "href": "2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html#nullifing",
-    "title": "Non-Perturbative Techniques",
-    "section": "Nullifing",
-    "text": "Nullifing\nNullifing, or Nulling Out, is a simple method of the family of data masking teqchniques in which a column of sensitive values is replaced by the null value (Raghunathan 2013). This method is useful, but only for a limited set of cases. For example, nullifying is only possible for columns for which the values are nullable. (note: find example of non-nullable column).\nA variation of Nullifing is the Character Replacement Technique or Character Masking, in which the value is replaced by a character different than null (such as spaces, ’ ‘, ’Y’ or ‘N’). One example application of this technique could be replacing the very sensitive column “Previous Criminal Conviction” in a spreadsheet with “N” for all subjects once all yes entries (“Y”) have been carried over into a more secure data base. Another example is the replacement of credit card number values with XXX. In the credit card example, the application of teh character masking technique can be partial, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.\nA further variation is Conditional Nullifing, which means replacing data entries with zero based on a condition. For example entries in a column “Customer Feedback” could be nullified if the customer feedback was negative (Raghunathan 2013).",
+    "text": "Non-perturbative techniques are those that do not change the values of data, but rather conceal certain values. This includes all techniques referred to as data masking, suppression, and deletion.\nDepending on the specific data type and risk, different techniques are possible (Carvalho et al. 2023):\n\nGlobal Recoding\nAlso known as generalization\nGeneralize all values of an attribute into broader categories.\nExample: Replace specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”), recoding age in year to age in decade\n\n\nLocal Recoding\nGeneralize values of a variable only when needed, not across the entire dataset.\nExample: If only few participant are from Asia, you may recode only their values (e.g., “China”, “India”, “Nepal”) to “Asia”, keeping all others unchanged.\nThis means, that values are on different level (in this example: country vs. continent).\n\n\nTop-and-Bottom Coding\nApplies only to numerical (at least ordinally scaled) variables\nGeneralize rare extreme values that would allow for the identification of individuals.\nExample: Instead of reporting “6 children”, report “4+ children” for anyone above this threshold; all participants below the age of 20 years are coded as “&lt;20 years”\nHow to determine the threshold can be calculated, but this is not trivial/recommendation instead?\n\n\nSuppression\nRemove information entirely (using NA/NaN/*) when it creates risk (also known as nulling). This can occur on different levels:\n\nCell suppression: Remove single risky values (e.g., unique job title).\nRecord suppression: Remove data of one participant (e.g., in case of a very specific combination of demographics).\nVariable suppression: Drop a variable from the dataset entirely.\n\nIt can also happen as a result of a condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in a column “Customer Feedback” could be nullified if the customer feedback was negative (Raghunathan 2013).\nAnother example is the replacement of credit card number values with XXX. In the credit card example, the application of the character masking technique can be partial, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.\n\n\nSampling\n\nalso known as subsampling\nespecially used when a dataset covers the whole population (e.g., all first-year students at LMU)\nrelease a sample of the original dataset\nsample can be randomly selected, but also based on conditions (e.g., quotas for study subjects)\n\nInclude its own exercise for this technique?\n\n\nApplying Non-Perturbative Techniques With R\n\nbasic data wrangling operations in R (better than manual changes)\nbut: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries)\ntools to make this as autonomous as possible?\n\nInsert exercise here\n\nLearning Objective\n\nAfter completing this part of the tutorial, you will be able to choose an appropriate non-perturbative technique\nAfter completing this part of the tutorial, you will be able to apply simple non-perturbative techniques\n\n\n\nExercises\n\nchoosing and applying non-perturbative techniques (data set with some demographics, task: anonymize age, gender, country of residence, e-mail addresses, etc., choose appropriate techniques); show example solution (with explanation for decisions and emphasis that there is no one right answer)\nSecond exercise: anonymize the script (potentially an exercise for the documentation chapter)\n\n\n\nResources, Links, Examples\n\n\nTo Do List\n\n\n\n\n\n\n\n\n\n Back to topReferences\n\nCarvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. “Survey on Privacy-Preserving Techniques for Microdata Publication.” ACM Computing Surveys 55 (14s): 1–42. https://doi.org/10.1145/3588765.\n\n\nRaghunathan, Balaji. 2013. The Complete Book of Data Anonymization: From Planning to Implementation. CRC Press.",
     "crumbs": [
       "Home",
       "ANONYMIZATION PROCESS",
@@ -247,7 +223,7 @@
     "href": "index.html",
     "title": "Welcome to the Data Anonymisation Course",
     "section": "",
-    "text": "This website is work in progress. Please come back later in 2026 :)\n\nTutorial Overview\nThis self-paced tutorial is intended to take X hours to complete.\nThe tutorial is split into the following sections:\n\nFOUNDATIONS OF DATA PROTECTION talks about data protection basics in ethics and law, mechanisms of data protection in research, and foundational terms.\nDATA ANONYMIZATION PROCESS walks you through the process of anonymizing your research data based on example data.\nBALANCING DATA PROTECTION AND OPENNESS closes this tutorial by providing tips on aligning your data protection and open science interests.\n\n\n\nWhat You’ll Learn\nBy the end of this tutorial, you will be able to:\n\nUnderstand key concepts in the world of privacy (e.g., anonymization, differential privacy)\nClassify data in relevant categories for data protection (e.g., personal data, sensitive data)\nApply anonymization techniques using R in a coherent workflow\nMake informed decisions when balancing the risks and utility of the anonymized data\n\n\n\nPrerequisites\n\nlink other tutorials?\nRStudio, installed software\n\n\n\nTutorial Navigation\nCallout boxes\n\nfurther reading\nattention/warnings\nexercise solutions\n\n\n\n\n\n\n\nTipRecommended Software\n\n\n\nThis tutorial assumes you have the following software installed:\n\nSOME SOFTWARE + LINK HERE\n\n\n\n\n\n\n\n Back to top",
+    "text": "This website is work in progress. Please come back later in 2026 :)\nExplain purpose of tutorial and conditions (quantiative data in social sciences)\n\nTutorial Overview\nThis self-paced tutorial is intended to take X hours to complete.\nThe tutorial is split into the following sections:\n\nFOUNDATIONS OF DATA PROTECTION talks about data protection basics in ethics and law, mechanisms of data protection in research, and foundational terms.\nDATA ANONYMIZATION PROCESS walks you through the process of anonymizing your research data based on example data.\nBALANCING DATA PROTECTION AND OPENNESS closes this tutorial by providing tips on aligning your data protection and open science interests.\n\n\n\nWhat You’ll Learn\nBy the end of this tutorial, you will be able to:\n\nUnderstand key concepts in the world of privacy (e.g., anonymization, differential privacy)\nClassify data in relevant categories for data protection (e.g., personal data, sensitive data)\nApply anonymization techniques using R in a coherent workflow\nMake informed decisions when balancing the risks and utility of the anonymized data\n\n\n\nPrerequisites\n\nlink other tutorials?\nRStudio, installed software\n\n\n\nTutorial Navigation\nCallout boxes\n\nfurther reading\nattention/warnings\nexercise solutions\n\n\n\n\n\n\n\nTipRecommended Software\n\n\n\nThis tutorial assumes you have the following software installed:\n\nSOME SOFTWARE + LINK HERE\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
       "Overview"
@@ -464,7 +440,7 @@
     "href": "2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html",
     "title": "Planning Data Protection",
     "section": "",
-    "text": "Include in mechanisms?",
+    "text": "Decide whether to leave this information here or move to mechanisms\nContextualize in process (before data collection, when planning)\nAdd a section on data management plans\nIntroduce privacy-by-design and data minimization as requirements by GDPR",
     "crumbs": [
       "Home",
       "ANONYMIZATION PROCESS",
@@ -476,7 +452,7 @@
     "href": "2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html#data-privacy-by-design",
     "title": "Planning Data Protection",
     "section": "Data privacy by design",
-    "text": "Data privacy by design\nPrivacy by Design (PbD) is a foundational concept and a set of principles requiring that privacy protection measures be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning.",
+    "text": "Data privacy by design\nPrivacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning (Cavoukian 2011).\nMove the principles to a call-out box\nPbD is guided by seven principles outlined below:\n\nProactive and Preventive Approach: PbD mandates that researchers and data architects anticipate and prevent privacy-invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.\nPrivacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.\nBalancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy cannot be “sacrificed” for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find a sweet spot between information and privacy—enabling sufficient data utility for the purpose for which it was collected while preserving privacy for individuals.\n\nExplain other principles",
     "crumbs": [
       "Home",
       "ANONYMIZATION PROCESS",
@@ -484,23 +460,11 @@
     ]
   },
   {
-    "objectID": "2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html#privacy-by-design-pbd-as-a-guiding-principle",
-    "href": "2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html#privacy-by-design-pbd-as-a-guiding-principle",
+    "objectID": "2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html#data-minimization-datensparsamkeit",
+    "href": "2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html#data-minimization-datensparsamkeit",
     "title": "Planning Data Protection",
-    "section": "Privacy by Design (PbD) as a Guiding Principle",
-    "text": "Privacy by Design (PbD) as a Guiding Principle\nPbD, originally developed by former privacy commissioner Dr. Ann Cavoukian, outlines measures that technologists can use to ensure privacy is architected and software is designed with privacy in mind from the start.\nPbD is goverened by several principles that have an impact on the research setting, which are outlined below.\n\nProactive and Preventative Approach: PbD mandates that researchers and data architects anticipate and prevent privacy invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.\nPrivacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.\nBalancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy is not a feature that can be “sacrificed” for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find sweet spot between information and privacy—enabling enough data utility for the purpose it was collected while preserving privacy for the individuals.",
-    "crumbs": [
-      "Home",
-      "ANONYMIZATION PROCESS",
-      "Planning Privacy"
-    ]
-  },
-  {
-    "objectID": "2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html#data-minimisation-datensparsamkeit",
-    "href": "2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html#data-minimisation-datensparsamkeit",
-    "title": "Planning Data Protection",
-    "section": "Data minimisation (Datensparsamkeit)",
-    "text": "Data minimisation (Datensparsamkeit)\nData minimisation (or in German, Datensparsamkeit) referes to the principle of “No Data, No Risk” (or less data, less risk), meaning that the threat of privacy breaches is reduced with the reduction of the amount of data collected. Datensparsamkeit pushes the data collector to consider to think about the mimimum amount of data that is needed to get the job done. Reducing the amount of stored data can also reduce the treat of the data storage to become target of a privacy attack.",
+    "section": "Data minimization (Datensparsamkeit)",
+    "text": "Data minimization (Datensparsamkeit)\nData minimization (or in German, Datensparsamkeit) is the principle of “No Data, No Risk” (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.\nDiscuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)",
     "crumbs": [
       "Home",
       "ANONYMIZATION PROCESS",
@@ -512,7 +476,7 @@
     "href": "2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html#federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline",
     "title": "Planning Data Protection",
     "section": "Federated learning and distributed data analysis. Data privacy in a pipeline",
-    "text": "Federated learning and distributed data analysis. Data privacy in a pipeline\nFederated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on premised or on the local device. In a second step, only (anonymous) summary results are collected later. Federate learning techniques are often the only option to process very sensitive, such as health data that are not permitted to leave protective hospital environments or firewalls.\nFederated learning and distributed data analysis needs to be planned in advance. This is because the algorithms for federate analysis are different from those that would be run on the entire data set, and because they need to be tested for data shift or data drift, hence that processing the data locally and then aggregating does lead to the same results as running the algorithm on the entire data set.",
+    "text": "Federated learning and distributed data analysis. Data privacy in a pipeline\nmove to callout box or delete\nDelete exercise?\nFederated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on-premises, or on the local device. In a second step, only anonymous summary results are collected later. Federated learning techniques are often the only option for processing very sensitive data, such as health data, that are not permitted to leave protected hospital environments or firewalls.\nFederated learning and distributed data analysis need to be planned in advance. This is because the algorithms for federated analysis are different from those that would be run on the entire data set, and because they need to be tested for data shift or data drift, hence that processing the data locally and then aggregating does lead to the same results as running the algorithm on the entire data set.",
     "crumbs": [
       "Home",
       "ANONYMIZATION PROCESS",
@@ -524,7 +488,7 @@
     "href": "2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html#exercise",
     "title": "Planning Data Protection",
     "section": "Exercise",
-    "text": "Exercise\nYou have three data sets, and you want to calculate the mean across all data sets.\n\nData set 1\n\n\n\nPatient ID\nName\nAge\nDepression score\n\n\n\n\n001\nMaria Schmidt\n34\n15\n\n\n002\nMax Müller\n29\n0\n\n\n003\nAnna Fischer\n45\n8\n\n\n004\n—\n54\n12\n\n\n005\nLukas Weber\n38\n3\n\n\n006\nSophie Klein\n27\n18\n\n\n\n\n\nData set 2\n\n\n\nPatient ID\nName\nAge\nDepression score\n\n\n\n\n001\n—\n62\n2\n\n\n002\nPeter Braun\n31\n24\n\n\n003\nJulia Meyer\n22\n12\n\n\n004\nDavid Wolf\n40\n0\n\n\n\n\n\nData set 3\n\n\n\nPatient ID\nName\nAge\nDepression score\n\n\n\n\n001\nElena Schwarz\n36\n17\n\n\n002\nThomas Becker\n52\n6\n\n\n003\nClara Hofmann\n28\n6\n\n\n004\nJonas Lehmann\n47\n9\n\n\n055\nPaula Richter\n33\n20\n\n\n\nCalculate the average Depression Score per indivdiual, in a federated way.\nData anonymisation is a process of transforming sensitive data to protect the privacy of individuals (El Emam and Arbuckle 2013). ts primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual (El Emam and Arbuckle 2013)",
+    "text": "Exercise\nYou have three data sets and want to calculate the mean across them.\n\nData set 1\n\n\n\nPatient ID\nName\nAge\nDepression score\n\n\n\n\n001\nMaria Schmidt\n34\n15\n\n\n002\nMax Müller\n29\n0\n\n\n003\nAnna Fischer\n45\n8\n\n\n004\n—\n54\n12\n\n\n005\nLukas Weber\n38\n3\n\n\n006\nSophie Klein\n27\n18\n\n\n\n\n\nData set 2\n\n\n\nPatient ID\nName\nAge\nDepression score\n\n\n\n\n001\n—\n62\n2\n\n\n002\nPeter Braun\n31\n24\n\n\n003\nJulia Meyer\n22\n12\n\n\n004\nDavid Wolf\n40\n0\n\n\n\n\n\nData set 3\n\n\n\nPatient ID\nName\nAge\nDepression score\n\n\n\n\n001\nElena Schwarz\n36\n17\n\n\n002\nThomas Becker\n52\n6\n\n\n003\nClara Hofmann\n28\n6\n\n\n004\nJonas Lehmann\n47\n9\n\n\n055\nPaula Richter\n33\n20\n\n\n\nCalculate the average Depression Score per individual, in a federated way.\n\nLearning Objective\n\nAfter completing this part of the tutorial, you will be able to plan your data collection in a privacy-conscious manner\n\n\n\nExercises\n\nIdea: Identify ways to minimize data collection in relation to a specific research question\n\n\n\nResources, Links, Examples\n\nReference to an instruction/checklist for data management plans (preferably by LMU)\nReference/call-out box to randomized response technique\nlink to mechanisms\n\n\n\nTo Do List\n\nDecide on federated learning",
     "crumbs": [
       "Home",
       "ANONYMIZATION PROCESS",
@@ -536,31 +500,7 @@
     "href": "2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html",
     "title": "Overview Anonymization Techniques",
     "section": "",
-    "text": "following (Carvalho et al. 2023)",
-    "crumbs": [
-      "Home",
-      "ANONYMIZATION PROCESS",
-      "Overview of Techniques"
-    ]
-  },
-  {
-    "objectID": "2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html#data-masking",
-    "href": "2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html#data-masking",
-    "title": "Overview Anonymization Techniques",
-    "section": "Data masking",
-    "text": "Data masking\nData masking is a summary term for a variety of techniques that refer to the anonymisation of data. In data masking, the data entry or field is concealed or encrypted. The length of the masked characters stays the same as the original entry.\nColloquially, the term data masking is often interchangeably used with the terms data anonymisation, data de-identification, and data obfuscation.",
-    "crumbs": [
-      "Home",
-      "ANONYMIZATION PROCESS",
-      "Overview of Techniques"
-    ]
-  },
-  {
-    "objectID": "2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html#nullifing",
-    "href": "2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html#nullifing",
-    "title": "Overview Anonymization Techniques",
-    "section": "Nullifing",
-    "text": "Nullifing\nNullifing, or Nulling Out, is a simple method of the family of data masking teqchniques in which a column of sensitive values is replaced by the null value (Raghunathan 2013). This method is useful, but only for a limited set of cases. For example, nullifying is only possible for columns for which the values are nullable. (note: find example of non-nullable column).\nA variation of Nullifing is the Character Replacement Technique or Character Masking, in which the value is replaced by a character different than null (such as spaces, ’ ‘, ’Y’ or ‘N’). One example application of this technique could be replacing the very sensitive column “Previous Criminal Conviction” in a spreadsheet with “N” for all subjects once all yes entries (“Y”) have been carried over into a more secure data base. Another example is the replacement of credit card number values with XXX. In the credit card example, the application of teh character masking technique can be partial, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.\nA further variation is Conditional Nullifing, which means replacing data entries with zero based on a condition. For example entries in a column “Customer Feedback” could be nullified if the customer feedback was negative (Raghunathan 2013).",
+    "text": "Explain the goal of anonymization further\nData anonymization is the process of transforming sensitive data to protect individuals’ privacy(El Emam and Arbuckle 2013). Its primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual (El Emam and Arbuckle 2013)\nIn the next sections of the tutorial, I will present you with several groups of techniques for anonymization, following the taxonomy by Carvalho et al. (2023).\n\nNon-perturbative techniques are those that do not change data values but rather mask them.\nPerturbative techniques involve modifying data values to anonymize the data.\nDe-associative techniques separate specific parts of the data from other parts.\nSynthesizing data means creating new data with the same statistical properties as the original data. I will not discuss this method in detail in this tutorial.\n\nInsert graphics\nExplain the structure of the following parts (exercises based on the same data)\nMention to what data this applies\n\nLearning Objective\n\nAfter completing this part of the tutorial, you will understand the fundamental principles of anonymization techniques and how they relate to one another.\n\n\n\nExercises\nnone\n\n\nResources, Links, Examples\nCarvalho et al. (2023) for detailed information\n\n\nTo Do List\n\nCreate graphics to illustrate each kind of technique\n\n\n\n\n\n\n\n\n\n Back to topReferences\n\nCarvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. “Survey on Privacy-Preserving Techniques for Microdata Publication.” ACM Computing Surveys 55 (14s): 1–42. https://doi.org/10.1145/3588765.\n\n\nEl Emam, Khaled, and Luk Arbuckle. 2013. Anonymizing Health Data: Case Studies and Methods to Get You Started. \" O’Reilly Media, Inc.\".",
     "crumbs": [
       "Home",
       "ANONYMIZATION PROCESS",

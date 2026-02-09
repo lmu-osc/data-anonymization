@@ -327,15 +327,13 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-masking-and-nulling" id="toc-data-masking-and-nulling" class="nav-link active" data-scroll-target="#data-masking-and-nulling">Data masking and nulling</a>
-  <ul class="collapse">
-  <li><a href="#data-masking" id="toc-data-masking" class="nav-link" data-scroll-target="#data-masking">Data masking</a></li>
-  </ul></li>
-  <li><a href="#data-suppression" id="toc-data-suppression" class="nav-link" data-scroll-target="#data-suppression">Data suppression</a>
-  <ul class="collapse">
-  <li><a href="#nullifing" id="toc-nullifing" class="nav-link" data-scroll-target="#nullifing">Nullifing</a></li>
-  </ul></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  <li><a href="#global-recoding" id="toc-global-recoding" class="nav-link active" data-scroll-target="#global-recoding">Global Recoding</a></li>
+  <li><a href="#local-recoding" id="toc-local-recoding" class="nav-link" data-scroll-target="#local-recoding">Local Recoding</a></li>
+  <li><a href="#top-and-bottom-coding" id="toc-top-and-bottom-coding" class="nav-link" data-scroll-target="#top-and-bottom-coding">Top-and-Bottom Coding</a></li>
+  <li><a href="#suppression" id="toc-suppression" class="nav-link" data-scroll-target="#suppression">Suppression</a></li>
+  <li><a href="#sampling" id="toc-sampling" class="nav-link" data-scroll-target="#sampling">Sampling</a></li>
+  <li><a href="#applying-non-perturbative-techniques-with-r" id="toc-applying-non-perturbative-techniques-with-r" class="nav-link" data-scroll-target="#applying-non-perturbative-techniques-with-r">Applying Non-Perturbative Techniques With R</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -361,37 +359,87 @@ div.csl-indent {
 </header>
 
 
-<section id="data-masking-and-nulling" class="level1">
-<h1>Data masking and nulling</h1>
-<section id="data-masking" class="level2">
-<h2 class="anchored" data-anchor-id="data-masking">Data masking</h2>
-<p>Data masking is a summary term for a variety of techniques that refer to the anonymisation of data. In data masking, the data entry or field is concealed or encrypted. The length of the masked characters stays the same as the original entry.</p>
-<p>Colloquially, the term data masking is often interchangeably used with the terms data anonymisation, data de-identification, and data obfuscation.</p>
+<p>Non-perturbative techniques are those that do not change the values of data, but rather conceal certain values. This includes all techniques referred to as data masking, suppression, and deletion.</p>
+<p>Depending on the specific data type and risk, different techniques are possible <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">(<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">Carvalho et al. 2023</a>)</span>:</p>
+<section id="global-recoding" class="level1">
+<h1>Global Recoding</h1>
+<p>Also known as generalization</p>
+<p>Generalize all values of an attribute into broader categories.</p>
+<p>Example: Replace specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”), recoding age in year to age in decade</p>
+</section>
+<section id="local-recoding" class="level1">
+<h1>Local Recoding</h1>
+<p>Generalize values of a variable only when needed, not across the entire dataset.</p>
+<p>Example: If only few participant are from Asia, you may recode only their values (e.g., “China”, “India”, “Nepal”) to “Asia”, keeping all others unchanged.</p>
+<p>This means, that values are on different level (in this example: country vs.&nbsp;continent).</p>
+</section>
+<section id="top-and-bottom-coding" class="level1">
+<h1>Top-and-Bottom Coding</h1>
+<p>Applies only to numerical (at least ordinally scaled) variables</p>
+<p>Generalize rare extreme values that would allow for the identification of individuals.</p>
+<p>Example: Instead of reporting “6 children”, report “4+ children” for anyone above this threshold; all participants below the age of 20 years are coded as “&lt;20 years”</p>
+<p>How to determine the threshold can be calculated, but this is not trivial/recommendation instead?</p>
+</section>
+<section id="suppression" class="level1">
+<h1>Suppression</h1>
+<p>Remove information entirely (using NA/NaN/*) when it creates risk (also known as nulling). This can occur on different levels:</p>
+<ul>
+<li><p>Cell suppression: Remove single risky values (e.g., unique job title).</p></li>
+<li><p>Record suppression: Remove data of one participant (e.g., in case of a very specific combination of demographics).</p></li>
+<li><p>Variable suppression: Drop a variable from the dataset entirely.</p></li>
+</ul>
+<p>It can also happen as a result of a condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in a column “Customer Feedback” could be nullified if the customer feedback was negative <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>.</p>
+<p>Another example is the replacement of credit card number values with XXX. In the credit card example, the application of the character masking technique can be <em>partial</em>, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.</p>
+</section>
+<section id="sampling" class="level1">
+<h1>Sampling</h1>
+<ul>
+<li><p>also known as subsampling</p></li>
+<li><p>especially used when a dataset covers the whole population (e.g., all first-year students at LMU)</p></li>
+<li><p>release a sample of the original dataset</p></li>
+<li><p>sample can be randomly selected, but also based on conditions (e.g., quotas for study subjects)</p></li>
+</ul>
+<p><em>Include its own exercise for this technique?</em></p>
+</section>
+<section id="applying-non-perturbative-techniques-with-r" class="level1">
+<h1>Applying Non-Perturbative Techniques With R</h1>
+<ul>
+<li><p>basic data wrangling operations in R (better than manual changes)</p></li>
+<li><p>but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries)</p></li>
+<li><p>tools to make this as autonomous as possible?</p></li>
+</ul>
+<p><em>Insert exercise here</em></p>
+<section id="learning-objective" class="level4">
+<h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
+<ul>
+<li>After completing this part of the tutorial, you will be able to choose an appropriate non-perturbative technique</li>
+<li>After completing this part of the tutorial, you will be able to apply simple non-perturbative techniques</li>
+</ul>
+</section>
+<section id="exercises" class="level4">
+<h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
+<ul>
+<li><p>choosing and applying non-perturbative techniques (data set with some demographics, task: anonymize age, gender, country of residence, e-mail addresses, etc., choose appropriate techniques); show example solution (with explanation for decisions and emphasis that there is no one right answer)</p></li>
+<li><p>Second exercise: anonymize the script (potentially an exercise for the documentation chapter)</p></li>
+</ul>
+</section>
+<section id="resources-links-examples" class="level4">
+<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+</section>
+<section id="to-do-list" class="level4">
+<h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
 </section>
 </section>
-<section id="data-suppression" class="level1">
-<h1>Data suppression</h1>
-<p>In contrast to data masking, data suppression includes the removal of an entry, a field or a column in a data set. This means that the entry cannot be re-identified, as it is missing <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013</a>)</span>. For example, the column with the social security number could be entirely removed from a data frame.</p>
-<p>Data suppression is not suitable for all circumstances. <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013, 5</a>)</span></p>
-<p>Can you think of a situation where data suppression might not be a suitable solution?</p>
-<p>Reply: - Software tests</p>
-<section id="nullifing" class="level2">
-<h2 class="anchored" data-anchor-id="nullifing">Nullifing</h2>
-<p><strong>Nullifing</strong>, or <strong>Nulling Out</strong>, is a simple method of the family of data masking teqchniques in which a column of sensitive values is replaced by the null value <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>. This method is useful, but only for a limited set of cases. For example, nullifying is only possible for columns for which the values are nullable. (note: find example of non-nullable column).</p>
-<p>A variation of Nullifing is the <strong>Character Replacement Technique</strong> or <strong>Character Masking</strong>, in which the value is replaced by a character different than null (such as spaces, ’ ‘, ’Y’ or ‘N’). One example application of this technique could be replacing the very sensitive column “Previous Criminal Conviction” in a spreadsheet with “N” for all subjects once all yes entries (“Y”) have been carried over into a more secure data base. Another example is the replacement of credit card number values with XXX. In the credit card example, the application of teh character masking technique can be <em>partial</em>, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.</p>
-<p>A further variation is <strong>Conditional Nullifing</strong>, which means replacing data entries with zero based on a condition. For example entries in a column “Customer Feedback” could be nullified if the customer feedback was negative <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>.</p>
-</section>
-</section>
-<section id="further-reading" class="level1">
+<section id="references" class="level1">
 
 
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Further reading</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-el2013anonymizing" class="csl-entry" role="listitem">
-El Emam, Khaled, and Luk Arbuckle. 2013. <em>Anonymizing Health Data: Case Studies and Methods to Get You Started</em>. " O’Reilly Media, Inc.".
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
+Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
 </div>
 <div id="ref-raghunathan2013complete" class="csl-entry" role="listitem">
 Raghunathan, Balaji. 2013. <em>The Complete Book of Data Anonymization: From Planning to Implementation</em>. CRC Press.

@@ -327,15 +327,7 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-masking-and-nulling" id="toc-data-masking-and-nulling" class="nav-link active" data-scroll-target="#data-masking-and-nulling">Data masking and nulling</a>
-  <ul class="collapse">
-  <li><a href="#data-masking" id="toc-data-masking" class="nav-link" data-scroll-target="#data-masking">Data masking</a></li>
-  </ul></li>
-  <li><a href="#data-suppression" id="toc-data-suppression" class="nav-link" data-scroll-target="#data-suppression">Data suppression</a>
-  <ul class="collapse">
-  <li><a href="#nullifing" id="toc-nullifing" class="nav-link" data-scroll-target="#nullifing">Nullifing</a></li>
-  </ul></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -361,46 +353,51 @@ div.csl-indent {
 </header>
 
 
+<p><em>Explain the goal of anonymization further</em></p>
+<p>Data anonymization is the process of transforming sensitive data to protect individuals’ privacy<span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013</a>)</span>. Its primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013</a>)</span></p>
+<p>In the next sections of the tutorial, I will present you with several groups of techniques for anonymization, following the taxonomy by <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span>.</p>
 <ul>
-<li>following <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">(<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">Carvalho et al. 2023</a>)</span></li>
+<li><p><strong>Non-perturbative techniques</strong> are those that do not change data values but rather mask them.</p></li>
+<li><p><strong>Perturbative techniques</strong> involve modifying data values to anonymize the data.</p></li>
+<li><p><strong>De-associative techniques</strong> separate specific parts of the data from other parts.</p></li>
+<li><p><strong>Synthesizing data</strong> means creating new data with the same statistical properties as the original data. I will not discuss this method in detail in this tutorial.</p></li>
 </ul>
-<section id="data-masking-and-nulling" class="level1">
-<h1>Data masking and nulling</h1>
-<section id="data-masking" class="level2">
-<h2 class="anchored" data-anchor-id="data-masking">Data masking</h2>
-<p>Data masking is a summary term for a variety of techniques that refer to the anonymisation of data. In data masking, the data entry or field is concealed or encrypted. The length of the masked characters stays the same as the original entry.</p>
-<p>Colloquially, the term data masking is often interchangeably used with the terms data anonymisation, data de-identification, and data obfuscation.</p>
+<p><em>Insert graphics</em></p>
+<p><em>Explain the structure of the following parts (exercises based on the same data)</em></p>
+<p><em>Mention to what data this applies</em></p>
+<section id="learning-objective" class="level4">
+<h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
+<ul>
+<li>After completing this part of the tutorial, you will understand the fundamental principles of anonymization techniques and how they relate to one another.</li>
+</ul>
 </section>
+<section id="exercises" class="level4">
+<h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
+<p>none</p>
 </section>
-<section id="data-suppression" class="level1">
-<h1>Data suppression</h1>
-<p>In contrast to data masking, data suppression includes the removal of an entry, a field or a column in a data set. This means that the entry cannot be re-identified, as it is missing <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013</a>)</span>. For example, the column with the social security number could be entirely removed from a data frame.</p>
-<p>Data suppression is not suitable for all circumstances. <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013, 5</a>)</span></p>
-<p>Can you think of a situation where data suppression might not be a suitable solution?</p>
-<p>Reply: - Software tests</p>
-<section id="nullifing" class="level2">
-<h2 class="anchored" data-anchor-id="nullifing">Nullifing</h2>
-<p><strong>Nullifing</strong>, or <strong>Nulling Out</strong>, is a simple method of the family of data masking teqchniques in which a column of sensitive values is replaced by the null value <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>. This method is useful, but only for a limited set of cases. For example, nullifying is only possible for columns for which the values are nullable. (note: find example of non-nullable column).</p>
-<p>A variation of Nullifing is the <strong>Character Replacement Technique</strong> or <strong>Character Masking</strong>, in which the value is replaced by a character different than null (such as spaces, ’ ‘, ’Y’ or ‘N’). One example application of this technique could be replacing the very sensitive column “Previous Criminal Conviction” in a spreadsheet with “N” for all subjects once all yes entries (“Y”) have been carried over into a more secure data base. Another example is the replacement of credit card number values with XXX. In the credit card example, the application of teh character masking technique can be <em>partial</em>, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.</p>
-<p>A further variation is <strong>Conditional Nullifing</strong>, which means replacing data entries with zero based on a condition. For example entries in a column “Customer Feedback” could be nullified if the customer feedback was negative <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>.</p>
+<section id="resources-links-examples" class="level4">
+<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+<p><span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span> for detailed information</p>
 </section>
+<section id="to-do-list" class="level4">
+<h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
+<ul>
+<li>Create graphics to illustrate each kind of technique</li>
+</ul>
 </section>
-<section id="further-reading" class="level1">
+<section id="references" class="level1">
 
 
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Further reading</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
 Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
 </div>
 <div id="ref-el2013anonymizing" class="csl-entry" role="listitem">
 El Emam, Khaled, and Luk Arbuckle. 2013. <em>Anonymizing Health Data: Case Studies and Methods to Get You Started</em>. " O’Reilly Media, Inc.".
-</div>
-<div id="ref-raghunathan2013complete" class="csl-entry" role="listitem">
-Raghunathan, Balaji. 2013. <em>The Complete Book of Data Anonymization: From Planning to Implementation</em>. CRC Press.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
