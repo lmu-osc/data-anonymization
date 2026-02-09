@@ -4,20 +4,46 @@ title: "Welcome to the Data Anonymisation Course"
 
 This website is work in progress. Please come back later in 2026 :)
 
-
 # Tutorial Overview
 
 This **self-paced tutorial** is intended to take X hours to complete.
 
 The tutorial is split into the following sections:
 
-1.  [**FOUNDATIONS OF DATA PRIVACY**](FOUNDATIONS) talks about Foundations of Data Privacy, in the European Framework
-2.  [**TOPIC2**]() discusses TOPIC2
+1.  [**FOUNDATIONS OF DATA PROTECTION**](1_FOUNDATION) talks about data protection basics in ethics and law, mechanisms of data protection in research, and foundational terms.
+2.  [**DATA ANONYMIZATION PROCESS**](2_ANONYMISATION_TECHNIQUES) walks you through the process of anonymizing your research data based on example data.
+3.  [**BALANCING DATA PROTECTION AND OPENNESS**](3_PRIVACY_OPENNESS) closes this tutorial by providing tips on aligning your data protection and open science interests.
 
+# What You'll Learn
+
+By the end of this tutorial, you will be able to:
+
+-   **Understand key concepts** in the world of privacy (e.g., anonymization, differential privacy)
+
+-   **Classify** **data** in relevant categories for data protection (e.g., personal data, sensitive data)
+
+-   **Apply anonymization techniques** using R in a coherent workflow
+
+-   **Make informed decisions when balancing the risks and utility** of the anonymized data
+
+# Prerequisites
+
+-   link other tutorials?
+
+-   RStudio, installed software
+
+# Tutorial Navigation
+
+Callout boxes
+
+-   further reading
+
+-   attention/warnings
+
+-   exercise solutions
 
 ::: {.callout-tip title="Recommended Software"}
 This tutorial assumes you have the following software installed:
 
 -   SOME SOFTWARE + LINK HERE
-
 :::
