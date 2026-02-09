@@ -1,9 +1,9 @@
 ---
 title: "Choosing the right technique"
+bibliography: references.bib
 ---
 
-
-The headers below cause the table of contents/dropdown on the right to be visible. 
+-   contextual factors are important (e.g., sampling strategy [@guo2025])
 
 # Level One Header
 
@@ -16,7 +16,6 @@ The headers below cause the table of contents/dropdown on the right to be visibl
 ### And one more time
 
 ## Another Level Two
-
 
 # Level One Again
 

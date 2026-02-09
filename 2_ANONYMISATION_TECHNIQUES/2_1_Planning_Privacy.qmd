@@ -1,39 +1,51 @@
 ---
 title: "Planning Data Protection"
+bibliography: ../references.bib
 ---
 
-Include in mechanisms?
+*Decide whether to leave this information here or move to mechanisms*
+
+*Contextualize in process (before data collection, when planning)*
+
+*Add a section on data management plans*
+
+*Introduce privacy-by-design and data minimization as requirements by GDPR*
 
 ## Data privacy by design
 
-Privacy by Design (PbD) is a foundational concept and a set of principles requiring that privacy protection measures be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning.
+Privacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning [@Cavoukian2011_PrivacyDesignLaw].
 
-## Privacy by Design (PbD) as a Guiding Principle
+*Move the principles to a call-out box*
 
-PbD, originally developed by former privacy commissioner Dr. Ann Cavoukian, outlines measures that technologists can use to ensure privacy is architected and software is designed with privacy in mind from the start.
+PbD is guided by seven principles outlined below:
 
-PbD is goverened by several principles that have an impact on the research setting, which are outlined below.
-
-1.  Proactive and Preventative Approach: PbD mandates that researchers and data architects anticipate and prevent privacy invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.
+1.  Proactive and Preventive Approach: PbD mandates that researchers and data architects anticipate and prevent privacy-invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.
 
 2.  Privacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.
 
-3.  Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy is not a feature that can be "sacrificed" for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find sweet spot between information and privacy—enabling enough data utility for the purpose it was collected while preserving privacy for the individuals.
+3.  Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy cannot be "sacrificed" for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find a sweet spot between information and privacy—enabling sufficient data utility for the purpose for which it was collected while preserving privacy for individuals.
 
-## Data minimisation (Datensparsamkeit)
+*Explain other principles*
 
-Data minimisation (or in German, Datensparsamkeit) referes to the principle of "No Data, No Risk" (or less data, less risk), meaning that the threat of privacy breaches is reduced with the reduction of the amount of data collected. Datensparsamkeit pushes the data collector to consider to think about the mimimum amount of data that is needed to get the job done. Reducing the amount of stored data can also reduce the treat of the data storage to become target of a privacy attack.
+## Data minimization (Datensparsamkeit)
+
+Data minimization (or in German, Datensparsamkeit) is the principle of "No Data, No Risk" (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.
+
+*Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)*
 
 ## Federated learning and distributed data analysis. Data privacy in a pipeline
-(move to callout box)
 
-Federated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on premised or on the local device. In a second step, only (anonymous) summary results are collected later. Federate learning techniques are often the only option to process very sensitive, such as health data that are not permitted to leave protective hospital environments or firewalls.
+*move to callout box or delete*
 
-Federated learning and distributed data analysis needs to be planned in advance. This is because the algorithms for federate analysis are different from those that would be run on the entire data set, and because they need to be tested for **data shift** or **data drift**, hence that processing the data locally and then aggregating does lead to the same results as running the algorithm on the entire data set.
+*Delete exercise?*
+
+Federated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on-premises, or on the local device. In a second step, only anonymous summary results are collected later. Federated learning techniques are often the only option for processing very sensitive data, such as health data, that are not permitted to leave protected hospital environments or firewalls.
+
+Federated learning and distributed data analysis need to be planned in advance. This is because the algorithms for federated analysis are different from those that would be run on the entire data set, and because they need to be tested for **data shift** or **data drift**, hence that processing the data locally and then aggregating does lead to the same results as running the algorithm on the entire data set.
 
 ## Exercise
 
-You have three data sets, and you want to calculate the mean across all data sets.
+You have three data sets and want to calculate the mean across them.
 
 ### Data set 1
 
@@ -65,6 +77,24 @@ You have three data sets, and you want to calculate the mean across all data set
 | 004        | Jonas Lehmann | 47  | 9                |
 | 055        | Paula Richter | 33  | 20               |
 
-Calculate the average Depression Score per indivdiual, in a federated way.
+Calculate the average Depression Score per individual, in a federated way.
 
-Data anonymisation is a process of transforming sensitive data to protect the privacy of individuals [@el2013anonymizing]. ts primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual [@el2013anonymizing]
+#### Learning Objective
+
+-   After completing this part of the tutorial, you will be able to plan your data collection in a privacy-conscious manner
+
+#### Exercises
+
+-   Idea: Identify ways to minimize data collection in relation to a specific research question
+
+#### Resources, Links, Examples
+
+-   Reference to an instruction/checklist for data management plans (preferably by LMU)
+
+-   Reference/call-out box to randomized response technique
+
+-   link to mechanisms
+
+#### To Do List
+
+-   Decide on federated learning

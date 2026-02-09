@@ -3,7 +3,11 @@ title: "Overview Anonymization Techniques"
 bibliography: ../references.bib
 ---
 
-In the next sections of the tutorial, I will present you several groups of techniques for anonymization, following the taxonomy by @Carvalho2023_SurveyPrivacyPreservingTechniques.
+*Explain the goal of anonymization further*
+
+Data anonymization is the process of transforming sensitive data to protect individuals' privacy[@el2013anonymizing]. Its primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual [@el2013anonymizing]
+
+In the next sections of the tutorial, I will present you with several groups of techniques for anonymization, following the taxonomy by @Carvalho2023_SurveyPrivacyPreservingTechniques.
 
 -   **Non-perturbative techniques** are those that do not change data values but rather mask them.
 
@@ -13,4 +17,26 @@ In the next sections of the tutorial, I will present you several groups of techn
 
 -   **Synthesizing data** means creating new data with the same statistical properties as the original data. I will not discuss this method in detail in this tutorial.
 
-Create graphics
+*Insert graphics*
+
+*Explain the structure of the following parts (exercises based on the same data)*
+
+*Mention to what data this applies*
+
+#### Learning Objective
+
+-   After completing this part of the tutorial, you will understand the fundamental principles of anonymization techniques and how they relate to one another.
+
+#### Exercises
+
+none
+
+#### Resources, Links, Examples
+
+@Carvalho2023_SurveyPrivacyPreservingTechniques for detailed information
+
+#### To Do List
+
+-   Create graphics to illustrate each kind of technique
+
+# Refernces
