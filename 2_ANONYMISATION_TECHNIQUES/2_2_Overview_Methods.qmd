@@ -39,4 +39,4 @@ none
 
 -   Create graphics to illustrate each kind of technique
 
-# Refernces
+# References
