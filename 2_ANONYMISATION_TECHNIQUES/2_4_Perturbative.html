@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The GDPR – Data Anonymisation Course</title>
+<title>Perturbative Techniques – Data Anonymisation Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,8 +30,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../1_FOUNDATION/1_3_Mechanisms.html" rel="next">
-<link href="../1_FOUNDATION/1_1_Introduction_data_privacy.html" rel="prev">
+<link href="../2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html" rel="next">
+<link href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html" rel="prev">
 <link href="../assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -166,7 +146,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_1_Introduction_data_privacy.html">FOUNDATIONS</a></li><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_2_GDPR.html">GDPR</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">ANONYMIZATION PROCESS</a></li><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.html">Perturbative Techniques</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -209,7 +189,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATION/1_2_GDPR.html" class="sidebar-item-text sidebar-link active">
+  <a href="../1_FOUNDATION/1_2_GDPR.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GDPR</span></a>
   </div>
 </li>
@@ -262,7 +242,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Perturbative Techniques</span></a>
   </div>
 </li>
@@ -327,22 +307,29 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-the-gdpr" id="toc-what-is-the-gdpr" class="nav-link active" data-scroll-target="#what-is-the-gdpr">What is the GDPR?</a></li>
-  <li><a href="#the-gdpr-in-brief" id="toc-the-gdpr-in-brief" class="nav-link" data-scroll-target="#the-gdpr-in-brief">The GDPR in brief</a></li>
-  <li><a href="#what-does-the-gdpr-regulate" id="toc-what-does-the-gdpr-regulate" class="nav-link" data-scroll-target="#what-does-the-gdpr-regulate">What does the GDPR regulate?</a></li>
-  <li><a href="#when-does-the-gdpr-apply" id="toc-when-does-the-gdpr-apply" class="nav-link" data-scroll-target="#when-does-the-gdpr-apply">When does the GDPR apply?</a></li>
-  <li><a href="#definitions-in-the-gdpr" id="toc-definitions-in-the-gdpr" class="nav-link" data-scroll-target="#definitions-in-the-gdpr">Definitions in the GDPR</a></li>
-  <li><a href="#principles-of-lawful-processing" id="toc-principles-of-lawful-processing" class="nav-link" data-scroll-target="#principles-of-lawful-processing">Principles of lawful processing</a></li>
-  <li><a href="#integration-with-other-legal-frameworks" id="toc-integration-with-other-legal-frameworks" class="nav-link" data-scroll-target="#integration-with-other-legal-frameworks">Integration with other legal frameworks</a></li>
+  <li><a href="#level-one-header" id="toc-level-one-header" class="nav-link active" data-scroll-target="#level-one-header">Level One Header</a>
+  <ul class="collapse">
+  <li><a href="#level-two" id="toc-level-two" class="nav-link" data-scroll-target="#level-two">Level Two</a>
+  <ul class="collapse">
+  <li><a href="#l3" id="toc-l3" class="nav-link" data-scroll-target="#l3">L3</a></li>
+  <li><a href="#l3-again" id="toc-l3-again" class="nav-link" data-scroll-target="#l3-again">L3 Again</a></li>
+  <li><a href="#and-one-more-time" id="toc-and-one-more-time" class="nav-link" data-scroll-target="#and-one-more-time">And one more time</a></li>
+  </ul></li>
+  <li><a href="#another-level-two" id="toc-another-level-two" class="nav-link" data-scroll-target="#another-level-two">Another Level Two</a></li>
+  </ul></li>
+  <li><a href="#level-one-again" id="toc-level-one-again" class="nav-link" data-scroll-target="#level-one-again">Level One Again</a>
+  <ul class="collapse">
+  <li><a href="#level-two-1" id="toc-level-two-1" class="nav-link" data-scroll-target="#level-two-1">Level Two</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/1_FOUNDATION/1_2_GDPR.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_1_Introduction_data_privacy.html">FOUNDATIONS</a></li><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_2_GDPR.html">GDPR</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">ANONYMIZATION PROCESS</a></li><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.html">Perturbative Techniques</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">The GDPR</h1>
+<h1 class="title">Perturbative Techniques</h1>
 </div>
 
 
@@ -359,236 +346,36 @@ div.csl-indent {
 </header>
 
 
-<p>(Will be shortened quite a lot/moved to other sections)</p>
-<section id="what-is-the-gdpr" class="level1">
-<h1>What is the GDPR?</h1>
-<p>The GDPR The General Data Protection Regulation (GDPR), in German Datenschutz-Grundverordnung (DSGVO) is a legal framework for the protection of person-centric data within the European Union. The The regulation was finalized in 2016 and came into force in 2018 and applies to all companies that process data of EU citizens, regardless of the company’s location. <span class="citation" data-cites="jarmul2023practical">(p.&nbsp;221, <a href="#ref-jarmul2023practical" role="doc-biblioref">Jarmul 2023</a>)</span>.</p>
+<p>The headers below cause the table of contents/dropdown on the right to be visible.</p>
+<section id="level-one-header" class="level1">
+<h1>Level One Header</h1>
+<section id="level-two" class="level2">
+<h2 class="anchored" data-anchor-id="level-two">Level Two</h2>
+<section id="l3" class="level3">
+<h3 class="anchored" data-anchor-id="l3">L3</h3>
 </section>
-<section id="the-gdpr-in-brief" class="level1">
-<h1>The GDPR in brief</h1>
-<p>All laws and articles of the GDPR can be found online: https://gdpr-info.eu/.</p>
-<p>The GDPR guarantees 8 fundamental rights for people residing in the EU, and for their data:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Data Right</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Right to be informed</td>
-<td>People must be informed on how their data is being used, processed, collected, and so forth.</td>
-</tr>
-<tr class="even">
-<td>Right to access</td>
-<td>People can access what information is held about them.</td>
-</tr>
-<tr class="odd">
-<td>Right to rectification</td>
-<td>People can correct information that is false or misleading.</td>
-</tr>
-<tr class="even">
-<td>Right to deletion/erasure</td>
-<td>People can ensure companies delete their data.</td>
-</tr>
-<tr class="odd">
-<td>Right to restrict processing</td>
-<td>People can opt out or restrict how their data is being used and processed.</td>
-</tr>
-<tr class="even">
-<td>Right to data portability</td>
-<td>People can take their data with them—to use themselves or to try competitor services.</td>
-</tr>
-<tr class="odd">
-<td>Right to object</td>
-<td>People can object to the usage of their data for particular uses (like marketing, research).</td>
-</tr>
-<tr class="even">
-<td>Right to opt out of automated decision making</td>
-<td>People can opt out of automated decision making processes, such as algorithmic or machine learning systems.</td>
-</tr>
-</tbody>
-</table>
+<section id="l3-again" class="level3">
+<h3 class="anchored" data-anchor-id="l3-again">L3 Again</h3>
 </section>
-<section id="what-does-the-gdpr-regulate" class="level1">
-<h1>What does the GDPR regulate?</h1>
-<ul>
-<li><p>the protection of natural persons with regard to the processing of personal data and rules relating to the free movement of personal data.</p></li>
-<li><p>fundamental rights and freedoms of natural persons and in particular their right to the protection of personal data.</p></li>
-<li><p>the free movement of personal data within the Union shall be neither restricted nor prohibited for reasons connected with the protection of natural persons with regard to the processing of personal data.</p></li>
-</ul>
-<p>The GDPR is based directly on EU law (Article 16 TFEU) and replaced the older Data Protection Directive (1995). Unlike a directive, which requires member states to implement it in their national laws, the GDPR is a ‘Regulation’, meaning it applies directly throughout the entire EU. This also means that all EU countries must not provide less data protection and privacy than laid out within the GDPR. (Hildrebrant, 136).</p>
+<section id="and-one-more-time" class="level3">
+<h3 class="anchored" data-anchor-id="and-one-more-time">And one more time</h3>
 </section>
-<section id="when-does-the-gdpr-apply" class="level1">
-<h1>When does the GDPR apply?</h1>
-<ul>
-<li>when personal data is being processed (art 2)</li>
-<li></li>
-</ul>
 </section>
-<section id="definitions-in-the-gdpr" class="level1">
-<h1>Definitions in the GDPR</h1>
-<p>Below are some definitions that the GDPR operates on. Click on the arrow to the right to expand.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Personal data
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>is any information connected to a person who can be identified, either directly (for example, by their name or ID number) or indirectly (for example, through location, online accounts, or details about their body, health, finances, culture, or social life).</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Processing
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>means doing anything with personal data, whether by hand or with a computer. This includes things like collecting, recording, organizing, storing, changing, looking up, using, sharing, combining, limiting, deleting, or destroying the data.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Controller
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Controller means the person, company, public authority, or organization that decides why personal data is processed and how it is processed. In some cases, the law itself decides who the controller is or sets rules for how the controller is chosen.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Processor
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Processor means the person, company, or organization that processes personal data on behalf of the controller. They follow the controller’s instructions and don’t decide the purpose or the means of the processing themselves.</p>
-</div>
-</div>
-</div>
-<p>It is important to know that these rights apply to all EU residents, whether the are currently in the EU or not.</p>
+<section id="another-level-two" class="level2">
+<h2 class="anchored" data-anchor-id="another-level-two">Another Level Two</h2>
 </section>
-<section id="principles-of-lawful-processing" class="level1">
-<h1>Principles of lawful processing</h1>
-<p>To ensure the lawful processing of personal data, organizations, particularly data controllers, must adhere to a set of fundamental principles, as outlined prominently in Article 5 of the EU General Data Protection Regulation (GDPR). These principles serve as overarching requirements that must be met in addition to having a valid legal basis for processing.</p>
-<p>The seven core principles of lawful processing under the GDPR are:</p>
-<ol type="1">
-<li>Lawfulness, Fairness, and Transparency (<span class="citation" data-cites="Hildebrandt2020">(<a href="#ref-Hildebrandt2020" role="doc-biblioref"><strong>Hildebrandt2020?</strong></a>)</span>):</li>
-</ol>
-<ul>
-<li>Lawfulness requires that all processing operations have a valid legal basis, as exhaustively listed in Article 6 of the GDPR (see legal basis)</li>
-<li>Fairness implies balancing and proportionality tests, considering the relevant interests and fundamental rights at stake.</li>
-<li>Transparency necessitates providing clear and accessible information to data subjects, for instance, through privacy notices, and is further detailed in Articles 13, 14, and 15 GDPR. It ensures that data subjects can predict how their data will be handled and what outcomes to expect.</li>
-</ul>
-<ol start="2" type="1">
-<li>Purpose Limitation:</li>
-</ol>
-<ul>
-<li>Personal data must be “collected for specified, explicit and legitimate purposes and not further processed in a manner that is incompatible with those purposes”. Vague or broad goals, such as “data might become useful” or “for commercial goals,” are prohibited.</li>
-<li>Further processing for a new purpose is permissible if it is “not incompatible” with the original purpose. Factors for determining compatibility include the link between purposes, collection context, data nature/sensitivity, potential consequences for the data subject, and the existence of safeguards like encryption or pseudonymization.</li>
-<li>Notably, further processing for archiving in the public interest, scientific or historical research, or statistical purposes is explicitly deemed compatible with the initial purposes, provided suitable safeguards are in place.</li>
-</ul>
-<ol start="3" type="1">
-<li>Data Minimization:</li>
-</ol>
-<ul>
-<li>Data collected must be “adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed”</li>
-</ul>
-<ol start="4" type="1">
-<li>Accuracy</li>
-</ol>
-<ul>
-<li>Personal data must be accurate, and when necessary, kept up to date.</li>
-<li>Controllers are legally obliged to take every reasonable step to ensure that inaccurate personal data is erased or rectified without delay, especially concerning the purposes for which it is processed.</li>
-</ul>
-<ol start="5" type="1">
-<li>Storage Limitation</li>
-</ol>
-<ul>
-<li><p>Personal data must be “kept in a form which permits identification of data subjects for no longer than is necessary for the purposes for which the personal data are processed”.</p></li>
-<li><p>This also prevents keeping the data for longer than necessary for “just in case”.</p></li>
-</ul>
-<ol start="6" type="1">
-<li>Integrity and Confidentiality</li>
-</ol>
-<ul>
-<li><p>Personal data must be “processed in a manner that ensures appropriate security of the personal data, including protection against unauthorised or unlawful processing and against accidental loss, destruction or damage, using appropriate technical or organisational measures”.</p></li>
-<li><p>The GDPR mandates “appropriate” security, not “perfect” security. This principle connects directly to the requirement of security by design (Article 32 GDPR) and the obligation for controllers to notify supervisory authorities and data subjects in case of data breaches (Articles 33 and 34 GDPR). Pseudonymization and encryption are examples of security measures that can be implemented.</p></li>
-</ul>
-<ol start="7" type="1">
-<li>Accountability</li>
-</ol>
-<ul>
-<li><p>“The controller shall be responsible for, and be able to demonstrate compliance with” all the aforementioned principles.</p></li>
-<li><p>This principle makes the data controller the focal point of responsibility and liability under the GDPR. It requires controllers to maintain records of processing activities, and in some cases, to appoint a Data Protection Officer (DPO). The accountability principle underscores a proactive approach to compliance, moving beyond merely reactive measures.</p></li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Data collection.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>If you</p>
-<p>This content is inside a collapsible tip box.</p>
-<ul>
-<li>Item 1</li>
-<li>Item 2</li>
-</ul>
-</div>
-</div>
-</div>
 </section>
-<section id="integration-with-other-legal-frameworks" class="level1">
-<h1>Integration with other legal frameworks</h1>
-<p>To date, an overarching international framework for anonymisation does not exist - it would also be quite hard to find a common group between varying legal frameworks.</p>
-
+<section id="level-one-again" class="level1">
+<h1>Level One Again</h1>
+<section id="level-two-1" class="level2">
+<h2 class="anchored" data-anchor-id="level-two-1">Level Two</h2>
+<p>Differential Privacy</p>
 
 
 </section>
+</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-jarmul2023practical" class="csl-entry" role="listitem">
-Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. " O’Reilly Media, Inc.".
-</div>
-</div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -991,13 +778,13 @@ Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. " O’Reilly Media, In
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../1_FOUNDATION/1_1_Introduction_data_privacy.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html" class="pagination-link" aria-label="Non-Perturbative Techniques">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Non-Perturbative Techniques</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../1_FOUNDATION/1_3_Mechanisms.html" class="pagination-link" aria-label="Mechanisms">
-        <span class="nav-page-text">Mechanisms</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html" class="pagination-link" aria-label="Deassociative Techniques">
+        <span class="nav-page-text">Deassociative Techniques</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1009,7 +796,7 @@ Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. " O’Reilly Media, In
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/1_FOUNDATION/1_2_GDPR.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

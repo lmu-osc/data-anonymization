@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Anonymisation and Pseudonymisation in Practice – Data Anonymisation Course</title>
+<title>Planning Data Protection – Data Anonymisation Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../3_PROTECTION/3_1_Data_security_fundamentals.html" rel="next">
-<link href="../2_DATA-ANONYMISATION/2_1_Key_concepts.html" rel="prev">
+<link href="../2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html" rel="next">
+<link href="../1_FOUNDATION/1_5_Privacy_Concepts.html" rel="prev">
 <link href="../assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -146,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_DATA-ANONYMISATION/2_1_Key_concepts.html">FOUNDATIONS: DATA ANONYMISATION</a></li><li class="breadcrumb-item"><a href="../2_DATA-ANONYMISATION/2_2_In_practice.html">In Practice</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">ANONYMIZATION PROCESS</a></li><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Planning Privacy</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">FOUNDATION</span></a>
+ <span class="menu-text">FOUNDATIONS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -195,14 +215,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATION/1_3_Personal_Data.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../1_FOUNDATION/1_3_Mechanisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mechanisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_FOUNDATION/1_4_Personal_Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Personal Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATION/1_4_Legal_Basis.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Legal Basis</span></a>
+  <a href="../1_FOUNDATION/1_5_Privacy_Concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Privacy Concepts</span></a>
   </div>
 </li>
       </ul>
@@ -210,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">FOUNDATIONS: DATA ANONYMISATION</span></a>
+ <span class="menu-text">ANONYMIZATION PROCESS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -218,14 +244,50 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_DATA-ANONYMISATION/2_1_Key_concepts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Key Concepts</span></a>
+  <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Planning Privacy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_DATA-ANONYMISATION/2_2_In_practice.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">In Practice</span></a>
+  <a href="../2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of Techniques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Non-Perturbative Techniques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Perturbative Techniques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deassociative Techniques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_ANONYMISATION_TECHNIQUES/2_6_Synthetic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Synthetic Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Choosing the Right Technique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testing and Validating Anonymization</span></a>
   </div>
 </li>
       </ul>
@@ -233,7 +295,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">PROTECTION</span></a>
+ <span class="menu-text">BALANCING DATA PROTECTION AND OPENNESS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -241,83 +303,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_PROTECTION/3_1_Data_security_fundamentals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PROTECTION Data Security Fundamentals</span></a>
+  <a href="../3_PRIVACY_OPENNESS/3_1_Balancing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Balancing Tension</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_PROTECTION/3_2_Individual_rights.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PROTECTION Individual rights</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../3_PROTECTION/3_3_Risk_management.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PROTECTION Risk management</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">ANONYMISATION TECHNIQUES</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ANONYMISATION Basic methods</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ANONYMISATION Advanced techniques</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ANONYMISATION Specialised approaches</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">PRIVACY AND OPENNESS</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../6_PRIVACY_OPENNESS/6_1_Tensions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PRIVACY AND OPENNESS</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">TOOLS AND TECHNIQUES</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../7_TOOLS_TECHNIQUES/7_1_Packages_and_techniques.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TOOLS AND TECHNIQUES Packages and techniques</span></a>
+  <a href="../3_PROTECTION/3_2_Documentation.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Documentation</span></a>
   </div>
 </li>
       </ul>
@@ -334,16 +327,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#differential-privacy" id="toc-differential-privacy" class="nav-link active" data-scroll-target="#differential-privacy">Differential Privacy</a></li>
+  <li><a href="#data-privacy-by-design" id="toc-data-privacy-by-design" class="nav-link active" data-scroll-target="#data-privacy-by-design">Data privacy by design</a></li>
+  <li><a href="#privacy-by-design-pbd-as-a-guiding-principle" id="toc-privacy-by-design-pbd-as-a-guiding-principle" class="nav-link" data-scroll-target="#privacy-by-design-pbd-as-a-guiding-principle">Privacy by Design (PbD) as a Guiding Principle</a></li>
+  <li><a href="#data-minimisation-datensparsamkeit" id="toc-data-minimisation-datensparsamkeit" class="nav-link" data-scroll-target="#data-minimisation-datensparsamkeit">Data minimisation (Datensparsamkeit)</a></li>
+  <li><a href="#federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline" id="toc-federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline" class="nav-link" data-scroll-target="#federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline">Federated learning and distributed data analysis. Data privacy in a pipeline</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
+  <ul class="collapse">
+  <li><a href="#data-set-1" id="toc-data-set-1" class="nav-link" data-scroll-target="#data-set-1">Data set 1</a></li>
+  <li><a href="#data-set-2" id="toc-data-set-2" class="nav-link" data-scroll-target="#data-set-2">Data set 2</a></li>
+  <li><a href="#data-set-3" id="toc-data-set-3" class="nav-link" data-scroll-target="#data-set-3">Data set 3</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_DATA-ANONYMISATION/2_2_In_practice.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_DATA-ANONYMISATION/2_1_Key_concepts.html">FOUNDATIONS: DATA ANONYMISATION</a></li><li class="breadcrumb-item"><a href="../2_DATA-ANONYMISATION/2_2_In_practice.html">In Practice</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">ANONYMIZATION PROCESS</a></li><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Planning Privacy</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Anonymisation and Pseudonymisation in Practice</h1>
+<h1 class="title">Planning Data Protection</h1>
 </div>
 
 
@@ -360,18 +362,180 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="differential-privacy" class="level1">
-<h1>Differential Privacy</h1>
-<p>Let’s return to one of the ” Not Clear” Cases from the exercises before, for example this one:</p>
-<p>Customer reviews are published without names or emails, but the full free-text is kept. Some reviews contain details like <em>“As a doctor at Klinikum Grosshadern…”</em> or <em>“My husband, John, surprised me with this gift.”</em></p>
-<p>You might have realized that the amount of anonymisation or pseudonymisation here is not binary, but more a gradient dependent on the situation, the process and the algorithm used to</p>
-<p>The headers below cause the table of contents/dropdown on the right to be visible.</p>
-<p>References to external resources on topics like Data Security Fundamentals, Risk Management, and Individual Rights</p>
+<p>Include in mechanisms?</p>
+<section id="data-privacy-by-design" class="level2">
+<h2 class="anchored" data-anchor-id="data-privacy-by-design">Data privacy by design</h2>
+<p>Privacy by Design (PbD) is a foundational concept and a set of principles requiring that privacy protection measures be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning.</p>
+</section>
+<section id="privacy-by-design-pbd-as-a-guiding-principle" class="level2">
+<h2 class="anchored" data-anchor-id="privacy-by-design-pbd-as-a-guiding-principle">Privacy by Design (PbD) as a Guiding Principle</h2>
+<p>PbD, originally developed by former privacy commissioner Dr.&nbsp;Ann Cavoukian, outlines measures that technologists can use to ensure privacy is architected and software is designed with privacy in mind from the start.</p>
+<p>PbD is goverened by several principles that have an impact on the research setting, which are outlined below.</p>
+<ol type="1">
+<li><p>Proactive and Preventative Approach: PbD mandates that researchers and data architects anticipate and prevent privacy invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.</p></li>
+<li><p>Privacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.</p></li>
+<li><p>Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy is not a feature that can be “sacrificed” for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find sweet spot between information and privacy—enabling enough data utility for the purpose it was collected while preserving privacy for the individuals.</p></li>
+</ol>
+</section>
+<section id="data-minimisation-datensparsamkeit" class="level2">
+<h2 class="anchored" data-anchor-id="data-minimisation-datensparsamkeit">Data minimisation (Datensparsamkeit)</h2>
+<p>Data minimisation (or in German, Datensparsamkeit) referes to the principle of “No Data, No Risk” (or less data, less risk), meaning that the threat of privacy breaches is reduced with the reduction of the amount of data collected. Datensparsamkeit pushes the data collector to consider to think about the mimimum amount of data that is needed to get the job done. Reducing the amount of stored data can also reduce the treat of the data storage to become target of a privacy attack.</p>
+</section>
+<section id="federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline">Federated learning and distributed data analysis. Data privacy in a pipeline</h2>
+<p>Federated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on premised or on the local device. In a second step, only (anonymous) summary results are collected later. Federate learning techniques are often the only option to process very sensitive, such as health data that are not permitted to leave protective hospital environments or firewalls.</p>
+<p>Federated learning and distributed data analysis needs to be planned in advance. This is because the algorithms for federate analysis are different from those that would be run on the entire data set, and because they need to be tested for <strong>data shift</strong> or <strong>data drift</strong>, hence that processing the data locally and then aggregating does lead to the same results as running the algorithm on the entire data set.</p>
+</section>
+<section id="exercise" class="level2">
+<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
+<p>You have three data sets, and you want to calculate the mean across all data sets.</p>
+<section id="data-set-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-set-1">Data set 1</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Patient ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Depression score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>001</td>
+<td>Maria Schmidt</td>
+<td>34</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>002</td>
+<td>Max Müller</td>
+<td>29</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>003</td>
+<td>Anna Fischer</td>
+<td>45</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>004</td>
+<td>—</td>
+<td>54</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>005</td>
+<td>Lukas Weber</td>
+<td>38</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>006</td>
+<td>Sophie Klein</td>
+<td>27</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-set-2" class="level3">
+<h3 class="anchored" data-anchor-id="data-set-2">Data set 2</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Patient ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Depression score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>001</td>
+<td>—</td>
+<td>62</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>002</td>
+<td>Peter Braun</td>
+<td>31</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>003</td>
+<td>Julia Meyer</td>
+<td>22</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>004</td>
+<td>David Wolf</td>
+<td>40</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-set-3" class="level3">
+<h3 class="anchored" data-anchor-id="data-set-3">Data set 3</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Patient ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Depression score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>001</td>
+<td>Elena Schwarz</td>
+<td>36</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>002</td>
+<td>Thomas Becker</td>
+<td>52</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>003</td>
+<td>Clara Hofmann</td>
+<td>28</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>004</td>
+<td>Jonas Lehmann</td>
+<td>47</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>055</td>
+<td>Paula Richter</td>
+<td>33</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p>Calculate the average Depression Score per indivdiual, in a federated way.</p>
+<p>Data anonymisation is a process of transforming sensitive data to protect the privacy of individuals <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013</a>)</span>. ts primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual <span class="citation" data-cites="el2013anonymizing">(<a href="#ref-el2013anonymizing" role="doc-biblioref">El Emam and Arbuckle 2013</a>)</span></p>
+
 
 
 </section>
+</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-el2013anonymizing" class="csl-entry" role="listitem">
+El Emam, Khaled, and Luk Arbuckle. 2013. <em>Anonymizing Health Data: Case Studies and Methods to Get You Started</em>. " O’Reilly Media, Inc.".
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -774,13 +938,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../2_DATA-ANONYMISATION/2_1_Key_concepts.html" class="pagination-link" aria-label="Key Concepts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Key Concepts</span>
+      <a href="../1_FOUNDATION/1_5_Privacy_Concepts.html" class="pagination-link" aria-label="Privacy Concepts">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Privacy Concepts</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../3_PROTECTION/3_1_Data_security_fundamentals.html" class="pagination-link" aria-label="PROTECTION Data Security Fundamentals">
-        <span class="nav-page-text">PROTECTION Data Security Fundamentals</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html" class="pagination-link" aria-label="Overview of Techniques">
+        <span class="nav-page-text">Overview of Techniques</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -792,7 +956,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_DATA-ANONYMISATION/2_2_In_practice.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
