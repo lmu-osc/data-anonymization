@@ -1,0 +1,79 @@
+---
+title: "Mechanisms of Data Protection in Research"
+---
+
+Arising from researchers' ethical and legal obligations, there are several contact points of data protection throughout the research process.
+
+(Include graph with research process and all mechanisms)
+
+List of mechanisms and stages:
+
+| Stage | Mechanism |
+|---------------|---------------------------------------------------------|
+| Plan | Data Management Plan, IRB Approval |
+| Collect | Informed Consent, Data Minimization |
+| Process | Technical and Organizational Measures, Anonymization, Data Subject Rights |
+| Analyze | Technical and Organizational Measures, Anonymization, Data Subject Rights |
+| Preserve | Technical and Organizational Measures, Anonymization, Data Subject Rights |
+| Publish | Anonymization |
+| Re-Use | Data Minimization |
+
+Data Management Plan:
+
+-   great measure, helps with data minimization and purpose orientation
+
+Institutional Review Board:
+
+-   usually purely ethical
+
+-   might also consider data protection
+
+Informed Consent:
+
+-   usually ethically motivated
+
+-   according to GDPR, participants have the right to information at data collection
+
+-   consent as one possible legal basis for processing of data (but not solely)
+
+-   non-compliance is the norm
+
+-   tutorial paper (box?)
+
+Data Minimization:
+
+-   principle in GDPR
+
+-   no purposeless collection of data (e.g., demographics)
+
+-   anonymous data collection?
+
+-   whenever possible: re-use data (no collection = best kind of data protection) and make own data re-usable (FAIR)
+
+Technical and Organizational Measures (TOMs):
+
+-   list of measures in GDPR that build additional layers of protection around data
+
+-   example: secure storage location
+
+-   example: pseudonymization (data are still personal, but adds an additional layer of protection)
+
+-   example: storage limitation
+
+Anonymization:
+
+-   process of deleting any relation to an identifiable person
+
+-   when successful: GDPR does not apply anymore, no personal data anymore
+
+-   depending on the data: complex process (focus of this tutorial)
+
+-   strongest data protection mechanism?
+
+-   does not necessarily solve all ethical mandates for data protection?
+
+Data subject rights:
+
+-   access rights
+
+-   data deletion/withdrawal of consent

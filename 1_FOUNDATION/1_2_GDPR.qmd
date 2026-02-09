@@ -2,6 +2,9 @@
 title: "The GDPR"
 ---
 
+(Will be shortened quite a lot/moved to other sections) 
+
+
 # What is the GDPR?
 
 The GDPR 

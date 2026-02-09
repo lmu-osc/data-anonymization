@@ -2,19 +2,10 @@
 title: "Personal Data"
 ---
 
-<img src="https://c.pxhere.com/images/50/bb/b66ced3b0f6c8130875ec570a3c4-1588499.jpg!d" srcset="https://c.pxhere.com/images/50/bb/b66ced3b0f6c8130875ec570a3c4-1588499.jpg!d" 
-    alt="id, driving license, personal identity"
-    style="display:block; margin:auto; width:300px;">
 
 # What are  Personal Data?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/egVmd_QFY_o?si=G5-budrhxU_D-AMx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-## Am I using personal data?
-
-In order to decide whether you need to undertake steps to protect personal information, you first need to find out whether your data contains personal data.
-
-## Definition of Personal Data
 
 According to Article 4(1) GDPR, **Personal Data** is  defined as any information relating to an identified or identifiable natural person (also named *data subject*.)
 This definition is a cornerstone of privacy regulations, particularly the EU General Data Protection Regulation (GDPR), and extends far beyond obvious identifiers.
