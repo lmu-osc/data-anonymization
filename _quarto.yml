@@ -52,8 +52,8 @@ website:
             text: "Introduction"
           - href: 1_FOUNDATION/1_2_GDPR.qmd
             text: "GDPR"
-	  - href: 1_FOUNDATION/1_3_Mechanisms.qmd
-	    text: "Mechanisms"
+          - href: 1_FOUNDATION/1_3_Mechanisms.qmd
+            text: "Mechanisms"
           - href: 1_FOUNDATION/1_4_Personal_Data.qmd
             text: "Personal Data"
           - href: 1_FOUNDATION/1_5_Privacy_Concepts.qmd
