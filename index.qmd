@@ -10,9 +10,9 @@ This **self-paced tutorial** is intended to take X hours to complete.
 
 The tutorial is split into the following sections:
 
-1.  [**FOUNDATIONS OF DATA PROTECTION**](1_FOUNDATION) talks about data protection basics in ethics and law, mechanisms of data protection in research, and foundational terms.
-2.  [**DATA ANONYMIZATION PROCESS**](2_ANONYMISATION_TECHNIQUES) walks you through the process of anonymizing your research data based on example data.
-3.  [**BALANCING DATA PROTECTION AND OPENNESS**](3_PRIVACY_OPENNESS) closes this tutorial by providing tips on aligning your data protection and open science interests.
+1.  [**FOUNDATIONS OF DATA PROTECTION**](1_FOUNDATION/1_1_Introduction_data_privacy) talks about data protection basics in ethics and law, mechanisms of data protection in research, and foundational terms.
+2.  [**DATA ANONYMIZATION PROCESS**](2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy) walks you through the process of anonymizing your research data based on example data.
+3.  [**BALANCING DATA PROTECTION AND OPENNESS**](3_PRIVACY_OPENNESS/3_1_Balancing) closes this tutorial by providing tips on aligning your data protection and open science interests.
 
 # What You'll Learn
 
