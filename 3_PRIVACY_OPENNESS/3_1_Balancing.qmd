@@ -1,5 +1,5 @@
 ---
-title: "Balancing Utiltiy and Privacy"
+title: "Balancing Utility and Privacy"
 ---
 
 
