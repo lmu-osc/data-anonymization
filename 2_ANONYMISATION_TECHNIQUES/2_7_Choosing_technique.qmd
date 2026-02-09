@@ -1,6 +1,6 @@
 ---
 title: "Choosing the right technique"
-bibliography: ..references.bib
+bibliography: ../references.bib
 ---
 
 -   contextual factors are important (e.g., sampling strategy [@guo2025])
