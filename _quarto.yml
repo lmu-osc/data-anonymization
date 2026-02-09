@@ -46,46 +46,42 @@ website:
     contents:
       - text: "Overview"
         href: index.qmd
-      - section: "FOUNDATION"
+      - section: "FOUNDATIONS"
         contents:
           - href: 1_FOUNDATION/1_1_Introduction_data_privacy.qmd
             text: "Introduction"
           - href: 1_FOUNDATION/1_2_GDPR.qmd
             text: "GDPR"
-          - href: 1_FOUNDATION/1_3_Personal_Data.qmd
+	  - href: 1_FOUNDATION/1_3_Mechanisms.qmd
+	    text: "Mechanisms"
+          - href: 1_FOUNDATION/1_4_Personal_Data.qmd
             text: "Personal Data"
-          - href: 1_FOUNDATION/1_4_Legal_Basis.qmd
-            text: "Legal Basis"
-      - section: "FOUNDATIONS: DATA ANONYMISATION"
+          - href: 1_FOUNDATION/1_5_Privacy_Concepts.qmd
+            text: "Privacy Concepts"
+      - section: "ANONYMIZATION PROCESS"
         contents:
-          - href: 2_DATA-ANONYMISATION/2_1_Key_concepts.qmd
-            text: "Key Concepts"
-          - href: 2_DATA-ANONYMISATION/2_2_In_practice.qmd
-            text: "In Practice"
-      - section: "PROTECTION"
+          - href: 2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd
+            text: "Planning Privacy"
+          - href: 2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.qmd
+            text: "Overview of Techniques"
+          - href: 2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.qmd
+            text: "Non-Perturbative Techniques"
+          - href: 2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd
+            text: "Perturbative Techniques"
+          - href: 2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.qmd
+            text: "Deassociative Techniques"
+          - href: 2_ANONYMISATION_TECHNIQUES/2_6_Synthetic.qmd
+            text: "Synthetic Data"
+          - href: 2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.qmd
+            text: "Choosing the Right Technique"
+          - href: 2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.qmd
+            text: "Testing and Validating Anonymization"
+      - section: "BALANCING DATA PROTECTION AND OPENNESS"
         contents:
-          - href: 3_PROTECTION/3_1_Data_security_fundamentals.qmd
-            text: "PROTECTION Data Security Fundamentals"
-          - href: 3_PROTECTION/3_2_Individual_rights.qmd
-            text: "PROTECTION Individual rights"
-          - href: 3_PROTECTION/3_3_Risk_management.qmd
-            text: "PROTECTION Risk management"
-      - section: "ANONYMISATION TECHNIQUES"
-        contents:
-          - href: 4_ANONYMISATION_TECHNIQUES/4_1_Basic_methods.qmd
-            text: "ANONYMISATION Basic methods"
-          - href: 4_ANONYMISATION_TECHNIQUES/4_2_Advanced_techniques.qmd
-            text: "ANONYMISATION Advanced techniques"
-          - href: 4_ANONYMISATION_TECHNIQUES/4_3_Specialised_approaches.qmd
-            text: "ANONYMISATION Specialised approaches"
-      - section: "PRIVACY AND OPENNESS"
-        contents:
-          - href: 6_PRIVACY_OPENNESS/6_1_Tensions.qmd
-            text: "PRIVACY AND OPENNESS"
-      - section: "TOOLS AND TECHNIQUES"
-        contents:
-          - href: 7_TOOLS_TECHNIQUES/7_1_Packages_and_techniques.qmd
-            text: "TOOLS AND TECHNIQUES Packages and techniques"  
+          - href: 3_PRIVACY_OPENNESS/3_1_Balancing.qmd
+            text: "Balancing Tension"
+          - href: 3_PROTECTION/3_2_Documentation.qmd
+            text: "Documentation"  
 # End Website
 
 
