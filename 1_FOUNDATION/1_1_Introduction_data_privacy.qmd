@@ -2,13 +2,12 @@
 title: "Introduction to Data Privacy"
 ---
 
-
 # What is data privacy?
 
 - Somewhat hard to define
-- Nissenbaum's concept (shortly and easy)
+- Nissenbaum's concept (short and easy)
 
-In this tutorial, I will use the term data protection. Privacy is a larger term, encompassing values, attitudes, and behaviors, while data protection is more technical and closer to actual mechanisms.
+In this tutorial, I will (mostly) use the term data protection. Privacy is a larger term, encompassing values, attitudes, and behaviors, while data protection is more technical and closer to actual mechanisms.
 
 # Why is data protection important?
 
@@ -18,7 +17,7 @@ As researchers, our obligation to data protection arises from two (not totally d
 
 # Data Protection in Research Ethics
 
-Trust of participants in research and researchers extend to handling personal data 
+Trust of participants in research and researchers extends to handling personal data 
 - Participants probably do not read consent forms 
 
 Ethical conventions (Helsinki etc.)

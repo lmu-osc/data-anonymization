@@ -25,6 +25,7 @@ PbD is goverened by several principles that have an impact on the research setti
 Data minimisation (or in German, Datensparsamkeit) referes to the principle of "No Data, No Risk" (or less data, less risk), meaning that the threat of privacy breaches is reduced with the reduction of the amount of data collected. Datensparsamkeit pushes the data collector to consider to think about the mimimum amount of data that is needed to get the job done. Reducing the amount of stored data can also reduce the treat of the data storage to become target of a privacy attack.
 
 ## Federated learning and distributed data analysis. Data privacy in a pipeline
+(move to callout box)
 
 Federated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on premised or on the local device. In a second step, only (anonymous) summary results are collected later. Federate learning techniques are often the only option to process very sensitive, such as health data that are not permitted to leave protective hospital environments or firewalls.
 
