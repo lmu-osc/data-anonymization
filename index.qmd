@@ -4,6 +4,8 @@ title: "Welcome to the Data Anonymisation Course"
 
 This website is work in progress. Please come back later in 2026 :)
 
+*Explain purpose of tutorial and conditions (quantiative data in social sciences)*
+
 # Tutorial Overview
 
 This **self-paced tutorial** is intended to take X hours to complete.
@@ -20,7 +22,7 @@ By the end of this tutorial, you will be able to:
 
 -   **Understand key concepts** in the world of privacy (e.g., anonymization, differential privacy)
 
--   **Classify** **data** in relevant categories for data protection (e.g., personal data, sensitive data)
+-   **Classify data** in relevant categories for data protection (e.g., personal data, sensitive data)
 
 -   **Apply anonymization techniques** using R in a coherent workflow
 
