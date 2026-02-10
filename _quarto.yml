@@ -79,8 +79,8 @@ website:
       - section: "BALANCING DATA PROTECTION AND OPENNESS"
         contents:
           - href: 3_PRIVACY_OPENNESS/3_1_Balancing.qmd
-            text: "Balancing Tension"
-          - href: 3_PROTECTION/3_2_Documentation.qmd
+            text: "Balancing Tensions"
+          - href: 3_PRIVACY_OPENNESS/3_2_Documentation.qmd
             text: "Documentation"  
 # End Website
 
