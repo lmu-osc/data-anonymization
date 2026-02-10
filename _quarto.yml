@@ -69,7 +69,7 @@ website:
           - href: 2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd
             text: "Perturbative Techniques"
           - href: 2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.qmd
-            text: "Deassociative Techniques"
+            text: "De-Associative Techniques"
           - href: 2_ANONYMISATION_TECHNIQUES/2_6_Synthetic.qmd
             text: "Synthetic Data"
           - href: 2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.qmd
