@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -249,7 +269,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Deassociative Techniques</span></a>
+ <span class="menu-text">De-Associative Techniques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -284,12 +304,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../3_PRIVACY_OPENNESS/3_1_Balancing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Balancing Tension</span></a>
+ <span class="menu-text">Balancing Tensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_PROTECTION/3_2_Documentation.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../3_PRIVACY_OPENNESS/3_2_Documentation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Documentation</span></a>
   </div>
 </li>
@@ -307,20 +327,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#level-one-header" id="toc-level-one-header" class="nav-link active" data-scroll-target="#level-one-header">Level One Header</a>
-  <ul class="collapse">
-  <li><a href="#level-two" id="toc-level-two" class="nav-link" data-scroll-target="#level-two">Level Two</a>
-  <ul class="collapse">
-  <li><a href="#l3" id="toc-l3" class="nav-link" data-scroll-target="#l3">L3</a></li>
-  <li><a href="#l3-again" id="toc-l3-again" class="nav-link" data-scroll-target="#l3-again">L3 Again</a></li>
-  <li><a href="#and-one-more-time" id="toc-and-one-more-time" class="nav-link" data-scroll-target="#and-one-more-time">And one more time</a></li>
-  </ul></li>
-  <li><a href="#another-level-two" id="toc-another-level-two" class="nav-link" data-scroll-target="#another-level-two">Another Level Two</a></li>
-  </ul></li>
-  <li><a href="#level-one-again" id="toc-level-one-again" class="nav-link" data-scroll-target="#level-one-again">Level One Again</a>
-  <ul class="collapse">
-  <li><a href="#level-two-1" id="toc-level-two-1" class="nav-link" data-scroll-target="#level-two-1">Level Two</a></li>
-  </ul></li>
+  <li><a href="#swapping" id="toc-swapping" class="nav-link active" data-scroll-target="#swapping">Swapping</a></li>
+  <li><a href="#re-sampling" id="toc-re-sampling" class="nav-link" data-scroll-target="#re-sampling">Re-sampling</a></li>
+  <li><a href="#noise" id="toc-noise" class="nav-link" data-scroll-target="#noise">Noise</a></li>
+  <li><a href="#microaggregation" id="toc-microaggregation" class="nav-link" data-scroll-target="#microaggregation">Microaggregation</a></li>
+  <li><a href="#rounding" id="toc-rounding" class="nav-link" data-scroll-target="#rounding">Rounding</a></li>
+  <li><a href="#pram" id="toc-pram" class="nav-link" data-scroll-target="#pram">PRAM</a></li>
+  <li><a href="#shuffling" id="toc-shuffling" class="nav-link" data-scroll-target="#shuffling">Shuffling</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -346,36 +360,126 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The headers below cause the table of contents/dropdown on the right to be visible.</p>
-<section id="level-one-header" class="level1">
-<h1>Level One Header</h1>
-<section id="level-two" class="level2">
-<h2 class="anchored" data-anchor-id="level-two">Level Two</h2>
-<section id="l3" class="level3">
-<h3 class="anchored" data-anchor-id="l3">L3</h3>
+<p>Not only masking of values, but distortion of values</p>
+<p><em>Explain the idea and advantages more</em></p>
+<p><em>Add a pro and con list?</em></p>
+<ul>
+<li><p>danger of reverse-engineering the perturbation technique applied</p></li>
+<li><p>goal: statistics run on the original dataset yield the same results as statistics run on the perturbed dataset</p></li>
+</ul>
+<p><em>Select most relevant techniques (swapping, noise?); potentially shorten or delete others</em></p>
+<p><em>Add examples to each</em></p>
+<p>Techniques following <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span></p>
+<section id="swapping" class="level1">
+<h1>Swapping</h1>
+<ul>
+<li><p>exchanging values on certain variables between participants</p></li>
+<li><p>types of swapping</p>
+<ul>
+<li><p>record swapping (also known as data swapping): for categorial variables; swapping the values on the variables (e.g., gender, country of residence); t-order equivalence means that the frequency tables for t variables are not changed (e.g., 1-order equivalence: same number of males and females as before, 2-order equivalence: same number of males and females from Switzerland and Germany respectively)</p></li>
+<li><p>rank swapping: for continuous variables; swapping values only within certain range of the rank to limit distortion of data</p></li>
+</ul></li>
+<li><p>advantages</p>
+<ul>
+<li><p>removes relationship between record and individual</p></li>
+<li><p>can be used in one or more sensitive variables without disturbing the non-sensitive variables</p></li>
+<li><p>provides protection to rare and unique values</p></li>
+<li><p>not limited to the type of variable</p></li>
+</ul></li>
+<li><p>disadvantages</p>
+<ul>
+<li><p>may produce number of cases with unusual combinations</p></li>
+<li><p>non-random swapping means work</p></li>
+<li><p>can severely distort statistics for subgroups</p></li>
+<li><p>not useful against attribute disclosures</p></li>
+</ul></li>
+</ul>
 </section>
-<section id="l3-again" class="level3">
-<h3 class="anchored" data-anchor-id="l3-again">L3 Again</h3>
+<section id="re-sampling" class="level1">
+<h1>Re-sampling</h1>
+<ul>
+<li><p>idea: create averages of independent samples</p></li>
+<li><p>bootstrap independent samples</p></li>
+<li><p>use average of first sample for first row, then average of second sample for second row…</p></li>
+</ul>
+<p><em>check for correct understanding</em></p>
 </section>
-<section id="and-one-more-time" class="level3">
-<h3 class="anchored" data-anchor-id="and-one-more-time">And one more time</h3>
+<section id="noise" class="level1">
+<h1>Noise</h1>
+<ul>
+<li><p>also known as randomization</p></li>
+<li><p>idea: add more or less random value (additive noise) or multiply by more or less random value (multiplicative noise)</p></li>
+<li><p>noise can be correlated or uncorrelated with values</p></li>
+<li><p>transformations after adding the noise are possible</p></li>
+<li><p>differential privacy methods usually mean noise</p></li>
+</ul>
+</section>
+<section id="microaggregation" class="level1">
+<h1>Microaggregation</h1>
+<ul>
+<li><p>idea: create groups of similar values and change these to an aggregate value (e.g., mean, median)</p></li>
+<li><p>works better when groups are more homogeneous</p></li>
+</ul>
+</section>
+<section id="rounding" class="level1">
+<h1>Rounding</h1>
+<ul>
+<li>round values to certain other values</li>
+</ul>
+</section>
+<section id="pram" class="level1">
+<h1>PRAM</h1>
+<ul>
+<li>Post RAndomisation Method</li>
+<li>values on a categorical variable are recoded with a certain probability</li>
+</ul>
+</section>
+<section id="shuffling" class="level1">
+<h1>Shuffling</h1>
+<ul>
+<li>variation of swapping</li>
+<li>generate new sensitive data based on similar distributional properties</li>
+<li>change the order of sensitive values based on the rank of new sensitive data</li>
+</ul>
+<p><em>Explain how to ensure that the statistics are the same</em></p>
+<section id="learning-objective" class="level4">
+<h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
+<ul>
+<li>After completing this part of the tutorial, you will be able to apply selected perturbative techniques in R.</li>
+</ul>
+</section>
+<section id="exercise" class="level4">
+<h4 class="anchored" data-anchor-id="exercise">Exercise</h4>
+<ul>
+<li><p>Apply one or two techniques for certain variables in R</p></li>
+<li><p>Check statistics before and after</p></li>
+</ul>
+</section>
+<section id="resources-links-examples" class="level4">
+<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+<ul>
+<li>adding noise with the <code>sdcMicro</code> R package</li>
+</ul>
+</section>
+<section id="to-do-list" class="level4">
+<h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
+<ul>
+<li>Research best practices on ensuring that statistics stay similar</li>
+</ul>
 </section>
 </section>
-<section id="another-level-two" class="level2">
-<h2 class="anchored" data-anchor-id="another-level-two">Another Level Two</h2>
-</section>
-</section>
-<section id="level-one-again" class="level1">
-<h1>Level One Again</h1>
-<section id="level-two-1" class="level2">
-<h2 class="anchored" data-anchor-id="level-two-1">Level Two</h2>
-<p>Differential Privacy</p>
+<section id="references" class="level1">
+
+
 
 
 </section>
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
+Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -783,8 +887,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html" class="pagination-link" aria-label="Deassociative Techniques">
-        <span class="nav-page-text">Deassociative Techniques</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html" class="pagination-link" aria-label="De-Associative Techniques">
+        <span class="nav-page-text">De-Associative Techniques</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

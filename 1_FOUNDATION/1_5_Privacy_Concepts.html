@@ -304,7 +304,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Deassociative Techniques</span></a>
+ <span class="menu-text">De-Associative Techniques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -339,12 +339,12 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../3_PRIVACY_OPENNESS/3_1_Balancing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Balancing Tension</span></a>
+ <span class="menu-text">Balancing Tensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_PROTECTION/3_2_Documentation.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../3_PRIVACY_OPENNESS/3_2_Documentation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Documentation</span></a>
   </div>
 </li>
@@ -362,9 +362,11 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#differential-privacy" id="toc-differential-privacy" class="nav-link active" data-scroll-target="#differential-privacy">Differential Privacy</a></li>
+  <li><a href="#privacy-risks" id="toc-privacy-risks" class="nav-link active" data-scroll-target="#privacy-risks">Privacy Risks</a></li>
+  <li><a href="#differential-privacy" id="toc-differential-privacy" class="nav-link" data-scroll-target="#differential-privacy">Differential Privacy</a></li>
   <li><a href="#k-anonymity" id="toc-k-anonymity" class="nav-link" data-scroll-target="#k-anonymity">K-anonymity</a></li>
   <li><a href="#the-sdcmicro-r-package" id="toc-the-sdcmicro-r-package" class="nav-link" data-scroll-target="#the-sdcmicro-r-package">The sdcMicro R package</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/1_FOUNDATION/1_5_Privacy_Concepts.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -390,6 +392,24 @@ div.csl-indent {
 </header>
 
 
+<section id="privacy-risks" class="level1">
+<h1>Privacy Risks</h1>
+<p>Disclosure risks according to <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span></p>
+<p><em>Explain each risk more</em></p>
+<p><em>Add research related examples to each risk</em></p>
+<ul>
+<li><p><strong>identity disclosure</strong>: when an intruder can recognize that a record in the released dataset concerns an individual by matching QI values</p></li>
+<li><p><strong>attribute disclosure</strong>: when an intruder is able to determine new characteristics of a data subject based on the information available in the released data</p></li>
+<li><p><strong>inferential disclosure</strong>: when an intruder can infer the data subject’s private information with high confidence from statistical properties of the released data</p>
+<ul>
+<li>ChatGPT example: 90% of females aged 40-50 have burnout –&gt; very likely, that person I know is in that group in the study has burnout; also might relate to people who are not part of that dataset</li>
+</ul></li>
+<li><p><strong>membership disclosure</strong>: when an intruder is able to conclude whether the private information regarding a certain individual is present or not in the dataset</p>
+<ul>
+<li>ChatGPT example: a dataset on unregistered immigrants was released. I can infer that one row belongs to my colleague –&gt; I know that my colleague is not registered</li>
+</ul></li>
+</ul>
+</section>
 <section id="differential-privacy" class="level1">
 <h1>Differential Privacy</h1>
 <p>Let’s return to one of the ” Not Clear” Cases from the exercises before, for example this one:</p>
@@ -402,6 +422,7 @@ div.csl-indent {
 <h1>K-anonymity</h1>
 <p>Definition and Initial Purpose K-anonymity was developed by computer scientist Latanya Sweeney following her demonstration of how she could re-identify supposedly anonymized medical records released by the State of Massachusetts. By linking public medical records with voter registration records using quasi-identifiers like age, zip code, and gender, she was able to single out individuals, including the governor’s medical records (p 54, <span class="citation" data-cites="jarmul2023practical">Jarmul (<a href="#ref-jarmul2023practical" role="doc-biblioref">2023</a>)</span>). The principle of k-anonymity attempts to mitigate such linkage attacks by ensuring that in any released dataset, each record is indistinguishable from at least k-1 other records concerning a set of “quasi-identifiers” (attributes that, when combined, can uniquely identify an individual). This means grouping people with similar sensitive attributes, and not releasing groups that have fewer than k people.</p>
 <p>An example of K-anonnymity is given below.</p>
+<p><em>Move package info to next part</em></p>
 </section>
 <section id="the-sdcmicro-r-package" class="level1">
 <h1>The sdcMicro R package</h1>
@@ -468,12 +489,18 @@ div.csl-indent {
 </table>
 </div>
 </div>
+</section>
+<section id="references" class="level1">
+
 
 
 
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
+Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
+</div>
 <div id="ref-jarmul2023practical" class="csl-entry" role="listitem">
 Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. " O’Reilly Media, Inc.".
 </div>
