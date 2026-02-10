@@ -1,25 +1,115 @@
 ---
 title: "Perturbative Techniques"
+bibliography: ../references.bib
 ---
 
+Not only masking of values, but distortion of values
 
-The headers below cause the table of contents/dropdown on the right to be visible. 
+*Explain the idea and advantages more*
 
-# Level One Header
+*Add a pro and con list?*
 
-## Level Two
+-   danger of reverse-engineering the perturbation technique applied
 
-### L3
+-   goal: statistics run on the original dataset yield the same results as statistics run on the perturbed dataset
 
-### L3 Again
+*Select most relevant techniques (swapping, noise?); potentially shorten or delete others*
 
-### And one more time
+*Add examples to each*
 
-## Another Level Two
+Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 
+# Swapping
 
-# Level One Again
+-   exchanging values on certain variables between participants
 
-## Level Two
+-   types of swapping
 
-Differential Privacy
+    -   record swapping (also known as data swapping): for categorial variables; swapping the values on the variables (e.g., gender, country of residence); t-order equivalence means that the frequency tables for t variables are not changed (e.g., 1-order equivalence: same number of males and females as before, 2-order equivalence: same number of males and females from Switzerland and Germany respectively)
+
+    -   rank swapping: for continuous variables; swapping values only within certain range of the rank to limit distortion of data
+
+-   advantages
+
+    -   removes relationship between record and individual
+
+    -   can be used in one or more sensitive variables without disturbing the non-sensitive variables
+
+    -   provides protection to rare and unique values
+
+    -   not limited to the type of variable
+
+-   disadvantages
+
+    -   may produce number of cases with unusual combinations
+
+    -   non-random swapping means work
+
+    -   can severely distort statistics for subgroups
+
+    -   not useful against attribute disclosures
+
+# Re-sampling
+
+-   idea: create averages of independent samples
+
+-   bootstrap independent samples
+
+-   use average of first sample for first row, then average of second sample for second row...
+
+*check for correct understanding*
+
+# Noise
+
+-   also known as randomization
+
+-   idea: add more or less random value (additive noise) or multiply by more or less random value (multiplicative noise)
+
+-   noise can be correlated or uncorrelated with values
+
+-   transformations after adding the noise are possible
+
+-   differential privacy methods usually mean noise
+
+# Microaggregation
+
+-   idea: create groups of similar values and change these to an aggregate value (e.g., mean, median)
+
+-   works better when groups are more homogeneous
+
+# Rounding
+
+-   round values to certain other values
+
+# PRAM
+
+-   Post RAndomisation Method
+-   values on a categorical variable are recoded with a certain probability
+
+# Shuffling
+
+-   variation of swapping
+-   generate new sensitive data based on similar distributional properties
+-   change the order of sensitive values based on the rank of new sensitive data
+
+*Explain how to ensure that the statistics are the same*
+
+#### Learning Objective
+
+-   After completing this part of the tutorial, you will be able to apply selected perturbative techniques in R.
+
+#### Exercise
+
+-   Apply one or two techniques for certain variables in R
+
+-   Check statistics before and after
+
+#### Resources, Links, Examples
+
+-   adding noise with the `sdcMicro` R package
+
+#### To Do List
+
+-   Research best practices on ensuring that statistics stay similar
+
+# References

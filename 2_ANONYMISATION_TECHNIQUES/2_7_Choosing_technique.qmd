@@ -5,20 +5,13 @@ bibliography: ../references.bib
 
 -   contextual factors are important (e.g., sampling strategy [@guo2025])
 
-# Level One Header
+#### Learning Objective
 
-## Level Two
+- After completing this part of the tutorial, you will
 
-### L3
+#### Exercises
 
-### L3 Again
+#### Resources, Links, Examples
 
-### And one more time
+#### To Do List
 
-## Another Level Two
-
-# Level One Again
-
-## Level Two
-
-Differential Privacy

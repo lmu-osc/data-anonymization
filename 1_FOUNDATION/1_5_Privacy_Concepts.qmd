@@ -1,6 +1,27 @@
 ---
 title: "Privacy Concepts"
+bibliography: ../references.bib
 ---
+
+# Privacy Risks
+
+Disclosure risks according to @Carvalho2023_SurveyPrivacyPreservingTechniques
+
+*Explain each risk more*
+
+*Add research related examples to each risk*
+
+-   **identity disclosure**: when an intruder can recognize that a record in the released dataset concerns an individual by matching QI values
+
+-   **attribute disclosure**: when an intruder is able to determine new characteristics of a data subject based on the information available in the released data
+
+-   **inferential disclosure**: when an intruder can infer the data subject's private information with high confidence from statistical properties of the released data
+
+    -    ChatGPT example: 90% of females aged 40-50 have burnout --\> very likely, that person I know is in that group in the study has burnout; also might relate to people who are not part of that dataset
+
+-   **membership disclosure**: when an intruder is able to conclude whether the private information regarding a certain individual is present or not in the dataset
+
+    -   ChatGPT example: a dataset on unregistered immigrants was released. I can infer that one row belongs to my colleague --\> I know that my colleague is not registered
 
 # Differential Privacy
 
@@ -14,19 +35,17 @@ The headers below cause the table of contents/dropdown on the right to be visibl
 
 References to external resources on topics like Data Security Fundamentals, Risk Management, and Individual Rights
 
-
-
 # K-anonymity
 
-Definition and Initial Purpose
-K-anonymity was developed by computer scientist Latanya Sweeney following her demonstration of how she could re-identify supposedly anonymized medical records released by the State of Massachusetts. By linking public medical records with voter registration records using quasi-identifiers like age, zip code, and gender, she was able to single out individuals, including the governor's medical records (p 54, @jarmul2023practical). The principle of k-anonymity attempts to mitigate such linkage attacks by ensuring that in any released dataset, each record is indistinguishable from at least k-1 other records concerning a set of "quasi-identifiers" (attributes that, when combined, can uniquely identify an individual). This means grouping people with similar sensitive attributes, and not releasing groups that have fewer than k people.
+Definition and Initial Purpose K-anonymity was developed by computer scientist Latanya Sweeney following her demonstration of how she could re-identify supposedly anonymized medical records released by the State of Massachusetts. By linking public medical records with voter registration records using quasi-identifiers like age, zip code, and gender, she was able to single out individuals, including the governor's medical records (p 54, @jarmul2023practical). The principle of k-anonymity attempts to mitigate such linkage attacks by ensuring that in any released dataset, each record is indistinguishable from at least k-1 other records concerning a set of "quasi-identifiers" (attributes that, when combined, can uniquely identify an individual). This means grouping people with similar sensitive attributes, and not releasing groups that have fewer than k people.
 
 An example of K-anonnymity is given below.
+
+*Move package info to next part*
 
 # The sdcMicro R package
 
 sdcMicro is a R package specialized on the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).
-
 
 Let's generate some fake data:
 
@@ -39,6 +58,7 @@ data <- data.frame(
 )
 
 ```
+
 ```{r}
 #| echo: false
 knitr::kable(
@@ -46,3 +66,5 @@ knitr::kable(
   caption = "Raw data example"
 )
 ```
+
+# References

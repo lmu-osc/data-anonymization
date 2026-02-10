@@ -1,25 +1,19 @@
 ---
-title: "Perturbative Techniques"
+title: "Synthetic Data"
 ---
 
+*Explain the basic idea of synthetic data and the advantages and disadvantages of anonymization*
 
-The headers below cause the table of contents/dropdown on the right to be visible. 
+#### Learning Objective
 
-# Level One Header
+-   After completing this part of the tutorial, you will understand the idea of synthesizing data for anonymization.
 
-## Level Two
+#### Exercises
 
-### L3
+none
 
-### L3 Again
+#### Resources, Links, Examples
 
-### And one more time
+[LMU Tutorial on synthesizing data](https://lmu-osc.github.io/synthetic-data-tutorial/)
 
-## Another Level Two
-
-
-# Level One Again
-
-## Level Two
-
-Differential Privacy
+#### To Do List

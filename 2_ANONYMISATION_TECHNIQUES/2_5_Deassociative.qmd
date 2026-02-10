@@ -2,4 +2,24 @@
 title: "De-Associative Techniques"
 ---
 
+-   idea: break the association between indirect identifiers and other data
 
+-   simplest idea: separating datasets
+
+    -   disadvantage: no connection possible for data analysis purposes
+
+*select techniques to present here*
+
+#### Learning Objective
+
+-   After completing this part of the tutorial, you will be able to apply selected de-associative techniques in R.
+
+#### Exercises
+
+-   apply one selected technique to the dataset
+
+#### Resources, Links, Examples
+
+#### To Do List
+
+*More research on specific de-associative techniques*

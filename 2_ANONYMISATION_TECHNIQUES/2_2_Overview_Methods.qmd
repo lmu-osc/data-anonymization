@@ -19,6 +19,8 @@ In the next sections of the tutorial, I will present you with several groups of 
 
 *Insert graphics*
 
+*Add info on which risks these techniques mitigate*
+
 *Explain the structure of the following parts (exercises based on the same data)*
 
 *Mention to what data this applies*

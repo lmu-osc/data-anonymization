@@ -5,6 +5,8 @@ bibliography: ../references.bib
 
 Non-perturbative techniques are those that do not change the values of data, but rather conceal certain values. This includes all techniques referred to as data masking, suppression, and deletion.
 
+*Add pro and con list?*
+
 Depending on the specific data type and risk, different techniques are possible [@Carvalho2023_SurveyPrivacyPreservingTechniques]:
 
 # Global Recoding 
