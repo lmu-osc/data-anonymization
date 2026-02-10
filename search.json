@@ -187,43 +187,7 @@
     "href": "2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.html",
     "title": "Testing and Validating Anonymization",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "ANONYMIZATION PROCESS",
-      "Testing and Validating Anonymization"
-    ]
-  },
-  {
-    "objectID": "2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.html#level-two",
-    "href": "2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.html#level-two",
-    "title": "Testing and Validating Anonymization",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "ANONYMIZATION PROCESS",
-      "Testing and Validating Anonymization"
-    ]
-  },
-  {
-    "objectID": "2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.html#another-level-two",
-    "href": "2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.html#another-level-two",
-    "title": "Testing and Validating Anonymization",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "ANONYMIZATION PROCESS",
-      "Testing and Validating Anonymization"
-    ]
-  },
-  {
-    "objectID": "2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.html#level-two-1",
-    "href": "2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.html#level-two-1",
-    "title": "Testing and Validating Anonymization",
-    "section": "Level Two",
-    "text": "Level Two\nDifferential Privacy",
+    "text": "Calculate privacy levels (k-anonymity, etc.) (also utility?)\nRed teaming data anonymization (Jansen2026_PuttingPrivacyTest?)\nPeople to contact at LMU (data stewards? open science team?)\n\n\nLearning Objective\n\nAfter completing this part of the tutorial, you will be able to estimate the success of anonymization of your data.\n\n\n\nExercises\n\napply methods (especially calculation or k-anonymity)\n\n\n\nResources, Links, Examples\n\n\nTo Do List\n\nresearch methods\n\n\n\nReferences\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
       "ANONYMIZATION PROCESS",
@@ -244,9 +208,9 @@
   {
     "objectID": "3_PRIVACY_OPENNESS/3_2_Documentation.html",
     "href": "3_PRIVACY_OPENNESS/3_2_Documentation.html",
-    "title": "Balancing Utiltiy and Privacy",
+    "title": "Documentation",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.\n\n\n\n Back to top",
+    "text": "important for auditing\nshould include description of technical solutions employed and risk management\ncrucial for transparency towards data subjects and for data receivers\nchanges to each variable could/should be part of a data codebook? (best practices?)\nattention: no de-anonymization by accident in scripts\n\n\nLearning Objective\n\nAfter completing this part of the tutorial, you will know best practices on how to document your anonymization process.\n\n\n\nExercises\n\nidea: documentation of earlier anonymization steps\n\n\n\nResources, Links, Examples\n\n\nTo Do List\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
       "BALANCING DATA PROTECTION AND OPENNESS",
@@ -258,7 +222,7 @@
     "href": "3_PRIVACY_OPENNESS/3_1_Balancing.html",
     "title": "Balancing Utility and Privacy",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.\n\n\n\n Back to top",
+    "text": "contradictory ideals, but enable each other\nutility indices (short, potentially as call-out box)\nsummarize ideas by (Jansen2025_TensionOpenData?)\n\n\nLearning Objective\n\nAfter completing this part of the tutorial, you will be able to make informed decisions when balancing the risks and utility of the anonymized data.\n\n\n\nExercises\nnone\n\n\nResources, Links, Examples\n\n\nTo Do List\n\n\nReferences\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
       "BALANCING DATA PROTECTION AND OPENNESS",
@@ -308,7 +272,7 @@
     "href": "2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.html",
     "title": "Choosing the right technique",
     "section": "",
-    "text": "contextual factors are important (e.g., sampling strategy (Guo et al. 2025))\n\n\nLearning Objective\n\nAfter completing this part of the tutorial, you will\n\n\n\nExercises\n\n\nResources, Links, Examples\n\n\n\n\n\n\n\n\n Back to topTo Do List\n\nGuo, Wentao, Paige Pepitone, Adam J Aviv, and Michelle L Mazurek. 2025. “USENIX Security Symposium.” In. Seattle, WA, USA. https://www.usenix.org/system/files/usenixsecurity25-guo-wentao.pdf.",
+    "text": "contextual factors are important (e.g., sampling strategy (Guo et al. 2025))\n\nDetermine relevant factors of the data\nCreate some kind of decision tree/checklist to choose techniques\n\nLearning Objective\n\nAfter completing this part of the tutorial, you will be able to choose a suitable technique based on your data.\n\n\n\nExercises\n\nGive examples of datasets and ask for the best anonymization strategy\n\n\n\nResources, Links, Examples\n\n\nTo Do List\n\nCome up with factors\n\n\n\n\n\n\n Back to topReferences\n\nGuo, Wentao, Paige Pepitone, Adam J Aviv, and Michelle L Mazurek. 2025. “USENIX Security Symposium.” In. Seattle, WA, USA. https://www.usenix.org/system/files/usenixsecurity25-guo-wentao.pdf.",
     "crumbs": [
       "Home",
       "ANONYMIZATION PROCESS",
