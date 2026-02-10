@@ -1,7 +1,24 @@
 ---
 title: "Balancing Utility and Privacy"
+bibliography: ../references.bib
 ---
 
 
-The headers below cause the table of contents/dropdown on the right to be visible. 
+- contradictory ideals, but enable each other 
+- utility indices (short, potentially as call-out box)
+- summarize ideas by @Jansen2025_TensionOpenData
 
+
+
+#### Learning Objective
+
+- After completing this part of the tutorial, you will be able to make informed decisions when balancing the risks and utility of the anonymized data.
+
+#### Exercises
+none
+
+#### Resources, Links, Examples
+
+#### To Do List
+
+# References

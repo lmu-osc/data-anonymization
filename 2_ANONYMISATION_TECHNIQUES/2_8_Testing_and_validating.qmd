@@ -2,24 +2,24 @@
 title: "Testing and Validating Anonymization"
 ---
 
+-   Calculate privacy levels (k-anonymity, etc.) (also utility?)
 
-The headers below cause the table of contents/dropdown on the right to be visible. 
+-   Red teaming data anonymization @Jansen2026_PuttingPrivacyTest
 
-# Level One Header
+-   People to contact at LMU (data stewards? open science team?)
 
-## Level Two
+#### Learning Objective
 
-### L3
+-   After completing this part of the tutorial, you will be able to estimate the success of anonymization of your data.
 
-### L3 Again
+#### Exercises
 
-### And one more time
+-   apply methods (especially calculation or k-anonymity)
 
-## Another Level Two
+#### Resources, Links, Examples
 
+#### To Do List
 
-# Level One Again
+-   research methods
 
-## Level Two
-
-Differential Privacy
+# References

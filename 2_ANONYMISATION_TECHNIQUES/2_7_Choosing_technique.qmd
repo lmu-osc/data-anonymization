@@ -5,13 +5,20 @@ bibliography: ../references.bib
 
 -   contextual factors are important (e.g., sampling strategy [@guo2025])
 
+*Determine relevant factors of the data*
+
+*Create some kind of decision tree/checklist to choose techniques*
+
 #### Learning Objective
 
-- After completing this part of the tutorial, you will
+-   After completing this part of the tutorial, you will be able to choose a suitable technique based on your data.
 
 #### Exercises
+
+-   Give examples of datasets and ask for the best anonymization strategy
 
 #### Resources, Links, Examples
 
 #### To Do List
 
+-   Come up with factors

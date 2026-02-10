@@ -1,7 +1,21 @@
 ---
-title: "Balancing Utiltiy and Privacy"
+title: "Documentation"
 ---
 
+- important for auditing 
+- should include description of technical solutions employed and risk management
+- crucial for transparency towards data subjects and for data receivers 
+- changes to each variable could/should be part of a data codebook? (best practices?)
 
-The headers below cause the table of contents/dropdown on the right to be visible. 
+- attention: no de-anonymization by accident in scripts
 
+
+#### Learning Objective
+- After completing this part of the tutorial, you will know best practices on how to document your anonymization process.
+
+#### Exercises
+- idea: documentation of earlier anonymization steps
+
+#### Resources, Links, Examples
+
+#### To Do List
