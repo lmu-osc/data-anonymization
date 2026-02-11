@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -314,6 +334,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/1_FOUNDATION/1_4_Personal_Data.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -349,7 +370,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Direct identifiers</strong>. These are information that can directly point out and identify an individual, such as address, social security number, bank accounts, or an email address.</p></li>
 <li><p><strong>Indirect or quasi identifiers</strong>. These are data that can, when combined with other pieces of data, lead to the identification of an individual. Examples include date of birth, age, gender, geographic location (like a ZIP or postal code), marital status, or details about events (e.g., admission dates, procedure codes).</p></li>
 </ul>
-<p>The assessment of whether a person is identifiable takes into account all means reasonably likely to be used by either the data controller or another person to identify the natural person, including methods like “singling out”. This “reasonably likely” criterion considers objective factors such as the costs, time, effort, and available technological means at the time of processing and potential future technological developments. For instance, a dynamic IP address can qualify as personal data if it can be linked to a specific person, even if that linking capability resides with an Internet Service Provider and requires a court order (see also legal case Breyer v. Germany).</p>
+<p>The assessment of whether a person is identifiable takes into account all means reasonably likely to be used by the data controller or another person to identify the natural person, including methods such as “singling out”. This “reasonably likely” criterion considers objective factors such as costs, time, effort, and the technological means available at the time of processing, as well as potential future technological developments. For instance, a dynamic IP address can qualify as personal data if it can be linked to a specific person, even if that linking capability resides with an Internet Service Provider and requires a court order (see also legal case Breyer v. Germany).</p>
+<p><em>Shorten a bit/make more coherent</em></p>
 <section id="special-types-of-personal-data" class="level2">
 <h2 class="anchored" data-anchor-id="special-types-of-personal-data">Special Types of Personal Data</h2>
 <ol type="1">
@@ -372,6 +394,7 @@ ul.task-list li input[type="checkbox"] {
 <li>information about criminal convictions and offenses</li>
 <li>financial data</li>
 </ul>
+<p><em>Change the exercise to data that R excercises will be based on</em></p>
 </section>
 <section id="exercise" class="level2">
 <h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
@@ -389,13 +412,13 @@ Caution
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 9%">
 <col style="width: 12%">
-<col style="width: 3%">
-<col style="width: 6%">
-<col style="width: 23%">
 <col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
 <col style="width: 12%">
 </colgroup>
 <thead>
@@ -575,12 +598,41 @@ Caution
 <li>Which contain special categories of personal data?</li>
 <li>Is there any column that does not contain personal data?</li>
 </ol>
+<section id="learning-objective" class="level4">
+<h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
+<ul>
+<li>After completing this part of the tutorial, you will be able to distinguish between personal data and non-personal data, as well as sensitive and non-sensitive data, and be able to identify direct and indirect identifiers.</li>
+</ul>
+</section>
+<section id="exercises" class="level4">
+<h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
+<ul>
+<li>Identify variables that contain direct identifiers, indirect identifiers, and sensitive data</li>
+</ul>
+</section>
+<section id="resources-links-examples" class="level4">
+<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+<ul>
+<li>examples for how to categorize data: <span class="citation" data-cites="VanRavenzwaaij2025_DeidentificationWhenMaking">Van Ravenzwaaij et al. (<a href="#ref-VanRavenzwaaij2025_DeidentificationWhenMaking" role="doc-biblioref">2025</a>)</span></li>
+</ul>
+</section>
+<section id="to-do-list" class="level4">
+<h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
+</section>
+</section>
+</section>
+<section id="references" class="level1">
+
+
 
 
 </section>
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-VanRavenzwaaij2025_DeidentificationWhenMaking" class="csl-entry" role="listitem">
+Van Ravenzwaaij, Don, Marlon De Jong, Rink Hoekstra, Susanne Scheibe, Mark M. Span, Ineke Wessel, and Vera Ellen Heininga. 2025. <span>“De-Identification When Making Data Sets Findable, Accessible, Interoperable, and Eusable (<span>FAIR</span>): <span>Two</span> Worked Examples from the Behavioral and Social Sciences.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 8 (2): 1–23. <a href="https://doi.org/10.1177/25152459251336130">https://doi.org/10.1177/25152459251336130</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
