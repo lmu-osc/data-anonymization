@@ -6,12 +6,12 @@ title: "Mechanisms of Data Protection in Research"
 
 Arising from researchers' ethical and legal obligations, there are several contact points of data protection throughout the research process.
 
-(Include graph with research process and all mechanisms)
+*Show graph with research process and all mechanisms*
 
 List of mechanisms and stages:
 
 | Stage | Mechanism |
-|----|----|
+|------------------------------------|------------------------------------|
 | Plan | Data Management Plan, IRB Approval |
 | Collect | Informed Consent, Data Minimization |
 | Process | Technical and Organizational Measures, Anonymization, Data Subject Rights |
@@ -50,7 +50,7 @@ Data Minimization:
 
 -   anonymous data collection?
 
--   whenever possible: re-use data (no collection = best kind of data protection) and make own data re-usable (FAIR)
+-   whenever possible: re-use data (no collection = best kind of data protection) and make own data re-usable (FAIR) (*link to LMU OS tutorials*)
 
 Technical and Organizational Measures (TOMs):
 
@@ -97,8 +97,6 @@ Pseudonymization (rec.28)\[<https://gdpr-info.eu/recitals/no-28/%5D> is a proces
 Pseudonymized data "can be traced back to original data value" because "indirect identifiers that remain in pseudonymized data are known to pose a potential re-identification risk". This re-identification often occurs via linkage attacks, where seemingly innocuous indirect identifiers (like age, ZIP code, and gender) are combined with external information to identify individuals.
 
 The GDPR considers peudonymisation as a first step towards reducing re-identificaton.
-
-## What is Privacy?
 
 ::: callout-important
 ## Attention
@@ -178,3 +176,20 @@ However, until data is fully anonymized, it must be treated in accordance with t
 
 **Pseudonymised** — the lab can re-link using the mapping file.
 :::
+
+#### Learning Objective
+
+-   After completing this part of the tutorial, you will know how data protection is integrated into the research process.
+-   After completing this part of the tutorial, you will know the difference between anonymization and pseudonymization.
+
+#### Exercises
+
+-   Anonymization or Pseudonymization?
+
+#### Resources, Links, Examples
+
+#### To Do List
+
+-   potentially restructure
+
+-   create graphs

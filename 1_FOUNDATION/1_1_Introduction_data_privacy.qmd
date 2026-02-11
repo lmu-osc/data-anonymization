@@ -4,8 +4,8 @@ title: "Introduction to Data Privacy"
 
 # What is data privacy?
 
-- Somewhat hard to define
-- Nissenbaum's concept (short and easy)
+-   Somewhat hard to define
+-   Nissenbaum's concept (short and easy)
 
 In this tutorial, I will (mostly) use the term data protection. Privacy is a larger term, encompassing values, attitudes, and behaviors, while data protection is more technical and closer to actual mechanisms.
 
@@ -13,23 +13,38 @@ In this tutorial, I will (mostly) use the term data protection. Privacy is a lar
 
 Some personal reflection tasks
 
-As researchers, our obligation to data protection arises from two (not totally distinct) directions: ethics and law. 
+As researchers, our obligation to data protection arises from two (not totally distinct) directions: ethics and law.
 
 # Data Protection in Research Ethics
 
-Trust of participants in research and researchers extends to handling personal data 
-- Participants probably do not read consent forms 
+Trust of participants in research and researchers extends to handling personal data
 
-Ethical conventions (Helsinki etc.)
+-   Participants probably do not read consent forms
+
+Ethical conventions (Helsinki, etc.)
 
 Professional obligations (e.g., as Psychologists)
 
 # Data Protection in Law
 
 Many laws around the globe
-Most important and always applies in EU: GDPR (short intro)
-- applies in the case of personal data
 
-Define controller and processor in terms of usual research business
+Most important and always applies in the EU: GDPR (short intro)
+
+-   applies in the case of personal data
+
+Define controller and processor in terms of the usual research business
 
 Legal basis?
+
+#### Learning Objective
+
+-   After completing this part of the tutorial, you will have a fundamental understanding of privacy and data protection.
+
+#### Exercises
+
+-   Reflection exercise regarding privacy risks
+
+#### Resources, Links, Examples
+
+#### To Do List
