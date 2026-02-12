@@ -2,19 +2,23 @@
 title: "Documentation"
 ---
 
-- important for auditing 
-- should include description of technical solutions employed and risk management
-- crucial for transparency towards data subjects and for data receivers 
-- changes to each variable could/should be part of a data codebook? (best practices?)
+-   important for auditing
 
-- attention: no de-anonymization by accident in scripts
+-   should include description of technical solutions employed and risk management
 
+-   crucial for transparency towards data subjects and for data receivers
+
+-   changes to each variable could/should be part of a data codebook? (best practices?)
+
+-   attention: no de-anonymization by accident in scripts
 
 #### Learning Objective
-- After completing this part of the tutorial, you will know best practices on how to document your anonymization process.
+
+-   After completing this part of the tutorial, you will know best practices on how to document your anonymization process.
 
 #### Exercises
-- idea: documentation of earlier anonymization steps
+
+-   idea: documentation of earlier anonymization steps
 
 #### Resources, Links, Examples
 
