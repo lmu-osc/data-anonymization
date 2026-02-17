@@ -4,7 +4,12 @@ bibliography: ../references.bib
 ---
 
 -   contradictory ideals, but enable each other
--   utility indices (short, potentially as call-out box)
+-   utility indices (short, potentially as call-out box) [@Carvalho2023_SurveyPrivacyPreservingTechniques]
+    -   call-out box on predictive performance measures for machine learning
+    -   information loss measures:
+        -   distance/distribution comparisons
+        -   a penalty of transformations through generalisation and suppression
+        -   statistical differences
 -   summarize ideas by @Jansen2025_TensionOpenData
 
 #### Learning Objective

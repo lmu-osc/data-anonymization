@@ -8,7 +8,7 @@ title: "De-Associative Techniques"
 
     -   disadvantage: no connection possible for data analysis purposes
 
-*select techniques to present here*
+*present one idea (probably bucketisation) here in concept*
 
 #### Learning Objective
 
@@ -16,7 +16,7 @@ title: "De-Associative Techniques"
 
 #### Exercises
 
--   apply one selected technique to the dataset
+-   apply one selected technique to the dataset?
 
 #### Resources, Links, Examples
 
