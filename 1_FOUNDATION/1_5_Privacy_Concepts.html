@@ -392,13 +392,24 @@ div.csl-indent {
 <section id="operationalizing-risk" class="level1">
 <h1>Operationalizing Risk</h1>
 <p>In this tutorial, I will explain basic methods for quantifying risks for categorical variables and individuals. For group-level risks or calculations of risk for continuous variables, see <a href="https://sdcpractice.readthedocs.io/en/latest/measure_risk.html" class="uri">https://sdcpractice.readthedocs.io/en/latest/measure_risk.html</a></p>
-<p>Attention: The inclusion of groups (e.g., school classes, partnerships, households) that share certain attributes introduces more risk for individuals since other group members may use the information they have on the group level to infer information</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The inclusion of groups (e.g., school classes, partnerships, households) that share certain attributes introduces more risk for individuals since other group members may use the information they have on the group level to infer information</p>
+</div>
+</div>
 </section>
 <section id="k-anonymity" class="level1">
 <h1>K-anonymity</h1>
 <p>Definition and Initial Purpose</p>
 <p>K-anonymity was developed by computer scientist Latanya Sweeney following her demonstration of how she could re-identify supposedly anonymized medical records released by the State of Massachusetts. By linking public medical records with voter registration records using quasi-identifiers like age, zip code, and gender, she was able to single out individuals, including the governor’s medical records (p 54, <span class="citation" data-cites="jarmul2023practical">Jarmul (<a href="#ref-jarmul2023practical" role="doc-biblioref">2023</a>)</span>). The principle of k-anonymity attempts to mitigate such linkage attacks by ensuring that in any released dataset, each record is indistinguishable from at least k-1 other records concerning a set of “quasi-identifiers” (attributes that, when combined, can uniquely identify an individual). This means grouping people with similar sensitive attributes, and not releasing groups that have fewer than k people.</p>
-<p>An example of K-anonnymity is given below.</p>
 <p><em>Reference to tool to find out how unique you are (in US or UK)</em> <a href="https://aisp.doc.ic.ac.uk/individual-risk/" class="uri">https://aisp.doc.ic.ac.uk/individual-risk/</a> (gender, birth date and ZIP code -&gt; 83% chance of being identifiable in US)</p>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
