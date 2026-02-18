@@ -80,6 +80,30 @@ Data Subject Rights:
 
 -   data deletion/withdrawal of consent
 
+*Introduce privacy-by-design and data minimization as requirements by GDPR*
+
+## Data privacy by design
+
+Privacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning [@Cavoukian2011_PrivacyDesignLaw].
+
+*Move the principles to a call-out box*
+
+PbD is guided by seven principles outlined below:
+
+1.  Proactive and Preventive Approach: PbD mandates that researchers and data architects anticipate and prevent privacy-invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.
+
+2.  Privacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.
+
+3.  Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy cannot be "sacrificed" for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find a sweet spot between information and privacy—enabling sufficient data utility for the purpose for which it was collected while preserving privacy for individuals.
+
+*Explain other principles*
+
+## Data minimization (Datensparsamkeit)
+
+Data minimization (or in German, Datensparsamkeit) is the principle of "No Data, No Risk" (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.
+
+*Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)*
+
 # Pseudonymization
 
 Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.The primary difference is that anonymization aims to make data non-identifiable, removing it from the scope of data protection regulations, whereas pseudonymization only reduces the ease of identification, meaning the data remains personal and subject to those regulations. Hence, pseudonymized data is still subject to the regulations of the GDPR, while anonymized data is not.
@@ -187,6 +211,10 @@ However, until data is fully anonymized, it must be treated in accordance with t
 -   Anonymization or Pseudonymization?
 
 #### Resources, Links, Examples
+
+-   Reference to an instruction/checklist for data management plans (preferably by LMU)
+
+-   Reference/call-out box to randomized response technique
 
 #### To Do List
 

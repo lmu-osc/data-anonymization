@@ -9,7 +9,7 @@ Non-perturbative techniques are those that do not change the values of data, but
 
 Depending on the specific data type and risk, different techniques are possible [@Carvalho2023_SurveyPrivacyPreservingTechniques]:
 
-# Global Recoding 
+# Global Recoding
 
 Also known as generalization
 
@@ -17,7 +17,7 @@ Generalize all values of an attribute into broader categories.
 
 Example: Replace specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”), recoding age in year to age in decade
 
-# Local Recoding 
+# Local Recoding
 
 Generalize values of a variable only when needed, not across the entire dataset.
 
@@ -25,7 +25,7 @@ Example: If only few participant are from Asia, you may recode only their values
 
 This means, that values are on different level (in this example: country vs. continent).
 
-# Top-and-Bottom Coding 
+# Top-and-Bottom Coding
 
 Applies only to numerical (at least ordinally scaled) variables
 
@@ -35,7 +35,7 @@ Example: Instead of reporting “6 children”, report “4+ children” for any
 
 How to determine the threshold can be calculated, but this is not trivial/recommendation instead?
 
-# Suppression 
+# Suppression
 
 Remove information entirely (using NA/NaN/\*) when it creates risk (also known as nulling). This can occur on different levels:
 

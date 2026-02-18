@@ -11,6 +11,7 @@ bibliography: ../references.bib
         -   a penalty of transformations through generalisation and suppression
         -   statistical differences
 -   summarize ideas by @Jansen2025_TensionOpenData
+-   after evaluation of data protection level and utility: re-work anonymization
 
 #### Learning Objective
 

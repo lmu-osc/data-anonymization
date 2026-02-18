@@ -2,6 +2,8 @@
 title: "Testing and Validating Anonymization"
 ---
 
+*Move to 3 and combine with balancing?*
+
 -   Calculate privacy levels (k-anonymity, etc.) (also utility?)
 
 -   Red teaming data anonymization @Jansen2026_PuttingPrivacyTest

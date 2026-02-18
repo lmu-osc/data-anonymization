@@ -1,5 +1,5 @@
 ---
-title: "Privacy Concepts"
+title: "Privacy Risks"
 bibliography: ../references.bib
 ---
 
@@ -7,15 +7,15 @@ bibliography: ../references.bib
 
 Disclosure risks according to @Carvalho2023_SurveyPrivacyPreservingTechniques
 
-*Explain each risk more*
+*Explain each risk more,*
 
 *Add research related examples to each risk*
 
--   **identity disclosure**: when an intruder can recognize that a record in the released dataset concerns an individual by matching QI values
+-   **identity disclosure**: when an intruder can recognize that a record in the released dataset belongs to a known individual
 
--   **attribute disclosure**: when an intruder is able to determine new characteristics of a data subject based on the information available in the released data
+-   **attribute disclosure**: when an intruder is able to determine new characteristics of an individual based on the information available in the released data
 
--   **inferential disclosure**: when an intruder can infer the data subject's private information with high confidence from statistical properties of the released data
+-   **inferential disclosure**: when an intruder can infer an individual's private information with high confidence from statistical properties of the released data (but usually not of much concern in microdata due to a lack of accuracy and, therefore, certainty)
 
     -   ChatGPT example: 90% of females aged 40-50 have burnout --\> very likely, that person I know is in that group in the study has burnout; also might relate to people who are not part of that dataset
 
@@ -23,79 +23,49 @@ Disclosure risks according to @Carvalho2023_SurveyPrivacyPreservingTechniques
 
     -   ChatGPT example: a dataset on unregistered immigrants was released. I can infer that one row belongs to my colleague --\> I know that my colleague is not registered
 
-# Differential Privacy
+Primary goal of anonymization: preventing identity and attribute disclosure
 
-Let's return to one of the " Not Clear" Cases from the exercises before, for example this one:
+## De-Anonymization Scenario 
 
-Customer reviews are published without names or emails, but the full free-text is kept. Some reviews contain details like *“As a doctor at Klinikum Grosshadern…”* or *“My husband, John, surprised me with this gift.”*
+The most common de-anonymization scenario is successfully linking external information to an individual in a dataset.
 
-You might have realized that the amount of anonymisation or pseudonymisation here is not binary, but more a gradient dependent on the situation, the process and the algorithm used to
+*Explain the basic scenario further (where can external information come from?)*
 
-The headers below cause the table of contents/dropdown on the right to be visible.
+Examples:
 
-References to external resources on topics like Data Security Fundamentals, Risk Management, and Individual Rights
+-   A dataset on online behaviors contains demographic information of first-year students in your town. Another student recognizes a person with a unique combination of age, gender, and study subject (identity disclosure). They can infer the most common websites this student visits from other data in the dataset (attribute disclosure).
+
+-   A dataset on the mental health of German politicians has been released publicly. It contains age range, gender, and professional function (e.g., member of the Bundestag). A journalist is able to re-identify several politicians by linking public information (identity disclosure) and can infer information on mental well-being (attribute disclosure).
+
+*Call-out box with real-world de-anonymization instances based on microdata*
+
+# Operationalizing Risk
+
+In this tutorial, I will explain basic methods for quantifying risks for categorical variables and individuals. For group-level risks or calculations of risk for continuous variables, see <https://sdcpractice.readthedocs.io/en/latest/measure_risk.html>
+
+Attention: The inclusion of groups (e.g., school classes, partnerships, households) that share certain attributes introduces more risk for individuals since other group members may use the information they have on the group level to infer information
 
 # K-anonymity
 
-Definition and Initial Purpose K-anonymity was developed by computer scientist Latanya Sweeney following her demonstration of how she could re-identify supposedly anonymized medical records released by the State of Massachusetts. By linking public medical records with voter registration records using quasi-identifiers like age, zip code, and gender, she was able to single out individuals, including the governor's medical records (p 54, @jarmul2023practical). The principle of k-anonymity attempts to mitigate such linkage attacks by ensuring that in any released dataset, each record is indistinguishable from at least k-1 other records concerning a set of "quasi-identifiers" (attributes that, when combined, can uniquely identify an individual). This means grouping people with similar sensitive attributes, and not releasing groups that have fewer than k people.
+Definition and Initial Purpose
+
+K-anonymity was developed by computer scientist Latanya Sweeney following her demonstration of how she could re-identify supposedly anonymized medical records released by the State of Massachusetts. By linking public medical records with voter registration records using quasi-identifiers like age, zip code, and gender, she was able to single out individuals, including the governor's medical records (p 54, @jarmul2023practical). The principle of k-anonymity attempts to mitigate such linkage attacks by ensuring that in any released dataset, each record is indistinguishable from at least k-1 other records concerning a set of "quasi-identifiers" (attributes that, when combined, can uniquely identify an individual). This means grouping people with similar sensitive attributes, and not releasing groups that have fewer than k people.
 
 An example of K-anonnymity is given below.
 
-*Move package info to next part*
+*Reference to tool to find out how unique you are (in US or UK)* <https://aisp.doc.ic.ac.uk/individual-risk/> (gender, birth date and ZIP code -\> 83% chance of being identifiable in US)
 
 #### Learning Objective
 
 -   After completing this part of the tutorial, you will understand essential privacy risks.
--   After completing this part of the tutorial, you will have a fundamental understanding of the most important privacy concepts (i.e., k-anonymity, differential privacy)
+-   After completing this part of the tutorial, you will understand the basic idea of k-anonymity.
 
-#### Exercises
+#### Exercise
 
--   Quiz?
+-   ?
 
 #### Resources, Links, Examples
 
-The sdcMicro R package
-
-sdcMicro is a R package specialized on the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).
-
-Let's generate some fake data:
-
-```{r}
-data <- data.frame(
-  age = c(34, 35, 36, 36, 36, 40, 40, 41, 42, 42),
-  gender = c("M", "M", "M", "F", "F", "M", "F", "F", "M", "M"),
-  zipcode = c(
-    "12345",
-    "12345",
-    "12345",
-    "12345",
-    "12345",
-    "67890",
-    "67890",
-    "67890",
-    "67890",
-    "67890"
-  ),
-  diagnosis = c(
-    "Flu",
-    "Cold",
-    "Flu",
-    "Cold",
-    "Allergy",
-    "HIV",
-    "HIV",
-    "Flu",
-    "Cold",
-    "Allergy"
-  )
-)
-```
-
-```{r}
-#| echo: false 
-knitr::kable(head(data), caption = "Raw data example")
-```
-
-#### To Do List
+To Do List
 
 # References

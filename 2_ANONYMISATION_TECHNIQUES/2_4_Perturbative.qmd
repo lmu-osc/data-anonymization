@@ -71,6 +71,18 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 
 -   differential privacy methods usually mean noise
 
+::: {.callout-tip title="Differential Privacy"}
+-   adds noise to data, leading to plausible deniability for any individual
+
+-   results of analysis stay the same independent of noise
+
+-   results of analysis stay the same, independent if one person is in there or not
+
+-   diffpriv: An R Package for Easy Differential Privacy
+
+-   "Even if the attacker already suspects X is the only possible HIV case in the dataset, the data release should not confirm or deny that suspicion.”
+:::
+
 # Microaggregation
 
 -   idea: create groups of similar values and change these to an aggregate value (e.g., mean, median)

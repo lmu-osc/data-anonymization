@@ -13,6 +13,8 @@ In this tutorial, I will (mostly) use the term data protection. Privacy is a lar
 
 Some personal reflection tasks
 
+Important for continued trust of participants
+
 As researchers, our obligation to data protection arises from two (not totally distinct) directions: ethics and law.
 
 # Data Protection in Research Ethics
@@ -36,6 +38,16 @@ Most important and always applies in the EU: GDPR (short intro)
 Define controller and processor in terms of the usual research business
 
 Legal basis?
+
+Acknowledge the existence of other relevant laws (e.g., export control of knowledge relating to national security; IP)
+
+# Conclusion
+
+To achieve openness of research data, we need to anonymize data
+
+Goal: acceptable risk; "as closed as necessary, as open as possible"
+
+--\> What this means is open to discussion; needs to be calibrated on a case-by-case basis; this guide: helps with coming to a reasonable conclusion where the optimal balance lies
 
 #### Learning Objective
 

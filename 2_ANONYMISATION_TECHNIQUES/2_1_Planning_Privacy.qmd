@@ -3,97 +3,71 @@ title: "Planning Data Protection"
 bibliography: ../references.bib
 ---
 
-*Decide whether to leave this information here or move to mechanisms*
+Assess the privacy risk by applying k-anonymity with sdcMicro to example data
 
-*Contextualize in process (before data collection, when planning)*
+The sdcMicro R package
 
-*Add a section on data management plans*
+sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).
 
-*Introduce privacy-by-design and data minimization as requirements by GDPR*
+Let's generate some fake data: (*change when exercises are finalized, I'll probably use test data provided by the package)*
 
-## Data privacy by design
+`{r}  data <- data.frame(   age = c(34, 35, 36, 36, 36, 40, 40, 41, 42, 42),   gender = c("M", "M", "M", "F", "F", "M", "F", "F", "M", "M"),   zipcode = c(     "12345",     "12345",     "12345",     "12345",     "12345",     "67890",     "67890",     "67890",     "67890",     "67890"   ),   diagnosis = c(     "Flu",     "Cold",     "Flu",     "Cold",     "Allergy",     "HIV",     "HIV",     "Flu",     "Cold",     "Allergy"   ) )}`
 
-Privacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning [@Cavoukian2011_PrivacyDesignLaw].
+`{r}  #| echo: false   knitr::kable(head(data), caption = "Raw data example")}`
 
-*Move the principles to a call-out box*
-
-PbD is guided by seven principles outlined below:
-
-1.  Proactive and Preventive Approach: PbD mandates that researchers and data architects anticipate and prevent privacy-invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.
-
-2.  Privacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.
-
-3.  Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy cannot be "sacrificed" for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find a sweet spot between information and privacy—enabling sufficient data utility for the purpose for which it was collected while preserving privacy for individuals.
-
-*Explain other principles*
-
-## Data minimization (Datensparsamkeit)
-
-Data minimization (or in German, Datensparsamkeit) is the principle of "No Data, No Risk" (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.
-
-*Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)*
-
-## Federated learning and distributed data analysis. Data privacy in a pipeline
-
-*move to callout box or delete*
-
-*Delete exercise?*
-
-Federated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on-premises, or on the local device. In a second step, only anonymous summary results are collected later. Federated learning techniques are often the only option for processing very sensitive data, such as health data, that are not permitted to leave protected hospital environments or firewalls.
-
-Federated learning and distributed data analysis need to be planned in advance. This is because the algorithms for federated analysis are different from those that would be run on the entire data set, and because they need to be tested for **data shift** or **data drift**, hence that processing the data locally and then aggregating does lead to the same results as running the algorithm on the entire data set.
-
-## Exercise
-
-You have three data sets and want to calculate the mean across them.
-
-### Data set 1
-
-| Patient ID | Name          | Age | Depression score |
-|------------|---------------|-----|------------------|
-| 001        | Maria Schmidt | 34  | 15               |
-| 002        | Max Müller    | 29  | 0                |
-| 003        | Anna Fischer  | 45  | 8                |
-| 004        | —             | 54  | 12               |
-| 005        | Lukas Weber   | 38  | 3                |
-| 006        | Sophie Klein  | 27  | 18               |
-
-### Data set 2
-
-| Patient ID | Name        | Age | Depression score |
-|------------|-------------|-----|------------------|
-| 001        | —           | 62  | 2                |
-| 002        | Peter Braun | 31  | 24               |
-| 003        | Julia Meyer | 22  | 12               |
-| 004        | David Wolf  | 40  | 0                |
-
-### Data set 3
-
-| Patient ID | Name          | Age | Depression score |
-|------------|---------------|-----|------------------|
-| 001        | Elena Schwarz | 36  | 17               |
-| 002        | Thomas Becker | 52  | 6                |
-| 003        | Clara Hofmann | 28  | 6                |
-| 004        | Jonas Lehmann | 47  | 9                |
-| 055        | Paula Richter | 33  | 20               |
-
-Calculate the average Depression Score per individual, in a federated way.
+#### 
 
 #### Learning Objective
 
--   After completing this part of the tutorial, you will be able to plan your data collection in a privacy-conscious manner
+-   After completing this part of the tutorial, you will be able to calculate individual privacy risks for continuous variables by utilizing k-anonymity.
 
 #### Exercises
 
--   Idea: Identify ways to minimize data collection in relation to a specific research question
+-   calculate the privacy level for certain variables
 
 #### Resources, Links, Examples
 
--   Reference to an instruction/checklist for data management plans (preferably by LMU)
+The sdcMicro R package
 
--   Reference/call-out box to randomized response technique
+sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).
 
--   link to mechanisms
+Let's generate some fake data: (*change when exercises are finalized, I'll probably use test data provided by the package)*
+
+```{r}
+data <- data.frame(
+  age = c(34, 35, 36, 36, 36, 40, 40, 41, 42, 42),
+  gender = c("M", "M", "M", "F", "F", "M", "F", "F", "M", "M"),
+  zipcode = c(
+    "12345",
+    "12345",
+    "12345",
+    "12345",
+    "12345",
+    "67890",
+    "67890",
+    "67890",
+    "67890",
+    "67890"
+  ),
+  diagnosis = c(
+    "Flu",
+    "Cold",
+    "Flu",
+    "Cold",
+    "Allergy",
+    "HIV",
+    "HIV",
+    "Flu",
+    "Cold",
+    "Allergy"
+  )
+)
+```
+
+```{r}
+#| echo: false  
+knitr::kable(head(data), caption = "Raw data example")
+```
 
 #### To Do List
 

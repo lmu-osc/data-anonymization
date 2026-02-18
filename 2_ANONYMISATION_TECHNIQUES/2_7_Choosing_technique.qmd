@@ -3,7 +3,7 @@ title: "Choosing the right technique"
 bibliography: ../references.bib
 ---
 
--   contextual factors are important (e.g., sampling strategy [@guo2025])
+-   contextual factors are important (e.g., sampling strategy [@guo2025], release type [@Benschop_StatisticalDisclosureControl])
 
 *Determine relevant factors of the data*
 
@@ -18,7 +18,3 @@ bibliography: ../references.bib
 -   Give examples of datasets and ask for the best anonymization strategy
 
 #### Resources, Links, Examples
-
-#### To Do List
-
--   Come up with factors

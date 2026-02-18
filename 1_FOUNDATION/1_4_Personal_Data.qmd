@@ -47,7 +47,7 @@ The assessment of whether a person is identifiable takes into account all means 
 
 ::: {.callout-caution collapse="true"}
 | CustomerID | Name | Age | ZIPCode | Email | Diagnosis | PoliticalOpinion | PurchaseAmount |
-|---------|---------|---------|---------|---------|---------|---------|---------|
+|----|----|----|----|----|----|----|----|
 | 001 | Maria Schmidt | 34 | 53111 | maria.schmidt\@example.com | Migraine | None | 120.50 |
 | 002 | Max Müller | 29 | 80331 | max.mueller\@web.de | None | Green Party supporter | 75.00 |
 | 003 | Anna Fischer | 45 | 10115 | anna.fischer\@gmail.com | Diabetes | None | 220.00 |
