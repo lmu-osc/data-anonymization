@@ -25,7 +25,7 @@ Disclosure risks according to @Carvalho2023_SurveyPrivacyPreservingTechniques
 
 Primary goal of anonymization: preventing identity and attribute disclosure
 
-## De-Anonymization Scenario 
+## De-Anonymization Scenario
 
 The most common de-anonymization scenario is successfully linking external information to an individual in a dataset.
 
@@ -43,15 +43,15 @@ Examples:
 
 In this tutorial, I will explain basic methods for quantifying risks for categorical variables and individuals. For group-level risks or calculations of risk for continuous variables, see <https://sdcpractice.readthedocs.io/en/latest/measure_risk.html>
 
-Attention: The inclusion of groups (e.g., school classes, partnerships, households) that share certain attributes introduces more risk for individuals since other group members may use the information they have on the group level to infer information
+::: callout-caution
+The inclusion of groups (e.g., school classes, partnerships, households) that share certain attributes introduces more risk for individuals since other group members may use the information they have on the group level to infer information
+:::
 
 # K-anonymity
 
 Definition and Initial Purpose
 
 K-anonymity was developed by computer scientist Latanya Sweeney following her demonstration of how she could re-identify supposedly anonymized medical records released by the State of Massachusetts. By linking public medical records with voter registration records using quasi-identifiers like age, zip code, and gender, she was able to single out individuals, including the governor's medical records (p 54, @jarmul2023practical). The principle of k-anonymity attempts to mitigate such linkage attacks by ensuring that in any released dataset, each record is indistinguishable from at least k-1 other records concerning a set of "quasi-identifiers" (attributes that, when combined, can uniquely identify an individual). This means grouping people with similar sensitive attributes, and not releasing groups that have fewer than k people.
-
-An example of K-anonnymity is given below.
 
 *Reference to tool to find out how unique you are (in US or UK)* <https://aisp.doc.ic.ac.uk/individual-risk/> (gender, birth date and ZIP code -\> 83% chance of being identifiable in US)
 
