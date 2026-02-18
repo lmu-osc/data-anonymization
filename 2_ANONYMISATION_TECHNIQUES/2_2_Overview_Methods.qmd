@@ -21,6 +21,8 @@ In the next sections of the tutorial, I will present you with several groups of 
 
 *Add info on which risks these techniques mitigate*
 
+For each anonymization technique, the variable's scale level needs to be taken into account. *Add relevant scale levels for all anoynmization techniques*
+
 *Explain the structure of the following parts (exercises based on the same data)*
 
 *Mention to what data this applies*
@@ -28,8 +30,6 @@ In the next sections of the tutorial, I will present you with several groups of 
 #### Learning Objective
 
 -   After completing this part of the tutorial, you will understand the fundamental principles of anonymization techniques and how they relate to one another.
-
-#### Exercises
 
 none
 
