@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -335,8 +355,18 @@ ul.task-list li input[type="checkbox"] {
 
 <ul>
 <li>contradictory ideals, but enable each other</li>
-<li>utility indices (short, potentially as call-out box)</li>
+<li>utility indices (short, potentially as call-out box) <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">(<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">Carvalho et al. 2023</a>)</span>
+<ul>
+<li>call-out box on predictive performance measures for machine learning</li>
+<li>information loss measures:
+<ul>
+<li>distance/distribution comparisons</li>
+<li>a penalty of transformations through generalisation and suppression</li>
+<li>statistical differences</li>
+</ul></li>
+</ul></li>
 <li>summarize ideas by <span class="citation" data-cites="Jansen2025_TensionOpenData">(<a href="#ref-Jansen2025_TensionOpenData" role="doc-biblioref"><strong>Jansen2025_TensionOpenData?</strong></a>)</span></li>
+<li>after evaluation of data protection level and utility: re-work anonymization</li>
 </ul>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
@@ -355,12 +385,17 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
 </section>
 <section id="references" class="level1">
-<h1>References</h1>
+
+
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
+Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

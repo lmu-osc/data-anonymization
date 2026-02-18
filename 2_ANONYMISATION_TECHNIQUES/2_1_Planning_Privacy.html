@@ -20,27 +20,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -323,21 +338,7 @@ div.csl-indent {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><img src="../assets/LMU_OSC_logo.svg" class="img-fluid" width="175"></p>
 </div></div>
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#data-privacy-by-design" id="toc-data-privacy-by-design" class="nav-link active" data-scroll-target="#data-privacy-by-design">Data privacy by design</a></li>
-  <li><a href="#data-minimization-datensparsamkeit" id="toc-data-minimization-datensparsamkeit" class="nav-link" data-scroll-target="#data-minimization-datensparsamkeit">Data minimization (Datensparsamkeit)</a></li>
-  <li><a href="#federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline" id="toc-federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline" class="nav-link" data-scroll-target="#federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline">Federated learning and distributed data analysis. Data privacy in a pipeline</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
-  <ul class="collapse">
-  <li><a href="#data-set-1" id="toc-data-set-1" class="nav-link" data-scroll-target="#data-set-1">Data set 1</a></li>
-  <li><a href="#data-set-2" id="toc-data-set-2" class="nav-link" data-scroll-target="#data-set-2">Data set 2</a></li>
-  <li><a href="#data-set-3" id="toc-data-set-3" class="nav-link" data-scroll-target="#data-set-3">Data set 3</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -361,191 +362,198 @@ div.csl-indent {
 </header>
 
 
-<p><em>Decide whether to leave this information here or move to mechanisms</em></p>
-<p><em>Contextualize in process (before data collection, when planning)</em></p>
-<p><em>Add a section on data management plans</em></p>
-<p><em>Introduce privacy-by-design and data minimization as requirements by GDPR</em></p>
-<section id="data-privacy-by-design" class="level2">
-<h2 class="anchored" data-anchor-id="data-privacy-by-design">Data privacy by design</h2>
-<p>Privacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning <span class="citation" data-cites="Cavoukian2011_PrivacyDesignLaw">(<a href="#ref-Cavoukian2011_PrivacyDesignLaw" role="doc-biblioref">Cavoukian 2011</a>)</span>.</p>
-<p><em>Move the principles to a call-out box</em></p>
-<p>PbD is guided by seven principles outlined below:</p>
-<ol type="1">
-<li><p>Proactive and Preventive Approach: PbD mandates that researchers and data architects anticipate and prevent privacy-invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.</p></li>
-<li><p>Privacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.</p></li>
-<li><p>Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy cannot be “sacrificed” for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find a sweet spot between information and privacy—enabling sufficient data utility for the purpose for which it was collected while preserving privacy for individuals.</p></li>
-</ol>
-<p><em>Explain other principles</em></p>
-</section>
-<section id="data-minimization-datensparsamkeit" class="level2">
-<h2 class="anchored" data-anchor-id="data-minimization-datensparsamkeit">Data minimization (Datensparsamkeit)</h2>
-<p>Data minimization (or in German, Datensparsamkeit) is the principle of “No Data, No Risk” (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.</p>
-<p><em>Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)</em></p>
-</section>
-<section id="federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline" class="level2">
-<h2 class="anchored" data-anchor-id="federated-learning-and-distributed-data-analysis.-data-privacy-in-a-pipeline">Federated learning and distributed data analysis. Data privacy in a pipeline</h2>
-<p><em>move to callout box or delete</em></p>
-<p><em>Delete exercise?</em></p>
-<p>Federated learning is a set of data processing techniques that preserve privacy by allowing for local and distributed processing of data. For example, instead of being required to move the data to a foreign server or cloud for processing, federated learning allows processing on-site, on-premises, or on the local device. In a second step, only anonymous summary results are collected later. Federated learning techniques are often the only option for processing very sensitive data, such as health data, that are not permitted to leave protected hospital environments or firewalls.</p>
-<p>Federated learning and distributed data analysis need to be planned in advance. This is because the algorithms for federated analysis are different from those that would be run on the entire data set, and because they need to be tested for <strong>data shift</strong> or <strong>data drift</strong>, hence that processing the data locally and then aggregating does lead to the same results as running the algorithm on the entire data set.</p>
-</section>
-<section id="exercise" class="level2">
-<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
-<p>You have three data sets and want to calculate the mean across them.</p>
-<section id="data-set-1" class="level3">
-<h3 class="anchored" data-anchor-id="data-set-1">Data set 1</h3>
-<table class="caption-top table">
+<p>Assess the privacy risk by applying k-anonymity with sdcMicro to example data</p>
+<p>The sdcMicro R package</p>
+<p>sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).</p>
+<p>Let’s generate some fake data: (<em>change when exercises are finalized, I’ll probably use test data provided by the package)</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">42</span>, <span class="dv">42</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">zipcode =</span> <span class="fu">c</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">diagnosis =</span> <span class="fu">c</span>(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Allergy"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HIV"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HIV"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Allergy"</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> <span class="co">#| echo: false   </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(data), <span class="at">caption =</span> <span class="st">"Raw data example"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Raw data example</caption>
 <thead>
 <tr class="header">
-<th>Patient ID</th>
-<th>Name</th>
-<th>Age</th>
-<th>Depression score</th>
+<th style="text-align: right;">age</th>
+<th style="text-align: left;">gender</th>
+<th style="text-align: left;">zipcode</th>
+<th style="text-align: left;">diagnosis</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>001</td>
-<td>Maria Schmidt</td>
-<td>34</td>
-<td>15</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Flu</td>
 </tr>
 <tr class="even">
-<td>002</td>
-<td>Max Müller</td>
-<td>29</td>
-<td>0</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Cold</td>
 </tr>
 <tr class="odd">
-<td>003</td>
-<td>Anna Fischer</td>
-<td>45</td>
-<td>8</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Flu</td>
 </tr>
 <tr class="even">
-<td>004</td>
-<td>—</td>
-<td>54</td>
-<td>12</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Cold</td>
 </tr>
 <tr class="odd">
-<td>005</td>
-<td>Lukas Weber</td>
-<td>38</td>
-<td>3</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Allergy</td>
 </tr>
 <tr class="even">
-<td>006</td>
-<td>Sophie Klein</td>
-<td>27</td>
-<td>18</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">67890</td>
+<td style="text-align: left;">HIV</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section"></h4>
 </section>
-<section id="data-set-2" class="level3">
-<h3 class="anchored" data-anchor-id="data-set-2">Data set 2</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Patient ID</th>
-<th>Name</th>
-<th>Age</th>
-<th>Depression score</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>001</td>
-<td>—</td>
-<td>62</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>002</td>
-<td>Peter Braun</td>
-<td>31</td>
-<td>24</td>
-</tr>
-<tr class="odd">
-<td>003</td>
-<td>Julia Meyer</td>
-<td>22</td>
-<td>12</td>
-</tr>
-<tr class="even">
-<td>004</td>
-<td>David Wolf</td>
-<td>40</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="data-set-3" class="level3">
-<h3 class="anchored" data-anchor-id="data-set-3">Data set 3</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Patient ID</th>
-<th>Name</th>
-<th>Age</th>
-<th>Depression score</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>001</td>
-<td>Elena Schwarz</td>
-<td>36</td>
-<td>17</td>
-</tr>
-<tr class="even">
-<td>002</td>
-<td>Thomas Becker</td>
-<td>52</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>003</td>
-<td>Clara Hofmann</td>
-<td>28</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>004</td>
-<td>Jonas Lehmann</td>
-<td>47</td>
-<td>9</td>
-</tr>
-<tr class="odd">
-<td>055</td>
-<td>Paula Richter</td>
-<td>33</td>
-<td>20</td>
-</tr>
-</tbody>
-</table>
-<p>Calculate the average Depression Score per individual, in a federated way.</p>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>
-<li>After completing this part of the tutorial, you will be able to plan your data collection in a privacy-conscious manner</li>
+<li>After completing this part of the tutorial, you will be able to calculate individual privacy risks for continuous variables by utilizing k-anonymity.</li>
 </ul>
 </section>
 <section id="exercises" class="level4">
 <h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
 <ul>
-<li>Idea: Identify ways to minimize data collection in relation to a specific research question</li>
+<li>calculate the privacy level for certain variables</li>
 </ul>
 </section>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
-<ul>
-<li><p>Reference to an instruction/checklist for data management plans (preferably by LMU)</p></li>
-<li><p>Reference/call-out box to randomized response technique</p></li>
-<li><p>link to mechanisms</p></li>
-</ul>
+<p>The sdcMicro R package</p>
+<p>sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).</p>
+<p>Let’s generate some fake data: (<em>change when exercises are finalized, I’ll probably use test data provided by the package)</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">42</span>, <span class="dv">42</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">zipcode =</span> <span class="fu">c</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">diagnosis =</span> <span class="fu">c</span>(</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Allergy"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HIV"</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HIV"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Allergy"</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Raw data example</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">age</th>
+<th style="text-align: left;">gender</th>
+<th style="text-align: left;">zipcode</th>
+<th style="text-align: left;">diagnosis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">34</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Flu</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">35</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Cold</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Flu</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Cold</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">12345</td>
+<td style="text-align: left;">Allergy</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">67890</td>
+<td style="text-align: left;">HIV</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
 <section id="to-do-list" class="level4">
 <h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
@@ -554,16 +562,9 @@ div.csl-indent {
 </ul>
 
 
-
-</section>
-</section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-Cavoukian2011_PrivacyDesignLaw" class="csl-entry" role="listitem">
-Cavoukian, Ann. 2011. <span>“Privacy by Design in Law, Policy and Practice. <span>A</span> White Paper for Regulators, Decision-Makers and Policy-Makers.”</span> Ontario, Canada: <span>Canadian Information and Privacy Commissioner</span>.
-</div>
-</div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -984,7 +985,7 @@ Cavoukian, Ann. 2011. <span>“Privacy by Design in Law, Policy and Practice. <s
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

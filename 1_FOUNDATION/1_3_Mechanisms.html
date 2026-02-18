@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -307,7 +327,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#data-privacy-by-design" id="toc-data-privacy-by-design" class="nav-link" data-scroll-target="#data-privacy-by-design">Data privacy by design</a></li>
+  <li><a href="#data-minimization-datensparsamkeit" id="toc-data-minimization-datensparsamkeit" class="nav-link" data-scroll-target="#data-minimization-datensparsamkeit">Data minimization (Datensparsamkeit)</a></li>
+  </ul></li>
   <li><a href="#pseudonymization" id="toc-pseudonymization" class="nav-link" data-scroll-target="#pseudonymization">Pseudonymization</a>
   <ul class="collapse">
   <li><a href="#what-is-data-anonymisation" id="toc-what-is-data-anonymisation" class="nav-link" data-scroll-target="#what-is-data-anonymisation">What is data Anonymisation?</a></li>
@@ -433,6 +457,24 @@ ul.task-list li input[type="checkbox"] {
 <li><p>access rights</p></li>
 <li><p>data deletion/withdrawal of consent</p></li>
 </ul>
+<p><em>Introduce privacy-by-design and data minimization as requirements by GDPR</em></p>
+<section id="data-privacy-by-design" class="level2">
+<h2 class="anchored" data-anchor-id="data-privacy-by-design">Data privacy by design</h2>
+<p>Privacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning <span class="citation" data-cites="Cavoukian2011_PrivacyDesignLaw">(<a href="#ref-Cavoukian2011_PrivacyDesignLaw" role="doc-biblioref">Cavoukian 2011</a>)</span>.</p>
+<p><em>Move the principles to a call-out box</em></p>
+<p>PbD is guided by seven principles outlined below:</p>
+<ol type="1">
+<li><p>Proactive and Preventive Approach: PbD mandates that researchers and data architects anticipate and prevent privacy-invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.</p></li>
+<li><p>Privacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.</p></li>
+<li><p>Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy cannot be “sacrificed” for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find a sweet spot between information and privacy—enabling sufficient data utility for the purpose for which it was collected while preserving privacy for individuals.</p></li>
+</ol>
+<p><em>Explain other principles</em></p>
+</section>
+<section id="data-minimization-datensparsamkeit" class="level2">
+<h2 class="anchored" data-anchor-id="data-minimization-datensparsamkeit">Data minimization (Datensparsamkeit)</h2>
+<p>Data minimization (or in German, Datensparsamkeit) is the principle of “No Data, No Risk” (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.</p>
+<p><em>Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)</em></p>
+</section>
 </section>
 <section id="pseudonymization" class="level1">
 <h1>Pseudonymization</h1>
@@ -620,6 +662,10 @@ Tip
 </section>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+<ul>
+<li><p>Reference to an instruction/checklist for data management plans (preferably by LMU)</p></li>
+<li><p>Reference/call-out box to randomized response technique</p></li>
+</ul>
 </section>
 <section id="to-do-list" class="level4">
 <h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
@@ -629,12 +675,17 @@ Tip
 </ul>
 
 
+
 </section>
 </section>
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Cavoukian2011_PrivacyDesignLaw" class="csl-entry" role="listitem">
+Cavoukian, Ann. 2011. <span>“Privacy by Design in Law, Policy and Practice. <span>A</span> White Paper for Regulators, Decision-Makers and Policy-Makers.”</span> Ontario, Canada: <span>Canadian Information and Privacy Commissioner</span>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
