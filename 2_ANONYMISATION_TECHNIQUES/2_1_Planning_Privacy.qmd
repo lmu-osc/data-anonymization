@@ -11,9 +11,42 @@ sdcMicro is an R package specialized in the anonymisation of micro (small) data 
 
 Let's generate some fake data: (*change when exercises are finalized, I'll probably use test data provided by the package)*
 
-`{r}  data <- data.frame(   age = c(34, 35, 36, 36, 36, 40, 40, 41, 42, 42),   gender = c("M", "M", "M", "F", "F", "M", "F", "F", "M", "M"),   zipcode = c(     "12345",     "12345",     "12345",     "12345",     "12345",     "67890",     "67890",     "67890",     "67890",     "67890"   ),   diagnosis = c(     "Flu",     "Cold",     "Flu",     "Cold",     "Allergy",     "HIV",     "HIV",     "Flu",     "Cold",     "Allergy"   ) )}`
+```{r}
+data <- data.frame(
+  age = c(34, 35, 36, 36, 36, 40, 40, 41, 42, 42),
+  gender = c("M", "M", "M", "F", "F", "M", "F", "F", "M", "M"),
+  zipcode = c(
+    "12345",
+    "12345",
+    "12345",
+    "12345",
+    "12345",
+    "67890",
+    "67890",
+    "67890",
+    "67890",
+    "67890"
+  ),
+  diagnosis = c(
+    "Flu",
+    "Cold",
+    "Flu",
+    "Cold",
+    "Allergy",
+    "HIV",
+    "HIV",
+    "Flu",
+    "Cold",
+    "Allergy"
+  )
+)
+```
 
-`{r}  #| echo: false   knitr::kable(head(data), caption = "Raw data example")}`
+```{r}
+ #| echo: false   
+ knitr::kable(head(data), caption = "Raw data example")
+```
+
 
 #### 
 
