@@ -63,11 +63,9 @@ Another example is the replacement of credit card number values with XXX. In the
 
 # Applying Non-Perturbative Techniques With R
 
--   basic data wrangling operations in R (better than manual changes)
+-   basic data wrangling operations in R or functions in sdcMicro (better than manual changes)
 
 -   but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries)
-
--   tools to make this as autonomous as possible?
 
 *Insert exercise here*
 

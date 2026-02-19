@@ -23,6 +23,8 @@ The assessment of whether a person is identifiable takes into account all means 
 
 ## Special Types of Personal Data
 
+*Move PII and PHI to call-out box or delete completly since these terms are not really used in German/European legislation and practice*
+
 1.  Personally Identifiable Information (PII): This includes data unique or nearly unique to an individual, specified in policy and regulations. Examples are full name, email address, physical address, phone numbers, date of birth, age, gender, marital status, national identification numbers (e.g Sozialversicherungsnummer), credit card numbers, vehicle registration, driving license details, employment details (salary), and educational qualifications (see also "direct identifiers")
 
 2.  Protected Health Information (PHI): In the healthcare context, PHI refers to past, present, or future physical or mental health information that directly or indirectly identifies an individual. This is considered highly sensitive and often includes diagnoses, treatment records, or even genetic information.
@@ -47,7 +49,7 @@ The assessment of whether a person is identifiable takes into account all means 
 
 ::: {.callout-caution collapse="true"}
 | CustomerID | Name | Age | ZIPCode | Email | Diagnosis | PoliticalOpinion | PurchaseAmount |
-|----|----|----|----|----|----|----|----|
+|---------|---------|---------|---------|---------|---------|---------|---------|
 | 001 | Maria Schmidt | 34 | 53111 | maria.schmidt\@example.com | Migraine | None | 120.50 |
 | 002 | Max Müller | 29 | 80331 | max.mueller\@web.de | None | Green Party supporter | 75.00 |
 | 003 | Anna Fischer | 45 | 10115 | anna.fischer\@gmail.com | Diabetes | None | 220.00 |

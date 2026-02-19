@@ -5,13 +5,14 @@ title: "Introduction to Data Privacy"
 # What is data privacy?
 
 -   Somewhat hard to define
--   Nissenbaum's concept (short and easy)
 
-In this tutorial, I will (mostly) use the term data protection. Privacy is a larger term, encompassing values, attitudes, and behaviors, while data protection is more technical and closer to actual mechanisms.
+*Explain Nissenbaum's concept of contextual integrity (short and easy)*
+
+In this tutorial, I will use both the terms data protection and privacy. Privacy is a broader termthat encompasses values, attitudes, and behaviors, while data protection is used in laws and is more closely linked to actual behavior.
 
 # Why is data protection important?
 
-Some personal reflection tasks
+*Insert some personal reflection tasks*
 
 Important for continued trust of participants
 
@@ -23,9 +24,9 @@ Trust of participants in research and researchers extends to handling personal d
 
 -   Participants probably do not read consent forms
 
-Ethical conventions (Helsinki, etc.)
+*Explain ethical conventions (Helsinki, etc.)*
 
-Professional obligations (e.g., as Psychologists)
+*Explain professional obligations (e.g., as Psychologists)*
 
 # Data Protection in Law
 
@@ -35,11 +36,13 @@ Most important and always applies in the EU: GDPR (short intro)
 
 -   applies in the case of personal data
 
-Define controller and processor in terms of the usual research business
+*Explain basics (such as controller and processor) in terms of the usual research business*
 
-Legal basis?
+-   Controller means the person, company, public authority, or organization that decides why personal data is processed and how it is processed. In some cases, the law itself decides who the controller is or sets rules for how the controller is chosen.
 
-Acknowledge the existence of other relevant laws (e.g., export control of knowledge relating to national security; IP)
+-   Processor means the person, company, or organization that processes personal data on behalf of the controller. They follow the controller’s instructions and don’t decide the purpose or the means of the processing themselves.
+
+*Acknowledge the existence of other relevant laws (e.g., export control of knowledge relating to national security; IP)*
 
 # Conclusion
 
@@ -47,7 +50,9 @@ To achieve openness of research data, we need to anonymize data
 
 Goal: acceptable risk; "as closed as necessary, as open as possible"
 
---\> What this means is open to discussion; needs to be calibrated on a case-by-case basis; this guide: helps with coming to a reasonable conclusion where the optimal balance lies
+--\> What this means is open to discussion; needs to be calibrated on a case-by-case basis;
+
+This guide: helps with coming to a reasonable conclusion where the optimal balance lies
 
 #### Learning Objective
 
@@ -58,5 +63,3 @@ Goal: acceptable risk; "as closed as necessary, as open as possible"
 -   Reflection exercise regarding privacy risks
 
 #### Resources, Links, Examples
-
-#### To Do List

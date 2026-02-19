@@ -7,7 +7,7 @@ bibliography: ../references.bib
 
 # What is the GDPR?
 
-The GDPR The General Data Protection Regulation (GDPR), in German Datenschutz-Grundverordnung (DSGVO) is a legal framework for the protection of person-centric data within the European Union. The The regulation was finalized in 2016 and came into force in 2018 and applies to all companies that process data of EU citizens, regardless of the company’s location. [p. 221, @jarmul2023practical].
+The General Data Protection Regulation (GDPR), in German Datenschutz-Grundverordnung (DSGVO) is a legal framework for the protection of person-centric data within the European Union. The regulation was finalized in 2016 and came into force in 2018 and applies to all companies that process data of EU citizens, regardless of the company’s location. [p. 221, @jarmul2023practical].
 
 # The GDPR in brief
 
@@ -36,11 +36,6 @@ The GDPR guarantees 8 fundamental rights for people residing in the EU, and for 
 
 The GDPR is based directly on EU law (Article 16 TFEU) and replaced the older Data Protection Directive (1995). Unlike a directive, which requires member states to implement it in their national laws, the GDPR is a 'Regulation', meaning it applies directly throughout the entire EU. This also means that all EU countries must not provide less data protection and privacy than laid out within the GDPR. (Hildrebrant, 136).
 
-# When does the GDPR apply?
-
--   when personal data is being processed (art 2)
--   
-
 # Definitions in the GDPR
 
 Below are some definitions that the GDPR operates on. Click on the arrow to the right to expand.
@@ -55,18 +50,6 @@ is any information connected to a person who can be identified, either directly 
 # Processing
 
 means doing anything with personal data, whether by hand or with a computer. This includes things like collecting, recording, organizing, storing, changing, looking up, using, sharing, combining, limiting, deleting, or destroying the data.
-:::
-
-::: {.callout-note collapse="true"}
-# Controller
-
-Controller means the person, company, public authority, or organization that decides why personal data is processed and how it is processed. In some cases, the law itself decides who the controller is or sets rules for how the controller is chosen.
-:::
-
-::: {.callout-note collapse="true"}
-# Processor
-
-Processor means the person, company, or organization that processes personal data on behalf of the controller. They follow the controller’s instructions and don’t decide the purpose or the means of the processing themselves.
 :::
 
 It is important to know that these rights apply to all EU residents, whether the are currently in the EU or not.
@@ -115,17 +98,6 @@ The seven core principles of lawful processing under the GDPR are:
 -   "The controller shall be responsible for, and be able to demonstrate compliance with" all the aforementioned principles.
 
 -   This principle makes the data controller the focal point of responsibility and liability under the GDPR. It requires controllers to maintain records of processing activities, and in some cases, to appoint a Data Protection Officer (DPO). The accountability principle underscores a proactive approach to compliance, moving beyond merely reactive measures.
-
-::: {.callout-important collapse="true"}
-### Data collection.
-
-If you
-
-This content is inside a collapsible tip box.
-
--   Item 1
--   Item 2
-:::
 
 # Integration with other legal frameworks
 

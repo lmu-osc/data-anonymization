@@ -7,9 +7,9 @@ bibliography: ../references.bib
 
 Disclosure risks according to @Carvalho2023_SurveyPrivacyPreservingTechniques
 
-*Explain each risk more,*
+*Explain each risk more*
 
-*Add research related examples to each risk*
+*Add research-related examples to each risk*
 
 -   **identity disclosure**: when an intruder can recognize that a record in the released dataset belongs to a known individual
 
@@ -62,7 +62,7 @@ K-anonymity was developed by computer scientist Latanya Sweeney following her de
 
 #### Exercise
 
--   ?
+-   none or quiz
 
 #### Resources, Links, Examples
 

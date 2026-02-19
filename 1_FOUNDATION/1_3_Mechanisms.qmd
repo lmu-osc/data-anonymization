@@ -1,10 +1,11 @@
 ---
 title: "Mechanisms of Data Protection in Research"
+bibliography: ../references.bib
 ---
 
 # Overview
 
-Arising from researchers' ethical and legal obligations, there are several contact points of data protection throughout the research process.
+Arising from researchers' ethical and legal obligations, there are several points of contact with data protection throughout the research process.
 
 *Show graph with research process and all mechanisms*
 
@@ -12,7 +13,7 @@ List of mechanisms and stages:
 
 | Stage | Mechanism |
 |------------------------------------|------------------------------------|
-| Plan | Data Management Plan, IRB Approval |
+| Plan | Data Management Plan, IRB Approval, Data Privacy by Design |
 | Collect | Informed Consent, Data Minimization |
 | Process | Technical and Organizational Measures, Anonymization, Data Subject Rights |
 | Analyze | Technical and Organizational Measures, Anonymization, Data Subject Rights |
@@ -20,73 +21,25 @@ List of mechanisms and stages:
 | Publish | Anonymization |
 | Re-Use | Data Minimization |
 
-Data Management Plan:
+*Add references and links to each section*
+
+# Data Management Plan
 
 -   great measure, helps with data minimization and purpose orientation
 
-Institutional Review Board:
+# Institutional Review Board (IRB) Approval
 
 -   usually purely ethical
 
--   might also consider data protection
+-   might also consider data protection, but are no experts in this area
 
-Informed Consent:
-
--   usually ethically motivated
-
--   according to GDPR, participants have the right to information at data collection
-
--   consent as one possible legal basis for processing of data (but not solely)
-
--   non-compliance is the norm
-
--   tutorial paper (box?)
-
-Data Minimization:
-
--   principle in GDPR
-
--   no purposeless collection of data (e.g., demographics)
-
--   anonymous data collection?
-
--   whenever possible: re-use data (no collection = best kind of data protection) and make own data re-usable (FAIR) (*link to LMU OS tutorials*)
-
-Technical and Organizational Measures (TOMs):
-
--   list of measures in GDPR that build additional layers of protection around data
-
--   example: secure storage location
-
--   example: pseudonymization (data are still personal, but adds an additional layer of protection; see below)
-
--   example: storage limitation
-
-Anonymization:
-
--   process of deleting any relation to an identifiable person
-
--   when successful: GDPR does not apply anymore, no personal data anymore
-
--   depending on the data: complex process (focus of this tutorial)
-
--   strongest data protection mechanism?
-
--   does not necessarily solve all ethical mandates for data protection?
-
-Data Subject Rights:
-
--   access rights
-
--   data deletion/withdrawal of consent
-
-*Introduce privacy-by-design and data minimization as requirements by GDPR*
-
-## Data privacy by design
+# Privacy by Design 
 
 Privacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning [@Cavoukian2011_PrivacyDesignLaw].
 
-*Move the principles to a call-out box*
+-   principle in GDPR
+
+*Move the seven PbD principles to a call-out box*
 
 PbD is guided by seven principles outlined below:
 
@@ -98,36 +51,79 @@ PbD is guided by seven principles outlined below:
 
 *Explain other principles*
 
-## Data minimization (Datensparsamkeit)
+# Informed Consent
+
+-   usually ethically motivated
+
+-   according to GDPR, participants have the right to information at data collection
+
+-   consent as one possible legal basis for processing of data (but not solely)
+
+-   non-compliance is the norm
+
+-   tutorial paper (box?) [@Hallinan2023_InformationProvisionInformed]
+
+# Data Minimization
+
+-   principle in GDPR
+
+-   no purposeless collection and storage of data (e.g., demographics)
+
+-   call-out box on anonymous data collection
+
+-   whenever possible: re-use data (no collection = best kind of data protection) and make own data re-usable (FAIR) (*link to LMU OS tutorials*)
 
 Data minimization (or in German, Datensparsamkeit) is the principle of "No Data, No Risk" (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.
 
 *Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)*
 
-# Pseudonymization
+*Include call-out box on randomized response technique?*
 
-Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.The primary difference is that anonymization aims to make data non-identifiable, removing it from the scope of data protection regulations, whereas pseudonymization only reduces the ease of identification, meaning the data remains personal and subject to those regulations. Hence, pseudonymized data is still subject to the regulations of the GDPR, while anonymized data is not.
+# Technical and Organizational Measures (TOMs)
 
-## What is data Anonymisation?
+-   list of measures in GDPR that build additional layers of protection around data
 
-Anonymization is defined as the process that removes the association between the identifying data and the data subject. It is an overarching term for everything done to protect individual identities in a dataset. The fundamental goal of anonymization is to transform personal data so thoroughly that it cannot be traced back to a particular individual so that the original source cannot be known (jarmul2023practical, el2013anonymizing).
+-   example: secure storage location
 
-True and full anpnymisation is actually really hard to achieve (see also differential privacy).
+-   example: storage limitation
 
-## What is data Pseudonymisation?
+-   example: pseudonymization
 
-Pseudonymization (rec.28)\[<https://gdpr-info.eu/recitals/no-28/%5D> is a process by which "original data are replaced with false data". It is characterized by "the use of a false name" or other replacement values instead of real, direct identifiers. The most critical distinction is that pseudonymized data is still personal information. The EU GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (<https://www.privacy-regulation.eu/en/recital-26-GDPR.htm).> Hence, pseudonymized data is still personal data, and has to be treated as such.
+## Pseudonymization
+
+*Explain a bit better*
+
+Pseudonymization (rec.28)\[<https://gdpr-info.eu/recitals/no-28/%5D>\] is a process by which "original data are replaced with false data". It is characterized by "the use of a false name" or other replacement values instead of real, direct identifiers. The most critical distinction is that pseudonymized data is still personal information. The EU GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (<https://www.privacy-regulation.eu/en/recital-26-GDPR.htm).> Hence, pseudonymized data is still personal data, and has to be treated as such.
+
+-    data are still personal data (GDPR applies to pseudonymized data), but adds an additional layer of protection
 
 Pseudonymized data "can be traced back to original data value" because "indirect identifiers that remain in pseudonymized data are known to pose a potential re-identification risk". This re-identification often occurs via linkage attacks, where seemingly innocuous indirect identifiers (like age, ZIP code, and gender) are combined with external information to identify individuals.
 
 The GDPR considers peudonymisation as a first step towards reducing re-identificaton.
 
-::: callout-important
-## Attention
+# Anonymization
 
-While pseudonymized data is still subject to the GDPR, anonymized data is not.\
-However, until data is fully anonymized, it must be treated in accordance with the GDPR.
-:::
+Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.The primary difference is that anonymization aims to make data non-identifiable, removing it from the scope of data protection regulations, whereas pseudonymization only reduces the ease of identification, meaning the data remains personal and subject to those regulations. Hence, pseudonymized data is still subject to the regulations of the GDPR, while anonymized data is not.
+
+Anonymization is defined as the process that removes the association between the identifying data and the data subject. It is an overarching term for everything done to protect individual identities in a dataset. The fundamental goal of anonymization is to transform personal data so thoroughly that it cannot be traced back to a particular individual so that the original source cannot be known (jarmul2023practical, el2013anonymizing).
+
+True and full anonymization is actually really hard to achieve (see also differential privacy).
+
+-   process of deleting any relation to an identifiable person
+
+-   when successful: GDPR does not apply anymore, no personal data anymore
+
+-   depending on the data: complex process (focus of this tutorial)
+
+-   strongest data protection mechanism?
+
+-   does not necessarily solve all ethical mandates for data protection?
+
+# Data Subject Rights
+
+-   access rights
+
+-   data deletion/withdrawal of consent
 
 ## Exercises
 
@@ -217,7 +213,5 @@ However, until data is fully anonymized, it must be treated in accordance with t
 -   Reference/call-out box to randomized response technique
 
 #### To Do List
-
--   potentially restructure
 
 -   create graphs

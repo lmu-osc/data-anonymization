@@ -4,13 +4,19 @@ title: "Documentation"
 
 -   important for auditing
 
--   should include description of technical solutions employed and risk management
+-   create an internal document and an external document
 
--   crucial for transparency towards data subjects and for data receivers
+-   internal document
 
--   changes to each variable could/should be part of a data codebook? (best practices?)
+    -   should include description of technical solutions employed and risk management
 
--   attention: no de-anonymization by accident in scripts
+-   external document
+
+    -   crucial for transparency towards data subjects and for data receivers
+
+    -   changes to each variable could/should be part of a data codebook? (best practices?)
+
+    -   attention: no de-anonymization by accident in scripts
 
 #### Learning Objective
 

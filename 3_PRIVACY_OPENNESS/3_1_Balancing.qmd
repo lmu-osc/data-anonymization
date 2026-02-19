@@ -4,13 +4,19 @@ bibliography: ../references.bib
 ---
 
 -   contradictory ideals, but enable each other
+
+*summarize ideas by* @Jansen2025_TensionOpenData
+
+# Measuring Utility
+
+*Provide overview of utility measurements and maybe try out one*
+
 -   utility indices (short, potentially as call-out box) [@Carvalho2023_SurveyPrivacyPreservingTechniques]
     -   call-out box on predictive performance measures for machine learning
     -   information loss measures:
         -   distance/distribution comparisons
         -   a penalty of transformations through generalisation and suppression
         -   statistical differences
--   summarize ideas by @Jansen2025_TensionOpenData
 -   after evaluation of data protection level and utility: re-work anonymization
 
 #### Learning Objective

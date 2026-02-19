@@ -104,7 +104,7 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 -   generate new sensitive data based on similar distributional properties
 -   change the order of sensitive values based on the rank of new sensitive data
 
-*Explain how to ensure that the statistics are the same*
+*Explain how to ensure that the statistics are the same (or reference utility section)*
 
 #### Learning Objective
 
