@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Planning Data Protection – Data Anonymisation Course</title>
+<title>Planning Anonymization – Data Anonymisation Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -338,14 +338,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><img src="../assets/LMU_OSC_logo.svg" class="img-fluid" width="175"></p>
 </div></div>
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-sdcmicro-package" id="toc-the-sdcmicro-package" class="nav-link active" data-scroll-target="#the-sdcmicro-package">The <code>sdcMicro</code> Package</a></li>
+  <li><a href="#identifying-privacy-risks" id="toc-identifying-privacy-risks" class="nav-link" data-scroll-target="#identifying-privacy-risks">Identifying Privacy Risks</a></li>
+  <li><a href="#measuring-privacy-risks" id="toc-measuring-privacy-risks" class="nav-link" data-scroll-target="#measuring-privacy-risks">Measuring Privacy Risks</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">ANONYMIZATION PROCESS</a></li><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Planning Privacy</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Planning Data Protection</h1>
+<h1 class="title">Planning Anonymization</h1>
 </div>
 
 
@@ -362,8 +370,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Assess the privacy risk by applying k-anonymity with sdcMicro to example data</p>
-<p>The sdcMicro R package</p>
+<p><em>Explain a bit about where we are in the workflow of research now</em></p>
+<p>Anonymization of data, in most cases, means to cover or obscure the data, meaning there is always a loss of information. However, when sharing data, we need to keep their utility, otherwise they are rendered useless.</p>
+<p>The goal is to use the approriate anonymization technniques to achieve an acceptable level of risk for each individual, while at the main time, keeping utility as high as possible (see also <a href="3_PRIVACY_OPENNESS/3_1_Balancing">BALANCING DATA PROTECTION AND OPENNESS</a>)</p>
+<p>To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks.</p>
+<section id="the-sdcmicro-package" class="level1">
+<h1>The <code>sdcMicro</code> Package</h1>
+<p>To that end (and for most of the coming exercises), we will use the package <code>sdcMicro</code> in R and the test dataset it contains. You already learned about the data it contained in the last exercise (<em>add link to exercise</em>)</p>
 <p>sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).</p>
 <p>Let’s generate some fake data: (<em>change when exercises are finalized, I’ll probably use test data provided by the package)</em></p>
 <div class="cell">
@@ -451,9 +464,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<section id="section" class="level4">
-<h4 class="anchored" data-anchor-id="section"></h4>
 </section>
+<section id="identifying-privacy-risks" class="level1">
+<h1>Identifying Privacy Risks</h1>
+<p><em>Include exercising on identifying possible risks within the data</em></p>
+<p><em>Include examples for attack scenarios</em></p>
+</section>
+<section id="measuring-privacy-risks" class="level1">
+<h1>Measuring Privacy Risks</h1>
+<p><em>Explain process of assessing the risk with sdcMicro</em></p>
+<p><em>Include exercise on applying this to the example data</em></p>
+<p>At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need anonymization but can skip to preparing your data for publication.</p>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>
@@ -468,92 +489,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
-<p>The sdcMicro R package</p>
-<p>sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).</p>
-<p>Let’s generate some fake data: (<em>change when exercises are finalized, I’ll probably use test data provided by the package)</em></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">42</span>, <span class="dv">42</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">zipcode =</span> <span class="fu">c</span>(</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">diagnosis =</span> <span class="fu">c</span>(</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Allergy"</span>,</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HIV"</span>,</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HIV"</span>,</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Allergy"</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Raw data example</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">age</th>
-<th style="text-align: left;">gender</th>
-<th style="text-align: left;">zipcode</th>
-<th style="text-align: left;">diagnosis</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">34</td>
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">12345</td>
-<td style="text-align: left;">Flu</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">35</td>
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">12345</td>
-<td style="text-align: left;">Cold</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">36</td>
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">12345</td>
-<td style="text-align: left;">Flu</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">36</td>
-<td style="text-align: left;">F</td>
-<td style="text-align: left;">12345</td>
-<td style="text-align: left;">Cold</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">36</td>
-<td style="text-align: left;">F</td>
-<td style="text-align: left;">12345</td>
-<td style="text-align: left;">Allergy</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">40</td>
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">67890</td>
-<td style="text-align: left;">HIV</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </section>
 <section id="to-do-list" class="level4">
 <h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
@@ -562,6 +497,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -985,7 +921,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
