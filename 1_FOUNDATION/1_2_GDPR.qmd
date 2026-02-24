@@ -1,15 +1,13 @@
 ---
-title: "The GDPR"
+title: "The General Data Protection Regulation (GDPR)"
 bibliography: ../references.bib
 ---
 
-# What is the GDPR?
-
-The General Data Protection Regulation (GDPR), in German Datenschutz-Grundverordnung (DSGVO) is a legal framework for the protection of person-centric data within the European Union. The regulation was finalized in 2016 and came into force in 2018 and applies to all companies that process data of EU citizens, regardless of the company’s location [@jarmul2023practical].
+The General Data Protection Regulation (GDPR), in German Datenschutz-Grundverordnung (DSGVO) is a legal framework for the protection of person-centric data within the European Union. The regulation was finalized in 2016 and came into force in 2018 and applies to all companies that process data of EU citizens, regardless of the company’s location [@jarmul2023].
 
 GDPR regulates the fundamental rights and freedoms of personal data of natural persons (meaning, real individuals and not the data of, e.g., companies) and, in particular, their right to the protection of data.
 
-The GDPR is based directly on EU law (Article 16 TFEU) and replaced the older Data Protection Directive (1995). Unlike a directive, which requires member states to implement it in their national laws, the GDPR is a 'Regulation', meaning it applies directly throughout the entire EU and, in this case, the EEA, including Iceland, Liechtenstein, and Norway. This also means that all EU countries must not provide less data protection and privacy than laid out within the GDPR [@Hildebrandt2020-lx]. However, they are allowed to adapt their own laws governing certain freedoms, which the GDPR leaves to the national legislations. Germany made use of this in its [Federal Data Protection Act](https://www.bmi.bund.de/EN/topics/constitution/data-protection/federal-data-protection-act/federal-data-protection-act-node.html), allowing some specification also to its states (see e.g., the [Bavarian Data Protection Law](https://www.datenschutz-bayern.de/datenschutzreform2018/BayDSG.pdf)).
+The GDPR is based directly on EU law (Article 16 TFEU) and replaced the older Data Protection Directive (1995). Unlike a directive, which requires member states to implement it in their national laws, the GDPR is a 'Regulation', meaning it applies directly throughout the entire EU and, in this case, the EEA, meaning, additionally to all EU countries, Iceland, Liechtenstein, and Norway. This also means that all EU countries must not provide less data protection and privacy than laid out within the GDPR [@Hildebrandt2020-lx]. However, they are allowed to adapt their own laws governing certain freedoms, which the GDPR leaves to the national legislations. Germany made use of this in its [Federal Data Protection Act](https://www.bmi.bund.de/EN/topics/constitution/data-protection/federal-data-protection-act/federal-data-protection-act-node.html), allowing some specification also to its states (see e.g., the [Bavarian Data Protection Law](https://www.datenschutz-bayern.de/datenschutzreform2018/BayDSG.pdf)).
 
 # The GDPR in Brief
 
@@ -49,7 +47,7 @@ means doing anything with personal data, whether by hand or with a computer. Thi
 ::: {.callout-note collapse="false"}
 # Controller
 
-means the person, company, public authority, or organization that decides why personal data is processed and how it is processed. In some cases, the law itself decides who the controller is or sets rules for how the controller is chosen.:::
+means the person, company, public authority, or organization that decides why personal data is processed and how it is processed. In some cases, the law itself decides who the controller is or sets rules for how the controller is chosen.
 :::
 
 ::: {.callout-note collapse="false"}
@@ -58,11 +56,7 @@ means the person, company, public authority, or organization that decides why pe
 means doing anything with personal data, whether by hand or with a computer. This includes things like collecting, recording, organizing, storing, changing, looking up, using, sharing, combining, limiting, deleting, or destroying the data.
 :::
 
--   Controller means the person, company, public authority, or organization that decides why personal data is processed and how it is processed. In some cases, the law itself decides who the controller is or sets rules for how the controller is chosen.
-
--   Processor means the person, company, or organization that processes personal data on behalf of the controller. They follow the controller’s instructions and don’t decide the purpose or the means of the processing themselves.
-
-It is important to know that these rights apply to all EU residents, whether they are currently in the EU or not.
+It is important to know that these rights apply to all EEA residents, whether they are currently in the EEA or not.
 
 # Integration with Other Legal Frameworks
 

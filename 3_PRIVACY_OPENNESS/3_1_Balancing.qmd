@@ -9,11 +9,11 @@ bibliography: ../references.bib
 
 # Measuring Privacy
 
--   Calculate privacy levels (k-anonymity)
+-   Calculate privacy levels (k-anonymity) and compare to value measured before
 
 -   Red teaming data anonymization @Jansen2026_PuttingPrivacyTest
 
-*Include exercise on calculating the privacy level with k-anonymity*
+*Include exercise on calculating the privacy level with k-anonymity like before in 2_1_Planning Privacy*
 
 # Measuring Utility
 
@@ -34,6 +34,8 @@ bibliography: ../references.bib
 # Striking the Right Balance
 
 -   iterative process: rework anonymization after measuring both
+
+-   *explain the norms for acceptable values in privacy and utility*
 
 -   People to contact at LMU (data stewards? open science team?)
 

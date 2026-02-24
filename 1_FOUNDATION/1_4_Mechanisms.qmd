@@ -12,18 +12,19 @@ How can research protect (personal) data of participants throughout the research
 List of mechanisms and stages:
 
 | Stage | Mechanism |
-|----|----|
+|------------------------------------|------------------------------------|
 | 1 Plan | Data Management Plan, IRB Approval, Privacy by Design |
 | 2 Collect | Informed Consent, Data Minimization |
 | 3 Process | Technical and Organizational Measures, Anonymization, Data Subject Rights |
 | 4 Analyze | Technical and Organizational Measures, Anonymization, Data Subject Rights |
 | 5 Preserve | Technical and Organizational Measures, Anonymization, Data Subject Rights |
 | 6 Publish | Anonymization |
-| 7 Re-Use | |
+| 7 Re-Use |  |
 
 *Add references and links to each section*
 
 # Stage 1: Plan
+
 ## Data Management Plan
 
 -   great measure, helps with data minimization and purpose orientation
@@ -53,6 +54,7 @@ PbD is guided by seven principles outlined below:
 *Explain other principles*
 
 # Stage 2: Collect
+
 ## Informed Consent
 
 -   usually ethically motivated
@@ -61,9 +63,9 @@ PbD is guided by seven principles outlined below:
 
 -   consent as one possible legal basis for processing of data (but not solely)
 
--   non-compliance is the norm
+-   non-compliance is very common [@Hallinan2023_UninformedConsentPsychologicala]
 
--   tutorial paper (box?) [@Hallinan2023_InformationProvisionInformed]
+-   tutorial paper on how to write consent forms according to GDPR by @Hallinan2023_InformationProvisionInformed
 
 ## Data Minimization
 
@@ -82,6 +84,7 @@ Data minimization (or in German, Datensparsamkeit) is the principle of "No Data,
 *Include call-out box on randomized response technique?*
 
 # Stages 3-6: Process, Analyze, Preserve, and Publish
+
 ## Technical and Organizational Measures (TOMs)
 
 -   list of measures in GDPR that build additional layers of protection around data
@@ -108,11 +111,11 @@ The GDPR considers peudonymisation as a first step towards reducing re-identific
 
 Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.The primary difference is that anonymization aims to make data non-identifiable, removing it from the scope of data protection regulations, whereas pseudonymization only reduces the ease of identification, meaning the data remains personal and subject to those regulations. Hence, pseudonymized data is still subject to the regulations of the GDPR, while anonymized data is not.
 
-Anonymization is defined as the process that removes the association between the identifying data and the data subject. It is an overarching term for everything done to protect individual identities in a dataset. The fundamental goal of anonymization is to transform personal data so thoroughly that it cannot be traced back to a particular individual so that the original source cannot be known (jarmul2023practical, el2013anonymizing).
+Anonymization is defined as the process that removes the association between the identifying data and the data subject. It is an overarching term for everything done to protect individual identities in a dataset. The fundamental goal of anonymization is to transform personal data so thoroughly that it cannot be traced back to a particular individual so that the original source cannot be known (jarmul2023, el2013anonymizing).
 
-True and full anonymization is actually really hard to achieve (see also differential privacy).
+True and full anonymization is actually really hard to achieve.
 
--   process of deleting any relation to an identifiable person
+\*\*Notes to incorporate in the text above: - process of deleting any relation to an identifiable person
 
 -   when successful: GDPR does not apply anymore, no personal data anymore
 
@@ -129,6 +132,8 @@ True and full anonymization is actually really hard to achieve (see also differe
 -   data deletion/withdrawal of consent
 
 # Exercises
+
+*Rework examples in exercise*
 
 ### Exercise: Anonymised, Pseudonymised, or Not Clear?
 
@@ -214,4 +219,3 @@ True and full anonymization is actually really hard to achieve (see also differe
 -   Reference to an instruction/checklist for data management plans (preferably by LMU)
 
 -   Reference/call-out box to randomized response technique
-

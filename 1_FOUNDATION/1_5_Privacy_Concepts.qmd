@@ -1,7 +1,9 @@
 ---
-title: "Privacy Risks"
+title: "Privacy Concepts"
 bibliography: ../references.bib
 ---
+
+*Add short introduction to this topic*
 
 # Privacy Risks
 
@@ -17,11 +19,11 @@ Disclosure risks according to @Carvalho2023_SurveyPrivacyPreservingTechniques
 
 -   **inferential disclosure**: when an intruder can infer an individual's private information with high confidence from statistical properties of the released data (but usually not of much concern in microdata due to a lack of accuracy and, therefore, certainty)
 
-    -   ChatGPT example: 90% of females aged 40-50 have burnout --\> very likely, that person I know is in that group in the study has burnout; also might relate to people who are not part of that dataset
+    -   90% of females aged 40-50 have burnout --\> very likely, that person I know is in that group in the study has burnout; also might relate to people who are not part of that dataset
 
 -   **membership disclosure**: when an intruder is able to conclude whether the private information regarding a certain individual is present or not in the dataset
 
-    -   ChatGPT example: a dataset on unregistered immigrants was released. I can infer that one row belongs to my colleague --\> I know that my colleague is not registered
+    -   a dataset on unregistered immigrants was released. I can infer that one row belongs to my colleague --\> I know that my colleague is not registered
 
 Primary goal of anonymization: preventing identity and attribute disclosure
 
@@ -39,7 +41,7 @@ Examples:
 
 *Call-out box with real-world de-anonymization instances based on microdata*
 
-# Operationalizing Risk
+## Operationalizing Risk
 
 In this tutorial, I will explain basic methods for quantifying risks for categorical variables and individuals. For group-level risks or calculations of risk for continuous variables, see <https://sdcpractice.readthedocs.io/en/latest/measure_risk.html>
 
@@ -64,8 +66,8 @@ K-anonymity was developed by computer scientist Latanya Sweeney following her de
 
 -   none or quiz
 
-#### Resources, Links, Examples
+# Further Reading 
 
-To Do List
+@VanRavenzwaaij2025_DeidentificationWhenMaking's tutorial on data anonymization helps structurally identify risks in data from the social sciences, providing two examples.
 
 # References

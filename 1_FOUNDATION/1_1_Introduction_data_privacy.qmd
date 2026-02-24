@@ -1,18 +1,26 @@
 ---
 title: "Introduction to Data Privacy"
+bibliography: references.bib
 ---
 
-# What is data privacy?
+# What is Data Privacy?
 
--   Somewhat hard to define
+-   Somewhat hard to define, no one definition everyone agrees on
+-   one influential framework: Nissenbaum's Contextual Integrity [@nissenbaum2010]
+    -   Privacy means that contextual information norms are respected in all information flows.
+    -   context: e.g., norms, laws, actors, situation
+    -   information flow: technical act of transferring information
+    -   information norm includes sender, recipient, subject, information type, transmission principle (e.g., voluntary, with permission, sale, confidential)
+        -   can be normative or descriptive
+-   *add an example in research context for Nissenbaum's concept of contextual integrity*
 
-*Explain Nissenbaum's concept of contextual integrity (short and easy)*
+In this tutorial, I will use both the terms data protection and privacy. Privacy is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. Data protection is a term that is closely linked to actual behavior and is used in laws. Both translate to "Datenschutz" in German.
 
-In this tutorial, I will use both the terms data protection and privacy. Privacy is a broader termthat encompasses values, attitudes, and behaviors, while data protection is used in laws and is more closely linked to actual behavior.
-
-# Why is data protection important?
+# Why is Data Protection Important?
 
 *Insert some personal reflection tasks*
+
+-   Example: You participate in an interview on research integrity as part of a study. The interviewer asks you about any ethical transgressions you may have committed during your work and about your mental health. Would you share that information? What are the conditions under which you would share that data?
 
 Important for continued trust of participants
 

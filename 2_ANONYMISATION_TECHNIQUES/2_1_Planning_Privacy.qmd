@@ -7,9 +7,9 @@ bibliography: ../references.bib
 
 Anonymization of data, in most cases, means covering or obscuring the data, meaning there is always a loss of information. However, when sharing data, we need to keep their utility; otherwise, they are rendered useless.
 
-The goal is to use the appropriate anonymization techniques to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also [BALANCING DATA PROTECTION AND OPENNESS](../3_PRIVACY_OPENNESS/3_1_Balancing))
+The goal is to use the appropriate anonymization techniques to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also [BALANCING DATA PROTECTION AND OPENNESS](../3_PRIVACY_OPENNESS/3_1_Balancing)).
 
-To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks.
+To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, taking what we learned in the [last chapter](../1_FOUNDATIONS/1_5_Privacy_Concepts) and putting it into practice.
 
 # The `sdcMicro` Package
 
