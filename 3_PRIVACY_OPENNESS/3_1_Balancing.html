@@ -215,7 +215,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATION/1_3_Mechanisms.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_FOUNDATION/1_3_Mechanisms.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mechanisms</span></a>
   </div>
 </li>
@@ -327,7 +327,9 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#measuring-utility" id="toc-measuring-utility" class="nav-link active" data-scroll-target="#measuring-utility">Measuring Utility</a></li>
+  <li><a href="#measuring-privacy" id="toc-measuring-privacy" class="nav-link active" data-scroll-target="#measuring-privacy">Measuring Privacy</a></li>
+  <li><a href="#measuring-utility" id="toc-measuring-utility" class="nav-link" data-scroll-target="#measuring-utility">Measuring Utility</a></li>
+  <li><a href="#striking-the-right-balance" id="toc-striking-the-right-balance" class="nav-link" data-scroll-target="#striking-the-right-balance">Striking the Right Balance</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/3_PRIVACY_OPENNESS/3_1_Balancing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -358,13 +360,21 @@ div.csl-indent {
 <li>contradictory ideals, but enable each other</li>
 </ul>
 <p><em>summarize ideas by</em> <span class="citation" data-cites="Jansen2025_TensionOpenData">(<a href="#ref-Jansen2025_TensionOpenData" role="doc-biblioref"><strong>Jansen2025_TensionOpenData?</strong></a>)</span></p>
+<section id="measuring-privacy" class="level1">
+<h1>Measuring Privacy</h1>
+<ul>
+<li><p>Calculate privacy levels (k-anonymity)</p></li>
+<li><p>Red teaming data anonymization <span class="citation" data-cites="Jansen2026_PuttingPrivacyTest">(<a href="#ref-Jansen2026_PuttingPrivacyTest" role="doc-biblioref"><strong>Jansen2026_PuttingPrivacyTest?</strong></a>)</span></p></li>
+</ul>
+<p><em>Include exercise on calculating the privacy level with k-anonymity</em></p>
+</section>
 <section id="measuring-utility" class="level1">
 <h1>Measuring Utility</h1>
 <p><em>Provide overview of utility measurements and maybe try out one</em></p>
 <ul>
-<li>utility indices (short, potentially as call-out box) <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">(<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">Carvalho et al. 2023</a>)</span>
+<li>utility indices <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">(<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">Carvalho et al. 2023</a>)</span>
 <ul>
-<li>call-out box on predictive performance measures for machine learning</li>
+<li>predictive performance measures for machine learning <em>(potentially as call-out box)</em></li>
 <li>information loss measures:
 <ul>
 <li>distance/distribution comparisons</li>
@@ -372,7 +382,19 @@ div.csl-indent {
 <li>statistical differences</li>
 </ul></li>
 </ul></li>
-<li>after evaluation of data protection level and utility: re-work anonymization</li>
+<li>assessing utility for the current use case
+<ul>
+<li>perform statistical analysis before and after anonymization</li>
+<li>see if results are comparable</li>
+</ul></li>
+</ul>
+<p><em>Include exercise for calculating one information loss measure</em></p>
+</section>
+<section id="striking-the-right-balance" class="level1">
+<h1>Striking the Right Balance</h1>
+<ul>
+<li><p>iterative process: rework anonymization after measuring both</p></li>
+<li><p>People to contact at LMU (data stewards? open science team?)</p></li>
 </ul>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
@@ -382,7 +404,10 @@ div.csl-indent {
 </section>
 <section id="exercises" class="level4">
 <h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
-<p>none</p>
+<ul>
+<li><p>apply measurement of k-anonymity</p></li>
+<li><p>apply measurement of utility</p></li>
+</ul>
 </section>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>

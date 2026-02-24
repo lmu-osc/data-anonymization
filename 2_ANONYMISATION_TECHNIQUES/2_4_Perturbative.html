@@ -215,7 +215,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATION/1_3_Mechanisms.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_FOUNDATION/1_3_Mechanisms.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mechanisms</span></a>
   </div>
 </li>
@@ -327,13 +327,19 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#swapping" id="toc-swapping" class="nav-link active" data-scroll-target="#swapping">Swapping</a></li>
+  <li><a href="#examples-of-perturbative-techniques" id="toc-examples-of-perturbative-techniques" class="nav-link active" data-scroll-target="#examples-of-perturbative-techniques">Examples of Perturbative Techniques</a>
+  <ul class="collapse">
+  <li><a href="#swapping" id="toc-swapping" class="nav-link" data-scroll-target="#swapping">Swapping</a></li>
   <li><a href="#re-sampling" id="toc-re-sampling" class="nav-link" data-scroll-target="#re-sampling">Re-sampling</a></li>
   <li><a href="#noise" id="toc-noise" class="nav-link" data-scroll-target="#noise">Noise</a></li>
   <li><a href="#microaggregation" id="toc-microaggregation" class="nav-link" data-scroll-target="#microaggregation">Microaggregation</a></li>
   <li><a href="#rounding" id="toc-rounding" class="nav-link" data-scroll-target="#rounding">Rounding</a></li>
   <li><a href="#pram" id="toc-pram" class="nav-link" data-scroll-target="#pram">PRAM</a></li>
   <li><a href="#shuffling" id="toc-shuffling" class="nav-link" data-scroll-target="#shuffling">Shuffling</a></li>
+  </ul></li>
+  <li><a href="#keeping-utility" id="toc-keeping-utility" class="nav-link" data-scroll-target="#keeping-utility">Keeping Utility</a></li>
+  <li><a href="#pro-and-contra-of-using-perturbative-techniques" id="toc-pro-and-contra-of-using-perturbative-techniques" class="nav-link" data-scroll-target="#pro-and-contra-of-using-perturbative-techniques">Pro and Contra of Using Perturbative Techniques</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -370,8 +376,10 @@ div.csl-indent {
 <p><em>Select most relevant techniques (swapping, noise?); potentially shorten or delete others</em></p>
 <p><em>Add examples to each</em></p>
 <p>Techniques following <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span></p>
-<section id="swapping" class="level1">
-<h1>Swapping</h1>
+<section id="examples-of-perturbative-techniques" class="level1">
+<h1>Examples of Perturbative Techniques</h1>
+<section id="swapping" class="level2">
+<h2 class="anchored" data-anchor-id="swapping">Swapping</h2>
 <ul>
 <li><p>exchanging values on certain variables between participants</p></li>
 <li><p>types of swapping</p>
@@ -395,8 +403,8 @@ div.csl-indent {
 </ul></li>
 </ul>
 </section>
-<section id="re-sampling" class="level1">
-<h1>Re-sampling</h1>
+<section id="re-sampling" class="level2">
+<h2 class="anchored" data-anchor-id="re-sampling">Re-sampling</h2>
 <ul>
 <li><p>idea: create averages of independent samples</p></li>
 <li><p>bootstrap independent samples</p></li>
@@ -404,8 +412,8 @@ div.csl-indent {
 </ul>
 <p><em>check for correct understanding</em></p>
 </section>
-<section id="noise" class="level1">
-<h1>Noise</h1>
+<section id="noise" class="level2">
+<h2 class="anchored" data-anchor-id="noise">Noise</h2>
 <ul>
 <li><p>also known as randomization</p></li>
 <li><p>idea: add more or less random value (additive noise) or multiply by more or less random value (multiplicative noise)</p></li>
@@ -433,42 +441,57 @@ div.csl-indent {
 </div>
 </div>
 </section>
-<section id="microaggregation" class="level1">
-<h1>Microaggregation</h1>
+<section id="microaggregation" class="level2">
+<h2 class="anchored" data-anchor-id="microaggregation">Microaggregation</h2>
 <ul>
 <li><p>idea: create groups of similar values and change these to an aggregate value (e.g., mean, median)</p></li>
 <li><p>works better when groups are more homogeneous</p></li>
 </ul>
 </section>
-<section id="rounding" class="level1">
-<h1>Rounding</h1>
+<section id="rounding" class="level2">
+<h2 class="anchored" data-anchor-id="rounding">Rounding</h2>
 <ul>
 <li>round values to certain other values</li>
 </ul>
 </section>
-<section id="pram" class="level1">
-<h1>PRAM</h1>
+<section id="pram" class="level2">
+<h2 class="anchored" data-anchor-id="pram">PRAM</h2>
 <ul>
 <li>Post RAndomisation Method</li>
 <li>values on a categorical variable are recoded with a certain probability</li>
 </ul>
 </section>
-<section id="shuffling" class="level1">
-<h1>Shuffling</h1>
+<section id="shuffling" class="level2">
+<h2 class="anchored" data-anchor-id="shuffling">Shuffling</h2>
 <ul>
 <li>variation of swapping</li>
 <li>generate new sensitive data based on similar distributional properties</li>
 <li>change the order of sensitive values based on the rank of new sensitive data</li>
 </ul>
+</section>
+</section>
+<section id="keeping-utility" class="level1">
+<h1>Keeping Utility</h1>
 <p><em>Explain how to ensure that the statistics are the same (or reference utility section)</em></p>
+</section>
+<section id="pro-and-contra-of-using-perturbative-techniques" class="level1">
+<h1>Pro and Contra of Using Perturbative Techniques</h1>
+<p><em>Add pro and con list</em></p>
+</section>
+<section id="exercise" class="level1">
+<h1>Exercise</h1>
+<ul>
+<li><p>Apply one or two techniques for certain variables in R</p></li>
+<li><p>Check statistics before and after</p></li>
+</ul>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>
 <li>After completing this part of the tutorial, you will be able to apply selected perturbative techniques in R.</li>
 </ul>
 </section>
-<section id="exercise" class="level4">
-<h4 class="anchored" data-anchor-id="exercise">Exercise</h4>
+<section id="exercise-1" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-1">Exercise</h4>
 <ul>
 <li><p>Apply one or two techniques for certain variables in R</p></li>
 <li><p>Check statistics before and after</p></li>
