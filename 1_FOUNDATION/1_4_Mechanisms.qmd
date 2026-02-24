@@ -21,13 +21,12 @@ List of mechanisms and stages:
 | 6 Publish | Anonymization |
 | 7 Re-Use |  |
 
-*Add references and links to each section*
-
 # Stage 1: Plan
 
 ## Data Management Plan
 
 -   great measure, helps with data minimization and purpose orientation
+-   template: <https://zenodo.org/records/10782781>
 
 ## Institutional Review Board (IRB) Approval
 

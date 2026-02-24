@@ -29,6 +29,10 @@ By the end of this tutorial, you will be able to:
 
 -   **Make informed decisions when balancing the risks and utility** of the anonymized data
 
+# What You Will **Not** Learn
+
+-   anonymizing neuroimaging data (https://doi.org/10.1162/IMAG.a.1144)
+
 # Prerequisites
 
 -   link other tutorials?
