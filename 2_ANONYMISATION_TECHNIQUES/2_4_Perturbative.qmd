@@ -19,7 +19,9 @@ Not only masking of values, but distortion of values
 
 Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 
-# Swapping
+# Examples of Perturbative Techniques
+
+## Swapping
 
 -   exchanging values on certain variables between participants
 
@@ -49,7 +51,7 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 
     -   not useful against attribute disclosures
 
-# Re-sampling
+## Re-sampling
 
 -   idea: create averages of independent samples
 
@@ -59,7 +61,7 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 
 *check for correct understanding*
 
-# Noise
+## Noise
 
 -   also known as randomization
 
@@ -83,28 +85,40 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 -   "Even if the attacker already suspects X is the only possible HIV case in the dataset, the data release should not confirm or deny that suspicion.”
 :::
 
-# Microaggregation
+## Microaggregation
 
 -   idea: create groups of similar values and change these to an aggregate value (e.g., mean, median)
 
 -   works better when groups are more homogeneous
 
-# Rounding
+## Rounding
 
 -   round values to certain other values
 
-# PRAM
+## PRAM
 
 -   Post RAndomisation Method
 -   values on a categorical variable are recoded with a certain probability
 
-# Shuffling
+## Shuffling
 
 -   variation of swapping
 -   generate new sensitive data based on similar distributional properties
 -   change the order of sensitive values based on the rank of new sensitive data
 
+# Keeping Utility
+
 *Explain how to ensure that the statistics are the same (or reference utility section)*
+
+# Pro and Contra of Using Perturbative Techniques
+
+*Add pro and con list*
+
+# Exercise
+
+-   Apply one or two techniques for certain variables in R
+
+-   Check statistics before and after
 
 #### Learning Objective
 

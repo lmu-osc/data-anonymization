@@ -27,6 +27,8 @@ For each anonymization technique, the variable's scale level needs to be taken i
 
 *Mention to what data this applies*
 
+After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in [Chapter "Choosing the Right Technique"](../2_7_Choosing_technique).
+
 #### Learning Objective
 
 -   After completing this part of the tutorial, you will understand the fundamental principles of anonymization techniques and how they relate to one another.

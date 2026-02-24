@@ -5,15 +5,15 @@ bibliography: ../references.bib
 
 *Explain a bit about where we are in the workflow of research now*
 
-Anonymization of data, in most cases, means to cover or obscure the data, meaning there is always a loss of information. However, when sharing data, we need to keep their utility, otherwise they are rendered useless.
+Anonymization of data, in most cases, means covering or obscuring the data, meaning there is always a loss of information. However, when sharing data, we need to keep their utility; otherwise, they are rendered useless.
 
-The goal is to use the approriate anonymization technniques to achieve an acceptable level of risk for each individual, while at the main time, keeping utility as high as possible (see also [BALANCING DATA PROTECTION AND OPENNESS](3_PRIVACY_OPENNESS/3_1_Balancing))
+The goal is to use the appropriate anonymization techniques to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also [BALANCING DATA PROTECTION AND OPENNESS](3_PRIVACY_OPENNESS/3_1_Balancing))
 
 To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks.
 
 # The `sdcMicro` Package
 
-To that end (and for most of the coming exercises), we will use the package `sdcMicro` in R and the test dataset it contains. You already learned about the data it contained in the last exercise (*add link to exercise*)
+To that end (and for most of the following exercises), we will use the package `sdcMicro` in R and the test dataset it contains. You already learned about the data it contained in the last exercise (*add link to exercise*)
 
 sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).
 

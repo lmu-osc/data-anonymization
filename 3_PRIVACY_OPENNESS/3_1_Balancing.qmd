@@ -7,17 +7,35 @@ bibliography: ../references.bib
 
 *summarize ideas by* @Jansen2025_TensionOpenData
 
+# Measuring Privacy
+
+-   Calculate privacy levels (k-anonymity)
+
+-   Red teaming data anonymization @Jansen2026_PuttingPrivacyTest
+
+*Include exercise on calculating the privacy level with k-anonymity*
+
 # Measuring Utility
 
 *Provide overview of utility measurements and maybe try out one*
 
--   utility indices (short, potentially as call-out box) [@Carvalho2023_SurveyPrivacyPreservingTechniques]
-    -   call-out box on predictive performance measures for machine learning
+-   utility indices [@Carvalho2023_SurveyPrivacyPreservingTechniques]
+    -   predictive performance measures for machine learning *(potentially as call-out box)*
     -   information loss measures:
         -   distance/distribution comparisons
         -   a penalty of transformations through generalisation and suppression
         -   statistical differences
--   after evaluation of data protection level and utility: re-work anonymization
+-   assessing utility for the current use case
+    -   perform statistical analysis before and after anonymization
+    -   see if results are comparable
+
+*Include exercise for calculating one information loss measure*
+
+# Striking the Right Balance
+
+-   iterative process: rework anonymization after measuring both
+
+-   People to contact at LMU (data stewards? open science team?)
 
 #### Learning Objective
 
@@ -25,7 +43,9 @@ bibliography: ../references.bib
 
 #### Exercises
 
-none
+-   apply measurement of k-anonymity
+
+-   apply measurement of utility
 
 #### Resources, Links, Examples
 

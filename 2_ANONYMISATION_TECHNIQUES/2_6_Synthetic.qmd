@@ -17,5 +17,3 @@ none
 #### Resources, Links, Examples
 
 [LMU Tutorial on synthesizing data](https://lmu-osc.github.io/synthetic-data-tutorial/)
-
-#### To Do List
