@@ -1,0 +1,17 @@
+---
+title: "Summary of the Anonymization Workflow"
+---
+
+*Add overview of all steps, kind of like handout*
+
+#### Learning Objective
+
+After completing this part of the tutorial, you will understand the anonymization workflow
+
+#### Exercises
+
+-   none
+
+#### Resources, Links, Examples
+
+similar to <https://sdcpractice.readthedocs.io/en/latest/process.html>

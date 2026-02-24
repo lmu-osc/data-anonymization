@@ -23,20 +23,15 @@ The assessment of whether a person is identifiable takes into account all means 
 
 ## Special Types of Personal Data
 
-*Move PII and PHI to call-out box or delete completly since these terms are not really used in German/European legislation and practice*
+The GDPR (Art. 9) describes several categories of **sensitive data** which receive heightened protection:
 
-1.  Personally Identifiable Information (PII): This includes data unique or nearly unique to an individual, specified in policy and regulations. Examples are full name, email address, physical address, phone numbers, date of birth, age, gender, marital status, national identification numbers (e.g Sozialversicherungsnummer), credit card numbers, vehicle registration, driving license details, employment details (salary), and educational qualifications (see also "direct identifiers")
-
-2.  Protected Health Information (PHI): In the healthcare context, PHI refers to past, present, or future physical or mental health information that directly or indirectly identifies an individual. This is considered highly sensitive and often includes diagnoses, treatment records, or even genetic information.
-
-3.  Special categories of personal data (Art 9 GDPR): The GDPR describes furthermore several categories of **sensitive data** which receive heightened protection:
-
-    -   racial or ethnic origin,
-    -   political opinions,
-    -   religious or philosophical beliefs,
-    -   trade union membership,
-    -   genetic data, biometric data (for unique identification),
-    -   health data, and data concerning a natural person's sex life or sexual orientation.
+-   racial or ethnic origin,
+-   political opinions,
+-   religious or philosophical beliefs,
+-   trade union membership,
+-   genetic data, biometric data (for unique identification),
+-   health data,
+-   and data concerning a natural person's sex life or sexual orientation.
 
 ## Otherwise sensitive data
 

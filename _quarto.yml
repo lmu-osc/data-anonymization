@@ -52,10 +52,10 @@ website:
             text: "Introduction"
           - href: 1_FOUNDATION/1_2_GDPR.qmd
             text: "GDPR"
-          - href: 1_FOUNDATION/1_3_Mechanisms.qmd
-            text: "Mechanisms"
-          - href: 1_FOUNDATION/1_4_Personal_Data.qmd
+          - href: 1_FOUNDATION/1_3_Personal_Data.qmd
             text: "Personal Data"
+          - href: 1_FOUNDATION/1_4_Mechanisms.qmd
+            text: "Mechanisms"
           - href: 1_FOUNDATION/1_5_Privacy_Concepts.qmd
             text: "Privacy Concepts"
       - section: "ANONYMIZATION PROCESS"
@@ -74,14 +74,16 @@ website:
             text: "Synthetic Data"
           - href: 2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.qmd
             text: "Choosing the Right Technique"
-          - href: 2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.qmd
-            text: "Testing and Validating Anonymization"
       - section: "BALANCING DATA PROTECTION AND OPENNESS"
         contents:
           - href: 3_PRIVACY_OPENNESS/3_1_Balancing.qmd
             text: "Balancing Tensions"
           - href: 3_PRIVACY_OPENNESS/3_2_Documentation.qmd
-            text: "Documentation"  
+            text: "Documentation"
+      - section: "ANONYMIZATION WORKFLOW"
+        contents: 
+          - href: 4_WORKFLOW/4_1_Summary.qmd
+            text: "Summary"  
 # End Website
 
 
