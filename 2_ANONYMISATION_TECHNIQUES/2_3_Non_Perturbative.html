@@ -378,6 +378,7 @@ div.csl-indent {
 <p>Depending on the specific data type and risk, different techniques are possible <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">(<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">Carvalho et al. 2023</a>)</span>:</p>
 <section id="examples-of-non-perturbative-techniques" class="level1">
 <h1>Examples of Non-Perturbative Techniques</h1>
+<p><em>explain each technique, use research-related terms, and add visualizations</em></p>
 <section id="global-recoding" class="level2">
 <h2 class="anchored" data-anchor-id="global-recoding">Global Recoding</h2>
 <p>Also known as generalization</p>
@@ -395,7 +396,8 @@ div.csl-indent {
 <p>Applies only to numerical (at least ordinally scaled) variables</p>
 <p>Generalize rare extreme values that would allow for the identification of individuals.</p>
 <p>Example: Instead of reporting “6 children”, report “4+ children” for anyone above this threshold; all participants below the age of 20 years are coded as “&lt;20 years”</p>
-<p>How to determine the threshold can be calculated, but this is not trivial/recommendation instead?</p>
+<p>How to determine the threshold can be calculated, but this is not trivial</p>
+<p><em>Explain how to find the threshold</em></p>
 </section>
 <section id="suppression" class="level2">
 <h2 class="anchored" data-anchor-id="suppression">Suppression</h2>
@@ -405,7 +407,7 @@ div.csl-indent {
 <li><p>Record suppression: Remove data of one participant (e.g., in case of a very specific combination of demographics).</p></li>
 <li><p>Variable suppression: Drop a variable from the dataset entirely.</p></li>
 </ul>
-<p>It can also happen as a result of a condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in a column “Customer Feedback” could be nullified if the customer feedback was negative <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>.</p>
+<p>It can also happen as a result of a condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in the column “Customer Feedback” could be nullified if the customer feedback was negative <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>.</p>
 <p>Another example is the replacement of credit card number values with XXX. In the credit card example, the application of the character masking technique can be <em>partial</em>, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.</p>
 </section>
 <section id="sampling" class="level2">
@@ -427,7 +429,7 @@ div.csl-indent {
 <h1>Applying Non-Perturbative Techniques With R</h1>
 <ul>
 <li><p>basic data wrangling operations in R or functions in sdcMicro (better than manual changes)</p></li>
-<li><p>but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries)</p></li>
+<li><p>but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries; see <a href="../3_PRIVACY_OPENNESS/3_2_Documentation">Chapter DOCUMENTATION</a>)</p></li>
 </ul>
 <p><em>Insert exercise here</em></p>
 <section id="learning-objective" class="level4">
@@ -440,15 +442,11 @@ div.csl-indent {
 <section id="exercises" class="level4">
 <h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
 <ul>
-<li><p>choosing and applying non-perturbative techniques (data set with some demographics, task: anonymize age, gender, country of residence, e-mail addresses, etc., choose appropriate techniques); show example solution (with explanation for decisions and emphasis that there is no one right answer)</p></li>
-<li><p>Second exercise: anonymize the script (potentially an exercise for the documentation chapter)</p></li>
+<li>choosing and applying non-perturbative techniques (data set with some demographics, task: anonymize age, gender, country of residence, e-mail addresses, etc., choose appropriate techniques); show example solution (with explanation for decisions and emphasis that there is no one right answer)</li>
 </ul>
 </section>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
-</section>
-<section id="to-do-list" class="level4">
-<h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
 </section>
 </section>
 <section id="references" class="level1">
