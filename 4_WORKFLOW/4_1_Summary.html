@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Balancing Utility and Privacy – Data Anonymisation Course</title>
+<title>Summary of the Anonymization Workflow – Data Anonymisation Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,8 +30,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../3_PRIVACY_OPENNESS/3_2_Documentation.html" rel="next">
-<link href="../2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.html" rel="prev">
+<link href="../3_PRIVACY_OPENNESS/3_2_Documentation.html" rel="prev">
 <link href="../assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -166,7 +145,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">BALANCING DATA PROTECTION AND OPENNESS</a></li><li class="breadcrumb-item"><a href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">Balancing Tensions</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../4_WORKFLOW/4_1_Summary.html">ANONYMIZATION WORKFLOW</a></li><li class="breadcrumb-item"><a href="../4_WORKFLOW/4_1_Summary.html">Summary</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -297,7 +276,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_PRIVACY_OPENNESS/3_1_Balancing.html" class="sidebar-item-text sidebar-link active">
+  <a href="../3_PRIVACY_OPENNESS/3_1_Balancing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Balancing Tensions</span></a>
   </div>
 </li>
@@ -320,7 +299,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../4_WORKFLOW/4_1_Summary.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_WORKFLOW/4_1_Summary.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
@@ -334,23 +313,14 @@ div.csl-indent {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><img src="../assets/LMU_OSC_logo.svg" class="img-fluid" width="175"></p>
 </div></div>
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#measuring-privacy" id="toc-measuring-privacy" class="nav-link active" data-scroll-target="#measuring-privacy">Measuring Privacy</a></li>
-  <li><a href="#measuring-utility" id="toc-measuring-utility" class="nav-link" data-scroll-target="#measuring-utility">Measuring Utility</a></li>
-  <li><a href="#striking-the-right-balance" id="toc-striking-the-right-balance" class="nav-link" data-scroll-target="#striking-the-right-balance">Striking the Right Balance</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/3_PRIVACY_OPENNESS/3_1_Balancing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">BALANCING DATA PROTECTION AND OPENNESS</a></li><li class="breadcrumb-item"><a href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">Balancing Tensions</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../4_WORKFLOW/4_1_Summary.html">ANONYMIZATION WORKFLOW</a></li><li class="breadcrumb-item"><a href="../4_WORKFLOW/4_1_Summary.html">Summary</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Balancing Utility and Privacy</h1>
+<h1 class="title">Summary of the Anonymization Workflow</h1>
 </div>
 
 
@@ -367,78 +337,25 @@ div.csl-indent {
 </header>
 
 
-<ul>
-<li>contradictory ideals, but enable each other</li>
-</ul>
-<p><em>summarize ideas by</em> <span class="citation" data-cites="Jansen2025_TensionOpenData">(<a href="#ref-Jansen2025_TensionOpenData" role="doc-biblioref"><strong>Jansen2025_TensionOpenData?</strong></a>)</span></p>
-<section id="measuring-privacy" class="level1">
-<h1>Measuring Privacy</h1>
-<ul>
-<li><p>Calculate privacy levels (k-anonymity)</p></li>
-<li><p>Red teaming data anonymization <span class="citation" data-cites="Jansen2026_PuttingPrivacyTest">(<a href="#ref-Jansen2026_PuttingPrivacyTest" role="doc-biblioref"><strong>Jansen2026_PuttingPrivacyTest?</strong></a>)</span></p></li>
-</ul>
-<p><em>Include exercise on calculating the privacy level with k-anonymity</em></p>
-</section>
-<section id="measuring-utility" class="level1">
-<h1>Measuring Utility</h1>
-<p><em>Provide overview of utility measurements and maybe try out one</em></p>
-<ul>
-<li>utility indices <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">(<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">Carvalho et al. 2023</a>)</span>
-<ul>
-<li>predictive performance measures for machine learning <em>(potentially as call-out box)</em></li>
-<li>information loss measures:
-<ul>
-<li>distance/distribution comparisons</li>
-<li>a penalty of transformations through generalisation and suppression</li>
-<li>statistical differences</li>
-</ul></li>
-</ul></li>
-<li>assessing utility for the current use case
-<ul>
-<li>perform statistical analysis before and after anonymization</li>
-<li>see if results are comparable</li>
-</ul></li>
-</ul>
-<p><em>Include exercise for calculating one information loss measure</em></p>
-</section>
-<section id="striking-the-right-balance" class="level1">
-<h1>Striking the Right Balance</h1>
-<ul>
-<li><p>iterative process: rework anonymization after measuring both</p></li>
-<li><p>People to contact at LMU (data stewards? open science team?)</p></li>
-</ul>
+<p><em>Add overview of all steps, kind of like handout</em></p>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
-<ul>
-<li>After completing this part of the tutorial, you will be able to make informed decisions when balancing the risks and utility of the anonymized data.</li>
-</ul>
+<p>After completing this part of the tutorial, you will understand the anonymization workflow</p>
 </section>
 <section id="exercises" class="level4">
 <h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
 <ul>
-<li><p>apply measurement of k-anonymity</p></li>
-<li><p>apply measurement of utility</p></li>
+<li>none</li>
 </ul>
 </section>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
-</section>
-<section id="to-do-list" class="level4">
-<h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
-</section>
-</section>
-<section id="references" class="level1">
-
-
+<p>similar to <a href="https://sdcpractice.readthedocs.io/en/latest/process.html" class="uri">https://sdcpractice.readthedocs.io/en/latest/process.html</a></p>
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
-Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -841,14 +758,11 @@ Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Sur
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.html" class="pagination-link" aria-label="Choosing the Right Technique">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Choosing the Right Technique</span>
+      <a href="../3_PRIVACY_OPENNESS/3_2_Documentation.html" class="pagination-link" aria-label="Documentation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Documentation</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../3_PRIVACY_OPENNESS/3_2_Documentation.html" class="pagination-link" aria-label="Documentation">
-        <span class="nav-page-text">Documentation</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -859,7 +773,7 @@ Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Sur
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/3_PRIVACY_OPENNESS/3_1_Balancing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/4_WORKFLOW/4_1_Summary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

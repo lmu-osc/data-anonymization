@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Personal Data – Data Anonymisation Course</title>
+<title>Mechanisms of Data Protection in Research – Data Anonymisation Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,7 +51,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../1_FOUNDATION/1_5_Privacy_Concepts.html" rel="next">
-<link href="../1_FOUNDATION/1_3_Mechanisms.qmd" rel="prev">
+<link href="../1_FOUNDATION/1_3_Personal_Data.html" rel="prev">
 <link href="../assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -166,7 +166,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_1_Introduction_data_privacy.html">FOUNDATIONS</a></li><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_4_Personal_Data.html">Personal Data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_1_Introduction_data_privacy.html">FOUNDATIONS</a></li><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_4_Mechanisms.html">Mechanisms</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -215,14 +215,14 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATION/1_3_Mechanisms.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mechanisms</span></a>
+  <a href="../1_FOUNDATION/1_3_Personal_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Personal Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_FOUNDATION/1_4_Personal_Data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Personal Data</span></a>
+  <a href="../1_FOUNDATION/1_4_Mechanisms.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Mechanisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -284,12 +284,6 @@ div.csl-indent {
  <span class="menu-text">Choosing the Right Technique</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../2_ANONYMISATION_TECHNIQUES/2_8_Testing_and_validating.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Testing and Validating Anonymization</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -315,6 +309,23 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">ANONYMIZATION WORKFLOW</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4_WORKFLOW/4_1_Summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -327,23 +338,38 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-are-personal-data" id="toc-what-are-personal-data" class="nav-link active" data-scroll-target="#what-are-personal-data">What are Personal Data?</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#stage-1-plan" id="toc-stage-1-plan" class="nav-link" data-scroll-target="#stage-1-plan">Stage 1: Plan</a>
   <ul class="collapse">
-  <li><a href="#special-types-of-personal-data" id="toc-special-types-of-personal-data" class="nav-link" data-scroll-target="#special-types-of-personal-data">Special Types of Personal Data</a></li>
-  <li><a href="#otherwise-sensitive-data" id="toc-otherwise-sensitive-data" class="nav-link" data-scroll-target="#otherwise-sensitive-data">Otherwise sensitive data</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#data-management-plan" id="toc-data-management-plan" class="nav-link" data-scroll-target="#data-management-plan">Data Management Plan</a></li>
+  <li><a href="#institutional-review-board-irb-approval" id="toc-institutional-review-board-irb-approval" class="nav-link" data-scroll-target="#institutional-review-board-irb-approval">Institutional Review Board (IRB) Approval</a></li>
+  <li><a href="#privacy-by-design" id="toc-privacy-by-design" class="nav-link" data-scroll-target="#privacy-by-design">Privacy by Design</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#stage-2-collect" id="toc-stage-2-collect" class="nav-link" data-scroll-target="#stage-2-collect">Stage 2: Collect</a>
+  <ul class="collapse">
+  <li><a href="#informed-consent" id="toc-informed-consent" class="nav-link" data-scroll-target="#informed-consent">Informed Consent</a></li>
+  <li><a href="#data-minimization" id="toc-data-minimization" class="nav-link" data-scroll-target="#data-minimization">Data Minimization</a></li>
+  </ul></li>
+  <li><a href="#stages-3-6-process-analyze-preserve-and-publish" id="toc-stages-3-6-process-analyze-preserve-and-publish" class="nav-link" data-scroll-target="#stages-3-6-process-analyze-preserve-and-publish">Stages 3-6: Process, Analyze, Preserve, and Publish</a>
+  <ul class="collapse">
+  <li><a href="#technical-and-organizational-measures-toms" id="toc-technical-and-organizational-measures-toms" class="nav-link" data-scroll-target="#technical-and-organizational-measures-toms">Technical and Organizational Measures (TOMs)</a></li>
+  <li><a href="#pseudonymization" id="toc-pseudonymization" class="nav-link" data-scroll-target="#pseudonymization">Pseudonymization</a></li>
+  <li><a href="#anonymization" id="toc-anonymization" class="nav-link" data-scroll-target="#anonymization">Anonymization</a></li>
+  <li><a href="#data-subject-rights" id="toc-data-subject-rights" class="nav-link" data-scroll-target="#data-subject-rights">Data Subject Rights</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-anonymised-pseudonymised-or-not-clear" id="toc-exercise-anonymised-pseudonymised-or-not-clear" class="nav-link" data-scroll-target="#exercise-anonymised-pseudonymised-or-not-clear">Exercise: Anonymised, Pseudonymised, or Not Clear?</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/1_FOUNDATION/1_4_Personal_Data.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/1_FOUNDATION/1_4_Mechanisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_1_Introduction_data_privacy.html">FOUNDATIONS</a></li><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_4_Personal_Data.html">Personal Data</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_1_Introduction_data_privacy.html">FOUNDATIONS</a></li><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_4_Mechanisms.html">Mechanisms</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Personal Data</h1>
+<h1 class="title">Mechanisms of Data Protection in Research</h1>
 </div>
 
 
@@ -360,278 +386,328 @@ div.csl-indent {
 </header>
 
 
-<section id="what-are-personal-data" class="level1">
-<h1>What are Personal Data?</h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/egVmd_QFY_o?si=G5-budrhxU_D-AMx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
-</iframe>
-<p>According to Article 4(1) GDPR, <strong>Personal Data</strong> is defined as any information relating to an identified or identifiable natural person (also named <em>data subject</em>.) This definition is a cornerstone of privacy regulations, particularly the EU General Data Protection Regulation (GDPR), and extends far beyond obvious identifiers.</p>
-<p>An individual is considered <strong>identifiable</strong> if they can be recognized, either directly or indirectly, through various identifiers or factors. These identifiers can include:</p>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>How can research protect (personal) data of participants throughout the research process?</p>
+<p><em>Show graph with research process and all mechanisms</em></p>
+<p>List of mechanisms and stages:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stage</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 Plan</td>
+<td>Data Management Plan, IRB Approval, Privacy by Design</td>
+</tr>
+<tr class="even">
+<td>2 Collect</td>
+<td>Informed Consent, Data Minimization</td>
+</tr>
+<tr class="odd">
+<td>3 Process</td>
+<td>Technical and Organizational Measures, Anonymization, Data Subject Rights</td>
+</tr>
+<tr class="even">
+<td>4 Analyze</td>
+<td>Technical and Organizational Measures, Anonymization, Data Subject Rights</td>
+</tr>
+<tr class="odd">
+<td>5 Preserve</td>
+<td>Technical and Organizational Measures, Anonymization, Data Subject Rights</td>
+</tr>
+<tr class="even">
+<td>6 Publish</td>
+<td>Anonymization</td>
+</tr>
+<tr class="odd">
+<td>7 Re-Use</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Add references and links to each section</em></p>
+</section>
+<section id="stage-1-plan" class="level1">
+<h1>Stage 1: Plan</h1>
+<section id="data-management-plan" class="level2">
+<h2 class="anchored" data-anchor-id="data-management-plan">Data Management Plan</h2>
 <ul>
-<li><p><strong>Direct identifiers</strong>. These are information that can directly point out and identify an individual, such as address, social security number, bank accounts, or an email address.</p></li>
-<li><p><strong>Indirect or quasi identifiers</strong>. These are data that can, when combined with other pieces of data, lead to the identification of an individual. Examples include date of birth, age, gender, geographic location (like a ZIP or postal code), marital status, or details about events (e.g., admission dates, procedure codes).</p></li>
+<li>great measure, helps with data minimization and purpose orientation</li>
 </ul>
-<p>The assessment of whether a person is identifiable takes into account all means reasonably likely to be used by the data controller or another person to identify the natural person, including methods such as “singling out”. This “reasonably likely” criterion considers objective factors such as costs, time, effort, and the technological means available at the time of processing, as well as potential future technological developments. For instance, a dynamic IP address can qualify as personal data if it can be linked to a specific person, even if that linking capability resides with an Internet Service Provider and requires a court order (see also legal case Breyer v. Germany).</p>
-<p><em>Shorten a bit/make more coherent</em></p>
-<section id="special-types-of-personal-data" class="level2">
-<h2 class="anchored" data-anchor-id="special-types-of-personal-data">Special Types of Personal Data</h2>
-<p><em>Move PII and PHI to call-out box or delete completly since these terms are not really used in German/European legislation and practice</em></p>
+</section>
+<section id="institutional-review-board-irb-approval" class="level2">
+<h2 class="anchored" data-anchor-id="institutional-review-board-irb-approval">Institutional Review Board (IRB) Approval</h2>
+<ul>
+<li><p>usually purely ethical</p></li>
+<li><p>might also consider data protection, but are no experts in this area</p></li>
+</ul>
+</section>
+<section id="privacy-by-design" class="level2">
+<h2 class="anchored" data-anchor-id="privacy-by-design">Privacy by Design</h2>
+<p>Privacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning <span class="citation" data-cites="Cavoukian2011_PrivacyDesignLaw">(<a href="#ref-Cavoukian2011_PrivacyDesignLaw" role="doc-biblioref">Cavoukian 2011</a>)</span>.</p>
+<ul>
+<li>principle in GDPR</li>
+</ul>
+<p><em>Move the seven PbD principles to a call-out box</em></p>
+<p>PbD is guided by seven principles outlined below:</p>
 <ol type="1">
-<li><p>Personally Identifiable Information (PII): This includes data unique or nearly unique to an individual, specified in policy and regulations. Examples are full name, email address, physical address, phone numbers, date of birth, age, gender, marital status, national identification numbers (e.g Sozialversicherungsnummer), credit card numbers, vehicle registration, driving license details, employment details (salary), and educational qualifications (see also “direct identifiers”)</p></li>
-<li><p>Protected Health Information (PHI): In the healthcare context, PHI refers to past, present, or future physical or mental health information that directly or indirectly identifies an individual. This is considered highly sensitive and often includes diagnoses, treatment records, or even genetic information.</p></li>
-<li><p>Special categories of personal data (Art 9 GDPR): The GDPR describes furthermore several categories of <strong>sensitive data</strong> which receive heightened protection:</p>
-<ul>
-<li>racial or ethnic origin,</li>
-<li>political opinions,</li>
-<li>religious or philosophical beliefs,</li>
-<li>trade union membership,</li>
-<li>genetic data, biometric data (for unique identification),</li>
-<li>health data, and data concerning a natural person’s sex life or sexual orientation.</li>
-</ul></li>
+<li><p>Proactive and Preventive Approach: PbD mandates that researchers and data architects anticipate and prevent privacy-invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.</p></li>
+<li><p>Privacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.</p></li>
+<li><p>Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy cannot be “sacrificed” for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find a sweet spot between information and privacy—enabling sufficient data utility for the purpose for which it was collected while preserving privacy for individuals.</p></li>
 </ol>
+<p><em>Explain other principles</em></p>
 </section>
-<section id="otherwise-sensitive-data" class="level2">
-<h2 class="anchored" data-anchor-id="otherwise-sensitive-data">Otherwise sensitive data</h2>
+</section>
+<section id="stage-2-collect" class="level1">
+<h1>Stage 2: Collect</h1>
+<section id="informed-consent" class="level2">
+<h2 class="anchored" data-anchor-id="informed-consent">Informed Consent</h2>
 <ul>
-<li>information about criminal convictions and offenses</li>
-<li>financial data</li>
+<li><p>usually ethically motivated</p></li>
+<li><p>according to GDPR, participants have the right to information at data collection</p></li>
+<li><p>consent as one possible legal basis for processing of data (but not solely)</p></li>
+<li><p>non-compliance is the norm</p></li>
+<li><p>tutorial paper (box?) <span class="citation" data-cites="Hallinan2023_InformationProvisionInformed">(<a href="#ref-Hallinan2023_InformationProvisionInformed" role="doc-biblioref">Hallinan et al. 2023</a>)</span></p></li>
 </ul>
-<p><em>Change the exercise to data that R excercises will be based on</em></p>
 </section>
-<section id="exercise" class="level2">
-<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
-<div class="callout callout-style-default callout-caution callout-titled">
+<section id="data-minimization" class="level2">
+<h2 class="anchored" data-anchor-id="data-minimization">Data Minimization</h2>
+<ul>
+<li><p>principle in GDPR</p></li>
+<li><p>no purposeless collection and storage of data (e.g., demographics)</p></li>
+<li><p>call-out box on anonymous data collection</p></li>
+<li><p>whenever possible: re-use data (no collection = best kind of data protection) and make own data re-usable (FAIR) (<em>link to LMU OS tutorials</em>)</p></li>
+</ul>
+<p>Data minimization (or in German, Datensparsamkeit) is the principle of “No Data, No Risk” (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.</p>
+<p><em>Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)</em></p>
+<p><em>Include call-out box on randomized response technique?</em></p>
+</section>
+</section>
+<section id="stages-3-6-process-analyze-preserve-and-publish" class="level1">
+<h1>Stages 3-6: Process, Analyze, Preserve, and Publish</h1>
+<section id="technical-and-organizational-measures-toms" class="level2">
+<h2 class="anchored" data-anchor-id="technical-and-organizational-measures-toms">Technical and Organizational Measures (TOMs)</h2>
+<ul>
+<li><p>list of measures in GDPR that build additional layers of protection around data</p></li>
+<li><p>example: secure storage location</p></li>
+<li><p>example: storage limitation</p></li>
+<li><p>example: pseudonymization</p></li>
+</ul>
+</section>
+<section id="pseudonymization" class="level2">
+<h2 class="anchored" data-anchor-id="pseudonymization">Pseudonymization</h2>
+<p><em>Explain a bit better</em></p>
+<p>Pseudonymization (rec.28)[<a href="https://gdpr-info.eu/recitals/no-28/%5D" class="uri">https://gdpr-info.eu/recitals/no-28/%5D</a>] is a process by which “original data are replaced with false data”. It is characterized by “the use of a false name” or other replacement values instead of real, direct identifiers. The most critical distinction is that pseudonymized data is still personal information. The EU GDPR explicitly states that “personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person” (<a href="https://www.privacy-regulation.eu/en/recital-26-GDPR.htm)." class="uri">https://www.privacy-regulation.eu/en/recital-26-GDPR.htm).</a> Hence, pseudonymized data is still personal data, and has to be treated as such.</p>
+<ul>
+<li>data are still personal data (GDPR applies to pseudonymized data), but adds an additional layer of protection</li>
+</ul>
+<p>Pseudonymized data “can be traced back to original data value” because “indirect identifiers that remain in pseudonymized data are known to pose a potential re-identification risk”. This re-identification often occurs via linkage attacks, where seemingly innocuous indirect identifiers (like age, ZIP code, and gender) are combined with external information to identify individuals.</p>
+<p>The GDPR considers peudonymisation as a first step towards reducing re-identificaton.</p>
+</section>
+<section id="anonymization" class="level2">
+<h2 class="anchored" data-anchor-id="anonymization">Anonymization</h2>
+<p>Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.The primary difference is that anonymization aims to make data non-identifiable, removing it from the scope of data protection regulations, whereas pseudonymization only reduces the ease of identification, meaning the data remains personal and subject to those regulations. Hence, pseudonymized data is still subject to the regulations of the GDPR, while anonymized data is not.</p>
+<p>Anonymization is defined as the process that removes the association between the identifying data and the data subject. It is an overarching term for everything done to protect individual identities in a dataset. The fundamental goal of anonymization is to transform personal data so thoroughly that it cannot be traced back to a particular individual so that the original source cannot be known (jarmul2023practical, el2013anonymizing).</p>
+<p>True and full anonymization is actually really hard to achieve (see also differential privacy).</p>
+<ul>
+<li><p>process of deleting any relation to an identifiable person</p></li>
+<li><p>when successful: GDPR does not apply anymore, no personal data anymore</p></li>
+<li><p>depending on the data: complex process (focus of this tutorial)</p></li>
+<li><p>strongest data protection mechanism?</p></li>
+<li><p>does not necessarily solve all ethical mandates for data protection?</p></li>
+</ul>
+</section>
+<section id="data-subject-rights" class="level2">
+<h2 class="anchored" data-anchor-id="data-subject-rights">Data Subject Rights</h2>
+<ul>
+<li><p>access rights</p></li>
+<li><p>data deletion/withdrawal of consent</p></li>
+</ul>
+</section>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="exercise-anonymised-pseudonymised-or-not-clear" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-anonymised-pseudonymised-or-not-clear">Exercise: Anonymised, Pseudonymised, or Not Clear?</h3>
+<section id="scenario-1-medical-records-for-research" class="level4">
+<h4 class="anchored" data-anchor-id="scenario-1-medical-records-for-research">Scenario 1: Medical Records for Research</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+<span class="screen-reader-only">Tip</span>A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>CustomerID</th>
-<th>Name</th>
-<th>Age</th>
-<th>ZIPCode</th>
-<th>Email</th>
-<th>Diagnosis</th>
-<th>PoliticalOpinion</th>
-<th>PurchaseAmount</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>001</td>
-<td>Maria Schmidt</td>
-<td>34</td>
-<td>53111</td>
-<td>maria.schmidt@example.com</td>
-<td>Migraine</td>
-<td>None</td>
-<td>120.50</td>
-</tr>
-<tr class="even">
-<td>002</td>
-<td>Max Müller</td>
-<td>29</td>
-<td>80331</td>
-<td>max.mueller@web.de</td>
-<td>None</td>
-<td>Green Party supporter</td>
-<td>75.00</td>
-</tr>
-<tr class="odd">
-<td>003</td>
-<td>Anna Fischer</td>
-<td>45</td>
-<td>10115</td>
-<td>anna.fischer@gmail.com</td>
-<td>Diabetes</td>
-<td>None</td>
-<td>220.00</td>
-</tr>
-<tr class="even">
-<td>004</td>
-<td>—</td>
-<td>54</td>
-<td>20095</td>
-<td>—</td>
-<td>None</td>
-<td>None</td>
-<td>15.00</td>
-</tr>
-<tr class="odd">
-<td>005</td>
-<td>Lukas Weber</td>
-<td>38</td>
-<td>40210</td>
-<td>lukas.weber@mail.de</td>
-<td>Hypertension</td>
-<td>None</td>
-<td>330.00</td>
-</tr>
-<tr class="even">
-<td>006</td>
-<td>Sophie Klein</td>
-<td>27</td>
-<td>70173</td>
-<td>sophie.klein@outlook.com</td>
-<td>None</td>
-<td>Conservative voter</td>
-<td>60.00</td>
-</tr>
-<tr class="odd">
-<td>007</td>
-<td>—</td>
-<td>62</td>
-<td>04109</td>
-<td>—</td>
-<td>Heart disease</td>
-<td>None</td>
-<td>500.00</td>
-</tr>
-<tr class="even">
-<td>008</td>
-<td>Peter Braun</td>
-<td>31</td>
-<td>50667</td>
-<td>peter.braun@yahoo.com</td>
-<td>None</td>
-<td>None</td>
-<td>42.00</td>
-</tr>
-<tr class="odd">
-<td>009</td>
-<td>Julia Meyer</td>
-<td>22</td>
-<td>68159</td>
-<td>julia.meyer@uni-heidelberg.de</td>
-<td>Depression</td>
-<td>None</td>
-<td>250.00</td>
-</tr>
-<tr class="even">
-<td>010</td>
-<td>David Wolf</td>
-<td>40</td>
-<td>23552</td>
-<td>david.wolf@gmail.com</td>
-<td>None</td>
-<td>Social Democrat</td>
-<td>99.90</td>
-</tr>
-<tr class="odd">
-<td>011</td>
-<td>Elena Schwarz</td>
-<td>36</td>
-<td>90402</td>
-<td>elena.schwarz@posteo.de</td>
-<td>Asthma</td>
-<td>None</td>
-<td>185.00</td>
-</tr>
-<tr class="even">
-<td>012</td>
-<td>Thomas Becker</td>
-<td>52</td>
-<td>28195</td>
-<td>thomas.becker@gmx.de</td>
-<td>None</td>
-<td>None</td>
-<td>305.00</td>
-</tr>
-<tr class="odd">
-<td>013</td>
-<td>Clara Hofmann</td>
-<td>28</td>
-<td>01067</td>
-<td>clara.hofmann@stud.uni-dresden.de</td>
-<td>None</td>
-<td>Liberal voter</td>
-<td>75.00</td>
-</tr>
-<tr class="even">
-<td>014</td>
-<td>Jonas Lehmann</td>
-<td>47</td>
-<td>99084</td>
-<td>jonas.lehmann@arcor.de</td>
-<td>Cancer</td>
-<td>None</td>
-<td>800.00</td>
-</tr>
-<tr class="odd">
-<td>015</td>
-<td>Paula Richter</td>
-<td>33</td>
-<td>17489</td>
-<td>paula.richter@uni-greifswald.de</td>
-<td>Anxiety</td>
-<td>None</td>
-<td>220.00</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Pseudonymised</strong> — because the re-identification key still exists.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="scenario-2-city-council-survey" class="level4">
+<h4 class="anchored" data-anchor-id="scenario-2-city-council-survey">Scenario 2: City Council Survey</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Anonymised</strong> — the data is aggregated, no individuals can be singled out.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="scenario-3-fitness-tracker-data" class="level4">
+<h4 class="anchored" data-anchor-id="scenario-3-fitness-tracker-data">Scenario 3: Fitness Tracker Data</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Not clear</strong> — technically pseudonymised, but GPS traces might allow re-identification.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="scenario-4-university-exam-scores" class="level4">
+<h4 class="anchored" data-anchor-id="scenario-4-university-exam-scores">Scenario 4: University Exam Scores</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Exam results are shared with teachers identified only by student number. The university has the key to look up the names behind the numbers.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Pseudonymised</strong> — student number acts as a pseudonym with a key in the system.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="scenario-5-online-store-reviews" class="level4">
+<h4 class="anchored" data-anchor-id="scenario-5-online-store-reviews">Scenario 5: Online Store Reviews</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Not clear</strong> — identifiers are removed, but free text may reveal identity.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="scenario-6-traffic-accident-database" class="level4">
+<h4 class="anchored" data-anchor-id="scenario-6-traffic-accident-database">Scenario 6: Traffic Accident Database</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Not clear / borderline anonymised</strong> — no key exists, but rare event details may still re-identify.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="scenario-7-genetic-study" class="level4">
+<h4 class="anchored" data-anchor-id="scenario-7-genetic-study">Scenario 7: Genetic Study</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Pseudonymised</strong> — the lab can re-link using the mapping file.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<ol type="1">
-<li>Which columns contain direct identifiers?</li>
-<li>Which contains indirect identifiers?</li>
-<li>Which contain special categories of personal data?</li>
-<li>Is there any column that does not contain personal data?</li>
-</ol>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>
-<li>After completing this part of the tutorial, you will be able to distinguish between personal data and non-personal data, as well as sensitive and non-sensitive data, and be able to identify direct and indirect identifiers.</li>
+<li>After completing this part of the tutorial, you will know how data protection is integrated into the research process.</li>
+<li>After completing this part of the tutorial, you will know the difference between anonymization and pseudonymization.</li>
 </ul>
 </section>
-<section id="exercises" class="level4">
-<h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
+<section id="exercises-1" class="level4">
+<h4 class="anchored" data-anchor-id="exercises-1">Exercises</h4>
 <ul>
-<li>Identify variables that contain direct identifiers, indirect identifiers, and sensitive data</li>
+<li>Exercise on Differentiating Anonymization and Pseudonymization</li>
 </ul>
 </section>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 <ul>
-<li>examples for how to categorize data: <span class="citation" data-cites="VanRavenzwaaij2025_DeidentificationWhenMaking">Van Ravenzwaaij et al. (<a href="#ref-VanRavenzwaaij2025_DeidentificationWhenMaking" role="doc-biblioref">2025</a>)</span></li>
+<li><p>Reference to an instruction/checklist for data management plans (preferably by LMU)</p></li>
+<li><p>Reference/call-out box to randomized response technique</p></li>
 </ul>
-</section>
-<section id="to-do-list" class="level4">
-<h4 class="anchored" data-anchor-id="to-do-list">To Do List</h4>
-</section>
-</section>
-</section>
-<section id="references" class="level1">
 
 
 
-
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-VanRavenzwaaij2025_DeidentificationWhenMaking" class="csl-entry" role="listitem">
-Van Ravenzwaaij, Don, Marlon De Jong, Rink Hoekstra, Susanne Scheibe, Mark M. Span, Ineke Wessel, and Vera Ellen Heininga. 2025. <span>“De-Identification When Making Data Sets Findable, Accessible, Interoperable, and Eusable (<span>FAIR</span>): <span>Two</span> Worked Examples from the Behavioral and Social Sciences.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 8 (2): 1–23. <a href="https://doi.org/10.1177/25152459251336130">https://doi.org/10.1177/25152459251336130</a>.
+<div id="ref-Cavoukian2011_PrivacyDesignLaw" class="csl-entry" role="listitem">
+Cavoukian, Ann. 2011. <span>“Privacy by Design in Law, Policy and Practice. <span>A</span> White Paper for Regulators, Decision-Makers and Policy-Makers.”</span> Ontario, Canada: <span>Canadian Information and Privacy Commissioner</span>.
+</div>
+<div id="ref-Hallinan2023_InformationProvisionInformed" class="csl-entry" role="listitem">
+Hallinan, Dara, Franziska Boehm, Annika Külpmann, and Malte Elson. 2023. <span>“Information <span>Provision</span> for <span>Informed Consent Procedures</span> in <span>Psychological Research Under</span> the <span>General Data Protection Regulation</span>: <span>A Practical Guide</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 6 (1). <a href="https://doi.org/10.1177/25152459231151944">https://doi.org/10.1177/25152459231151944</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1036,8 +1112,8 @@ Van Ravenzwaaij, Don, Marlon De Jong, Rink Hoekstra, Susanne Scheibe, Mark M. Sp
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../1_FOUNDATION/1_3_Mechanisms.qmd" class="pagination-link" aria-label="Mechanisms">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Mechanisms</span>
+      <a href="../1_FOUNDATION/1_3_Personal_Data.html" class="pagination-link" aria-label="Personal Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Personal Data</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1054,7 +1130,7 @@ Van Ravenzwaaij, Don, Marlon De Jong, Rink Hoekstra, Susanne Scheibe, Mark M. Sp
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/1_FOUNDATION/1_4_Personal_Data.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/1_FOUNDATION/1_4_Mechanisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
