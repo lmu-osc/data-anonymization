@@ -11,7 +11,7 @@ bibliography: ../references.bib
 
 -   Calculate privacy levels (k-anonymity) and compare to the value measured before
 
--   Red teaming data anonymization @Jansen2026_PuttingPrivacyTest
+-   Red teaming data anonymization [@Jansen2026_PuttingPrivacyTesta]
 
 *Include exercise on calculating the privacy level with k-anonymity like before in 2_1_Planning Privacy*
 
