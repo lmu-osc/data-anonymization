@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Privacy Risks – Data Anonymisation Course</title>
+<title>Privacy Concepts – Data Anonymisation Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -341,9 +341,10 @@ div.csl-indent {
   <li><a href="#privacy-risks" id="toc-privacy-risks" class="nav-link active" data-scroll-target="#privacy-risks">Privacy Risks</a>
   <ul class="collapse">
   <li><a href="#de-anonymization-scenario" id="toc-de-anonymization-scenario" class="nav-link" data-scroll-target="#de-anonymization-scenario">De-Anonymization Scenario</a></li>
-  </ul></li>
   <li><a href="#operationalizing-risk" id="toc-operationalizing-risk" class="nav-link" data-scroll-target="#operationalizing-risk">Operationalizing Risk</a></li>
+  </ul></li>
   <li><a href="#k-anonymity" id="toc-k-anonymity" class="nav-link" data-scroll-target="#k-anonymity">K-anonymity</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/1_FOUNDATION/1_5_Privacy_Concepts.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -353,7 +354,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_1_Introduction_data_privacy.html">FOUNDATIONS</a></li><li class="breadcrumb-item"><a href="../1_FOUNDATION/1_5_Privacy_Concepts.html">Privacy Concepts</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Privacy Risks</h1>
+<h1 class="title">Privacy Concepts</h1>
 </div>
 
 
@@ -370,6 +371,7 @@ div.csl-indent {
 </header>
 
 
+<p><em>Add short introduction to this topic</em></p>
 <section id="privacy-risks" class="level1">
 <h1>Privacy Risks</h1>
 <p>Disclosure risks according to <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span></p>
@@ -380,11 +382,11 @@ div.csl-indent {
 <li><p><strong>attribute disclosure</strong>: when an intruder is able to determine new characteristics of an individual based on the information available in the released data</p></li>
 <li><p><strong>inferential disclosure</strong>: when an intruder can infer an individual’s private information with high confidence from statistical properties of the released data (but usually not of much concern in microdata due to a lack of accuracy and, therefore, certainty)</p>
 <ul>
-<li>ChatGPT example: 90% of females aged 40-50 have burnout –&gt; very likely, that person I know is in that group in the study has burnout; also might relate to people who are not part of that dataset</li>
+<li>90% of females aged 40-50 have burnout –&gt; very likely, that person I know is in that group in the study has burnout; also might relate to people who are not part of that dataset</li>
 </ul></li>
 <li><p><strong>membership disclosure</strong>: when an intruder is able to conclude whether the private information regarding a certain individual is present or not in the dataset</p>
 <ul>
-<li>ChatGPT example: a dataset on unregistered immigrants was released. I can infer that one row belongs to my colleague –&gt; I know that my colleague is not registered</li>
+<li>a dataset on unregistered immigrants was released. I can infer that one row belongs to my colleague –&gt; I know that my colleague is not registered</li>
 </ul></li>
 </ul>
 <p>Primary goal of anonymization: preventing identity and attribute disclosure</p>
@@ -399,9 +401,8 @@ div.csl-indent {
 </ul>
 <p><em>Call-out box with real-world de-anonymization instances based on microdata</em></p>
 </section>
-</section>
-<section id="operationalizing-risk" class="level1">
-<h1>Operationalizing Risk</h1>
+<section id="operationalizing-risk" class="level2">
+<h2 class="anchored" data-anchor-id="operationalizing-risk">Operationalizing Risk</h2>
 <p>In this tutorial, I will explain basic methods for quantifying risks for categorical variables and individuals. For group-level risks or calculations of risk for continuous variables, see <a href="https://sdcpractice.readthedocs.io/en/latest/measure_risk.html" class="uri">https://sdcpractice.readthedocs.io/en/latest/measure_risk.html</a></p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -416,6 +417,7 @@ Caution
 <p>The inclusion of groups (e.g., school classes, partnerships, households) that share certain attributes introduces more risk for individuals since other group members may use the information they have on the group level to infer information</p>
 </div>
 </div>
+</section>
 </section>
 <section id="k-anonymity" class="level1">
 <h1>K-anonymity</h1>
@@ -435,10 +437,10 @@ Caution
 <li>none or quiz</li>
 </ul>
 </section>
-<section id="resources-links-examples" class="level4">
-<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
-<p>To Do List</p>
 </section>
+<section id="further-reading" class="level1">
+<h1>Further Reading</h1>
+<p><span class="citation" data-cites="VanRavenzwaaij2025_DeidentificationWhenMaking">Van Ravenzwaaij et al. (<a href="#ref-VanRavenzwaaij2025_DeidentificationWhenMaking" role="doc-biblioref">2025</a>)</span>’s tutorial on data anonymization helps structurally identify risks in data from the social sciences, providing two examples.</p>
 </section>
 <section id="references" class="level1">
 
@@ -453,6 +455,9 @@ Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Sur
 </div>
 <div id="ref-jarmul2023practical" class="csl-entry" role="listitem">
 Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. " O’Reilly Media, Inc.".
+</div>
+<div id="ref-VanRavenzwaaij2025_DeidentificationWhenMaking" class="csl-entry" role="listitem">
+Van Ravenzwaaij, Don, Marlon De Jong, Rink Hoekstra, Susanne Scheibe, Mark M. Span, Ineke Wessel, and Vera Ellen Heininga. 2025. <span>“De-Identification When Making Data Sets Findable, Accessible, Interoperable, and Eusable (<span>FAIR</span>): <span>Two</span> Worked Examples from the Behavioral and Social Sciences.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 8 (2): 1–23. <a href="https://doi.org/10.1177/25152459251336130">https://doi.org/10.1177/25152459251336130</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
