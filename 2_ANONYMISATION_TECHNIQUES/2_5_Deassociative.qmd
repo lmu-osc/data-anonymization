@@ -9,7 +9,21 @@ title: "De-Associative Techniques"
     -   disadvantage: no connection possible for data analysis purposes
     -   rather: a last resort
 
-*present idea of one concrete technique (probably bucketisation) here in concept*
+*present idea of one concrete technique (probably bucketization) here in concept*
+
+# Example Technique: Bucketization
+
+-   idea: create QI groups with at least k records
+
+-   stems from the created buckets or partitions
+
+-   1\. step: generalization to create buckets (e..g., countries to continents)
+
+-   2\. step: de-generalize the QI in the created buckets (i.e., continents back to countries)
+
+-   3\. step: permutate sensitive values within each bucket
+
+*potentially swap for another technique that is not so confusing with regard to usual perturbative techniques*
 
 #### Learning Objective
 

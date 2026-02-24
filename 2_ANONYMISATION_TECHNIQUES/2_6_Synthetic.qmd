@@ -2,7 +2,7 @@
 title: "Synthetic Data"
 ---
 
-*Explain the basic idea of synthetic data and the advantages and disadvantages of anonymization*
+*Explain the basic idea of synthetic data and the advantages and disadvantages for anonymization*
 
 *Otherwise reference* [LMU Tutorial on synthesizing data](https://lmu-osc.github.io/synthetic-data-tutorial/)
 

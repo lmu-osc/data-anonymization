@@ -14,9 +14,11 @@ title: "Documentation"
 
     -   crucial for transparency towards data subjects and for data receivers
 
-    -   changes to each variable could/should be part of a data codebook? (best practices?)
+    -   changes to each variable need to be part of a data codebook
 
     -   attention: no de-anonymization by accident in scripts
+
+*Insert exercise: make changes to this codebook to document anonymization steps (show old codebook of exercise data)*
 
 #### Learning Objective
 
@@ -24,8 +26,7 @@ title: "Documentation"
 
 #### Exercises
 
--   idea: documentation of earlier anonymization steps
+-   Make changes to this codebook to document anonymization steps (show old codebook of exercise data)
+-   Include an exercise on writing an internal report of risk management?
 
 #### Resources, Links, Examples
-
-#### To Do List

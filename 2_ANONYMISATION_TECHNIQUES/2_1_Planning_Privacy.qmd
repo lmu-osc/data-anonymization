@@ -75,10 +75,6 @@ At this point, you decide whether the level of privacy risks is acceptable. If s
 
 #### Exercises
 
--   calculate the privacy level for certain variables
+-   calculate the privacy risk for certain variables
 
 #### Resources, Links, Examples
-
-#### To Do List
-
--   Decide on federated learning

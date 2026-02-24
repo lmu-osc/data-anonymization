@@ -1,11 +1,13 @@
 ---
-title: "Choosing the right technique"
+title: "Choosing the Right Technique"
 bibliography: ../references.bib
 ---
 
--   contextual factors are important (e.g., sampling strategy [@guo2025], release type of data [@Benschop_StatisticalDisclosureControl])
+-   contextual factors are important (callback to contextual integrity
+    -   sampling strategy [@guo2025]: can diminish risks (e.g., random sampling in whole population) or heighten them (e.g., all first-year students of one subject at one university)
+    -   release type of data [@Benschop_StatisticalDisclosureControl]: only partial access for very risky data
 
-*Determine relevant factors of the data*
+*Determine relevant risk factors for making that decision*
 
 *Create some kind of decision tree/checklist to choose techniques*
 
@@ -15,6 +17,8 @@ bibliography: ../references.bib
 
 #### Exercises
 
--   Give examples of datasets and ask for the best anonymization strategy
+-   Give short examples of datasets from various contexts and ask for the best anonymization strategy
 
 #### Resources, Links, Examples
+
+# References

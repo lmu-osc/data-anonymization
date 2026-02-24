@@ -5,7 +5,7 @@ bibliography: ../references.bib
 
 *Explain the goal of anonymization further*
 
-Data anonymization is the process of transforming sensitive data to protect individuals' privacy[@el2013anonymizing]. Its primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual [@el2013anonymizing]
+Data anonymization is the process of transforming sensitive data to protect individuals' privacy [@el2013anonymizing]. Its primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual [@el2013anonymizing]
 
 In the next sections of the tutorial, I will present you with several groups of techniques for anonymization, following the taxonomy by @Carvalho2023_SurveyPrivacyPreservingTechniques.
 
@@ -17,7 +17,7 @@ In the next sections of the tutorial, I will present you with several groups of 
 
 -   **Synthesizing data** means creating new data with the same statistical properties as the original data. I will not discuss this method in detail in this tutorial.
 
-*Insert graphics*
+*Insert graphics that explain the underlying principles*
 
 *Add info on which risks these techniques mitigate*
 
@@ -25,22 +25,20 @@ For each anonymization technique, the variable's scale level needs to be taken i
 
 *Explain the structure of the following parts (exercises based on the same data)*
 
-*Mention to what data this applies*
+*Mention to what data one can apply these techniqes*
 
-After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in [Chapter "Choosing the Right Technique"](../2_7_Choosing_technique).
+After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in the [Chapter "Choosing the Right Technique"](../2_7_Choosing_technique).
 
 #### Learning Objective
 
 -   After completing this part of the tutorial, you will understand the fundamental principles of anonymization techniques and how they relate to one another.
+
+#### Exercise
 
 none
 
 #### Resources, Links, Examples
 
 @Carvalho2023_SurveyPrivacyPreservingTechniques for detailed information
-
-#### To Do List
-
--   Create graphics to illustrate each kind of technique
 
 # References

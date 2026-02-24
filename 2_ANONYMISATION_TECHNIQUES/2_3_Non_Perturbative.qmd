@@ -9,6 +9,8 @@ Depending on the specific data type and risk, different techniques are possible 
 
 # Examples of Non-Perturbative Techniques
 
+*explain each technique, use research-related terms, and add visualizations*
+
 ## Global Recoding
 
 Also known as generalization
@@ -33,7 +35,9 @@ Generalize rare extreme values that would allow for the identification of indivi
 
 Example: Instead of reporting “6 children”, report “4+ children” for anyone above this threshold; all participants below the age of 20 years are coded as "\<20 years"
 
-How to determine the threshold can be calculated, but this is not trivial/recommendation instead?
+How to determine the threshold can be calculated, but this is not trivial
+
+*Explain how to find the threshold*
 
 ## Suppression
 
@@ -45,7 +49,7 @@ Remove information entirely (using NA/NaN/\*) when it creates risk (also known a
 
 -   Variable suppression: Drop a variable from the dataset entirely.
 
-It can also happen as a result of a condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in a column "Customer Feedback" could be nullified if the customer feedback was negative [@raghunathan2013complete].
+It can also happen as a result of a condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in the column "Customer Feedback" could be nullified if the customer feedback was negative [@raghunathan2013complete].
 
 Another example is the replacement of credit card number values with XXX. In the credit card example, the application of the character masking technique can be *partial*, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.
 
@@ -69,7 +73,7 @@ Another example is the replacement of credit card number values with XXX. In the
 
 -   basic data wrangling operations in R or functions in sdcMicro (better than manual changes)
 
--   but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries)
+-   but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries; see [Chapter DOCUMENTATION](../3_PRIVACY_OPENNESS/3_2_Documentation))
 
 *Insert exercise here*
 
@@ -82,10 +86,6 @@ Another example is the replacement of credit card number values with XXX. In the
 
 -   choosing and applying non-perturbative techniques (data set with some demographics, task: anonymize age, gender, country of residence, e-mail addresses, etc., choose appropriate techniques); show example solution (with explanation for decisions and emphasis that there is no one right answer)
 
--   Second exercise: anonymize the script (potentially an exercise for the documentation chapter)
-
 #### Resources, Links, Examples
-
-#### To Do List
 
 # References

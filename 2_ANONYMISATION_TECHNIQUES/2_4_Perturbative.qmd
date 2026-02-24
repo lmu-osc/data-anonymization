@@ -3,15 +3,11 @@ title: "Perturbative Techniques"
 bibliography: ../references.bib
 ---
 
-Not only masking of values, but distortion of values
-
-*Explain the idea and advantages more*
-
-*Add a pro and con list?*
-
--   danger of reverse-engineering the perturbation technique applied
+-   Not only masking of values, but distortion of values
 
 -   goal: statistics run on the original dataset yield the same results as statistics run on the perturbed dataset
+
+*Explain the idea more*
 
 *Select most relevant techniques (swapping, noise?); potentially shorten or delete others*
 
@@ -114,6 +110,8 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 
 *Add pro and con list*
 
+-   danger of reverse-engineering the perturbation technique applied
+
 # Exercise
 
 -   Apply one or two techniques for certain variables in R
@@ -133,9 +131,5 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 #### Resources, Links, Examples
 
 -   adding noise with the `sdcMicro` R package
-
-#### To Do List
-
--   Research best practices on ensuring that statistics stay similar
 
 # References
