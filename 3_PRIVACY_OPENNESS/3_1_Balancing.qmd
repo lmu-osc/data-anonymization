@@ -39,6 +39,110 @@ bibliography: ../references.bib
 
 -   People to contact at LMU (data stewards? open science team?)
 
+# Exercise
+
+Evaluate the utility of the dataset using sdcMicro functions
+
+After anonymisation, you need to check that the data is still **useful** — that the patterns you care about (e.g., the relationship between religion and political opinion) have not been destroyed. `sdcMicro` provides utility measures, but it is also worth comparing distributions and running the actual analysis on both the original and anonymised data.
+
+Key utility concepts:
+
+-   **IL1** — average absolute difference between original and anonymised numeric values (lower = better)
+-   **Eigen** — compares covariance structure; values close to 1 mean the relationships between variables are preserved
+-   **`utility()` / `print(..., type = "utility")`** — overall summary
+-   **Visual comparison** — plotting distributions side-by-side is often the most intuitive check
+
+## Exercise: Evaluating Data Utility
+
+Use `sdc_micro` (the microaggregation result from the previous exercise) and compare it to the original data.
+
+1.  **Print the utility summary** of `sdc_micro`. What do IL1 and the eigen measure tell you?
+
+2.  **Compare the income distribution** before and after anonymisation. Plot histograms of the original and anonymised income side-by-side.
+
+3.  **Re-run the analysis that motivated data collection:** compute the mean political opinion scores (`pol_immigration`, `pol_redistribution`) by religion group on both the original and anonymised data. Are the group differences preserved?
+
+4.  **Reflect:** based on your findings, is the anonymised dataset fit for purpose? Would you adjust any of the anonymisation steps?
+
+::: callout-note
+## Solution
+
+### Step 1 – Utility summary
+
+```{r}
+print(sdc_micro, type = "utility")
+```
+
+IL1 close to 0 indicates little numeric distortion. Eigen values close to 1 indicate that the covariance structure between numeric variables is preserved. If you applied strong microaggregation (small `k` → large groups), you will see higher IL1 and eigen values further from 1.
+
+### Step 2 – Compare income distributions
+
+```{r}
+library(ggplot2)
+
+# Extract anonymised income from the sdc object
+income_original   <- data_nonpert$income
+income_anonymised <- get.sdcMicroObj(sdc_micro, "manipNumVars")$income
+
+income_compare <- tibble(
+  income = c(income_original, income_anonymised),
+  version = rep(c("Original", "Anonymised"), each = length(income_original))
+)
+
+ggplot(income_compare, aes(x = income, fill = version)) +
+  geom_histogram(alpha = 0.6, bins = 30, position = "identity") +
+  scale_fill_manual(values = c("Original" = "#2E4057", "Anonymised" = "#E07A5F")) +
+  labs(
+    title = "Income distribution: original vs. anonymised",
+    x = "Annual income (€)", y = "Count", fill = NULL
+  ) +
+  theme_minimal()
+```
+
+The shapes should look similar. A heavily chunked distribution (tall bars at regular intervals) would indicate that microaggregation groups were too large.
+
+### Step 3 – Check whether the key analysis still works
+
+```{r}
+# Analysis on original data
+original_summary <- data_withoutdirectidentifiers %>%
+  group_by(religion) %>%
+  summarise(
+    mean_immigration    = mean(pol_immigration,    na.rm = TRUE),
+    mean_redistribution = mean(pol_redistribution, na.rm = TRUE),
+    n = n()
+  )
+
+# Rebuild anonymised dataset with the manipulated variables
+anon_data <- get.sdcMicroObj(sdc_micro, "manipKeyVars") %>%
+  bind_cols(get.sdcMicroObj(sdc_micro, "manipNumVars")) %>%
+  bind_cols(
+    data_nonpert %>% select(religion, starts_with("pol_"))
+  )
+
+anonymised_summary <- anon_data %>%
+  group_by(religion) %>%
+  summarise(
+    mean_immigration    = mean(pol_immigration,    na.rm = TRUE),
+    mean_redistribution = mean(pol_redistribution, na.rm = TRUE),
+    n = n()
+  )
+
+original_summary
+anonymised_summary
+```
+
+If the group means are close between both summaries, the anonymisation has preserved the analytical signal. Political opinion variables were not altered (they are neither key variables nor numeric variables in the sdcMicro object), so differences here would only arise if the grouping structure changed dramatically.
+
+### Step 4 – Reflection
+
+There is no single correct answer. Consider:
+
+-   If income distributions look very similar and group means are preserved → the anonymisation is fit for purpose for this analysis
+-   If you used `k = 5` and results still look good, increasing to `k = 3` would reduce distortion while still providing some protection — but weigh this against the risk reduction you found in the earlier exercises
+-   Variables like `plz_region` and `age_group` were generalised; if a future analysis requires finer geographic or age breakdowns, you would need to negotiate a different anonymisation strategy with the data controller
+:::
+
 #### Learning Objective
 
 -   After completing this part of the tutorial, you will be able to make informed decisions when balancing the risks and utility of the anonymized data.

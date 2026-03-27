@@ -75,7 +75,107 @@ Another example is the replacement of credit card number values with XXX. In the
 
 -   but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries; see [Chapter DOCUMENTATION](../3_PRIVACY_OPENNESS/3_2_Documentation))
 
-*Insert exercise here*
+## Exercise: Applying Non-Perturbative Techniques
+
+*TODO Decide on variables*
+
+Apply non-perturbative techniques to the data to reduce re-identification risk.
+
+The following `sdcMicro` functions are available to you:
+
+-   `globalRecode()` — recodes a key variable into broader groups (e.g., exact age → age band)
+-   `topBotCoding()` — caps extreme values at a given threshold
+-   `localSuppression()` — suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would advise against using this function since it does not report changes transparently. Instead, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from `forcats`. This function lumps all categories below a certain group size together.
+
+Look at the key variables in `sdc_data` (`gender`, `age`, `education`, `plz`) and decide which technique is appropriate for each. There is no single correct solution — choose thresholds and groupings that make sense given the data, and be prepared to justify your choices. After applying your techniques, compare the new risk summary to the one from the previous exercise.
+
+::: callout-tip
+The `sdcMicro` functions operate directly on the `sdc` object and update risk estimates automatically. Check `?globalRecode`, `?topBotCoding`, and `?localSuppression` for argument details.
+
+The `forcat` function `fct_lump_min()` is applied to the dataset itself. The `sdc` object needs to be updated afterwards.
+:::
+
+::: callout-tip
+## Solution
+
+One possible approach:
+
+```{r}
+# Recode age into bands
+sdc_nonpert <- globalRecode(
+  obj    = sdc_data,
+  column = "age",
+  breaks = c(17, 29, 44, 59, 74, Inf),
+  labels = c("18-29", "30-44", "45-59", "60-74", "75+")
+)  
+
+print(sdc_nonpert, type = "risk") # check risk after making the change
+
+# Generalize PLZ
+sdc_nonpert <- globalRecode(
+  obj    = sdc_data,
+  column = "plz",
+  breaks = c(0, 19999, 39999, 59999, 79999, 99999),
+  labels = c("00–19", "20–39", "40–59", "60–79", "80–99")
+)
+
+# `globalRecode()` updates the key variable inside the `sdc` object directly and recalculates risk. The five regions map loosely to north, north-central, central, south-central, and south Germany.
+
+# Top-code income
+sdc_nonpert <- topBotCoding(
+  obj         = sdc_nonpert,
+  column      = "income",
+  value       = quantile(data_withoutdirectidentifiers$income, 0.95),
+  replacement = quantile(data_withoutdirectidentifiers$income, 0.95),
+  kind        = "top"
+)
+
+print(sdc_nonpert, type = "risk") # check risk after making the change
+
+# Top code years in job
+# Inspect the distribution first to pick a sensible threshold
+summary(data_withoutdirectidentifiers$years_in_job)
+
+sdc_nonpert <- topBotCoding(
+  obj         = sdc_nonpert,
+  column      = "years_in_job",
+  value       = 20,        # values above 20 years get capped
+  replacement = 20,
+  kind        = "top"
+)
+
+print(sdc_nonpert, type = "risk")
+# `years_in_job` follows an exponential distribution, so a small number of people will have very high values. Capping at 20 years is a reasonable choice — adjust based on what the actual distribution looks like in your dataset.
+
+# Apply local suppression to reach k = 3
+sdc_nonpert <- localSuppression(sdc_nonpert, k = 3)  # Compare risk before and after
+
+print(sdc_nonpert, type = "risk")
+
+# Collapse rare religions
+library(forcats)
+
+# Inspect counts first
+table(data_withoutdirectidentifiers$religion)
+
+data_religion_recoded <- data_withoutdirectidentifiers %>%
+  mutate(religion = fct_lump_min(religion, min = 10, other_level = "Other"))
+
+table(data_religion_recoded$religion)
+
+# Rebuild the sdc object with the recoded religion column
+sdc_nonpert <- createSdcObj(
+  dat     = data_religion_recoded,
+  keyVars = c("gender", "age", "education", "plz"),
+  numVars = c("income", "years_in_job")
+)
+
+# Now apply the previous steps again on the fresh object, then check
+print(sdc_nonpert, type = "risk")
+```
+
+`fct_lump_min(religion, min = 10)` merges any category with fewer than 10 observations into `"Other"`. This is transparent — you can see exactly which categories were affected by comparing the `table()` outputs before and after. Groups like "Judaism" or "Buddhism" which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes. *Compare to local suppression using function*
+:::
 
 #### Learning Objective
 

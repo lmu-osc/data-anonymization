@@ -11,62 +11,73 @@ The goal is to use the appropriate anonymization techniques to achieve an accept
 
 To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, taking what we learned in the [last chapter](../1_FOUNDATIONS/1_5_Privacy_Concepts) and putting it into practice.
 
-# The `sdcMicro` Package
-
-To that end (and for most of the following exercises), we will use the package `sdcMicro` in R and the test dataset it contains. You already learned about the data it contained in the last exercise (*add link to exercise*)
-
-sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).
-
-Let's generate some fake data: (*change when exercises are finalized, I'll probably use test data provided by the package)*
-
-```{r}
-data <- data.frame(
-  age = c(34, 35, 36, 36, 36, 40, 40, 41, 42, 42),
-  gender = c("M", "M", "M", "F", "F", "M", "F", "F", "M", "M"),
-  zipcode = c(
-    "12345",
-    "12345",
-    "12345",
-    "12345",
-    "12345",
-    "67890",
-    "67890",
-    "67890",
-    "67890",
-    "67890"
-  ),
-  diagnosis = c(
-    "Flu",
-    "Cold",
-    "Flu",
-    "Cold",
-    "Allergy",
-    "HIV",
-    "HIV",
-    "Flu",
-    "Cold",
-    "Allergy"
-  )
-)
-```
-
-```{r}
- #| echo: false   
- knitr::kable(head(data), caption = "Raw data example")
-```
 
 # Identifying Privacy Risks
 
 *Include exercising on identifying possible risks within the data*
 
+Identity disclosure, attribute disclosure, membership disclosure
+
 *Include examples for attack scenarios*
 
 # Measuring Privacy Risks
+## The `sdcMicro` Package
 
-*Explain process of assessing the risk with sdcMicro*
+To that end (and for most of the following exercises), we will use the package `sdcMicro` in R and the test dataset it contains. You already learned about the data it contained in the last exercise (*add link to exercise*)
 
-*Include exercise on applying this to the example data*
+sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).
 
+*Include more info on functions in sdcMicro?*
+
+## Using `sdcMicro` To Assess Privacy Risks
+
+Let's start by creating a sdcMicro object using the class `sdcMicroObj`. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores
+
+-   the original dataset,
+-   the roles of variables within the dataset,
+-   risk measures,
+-   anonymized versions of the variables,
+-   utility measures, and
+-   the history of modifications.
+
+`sdcMicro` updates risk and utilty estimates after each anonymization step.
+
+For this object, we start with defining the following:
+
+-   `dat`: the dataset we are working with
+
+-   `keyVars`: indirect identifiers that are categorial (i.e., have categories) we want to assess the risk of (e.g., age, gender)
+
+-   `numVars`: continuous (i.e., numeric) indirect identifiers (e.g., income)
+
+`sdcMicro` needs, at the least, the data and categorial indirect identifiers to assess risks. We can later add more information to the object.
+
+## Exercise: Assessing Privacy Risks With `sdcMicro`
+
+1.  Create an object within sdcMicro. Inspect the object.
+2.  What k-anonymity level is currently reached?
+
+Solution:
+
+```{r}
+library(sdcMicro)
+
+sdc_data <- createSdcObj(
+  dat = data_withoutdirectidentifiers, 
+  keyVars = c("gender", "age", "education", "plz"),
+  numVars = "income"
+  )  
+
+# Overall summary
+sdc_data
+
+# Risks summary
+print(sdc_data, type = "risk")
+# Individual risk
+individualrisk <- get.sdcMicroObj(sdc_data, "risk")$individual # What is fk
+# Continuous risk
+print(sdc_data, type = "numrisk") # Same as overall summary
+```
 At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need anonymization but can skip to preparing your data for publication.
 
 #### Learning Objective

@@ -114,9 +114,74 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 
 # Exercise
 
--   Apply one or two techniques for certain variables in R
+Perturbative techniques **modify** values rather than removing or generalising them. The data still looks complete and realistic, but individual values have been altered enough that re-identification becomes unreliable. Two common methods:
 
--   Check statistics before and after
+-   **Microaggregation** — records are grouped by similarity and values within each group are replaced by the group mean. Individual values are obscured but aggregate statistics are preserved.
+-   **Adding noise** — small random amounts are added to numeric values. The distribution stays plausible but exact values are no longer trustworthy.
+
+Both are available directly in `sdcMicro`.
+
+## Exercise: Applying Perturbative Techniques
+
+Continue working with `sdc_nonpert` from the previous exercise.
+
+1.  **Apply microaggregation to `income`** using the default method (`"mdav"`). Use a group size of `k = 5`.
+
+2.  **Add noise to `income`** as an alternative — apply additive noise with a noise level of `0.1` (10% of the standard deviation). Compare the result to microaggregation: which distorts the data more?
+
+3.  **Compare the information loss** reported by `sdcMicro` after each step. Which method better balances risk and utility for this variable?
+
+::: callout-tip
+You cannot undo perturbation steps within the same `sdc` object. Create a fresh copy of `sdc_nonpert` before trying the second method so you can compare them side-by-side.
+:::
+
+::: callout-note
+## Solution
+
+### Step 1 – Microaggregation
+
+```{r}
+sdc_micro <- microaggregation(
+  obj    = sdc_nonpert,
+  variables = "income",
+  aggr   = 5,          # group size k
+  method = "mdav"      # Maximum Distance to Average Vector
+)
+
+print(sdc_micro, type = "numrisk")
+```
+
+`mdav` groups records by their distance to the group centroid, then replaces each value with the group mean. With `aggr = 5`, at least 5 records share the same income value, so singling out an individual is harder.
+
+### Step 2 – Additive noise (on a fresh copy)
+
+```{r}
+sdc_noise <- addNoise(
+  obj    = sdc_nonpert,
+  variables = "income",
+  noise  = 0.1         # noise level as fraction of SD
+)
+
+print(sdc_noise, type = "numrisk")
+```
+
+`addNoise()` draws from a normal distribution with mean 0 and standard deviation = `noise × sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income.
+
+### Step 3 – Comparing information loss
+
+```{r}
+# Information loss after microaggregation
+il_micro <- get.sdcMicroObj(sdc_micro, "utility")
+
+# Information loss after noise addition
+il_noise <- get.sdcMicroObj(sdc_noise, "utility")
+
+il_micro
+il_noise
+```
+
+**Interpretation:** Microaggregation typically produces lower IL1 (mean absolute deviation between original and perturbed values) because entire groups share one value — the average. Noise addition preserves individual-level variation better but introduces random error into every single record. For a dataset where income is used in regression analyses, noise addition is often preferable; for frequency tables or group comparisons, microaggregation is a safer choice.
+:::
 
 #### Learning Objective
 
@@ -125,8 +190,6 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 #### Exercise
 
 -   Apply one or two techniques for certain variables in R
-
--   Check statistics before and after
 
 #### Resources, Links, Examples
 

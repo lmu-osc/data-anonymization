@@ -40,34 +40,113 @@ Otherwise sensitive data include:
 
 *Change the exercise to data that R excercises will be based on*
 
-## Exercise
+## 
 
-::: {.callout-caution collapse="true"}
-| CustomerID | Name | Age | ZIPCode | Email | Diagnosis | PoliticalOpinion | PurchaseAmount |
-|---------|---------|---------|---------|---------|---------|---------|---------|
-| 001 | Maria Schmidt | 34 | 53111 | maria.schmidt\@example.com | Migraine | None | 120.50 |
-| 002 | Max Müller | 29 | 80331 | max.mueller\@web.de | None | Green Party supporter | 75.00 |
-| 003 | Anna Fischer | 45 | 10115 | anna.fischer\@gmail.com | Diabetes | None | 220.00 |
-| 004 | — | 54 | 20095 | — | None | None | 15.00 |
-| 005 | Lukas Weber | 38 | 40210 | lukas.weber\@mail.de | Hypertension | None | 330.00 |
-| 006 | Sophie Klein | 27 | 70173 | sophie.klein\@outlook.com | None | Conservative voter | 60.00 |
-| 007 | — | 62 | 04109 | — | Heart disease | None | 500.00 |
-| 008 | Peter Braun | 31 | 50667 | peter.braun\@yahoo.com | None | None | 42.00 |
-| 009 | Julia Meyer | 22 | 68159 | julia.meyer\@uni-heidelberg.de | Depression | None | 250.00 |
-| 010 | David Wolf | 40 | 23552 | david.wolf\@gmail.com | None | Social Democrat | 99.90 |
-| 011 | Elena Schwarz | 36 | 90402 | elena.schwarz\@posteo.de | Asthma | None | 185.00 |
-| 012 | Thomas Becker | 52 | 28195 | thomas.becker\@gmx.de | None | None | 305.00 |
-| 013 | Clara Hofmann | 28 | 01067 | clara.hofmann\@stud.uni-dresden.de | None | Liberal voter | 75.00 |
-| 014 | Jonas Lehmann | 47 | 99084 | jonas.lehmann\@arcor.de | Cancer | None | 800.00 |
-| 015 | Paula Richter | 33 | 17489 | paula.richter\@uni-greifswald.de | Anxiety | None | 220.00 |
+# Excercise: Personal Data
+
+Here is a simulated dataset of 200 Germans. The data's purpose is to answer whether certain political opinions are linked to religion. This dataset will be used throughout the exercises.
+
+Download the dataset here:
+
+```{r}
+#| label: download-link
+#| echo: false
+
+# Generates a clickable download link for the GitHub Pages website
+xfun::embed_file(
+  "../SimulatedData.xlsx",
+  text = "⬇️ Download SimulatedData.xlsx"
+)
+```
+
+Copy this to a new Markdown file in RStudio to import the data for further analysis:
+
+```{r}
+#| label: data-import
+#| message: false
+
+library(tidyverse)
+library(readxl)
+
+# Load data based on downloaded file
+data <- read_xlsx("../SimulatedData.xlsx") # Change based on the location of your data file
+
+data
+```
+
+::: callout-note
+## Data Dictionary
+
+| Variable Name | Description | Item | Values |
+|------------------|------------------|------------------|------------------|
+| id | Number assigned to each participant in order of participation | (assigned in background) | Integer; 1-200 |
+| name | First and last name of participant | Please indicate your full name (first and last name) | String of characters |
+| email | Email address of participant | What is your e-mail address? | String of characters |
+| plz | German postal code | What is your postal code? | String of characters |
+| gender | Gender of participant | What is your gender? | Factor; "male"/"female"/"non-binary" |
+| age | Age of participant in years | What is your age in years? | Integer; 18-100 |
+| income | Personal annual income in Euros | What was your income over the last twelve months | Integer |
+| religion | Religion of participant | What is your religion? | Factor; "Catholicism","Protestantism","Islam","Eastern Orthodoxy","Judaism", "Buddhism", "Hinduism", "Other", "None" |
+| job_title | Title of job of partcipant | What is your job title? | String of characters |
+| education | Highest degree of education | What is your highest degree of education? | Factor; "no degree","trade school","high school", "university","doctoral title" |
+| pol_immigration | Likert item measuring opinion on immigration | The government should limit immigration more strictly than it currently does. | Integer; 1-5 |
+| pol_environment | Likert item measuring opinion on environment | Protecting the environment should be a top priority, even if it slows economic growth. | Integer; 1-5 |
+| pol_redistribution | Likert item measuring opinion on redistribution of wealth | The government should reduce income differences between rich and poor. | Integer; 1-5 |
+| pol_eu_integration | Likert item measuring opinion on membership in EU | Our country benefits from being a member of the European Union. | Integer; 1-5 |
+| ip_address | IP address (version 4) of participant's device when answering survey | (collected in background) | String of characters |
+| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0–n |
 :::
 
-## Questions
+## Exercise: Direct Identifiers, Indirect Identifiers, and Special Categories
 
-1.  Which columns contain direct identifiers?
-2.  Which contains indirect identifiers?
-3.  Which contain special categories of personal data?
-4.  Is there any column that does not contain personal data?
+Inspect the dataset `data`. Answer the following questions:
+
+1\. Which columns contain direct identifiers?
+
+2\. Which contains indirect identifiers?
+
+3\. Which contain special categories of personal data?
+
+4\. Is there any column that does not contain personal data?
+
+::: callout-note
+## Solution
+
+### Direct identifiers: `name`, `email`, `ip_address`
+
+Name is probably the most obvious identifier there is.
+
+Email addresses are considered direct identifiers since they often contain names and therefore, clearly specify certain individuals. However, even when not containing names, they can act as indirect identifiers by linking to an account or revealing a person's organization.
+
+IP addresses are often considered direct identifiers since they can be linked back to specific devices, and by using Internet service providers' data, to individuals. \[TODO\] Check
+
+### Indirect identifiers: `gender`, `age`, `education`, `job_title`, `income`, `plz`, `years_in_job`
+
+Gender, age, education, job title, postal code, income, and years in job are indirect identifiers, since they cannot lead to idenitification of an individual on their own but may be linked with each other or external knowledge. When an attacker knows of a person who participated in the study and knows their job title, they could identify the person in the data.
+
+### Special category data: all `pol\_` variables (political opinion), `religion`
+
+Explanation
+
+### Personal data: All columns contain personal data.
+
+Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as `name`) is possible, it is considered personal data and GDPR applies.
+:::
+
+Delete all direct identifiers from the dataset.
+
+::: callout-note
+## Solution
+
+Any solution that deletes the name, email address, and IP address is correct. I use tidyverse syntax:
+
+```{r}
+
+data_withoutdirectidentifiers <- data %>% 
+  select(-name, -email, -ip_address)
+  
+```
+:::
 
 #### Learning Objective
 

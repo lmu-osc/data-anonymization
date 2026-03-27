@@ -18,7 +18,18 @@ title: "Documentation"
 
     -   attention: no de-anonymization by accident in scripts
 
-*Insert exercise: make changes to this codebook to document anonymization steps (show old codebook of exercise data)*
+# Exercise
+
+Make changes to the data dictionary in accordance with the anonymization steps you made in this tutorial.
+
+-   `extractManipData(sdc)`\
+    Extracts the anonymized dataset.
+
+-   `undolast(sdc)`\
+    Reverts the last anonymization step.
+
+-   `get.sdcMicroObj()`\
+    Accesses internal components of the object.
 
 #### Learning Objective
 
