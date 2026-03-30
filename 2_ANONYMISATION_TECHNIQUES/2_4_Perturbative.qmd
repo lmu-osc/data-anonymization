@@ -3,6 +3,18 @@ title: "Perturbative Techniques"
 bibliography: ../references.bib
 ---
 
+```{r Setup}
+#| include: false
+
+library(readxl)
+library(sdcMicro)
+library(tidyverse)
+
+data_withoutidentifiers <- read_xlsx("../SimulatedData_noidentifiers.xlsx") # Change based on the location of your data file
+
+sdc_nonpert <- readRDS("../sdc_nonpert.rds") # Change based on the location of your Sdc-object file
+```
+
 -   Not only masking of values, but distortion of values
 
 -   goal: statistics run on the original dataset yield the same results as statistics run on the perturbed dataset
@@ -181,6 +193,14 @@ il_noise
 ```
 
 **Interpretation:** Microaggregation typically produces lower IL1 (mean absolute deviation between original and perturbed values) because entire groups share one value — the average. Noise addition preserves individual-level variation better but introduces random error into every single record. For a dataset where income is used in regression analyses, noise addition is often preferable; for frequency tables or group comparisons, microaggregation is a safer choice.
+
+Save objects
+
+```{r}
+saveRDS(sdc_micro, "../sdc_micro.rds")
+saveRDS(sdc_noise, "../sdc_noise.rds")
+
+```
 :::
 
 #### Learning Objective
