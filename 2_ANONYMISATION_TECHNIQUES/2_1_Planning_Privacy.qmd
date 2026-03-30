@@ -3,6 +3,15 @@ title: "Planning Anonymization"
 bibliography: ../references.bib
 ---
 
+```{r Setup}
+#| include: false
+
+library(readxl)
+data_withoutdirectidentifiers <- read_xlsx("../SimulatedData_noidentifiers.xlsx") # Change based on the location of your data file
+
+```
+
+
 *Explain a bit about where we are in the workflow of research now*
 
 Anonymization of data, in most cases, means covering or obscuring the data, meaning there is always a loss of information. However, when sharing data, we need to keep their utility; otherwise, they are rendered useless.
@@ -64,7 +73,7 @@ library(sdcMicro)
 
 sdc_data <- createSdcObj(
   dat = data_withoutdirectidentifiers, 
-  keyVars = c("gender", "age", "education", "plz"),
+  keyVars = c("gender", "age", "education", "plz", "years_in_job"),
   numVars = "income"
   )  
 
@@ -79,6 +88,12 @@ individualrisk <- get.sdcMicroObj(sdc_data, "risk")$individual # What is fk
 print(sdc_data, type = "numrisk") # Same as overall summary
 ```
 At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need anonymization but can skip to preparing your data for publication.
+
+Save sdcObject
+```{r}
+saveRDS(sdc_data, "../sdc_micro.rds")
+```
+
 
 #### Learning Objective
 

@@ -3,6 +3,18 @@ title: "Balancing Utility and Privacy"
 bibliography: ../references.bib
 ---
 
+```{r}
+#| include: false
+
+library(sdcMicro)
+library(tidyverse)
+library(readxl)
+
+# Load data based on downloaded file
+sdc_micro <- readRDS("../sdc_noise.rds") # Change based on the location of your Sdc-object file
+data_withoutdirectidentifiers <- read_xlsx("../SimulatedData_noidentifiers.xlsx") # Change based on the location of your data file
+```
+
 -   contradictory ideals, but enable each other
 
 *summarize ideas by* @Jansen2025_TensionOpenData
@@ -70,7 +82,7 @@ Use `sdc_micro` (the microaggregation result from the previous exercise) and com
 ### Step 1 – Utility summary
 
 ```{r}
-print(sdc_micro, type = "utility")
+sdc_micro
 ```
 
 IL1 close to 0 indicates little numeric distortion. Eigen values close to 1 indicate that the covariance structure between numeric variables is preserved. If you applied strong microaggregation (small `k` → large groups), you will see higher IL1 and eigen values further from 1.
@@ -81,7 +93,7 @@ IL1 close to 0 indicates little numeric distortion. Eigen values close to 1 indi
 library(ggplot2)
 
 # Extract anonymised income from the sdc object
-income_original   <- data_nonpert$income
+income_original   <- data_withoutdirectidentifiers$income
 income_anonymised <- get.sdcMicroObj(sdc_micro, "manipNumVars")$income
 
 income_compare <- tibble(
@@ -101,6 +113,8 @@ ggplot(income_compare, aes(x = income, fill = version)) +
 
 The shapes should look similar. A heavily chunked distribution (tall bars at regular intervals) would indicate that microaggregation groups were too large.
 
+*Check error: anonymized data virtually identical with non-anonymized*
+
 ### Step 3 – Check whether the key analysis still works
 
 ```{r}
@@ -117,7 +131,7 @@ original_summary <- data_withoutdirectidentifiers %>%
 anon_data <- get.sdcMicroObj(sdc_micro, "manipKeyVars") %>%
   bind_cols(get.sdcMicroObj(sdc_micro, "manipNumVars")) %>%
   bind_cols(
-    data_nonpert %>% select(religion, starts_with("pol_"))
+    data_withoutdirectidentifiers %>% select(religion, starts_with("pol_"))
   )
 
 anonymised_summary <- anon_data %>%

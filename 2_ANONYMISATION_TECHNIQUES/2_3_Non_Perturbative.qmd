@@ -3,6 +3,18 @@ title: "Non-Perturbative Techniques"
 bibliography: ../references.bib
 ---
 
+```{r Setup}
+#| include: false
+
+library(readxl)
+library(sdcMicro)
+library(tidyverse)
+
+data_withoutdirectidentifiers <- read_xlsx("../SimulatedData_noidentifiers.xlsx") # Change based on the location of your data file
+
+sdc_data <- readRDS("../sdc_micro.rds") # Change based on the location of your Sdc-object file
+```
+
 Non-perturbative techniques are those that do not change the values of data, but rather conceal certain values. This includes all techniques referred to as data masking, suppression, and deletion.
 
 Depending on the specific data type and risk, different techniques are possible [@Carvalho2023_SurveyPrivacyPreservingTechniques]:
@@ -111,13 +123,13 @@ sdc_nonpert <- globalRecode(
 
 print(sdc_nonpert, type = "risk") # check risk after making the change
 
-# Generalize PLZ
-sdc_nonpert <- globalRecode(
-  obj    = sdc_data,
-  column = "plz",
-  breaks = c(0, 19999, 39999, 59999, 79999, 99999),
-  labels = c("00–19", "20–39", "40–59", "60–79", "80–99")
-)
+# Generalize PLZ (does not work due to variable type)
+# sdc_nonpert <- globalRecode(
+#   obj    = sdc_data,
+#   column = "plz",
+#   breaks = c(0, 19999, 39999, 59999, 79999, 99999),
+#   labels = c("00–19", "20–39", "40–59", "60–79", "80–99")
+# )
 
 # `globalRecode()` updates the key variable inside the `sdc` object directly and recalculates risk. The five regions map loosely to north, north-central, central, south-central, and south Germany.
 
@@ -175,6 +187,12 @@ print(sdc_nonpert, type = "risk")
 ```
 
 `fct_lump_min(religion, min = 10)` merges any category with fewer than 10 observations into `"Other"`. This is transparent — you can see exactly which categories were affected by comparing the `table()` outputs before and after. Groups like "Judaism" or "Buddhism" which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes. *Compare to local suppression using function*
+
+Save sdcObject
+
+```{r}
+saveRDS(sdc_nonpert, "../sdc_nonpert.rds")
+```
 :::
 
 #### Learning Objective

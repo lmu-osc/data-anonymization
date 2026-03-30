@@ -67,6 +67,7 @@ Copy this to a new Markdown file in RStudio to import the data for further analy
 
 library(tidyverse)
 library(readxl)
+library(writexl)
 
 # Load data based on downloaded file
 data <- read_xlsx("../SimulatedData.xlsx") # Change based on the location of your data file
@@ -144,7 +145,13 @@ Any solution that deletes the name, email address, and IP address is correct. I 
 
 data_withoutdirectidentifiers <- data %>% 
   select(-name, -email, -ip_address)
-  
+
+```
+
+Save the new file
+
+```{r}
+write_xlsx(data_withoutdirectidentifiers, "../SimulatedData_noidentifiers.xlsx")
 ```
 :::
 
