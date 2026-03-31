@@ -513,7 +513,6 @@ Use `sdc_micro` (the microaggregation result from the previous exercise) and com
 ### Step 1 – Utility summary
 
 ```{r}
-#| eval: false
 print(sdc_micro, type = "utility")
 ```
 
@@ -522,7 +521,6 @@ IL1 close to 0 indicates little numeric distortion. Eigen values close to 1 indi
 ### Step 2 – Compare income distributions
 
 ```{r}
-#| eval: false
 library(ggplot2)
 
 # Extract anonymised income from the sdc object
@@ -549,7 +547,7 @@ The shapes should look similar. A heavily chunked distribution (tall bars at reg
 ### Step 3 – Check whether the key analysis still works
 
 ```{r}
-#| eval: false
+
 # Analysis on original data
 original_summary <- data_withoutdirectidentifiers %>%
   group_by(religion) %>%
