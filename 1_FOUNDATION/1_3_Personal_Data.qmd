@@ -79,7 +79,7 @@ data
 ## Data Dictionary
 
 | Variable Name | Description | Item | Values |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | id | Number assigned to each participant in order of participation | (assigned in background) | Integer; 1-200 |
 | name | First and last name of participant | Please indicate your full name (first and last name) | String of characters |
 | email | Email address of participant | What is your e-mail address? | String of characters |
