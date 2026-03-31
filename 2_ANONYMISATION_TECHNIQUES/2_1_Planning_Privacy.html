@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1191229d2abf6901efadd99d34c9cfc5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-cbf0dbf94d59226cc454ce1bf4e111b8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -355,9 +355,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-sdcmicro-package" id="toc-the-sdcmicro-package" class="nav-link active" data-scroll-target="#the-sdcmicro-package">The <code>sdcMicro</code> Package</a></li>
-  <li><a href="#identifying-privacy-risks" id="toc-identifying-privacy-risks" class="nav-link" data-scroll-target="#identifying-privacy-risks">Identifying Privacy Risks</a></li>
-  <li><a href="#measuring-privacy-risks" id="toc-measuring-privacy-risks" class="nav-link" data-scroll-target="#measuring-privacy-risks">Measuring Privacy Risks</a></li>
+  <li><a href="#identifying-privacy-risks" id="toc-identifying-privacy-risks" class="nav-link active" data-scroll-target="#identifying-privacy-risks">Identifying Privacy Risks</a></li>
+  <li><a href="#measuring-privacy-risks" id="toc-measuring-privacy-risks" class="nav-link" data-scroll-target="#measuring-privacy-risks">Measuring Privacy Risks</a>
+  <ul class="collapse">
+  <li><a href="#the-sdcmicro-package" id="toc-the-sdcmicro-package" class="nav-link" data-scroll-target="#the-sdcmicro-package">The <code>sdcMicro</code> Package</a></li>
+  <li><a href="#using-sdcmicro-to-assess-privacy-risks" id="toc-using-sdcmicro-to-assess-privacy-risks" class="nav-link" data-scroll-target="#using-sdcmicro-to-assess-privacy-risks">Using <code>sdcMicro</code> To Assess Privacy Risks</a></li>
+  <li><a href="#exercise-assessing-privacy-risks-with-sdcmicro" id="toc-exercise-assessing-privacy-risks-with-sdcmicro" class="nav-link" data-scroll-target="#exercise-assessing-privacy-risks-with-sdcmicro">Exercise: Assessing Privacy Risks With <code>sdcMicro</code></a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -387,107 +391,138 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Anonymization of data, in most cases, means covering or obscuring the data, meaning there is always a loss of information. However, when sharing data, we need to keep their utility; otherwise, they are rendered useless.</p>
 <p>The goal is to use the appropriate anonymization techniques to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also <a href="../3_PRIVACY_OPENNESS/3_1_Balancing">BALANCING DATA PROTECTION AND OPENNESS</a>).</p>
 <p>To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, taking what we learned in the <a href="../1_FOUNDATIONS/1_5_Privacy_Concepts">last chapter</a> and putting it into practice.</p>
-<section id="the-sdcmicro-package" class="level1">
-<h1>The <code>sdcMicro</code> Package</h1>
-<p>To that end (and for most of the following exercises), we will use the package <code>sdcMicro</code> in R and the test dataset it contains. You already learned about the data it contained in the last exercise (<em>add link to exercise</em>)</p>
-<p>sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).</p>
-<p>Let’s generate some fake data: (<em>change when exercises are finalized, I’ll probably use test data provided by the package)</em></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">42</span>, <span class="dv">42</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">zipcode =</span> <span class="fu">c</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12345"</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"67890"</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">diagnosis =</span> <span class="fu">c</span>(</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Allergy"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HIV"</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HIV"</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Flu"</span>,</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cold"</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Allergy"</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> <span class="co">#| echo: false   </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(data), <span class="at">caption =</span> <span class="st">"Raw data example"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Raw data example</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">age</th>
-<th style="text-align: left;">gender</th>
-<th style="text-align: left;">zipcode</th>
-<th style="text-align: left;">diagnosis</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">34</td>
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">12345</td>
-<td style="text-align: left;">Flu</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">35</td>
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">12345</td>
-<td style="text-align: left;">Cold</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">36</td>
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">12345</td>
-<td style="text-align: left;">Flu</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">36</td>
-<td style="text-align: left;">F</td>
-<td style="text-align: left;">12345</td>
-<td style="text-align: left;">Cold</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">36</td>
-<td style="text-align: left;">F</td>
-<td style="text-align: left;">12345</td>
-<td style="text-align: left;">Allergy</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">40</td>
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">67890</td>
-<td style="text-align: left;">HIV</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
 <section id="identifying-privacy-risks" class="level1">
 <h1>Identifying Privacy Risks</h1>
 <p><em>Include exercising on identifying possible risks within the data</em></p>
+<p>Identity disclosure, attribute disclosure, membership disclosure</p>
 <p><em>Include examples for attack scenarios</em></p>
 </section>
 <section id="measuring-privacy-risks" class="level1">
 <h1>Measuring Privacy Risks</h1>
-<p><em>Explain process of assessing the risk with sdcMicro</em></p>
-<p><em>Include exercise on applying this to the example data</em></p>
+<section id="the-sdcmicro-package" class="level2">
+<h2 class="anchored" data-anchor-id="the-sdcmicro-package">The <code>sdcMicro</code> Package</h2>
+<p>To that end (and for most of the following exercises), we will use the package <code>sdcMicro</code> in R and the test dataset it contains. You already learned about the data it contained in the last exercise (<em>add link to exercise</em>)</p>
+<p>sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).</p>
+<p><em>Include more info on functions in sdcMicro?</em></p>
+</section>
+<section id="using-sdcmicro-to-assess-privacy-risks" class="level2">
+<h2 class="anchored" data-anchor-id="using-sdcmicro-to-assess-privacy-risks">Using <code>sdcMicro</code> To Assess Privacy Risks</h2>
+<p>Let’s start by creating a sdcMicro object using the class <code>sdcMicroObj</code>. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores</p>
+<ul>
+<li>the original dataset,</li>
+<li>the roles of variables within the dataset,</li>
+<li>risk measures,</li>
+<li>anonymized versions of the variables,</li>
+<li>utility measures, and</li>
+<li>the history of modifications.</li>
+</ul>
+<p><code>sdcMicro</code> updates risk and utilty estimates after each anonymization step.</p>
+<p>For this object, we start with defining the following:</p>
+<ul>
+<li><p><code>dat</code>: the dataset we are working with</p></li>
+<li><p><code>keyVars</code>: indirect identifiers that are categorial (i.e., have categories) we want to assess the risk of (e.g., age, gender)</p></li>
+<li><p><code>numVars</code>: continuous (i.e., numeric) indirect identifiers (e.g., income)</p></li>
+</ul>
+<p><code>sdcMicro</code> needs, at the least, the data and categorial indirect identifiers to assess risks. We can later add more information to the object.</p>
+</section>
+<section id="exercise-assessing-privacy-risks-with-sdcmicro" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-assessing-privacy-risks-with-sdcmicro">Exercise: Assessing Privacy Risks With <code>sdcMicro</code></h2>
+<ol type="1">
+<li>Create an object within sdcMicro. Inspect the object.</li>
+<li>What k-anonymity level is currently reached?</li>
+</ol>
+<p>Solution:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdcMicro)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sdc_data <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">dat =</span> data_withoutdirectidentifiers, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">keyVars =</span> <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"age"</span>, <span class="st">"education"</span>, <span class="st">"plz"</span>, <span class="st">"years_in_job"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">numVars =</span> <span class="st">"income"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  )  </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall summary</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>sdc_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The input dataset consists of 200 rows and 13 variables.
+  --&gt; Categorical key variables: gender, age, education, plz, years_in_job
+  --&gt; Numerical key variables: income
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Information on categorical key variables:
+
+Reported is the number, mean size and size of the smallest category &gt;0 for recoded variables.
+In parenthesis, the same statistics are shown for the unmodified data.
+Note: NA (missings) are counted as seperate categories!</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Key Variable Number of categories        Mean size         
+       &lt;char&gt;               &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;
+       gender                    3    (3)    66.667 (66.667)
+          age                   66   (66)     3.030  (3.030)
+    education                    5    (5)    40.000 (40.000)
+          plz                  161  (161)     1.242  (1.242)
+ years_in_job                   29   (29)     6.897  (6.897)
+ Size of smallest (&gt;0)       
+                &lt;char&gt; &lt;char&gt;
+                    11   (11)
+                     1    (1)
+                     5    (5)
+                     1    (1)
+                     1    (1)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Infos on 2/3-Anonymity:
+
+Number of observations violating
+  - 2-anonymity: 200 (100.000%)
+  - 3-anonymity: 200 (100.000%)
+  - 5-anonymity: 200 (100.000%)
+
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Numerical key variables: income
+
+Disclosure risk is currently between [0.00%; 100.00%]
+
+Current Information Loss:
+  - IL1: 0.00
+  - Difference of Eigenvalues: 0.000%
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Risks summary</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_data, <span class="at">type =</span> <span class="st">"risk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Risk measures:
+
+Number of observations with higher risk than the main part of the data: 0
+Expected number of re-identifications: 200.00 (100.00 %)</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Individual risk</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>individualrisk <span class="ot">&lt;-</span> <span class="fu">get.sdcMicroObj</span>(sdc_data, <span class="st">"risk"</span>)<span class="sc">$</span>individual <span class="co"># What is fk</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Continuous risk</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_data, <span class="at">type =</span> <span class="st">"numrisk"</span>) <span class="co"># Same as overall summary</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Numerical key variables: income
+
+Disclosure risk is currently between [0.00%; 100.00%]
+
+Current Information Loss:
+  - IL1: 0.00
+  - Difference of Eigenvalues: 0.000%
+----------------------------------------------------------------------</code></pre>
+</div>
+</div>
 <p>At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need anonymization but can skip to preparing your data for publication.</p>
+<p>Save sdcObject</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_data, <span class="st">"../sdc_micro.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>
@@ -504,6 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 
 
+</section>
 </section>
 </section>
 

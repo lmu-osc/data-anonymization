@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -64,7 +99,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1191229d2abf6901efadd99d34c9cfc5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-cbf0dbf94d59226cc454ce1bf4e111b8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -351,7 +386,10 @@ div.csl-indent {
   </ul></li>
   <li><a href="#keeping-utility" id="toc-keeping-utility" class="nav-link" data-scroll-target="#keeping-utility">Keeping Utility</a></li>
   <li><a href="#pro-and-contra-of-using-perturbative-techniques" id="toc-pro-and-contra-of-using-perturbative-techniques" class="nav-link" data-scroll-target="#pro-and-contra-of-using-perturbative-techniques">Pro and Contra of Using Perturbative Techniques</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
+  <ul class="collapse">
+  <li><a href="#exercise-applying-perturbative-techniques" id="toc-exercise-applying-perturbative-techniques" class="nav-link" data-scroll-target="#exercise-applying-perturbative-techniques">Exercise: Applying Perturbative Techniques</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -493,10 +531,131 @@ div.csl-indent {
 </section>
 <section id="exercise" class="level1">
 <h1>Exercise</h1>
+<p>Perturbative techniques <strong>modify</strong> values rather than removing or generalising them. The data still looks complete and realistic, but individual values have been altered enough that re-identification becomes unreliable. Two common methods:</p>
 <ul>
-<li><p>Apply one or two techniques for certain variables in R</p></li>
-<li><p>Check statistics before and after</p></li>
+<li><strong>Microaggregation</strong> — records are grouped by similarity and values within each group are replaced by the group mean. Individual values are obscured but aggregate statistics are preserved.</li>
+<li><strong>Adding noise</strong> — small random amounts are added to numeric values. The distribution stays plausible but exact values are no longer trustworthy.</li>
 </ul>
+<p>Both are available directly in <code>sdcMicro</code>.</p>
+<section id="exercise-applying-perturbative-techniques" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-applying-perturbative-techniques">Exercise: Applying Perturbative Techniques</h2>
+<p>Continue working with <code>sdc_nonpert</code> from the previous exercise.</p>
+<ol type="1">
+<li><p><strong>Apply microaggregation to <code>income</code></strong> using the default method (<code>"mdav"</code>). Use a group size of <code>k = 5</code>.</p></li>
+<li><p><strong>Add noise to <code>income</code></strong> as an alternative — apply additive noise with a noise level of <code>0.1</code> (10% of the standard deviation). Compare the result to microaggregation: which distorts the data more?</p></li>
+<li><p><strong>Compare the information loss</strong> reported by <code>sdcMicro</code> after each step. Which method better balances risk and utility for this variable?</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You cannot undo perturbation steps within the same <code>sdc</code> object. Create a fresh copy of <code>sdc_nonpert</code> before trying the second method so you can compare them side-by-side.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<section id="step-1-microaggregation" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-microaggregation">Step 1 – Microaggregation</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sdc_micro <span class="ot">&lt;-</span> <span class="fu">microaggregation</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_nonpert,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">variables =</span> <span class="st">"income"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">aggr   =</span> <span class="dv">5</span>,          <span class="co"># group size k</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"mdav"</span>      <span class="co"># Maximum Distance to Average Vector</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_micro, <span class="at">type =</span> <span class="st">"numrisk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Numerical key variables: income, years_in_job
+
+Disclosure risk is currently between [0.00%; 86.00%]
+
+Current Information Loss:
+  - IL1: 885.42
+  - Difference of Eigenvalues: 0.150%
+----------------------------------------------------------------------</code></pre>
+</div>
+</div>
+<p><code>mdav</code> groups records by their distance to the group centroid, then replaces each value with the group mean. With <code>aggr = 5</code>, at least 5 records share the same income value, so singling out an individual is harder.</p>
+</section>
+<section id="step-2-additive-noise-on-a-fresh-copy" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-additive-noise-on-a-fresh-copy">Step 2 – Additive noise (on a fresh copy)</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sdc_noise <span class="ot">&lt;-</span> <span class="fu">addNoise</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_nonpert,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">variables =</span> <span class="st">"income"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">noise  =</span> <span class="fl">0.1</span>         <span class="co"># noise level as fraction of SD</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_noise, <span class="at">type =</span> <span class="st">"numrisk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Numerical key variables: income, years_in_job
+
+Disclosure risk is currently between [0.00%; 100.00%]
+
+Current Information Loss:
+  - IL1: 8.89
+  - Difference of Eigenvalues: 0.000%
+----------------------------------------------------------------------</code></pre>
+</div>
+</div>
+<p><code>addNoise()</code> draws from a normal distribution with mean 0 and standard deviation = <code>noise × sd(income)</code> and adds it to each value. Every record gets a unique (slightly wrong) income.</p>
+</section>
+<section id="step-3-comparing-information-loss" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-comparing-information-loss">Step 3 – Comparing information loss</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Information loss after microaggregation</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>il_micro <span class="ot">&lt;-</span> <span class="fu">get.sdcMicroObj</span>(sdc_micro, <span class="st">"utility"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Information loss after noise addition</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>il_noise <span class="ot">&lt;-</span> <span class="fu">get.sdcMicroObj</span>(sdc_noise, <span class="st">"utility"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>il_micro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$il1
+[1] 885.4226
+
+$il1s
+[1] 5.423393
+
+$eigen
+[1] 0.001527126</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>il_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$il1
+[1] 8.891502
+
+$il1s
+[1] 0.1120792
+
+$eigen
+[1] 6.314377e-06</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> Microaggregation typically produces lower IL1 (mean absolute deviation between original and perturbed values) because entire groups share one value — the average. Noise addition preserves individual-level variation better but introduces random error into every single record. For a dataset where income is used in regression analyses, noise addition is often preferable; for frequency tables or group comparisons, microaggregation is a safer choice.</p>
+<p>Save objects</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_micro, <span class="st">"../sdc_micro.rds"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_noise, <span class="st">"../sdc_noise.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</div>
+</div>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>
@@ -506,8 +665,7 @@ div.csl-indent {
 <section id="exercise-1" class="level4">
 <h4 class="anchored" data-anchor-id="exercise-1">Exercise</h4>
 <ul>
-<li><p>Apply one or two techniques for certain variables in R</p></li>
-<li><p>Check statistics before and after</p></li>
+<li>Apply one or two techniques for certain variables in R</li>
 </ul>
 </section>
 <section id="resources-links-examples" class="level4">
@@ -515,6 +673,7 @@ div.csl-indent {
 <ul>
 <li>adding noise with the <code>sdcMicro</code> R package</li>
 </ul>
+</section>
 </section>
 </section>
 <section id="references" class="level1">

@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -64,7 +99,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1191229d2abf6901efadd99d34c9cfc5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-cbf0dbf94d59226cc454ce1bf4e111b8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -342,6 +377,10 @@ div.csl-indent {
   <li><a href="#measuring-privacy" id="toc-measuring-privacy" class="nav-link active" data-scroll-target="#measuring-privacy">Measuring Privacy</a></li>
   <li><a href="#measuring-utility" id="toc-measuring-utility" class="nav-link" data-scroll-target="#measuring-utility">Measuring Utility</a></li>
   <li><a href="#striking-the-right-balance" id="toc-striking-the-right-balance" class="nav-link" data-scroll-target="#striking-the-right-balance">Striking the Right Balance</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
+  <ul class="collapse">
+  <li><a href="#exercise-evaluating-data-utility" id="toc-exercise-evaluating-data-utility" class="nav-link" data-scroll-target="#exercise-evaluating-data-utility">Exercise: Evaluating Data Utility</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/3_PRIVACY_OPENNESS/3_1_Balancing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -409,6 +448,194 @@ div.csl-indent {
 <li><p><em>explain the norms for acceptable values of privacy and utility indicators</em></p></li>
 <li><p>People to contact at LMU (data stewards? open science team?)</p></li>
 </ul>
+</section>
+<section id="exercise" class="level1">
+<h1>Exercise</h1>
+<p>Evaluate the utility of the dataset using sdcMicro functions</p>
+<p>After anonymisation, you need to check that the data is still <strong>useful</strong> — that the patterns you care about (e.g., the relationship between religion and political opinion) have not been destroyed. <code>sdcMicro</code> provides utility measures, but it is also worth comparing distributions and running the actual analysis on both the original and anonymised data.</p>
+<p>Key utility concepts:</p>
+<ul>
+<li><strong>IL1</strong> — average absolute difference between original and anonymised numeric values (lower = better)</li>
+<li><strong>Eigen</strong> — compares covariance structure; values close to 1 mean the relationships between variables are preserved</li>
+<li><strong><code>utility()</code> / <code>print(..., type = "utility")</code></strong> — overall summary</li>
+<li><strong>Visual comparison</strong> — plotting distributions side-by-side is often the most intuitive check</li>
+</ul>
+<section id="exercise-evaluating-data-utility" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-evaluating-data-utility">Exercise: Evaluating Data Utility</h2>
+<p>Use <code>sdc_micro</code> (the microaggregation result from the previous exercise) and compare it to the original data.</p>
+<ol type="1">
+<li><p><strong>Print the utility summary</strong> of <code>sdc_micro</code>. What do IL1 and the eigen measure tell you?</p></li>
+<li><p><strong>Compare the income distribution</strong> before and after anonymisation. Plot histograms of the original and anonymised income side-by-side.</p></li>
+<li><p><strong>Re-run the analysis that motivated data collection:</strong> compute the mean political opinion scores (<code>pol_immigration</code>, <code>pol_redistribution</code>) by religion group on both the original and anonymised data. Are the group differences preserved?</p></li>
+<li><p><strong>Reflect:</strong> based on your findings, is the anonymised dataset fit for purpose? Would you adjust any of the anonymisation steps?</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<section id="step-1-utility-summary" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-utility-summary">Step 1 – Utility summary</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sdc_micro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The input dataset consists of 200 rows and 13 variables.
+  --&gt; Categorical key variables: gender, age, education, plz
+  --&gt; Numerical key variables: income, years_in_job
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Information on categorical key variables:
+
+Reported is the number, mean size and size of the smallest category &gt;0 for recoded variables.
+In parenthesis, the same statistics are shown for the unmodified data.
+Note: NA (missings) are counted as seperate categories!</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Key Variable Number of categories        Mean size         
+       &lt;char&gt;               &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;
+       gender                    3    (3)    66.667 (66.667)
+          age                   66   (66)     3.030  (3.030)
+    education                    5    (5)    40.000 (40.000)
+          plz                  161  (161)     1.242  (1.242)
+ Size of smallest (&gt;0)       
+                &lt;char&gt; &lt;char&gt;
+                    11   (11)
+                     1    (1)
+                     5    (5)
+                     1    (1)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Infos on 2/3-Anonymity:
+
+Number of observations violating
+  - 2-anonymity: 200 (100.000%)
+  - 3-anonymity: 200 (100.000%)
+  - 5-anonymity: 200 (100.000%)
+
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Numerical key variables: income, years_in_job
+
+Disclosure risk is currently between [0.00%; 100.00%]
+
+Current Information Loss:
+  - IL1: 7.73
+  - Difference of Eigenvalues: 0.010%
+----------------------------------------------------------------------</code></pre>
+</div>
+</div>
+<p>IL1 close to 0 indicates little numeric distortion. Eigen values close to 1 indicate that the covariance structure between numeric variables is preserved. If you applied strong microaggregation (small <code>k</code> → large groups), you will see higher IL1 and eigen values further from 1.</p>
+</section>
+<section id="step-2-compare-income-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-compare-income-distributions">Step 2 – Compare income distributions</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract anonymised income from the sdc object</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>income_original   <span class="ot">&lt;-</span> data_withoutdirectidentifiers<span class="sc">$</span>income</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>income_anonymised <span class="ot">&lt;-</span> <span class="fu">get.sdcMicroObj</span>(sdc_micro, <span class="st">"manipNumVars"</span>)<span class="sc">$</span>income</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>income_compare <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">income =</span> <span class="fu">c</span>(income_original, income_anonymised),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">version =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Original"</span>, <span class="st">"Anonymised"</span>), <span class="at">each =</span> <span class="fu">length</span>(income_original))</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(income_compare, <span class="fu">aes</span>(<span class="at">x =</span> income, <span class="at">fill =</span> version)) <span class="sc">+</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">position =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Original"</span> <span class="ot">=</span> <span class="st">"#2E4057"</span>, <span class="st">"Anonymised"</span> <span class="ot">=</span> <span class="st">"#E07A5F"</span>)) <span class="sc">+</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Income distribution: original vs. anonymised"</span>,</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Annual income (€)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">fill =</span> <span class="cn">NULL</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_1_Balancing_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The shapes should look similar. A heavily chunked distribution (tall bars at regular intervals) would indicate that microaggregation groups were too large.</p>
+<p><em>Check error: anonymized data virtually identical with non-anonymized</em></p>
+</section>
+<section id="step-3-check-whether-the-key-analysis-still-works" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-check-whether-the-key-analysis-still-works">Step 3 – Check whether the key analysis still works</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analysis on original data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>original_summary <span class="ot">&lt;-</span> data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_immigration    =</span> <span class="fu">mean</span>(pol_immigration,    <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_redistribution =</span> <span class="fu">mean</span>(pol_redistribution, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Rebuild anonymised dataset with the manipulated variables</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>anon_data <span class="ot">&lt;-</span> <span class="fu">get.sdcMicroObj</span>(sdc_micro, <span class="st">"manipKeyVars"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">get.sdcMicroObj</span>(sdc_micro, <span class="st">"manipNumVars"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    data_withoutdirectidentifiers <span class="sc">%&gt;%</span> <span class="fu">select</span>(religion, <span class="fu">starts_with</span>(<span class="st">"pol_"</span>))</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>anonymised_summary <span class="ot">&lt;-</span> anon_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_immigration    =</span> <span class="fu">mean</span>(pol_immigration,    <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_redistribution =</span> <span class="fu">mean</span>(pol_redistribution, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>original_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 4
+  religion          mean_immigration mean_redistribution     n
+  &lt;chr&gt;                        &lt;dbl&gt;               &lt;dbl&gt; &lt;int&gt;
+1 Buddhism                      3                   4        1
+2 Catholicism                   2.74                3.26    53
+3 Eastern Orthodoxy             4.33                2.33     3
+4 Islam                         2.62                3       13
+5 Judaism                       2.8                 2.4      5
+6 None                          2.87                3.21    86
+7 Protestantism                 2.97                3.28    39</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>anonymised_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 4
+  religion          mean_immigration mean_redistribution     n
+  &lt;chr&gt;                        &lt;dbl&gt;               &lt;dbl&gt; &lt;int&gt;
+1 Buddhism                      3                   4        1
+2 Catholicism                   2.74                3.26    53
+3 Eastern Orthodoxy             4.33                2.33     3
+4 Islam                         2.62                3       13
+5 Judaism                       2.8                 2.4      5
+6 None                          2.87                3.21    86
+7 Protestantism                 2.97                3.28    39</code></pre>
+</div>
+</div>
+<p>If the group means are close between both summaries, the anonymisation has preserved the analytical signal. Political opinion variables were not altered (they are neither key variables nor numeric variables in the sdcMicro object), so differences here would only arise if the grouping structure changed dramatically.</p>
+</section>
+<section id="step-4-reflection" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-reflection">Step 4 – Reflection</h3>
+<p>There is no single correct answer. Consider:</p>
+<ul>
+<li>If income distributions look very similar and group means are preserved → the anonymisation is fit for purpose for this analysis</li>
+<li>If you used <code>k = 5</code> and results still look good, increasing to <code>k = 3</code> would reduce distortion while still providing some protection — but weigh this against the risk reduction you found in the earlier exercises</li>
+<li>Variables like <code>plz_region</code> and <code>age_group</code> were generalised; if a future analysis requires finer geographic or age breakdowns, you would need to negotiate a different anonymisation strategy with the data controller</li>
+</ul>
+</section>
+</div>
+</div>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>
@@ -427,6 +654,7 @@ div.csl-indent {
 <ul>
 <li>examples in UK:&nbsp;<a href="https://ukdataservice.ac.uk/deposit-data/sharing-experiences/" class="uri">https://ukdataservice.ac.uk/deposit-data/sharing-experiences/</a></li>
 </ul>
+</section>
 </section>
 </section>
 <section id="references" class="level1">
