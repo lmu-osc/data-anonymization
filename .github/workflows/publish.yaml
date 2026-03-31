@@ -40,6 +40,7 @@ jobs:
           install.packages("renv")
           install.packages("rmarkdown")
           install.packages("yaml")
+          install.packages("sdcMicro")
           install.packages(renv::dependencies()$Package)
         shell: Rscript {0}
         if: ${{ hashFiles('renv.lock') == '' }}
