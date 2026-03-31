@@ -547,6 +547,7 @@ The shapes should look similar. A heavily chunked distribution (tall bars at reg
 ### Step 3 – Check whether the key analysis still works
 
 ```{r}
+
 # Analysis on original data
 original_summary <- data_withoutdirectidentifiers %>%
   group_by(religion) %>%

@@ -37,9 +37,11 @@ jobs:
 
       - name: Install R latest dependencies
         run: |
-          options(repos = c(CRAN = "https://cloud.r-project.org"))
-          pkgs <- c("rmarkdown", "yaml", "sdcMicro", "tidyverse", "readxl", "writexl", "xfun", "forcats", "charlatan", "ggplot2")
-          install.packages(pkgs)
+          install.packages("renv")
+          install.packages("rmarkdown")
+          install.packages("yaml")
+          install.packages("sdcMicro")
+          install.packages(renv::dependencies()$Package)
         shell: Rscript {0}
         if: ${{ hashFiles('renv.lock') == '' }}
 
