@@ -5,16 +5,36 @@ bibliography: references.bib
 
 # What is Data Privacy?
 
--   Somewhat hard to define, no one definition everyone agrees on
--   one influential framework: Nissenbaum's Contextual Integrity [@nissenbaum2010]
-    -   Privacy means that contextual information norms are respected in all information flows.
-    -   context: e.g., norms, laws, actors, situation
-    -   information flow: technical act of transferring information
-    -   information norm includes sender, recipient, subject, information type, transmission principle (e.g., voluntary, with permission, sale, confidential)
-        -   can be normative or descriptive
--   *add an example in research context for Nissenbaum's concept of contextual integrity*
+This question has troubled (and engaged) scholars in privacy research for decades - there is no one agreed-upon definition. One quite influential way to formalize privacy is Nissenbaum's framework of Contextual Integrity [@nissenbaum2010].
 
-In this tutorial, I will use both the terms data protection and privacy. Privacy is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. Data protection is a term that is closely linked to actual behavior and is used in laws. Both translate to "Datenschutz" in German.
+Consider a common scenario in psychological research: A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms - trusting that this information stays within the research context. The researcher publishes a dataset that is technically anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant's manager downloads the open dataset and identifies her employee. 
+
+Nothing was "leaked" in a traditional sense. The information flowed - but it violated the norms of the context in which it was shared. This is exactly what Nissenbaum's framework captures.
+
+At its core, it states: Privacy means that contextual information norms are respected in all information flows.
+
+A context carries certain information, such as norms in your culture, laws, the people involved, and the situation you are in.
+
+An information flow means the act of transferring information in any way. Information norms depend on the sender, recipient, information type, and conditions of the information flow (e.g., voluntary, with permission, confidentially; Nissenbaum calls this transmission principle). It may be normative or descriptive.
+
+::: {.callout-note}
+# Applying Contextual Integrity
+In the example above, nothing was "leaked" in a traditional sense — yet most of us would call this a privacy violation. Nissenbaum's framework explains why:
+
+- **Context:** Academic research, governed by ethics board approval and norms of confidentiality
+- **Sender:** Survey participant (employee)
+- **Recipient:** Researcher → later, the broader public via open data (including, unexpectedly, the participant's manager)
+- **Information type:** Sensitive personal disclosures (burnout, workplace stress)
+- **Transmission principle:** Voluntary, under expectation of anonymity and confidentiality
+
+The information type and sender haven't changed — but the recipient and transmission principle have. The contextual norm is violated. This is a privacy violation not because a name was exposed, but because information flowed in a way that didn't match the norms of the context in which it was shared.
+:::
+
+In this tutorial, I will show 
+- why we - as researchers - need to carefully consider these contextual norms, and
+- how we can enable information flows of data (i.e., when sharing data).
+
+Throughout this tutorial, I will use both the terms data protection and privacy. Privacy is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. Data protection is a term that is closely linked to actual techniques and is used in laws. Both translate (give or take) to "Datenschutz" in German.
 
 # Why is Data Protection Important?
 
@@ -34,7 +54,7 @@ Trust of participants in research and researchers extends to handling personal d
 
 *Explain ethical conventions (Helsinki, etc.)*
 
-*Explain professional obligations (e.g., as Psychologists)*
+*Explain professional obligations (e.g., as Psychologists, Doctors)*
 
 # Data Protection in Law
 

@@ -16,7 +16,7 @@ All laws and articles of the GDPR can be found [online](https://gdpr-info.eu/).
 The GDPR guarantees eight fundamental rights for people residing in the EU, and for their data:
 
 | Data Right | Description |
-|----|----|
+|------------------------------------|------------------------------------|
 | Right to be informed | People must be informed on how their data is being used, processed, collected, and so forth. |
 | Right to access | People can access what information is held about them. |
 | Right to rectification | People can correct information that is false or misleading. |
