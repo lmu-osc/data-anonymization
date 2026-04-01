@@ -372,21 +372,35 @@ div.csl-indent {
 
 <section id="what-is-data-privacy" class="level1">
 <h1>What is Data Privacy?</h1>
+<p>This question has troubled (and engaged) scholars in privacy research for decades - there is no one agreed-upon definition. One quite influential way to formalize privacy is Nissenbaum’s framework of Contextual Integrity <span class="citation" data-cites="nissenbaum2010">(<a href="#ref-nissenbaum2010" role="doc-biblioref">Nissenbaum 2010</a>)</span>.</p>
+<p>Consider a common scenario in psychological research: A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms - trusting that this information stays within the research context. The researcher publishes a dataset that is technically anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant’s manager downloads the open dataset and identifies her employee.</p>
+<p>Nothing was “leaked” in a traditional sense. The information flowed - but it violated the norms of the context in which it was shared. This is exactly what Nissenbaum’s framework captures.</p>
+<p>At its core, it states: Privacy means that contextual information norms are respected in all information flows.</p>
+<p>A context carries certain information, such as norms in your culture, laws, the people involved, and the situation you are in.</p>
+<p>An information flow means the act of transferring information in any way. Information norms depend on the sender, recipient, information type, and conditions of the information flow (e.g., voluntary, with permission, confidentially; Nissenbaum calls this transmission principle). It may be normative or descriptive.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Applying Contextual Integrity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the example above, nothing was “leaked” in a traditional sense — yet most of us would call this a privacy violation. Nissenbaum’s framework explains why:</p>
 <ul>
-<li>Somewhat hard to define, no one definition everyone agrees on</li>
-<li>one influential framework: Nissenbaum’s Contextual Integrity <span class="citation" data-cites="nissenbaum2010">(<a href="#ref-nissenbaum2010" role="doc-biblioref">Nissenbaum 2010</a>)</span>
-<ul>
-<li>Privacy means that contextual information norms are respected in all information flows.</li>
-<li>context: e.g., norms, laws, actors, situation</li>
-<li>information flow: technical act of transferring information</li>
-<li>information norm includes sender, recipient, subject, information type, transmission principle (e.g., voluntary, with permission, sale, confidential)
-<ul>
-<li>can be normative or descriptive</li>
-</ul></li>
-</ul></li>
-<li><em>add an example in research context for Nissenbaum’s concept of contextual integrity</em></li>
+<li><strong>Context:</strong> Academic research, governed by ethics board approval and norms of confidentiality</li>
+<li><strong>Sender:</strong> Survey participant (employee)</li>
+<li><strong>Recipient:</strong> Researcher → later, the broader public via open data (including, unexpectedly, the participant’s manager)</li>
+<li><strong>Information type:</strong> Sensitive personal disclosures (burnout, workplace stress)</li>
+<li><strong>Transmission principle:</strong> Voluntary, under expectation of anonymity and confidentiality</li>
 </ul>
-<p>In this tutorial, I will use both the terms data protection and privacy. Privacy is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. Data protection is a term that is closely linked to actual behavior and is used in laws. Both translate to “Datenschutz” in German.</p>
+<p>The information type and sender haven’t changed — but the recipient and transmission principle have. The contextual norm is violated. This is a privacy violation not because a name was exposed, but because information flowed in a way that didn’t match the norms of the context in which it was shared.</p>
+</div>
+</div>
+<p>In this tutorial, I will show - why we - as researchers - need to carefully consider these contextual norms, and - how we can enable information flows of data (i.e., when sharing data).</p>
+<p>Throughout this tutorial, I will use both the terms data protection and privacy. Privacy is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. Data protection is a term that is closely linked to actual techniques and is used in laws. Both translate (give or take) to “Datenschutz” in German.</p>
 </section>
 <section id="why-is-data-protection-important" class="level1">
 <h1>Why is Data Protection Important?</h1>
@@ -404,7 +418,7 @@ div.csl-indent {
 <li>Participants probably do not read consent forms</li>
 </ul>
 <p><em>Explain ethical conventions (Helsinki, etc.)</em></p>
-<p><em>Explain professional obligations (e.g., as Psychologists)</em></p>
+<p><em>Explain professional obligations (e.g., as Psychologists, Doctors)</em></p>
 </section>
 <section id="data-protection-in-law" class="level1">
 <h1>Data Protection in Law</h1>
