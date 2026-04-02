@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Data Privacy"
-bibliography: references.bib
+bibliography: ../references.bib
 ---
 
 # What is Data Privacy?
