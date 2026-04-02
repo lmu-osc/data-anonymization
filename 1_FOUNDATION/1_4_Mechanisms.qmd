@@ -5,11 +5,7 @@ bibliography: ../references.bib
 
 # Overview
 
-How can research protect (personal) data of participants throughout the research process?
-
-*Show graph with research process and all mechanisms*
-
-List of mechanisms and stages:
+How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point - it is relevant at every stage. The table below maps common data protection mechanisms to the stages of the research lifecycle:
 
 | Stage | Mechanism |
 |----|----|
@@ -21,62 +17,65 @@ List of mechanisms and stages:
 | 6 Publish | Anonymization |
 | 7 Re-Use |  |
 
+*Show graph with research process and all mechanisms*
+
+As you can see, some mechanisms (like anonymization) are relevant across many stages, while others (like informed consent) are specific to a particular point. Let's walk through each stage.
+
 # Stage 1: Plan
 
 ## Data Management Plan
 
--   great measure, helps with data minimization and purpose orientation
--   template: <https://zenodo.org/records/10782781>
+A data management plan (DMP) is a document that describes how you will handle your data during and after your research project. It forces you to think about data protection early - what data will you collect, how will you store it, who will have access, and how will you share it? Many funders now require a DMP, and writing one is a good exercise in data minimization and purpose limitation.
+
+A useful template for DMPs is available at [Zenodo](https://zenodo.org/records/10782781).
 
 ## Institutional Review Board (IRB) Approval
 
--   usually purely ethical
-
--   might also consider data protection, but are no experts in this area
+Ethics committees or IRBs review your study before data collection begins. Their focus is primarily ethical - does the study design respect participants' rights and well-being? They may also consider data protection aspects, but they are typically not technical experts in anonymization or data security. Think of IRB approval as a necessary but not sufficient step: it gets you started on the right track, but you still need to handle the technical side of data protection yourself.
 
 ## Privacy by Design
 
-Privacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning [@Cavoukian2011_PrivacyDesignLaw].
+Privacy by Design (PbD) is a set of principles that require privacy protection to be built into the design of systems and processes from the very beginning, rather than added as an afterthought [@Cavoukian2011_PrivacyDesignLaw]. It is also enshrined as a principle in the GDPR (Art. 25).
 
--   principle in GDPR
+For research, PbD means thinking about privacy before you start collecting data: What is the minimum data you need? How will you store it securely? When and how will you anonymize it? A detailed data management plan can be a great tool for putting PbD into practice.
 
-*Move the seven PbD principles to a call-out box*
+::: {.callout-note collapse="true"}
+# The Seven Principles of Privacy by Design [@Cavoukian2011_PrivacyDesignLaw]
 
-PbD is guided by seven principles outlined below:
+1.  **Proactive, not reactive:** Anticipate and prevent privacy risks before they occur. Don't wait for a breach to think about data protection.
 
-1.  Proactive and Preventive Approach: PbD mandates that researchers and data architects anticipate and prevent privacy-invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.
+2.  **Privacy as the default:** The maximum degree of privacy should be delivered automatically. If a participant or researcher takes no action, privacy should remain intact.
 
-2.  Privacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.
+3.  **Privacy embedded into design:** Privacy should be an integral part of your research design, not an add-on. Plan your data collection, storage, and sharing with privacy in mind from the start.
 
-3.  Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy cannot be "sacrificed" for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find a sweet spot between information and privacy—enabling sufficient data utility for the purpose for which it was collected while preserving privacy for individuals.
+4.  **Full functionality - positive-sum, not zero-sum:** Privacy and data utility are not opposites. The goal is to find approaches that serve both - enabling meaningful research while protecting individuals.
 
-*Explain other principles*
+5.  **End-to-end security:** Data should be protected throughout its entire lifecycle - from collection to deletion. This includes secure storage, encrypted transfers, and proper disposal.
+
+6.  **Visibility and transparency:** Keep your data protection practices open and documented. Participants and oversight bodies should be able to verify that privacy is being maintained.
+
+7.  **Respect for user privacy:** The interests of the individual should be kept central. In research, this means respecting participants' autonomy, expectations, and rights regarding their data.
+:::
 
 # Stage 2: Collect
 
 ## Informed Consent
 
--   usually ethically motivated
+Informed consent is both an ethical and a legal requirement. Under the GDPR, consent is one possible legal basis for processing personal data (Art. 6(1)(a)), and participants have the right to be informed about how their data will be used at the point of collection.
 
--   according to GDPR, participants have the right to information at data collection
+In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed.
 
--   consent as one possible legal basis for processing of data (but not solely)
-
--   non-compliance is very common [@Hallinan2023_UninformedConsentPsychologicala]
-
--   tutorial paper on how to write consent forms according to GDPR by @Hallinan2023_InformationProvisionInformed
+Consent forms are often not read or not understood - which is why consent alone is not a sufficient data protection mechanism.
 
 ## Data Minimization
 
--   principle in GDPR
 
--   no purposeless collection and storage of data (e.g., demographics)
+Data minimization (or in German, *Datensparsamkeit*) follows a simple principle: **no data, no risk** - or more realistically, less data, less risk. The GDPR requires that you only collect data that is "adequate, relevant and limited to what is necessary" for your purpose (Art. 5(1)(c)).
 
--   call-out box on anonymous data collection
+In research, this means resisting the temptation to collect demographics or other variables "just in case" or "because we always do." Every additional variable you collect increases the risk of re-identification when the data is shared. Ask yourself: Do I actually need this variable to answer my research question? If not, don't collect it.
 
--   whenever possible: re-use data (no collection = best kind of data protection) and make own data re-usable (FAIR) (*link to LMU OS tutorials*)
-
-Data minimization (or in German, Datensparsamkeit) is the principle of "No Data, No Risk" (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.
+There is also a flip side to data minimization: whenever possible, re-use existing data instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles - making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody's life easier.
+(*link to LMU OS tutorials*)
 
 *Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)*
 
@@ -86,124 +85,124 @@ Data minimization (or in German, Datensparsamkeit) is the principle of "No Data,
 
 ## Technical and Organizational Measures (TOMs)
 
--   list of measures in GDPR that build additional layers of protection around data
+The GDPR requires controllers to implement "appropriate technical and organisational measures" to protect personal data (Art. 32). In a research context, this includes:
 
--   example: secure storage location
+-   **Secure storage:** Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU, for example, the [LRZ](https://www.lrz.de) provides cloud storage and sync services that keep data within Germany. However, standard LRZ services are not approved for special-category personal data (e.g., health data) without additional agreements - check with the [LMU data protection officer](https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-and-representatives/data-protection-officer.html) if you work with sensitive data.
+-   **Access control:** Only people who need the data for the research should have access. Use role-based permissions where possible.
+-   **Storage limitation:** Don't keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to put a reminder in my calendar for dates I need to delete data.
+-   **Transfer security:** When sharing data with collaborators, use encrypted channels - not email attachments.
+-   **Pseudonymization**: Replace direct identifiers (like names) with artificial identifiers (like participant codes) (see below for more information).
 
--   example: storage limitation
+These measures add layers of protection around your data while it is still in personal form. They do not replace anonymization, but they are essential complements.
 
--   example: pseudonymization
+### Pseudonymization
 
-## Pseudonymization
 
-*Explain a bit better*
+Pseudonymization is the process of replacing direct identifiers (like names) with artificial identifiers (like participant codes). It is an important first step, but it is crucial to understand its limits.
 
-Pseudonymization (rec.28)\[<https://gdpr-info.eu/recitals/no-28/%5D>\] is a process by which "original data are replaced with false data". It is characterized by "the use of a false name" or other replacement values instead of real, direct identifiers. The most critical distinction is that pseudonymized data is still personal information. The EU GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (<https://www.privacy-regulation.eu/en/recital-26-GDPR.htm).> Hence, pseudonymized data is still personal data, and has to be treated as such.
+The key point: **pseudonymized data is still personal data.** The GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (Recital 26). As long as a key file exists that links participant codes back to real identities - or as long as indirect identifiers in the data could allow re-identification - the data remains personal, and the GDPR fully applies.
 
--   data are still personal data (GDPR applies to pseudonymized data), but adds an additional layer of protection
+Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. We discussed this in the chapter on [personal data](1_3_Personal_Data.qmd), and we will look at it more formally in the chapter on [privacy concepts](1_5_Privacy_Concepts.qmd).
 
-Pseudonymized data "can be traced back to original data value" because "indirect identifiers that remain in pseudonymized data are known to pose a potential re-identification risk". This re-identification often occurs via linkage attacks, where seemingly innocuous indirect identifiers (like age, ZIP code, and gender) are combined with external information to identify individuals.
-
-The GDPR considers peudonymisation as a first step towards reducing re-identificaton.
+The GDPR considers pseudonymization a useful safeguard and a step in the right direction - but it is not enough if your goal is to share data openly.
 
 ## Anonymization
 
-Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.The primary difference is that anonymization aims to make data non-identifiable, removing it from the scope of data protection regulations, whereas pseudonymization only reduces the ease of identification, meaning the data remains personal and subject to those regulations. Hence, pseudonymized data is still subject to the regulations of the GDPR, while anonymized data is not.
+Anonymization goes further than pseudonymization. The goal is to transform personal data so that individuals can no longer be identified - directly or indirectly - by any means reasonably likely to be used. When data is truly anonymized, it falls outside the scope of the GDPR (Recital 26), which means it can be shared, published, and re-used without the legal restrictions that apply to personal data.
 
-Anonymization is defined as the process that removes the association between the identifying data and the data subject. It is an overarching term for everything done to protect individual identities in a dataset. The fundamental goal of anonymization is to transform personal data so thoroughly that it cannot be traced back to a particular individual so that the original source cannot be known (jarmul2023, el2013anonymizing).
+This sounds straightforward, but in practice, true anonymization is hard to achieve. Simply removing names and email addresses is usually not enough - indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a process that requires careful analysis of risks and the application of specific techniques.
 
-True and full anonymization is actually really hard to achieve.
+The bulk of this tutorial is dedicated to teaching you these techniques and helping you assess whether your data is sufficiently anonymized for sharing. The key distinction to remember:
 
-\*\*Notes to incorporate in the text above: - process of deleting any relation to an identifiable person
+|   | Pseudonymization | Anonymization |
+|----|----|----|
+| **What it does** | Replaces direct identifiers with codes | Removes or transforms data so that individuals cannot be identified |
+| **Key file exists?** | Yes (or re-identification is otherwise possible) | No (re-identification is not reasonably possible) |
+| **Still personal data?** | Yes | No |
+| **GDPR applies?** | Yes | No |
 
--   when successful: GDPR does not apply anymore, no personal data anymore
-
--   depending on the data: complex process (focus of this tutorial)
-
--   strongest data protection mechanism?
-
--   does not necessarily solve all ethical mandates for data protection?
+*Insert discussion that this does not necessarily solve all ethical mandates for data protection*
 
 ## Data Subject Rights
 
--   access rights
+Even during processing and analysis, participants retain their rights under the GDPR. The most relevant ones for this stage are:
 
--   data deletion/withdrawal of consent
+-   **Right to access:** Participants can ask to see what data you hold about them. This is easier to fulfill if your data is well-organized and pseudonymized (so you can look up individual records).
+-   **Right to erasure:** Participants can request that their data be deleted, for example if they withdraw consent. Again, this requires that you can identify their records - another reason for careful pseudonymization during the active research phase.
+
+Once data is fully anonymized, these rights no longer apply (since you can no longer identify whose data is whose). This is why it is important to handle withdrawal requests *before* anonymization.
 
 # Exercises
 
-*Rework examples in exercise*
+## Exercise: Anonymized, Pseudonymized, or Not Clear?
 
-### Exercise: Anonymised, Pseudonymised, or Not Clear?
-
-#### Scenario 1: Medical Records for Research
+### Scenario 1: Medical Records for Research
 
 ::: {.callout-tip collapse="true"}
 # A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.
 
-**Pseudonymised** — because the re-identification key still exists.
+**Pseudonymized** - because the re-identification key still exists.
 :::
 
 ------------------------------------------------------------------------
 
-#### Scenario 2: City Council Survey
+### Scenario 2: City Council Survey
 
 ::: {.callout-tip collapse="true"}
 # The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.
 
-**Anonymised** — the data is aggregated, no individuals can be singled out.
+**Anonymized** - the data is aggregated, no individuals can be singled out.
 :::
 
 ------------------------------------------------------------------------
 
-#### Scenario 3: Fitness Tracker Data
+### Scenario 3: Fitness Tracker Data
 
 ::: {.callout-tip collapse="true"}
 # A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.
 
-**Not clear** — technically pseudonymised, but GPS traces might allow re-identification.
+**Not clear** - technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.
 :::
 
 ------------------------------------------------------------------------
 
-#### Scenario 4: University Exam Scores
+### Scenario 4: University Exam Scores
 
 ::: {.callout-tip collapse="true"}
 # Exam results are shared with teachers identified only by student number. The university has the key to look up the names behind the numbers.
 
-**Pseudonymised** — student number acts as a pseudonym with a key in the system.
+**Pseudonymized** - the student number acts as a pseudonym, and the university holds the key.
 :::
 
 ------------------------------------------------------------------------
 
-#### Scenario 5: Online Store Reviews
+### Scenario 5: Online Store Reviews
 
 ::: {.callout-tip collapse="true"}
-# 
+# A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis.
 
-**Not clear** — identifiers are removed, but free text may reveal identity.
+**Not clear** - identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.
 :::
 
 ------------------------------------------------------------------------
 
-#### Scenario 6: Traffic Accident Database
+### Scenario 6: Traffic Accident Database
 
 ::: {.callout-tip collapse="true"}
 # A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.
 
-**Not clear / borderline anonymised** — no key exists, but rare event details may still re-identify.
+**Not clear / borderline anonymized** - no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.
 :::
 
 ------------------------------------------------------------------------
 
-#### Scenario 7: Genetic Study
+### Scenario 7: Genetic Study
 
 ::: {.callout-tip collapse="true"}
 # DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.
 
-**Pseudonymised** — the lab can re-link using the mapping file.
+**Pseudonymized** - the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.
 :::
-
 #### Learning Objective
 
 -   After completing this part of the tutorial, you will know how data protection is integrated into the research process.

@@ -7,7 +7,7 @@ bibliography: references.bib
 
 This question has troubled (and engaged) scholars in privacy research for decades - there is no one agreed-upon definition. One quite influential way to formalize privacy is Nissenbaum's framework of Contextual Integrity [@nissenbaum2010].
 
-Consider a common scenario in psychological research: A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms - trusting that this information stays within the research context. The researcher publishes a dataset that is technically anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant's manager downloads the open dataset and identifies her employee. 
+Consider a common scenario in psychological research: A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms - trusting that this information stays within the research context. The researcher publishes a dataset that is technically anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant's manager downloads the open dataset and identifies her employee.
 
 Nothing was "leaked" in a traditional sense. The information flowed - but it violated the norms of the context in which it was shared. This is exactly what Nissenbaum's framework captures.
 
@@ -17,64 +17,71 @@ A context carries certain information, such as norms in your culture, laws, the 
 
 An information flow means the act of transferring information in any way. Information norms depend on the sender, recipient, information type, and conditions of the information flow (e.g., voluntary, with permission, confidentially; Nissenbaum calls this transmission principle). It may be normative or descriptive.
 
-::: {.callout-note}
+::: callout-note
 # Applying Contextual Integrity
+
 In the example above, nothing was "leaked" in a traditional sense — yet most of us would call this a privacy violation. Nissenbaum's framework explains why:
 
-- **Context:** Academic research, governed by ethics board approval and norms of confidentiality
-- **Sender:** Survey participant (employee)
-- **Recipient:** Researcher → later, the broader public via open data (including, unexpectedly, the participant's manager)
-- **Information type:** Sensitive personal disclosures (burnout, workplace stress)
-- **Transmission principle:** Voluntary, under expectation of anonymity and confidentiality
+-   **Context:** Academic research, governed by ethics board approval and norms of confidentiality
+-   **Sender:** Survey participant (employee)
+-   **Recipient:** Researcher → later, the broader public via open data (including, unexpectedly, the participant's manager)
+-   **Information type:** Sensitive personal disclosures (burnout, workplace stress)
+-   **Transmission principle:** Voluntary, under expectation of anonymity and confidentiality
 
 The information type and sender haven't changed — but the recipient and transmission principle have. The contextual norm is violated. This is a privacy violation not because a name was exposed, but because information flowed in a way that didn't match the norms of the context in which it was shared.
 :::
 
-In this tutorial, I will show 
-- why we - as researchers - need to carefully consider these contextual norms, and
-- how we can enable information flows of data (i.e., when sharing data).
+In this tutorial, I will show - why we - as researchers - need to carefully consider these contextual norms, and - how we can enable information flows of data (i.e., when sharing data).
 
 Throughout this tutorial, I will use both the terms data protection and privacy. Privacy is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. Data protection is a term that is closely linked to actual techniques and is used in laws. Both translate (give or take) to "Datenschutz" in German.
 
 # Why is Data Protection Important?
 
-*Insert some personal reflection tasks*
+::: callout-tip
+# Reflection
 
--   Example: You participate in an interview on research integrity as part of a study. The interviewer asks you about any ethical transgressions you may have committed during your work and about your mental health. Would you share that information? What are the conditions under which you would share that data?
+Take a moment to think about the following scenarios. For each one, consider: Would you share your data? What conditions would need to be met? Think about the role of the researcher, the institution, and the way your data is handled. You might want to jot down a few notes before reading on.
 
-Important for continued trust of participants
+1. You participate in an interview on research integrity as part of a study. The interviewer asks you about any ethical transgressions you may have committed during your work and about your mental health.
 
-As researchers, our obligation to data protection arises from two (not totally distinct) directions: ethics and law.
+2. You fill out an online survey about your political opinions and voting behavior. The survey also asks for your age, gender, postal code, and occupation.
+
+3. A research team asks you to share your browsing history for a study on information consumption. They promise that all data will be "anonymized" before publication.
+:::
+
+Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with us because they trust that we handle it responsibly. If that trust erodes - say, because a dataset gets re-identified or a data breach makes headlines - people become less willing to participate in research. And without participants, there is no empirical research.
+
+As researchers, our obligation to data protection arises from two directions that overlap quite a bit: ethics and law.
 
 # Data Protection in Research Ethics
 
-Trust of participants in research and researchers extends to handling personal data
+The ethical obligation to protect participants' data is deeply rooted in research ethics. The [Declaration of Helsinki](https://www.wma.net/policies-post/wma-declaration-of-helsinki-ethical-principles-for-medical-research-involving-human-subjects/) (1964, most recently revised in 2024), one of the most widely recognized ethical guidelines for research involving human subjects, explicitly requires that "every precaution must be taken to protect the privacy of research subjects and the confidentiality of their personal information." While originally developed for medical research, its principles have been adopted across the social and behavioral sciences.
 
--   Participants probably do not read consent forms
+Professional codes of conduct reinforce these obligations. Psychologists, for example, are bound by the [Ethical Principles of Psychologists and Code of Conduct](https://www.apa.org/ethics/code) (APA) or corresponding national guidelines (e.g., the [Code of Ethics of the German Psychological Society](https://www.dgps.de/die-dgps/ethikkommission/)) that require the protection of confidential information. Similar codes exist for sociologists, medical professionals, and other disciplines that regularly work with personal data.
 
-*Explain ethical conventions (Helsinki, etc.)*
+In practice, institutional review boards (IRBs) or ethics committees enforce these obligations before a study begins. However, their review typically focuses on the study design and informed consent. They rarely evaluate the technical details of how data will be stored, shared, or anonymized after collection. This gap is where the practical skills covered in this tutorial become relevant.
 
-*Explain professional obligations (e.g., as Psychologists, Doctors)*
+One more thing worth mentioning: We tend to assume that informed consent solves the privacy problem. But research consistently shows that participants rarely read consent forms carefully, and even when they do, they may not fully understand the implications of data sharing [@Hallinan2023_UninformedConsentPsychologicala]. Consent is necessary, but it is not sufficient. More on this in the chapter on [mechanisms of data protection](1_4_Mechanisms.qmd).
 
 # Data Protection in Law
 
-Many laws around the globe
+Beyond ethics, data protection is also a legal requirement. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution are located. We cover the GDPR in more detail in the [next chapter](1_2_GDPR.qmd).
 
-Most important and always applies in the EU: GDPR (short intro)
+This is especially important to understand: if your institution is based in the EU, or if you process data of people residing in the EU, the GDPR applies to you. There is no way around it.
 
--   applies in the case of personal data
+Outside the EU, other frameworks exist. The US has sector-specific laws like [HIPAA](https://www.hhs.gov/hipaa/index.html) (for health data) and [FERPA](https://studentprivacy.ed.gov/) (for educational records), but no single comprehensive federal data protection law. Countries like Brazil ([LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)), Japan ([APPI](https://www.ppc.go.jp/en/legal/)), and South Korea ([PIPA](https://www.pipc.go.kr/eng/user/lgn/login.do)) have their own comprehensive frameworks, many of which share core principles with the GDPR.
+
+For this tutorial, we focus on the GDPR. It is one of the most stringent and widely applicable frameworks. The anonymization techniques we cover are relevant regardless of which specific law applies.
 
 *Acknowledge the existence of other relevant laws (e.g., export control of knowledge relating to national security; IP)*
 
 # Conclusion
 
-To achieve openness of research data, we need to anonymize data
+So where does this leave us? Both ethics and law tell us the same thing: we need to protect the personal data of our participants. At the same time, sharing data is a cornerstone of good scientific practice. Open data makes research more transparent, reproducible, and efficient. It enables replication, secondary analyses, and meta-research. Funders and journals increasingly require it, and for good reason.
 
-Goal: acceptable risk; "as closed as necessary, as open as possible"
+These two goals - protecting privacy and sharing data - are not contradictory, but they do create a tension that needs to be managed thoughtfully. The guiding principle is: **"as open as possible, as closed as necessary."** What exactly this means will depend on your data, your participants, and the context of your research. There is no one-size-fits-all answer.
 
---\> What this means is open to discussion; needs to be calibrated on a case-by-case basis;
-
-This guide: helps with coming to a reasonable conclusion where the optimal balance lies
+The good news is that anonymization gives us the tools to navigate this tension. By learning how to properly anonymize data, you can share your research data openly while still protecting the people who made your research possible. That is what this tutorial is about.
 
 #### Learning Objective
 
