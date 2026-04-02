@@ -64,7 +64,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cbf0dbf94d59226cc454ce1bf4e111b8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-5acd4c6a537f94f3a1ea0a980e278854.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -353,14 +353,25 @@ div.csl-indent {
   </ul></li>
   <li><a href="#stages-3-6-process-analyze-preserve-and-publish" id="toc-stages-3-6-process-analyze-preserve-and-publish" class="nav-link" data-scroll-target="#stages-3-6-process-analyze-preserve-and-publish">Stages 3-6: Process, Analyze, Preserve, and Publish</a>
   <ul class="collapse">
-  <li><a href="#technical-and-organizational-measures-toms" id="toc-technical-and-organizational-measures-toms" class="nav-link" data-scroll-target="#technical-and-organizational-measures-toms">Technical and Organizational Measures (TOMs)</a></li>
+  <li><a href="#technical-and-organizational-measures-toms" id="toc-technical-and-organizational-measures-toms" class="nav-link" data-scroll-target="#technical-and-organizational-measures-toms">Technical and Organizational Measures (TOMs)</a>
+  <ul class="collapse">
   <li><a href="#pseudonymization" id="toc-pseudonymization" class="nav-link" data-scroll-target="#pseudonymization">Pseudonymization</a></li>
+  </ul></li>
   <li><a href="#anonymization" id="toc-anonymization" class="nav-link" data-scroll-target="#anonymization">Anonymization</a></li>
   <li><a href="#data-subject-rights" id="toc-data-subject-rights" class="nav-link" data-scroll-target="#data-subject-rights">Data Subject Rights</a></li>
   </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-  <li><a href="#exercise-anonymised-pseudonymised-or-not-clear" id="toc-exercise-anonymised-pseudonymised-or-not-clear" class="nav-link" data-scroll-target="#exercise-anonymised-pseudonymised-or-not-clear">Exercise: Anonymised, Pseudonymised, or Not Clear?</a></li>
+  <li><a href="#exercise-anonymized-pseudonymized-or-not-clear" id="toc-exercise-anonymized-pseudonymized-or-not-clear" class="nav-link" data-scroll-target="#exercise-anonymized-pseudonymized-or-not-clear">Exercise: Anonymized, Pseudonymized, or Not Clear?</a>
+  <ul class="collapse">
+  <li><a href="#scenario-1-medical-records-for-research" id="toc-scenario-1-medical-records-for-research" class="nav-link" data-scroll-target="#scenario-1-medical-records-for-research">Scenario 1: Medical Records for Research</a></li>
+  <li><a href="#scenario-2-city-council-survey" id="toc-scenario-2-city-council-survey" class="nav-link" data-scroll-target="#scenario-2-city-council-survey">Scenario 2: City Council Survey</a></li>
+  <li><a href="#scenario-3-fitness-tracker-data" id="toc-scenario-3-fitness-tracker-data" class="nav-link" data-scroll-target="#scenario-3-fitness-tracker-data">Scenario 3: Fitness Tracker Data</a></li>
+  <li><a href="#scenario-4-university-exam-scores" id="toc-scenario-4-university-exam-scores" class="nav-link" data-scroll-target="#scenario-4-university-exam-scores">Scenario 4: University Exam Scores</a></li>
+  <li><a href="#scenario-5-online-store-reviews" id="toc-scenario-5-online-store-reviews" class="nav-link" data-scroll-target="#scenario-5-online-store-reviews">Scenario 5: Online Store Reviews</a></li>
+  <li><a href="#scenario-6-traffic-accident-database" id="toc-scenario-6-traffic-accident-database" class="nav-link" data-scroll-target="#scenario-6-traffic-accident-database">Scenario 6: Traffic Accident Database</a></li>
+  <li><a href="#scenario-7-genetic-study" id="toc-scenario-7-genetic-study" class="nav-link" data-scroll-target="#scenario-7-genetic-study">Scenario 7: Genetic Study</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/1_FOUNDATION/1_4_Mechanisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -389,9 +400,7 @@ div.csl-indent {
 
 <section id="overview" class="level1">
 <h1>Overview</h1>
-<p>How can research protect (personal) data of participants throughout the research process?</p>
-<p><em>Show graph with research process and all mechanisms</em></p>
-<p>List of mechanisms and stages:</p>
+<p>How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point - it is relevant at every stage. The table below maps common data protection mechanisms to the stages of the research lifecycle:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -434,60 +443,63 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
+<p><em>Show graph with research process and all mechanisms</em></p>
+<p>As you can see, some mechanisms (like anonymization) are relevant across many stages, while others (like informed consent) are specific to a particular point. Let’s walk through each stage.</p>
 </section>
 <section id="stage-1-plan" class="level1">
 <h1>Stage 1: Plan</h1>
 <section id="data-management-plan" class="level2">
 <h2 class="anchored" data-anchor-id="data-management-plan">Data Management Plan</h2>
-<ul>
-<li>great measure, helps with data minimization and purpose orientation</li>
-<li>template: <a href="https://zenodo.org/records/10782781" class="uri">https://zenodo.org/records/10782781</a></li>
-</ul>
+<p>A data management plan (DMP) is a document that describes how you will handle your data during and after your research project. It forces you to think about data protection early - what data will you collect, how will you store it, who will have access, and how will you share it? Many funders now require a DMP, and writing one is a good exercise in data minimization and purpose limitation.</p>
+<p>A useful template for DMPs is available at <a href="https://zenodo.org/records/10782781">Zenodo</a>.</p>
 </section>
 <section id="institutional-review-board-irb-approval" class="level2">
 <h2 class="anchored" data-anchor-id="institutional-review-board-irb-approval">Institutional Review Board (IRB) Approval</h2>
-<ul>
-<li><p>usually purely ethical</p></li>
-<li><p>might also consider data protection, but are no experts in this area</p></li>
-</ul>
+<p>Ethics committees or IRBs review your study before data collection begins. Their focus is primarily ethical - does the study design respect participants’ rights and well-being? They may also consider data protection aspects, but they are typically not technical experts in anonymization or data security. Think of IRB approval as a necessary but not sufficient step: it gets you started on the right track, but you still need to handle the technical side of data protection yourself.</p>
 </section>
 <section id="privacy-by-design" class="level2">
 <h2 class="anchored" data-anchor-id="privacy-by-design">Privacy by Design</h2>
-<p>Privacy by Design (PbD) is a foundational concept and a set of principles that require privacy protection measures to be proactively integrated into the design and architecture of systems, business practices, and technologies from the very beginning <span class="citation" data-cites="Cavoukian2011_PrivacyDesignLaw">(<a href="#ref-Cavoukian2011_PrivacyDesignLaw" role="doc-biblioref">Cavoukian 2011</a>)</span>.</p>
-<ul>
-<li>principle in GDPR</li>
-</ul>
-<p><em>Move the seven PbD principles to a call-out box</em></p>
-<p>PbD is guided by seven principles outlined below:</p>
+<p>Privacy by Design (PbD) is a set of principles that require privacy protection to be built into the design of systems and processes from the very beginning, rather than added as an afterthought <span class="citation" data-cites="Cavoukian2011_PrivacyDesignLaw">(<a href="#ref-Cavoukian2011_PrivacyDesignLaw" role="doc-biblioref">Cavoukian 2011</a>)</span>. It is also enshrined as a principle in the GDPR (Art. 25).</p>
+<p>For research, PbD means thinking about privacy before you start collecting data: What is the minimum data you need? How will you store it securely? When and how will you anonymize it? A detailed data management plan can be a great tool for putting PbD into practice.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The Seven Principles of Privacy by Design <span class="citation" data-cites="Cavoukian2011_PrivacyDesignLaw">(<a href="#ref-Cavoukian2011_PrivacyDesignLaw" role="doc-biblioref">Cavoukian 2011</a>)</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Proactive and Preventive Approach: PbD mandates that researchers and data architects anticipate and prevent privacy-invasive events before they occur. For example, in the context of health care research, this means ensuring the integrity of patient data is secured from the moment it is collected.</p></li>
-<li><p>Privacy as the Default: Systems must be designed so that the maximum degree of privacy is delivered automatically. If a researcher or data subject takes no action, their privacy must remain intact at the maximum level.</p></li>
-<li><p>Balancing Utility and Privacy: PbD supports the objective of having full functionality—positive-sum, not zero-sum. Hence, privacy cannot be “sacrificed” for a greater benefit. This is critical in research, where the goal is to produce data of sufficient quality that the analytics are useful and meaningful. Instead, the goal is to find a sweet spot between information and privacy—enabling sufficient data utility for the purpose for which it was collected while preserving privacy for individuals.</p></li>
+<li><p><strong>Proactive, not reactive:</strong> Anticipate and prevent privacy risks before they occur. Don’t wait for a breach to think about data protection.</p></li>
+<li><p><strong>Privacy as the default:</strong> The maximum degree of privacy should be delivered automatically. If a participant or researcher takes no action, privacy should remain intact.</p></li>
+<li><p><strong>Privacy embedded into design:</strong> Privacy should be an integral part of your research design, not an add-on. Plan your data collection, storage, and sharing with privacy in mind from the start.</p></li>
+<li><p><strong>Full functionality - positive-sum, not zero-sum:</strong> Privacy and data utility are not opposites. The goal is to find approaches that serve both - enabling meaningful research while protecting individuals.</p></li>
+<li><p><strong>End-to-end security:</strong> Data should be protected throughout its entire lifecycle - from collection to deletion. This includes secure storage, encrypted transfers, and proper disposal.</p></li>
+<li><p><strong>Visibility and transparency:</strong> Keep your data protection practices open and documented. Participants and oversight bodies should be able to verify that privacy is being maintained.</p></li>
+<li><p><strong>Respect for user privacy:</strong> The interests of the individual should be kept central. In research, this means respecting participants’ autonomy, expectations, and rights regarding their data.</p></li>
 </ol>
-<p><em>Explain other principles</em></p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="stage-2-collect" class="level1">
 <h1>Stage 2: Collect</h1>
 <section id="informed-consent" class="level2">
 <h2 class="anchored" data-anchor-id="informed-consent">Informed Consent</h2>
-<ul>
-<li><p>usually ethically motivated</p></li>
-<li><p>according to GDPR, participants have the right to information at data collection</p></li>
-<li><p>consent as one possible legal basis for processing of data (but not solely)</p></li>
-<li><p>non-compliance is very common <span class="citation" data-cites="Hallinan2023_UninformedConsentPsychologicala">(<a href="#ref-Hallinan2023_UninformedConsentPsychologicala" role="doc-biblioref">Hallinan et al. 2023b</a>)</span></p></li>
-<li><p>tutorial paper on how to write consent forms according to GDPR by <span class="citation" data-cites="Hallinan2023_InformationProvisionInformed">Hallinan et al. (<a href="#ref-Hallinan2023_InformationProvisionInformed" role="doc-biblioref">2023a</a>)</span></p></li>
-</ul>
+<p>Informed consent is both an ethical and a legal requirement. Under the GDPR, consent is one possible legal basis for processing personal data (Art. 6(1)(a)), and participants have the right to be informed about how their data will be used at the point of collection.</p>
+<p>In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by <span class="citation" data-cites="Hallinan2023_InformationProvisionInformed">Hallinan et al. (<a href="#ref-Hallinan2023_InformationProvisionInformed" role="doc-biblioref">2023</a>)</span>.</p>
+<p>Consent forms are often not read or not understood - which is why consent alone is not a sufficient data protection mechanism.</p>
 </section>
 <section id="data-minimization" class="level2">
 <h2 class="anchored" data-anchor-id="data-minimization">Data Minimization</h2>
-<ul>
-<li><p>principle in GDPR</p></li>
-<li><p>no purposeless collection and storage of data (e.g., demographics)</p></li>
-<li><p>call-out box on anonymous data collection</p></li>
-<li><p>whenever possible: re-use data (no collection = best kind of data protection) and make own data re-usable (FAIR) (<em>link to LMU OS tutorials</em>)</p></li>
-</ul>
-<p>Data minimization (or in German, Datensparsamkeit) is the principle of “No Data, No Risk” (or less data, less risk), meaning that the risk of privacy breaches decreases as the amount of data collected decreases. Data minimization pushes the data collector to consider only the minimum amount of data necessary to accomplish the task. Reducing the amount of stored data can also reduce the risk that data storage becomes a target of a privacy attack.</p>
+<p>Data minimization (or in German, <em>Datensparsamkeit</em>) follows a simple principle: <strong>no data, no risk</strong> - or more realistically, less data, less risk. The GDPR requires that you only collect data that is “adequate, relevant and limited to what is necessary” for your purpose (Art. 5(1)(c)).</p>
+<p>In research, this means resisting the temptation to collect demographics or other variables “just in case” or “because we always do.” Every additional variable you collect increases the risk of re-identification when the data is shared. Ask yourself: Do I actually need this variable to answer my research question? If not, don’t collect it.</p>
+<p>There is also a flip side to data minimization: whenever possible, re-use existing data instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles - making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody’s life easier. (<em>link to LMU OS tutorials</em>)</p>
 <p><em>Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)</em></p>
 <p><em>Include call-out box on randomized response technique?</em></p>
 </section>
@@ -496,53 +508,84 @@ div.csl-indent {
 <h1>Stages 3-6: Process, Analyze, Preserve, and Publish</h1>
 <section id="technical-and-organizational-measures-toms" class="level2">
 <h2 class="anchored" data-anchor-id="technical-and-organizational-measures-toms">Technical and Organizational Measures (TOMs)</h2>
+<p>The GDPR requires controllers to implement “appropriate technical and organisational measures” to protect personal data (Art. 32). In a research context, this includes:</p>
 <ul>
-<li><p>list of measures in GDPR that build additional layers of protection around data</p></li>
-<li><p>example: secure storage location</p></li>
-<li><p>example: storage limitation</p></li>
-<li><p>example: pseudonymization</p></li>
+<li><strong>Secure storage:</strong> Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU, for example, the <a href="https://www.lrz.de">LRZ</a> provides cloud storage and sync services that keep data within Germany. However, standard LRZ services are not approved for special-category personal data (e.g., health data) without additional agreements - check with the <a href="https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-and-representatives/data-protection-officer.html">LMU data protection officer</a> if you work with sensitive data.</li>
+<li><strong>Access control:</strong> Only people who need the data for the research should have access. Use role-based permissions where possible.</li>
+<li><strong>Storage limitation:</strong> Don’t keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to put a reminder in my calendar for dates I need to delete data.</li>
+<li><strong>Transfer security:</strong> When sharing data with collaborators, use encrypted channels - not email attachments.</li>
+<li><strong>Pseudonymization</strong>: Replace direct identifiers (like names) with artificial identifiers (like participant codes) (see below for more information).</li>
 </ul>
+<p>These measures add layers of protection around your data while it is still in personal form. They do not replace anonymization, but they are essential complements.</p>
+<section id="pseudonymization" class="level3">
+<h3 class="anchored" data-anchor-id="pseudonymization">Pseudonymization</h3>
+<p>Pseudonymization is the process of replacing direct identifiers (like names) with artificial identifiers (like participant codes). It is an important first step, but it is crucial to understand its limits.</p>
+<p>The key point: <strong>pseudonymized data is still personal data.</strong> The GDPR explicitly states that “personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person” (Recital 26). As long as a key file exists that links participant codes back to real identities - or as long as indirect identifiers in the data could allow re-identification - the data remains personal, and the GDPR fully applies.</p>
+<p>Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. We discussed this in the chapter on <a href="../1_FOUNDATION/1_3_Personal_Data.html">personal data</a>, and we will look at it more formally in the chapter on <a href="../1_FOUNDATION/1_5_Privacy_Concepts.html">privacy concepts</a>.</p>
+<p>The GDPR considers pseudonymization a useful safeguard and a step in the right direction - but it is not enough if your goal is to share data openly.</p>
 </section>
-<section id="pseudonymization" class="level2">
-<h2 class="anchored" data-anchor-id="pseudonymization">Pseudonymization</h2>
-<p><em>Explain a bit better</em></p>
-<p>Pseudonymization (rec.28)[<a href="https://gdpr-info.eu/recitals/no-28/%5D" class="uri">https://gdpr-info.eu/recitals/no-28/%5D</a>] is a process by which “original data are replaced with false data”. It is characterized by “the use of a false name” or other replacement values instead of real, direct identifiers. The most critical distinction is that pseudonymized data is still personal information. The EU GDPR explicitly states that “personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person” (<a href="https://www.privacy-regulation.eu/en/recital-26-GDPR.htm)." class="uri">https://www.privacy-regulation.eu/en/recital-26-GDPR.htm).</a> Hence, pseudonymized data is still personal data, and has to be treated as such.</p>
-<ul>
-<li>data are still personal data (GDPR applies to pseudonymized data), but adds an additional layer of protection</li>
-</ul>
-<p>Pseudonymized data “can be traced back to original data value” because “indirect identifiers that remain in pseudonymized data are known to pose a potential re-identification risk”. This re-identification often occurs via linkage attacks, where seemingly innocuous indirect identifiers (like age, ZIP code, and gender) are combined with external information to identify individuals.</p>
-<p>The GDPR considers peudonymisation as a first step towards reducing re-identificaton.</p>
 </section>
 <section id="anonymization" class="level2">
 <h2 class="anchored" data-anchor-id="anonymization">Anonymization</h2>
-<p>Anonymization and pseudonymization are distinct yet related approaches to data privacy, both aimed at protecting individual identities within datasets, but differing significantly in their level of identifiability and legal implications.The primary difference is that anonymization aims to make data non-identifiable, removing it from the scope of data protection regulations, whereas pseudonymization only reduces the ease of identification, meaning the data remains personal and subject to those regulations. Hence, pseudonymized data is still subject to the regulations of the GDPR, while anonymized data is not.</p>
-<p>Anonymization is defined as the process that removes the association between the identifying data and the data subject. It is an overarching term for everything done to protect individual identities in a dataset. The fundamental goal of anonymization is to transform personal data so thoroughly that it cannot be traced back to a particular individual so that the original source cannot be known (jarmul2023, el2013anonymizing).</p>
-<p>True and full anonymization is actually really hard to achieve.</p>
-<p>**Notes to incorporate in the text above: - process of deleting any relation to an identifiable person</p>
-<ul>
-<li><p>when successful: GDPR does not apply anymore, no personal data anymore</p></li>
-<li><p>depending on the data: complex process (focus of this tutorial)</p></li>
-<li><p>strongest data protection mechanism?</p></li>
-<li><p>does not necessarily solve all ethical mandates for data protection?</p></li>
-</ul>
+<p>Anonymization goes further than pseudonymization. The goal is to transform personal data so that individuals can no longer be identified - directly or indirectly - by any means reasonably likely to be used. When data is truly anonymized, it falls outside the scope of the GDPR (Recital 26), which means it can be shared, published, and re-used without the legal restrictions that apply to personal data.</p>
+<p>This sounds straightforward, but in practice, true anonymization is hard to achieve. Simply removing names and email addresses is usually not enough - indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a process that requires careful analysis of risks and the application of specific techniques.</p>
+<p>The bulk of this tutorial is dedicated to teaching you these techniques and helping you assess whether your data is sufficiently anonymized for sharing. The key distinction to remember:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Pseudonymization</th>
+<th>Anonymization</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>What it does</strong></td>
+<td>Replaces direct identifiers with codes</td>
+<td>Removes or transforms data so that individuals cannot be identified</td>
+</tr>
+<tr class="even">
+<td><strong>Key file exists?</strong></td>
+<td>Yes (or re-identification is otherwise possible)</td>
+<td>No (re-identification is not reasonably possible)</td>
+</tr>
+<tr class="odd">
+<td><strong>Still personal data?</strong></td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td><strong>GDPR applies?</strong></td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><em>Insert discussion that this does not necessarily solve all ethical mandates for data protection</em></p>
 </section>
 <section id="data-subject-rights" class="level2">
 <h2 class="anchored" data-anchor-id="data-subject-rights">Data Subject Rights</h2>
+<p>Even during processing and analysis, participants retain their rights under the GDPR. The most relevant ones for this stage are:</p>
 <ul>
-<li><p>access rights</p></li>
-<li><p>data deletion/withdrawal of consent</p></li>
+<li><strong>Right to access:</strong> Participants can ask to see what data you hold about them. This is easier to fulfill if your data is well-organized and pseudonymized (so you can look up individual records).</li>
+<li><strong>Right to erasure:</strong> Participants can request that their data be deleted, for example if they withdraw consent. Again, this requires that you can identify their records - another reason for careful pseudonymization during the active research phase.</li>
 </ul>
+<p>Once data is fully anonymized, these rights no longer apply (since you can no longer identify whose data is whose). This is why it is important to handle withdrawal requests <em>before</em> anonymization.</p>
 </section>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p><em>Rework examples in exercise</em></p>
-<section id="exercise-anonymised-pseudonymised-or-not-clear" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-anonymised-pseudonymised-or-not-clear">Exercise: Anonymised, Pseudonymised, or Not Clear?</h3>
-<section id="scenario-1-medical-records-for-research" class="level4">
-<h4 class="anchored" data-anchor-id="scenario-1-medical-records-for-research">Scenario 1: Medical Records for Research</h4>
+<section id="exercise-anonymized-pseudonymized-or-not-clear" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-anonymized-pseudonymized-or-not-clear">Exercise: Anonymized, Pseudonymized, or Not Clear?</h2>
+<section id="scenario-1-medical-records-for-research" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-1-medical-records-for-research">Scenario 1: Medical Records for Research</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -551,18 +594,18 @@ div.csl-indent {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Pseudonymised</strong> — because the re-identification key still exists.</p>
+<p><strong>Pseudonymized</strong> - because the re-identification key still exists.</p>
 </div>
 </div>
 </div>
 <hr>
 </section>
-<section id="scenario-2-city-council-survey" class="level4">
-<h4 class="anchored" data-anchor-id="scenario-2-city-council-survey">Scenario 2: City Council Survey</h4>
+<section id="scenario-2-city-council-survey" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-2-city-council-survey">Scenario 2: City Council Survey</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -571,18 +614,18 @@ div.csl-indent {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Anonymised</strong> — the data is aggregated, no individuals can be singled out.</p>
+<p><strong>Anonymized</strong> - the data is aggregated, no individuals can be singled out.</p>
 </div>
 </div>
 </div>
 <hr>
 </section>
-<section id="scenario-3-fitness-tracker-data" class="level4">
-<h4 class="anchored" data-anchor-id="scenario-3-fitness-tracker-data">Scenario 3: Fitness Tracker Data</h4>
+<section id="scenario-3-fitness-tracker-data" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-3-fitness-tracker-data">Scenario 3: Fitness Tracker Data</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -591,18 +634,18 @@ div.csl-indent {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Not clear</strong> — technically pseudonymised, but GPS traces might allow re-identification.</p>
+<p><strong>Not clear</strong> - technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.</p>
 </div>
 </div>
 </div>
 <hr>
 </section>
-<section id="scenario-4-university-exam-scores" class="level4">
-<h4 class="anchored" data-anchor-id="scenario-4-university-exam-scores">Scenario 4: University Exam Scores</h4>
+<section id="scenario-4-university-exam-scores" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-4-university-exam-scores">Scenario 4: University Exam Scores</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -611,38 +654,38 @@ div.csl-indent {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Pseudonymised</strong> — student number acts as a pseudonym with a key in the system.</p>
+<p><strong>Pseudonymized</strong> - the student number acts as a pseudonym, and the university holds the key.</p>
 </div>
 </div>
 </div>
 <hr>
 </section>
-<section id="scenario-5-online-store-reviews" class="level4">
-<h4 class="anchored" data-anchor-id="scenario-5-online-store-reviews">Scenario 5: Online Store Reviews</h4>
+<section id="scenario-5-online-store-reviews" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-5-online-store-reviews">Scenario 5: Online Store Reviews</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+<span class="screen-reader-only">Tip</span>A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Not clear</strong> — identifiers are removed, but free text may reveal identity.</p>
+<p><strong>Not clear</strong> - identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.</p>
 </div>
 </div>
 </div>
 <hr>
 </section>
-<section id="scenario-6-traffic-accident-database" class="level4">
-<h4 class="anchored" data-anchor-id="scenario-6-traffic-accident-database">Scenario 6: Traffic Accident Database</h4>
+<section id="scenario-6-traffic-accident-database" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-6-traffic-accident-database">Scenario 6: Traffic Accident Database</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -651,18 +694,18 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Not clear / borderline anonymised</strong> — no key exists, but rare event details may still re-identify.</p>
+<p><strong>Not clear / borderline anonymized</strong> - no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.</p>
 </div>
 </div>
 </div>
 <hr>
 </section>
-<section id="scenario-7-genetic-study" class="level4">
-<h4 class="anchored" data-anchor-id="scenario-7-genetic-study">Scenario 7: Genetic Study</h4>
+<section id="scenario-7-genetic-study" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-7-genetic-study">Scenario 7: Genetic Study</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -671,13 +714,12 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Pseudonymised</strong> — the lab can re-link using the mapping file.</p>
+<p><strong>Pseudonymized</strong> - the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.</p>
 </div>
 </div>
 </div>
-</section>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>
@@ -703,16 +745,14 @@ Tip
 </section>
 </section>
 </section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Cavoukian2011_PrivacyDesignLaw" class="csl-entry" role="listitem">
 Cavoukian, Ann. 2011. <em>Privacy by Design in Law, Policy and Practice. <span>A</span> White Paper for Regulators, Decision-Makers and Policy-Makers</em>. <span>Canadian Information and Privacy Commissioner</span>.
 </div>
 <div id="ref-Hallinan2023_InformationProvisionInformed" class="csl-entry" role="listitem">
-Hallinan, Dara, Franziska Boehm, Annika Külpmann, and Malte Elson. 2023a. <span>“Information <span>Provision</span> for <span>Informed Consent Procedures</span> in <span>Psychological Research Under</span> the <span>General Data Protection Regulation</span>: <span>A Practical Guide</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 6 (1). <a href="https://doi.org/10.1177/25152459231151944">https://doi.org/10.1177/25152459231151944</a>.
-</div>
-<div id="ref-Hallinan2023_UninformedConsentPsychologicala" class="csl-entry" role="listitem">
-Hallinan, Dara, Franziska Boehm, Annika Külpmann, and Malte Elson. 2023b. <span>“(<span>Un</span>)informed Consent in <span>Psychological Research</span>: <span>An</span> Empirical Study on Consent in Psychological Research and the <span>GDPR</span>.”</span> <em>Journal of Open Access to Law</em> 11 (2). <a href="https://doi.org/10.63567/574eqr35">https://doi.org/10.63567/574eqr35</a>.
+Hallinan, Dara, Franziska Boehm, Annika Külpmann, and Malte Elson. 2023. <span>“Information <span>Provision</span> for <span>Informed Consent Procedures</span> in <span>Psychological Research Under</span> the <span>General Data Protection Regulation</span>: <span>A Practical Guide</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 6 (1). <a href="https://doi.org/10.1177/25152459231151944">https://doi.org/10.1177/25152459231151944</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -99,7 +99,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cbf0dbf94d59226cc454ce1bf4e111b8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-5acd4c6a537f94f3a1ea0a980e278854.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -608,7 +608,7 @@ Current Information Loss:
 Disclosure risk is currently between [0.00%; 100.00%]
 
 Current Information Loss:
-  - IL1: 8.93
+  - IL1: 8.64
   - Difference of Eigenvalues: 0.010%
 ----------------------------------------------------------------------</code></pre>
 </div>
@@ -638,13 +638,13 @@ $eigen
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>il_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$il1
-[1] 8.927645
+[1] 8.638875
 
 $il1s
-[1] 0.1149344
+[1] 0.1086302
 
 $eigen
-[1] 7.164539e-05</code></pre>
+[1] 0.0001205316</code></pre>
 </div>
 </div>
 <p><strong>Interpretation:</strong> Microaggregation typically produces lower IL1 (mean absolute deviation between original and perturbed values) because entire groups share one value — the average. Noise addition preserves individual-level variation better but introduces random error into every single record. For a dataset where income is used in regression analyses, noise addition is often preferable; for frequency tables or group comparisons, microaggregation is a safer choice.</p>
