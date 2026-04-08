@@ -315,7 +315,21 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><img src="../assets/LMU_OSC_logo.svg" class="img-fluid" width="175"></p>
 </div></div>
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#step-1-implement-data-privacy-before-and-during-data-collection" id="toc-step-1-implement-data-privacy-before-and-during-data-collection" class="nav-link active" data-scroll-target="#step-1-implement-data-privacy-before-and-during-data-collection">Step 1: Implement Data Privacy Before and During Data Collection</a></li>
+  <li><a href="#step-2-collect-data" id="toc-step-2-collect-data" class="nav-link" data-scroll-target="#step-2-collect-data">Step 2: Collect Data</a></li>
+  <li><a href="#step-3-analyze-attack-scenarios" id="toc-step-3-analyze-attack-scenarios" class="nav-link" data-scroll-target="#step-3-analyze-attack-scenarios">Step 3: Analyze Attack Scenarios</a></li>
+  <li><a href="#step-4-calculate-disclosure-risk-and-utility" id="toc-step-4-calculate-disclosure-risk-and-utility" class="nav-link" data-scroll-target="#step-4-calculate-disclosure-risk-and-utility">Step 4: Calculate Disclosure Risk and Utility</a></li>
+  <li><a href="#step-5-choose-anonymization-measures" id="toc-step-5-choose-anonymization-measures" class="nav-link" data-scroll-target="#step-5-choose-anonymization-measures">Step 5: Choose Anonymization Measures</a></li>
+  <li><a href="#step-6-apply-anonymization-techniques" id="toc-step-6-apply-anonymization-techniques" class="nav-link" data-scroll-target="#step-6-apply-anonymization-techniques">Step 6: Apply Anonymization Techniques</a></li>
+  <li><a href="#step-7-recalculate-disclosure-risk-and-utility" id="toc-step-7-recalculate-disclosure-risk-and-utility" class="nav-link" data-scroll-target="#step-7-recalculate-disclosure-risk-and-utility">Step 7: Recalculate Disclosure Risk and Utility</a></li>
+  <li><a href="#step-8-document-the-process" id="toc-step-8-document-the-process" class="nav-link" data-scroll-target="#step-8-document-the-process">Step 8: Document the Process</a></li>
+  <li><a href="#step-9-publish-data" id="toc-step-9-publish-data" class="nav-link" data-scroll-target="#step-9-publish-data">Step 9: Publish Data</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/4_WORKFLOW/4_1_Summary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -339,19 +353,44 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>This chapter summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data.</p>
 <p><em>Add overview of all steps, kind of like handout; add notes on most important points to each step</em></p>
-<ol type="1">
-<li>Implement data privacy before and during data collection</li>
-<li>Collect data</li>
-<li>Analyze attack scenarios</li>
-<li>Calculate disclosure risk and utility</li>
-<li>Choose anonymization measures</li>
-<li>Apply anonymization techniques</li>
-<li>Recalculate disclosure risk and utility; go back to step 3 if not satisfactory</li>
-<li>Document process</li>
-<li>Publish data</li>
-</ol>
 <p><em>Add a flowchart to the process</em></p>
+<section id="step-1-implement-data-privacy-before-and-during-data-collection" class="level1">
+<h1>Step 1: Implement Data Privacy Before and During Data Collection</h1>
+<p>Start with privacy by design: minimize the data you collect, plan your storage and access controls, and write a data management plan. Think about anonymization before you collect a single data point.</p>
+</section>
+<section id="step-2-collect-data" class="level1">
+<h1>Step 2: Collect Data</h1>
+<p>Collect only what you need. Use informed consent forms that clearly state how data will be used and whether it will be shared. Pseudonymize data as early as possible by replacing direct identifiers with codes.</p>
+</section>
+<section id="step-3-analyze-attack-scenarios" class="level1">
+<h1>Step 3: Analyze Attack Scenarios</h1>
+<p>Before anonymizing, think about who might try to re-identify individuals and what external information they could use. Consider identity disclosure, attribute disclosure, and membership disclosure risks.</p>
+</section>
+<section id="step-4-calculate-disclosure-risk-and-utility" class="level1">
+<h1>Step 4: Calculate Disclosure Risk and Utility</h1>
+<p>Use tools like sdcMicro to measure k-anonymity and other risk metrics on your dataset. Also establish a baseline for data utility so you can compare later.</p>
+</section>
+<section id="step-5-choose-anonymization-measures" class="level1">
+<h1>Step 5: Choose Anonymization Measures</h1>
+<p>Based on your risk assessment, select appropriate techniques: non-perturbative (generalization, suppression), perturbative (noise, microaggregation), de-associative, or synthetic data generation.</p>
+</section>
+<section id="step-6-apply-anonymization-techniques" class="level1">
+<h1>Step 6: Apply Anonymization Techniques</h1>
+<p>Apply your chosen techniques, working through them step by step. Use the sdcMicro package or equivalent tools to keep track of changes.</p>
+</section>
+<section id="step-7-recalculate-disclosure-risk-and-utility" class="level1">
+<h1>Step 7: Recalculate Disclosure Risk and Utility</h1>
+<p>After each anonymization step, re-measure risk and utility. If the balance is not satisfactory, go back to Step 3 and adjust your approach. This is an iterative process.</p>
+</section>
+<section id="step-8-document-the-process" class="level1">
+<h1>Step 8: Document the Process</h1>
+<p>Create both internal documentation (full details for auditing) and external documentation (in the data dictionary). Review your scripts to ensure they do not accidentally reveal sensitive information.</p>
+</section>
+<section id="step-9-publish-data" class="level1">
+<h1>Step 9: Publish Data</h1>
+<p>Share your anonymized dataset along with the external documentation. Choose an appropriate repository and access level based on the remaining risk (best option is fully open).</p>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <p>After completing this part of the tutorial, you will understand the anonymization workflow.</p>
@@ -367,6 +406,7 @@ ul.task-list li input[type="checkbox"] {
 <p>similar to <a href="https://sdcpractice.readthedocs.io/en/latest/process.html" class="uri">https://sdcpractice.readthedocs.io/en/latest/process.html</a></p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -787,7 +827,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/4_WORKFLOW/4_1_Summary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/4_WORKFLOW/4_1_Summary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

@@ -617,7 +617,7 @@ Current Information Loss:
 Disclosure risk is currently between [0.00%; 100.00%]
 
 Current Information Loss:
-  - IL1: 9.55
+  - IL1: 8.85
   - Difference of Eigenvalues: 0.000%
 ----------------------------------------------------------------------</code></pre>
 </div>
@@ -647,13 +647,13 @@ $eigen
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>il_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$il1
-[1] 9.547009
+[1] 8.845486
 
 $il1s
-[1] 0.1152665
+[1] 0.1046571
 
 $eigen
-[1] 2.607165e-05</code></pre>
+[1] 3.352029e-05</code></pre>
 </div>
 </div>
 <p><strong>Interpretation:</strong> Microaggregation typically produces lower IL1 (mean absolute deviation between original and perturbed values) because entire groups share one value — the average. Noise addition preserves individual-level variation better but introduces random error into every single record. For a dataset where income is used in regression analyses, noise addition is often preferable; for frequency tables or group comparisons, microaggregation is a safer choice.</p>
