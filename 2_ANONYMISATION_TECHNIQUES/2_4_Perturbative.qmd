@@ -19,7 +19,7 @@ sdc_nonpert <- readRDS("../sdc_nonpert.rds") # Change based on the location of y
 
 -   goal: statistics run on the original dataset yield the same results as statistics run on the perturbed dataset
 
-*Explain the idea more*
+The core idea behind perturbative techniques is to introduce controlled changes to data values. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but alter the values themselves. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.
 
 *Select most relevant techniques (swapping, noise?); potentially shorten or delete others*
 
@@ -66,6 +66,8 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 -   bootstrap independent samples
 
 -   use average of first sample for first row, then average of second sample for second row...
+
+To be more precise: you draw multiple bootstrap samples from the original data, compute the statistic of interest (e.g., the mean) for each sample, and then replace original values with these bootstrapped estimates. The result preserves the overall distribution but individual values no longer correspond to real observations.
 
 *check for correct understanding*
 
@@ -116,13 +118,25 @@ Techniques following @Carvalho2023_SurveyPrivacyPreservingTechniques
 
 # Keeping Utility
 
-*Explain how to ensure that the statistics are the same (or reference utility section)*
+After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover more formal utility measures in the chapter on [Balancing Utility and Privacy](../3_PRIVACY_OPENNESS/3_1_Balancing.qmd).
 
 # Pro and Contra of Using Perturbative Techniques
 
-*Add pro and con list*
+Pro:
 
--   danger of reverse-engineering the perturbation technique applied
+-   all records remain in the dataset (no deletion)
+
+-   statistical properties can be preserved, flexible
+
+-   ifferent noise levels or group sizes let you tune the privacy-utility trade-off
+
+Con:
+
+-   individual values are no longer accurate (not suitable if exact values matter)
+
+-   risk of reverse-engineering the perturbation if the method is known
+
+-   an distort subgroup statistics if applied too aggressively
 
 # Exercise
 

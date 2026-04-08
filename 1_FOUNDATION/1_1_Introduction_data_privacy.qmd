@@ -42,11 +42,11 @@ Throughout this tutorial, I will use both the terms data protection and privacy.
 
 Take a moment to think about the following scenarios. For each one, consider: Would you share your data? What conditions would need to be met? Think about the role of the researcher, the institution, and the way your data is handled. You might want to jot down a few notes before reading on.
 
-1. You participate in an interview on research integrity as part of a study. The interviewer asks you about any ethical transgressions you may have committed during your work and about your mental health.
+1.  You participate in an interview on research integrity as part of a study. The interviewer asks you about any ethical transgressions you may have committed during your work and about your mental health.
 
-2. You fill out an online survey about your political opinions and voting behavior. The survey also asks for your age, gender, postal code, and occupation.
+2.  You fill out an online survey about your political opinions and voting behavior. The survey also asks for your age, gender, postal code, and occupation.
 
-3. A research team asks you to share your browsing history for a study on information consumption. They promise that all data will be "anonymized" before publication.
+3.  A research team asks you to share your browsing history for a study on information consumption. They promise that all data will be "anonymized" before publication.
 :::
 
 Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with us because they trust that we handle it responsibly. If that trust erodes - say, because a dataset gets re-identified or a data breach makes headlines - people become less willing to participate in research. And without participants, there is no empirical research.

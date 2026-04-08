@@ -9,7 +9,7 @@ title: "De-Associative Techniques"
     -   disadvantage: no connection possible for data analysis purposes
     -   rather: a last resort
 
-*present idea of one concrete technique (probably bucketization) here in concept*
+Bucketization works by first grouping records into "buckets" based on their indirect identifiers (like age, gender, postal code). Each bucket must contain at least k records to satisfy k-anonymity. Within each bucket, the sensitive values (like income or political opinions) are then randomly shuffled, so the link between a specific person's indirect identifiers and their sensitive attributes is broken. An attacker might narrow someone down to a bucket, but they cannot tell which sensitive value belongs to whom within that bucket.
 
 # Example Technique: Bucketization
 
@@ -23,7 +23,7 @@ title: "De-Associative Techniques"
 
 -   3\. step: permutate sensitive values within each bucket
 
-*potentially swap for another technique that is not so confusing with regard to usual perturbative techniques*
+*potentially swap for another technique that is not so confusing with regard to usual perturbative techniques (anatomization)*
 
 #### Learning Objective
 

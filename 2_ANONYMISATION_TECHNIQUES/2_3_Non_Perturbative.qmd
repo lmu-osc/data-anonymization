@@ -47,9 +47,7 @@ Generalize rare extreme values that would allow for the identification of indivi
 
 Example: Instead of reporting “6 children”, report “4+ children” for anyone above this threshold; all participants below the age of 20 years are coded as "\<20 years"
 
-How to determine the threshold can be calculated, but this is not trivial
-
-*Explain how to find the threshold*
+How to determine the threshold can be calculated, but this is not trivial. A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles - capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.
 
 ## Suppression
 
@@ -79,7 +77,21 @@ Another example is the replacement of credit card number values with XXX. In the
 
 # Pro and Contra Using Non-Perturbative Techniques
 
-*Add pro and con list*
+Pro:
+
+-   original data values are preserved (no distortion of statistics within remaining cells)
+
+-   straightforward to implement and explain
+
+-   easy to document
+
+Con:
+
+-   information is lost (removed or coarsened)
+
+-   heavy suppression can make the dataset hard to use
+
+-   may not be sufficient on its own for high-risk data
 
 # Applying Non-Perturbative Techniques With R
 
