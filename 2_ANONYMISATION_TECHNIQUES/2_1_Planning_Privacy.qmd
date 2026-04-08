@@ -74,6 +74,21 @@ For this object, we start with defining the following:
 
 `sdcMicro` needs, at the least, the data and categorial indirect identifiers to assess risks. We can later add more information to the object.
 
+::: callout-note
+## More Functions of sdcMicro
+
+-   `extractManipData(sdc)`\
+    Extracts the anonymized dataset.
+
+-   `undolast(sdc)`\
+    Reverts the last anonymization step.
+
+-   `get.sdcMicroObj()`\
+    Accesses internal components of the object.
+
+*Add info on GUI usage*
+:::
+
 ## Exercise: Assessing Privacy Risks With `sdcMicro`
 
 1.  Create an object within sdcMicro. Inspect the object.

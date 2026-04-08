@@ -15,9 +15,9 @@ sdc_micro <- readRDS("../sdc_noise.rds") # Change based on the location of your 
 data_withoutdirectidentifiers <- read_xlsx("../SimulatedData_noidentifiers.xlsx") # Change based on the location of your data file
 ```
 
--   contradictory ideals, but enable each other
+*Explain issue of data protection vs. data sharing a bit more*
 
-*summarize ideas by* @Jansen2025_TensionOpenData
+Open science and data protection can seem like they pull in opposite directions, but in practice they enable each other. Sharing data builds trust in research findings, while protecting participants builds trust in researchers. When done well, anonymization is the bridge between these goals - it lets you share data openly while honoring the privacy expectations of the people who provided it [@Jansen2025_TensionOpenData].
 
 # Measuring Privacy
 
@@ -28,6 +28,8 @@ data_withoutdirectidentifiers <- read_xlsx("../SimulatedData_noidentifiers.xlsx"
 *Include exercise on calculating the privacy level with k-anonymity like before in 2_1_Planning Privacy*
 
 # Measuring Utility
+
+How do we know whether our anonymized data is still useful? There are several approaches to measuring utility, ranging from simple comparisons to formal indices.
 
 *Provide overview of utility measurements and maybe try out one*
 
@@ -47,15 +49,15 @@ data_withoutdirectidentifiers <- read_xlsx("../SimulatedData_noidentifiers.xlsx"
 
 -   iterative process: rework anonymization after measuring both
 
--   *explain the norms for acceptable values of privacy and utility indicators*
+There are no universal thresholds for "good enough" privacy or utility. A commonly used rule of thumb is that k-anonymity should be at least 3-5 for most research datasets, meaning every combination of quasi-identifiers appears at least 3-5 times. For utility, IL1 values close to 0 and eigenvalue ratios close to 1 indicate low distortion. But ultimately, the right balance depends on your specific context: how sensitive is the data, who will have access, and what analyses need to be supported. When in doubt, consult your institution's data protection officer or data steward.
 
--   People to contact at LMU (data stewards? open science team?)
+*Link to people to contact at LMU (data stewards? open science team?)*
 
 # Exercise
 
-Evaluate the utility of the dataset using sdcMicro functions
+Evaluate the utility of the dataset using `sdcMicro` functions.
 
-After anonymisation, you need to check that the data is still **useful** — that the patterns you care about (e.g., the relationship between religion and political opinion) have not been destroyed. `sdcMicro` provides utility measures, but it is also worth comparing distributions and running the actual analysis on both the original and anonymised data.
+After anonymization, you need to check that the data is still **useful** - that the patterns you care about (e.g., the relationship between religion and political opinion) have not been destroyed. `sdcMicro` provides utility measures, but it is also worth comparing distributions and running the actual analysis on both the original and anonymised data.
 
 Key utility concepts:
 
@@ -66,15 +68,15 @@ Key utility concepts:
 
 ## Exercise: Evaluating Data Utility
 
-Use `sdc_micro` (the microaggregation result from the previous exercise) and compare it to the original data.
+Use the `sdc_micro` results from the previous exercises to compare it to the original data.
 
-1.  **Print the utility summary** of `sdc_micro`. What do IL1 and the eigen measure tell you?
+1.  Print the utility summary of `sdc_micro`. What do IL1 and the eigen measure tell you?
 
-2.  **Compare the income distribution** before and after anonymisation. Plot histograms of the original and anonymised income side-by-side.
+2.  Compare the income distribution before and after anonymisation. Plot histograms of the original and anonymised income side-by-side.
 
-3.  **Re-run the analysis that motivated data collection:** compute the mean political opinion scores (`pol_immigration`, `pol_redistribution`) by religion group on both the original and anonymised data. Are the group differences preserved?
+3.  Re-run the analysis that motivated data collection**:** compute the mean political opinion scores (`pol_immigration`, `pol_redistribution`) by religion group on both the original and anonymised data. Are the group differences preserved?
 
-4.  **Reflect:** based on your findings, is the anonymised dataset fit for purpose? Would you adjust any of the anonymisation steps?
+4.  Reflect**:** based on your findings, is the anonymised dataset fit for purpose? Would you adjust any of the anonymisation steps?
 
 ::: callout-note
 ## Solution
@@ -113,7 +115,7 @@ ggplot(income_compare, aes(x = income, fill = version)) +
 
 The shapes should look similar. A heavily chunked distribution (tall bars at regular intervals) would indicate that microaggregation groups were too large.
 
-*Check error: anonymized data virtually identical with non-anonymized*
+*Check data: anonymized data virtually identical with non-anonymized*
 
 ### Step 3 – Check whether the key analysis still works
 
@@ -153,8 +155,8 @@ If the group means are close between both summaries, the anonymisation has prese
 There is no single correct answer. Consider:
 
 -   If income distributions look very similar and group means are preserved → the anonymisation is fit for purpose for this analysis
--   If you used `k = 5` and results still look good, increasing to `k = 3` would reduce distortion while still providing some protection — but weigh this against the risk reduction you found in the earlier exercises
--   Variables like `plz_region` and `age_group` were generalised; if a future analysis requires finer geographic or age breakdowns, you would need to negotiate a different anonymisation strategy with the data controller
+-   If you used `k = 5` and results still look good, increasing to `k = 3` would reduce distortion while still providing some protection, but weigh this against the risk reduction you found in the earlier exercises
+-   Variables like `plz_region` and `age_group` were generalized; if a future analysis requires finer geographic or age breakdowns, you would need to rework the anonymization strategy
 :::
 
 #### Learning Objective
