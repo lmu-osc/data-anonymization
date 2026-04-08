@@ -435,8 +435,7 @@ div.csl-indent {
 <p>Applies only to numerical (at least ordinally scaled) variables</p>
 <p>Generalize rare extreme values that would allow for the identification of individuals.</p>
 <p>Example: Instead of reporting “6 children”, report “4+ children” for anyone above this threshold; all participants below the age of 20 years are coded as “&lt;20 years”</p>
-<p>How to determine the threshold can be calculated, but this is not trivial</p>
-<p><em>Explain how to find the threshold</em></p>
+<p>How to determine the threshold can be calculated, but this is not trivial. A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles - capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.</p>
 </section>
 <section id="suppression" class="level2">
 <h2 class="anchored" data-anchor-id="suppression">Suppression</h2>
@@ -462,7 +461,18 @@ div.csl-indent {
 </section>
 <section id="pro-and-contra-using-non-perturbative-techniques" class="level1">
 <h1>Pro and Contra Using Non-Perturbative Techniques</h1>
-<p><em>Add pro and con list</em></p>
+<p>Pro:</p>
+<ul>
+<li><p>original data values are preserved (no distortion of statistics within remaining cells)</p></li>
+<li><p>straightforward to implement and explain</p></li>
+<li><p>easy to document</p></li>
+</ul>
+<p>Con:</p>
+<ul>
+<li><p>information is lost (removed or coarsened)</p></li>
+<li><p>heavy suppression can make the dataset hard to use</p></li>
+<li><p>may not be sufficient on its own for high-risk data</p></li>
+</ul>
 </section>
 <section id="applying-non-perturbative-techniques-with-r" class="level1">
 <h1>Applying Non-Perturbative Techniques With R</h1>

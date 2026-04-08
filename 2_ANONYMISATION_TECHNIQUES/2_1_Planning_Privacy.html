@@ -387,22 +387,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><em>Explain a bit about where we are in the workflow of research now</em></p>
+<p>In the previous chapters, we covered the foundations: what counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now we move to the practical part - actually anonymizing data. But before we jump into specific techniques, we first need to assess how much risk our data carries. That is what this chapter is about.</p>
 <p>Anonymization of data, in most cases, means covering or obscuring the data, meaning there is always a loss of information. However, when sharing data, we need to keep their utility; otherwise, they are rendered useless.</p>
 <p>The goal is to use the appropriate anonymization techniques to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also <a href="../3_PRIVACY_OPENNESS/3_1_Balancing">BALANCING DATA PROTECTION AND OPENNESS</a>).</p>
 <p>To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, taking what we learned in the <a href="../1_FOUNDATIONS/1_5_Privacy_Concepts">last chapter</a> and putting it into practice.</p>
 <section id="identifying-privacy-risks" class="level1">
 <h1>Identifying Privacy Risks</h1>
-<p><em>Include exercising on identifying possible risks within the data</em></p>
-<p>Identity disclosure, attribute disclosure, membership disclosure</p>
-<p><em>Include examples for attack scenarios</em></p>
+<p>Take another look at the dataset from Chapter 1.3, the version without direct identifiers. Try to answer the following questions:</p>
+<ul>
+<li>Which combinations of indirect identifiers could potentially single out an individual?</li>
+<li>What attack scenarios are plausible? Think about who might try to re-identify someone in this dataset and what external information they might have access to.</li>
+<li>What type of disclosure is most likely for this dataset - identity disclosure, attribute disclosure, or membership disclosure?</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here are a few concrete attack scenarios to consider, based on our dataset of 200 individuals in Germany (with variables: gender, age, education, plz, income, religion, job_title, years_in_job, and political opinion variables):</p>
+<ul>
+<li>A colleague knows that a specific person lives in a particular postal code area, works as a “Data Scientist,” and is 34 years old. If the combination of plz, job_title, and age is unique in the dataset, that colleague can identify the person and look up their income and political opinions. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see callout box below).</li>
+<li>A journalist cross-references the dataset with publicly available professional directories or LinkedIn profiles. By matching job_title, age, and education level, they could narrow down candidates and potentially identify individuals - especially in smaller postal code areas where few people share the same profession.</li>
+<li>A neighbor knows that someone in their building participated in the study. They know the person’s approximate age, gender, and religion. Even if they cannot pinpoint the exact row, they might learn something new about that person’s income or political views. This is attribute disclosure - the attacker does not need to find the exact record, just a group of records that all share the same sensitive value.</li>
+</ul>
+<p>These are just a few examples; in general, the existence and likelihood of risks is very much dependent on the variables in the dataset, the sensibility of data, the recruitment strategy, and many other factors. <em>Elaborate more/link to other relevant parts</em></p>
+</div>
+</div>
+<p><em>Add callout box whether participation knowledge needs to be assumed or not (and its implications)</em></p>
 </section>
 <section id="measuring-privacy-risks" class="level1">
 <h1>Measuring Privacy Risks</h1>
 <section id="the-sdcmicro-package" class="level2">
 <h2 class="anchored" data-anchor-id="the-sdcmicro-package">The <code>sdcMicro</code> Package</h2>
 <p>To that end (and for most of the following exercises), we will use the package <code>sdcMicro</code> in R and the test dataset it contains. You already learned about the data it contained in the last exercise (<em>add link to exercise</em>)</p>
-<p>sdcMicro is an R package specialized in the anonymisation of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).</p>
+<p>sdcMicro is an R package specialized in the anonymization of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).</p>
 <p><em>Include more info on functions in sdcMicro?</em></p>
 </section>
 <section id="using-sdcmicro-to-assess-privacy-risks" class="level2">
@@ -431,7 +454,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Create an object within sdcMicro. Inspect the object.</li>
 <li>What k-anonymity level is currently reached?</li>
 </ol>
-<p>Solution:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdcMicro)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -518,11 +550,15 @@ Current Information Loss:
 ----------------------------------------------------------------------</code></pre>
 </div>
 </div>
+<p><em>insert written answer/interpretation</em></p>
+</div>
+</div>
 <p>At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need anonymization but can skip to preparing your data for publication.</p>
-<p>Save sdcObject</p>
+<p>Save the sdcObject for further anonymization steps.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_data, <span class="st">"../sdc_micro.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>If the risk is not acceptable - as is the case here - we will start with the actual anonymization process. To that end, I will present you several techniques over the next few chapters.</p>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>

@@ -420,7 +420,7 @@ div.csl-indent {
 <li><p>Not only masking of values, but distortion of values</p></li>
 <li><p>goal: statistics run on the original dataset yield the same results as statistics run on the perturbed dataset</p></li>
 </ul>
-<p><em>Explain the idea more</em></p>
+<p>The core idea behind perturbative techniques is to introduce controlled changes to data values. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but alter the values themselves. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.</p>
 <p><em>Select most relevant techniques (swapping, noise?); potentially shorten or delete others</em></p>
 <p><em>Add examples to each</em></p>
 <p>Techniques following <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span></p>
@@ -458,6 +458,7 @@ div.csl-indent {
 <li><p>bootstrap independent samples</p></li>
 <li><p>use average of first sample for first row, then average of second sample for second row…</p></li>
 </ul>
+<p>To be more precise: you draw multiple bootstrap samples from the original data, compute the statistic of interest (e.g., the mean) for each sample, and then replace original values with these bootstrapped estimates. The result preserves the overall distribution but individual values no longer correspond to real observations.</p>
 <p><em>check for correct understanding</em></p>
 </section>
 <section id="noise" class="level2">
@@ -520,13 +521,21 @@ div.csl-indent {
 </section>
 <section id="keeping-utility" class="level1">
 <h1>Keeping Utility</h1>
-<p><em>Explain how to ensure that the statistics are the same (or reference utility section)</em></p>
+<p>After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover more formal utility measures in the chapter on <a href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">Balancing Utility and Privacy</a>.</p>
 </section>
 <section id="pro-and-contra-of-using-perturbative-techniques" class="level1">
 <h1>Pro and Contra of Using Perturbative Techniques</h1>
-<p><em>Add pro and con list</em></p>
+<p>Pro:</p>
 <ul>
-<li>danger of reverse-engineering the perturbation technique applied</li>
+<li><p>all records remain in the dataset (no deletion)</p></li>
+<li><p>statistical properties can be preserved, flexible</p></li>
+<li><p>ifferent noise levels or group sizes let you tune the privacy-utility trade-off</p></li>
+</ul>
+<p>Con:</p>
+<ul>
+<li><p>individual values are no longer accurate (not suitable if exact values matter)</p></li>
+<li><p>risk of reverse-engineering the perturbation if the method is known</p></li>
+<li><p>an distort subgroup statistics if applied too aggressively</p></li>
 </ul>
 </section>
 <section id="exercise" class="level1">
@@ -608,7 +617,7 @@ Current Information Loss:
 Disclosure risk is currently between [0.00%; 100.00%]
 
 Current Information Loss:
-  - IL1: 9.16
+  - IL1: 9.55
   - Difference of Eigenvalues: 0.000%
 ----------------------------------------------------------------------</code></pre>
 </div>
@@ -638,13 +647,13 @@ $eigen
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>il_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$il1
-[1] 9.159422
+[1] 9.547009
 
 $il1s
-[1] 0.1081121
+[1] 0.1152665
 
 $eigen
-[1] 4.334543e-05</code></pre>
+[1] 2.607165e-05</code></pre>
 </div>
 </div>
 <p><strong>Interpretation:</strong> Microaggregation typically produces lower IL1 (mean absolute deviation between original and perturbed values) because entire groups share one value — the average. Noise addition preserves individual-level variation better but introduces random error into every single record. For a dataset where income is used in regression analyses, noise addition is often preferable; for frequency tables or group comparisons, microaggregation is a safer choice.</p>
