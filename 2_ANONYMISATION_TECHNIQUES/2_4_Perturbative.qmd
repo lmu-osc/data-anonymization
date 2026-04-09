@@ -161,7 +161,7 @@ Continue working with `sdc_nonpert` from the previous exercise.
 You cannot undo perturbation steps within the same `sdc` object. Create a fresh copy of `sdc_nonpert` before trying the second method so you can compare them side-by-side.
 :::
 
-::: callout-note
+::: {.callout-note collapse="true"}
 ## Solution
 
 ### Step 1 – Microaggregation

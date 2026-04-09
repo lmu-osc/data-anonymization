@@ -108,7 +108,7 @@ Inspect the dataset `data`. Answer the following questions:
 
 4\. Is there any column that does not contain personal data?
 
-::: callout-note
+::: {.callout-note collapse="true"}
 ## Solution
 
 ### Direct identifiers: `name`, `email`, `ip_address`
@@ -136,7 +136,7 @@ Any data that can be linked to an individual is considered personal data. As lon
 
 Now, delete all direct identifiers from the dataset.
 
-::: callout-note
+::: {.callout-note collapse="true"}
 ## Solution
 
 Any solution that deletes the name, email address, and IP address is correct. I use tidyverse syntax:

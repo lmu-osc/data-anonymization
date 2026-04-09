@@ -78,7 +78,7 @@ Use the `sdc_micro` results from the previous exercises to compare it to the ori
 
 4.  Reflect**:** based on your findings, is the anonymised dataset fit for purpose? Would you adjust any of the anonymisation steps?
 
-::: callout-note
+::: {.callout-note collapse="true"}
 ## Solution
 
 ### Step 1 – Utility summary

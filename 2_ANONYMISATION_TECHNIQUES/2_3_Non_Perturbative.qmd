@@ -119,7 +119,7 @@ The `sdcMicro` functions operate directly on the `sdc` object and update risk es
 The `forcat` function `fct_lump_min()` is applied to the dataset itself. The `sdc` object needs to be updated afterwards.
 :::
 
-::: callout-tip
+::: {.callout-tip collapse="true"}
 ## Solution
 
 One possible approach:
