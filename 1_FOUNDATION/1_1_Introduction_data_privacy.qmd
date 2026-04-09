@@ -83,6 +83,8 @@ These two goals - protecting privacy and sharing data - are not contradictory, b
 
 The good news is that anonymization gives us the tools to navigate this tension. By learning how to properly anonymize data, you can share your research data openly while still protecting the people who made your research possible. That is what this tutorial is about.
 
+Next, we will dive deeper into privacy laws: They provide concrete rules that guide data protection throughout the whole research cycle. 
+
 #### Learning Objective
 
 -   After completing this part of the tutorial, you will have a fundamental understanding of privacy and data protection.

@@ -1,5 +1,5 @@
 ---
-title: "Planning Anonymization"
+title: "Assessing Privacy Risks"
 bibliography: ../references.bib
 ---
 
@@ -40,6 +40,16 @@ These are just a few examples; in general, the existence and likelihood of risks
 :::
 
 *Add callout box whether participation knowledge needs to be assumed or not (and its implications)*
+
+::: callout-note
+Felix's notes:
+
+-   "reasonably likely”: We should discuss here or somewhere else one of the main factors: The knowledge of an attacker whether a person is in a specific data set ("Teilnahmekenntnis"). This changes a lot for the k-anonymity. Here a my notes regarding this:
+
+    -   The relevant keyword is "Teilnahmekenntnis" / "participation knowledge": The re-identification risk rises very much when attacks know who participated in a survey. Von Klaus Pforr ([https://sciences.social/\@klauspforr/110775060196195399](https://sciences.social/@klauspforr/110775060196195399)): "Never post your survey participation in a run-of-the-mill survey on social media because the whole anonymisation concept most of time assumes negligble prior probs for these. Whenever you see this in the wild, send a direct message that people should refrain from this behavior in the future"
+
+    -   I talked to Johannes Breuer (who was at GESIS back then), and he said that the big surveys always assume NO Teilnahmekenntnis when evaluating their level of anonymity.
+:::
 
 # Measuring Privacy Risks
 

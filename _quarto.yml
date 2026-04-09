@@ -51,17 +51,17 @@ website:
           - href: 1_FOUNDATION/1_1_Introduction_data_privacy.qmd
             text: "Introduction"
           - href: 1_FOUNDATION/1_2_GDPR.qmd
-            text: "GDPR"
+            text: "The GDPR"
           - href: 1_FOUNDATION/1_3_Personal_Data.qmd
             text: "Personal Data"
           - href: 1_FOUNDATION/1_4_Mechanisms.qmd
-            text: "Mechanisms"
+            text: "Privacy Mechanisms in Research"
           - href: 1_FOUNDATION/1_5_Privacy_Concepts.qmd
             text: "Privacy Concepts"
       - section: "ANONYMIZATION PROCESS"
         contents:
           - href: 2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd
-            text: "Planning Privacy"
+            text: "Assessing Privacy Risks"
           - href: 2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.qmd
             text: "Overview of Techniques"
           - href: 2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.qmd
