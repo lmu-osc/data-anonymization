@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the Data Anonymisation Course"
+title: "Welcome to the Data Anonymization Course"
 ---
 
 This website is work in progress. Please come back later in 2026 :)

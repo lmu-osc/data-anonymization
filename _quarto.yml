@@ -9,9 +9,9 @@ bibliography: references.bib
 
 # Begin Website
 website:
-  title: "Data Anonymisation Course"
+  title: "Data Anonymization Course"
   page-footer: 
-    center: "Copyright, 2024 Open Science Center at LMU Munich"
+    center: "Copyright, 2026 Open Science Center at LMU Munich"
     border: false
   search:
     location: sidebar
