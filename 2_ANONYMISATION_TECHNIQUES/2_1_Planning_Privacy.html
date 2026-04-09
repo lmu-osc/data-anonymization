@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Planning Anonymization – Data Anonymisation Course</title>
+<title>Assessing Privacy Risks – Data Anonymization Course</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -138,7 +138,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Data Anonymisation Course</span>
+    <span class="navbar-title">Data Anonymization Course</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -183,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">ANONYMIZATION PROCESS</a></li><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Planning Privacy</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">ANONYMIZATION PROCESS</a></li><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Assessing Privacy Risks</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -227,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../1_FOUNDATION/1_2_GDPR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GDPR</span></a>
+ <span class="menu-text">The GDPR</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -239,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../1_FOUNDATION/1_4_Mechanisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mechanisms</span></a>
+ <span class="menu-text">Privacy Mechanisms in Research</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -262,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Planning Privacy</span></a>
+ <span class="menu-text">Assessing Privacy Risks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -368,9 +368,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">ANONYMIZATION PROCESS</a></li><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Planning Privacy</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">ANONYMIZATION PROCESS</a></li><li class="breadcrumb-item"><a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Assessing Privacy Risks</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Planning Anonymization</h1>
+<h1 class="title">Assessing Privacy Risks</h1>
 </div>
 
 
@@ -419,6 +419,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><em>Add callout box whether participation knowledge needs to be assumed or not (and its implications)</em></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Felix’s notes:</p>
+<ul>
+<li><p>“reasonably likely”: We should discuss here or somewhere else one of the main factors: The knowledge of an attacker whether a person is in a specific data set (”Teilnahmekenntnis”). This changes a lot for the k-anonymity. Here a my notes regarding this:</p>
+<ul>
+<li><p>The relevant keyword is “Teilnahmekenntnis” / “participation knowledge”: The re-identification risk rises very much when attacks know who participated in a survey. Von Klaus Pforr (<a href="https://sciences.social/@klauspforr/110775060196195399">https://sciences.social/@klauspforr/110775060196195399</a>): “Never post your survey participation in a run-of-the-mill survey on social media because the whole anonymisation concept most of time assumes negligble prior probs for these. Whenever you see this in the wild, send a direct message that people should refrain from this behavior in the future”</p></li>
+<li><p>I talked to Johannes Breuer (who was at GESIS back then), and he said that the big surveys always assume NO Teilnahmekenntnis when evaluating their level of anonymity.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
 </section>
 <section id="measuring-privacy-risks" class="level1">
 <h1>Measuring Privacy Risks</h1>
@@ -1020,7 +1040,7 @@ Current Information Loss:
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright, 2024 Open Science Center at LMU Munich</p>
+<p>Copyright, 2026 Open Science Center at LMU Munich</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
