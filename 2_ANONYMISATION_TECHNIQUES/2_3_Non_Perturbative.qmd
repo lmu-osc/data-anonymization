@@ -6,11 +6,10 @@ bibliography: ../references.bib
 ```{r Setup}
 #| include: false
 
-library(readxl)
 library(sdcMicro)
 library(tidyverse)
 
-data_withoutdirectidentifiers <- read_xlsx("../SimulatedData_noidentifiers.xlsx") # Change based on the location of your data file
+data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Change based on the location of your data file
 
 sdc_data <- readRDS("../sdc_micro.rds") # Change based on the location of your Sdc-object file
 ```

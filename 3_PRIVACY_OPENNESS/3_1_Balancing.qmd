@@ -8,11 +8,10 @@ bibliography: ../references.bib
 
 library(sdcMicro)
 library(tidyverse)
-library(readxl)
 
 # Load data based on downloaded file
 sdc_micro <- readRDS("../sdc_noise.rds") # Change based on the location of your Sdc-object file
-data_withoutdirectidentifiers <- read_xlsx("../SimulatedData_noidentifiers.xlsx") # Change based on the location of your data file
+data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Change based on the location of your data file
 ```
 
 *Explain issue of data protection vs. data sharing a bit more*
