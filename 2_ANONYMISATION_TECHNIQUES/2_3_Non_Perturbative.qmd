@@ -14,7 +14,11 @@ data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") 
 sdc_data <- readRDS("../sdc_micro.rds") # Change based on the location of your Sdc-object file
 ```
 
-Non-perturbative techniques are those that do not change the values of data, but rather conceal certain values. This includes all techniques referred to as data masking, suppression, and deletion.
+Non-perturbative techniques reduce re-identification risk without distorting the underlying values - they either remove information or make it less specific. What stays in the dataset is still true; there is just less of it. This is what sets them apart from perturbative techniques, which add noise or swap values to obscure the original data.
+
+Non-perturbative techniques include all techniques referred to as data masking, suppression, and deletion.
+
+Non-perturbative techniques are usually the right starting point. They are easy to explain, easy to document, and easy to verify. For many research datasets, they are enough on their own.
 
 Depending on the specific data type and risk, different techniques are possible [@Carvalho2023_SurveyPrivacyPreservingTechniques]:
 
@@ -24,55 +28,55 @@ Depending on the specific data type and risk, different techniques are possible 
 
 ## Global Recoding
 
-Also known as generalization
-
-Generalize all values of an attribute into broader categories.
+Global recoding (also called generalization) replaces the exact values of a variable with broader categories - applied to every row in the dataset.
 
 Example: Replace specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”), recoding age in year to age in decade
 
+The key decision is how broadly to generalize. Wider categories reduce risk more, but also lose more information. The right granularity depends on how many people share each combination - which is exactly what k-anonymity measures. You will practice this trade-off in the exercise below.
+
 ## Local Recoding
 
-Generalize values of a variable only when needed, not across the entire dataset.
+Local recoding generalizes values only where needed, rather than across the whole dataset. This is useful when only a small subset of values is rare enough to create risk.
 
-Example: If only few participant are from Asia, you may recode only their values (e.g., "China", "India", "Nepal") to “Asia”, keeping all others unchanged.
+Example: If only few participant are from Asia, you may recode only their values (e.g., “China”, “India”, “Nepal”) to “Asia”, keeping all others unchanged.
 
-This means, that values are on different level (in this example: country vs. continent).
+This means, that values are on different level (in this example: country vs. continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently - you need to be transparent about which categories were collapsed and why.
 
 ## Top-and-Bottom Coding
 
-Applies only to numerical (at least ordinally scaled) variables
+Top-and-bottom coding is a special case of recoding that applies to numerical variables. Instead of grouping all values into bands, you cap the extreme ends of the distribution - replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes or very long job tenures might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value.
 
-Generalize rare extreme values that would allow for the identification of individuals.
+Example: Instead of reporting “6 children”, report “4+ children” for anyone above this threshold; all participants below the age of 20 years are coded as “\<20 years”
 
-Example: Instead of reporting “6 children”, report “4+ children” for anyone above this threshold; all participants below the age of 20 years are coded as "\<20 years"
-
-How to determine the threshold can be calculated, but this is not trivial. A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles - capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.
+How to determine the threshold: The threshold can be calculated, but this is not trivial. A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles - capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.
 
 ## Suppression
 
-Remove information entirely (using NA/NaN/\*) when it creates risk (also known as nulling). This can occur on different levels:
+Suppression means removing information entirely - replacing a value with a missing value (`NA`) or dropping it altogether. This is also known as nulling. It is the most straightforward way to handle data that is too risky to release, but it also loses the most information.
 
--   Cell suppression: Remove single risky values (e.g., unique job title).
+Suppression can occur on different levels:
 
--   Record suppression: Remove data of one participant (e.g., in case of a very specific combination of demographics).
+-   Cell suppression: Remove a single risky value while keeping the rest of the record. For example, if one participant has a unique job title that makes them identifiable, you can set only that cell to `NA`.
 
--   Variable suppression: Drop a variable from the dataset entirely.
+-   Record suppression: Remove an entire participant's data if their combination of attributes is so unique that no other technique can adequately protect them.
 
-It can also happen as a result of a condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in the column "Customer Feedback" could be nullified if the customer feedback was negative [@raghunathan2013complete].
+-   Variable suppression: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case - we already did this in [Chapter 1.3](../1_FOUNDATION/1_3_Personal_Data).
+
+Cell suppression can also follow a specific condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in the column “Customer Feedback” could be nullified if the customer feedback was negative [@raghunathan2013complete]. **Find better example**
 
 Another example is the replacement of credit card number values with XXX. In the credit card example, the application of the character masking technique can be *partial*, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.
 
+Suppression is often used as a last resort after recoding: if recoding alone is not enough to bring all records up to the required k-anonymity threshold, targeted cell suppression can close the remaining gaps.
+
 ## Sampling
 
--   also known as subsampling
+If your dataset covers an entire population - for example, all students enrolled in a particular program, or all employees of a specific company - then releasing it in full means that anyone who knows a person was part of that group can try to find their record. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
 
--   especially used when a dataset covers the whole population (e.g., all first-year students at LMU)
+A sample can be randomly selected, but also based on conditions (e.g., quotas for study subjects).
 
--   release a sample of the original dataset
+Sampling is most relevant for administrative datasets and registers. For typical survey-based research, where participation is voluntary and not exhaustively documented, it is less commonly needed. If you do use it, keep in mind that the sample size affects both privacy and the statistical representativeness of the data.
 
--   sample can be randomly selected, but also based on conditions (e.g., quotas for study subjects)
-
-*Include its own exercise for this technique?*
+*Could aslo be quite effective in case of participation knowledge*
 
 # Pro and Contra Using Non-Perturbative Techniques
 
@@ -102,7 +106,7 @@ Con:
 
 *TODO Decide on variables*
 
-Apply non-perturbative techniques to the data to reduce re-identification risk.
+In this exercise, you will apply non-perturbative techniques to the data to reduce re-identification risk.
 
 The following `sdcMicro` functions are available to you:
 
@@ -110,29 +114,39 @@ The following `sdcMicro` functions are available to you:
 -   `topBotCoding()` — caps extreme values at a given threshold
 -   `localSuppression()` — suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would advise against using this function since it does not report changes transparently. Instead, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from `forcats`. This function lumps all categories below a certain group size together.
 
-Look at the key variables in `sdc_data` (`gender`, `age`, `education`, `plz`) and decide which technique is appropriate for each. There is no single correct solution — choose thresholds and groupings that make sense given the data, and be prepared to justify your choices. After applying your techniques, compare the new risk summary to the one from the previous exercise.
+1.  Look at the key variables in `sdc_data` (`gender`, `age`, `education`, `plz`) and decide which technique is appropriate for each. There is no single correct solution - choose thresholds and groupings that make sense given the data, and be prepared to justify your choices.
+2.  Apply these techniques using the functions mentioned above.
+3.  Compare the new risk summary to the one from the previous exercise.
 
 ::: callout-tip
 The `sdcMicro` functions operate directly on the `sdc` object and update risk estimates automatically. Check `?globalRecode`, `?topBotCoding`, and `?localSuppression` for argument details.
 
-The `forcat` function `fct_lump_min()` is applied to the dataset itself. The `sdc` object needs to be updated afterwards.
+The `forcat` function `fct_lump_min()` is applied to the dataset itself. The `sdcObject` needs to be updated afterwards.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solution
 
-One possible approach:
+Keep in mind that this is just an example solution - there are many ways to achieve similar levels of privacy.
+
+I started by applying global recoding to age:
 
 ```{r}
-# Recode age into bands
 sdc_nonpert <- globalRecode(
   obj    = sdc_data,
   column = "age",
-  breaks = c(17, 29, 44, 59, 74, Inf),
+  breaks = c(17, 29, 44, 59, 74, Inf), # Define breaks
   labels = c("18-29", "30-44", "45-59", "60-74", "75+")
 )  
 
+sdc_nonpert
 print(sdc_nonpert, type = "risk") # check risk after making the change
+
+```
+
+```{r}
+
+
 
 # Generalize PLZ (does not work due to variable type)
 # sdc_nonpert <- globalRecode(
