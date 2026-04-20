@@ -573,7 +573,7 @@ Expected number of re-identifications:
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers<span class="sc">$</span>years_in_job)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   0.00    2.00    5.00    7.34   11.00   38.00 </code></pre>
+   0.00    2.00    4.00    5.34    8.00   32.00 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">topBotCoding</span>(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj         =</span> sdc_nonpert,</span>
@@ -618,9 +618,9 @@ Expected number of re-identifications:
 <div class="cell-output cell-output-stdout">
 <pre><code>
          Buddhism       Catholicism Eastern Orthodoxy             Islam 
-                1                53                 3                13 
+                3                56                 1                13 
           Judaism              None     Protestantism 
-                5                86                39 </code></pre>
+                2                75                50 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_religion_recoded <span class="ot">&lt;-</span> data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_lump_min</span>(religion, <span class="at">min =</span> <span class="dv">10</span>, <span class="at">other_level =</span> <span class="st">"Other"</span>))</span>
@@ -629,7 +629,7 @@ Expected number of re-identifications:
 <div class="cell-output cell-output-stdout">
 <pre><code>
   Catholicism         Islam          None Protestantism         Other 
-           53            13            86            39             9 </code></pre>
+           56            13            75            50             6 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rebuild the sdc object with the recoded religion column</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(</span>
@@ -644,7 +644,7 @@ Expected number of re-identifications:
 <pre><code>Risk measures:
 
 Number of observations with higher risk than the main part of the data: 0
-Expected number of re-identifications: 200.00 (100.00 %)</code></pre>
+Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 </div>
 </div>
 <p><code>fct_lump_min(religion, min = 10)</code> merges any category with fewer than 10 observations into <code>"Other"</code>. This is transparent — you can see exactly which categories were affected by comparing the <code>table()</code> outputs before and after. Groups like “Judaism” or “Buddhism” which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes. <em>Compare to local suppression using function</em></p>

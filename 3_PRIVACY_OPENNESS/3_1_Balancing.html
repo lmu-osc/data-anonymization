@@ -602,26 +602,26 @@ Current Information Loss:
 <pre><code># A tibble: 7 × 4
   religion          mean_immigration mean_redistribution     n
   &lt;chr&gt;                        &lt;dbl&gt;               &lt;dbl&gt; &lt;int&gt;
-1 Buddhism                      3                   4        1
-2 Catholicism                   2.74                3.26    53
-3 Eastern Orthodoxy             4.33                2.33     3
-4 Islam                         2.62                3       13
-5 Judaism                       2.8                 2.4      5
-6 None                          2.87                3.21    86
-7 Protestantism                 2.97                3.28    39</code></pre>
+1 Buddhism                      4                   3.33     3
+2 Catholicism                   2.73                2.79    56
+3 Eastern Orthodoxy             4                   3        1
+4 Islam                         2.69                3.23    13
+5 Judaism                       1.5                 3        2
+6 None                          2.97                3.17    75
+7 Protestantism                 3.04                3.12    50</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>anonymised_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 4
   religion          mean_immigration mean_redistribution     n
   &lt;chr&gt;                        &lt;dbl&gt;               &lt;dbl&gt; &lt;int&gt;
-1 Buddhism                      3                   4        1
-2 Catholicism                   2.74                3.26    53
-3 Eastern Orthodoxy             4.33                2.33     3
-4 Islam                         2.62                3       13
-5 Judaism                       2.8                 2.4      5
-6 None                          2.87                3.21    86
-7 Protestantism                 2.97                3.28    39</code></pre>
+1 Buddhism                      4                   3.33     3
+2 Catholicism                   2.73                2.79    56
+3 Eastern Orthodoxy             4                   3        1
+4 Islam                         2.69                3.23    13
+5 Judaism                       1.5                 3        2
+6 None                          2.97                3.17    75
+7 Protestantism                 3.04                3.12    50</code></pre>
 </div>
 </div>
 <p>If the group means are close between both summaries, the anonymisation has preserved the analytical signal. Political opinion variables were not altered (they are neither key variables nor numeric variables in the sdcMicro object), so differences here would only arise if the grouping structure changed dramatically.</p>

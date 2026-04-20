@@ -593,11 +593,11 @@ Tip
 <div class="cell-output cell-output-stderr">
 <pre><code>Numerical key variables: income, years_in_job
 
-Disclosure risk is currently between [0.00%; 86.00%]
+Disclosure risk is currently between [0.00%; 79.00%]
 
 Current Information Loss:
-  - IL1: 885.42
-  - Difference of Eigenvalues: 0.150%
+  - IL1: 569.10
+  - Difference of Eigenvalues: 0.590%
 ----------------------------------------------------------------------</code></pre>
 </div>
 </div>
@@ -619,8 +619,8 @@ Current Information Loss:
 Disclosure risk is currently between [0.00%; 100.00%]
 
 Current Information Loss:
-  - IL1: 9.73
-  - Difference of Eigenvalues: 0.030%
+  - IL1: 9.62
+  - Difference of Eigenvalues: 0.000%
 ----------------------------------------------------------------------</code></pre>
 </div>
 </div>
@@ -638,24 +638,24 @@ Current Information Loss:
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>il_micro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$il1
-[1] 885.4226
+[1] 569.1015
 
 $il1s
-[1] 5.423393
+[1] 4.824126
 
 $eigen
-[1] 0.001527126</code></pre>
+[1] 0.005929095</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>il_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$il1
-[1] 9.727969
+[1] 9.615018
 
 $il1s
-[1] 0.1158992
+[1] 0.1078672
 
 $eigen
-[1] 0.0003048742</code></pre>
+[1] 2.253289e-05</code></pre>
 </div>
 </div>
 <p><strong>Interpretation:</strong> Microaggregation typically produces lower IL1 (mean absolute deviation between original and perturbed values) because entire groups share one value — the average. Noise addition preserves individual-level variation better but introduces random error into every single record. For a dataset where income is used in regression analyses, noise addition is often preferable; for frequency tables or group comparisons, microaggregation is a safer choice.</p>
