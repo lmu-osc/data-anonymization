@@ -1,0 +1,201 @@
+"id","plz","gender","age","income","years_in_job","religion","job_title","education","pol_immigration","pol_environment","pol_redistribution","pol_eu_integration"
+1,80331,"female",20,8471.35,3,"Catholicism","Local government officer","trade school",5,4,5,2
+2,96176,"female",32,34721.35,4,"None","Structural engineer","high school",3,5,3,4
+3,80636,"male",69,42809.48,0,"None","Psychotherapist, dance movement","high school",2,1,2,5
+4,85777,"female",63,59490.47,5,"None","Fitness centre manager","high school",2,3,5,1
+5,44869,"male",18,52337.39,1,"Islam","Programme researcher, broadcasting/film/video","high school",2,4,3,3
+6,80539,"male",61,60960.23,6,"Protestantism","Chief Strategy Officer","high school",2,5,5,4
+7,91731,"male",39,61037.2,11,"None","Engineer, communications","high school",2,3,3,2
+8,72224,"female",37,58720.93,2,"Buddhism","Secretary/administrator","university",5,5,4,5
+9,72348,"male",36,55625.01,1,"Catholicism","Video editor","trade school",1,3,1,3
+10,80331,"male",21,75996.23,4,"Catholicism","Hotel manager","high school",1,3,3,5
+11,25845,"non-binary",41,29760.83,6,"Catholicism","Herbalist","university",4,4,2,2
+12,32832,"female",38,43369.95,9,"None","Teacher, primary school","high school",5,4,2,3
+13,90441,"male",33,70224.28,3,"None","Production assistant, television","high school",3,2,3,2
+14,80331,"female",43,43707.07,2,"Islam","Surveyor, mining","high school",3,2,5,3
+15,97944,"female",70,50073.94,5,"Islam","Data scientist","high school",5,1,2,3
+16,94113,"female",33,53897.71,9,"Catholicism","Programmer, applications","high school",4,5,5,5
+17,65623,"male",51,47372.98,8,"Catholicism","Horticulturist, commercial","trade school",2,3,4,3
+18,39120,"female",69,53557.83,8,"Judaism","Training and development officer","high school",1,2,1,1
+19,80636,"male",33,88933.73,4,"Islam","Catering manager","high school",1,2,4,4
+20,66589,"female",56,33516.81,2,"None","Textile designer","no degree",3,2,3,1
+21,86492,"female",50,60266.05,3,"None","Designer, fashion/clothing","high school",5,3,5,1
+22,84524,"female",28,3234.65,11,"None","Medical physicist","high school",4,2,4,4
+23,80539,"female",45,18647.76,0,"Protestantism","Seismic interpreter","trade school",1,2,1,3
+24,82269,"female",48,53198.8,0,"Catholicism","Biomedical engineer","high school",5,5,4,1
+25,99830,"male",58,66750.89,8,"Protestantism","Biomedical engineer","no degree",5,5,3,4
+26,22523,"female",43,33275.84,2,"Catholicism","Technical brewer","university",2,2,2,3
+27,80333,"male",41,43974.11,0,"Catholicism","Advertising art director","high school",4,2,2,4
+28,80636,"female",30,56904.06,2,"None","Clothing/textile technologist","high school",5,1,1,1
+29,86759,"female",24,49785.63,2,"Islam","Stage manager","university",2,2,3,2
+30,50859,"female",27,65838.27,4,"None","Advertising art director","high school",3,3,5,3
+31,79875,"female",46,43510.82,2,"Catholicism","IT consultant","university",3,2,4,1
+32,80539,"female",28,35050.43,11,"Protestantism","Secondary school teacher","trade school",1,1,5,2
+33,97222,"male",23,45612.6,6,"None","Restaurant manager","university",5,3,5,1
+34,6847,"female",24,74064.45,2,"Islam","Politician's assistant","trade school",3,2,3,4
+35,50735,"female",18,19700.02,1,"None","Illustrator","high school",4,1,1,5
+36,88260,"female",18,35491.71,1,"Protestantism","Community pharmacist","high school",3,3,3,4
+37,39444,"female",29,31146.67,3,"Protestantism","Solicitor","doctoral title",1,4,4,5
+38,80799,"female",18,58538.33,1,"None","Local government officer","high school",2,1,5,5
+39,47249,"non-binary",32,25565.51,10,"None","Osteopath","high school",1,2,1,3
+40,94535,"male",55,53781.8,12,"None","Medical illustrator","high school",4,1,5,5
+41,72535,"male",33,48621.36,6,"None","Surgeon","trade school",4,2,1,3
+42,69437,"female",57,52099.26,1,"None","Financial controller","high school",3,3,3,4
+43,44145,"male",22,80544.39,5,"None","Systems analyst","high school",5,2,4,2
+44,53773,"male",49,44352.87,0,"None","Sports therapist","high school",2,3,4,5
+45,79793,"male",22,36923.45,5,"Catholicism","Sound technician, broadcasting/film/video","doctoral title",2,2,3,5
+46,80539,"female",66,108934.56,8,"Catholicism","Amenity horticulturist","high school",4,5,4,3
+47,74388,"male",59,82695.22,6,"None","Firefighter","university",2,1,3,1
+48,74906,"male",67,101342.65,16,"Protestantism","Copy","high school",3,4,4,2
+49,39649,"non-binary",27,43699.08,3,"Protestantism","Sales promotion account executive","trade school",5,4,2,3
+50,64673,"male",25,55256.89,8,"Catholicism","Public relations officer","trade school",4,5,5,2
+51,45479,"female",19,57280.41,2,"Protestantism","Financial planner","high school",5,3,1,1
+52,97505,"female",48,65257.71,17,"Catholicism","Museum/gallery curator","high school",4,1,4,1
+53,87730,"male",30,73130.44,5,"Protestantism","Dealer","high school",3,3,2,3
+54,13055,"female",58,77231.91,5,"Islam","Higher education careers adviser","high school",3,5,2,5
+55,86567,"non-binary",41,43356,4,"None","General practice doctor","university",5,2,5,2
+56,54538,"female",50,49240.52,6,"None","Recruitment consultant","university",5,3,5,2
+57,3253,"male",18,49181.85,1,"Protestantism","Training and development officer","high school",3,1,1,4
+58,52224,"female",46,45667.06,11,"Catholicism","Mudlogger","high school",1,5,4,4
+59,36391,"male",27,71020.92,3,"Catholicism","Pharmacist, hospital","high school",1,4,1,4
+60,80636,"female",53,17867.79,0,"None","Horticultural consultant","high school",5,2,5,3
+61,90613,"male",39,59154.65,7,"None","Ergonomist","high school",4,2,3,1
+62,76137,"male",18,34867.09,1,"Protestantism","Chartered accountant","no degree",1,5,4,4
+63,31096,"male",61,103880.23,9,"Protestantism","Psychiatrist","university",4,2,3,2
+64,66509,"female",46,6537.27,4,"Islam","Data processing manager","high school",5,5,5,2
+65,72660,"non-binary",28,53963.61,5,"Protestantism","Broadcast journalist","trade school",5,1,3,5
+66,80331,"male",38,53233.39,0,"None","Administrator, charities/voluntary organisations","high school",2,2,1,5
+67,86688,"female",66,35192.39,0,"Catholicism","Speech and language therapist","high school",1,3,3,5
+68,76448,"male",46,88998.52,7,"Protestantism","Energy manager","high school",2,3,3,3
+69,7985,"female",32,76185.54,15,"None","Editor, commissioning","high school",3,5,5,5
+70,29365,"male",18,15277.69,1,"Catholicism","Advertising account executive","high school",4,4,2,4
+71,72149,"female",53,32358.41,4,"Protestantism","Surveyor, land/geomatics","high school",1,3,5,4
+72,64546,"female",59,59564.29,0,"Catholicism","Exercise physiologist","high school",2,5,1,3
+73,35764,"male",18,44946.1,1,"None","Risk manager","trade school",1,3,1,5
+74,79771,"male",59,66701.73,10,"Judaism","Risk manager","high school",2,5,5,3
+75,7806,"female",37,52378.45,13,"Protestantism","Games developer","high school",5,4,5,2
+76,26131,"female",35,28532.02,1,"Protestantism","Illustrator","university",5,1,5,2
+77,80799,"male",42,56000.53,5,"Protestantism","Speech and language therapist","university",5,3,5,2
+78,33758,"male",28,69690.09,11,"None","Gaffer","high school",2,1,1,4
+79,65931,"female",51,46431.85,2,"Protestantism","Heritage manager","high school",5,3,2,3
+80,54306,"female",65,85894.23,4,"None","Buyer, industrial","high school",3,3,4,5
+81,80636,"female",45,59395.77,3,"Protestantism","Psychiatrist","university",3,4,1,2
+82,76530,"female",24,50677.57,0,"Protestantism","Public house manager","university",5,3,3,5
+83,84140,"male",61,19523.64,3,"Islam","Production assistant, television","trade school",2,3,5,4
+84,80636,"female",34,60402.28,5,"Protestantism","Wellsite geologist","high school",3,3,5,1
+85,24863,"male",41,73762.07,24,"None","Dealer","high school",4,5,1,3
+86,80636,"male",55,57488.83,2,"Catholicism","Manufacturing engineer","high school",1,3,5,4
+87,80331,"female",34,48387.34,4,"Catholicism","Engineer, electrical","university",2,3,3,1
+88,80539,"female",49,51020.65,32,"Catholicism","Brewing technologist","university",2,1,2,3
+89,28755,"non-binary",35,106715.14,8,"None","Social researcher","trade school",4,1,2,1
+90,94366,"female",40,52973.81,5,"Catholicism","Advertising account planner","high school",1,3,3,5
+91,46395,"female",25,65059.84,5,"Protestantism","Community pharmacist","high school",4,4,4,3
+92,80539,"female",46,92745.09,5,"Catholicism","Conservator, furniture","no degree",3,3,2,5
+93,96277,"female",52,60871.39,10,"Catholicism","Designer, blown glass/stained glass","university",4,1,4,3
+94,80636,"male",18,38100.28,1,"None","Scientist, product/process development","high school",3,3,3,2
+95,99706,"female",70,1508.25,1,"None","Dealer","trade school",1,5,2,2
+96,13059,"female",45,35839.71,2,"Catholicism","Insurance underwriter","high school",2,3,1,5
+97,79585,"male",61,33524.46,3,"None","Curator","high school",4,5,5,2
+98,80331,"female",48,105629.59,10,"Protestantism","Armed forces logistics/support/administrative officer","university",4,5,5,4
+99,80539,"male",43,37535.39,18,"None","Chief Executive Officer","university",3,2,2,2
+100,88319,"male",41,70163.08,3,"Catholicism","Special effects artist","trade school",2,5,2,2
+101,6217,"male",24,44974.2,2,"Buddhism","Quarry manager","doctoral title",5,4,2,5
+102,80636,"male",35,65006.97,5,"Catholicism","Therapist, sports","high school",2,5,4,2
+103,21789,"male",48,28030.4,13,"Protestantism","Chartered management accountant","no degree",2,3,2,3
+104,45657,"male",40,56143.31,1,"Protestantism","Graphic designer","trade school",5,4,3,1
+105,1445,"male",29,21741.1,12,"Catholicism","Professor Emeritus","high school",2,3,4,1
+106,92339,"female",18,61855.98,1,"None","Runner, broadcasting/film/video","high school",1,4,3,1
+107,92289,"female",18,15326.24,1,"None","Forensic psychologist","trade school",3,5,4,3
+108,1587,"male",61,9709.52,5,"None","Engineer, electrical","trade school",5,2,2,1
+109,80799,"female",44,25659.34,5,"Catholicism","Designer, furniture","university",3,4,2,1
+110,91097,"female",55,69044.93,3,"Catholicism","Engineer, manufacturing systems","high school",2,1,2,5
+111,67482,"male",35,66301.02,3,"Protestantism","Patent attorney","high school",2,5,2,1
+112,23863,"female",33,27090.4,2,"None","Research officer, trade union","university",1,3,2,4
+113,80333,"male",48,45324.62,4,"None","Museum/gallery conservator","high school",4,5,4,4
+114,93093,"male",60,50849.11,5,"Catholicism","Furniture conservator/restorer","high school",3,3,1,5
+115,24784,"female",70,30421.29,13,"None","Television floor manager","university",3,5,5,4
+116,80539,"female",47,50230.45,3,"Protestantism","Print production planner","high school",2,3,3,4
+117,26121,"male",25,37902.42,6,"None","Financial trader","high school",4,4,4,1
+118,86690,"female",18,55949.2,1,"Catholicism","Estate agent","high school",1,4,4,4
+119,80799,"male",41,53509.42,0,"None","Trading standards officer","trade school",1,4,3,5
+120,56340,"female",70,57558.17,2,"Catholicism","Housing manager/officer","university",1,5,1,1
+121,80539,"male",37,67904.73,3,"Protestantism","Community pharmacist","high school",2,1,5,2
+122,80636,"male",18,37003.44,1,"None","Sound technician, broadcasting/film/video","high school",2,5,2,2
+123,77756,"female",41,74012.32,0,"None","Catering manager","high school",1,1,5,5
+124,53225,"male",47,54693.74,0,"None","Nutritional therapist","doctoral title",1,1,4,2
+125,80539,"female",62,36977.03,12,"None","Surveyor, mining","high school",3,5,4,3
+126,80333,"male",37,36546.4,2,"None","Designer, industrial/product","trade school",5,3,1,5
+127,80799,"male",33,84045.58,10,"Catholicism","Geographical information systems officer","high school",4,3,3,3
+128,80799,"female",25,82138.06,1,"None","Furniture designer","university",2,4,5,4
+129,39599,"female",50,30733.31,1,"None","Multimedia programmer","high school",1,2,2,3
+130,76229,"male",43,61673.59,3,"Protestantism","Pharmacist, community","doctoral title",2,5,4,3
+131,4416,"female",50,69536.55,1,"Protestantism","Curator","doctoral title",4,3,1,1
+132,8141,"male",38,48347.66,6,"Protestantism","Event organiser","trade school",3,5,5,1
+133,4821,"male",36,66190.75,0,"Protestantism","Energy engineer","no degree",2,3,3,2
+134,86153,"male",63,66078.75,11,"None","Armed forces operational officer","no degree",2,5,3,4
+135,76698,"female",56,18269.69,1,"None","Geophysicist/field seismologist","high school",3,4,2,1
+136,86701,"non-binary",41,59707.29,1,"Protestantism","Sales promotion account executive","high school",5,1,2,5
+137,58708,"male",40,52099.71,17,"None","Conservation officer, historic buildings","high school",3,2,4,1
+138,54455,"female",26,34656.89,4,"Protestantism","Engineer, electrical","trade school",1,4,5,4
+139,35619,"male",45,34257.44,10,"Catholicism","Statistician","doctoral title",5,5,1,1
+140,64385,"female",31,24074.2,14,"None","Sport and exercise psychologist","doctoral title",4,5,2,3
+141,6132,"male",48,64152.22,1,"Catholicism","Pharmacist, community","high school",3,1,1,5
+142,82110,"female",47,83251.7,2,"Protestantism","Water engineer","high school",5,2,1,3
+143,73734,"female",42,64440.78,13,"Protestantism","Data scientist","university",4,1,5,1
+144,31249,"female",26,47105.72,9,"None","Commercial horticulturist","high school",5,4,4,5
+145,94538,"female",44,36879.16,3,"Catholicism","Horticulturist, commercial","no degree",4,1,2,1
+146,84130,"male",38,42220.17,15,"Protestantism","Homeopath","high school",4,4,4,1
+147,57648,"male",39,63960.04,0,"None","Minerals surveyor","trade school",2,4,3,2
+148,37449,"male",55,3530.08,9,"None","Cartographer","trade school",1,1,2,2
+149,80799,"female",36,13668.6,4,"Islam","Programmer, multimedia","trade school",3,2,4,4
+150,80333,"male",47,50377.45,7,"Protestantism","IT trainer","trade school",4,4,3,2
+151,31637,"female",45,61128.01,3,"Catholicism","Commercial/residential surveyor","high school",1,3,4,3
+152,3253,"male",23,43719.31,4,"None","Water engineer","high school",1,2,4,2
+153,80636,"female",41,54589.13,10,"None","Insurance broker","university",2,4,2,5
+154,80799,"female",57,19115.9,10,"None","Museum/gallery exhibitions officer","trade school",3,5,5,2
+155,27333,"female",42,10024.02,2,"Catholicism","Ceramics designer","high school",4,4,1,4
+156,91284,"male",28,85761.37,7,"Catholicism","Camera operator","high school",1,3,1,3
+157,80331,"non-binary",68,82607.2,3,"Catholicism","Paramedic","university",4,2,2,3
+158,80799,"male",56,44383.8,1,"None","Fitness centre manager","trade school",5,2,3,4
+159,9380,"female",34,66185.55,15,"Catholicism","Immunologist","high school",1,2,4,2
+160,80636,"male",56,46443.35,11,"Protestantism","Chief Executive Officer","high school",1,2,3,3
+161,79256,"female",52,41571.2,9,"Protestantism","Purchasing manager","trade school",1,5,3,1
+162,86685,"female",45,48002.36,1,"Catholicism","Pharmacist, hospital","university",5,1,1,1
+163,67468,"female",47,64303.37,0,"Protestantism","Physiotherapist","high school",3,5,1,5
+164,47226,"female",57,63828.73,10,"Catholicism","Market researcher","high school",2,3,2,1
+165,80539,"male",26,62158.38,1,"Islam","Marketing executive","high school",4,4,3,1
+166,53545,"female",35,36173.97,6,"None","Horticulturist, amenity","university",2,5,3,5
+167,80799,"female",42,22233.87,0,"Islam","Jewellery designer","trade school",1,2,1,2
+168,54413,"male",24,65795.96,2,"Catholicism","Make","high school",2,1,2,3
+169,80333,"female",18,50500.79,1,"None","Child psychotherapist","university",1,3,5,5
+170,94522,"female",44,34635.22,6,"None","Interior and spatial designer","high school",1,1,4,3
+171,19209,"female",61,51093.9,11,"None","Environmental health practitioner","high school",2,4,4,5
+172,37079,"male",30,38140.07,13,"None","Health and safety inspector","high school",1,2,5,1
+173,94239,"non-binary",48,83316.86,2,"Catholicism","Broadcast journalist","trade school",2,1,1,5
+174,80333,"female",45,96422.37,10,"None","Health visitor","high school",2,5,4,5
+175,14822,"male",46,47266.68,13,"Protestantism","Dancer","high school",5,2,1,3
+176,49429,"female",22,38736.53,5,"Catholicism","Lexicographer","high school",2,1,4,2
+177,9575,"male",36,51254.3,9,"Catholicism","Psychiatric nurse","high school",5,4,3,2
+178,25879,"female",49,3070.65,2,"Islam","Newspaper journalist","university",1,4,2,5
+179,2763,"male",57,67298.52,7,"None","Research scientist (maths)","high school",3,4,2,5
+180,33719,"male",41,52914.99,6,"Protestantism","Restaurant manager, fast food","trade school",5,2,1,2
+181,80636,"female",60,53761.55,3,"None","Software engineer","trade school",3,4,2,1
+182,36043,"male",45,62667.11,10,"Catholicism","Engineer, electrical","high school",1,3,5,5
+183,24161,"female",18,69837.87,1,"Protestantism","Advertising account planner","high school",1,3,4,4
+184,80331,"male",32,48027.7,9,"None","Ranger/warden","no degree",3,3,1,2
+185,32457,"male",54,68760.98,6,"Catholicism","Scientist, clinical (histocompatibility and immunogenetics)","no degree",1,3,3,2
+186,56424,"female",23,53996.54,6,"None","Health physicist","university",5,4,3,5
+187,18225,"non-binary",70,29089.31,2,"Protestantism","Special effects artist","university",1,3,4,1
+188,76770,"female",19,58074.39,0,"Protestantism","Hospital pharmacist","university",1,5,1,4
+189,29525,"male",38,43647.51,5,"Buddhism","Medical sales representative","doctoral title",2,1,4,5
+190,39122,"female",44,59911.66,17,"Catholicism","Technical sales engineer","university",5,3,4,4
+191,80539,"female",44,15015.81,4,"None","Engineer, manufacturing","high school",4,1,1,3
+192,8324,"male",30,48884.82,3,"Catholicism","Surveyor, commercial/residential","trade school",3,5,4,4
+193,80333,"female",35,11665.95,5,"Protestantism","Scientist, water quality","trade school",1,1,5,1
+194,80539,"male",44,51434.15,6,"Eastern Orthodoxy","Museum/gallery conservator","high school",4,2,3,3
+195,77815,"male",38,73230.95,10,"Catholicism","Psychologist, forensic","high school",4,1,1,2
+196,72505,"male",50,52969.14,5,"None","Optician, dispensing","high school",5,5,4,5
+197,80331,"female",31,38514.53,11,"None","Translator","university",5,3,3,4
+198,54290,"female",40,72584.81,0,"Protestantism","Secretary, company","trade school",2,5,1,5
+199,63920,"female",34,58564.02,4,"Catholicism","Economist","university",4,3,3,5
+200,97922,"female",43,30312.73,3,"Catholicism","Marketing executive","high school",5,5,5,5

@@ -52,8 +52,8 @@ Download the dataset here:
 
 # Generates a clickable download link for the GitHub Pages website
 xfun::embed_file(
-  "../SimulatedData.xlsx",
-  text = "⬇️ Download SimulatedData.xlsx"
+  "../SimulatedData.csv",
+  text = "⬇️ Download SimulatedData.csv"
 )
 ```
 
@@ -63,12 +63,8 @@ Copy this to a new Markdown file in RStudio to import the data for further analy
 #| label: data-import
 #| message: false
 
-library(tidyverse)
-library(readxl)
-library(writexl)
-
 # Load data based on downloaded file
-data <- read_xlsx("../SimulatedData.xlsx") # Change based on the location of your data file
+data <- read.csv("../SimulatedData.csv") # Change based on the location of your data file
 
 data
 ```
@@ -102,12 +98,6 @@ Inspect the dataset `data`. Answer the following questions:
 
 1\. Which columns contain direct identifiers?
 
-2\. Which contains indirect identifiers?
-
-3\. Which contain special categories of personal data?
-
-4\. Is there any column that does not contain personal data?
-
 ::: {.callout-note collapse="true"}
 ## Solution
 
@@ -118,14 +108,32 @@ Name is probably the most obvious identifier there is.
 Email addresses are considered direct identifiers since they often contain names and therefore, clearly specify certain individuals. However, even when not containing names, they can act as indirect identifiers by linking to an account or revealing a person's organization.
 
 IP addresses can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the ISP [@breyer2016]. In a research context, they should be treated as direct identifiers.
+:::
+
+2\. Which contains indirect identifiers?
+
+::: {.callout-note collapse="true"}
+## Solution
 
 ### Indirect identifiers: `gender`, `age`, `education`, `job_title`, `income`, `plz`, `years_in_job`
 
 Gender, age, education, job title, postal code, income, and years in job are indirect identifiers, since they cannot lead to idenitification of an individual on their own but may be linked with each other or external knowledge. When an attacker knows of a person who participated in the study and knows their job title, they could identify the person in the data.
+:::
+
+3\. Which contain special categories of personal data?
+
+::: {.callout-note collapse="true"}
+## Solution
 
 ### Special category data: all `pol\_` variables (political opinion), `religion`
 
 The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_integration` variables capture political opinions, and `religion` captures religious beliefs. Both categories are explicitly listed as sensitive data under Art. 9 GDPR. These variables require heightened protection because their disclosure could lead to discrimination or other harm for the individuals involved.
+:::
+
+4\. Is there any column that does not contain personal data?
+
+::: {.callout-note collapse="true"}
+## Solution
 
 ### Personal data: All columns contain personal data.
 
@@ -136,12 +144,13 @@ Any data that can be linked to an individual is considered personal data. As lon
 
 Now, delete all direct identifiers from the dataset.
 
-::: {.callout-note collapse="true"}
+::: callout-note
 ## Solution
 
 Any solution that deletes the name, email address, and IP address is correct. I use tidyverse syntax:
 
 ```{r}
+library(tidyverse)
 
 data_withoutdirectidentifiers <- data %>% 
   select(-name, -email, -ip_address)
@@ -151,7 +160,7 @@ data_withoutdirectidentifiers <- data %>%
 Save the new file
 
 ```{r}
-write_xlsx(data_withoutdirectidentifiers, "../SimulatedData_noidentifiers.xlsx")
+write.csv(data_withoutdirectidentifiers, "../SimulatedData_noidentifiers.csv", row.names = FALSE)
 ```
 :::
 

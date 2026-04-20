@@ -6,9 +6,7 @@ bibliography: ../references.bib
 ```{r Setup}
 #| include: false
 
-library(readxl)
-data_withoutdirectidentifiers <- read_xlsx("../SimulatedData_noidentifiers.xlsx") # Change based on the location of your data file
-
+data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Change based on the location of your data file
 ```
 
 In the previous chapters, we covered the foundations: what counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now we move to the practical part - actually anonymizing data. But before we jump into specific techniques, we first need to assess how much risk our data carries. That is what this chapter is about.
@@ -21,7 +19,7 @@ To achieve that, before starting the anonymization process, we will assess the l
 
 # Identifying Privacy Risks
 
-Take another look at the dataset from Chapter 1.3, the version without direct identifiers. Try to answer the following questions:
+Take another look at the dataset from [Chapter 1.3](../1_FOUNDATION/1_3_Personal_Data), the version without direct identifiers. Try to answer the following questions:
 
 -   Which combinations of indirect identifiers could potentially single out an individual?
 -   What attack scenarios are plausible? Think about who might try to re-identify someone in this dataset and what external information they might have access to.
@@ -29,6 +27,8 @@ Take another look at the dataset from Chapter 1.3, the version without direct id
 
 ::: {.callout-note collapse="true"}
 ## Solution
+
+*Add concrete combinations*
 
 Here are a few concrete attack scenarios to consider, based on our dataset of 200 individuals in Germany (with variables: gender, age, education, plz, income, religion, job_title, years_in_job, and political opinion variables):
 
@@ -55,7 +55,7 @@ Felix's notes:
 
 ## The `sdcMicro` Package
 
-To that end (and for most of the following exercises), we will use the package `sdcMicro` in R and the test dataset it contains. You already learned about the data it contained in the last exercise (*add link to exercise*)
+To formally measure privacy risks (and for most of the following exercises), we will use the package `sdcMicro` in R.
 
 sdcMicro is an R package specialized in the anonymization of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).
 
@@ -107,6 +107,8 @@ For this object, we start with defining the following:
 ::: {.callout-note collapse="true"}
 ## Solution
 
+Create the object. Provide gender, age, education, postal code, and years in job as categorial variables of interest (`keyVars`). The only numerical variable we are interested in is income (`numVars`).
+
 ```{r}
 library(sdcMicro)
 
@@ -116,18 +118,39 @@ sdc_data <- createSdcObj(
   numVars = "income"
   )  
 
-# Overall summary
-sdc_data
-
-# Risks summary
-print(sdc_data, type = "risk")
-# Individual risk
-individualrisk <- get.sdcMicroObj(sdc_data, "risk")$individual # What is fk
-# Continuous risk
-print(sdc_data, type = "numrisk") # Same as overall summary
+sdc_data # Summarizes the risks overall
 ```
 
-*insert written answer/interpretation*
+`sdcMicro` shows us the unmodified, original parameters in parentheses. Right now, they are, of course, identical to the current parameters as we have not made any changes yet.
+
+For the **categorial key variables**, we get information on the numbers and sizes of categories. The more categories and the smaller the number of entries in each category, the easier the de-identification as we have many unique individual values.
+
+We also get information on k-anonymity of the combinations of these categorial variables: Currently, all observations breach 3- and 5-anonymity. There are only two persons in our dataset who share the same gender, age, education, plz, and years_in_job; therefore, our dataset also breaches 2-anonymity. 99% of participants are unique, meaning they have a unique combination on these demographic variables.
+
+Upon closer inspection, these entries are IDs 94 and 122, who share many demographic details: both are 18 years old, live in Munich at postal code 80636, have been working their jobs for one year, and have a high school degree. If I knew my male, 18-year-old friend living at 80636 had participated in this study, I could not identify him based on a combination of thes data points alone. However, if I knew his job title, I could still identify him. Let's keep this in mind for further analyses.
+
+```{r}
+knitr::kable(data_withoutdirectidentifiers[data_withoutdirectidentifiers$id %in% c(94, 122), ])
+```
+
+This means that we currently do not reach any level of k-anonymity, since every other person has a unique combination.
+
+For the **numerical key variables**, `sdcMicro` shows the disclosure risk. This parameter is a relative measure: it shows how much the parameters were changed after anonymization. Therefore, right now, `sdcMicro` does not know anything about the disclosure risk and makes the non-estimate that it is somewhere between 0 and 1.
+
+**Other risk estimates**
+
+`sdcMicro` offers even more risk estimates:
+
+```{r}
+# Risk summary
+print(sdc_data, type = "risk")
+
+# Individual risk
+individualrisk <- get.sdcMicroObj(sdc_data, "risk")$individual
+
+```
+
+The individual risk shows a risk estimate for each individual in the dataset. `fk` is the frequency count in the sample and shows how many individuals share the same combination of key variables currently in our sdcObject. We can see that this is 1 for all participants except the IDs 94 and 122 I discussed above. `Fk` is the estimated frequency in the population; this only differs from `fk` in case of pre-defined sampling weights.
 :::
 
 At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need anonymization but can skip to preparing your data for publication.
