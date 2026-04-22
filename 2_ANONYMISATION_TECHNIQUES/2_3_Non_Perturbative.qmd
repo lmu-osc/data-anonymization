@@ -104,15 +104,13 @@ Con:
 
 ## Exercise: Applying Non-Perturbative Techniques
 
-*TODO Decide on variables*
-
 In this exercise, you will apply non-perturbative techniques to the data to reduce re-identification risk.
 
 The following `sdcMicro` functions are available to you:
 
 -   `globalRecode()` — recodes a key variable into broader groups (e.g., exact age → age band)
 -   `topBotCoding()` — caps extreme values at a given threshold
--   `localSuppression()` — suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would advise against using this function since it does not report changes transparently. Instead, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from `forcats`. This function lumps all categories below a certain group size together.
+-   `localSuppression()` — suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful hwne using this function: It does a good job at finding individuals whose record is still unique. But it does not report changes transparently and leads to missing values. Instead, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from `forcats`. This function lumps all categories below a certain group size together.
 
 1.  Look at the key variables in `sdc_data` (`gender`, `age`, `education`, `plz`) and decide which technique is appropriate for each. There is no single correct solution - choose thresholds and groupings that make sense given the data, and be prepared to justify your choices.
 2.  Apply these techniques using the functions mentioned above.
@@ -123,6 +121,8 @@ The `sdcMicro` functions operate directly on the `sdc` object and update risk es
 
 The `forcat` function `fct_lump_min()` is applied to the dataset itself. The `sdcObject` needs to be updated afterward.
 :::
+
+*Re-read for roter Faden*
 
 ::: {.callout-tip collapse="true"}
 ## Solution
@@ -146,7 +146,76 @@ print(sdc_nonpert, type = "risk") # check risk after making the change
 
 I started by dividing the age into five about 10-year breaks. This provides a mean of 40 persons per age break, while the smallest one still has 23. These breaks can be changed later if more privacy or more utility is needed.
 
-I then applied **top-coding to income**. My goal here is to protect the few individuals in the dataset with a very high income. I start by inspecting the data visually with a boxplot:
+We see that k-anonymity values have not been influenced by the recoding of age so far - this is primarily due to the `plz` variable that is unique for most participants. I therefore decided to **generalize the postal code**.
+
+As a first step, I used `globalRecode()` to group postal codes into five broad regions:
+
+```{r}
+sdc_nonpert <- globalRecode(
+  obj    = sdc_nonpert,
+  column = "plz",
+  breaks = c(0, 19999, 39999, 59999, 79999, 99999),
+  labels = c('00-19', '20-39', '40-59', '60-79', '80-99')
+)
+
+sdc_nonpert
+print(sdc_nonpert, type = "risk")
+```
+
+The new categories map loosely to north-east (00-19), north-central (20-39), west (40-59), south-west (60-79), and south-east (80-99) Germany.
+
+Looking at k-anonymity now, we see that there are still many unique observations. To reduce risk further, I will generalize `plz` even more. For this dataset, I mostly want to use `plz` to distinguish whether participants live in the Munich area or elsewhere in Germany. Postal codes starting with 8 cover roughly the areas surrounding Munich, so I will collapse `plz` into just two categories: `"8xxxx"` and `"other"`.
+
+`globalRecode()` cannot do this directly since `cut()` only handles contiguous intervals - and "other" spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the `@manipKeyVars` slot of the sdcObject and recalculate risks:
+
+```{r}
+library(forcats)
+
+sdc_nonpert@manipKeyVars$plz <- fct_collapse(
+  sdc_nonpert@manipKeyVars$plz,
+  "8xxxx" = c("80-99"),
+  "other" = c("00-19", "20-39", "40-59", "60-79")
+)
+
+sdc_nonpert <- calcRisks(sdc_nonpert) # After these manual changes, you have to update the risks on the sdcObject
+
+sdc_nonpert
+print(sdc_nonpert, type = "risk")
+```
+
+Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 2-anonymity. I don't want to generalize the `keyVars` any further and for that reason decide to apply **local suppression**.
+
+```{r}
+sdc_nonpert <- localSuppression(
+  sdc_nonpert,
+  k = 2, # define wanted k-anonymity level, k = 2 is the default
+  importance = c(2, 1, 4, 3) # this defines the order of importance; the algorithm begins suppressing on the variable marked as 4
+  )
+
+sdc_nonpert
+print(sdc_nonpert, type = "risk")
+```
+
+The summary of the `sdcObject` shows us what the last local suppression step has achieved: It suppressed 28 values on the education variable and 2 each on gender and postal code. Now, 2-anonymity is reached for all participants. 16 entries violate 3-anonymity; I will try local suppression at k = 3 to see how much more suppression would be necessary to achieve this.
+
+```{r}
+
+sdc_nonpert <- localSuppression(
+  sdc_nonpert,
+  k = 3, # define wanted k-anonymity level, k = 2 is the default
+  importance = c(2, 1, 4, 3) # this defines the order of importance; the algorithm begins suppressing on the variable marked as 4
+  )
+
+sdc_nonpert
+print(sdc_nonpert, type = "risk")
+```
+
+With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymity. Only 29 entries remain, that violate 5-anonymity. To me, this is enough protection on k-anonymity.
+:::
+
+Now that the key variables are in their final state, I applied **top-coding to income** and **years in job**.
+
+My goal with income is to protect the few individuals with a very high income. I start by inspecting the distribution:
 
 ```{r}
 library(ggplot2)
@@ -154,12 +223,9 @@ library(ggplot2)
 ggplot(data_withoutdirectidentifiers, aes(y = income)) +
   geom_boxplot() +
   theme_minimal()
-
 ```
 
-I see a few extreme outliers above 400 000 €. Choosing the 95th percentile at `r quantile(data_withoutdirectidentifiers$income, 0.95)`€ would cut these extreme values easily off, as well as some values around 100k. Let's start with going with that.
-
-I'll use `topBotCoding` and set the value at the 95th percentile, replacing those values with that one.
+I see a few extreme outliers above 400 000 €. Choosing the 95th percentile at `r quantile(data_withoutdirectidentifiers$income, 0.95)`€ cuts these off. I'll use `topBotCoding()` and set the value at the 95th percentile, replacing those values with that one.
 
 ```{r}
 sdc_nonpert <- topBotCoding(
@@ -170,89 +236,75 @@ sdc_nonpert <- topBotCoding(
   kind        = "top"
 )
 
-sdc_nonpert # check summary after making the change
-print(sdc_nonpert, type = "risk") # check risk after making the change
+sdc_nonpert
+print(sdc_nonpert, type = "risk")
 ```
 
-As income is the only numeric variable in the `sdcObject`, the possible disclosure risk is reduced by those 5 percent points we cut off.
-
-I also used **top-coding for years in job**. Again, I started by familiarizing myself with the data.
+For **years in job**, I start by familiarizing myself with the data:
 
 ```{r}
-# Inspect the distribution first 
 summary(data_withoutdirectidentifiers$years_in_job)
 
 ggplot(data_withoutdirectidentifiers, aes(y = years_in_job)) +
   geom_boxplot() +
   theme_minimal()
-
 ```
 
-I decided to use 15 as a cut-off value, as this cuts-off the extreme values.
+Based on the visualization, I decide to use 15 as a cut-off value, as this cuts off the extreme values.
 
 ```{r}
 sdc_nonpert <- topBotCoding(
   obj         = sdc_nonpert,
   column      = "years_in_job",
-  value       = 15,        # values above 15 years get capped at 15
+  value       = 15,
   replacement = 15,
   kind        = "top"
 )
 
+sdc_nonpert
 print(sdc_nonpert, type = "risk")
-sdc_nonpert
 ```
 
-We see that k-anonymity values have not been influenced by the changes so far - this is primarily due to the plz variable that is unique for most participants. I therefore decided to generalize the postal code.
+These techniques reduce the disclosure risk to up to 92% compared tot the original data.
+
+Now I can extract the dataset. Because sdcMicro stores recoded key variables as integer codes internally, I need to restore the labels manually using `mutate`:
 
 ```{r}
+data_nonpert <- extractManipData(sdc_nonpert)
 
-extractManipData(sdc_nonpert)
+# Restore labels for variables recoded inside sdcMicro
+age_labels    <- c("18-29", "30-39", "40-49", "50-59", "60+")
+plz_labels    <- c("8xxxx", "other")
 
-# Generalize PLZ
-sdc_nonpert <- globalRecode(
-  obj    = sdc_nonpert,
-  column = "plz",
-  breaks = c(0, 19999, 39999, 59999, 79999, 99999),
-  labels = c("00–19", "20–39", "40–59", "60–79", "80–99")
-)
-sdc_nonpert
-extractManipData(sdc_nonpert)
+data_nonpert <- data_nonpert %>%
+  mutate(
+    age = factor(age, levels = seq_along(age_labels), labels = age_labels),
+    plz = factor(plz, levels = seq_along(plz_labels), labels = plz_labels)
+  )
+
+
+data_nonpert
 ```
 
-The five regions map loosely to north, north-central, central, south-central, and south Germany.
+Finally, I **generalize rare religion categories** using `fct_lump_min()` from `forcats`. Since `religion` is not a `keyVar` in the `sdcObject`, I apply this directly to the dataset.
 
 ```{r}
-# Collapse rare religions
-library(forcats)
-
 # Inspect counts first
-table(data_withoutdirectidentifiers$religion)
+table(data_nonpert$religion)
 
-data_religion_recoded <- data_withoutdirectidentifiers %>%
-  mutate(religion = fct_lump_min(religion, min = 10, other_level = "Other"))
+data_nonpert <- data_nonpert %>%
+  mutate(religion = fct_lump_min(as.factor(religion), min = 10, other_level = "Other"))
 
-table(data_religion_recoded$religion)
-
-# Rebuild the sdc object with the recoded religion column
-sdc_nonpert <- createSdcObj(
-  dat     = data_religion_recoded,
-  keyVars = c("gender", "age", "education", "plz"),
-  numVars = c("income", "years_in_job")
-)
-
-# Now apply the previous steps again on the fresh object, then check
-print(sdc_nonpert, type = "risk")
+table(data_nonpert$religion)
 ```
 
-`fct_lump_min(religion, min = 10)` merges any category with fewer than 10 observations into `"Other"`. This is transparent — you can see exactly which categories were affected by comparing the `table()` outputs before and after. Groups like "Judaism" or "Buddhism" which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes. *Compare to local suppression using function*
+`fct_lump_min(religion, min = 10)` merges any category with fewer than 10 observations into `"Other"`. Groups like "Judaism" or "Buddhism" which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes.
 
-Save sdcObject
+Finally, I also save the `sdcObject`.
 
 ```{r}
 saveRDS(sdc_nonpert, "../sdc_nonpert.rds")
 ```
-:::
 
 #### Learning Objective
 

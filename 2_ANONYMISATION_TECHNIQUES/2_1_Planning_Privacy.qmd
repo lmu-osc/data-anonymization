@@ -107,15 +107,15 @@ For this object, we start with defining the following:
 ::: {.callout-note collapse="true"}
 ## Solution
 
-Create the object. Provide gender, age, education, postal code, and years in job as categorial variables of interest (`keyVars`). The only numerical variable we are interested in is income (`numVars`).
+Create the object. Provide gender, age, education, and postal code as categorial variables of interest (`keyVars`). The only numerical variables we are interested in are income and years in job (`numVars`).
 
 ```{r}
 library(sdcMicro)
 
 sdc_data <- createSdcObj(
   dat = data_withoutdirectidentifiers, 
-  keyVars = c("gender", "age", "education", "plz", "years_in_job"),
-  numVars = "income"
+  keyVars = c("gender", "age", "education", "plz"),
+  numVars = c("income", "years_in_job")
   )  
 
 sdc_data # Summarizes the risks overall
@@ -127,7 +127,7 @@ For the **categorial key variables**, we get information on the numbers and size
 
 We also get information on k-anonymity of the combinations of these categorial variables: Currently, all observations breach 3- and 5-anonymity. There are only two persons in our dataset who share the same gender, age, education, plz, and years_in_job; therefore, our dataset also breaches 2-anonymity. 99% of participants are unique, meaning they have a unique combination on these demographic variables.
 
-Upon closer inspection, these entries are IDs 94 and 122, who share many demographic details: both are 18 years old, live in Munich at postal code 80636, have been working their jobs for one year, and have a high school degree. If I knew my male, 18-year-old friend living at 80636 had participated in this study, I could not identify him based on a combination of thes data points alone. However, if I knew his job title, I could still identify him. Let's keep this in mind for further analyses.
+Upon closer inspection, these entries are IDs 94 and 122, who share many demographic details: both are 18 years old, live in Munich at postal code 80636, and have a high school degree. If I knew my male, 18-year-old friend living at 80636 had participated in this study, I could not identify him based on a combination of thes data points alone. However, if I knew his job title, I could still identify him. Let's keep this in mind for further analyses.
 
 ```{r}
 knitr::kable(data_withoutdirectidentifiers[data_withoutdirectidentifiers$id %in% c(94, 122), ])
@@ -162,7 +162,7 @@ The most realistic attack scenario for this dataset is probably someone who know
 
 `income` is placed in `numVars` because it is less likely to be known in advance - it is something an attacker might *learn* from the dataset, not something they use to *search* it.
 
-`years_in_job` is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in `keyVars` is a conservative choice; if you consider it less likely to be known, moving it to `numVars` is also defensible.
+`years_in_job` is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in `keyVars` would be the conservative choice. In this case, I consider it less likely to be known, which is why i put it into `numVars`
 
 The same logic applies to `religion`: if a plausible attacker is someone who knows the participant from a religious community, then `religion` belongs in `keyVars`, not treated as a sensitive outcome. The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.
 :::
