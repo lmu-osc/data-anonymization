@@ -511,21 +511,21 @@ Accesses internal components of the object.</p></li>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Create the object. Provide gender, age, education, postal code, and years in job as categorial variables of interest (<code>keyVars</code>). The only numerical variable we are interested in is income (<code>numVars</code>).</p>
+<p>Create the object. Provide gender, age, education, and postal code as categorial variables of interest (<code>keyVars</code>). The only numerical variables we are interested in are income and years in job (<code>numVars</code>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdcMicro)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sdc_data <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">dat =</span> data_withoutdirectidentifiers, </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">keyVars =</span> <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"age"</span>, <span class="st">"education"</span>, <span class="st">"plz"</span>, <span class="st">"years_in_job"</span>),</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">numVars =</span> <span class="st">"income"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">keyVars =</span> <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"age"</span>, <span class="st">"education"</span>, <span class="st">"plz"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">numVars =</span> <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  )  </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>sdc_data <span class="co"># Summarizes the risks overall</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The input dataset consists of 200 rows and 14 variables.
-  --&gt; Categorical key variables: gender, age, education, plz, years_in_job
-  --&gt; Numerical key variables: income
+<pre><code>The input dataset consists of 200 rows and 13 variables.
+  --&gt; Categorical key variables: gender, age, education, plz
+  --&gt; Numerical key variables: income, years_in_job
 ----------------------------------------------------------------------</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -542,13 +542,11 @@ Note: NA (missings) are counted as seperate categories!</code></pre>
           age                   52   (52)     3.846  (3.846)
     education                    5    (5)    40.000 (40.000)
           plz                  152  (152)     1.316  (1.316)
- years_in_job                   21   (21)     9.524  (9.524)
  Size of smallest (&gt;0)       
                 &lt;char&gt; &lt;char&gt;
                     10   (10)
                      1    (1)
                      9    (9)
-                     1    (1)
                      1    (1)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -565,7 +563,7 @@ Number of observations violating
 ----------------------------------------------------------------------</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Numerical key variables: income
+<pre><code>Numerical key variables: income, years_in_job
 
 Disclosure risk is currently between [0.00%; 100.00%]
 
@@ -578,7 +576,7 @@ Current Information Loss:
 <p><code>sdcMicro</code> shows us the unmodified, original parameters in parentheses. Right now, they are, of course, identical to the current parameters as we have not made any changes yet.</p>
 <p>For the <strong>categorial key variables</strong>, we get information on the numbers and sizes of categories. The more categories and the smaller the number of entries in each category, the easier the de-identification as we have many unique individual values.</p>
 <p>We also get information on k-anonymity of the combinations of these categorial variables: Currently, all observations breach 3- and 5-anonymity. There are only two persons in our dataset who share the same gender, age, education, plz, and years_in_job; therefore, our dataset also breaches 2-anonymity. 99% of participants are unique, meaning they have a unique combination on these demographic variables.</p>
-<p>Upon closer inspection, these entries are IDs 94 and 122, who share many demographic details: both are 18 years old, live in Munich at postal code 80636, have been working their jobs for one year, and have a high school degree. If I knew my male, 18-year-old friend living at 80636 had participated in this study, I could not identify him based on a combination of thes data points alone. However, if I knew his job title, I could still identify him. Let’s keep this in mind for further analyses.</p>
+<p>Upon closer inspection, these entries are IDs 94 and 122, who share many demographic details: both are 18 years old, live in Munich at postal code 80636, and have a high school degree. If I knew my male, 18-year-old friend living at 80636 had participated in this study, I could not identify him based on a combination of thes data points alone. However, if I knew his job title, I could still identify him. Let’s keep this in mind for further analyses.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(data_withoutdirectidentifiers[data_withoutdirectidentifiers<span class="sc">$</span>id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">94</span>, <span class="dv">122</span>), ])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -586,14 +584,13 @@ Current Information Loss:
 <colgroup>
 <col style="width: 2%">
 <col style="width: 2%">
-<col style="width: 2%">
 <col style="width: 3%">
 <col style="width: 3%">
 <col style="width: 2%">
-<col style="width: 4%">
+<col style="width: 5%">
 <col style="width: 7%">
-<col style="width: 4%">
-<col style="width: 22%">
+<col style="width: 5%">
+<col style="width: 23%">
 <col style="width: 6%">
 <col style="width: 8%">
 <col style="width: 8%">
@@ -603,7 +600,6 @@ Current Information Loss:
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
-<th style="text-align: right;">X</th>
 <th style="text-align: right;">id</th>
 <th style="text-align: right;">plz</th>
 <th style="text-align: left;">gender</th>
@@ -623,7 +619,6 @@ Current Information Loss:
 <tr class="odd">
 <td style="text-align: left;">94</td>
 <td style="text-align: right;">94</td>
-<td style="text-align: right;">94</td>
 <td style="text-align: right;">80636</td>
 <td style="text-align: left;">male</td>
 <td style="text-align: right;">18</td>
@@ -639,7 +634,6 @@ Current Information Loss:
 </tr>
 <tr class="even">
 <td style="text-align: left;">122</td>
-<td style="text-align: right;">122</td>
 <td style="text-align: right;">122</td>
 <td style="text-align: right;">80636</td>
 <td style="text-align: left;">male</td>
@@ -691,7 +685,7 @@ Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 <p>How you assign variables to <code>keyVars</code> and <code>numVars</code> is a judgment call - there is no universally correct answer. It depends on who you think is likely to try to re-identify someone, and what information they would already have.</p>
 <p>The most realistic attack scenario for this dataset is probably someone who knows a study participant personally - a colleague, friend, or family member. Such a person would most likely know basic demographic attributes: the participant’s gender, approximate age, postal code, and level of education. These are the variables an attacker is most plausibly able to use to find a specific record, which is why we treat them as <code>keyVars</code>.</p>
 <p><code>income</code> is placed in <code>numVars</code> because it is less likely to be known in advance - it is something an attacker might <em>learn</em> from the dataset, not something they use to <em>search</em> it.</p>
-<p><code>years_in_job</code> is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in <code>keyVars</code> is a conservative choice; if you consider it less likely to be known, moving it to <code>numVars</code> is also defensible.</p>
+<p><code>years_in_job</code> is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in <code>keyVars</code> would be the conservative choice. In this case, I consider it less likely to be known, which is why i put it into <code>numVars</code></p>
 <p>The same logic applies to <code>religion</code>: if a plausible attacker is someone who knows the participant from a religious community, then <code>religion</code> belongs in <code>keyVars</code>, not treated as a sensitive outcome. The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.</p>
 </div>
 </div>

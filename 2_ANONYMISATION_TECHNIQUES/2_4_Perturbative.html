@@ -593,11 +593,12 @@ Tip
 <div class="cell-output cell-output-stderr">
 <pre><code>Numerical key variables: income, years_in_job
 
-Disclosure risk is currently between [0.00%; 95.00%]
+Disclosure risk (~100.00% in original data):
+  modified data: [0.00%; 77.50%]
 
-Current Information Loss:
-  - IL1: 1305.88
-  - Difference of Eigenvalues: 9.120%
+Current Information Loss in modified data (0.00% in original data):
+  IL1: 1029.80
+  Difference of Eigenvalues: 6.100%
 ----------------------------------------------------------------------</code></pre>
 </div>
 </div>
@@ -616,11 +617,12 @@ Current Information Loss:
 <div class="cell-output cell-output-stderr">
 <pre><code>Numerical key variables: income, years_in_job
 
-Disclosure risk is currently between [0.00%; 100.00%]
+Disclosure risk (~100.00% in original data):
+  modified data: [0.00%; 92.00%]
 
-Current Information Loss:
-  - IL1: 44.67
-  - Difference of Eigenvalues: 0.010%
+Current Information Loss in modified data (0.00% in original data):
+  IL1: 505.65
+  Difference of Eigenvalues: 6.220%
 ----------------------------------------------------------------------</code></pre>
 </div>
 </div>
@@ -638,24 +640,24 @@ Current Information Loss:
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>il_micro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$il1
-[1] 1305.875
+[1] 1029.801
 
 $il1s
-[1] 13.0216
+[1] 22.23844
 
 $eigen
-[1] 0.09116219</code></pre>
+[1] 0.0610226</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>il_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$il1
-[1] 44.66789
+[1] 505.6452
 
 $il1s
-[1] 0.1208842
+[1] 21.32289
 
 $eigen
-[1] 0.0001009381</code></pre>
+[1] 0.06223852</code></pre>
 </div>
 </div>
 <p><strong>Interpretation:</strong> Microaggregation typically produces lower IL1 (mean absolute deviation between original and perturbed values) because entire groups share one value — the average. Noise addition preserves individual-level variation better but introduces random error into every single record. For a dataset where income is used in regression analyses, noise addition is often preferable; for frequency tables or group comparisons, microaggregation is a safer choice.</p>
