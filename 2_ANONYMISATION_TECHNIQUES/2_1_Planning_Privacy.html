@@ -482,9 +482,9 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><code>extractManipData(sdc)</code><br>
+<li><p><code>extractManipData(sdcObject)</code><br>
 Extracts the anonymized dataset.</p></li>
-<li><p><code>undolast(sdc)</code><br>
+<li><p><code>undolast(sdcObject)</code><br>
 Reverts the last anonymization step.</p></li>
 <li><p><code>get.sdcMicroObj()</code><br>
 Accesses internal components of the object.</p></li>
@@ -523,7 +523,7 @@ Accesses internal components of the object.</p></li>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>sdc_data <span class="co"># Summarizes the risks overall</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The input dataset consists of 200 rows and 13 variables.
+<pre><code>The input dataset consists of 200 rows and 14 variables.
   --&gt; Categorical key variables: gender, age, education, plz, years_in_job
   --&gt; Numerical key variables: income
 ----------------------------------------------------------------------</code></pre>
@@ -586,13 +586,14 @@ Current Information Loss:
 <colgroup>
 <col style="width: 2%">
 <col style="width: 2%">
+<col style="width: 2%">
 <col style="width: 3%">
 <col style="width: 3%">
 <col style="width: 2%">
-<col style="width: 5%">
+<col style="width: 4%">
 <col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 23%">
+<col style="width: 4%">
+<col style="width: 22%">
 <col style="width: 6%">
 <col style="width: 8%">
 <col style="width: 8%">
@@ -602,6 +603,7 @@ Current Information Loss:
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
+<th style="text-align: right;">X</th>
 <th style="text-align: right;">id</th>
 <th style="text-align: right;">plz</th>
 <th style="text-align: left;">gender</th>
@@ -621,6 +623,7 @@ Current Information Loss:
 <tr class="odd">
 <td style="text-align: left;">94</td>
 <td style="text-align: right;">94</td>
+<td style="text-align: right;">94</td>
 <td style="text-align: right;">80636</td>
 <td style="text-align: left;">male</td>
 <td style="text-align: right;">18</td>
@@ -636,6 +639,7 @@ Current Information Loss:
 </tr>
 <tr class="even">
 <td style="text-align: left;">122</td>
+<td style="text-align: right;">122</td>
 <td style="text-align: right;">122</td>
 <td style="text-align: right;">80636</td>
 <td style="text-align: left;">male</td>
@@ -672,6 +676,23 @@ Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 </div>
 <p>The individual risk shows a risk estimate for each individual in the dataset. <code>fk</code> is the frequency count in the sample and shows how many individuals share the same combination of key variables currently in our sdcObject. We can see that this is 1 for all participants except the IDs 94 and 122 I discussed above. <code>Fk</code> is the estimated frequency in the population; this only differs from <code>fk</code> in case of pre-defined sampling weights.</p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>There Is No One Correct Variable Assignment
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How you assign variables to <code>keyVars</code> and <code>numVars</code> is a judgment call - there is no universally correct answer. It depends on who you think is likely to try to re-identify someone, and what information they would already have.</p>
+<p>The most realistic attack scenario for this dataset is probably someone who knows a study participant personally - a colleague, friend, or family member. Such a person would most likely know basic demographic attributes: the participant’s gender, approximate age, postal code, and level of education. These are the variables an attacker is most plausibly able to use to find a specific record, which is why we treat them as <code>keyVars</code>.</p>
+<p><code>income</code> is placed in <code>numVars</code> because it is less likely to be known in advance - it is something an attacker might <em>learn</em> from the dataset, not something they use to <em>search</em> it.</p>
+<p><code>years_in_job</code> is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in <code>keyVars</code> is a conservative choice; if you consider it less likely to be known, moving it to <code>numVars</code> is also defensible.</p>
+<p>The same logic applies to <code>religion</code>: if a plausible attacker is someone who knows the participant from a religious community, then <code>religion</code> belongs in <code>keyVars</code>, not treated as a sensitive outcome. The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.</p>
 </div>
 </div>
 <p>At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need anonymization but can skip to preparing your data for publication.</p>

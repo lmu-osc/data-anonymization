@@ -506,7 +506,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>The <code>sdcMicro</code> functions operate directly on the <code>sdc</code> object and update risk estimates automatically. Check <code>?globalRecode</code>, <code>?topBotCoding</code>, and <code>?localSuppression</code> for argument details.</p>
-<p>The <code>forcat</code> function <code>fct_lump_min()</code> is applied to the dataset itself. The <code>sdcObject</code> needs to be updated afterwards.</p>
+<p>The <code>forcat</code> function <code>fct_lump_min()</code> is applied to the dataset itself. The <code>sdcObject</code> needs to be updated afterward.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -522,20 +522,20 @@ Tip
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Keep in mind that this is just an example solution - there are many ways to achieve similar levels of privacy.</p>
-<p>I started by applying global recoding to age:</p>
+<p>I started by applying <strong>global recoding to age</strong>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_data,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column =</span> <span class="st">"age"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">29</span>, <span class="dv">44</span>, <span class="dv">59</span>, <span class="dv">74</span>, <span class="cn">Inf</span>), <span class="co"># Define breaks</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"18-29"</span>, <span class="st">"30-44"</span>, <span class="st">"45-59"</span>, <span class="st">"60-74"</span>, <span class="st">"75+"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">29</span>, <span class="dv">39</span>, <span class="dv">49</span>, <span class="dv">59</span>, <span class="cn">Inf</span>), <span class="co"># Define breaks</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"18-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60+"</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)  </span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="co"># check summary after making the change</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The input dataset consists of 200 rows and 13 variables.
-  --&gt; Categorical key variables: gender, age, education, plz
-  --&gt; Numerical key variables: income, years_in_job
+<pre><code>The input dataset consists of 200 rows and 14 variables.
+  --&gt; Categorical key variables: gender, age, education, plz, years_in_job
+  --&gt; Numerical key variables: income
 ----------------------------------------------------------------------</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -549,14 +549,16 @@ Note: NA (missings) are counted as seperate categories!</code></pre>
 <pre><code> Key Variable Number of categories        Mean size         
        &lt;char&gt;               &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;
        gender                    3    (3)    66.667 (66.667)
-          age                    5   (66)    40.000  (3.030)
+          age                    5   (52)    40.000  (3.846)
     education                    5    (5)    40.000 (40.000)
-          plz                  161  (161)     1.242  (1.242)
+          plz                  152  (152)     1.316  (1.316)
+ years_in_job                   21   (21)     9.524  (9.524)
  Size of smallest (&gt;0)       
                 &lt;char&gt; &lt;char&gt;
-                    11   (11)
-                    34    (1)
-                     5    (5)
+                    10   (10)
+                    23    (1)
+                     9    (9)
+                     1    (1)
                      1    (1)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -566,113 +568,1492 @@ Note: NA (missings) are counted as seperate categories!</code></pre>
 <pre><code>Infos on 2/3-Anonymity:
 
 Number of observations violating
-  - 2-anonymity: 188 (94.000%) | in original data: 200 (100.000%)
-  - 3-anonymity: 200 (100.000%) | in original data: 200 (100.000%)
-  - 5-anonymity: 200 (100.000%) | in original data: 200 (100.000%)
+  - 2-anonymity: 198 (99.000%)
+  - 3-anonymity: 200 (100.000%)
+  - 5-anonymity: 200 (100.000%)
 
 ----------------------------------------------------------------------</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Numerical key variables: income, years_in_job
+<pre><code>Numerical key variables: income
 
-Disclosure risk (~100.00% in original data):
-  modified data: [0.00%; 86.00%]
+Disclosure risk is currently between [0.00%; 100.00%]
 
-Current Information Loss in modified data (0.00% in original data):
-  IL1: 885.42
-  Difference of Eigenvalues: 0.150%
+Current Information Loss:
+  - IL1: 0.00
+  - Difference of Eigenvalues: 0.000%
 ----------------------------------------------------------------------</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_nonpert, <span class="at">type =</span> <span class="st">"risk"</span>) <span class="co"># check risk after making the change</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Risk measures:
 
-Number of observations with higher risk than the main part of the data: 
-  in modified data: 0
-  in original data: 0
-Expected number of re-identifications: 
-  in modified data: 194.00 (97.00 %)
-  in original data: 200.00 (100.00 %)</code></pre>
+Number of observations with higher risk than the main part of the data: 0
+Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 </div>
 </div>
+<p>I started by dividing the age into five about 10-year breaks. This provides a mean of 40 persons per age break, while the smallest one still has 23. These breaks can be changed later if more privacy or more utility is needed.</p>
+<p>I then applied <strong>top-coding to income</strong>. My goal here is to protect the few individuals in the dataset with a very high income. I start by inspecting the data visually with a boxplot:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generalize PLZ (does not work due to variable type)</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sdc_nonpert &lt;- globalRecode(</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   obj    = sdc_data,</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   column = "plz",</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   breaks = c(0, 19999, 39999, 59999, 79999, 99999),</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   labels = c("00–19", "20–39", "40–59", "60–79", "80–99")</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># `globalRecode()` updates the key variable inside the `sdc` object directly and recalculates risk. The five regions map loosely to north, north-central, central, south-central, and south Germany.</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Top-code income</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">topBotCoding</span>(</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj         =</span> sdc_nonpert,</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">column      =</span> <span class="st">"income"</span>,</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">value       =</span> <span class="fu">quantile</span>(data_withoutdirectidentifiers<span class="sc">$</span>income, <span class="fl">0.95</span>),</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">replacement =</span> <span class="fu">quantile</span>(data_withoutdirectidentifiers<span class="sc">$</span>income, <span class="fl">0.95</span>),</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">kind        =</span> <span class="st">"top"</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_nonpert, <span class="at">type =</span> <span class="st">"risk"</span>) <span class="co"># check risk after making the change</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_withoutdirectidentifiers, <span class="fu">aes</span>(<span class="at">y =</span> income)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2_3_Non_Perturbative_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>I see a few extreme outliers above 400 000 €. Choosing the 95th percentile at 8.9185848^{4}€ would cut these extreme values easily off, as well as some values around 100k. Let’s start with going with that.</p>
+<p>I’ll use <code>topBotCoding</code> and set the value at the 95th percentile, replacing those values with that one.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">topBotCoding</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj         =</span> sdc_nonpert,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column      =</span> <span class="st">"income"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value       =</span> <span class="fu">quantile</span>(data_withoutdirectidentifiers<span class="sc">$</span>income, <span class="fl">0.95</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">replacement =</span> <span class="fu">quantile</span>(data_withoutdirectidentifiers<span class="sc">$</span>income, <span class="fl">0.95</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">kind        =</span> <span class="st">"top"</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="co"># check summary after making the change</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The input dataset consists of 200 rows and 14 variables.
+  --&gt; Categorical key variables: gender, age, education, plz, years_in_job
+  --&gt; Numerical key variables: income
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Information on categorical key variables:
+
+Reported is the number, mean size and size of the smallest category &gt;0 for recoded variables.
+In parenthesis, the same statistics are shown for the unmodified data.
+Note: NA (missings) are counted as seperate categories!</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Key Variable Number of categories        Mean size         
+       &lt;char&gt;               &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;
+       gender                    3    (3)    66.667 (66.667)
+          age                    5   (52)    40.000  (3.846)
+    education                    5    (5)    40.000 (40.000)
+          plz                  152  (152)     1.316  (1.316)
+ years_in_job                   21   (21)     9.524  (9.524)
+ Size of smallest (&gt;0)       
+                &lt;char&gt; &lt;char&gt;
+                    10   (10)
+                    23    (1)
+                     9    (9)
+                     1    (1)
+                     1    (1)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Infos on 2/3-Anonymity:
+
+Number of observations violating
+  - 2-anonymity: 198 (99.000%)
+  - 3-anonymity: 200 (100.000%)
+  - 5-anonymity: 200 (100.000%)
+
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Numerical key variables: income
+
+Disclosure risk is currently between [0.00%; 95.00%]
+
+Current Information Loss:
+  - IL1: 346.87
+  - Difference of Eigenvalues: 0.000%
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_nonpert, <span class="at">type =</span> <span class="st">"risk"</span>) <span class="co"># check risk after making the change</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Risk measures:
 
-Number of observations with higher risk than the main part of the data: 
-  in modified data: 0
-  in original data: 0
-Expected number of re-identifications: 
-  in modified data: 194.00 (97.00 %)
-  in original data: 200.00 (100.00 %)</code></pre>
+Number of observations with higher risk than the main part of the data: 0
+Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Top code years in job</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the distribution first to pick a sensible threshold</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers<span class="sc">$</span>years_in_job)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>As income is the only numeric variable in the <code>sdcObject</code>, the possible disclosure risk is reduced by those 5 percent points we cut off.</p>
+<p>I also used <strong>top-coding for years in job</strong>. Again, I started by familiarizing myself with the data.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the distribution first </span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers<span class="sc">$</span>years_in_job)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    0.00    2.00    4.00    5.34    8.00   32.00 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">topBotCoding</span>(</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj         =</span> sdc_nonpert,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column      =</span> <span class="st">"years_in_job"</span>,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value       =</span> <span class="dv">20</span>,        <span class="co"># values above 20 years get capped</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">replacement =</span> <span class="dv">20</span>,</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">kind        =</span> <span class="st">"top"</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_nonpert, <span class="at">type =</span> <span class="st">"risk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_withoutdirectidentifiers, <span class="fu">aes</span>(<span class="at">y =</span> years_in_job)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2_3_Non_Perturbative_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>I decided to use 15 as a cut-off value, as this cuts-off the extreme values.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">topBotCoding</span>(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj         =</span> sdc_nonpert,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column      =</span> <span class="st">"years_in_job"</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value       =</span> <span class="dv">15</span>,        <span class="co"># values above 15 years get capped at 15</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">replacement =</span> <span class="dv">15</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">kind        =</span> <span class="st">"top"</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_nonpert, <span class="at">type =</span> <span class="st">"risk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Risk measures:
 
-Number of observations with higher risk than the main part of the data: 
-  in modified data: 0
-  in original data: 0
-Expected number of re-identifications: 
-  in modified data: 194.00 (97.00 %)
-  in original data: 200.00 (100.00 %)</code></pre>
+Number of observations with higher risk than the main part of the data: 0
+Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># `years_in_job` follows an exponential distribution, so a small number of people will have very high values. Capping at 20 years is a reasonable choice — adjust based on what the actual distribution looks like in your dataset.</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply local suppression to reach k = 3</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">localSuppression</span>(sdc_nonpert, <span class="at">k =</span> <span class="dv">3</span>)  <span class="co"># Compare risk before and after</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_nonpert, <span class="at">type =</span> <span class="st">"risk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Risk measures:
-
-Number of observations with higher risk than the main part of the data: 
-  in modified data: 26
-  in original data: 0
-Expected number of re-identifications: 
-  in modified data: 23.94 (11.97 %)
-  in original data: 200.00 (100.00 %)</code></pre>
+<pre><code>The input dataset consists of 200 rows and 14 variables.
+  --&gt; Categorical key variables: gender, age, education, plz, years_in_job
+  --&gt; Numerical key variables: income
+----------------------------------------------------------------------</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Collapse rare religions</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect counts first</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Information on categorical key variables:
+
+Reported is the number, mean size and size of the smallest category &gt;0 for recoded variables.
+In parenthesis, the same statistics are shown for the unmodified data.
+Note: NA (missings) are counted as seperate categories!</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Key Variable Number of categories        Mean size         
+       &lt;char&gt;               &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;
+       gender                    3    (3)    66.667 (66.667)
+          age                    5   (52)    40.000  (3.846)
+    education                    5    (5)    40.000 (40.000)
+          plz                  152  (152)     1.316  (1.316)
+ years_in_job                   16   (21)    12.500  (9.524)
+ Size of smallest (&gt;0)       
+                &lt;char&gt; &lt;char&gt;
+                    10   (10)
+                    23    (1)
+                     9    (9)
+                     1    (1)
+                     1    (1)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Infos on 2/3-Anonymity:
+
+Number of observations violating
+  - 2-anonymity: 198 (99.000%)
+  - 3-anonymity: 200 (100.000%)
+  - 5-anonymity: 200 (100.000%)
+
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Numerical key variables: income
+
+Disclosure risk is currently between [0.00%; 95.00%]
+
+Current Information Loss:
+  - IL1: 346.87
+  - Difference of Eigenvalues: 0.000%
+----------------------------------------------------------------------</code></pre>
+</div>
+</div>
+<p>We see that k-anonymity values have not been influenced by the changes so far - this is primarily due to the plz variable that is unique for most participants. I therefore decided to generalize the postal code.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extractManipData</span>(sdc_nonpert)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      X  id   plz     gender age   income years_in_job          religion
+1     1   1 80331     female   1  8471.35            3       Catholicism
+2     2   2 96176     female   2 34721.35            4              None
+3     3   3 80636       male   5 89185.85            0              None
+4     4   4 85777     female   5 59490.47            5              None
+5     5   5 44869       male   1 52337.39            1             Islam
+6     6   6 80539       male   5 60960.23            6     Protestantism
+7     7   7 91731       male   2 61037.20           11              None
+8     8   8 72224     female   2 58720.93            2          Buddhism
+9     9   9 72348       male   2 55625.01            1       Catholicism
+10   10  10 80331       male   1 75996.23            4       Catholicism
+11   11  11 25845 non-binary   3 29760.83            6       Catholicism
+12   12  12 32832     female   2 43369.95            9              None
+13   13  13 90441       male   2 70224.28            3              None
+14   14  14 80331     female   3 43707.07            2             Islam
+15   15  15 97944     female   5 50073.94            5             Islam
+16   16  16 94113     female   2 53897.71            9       Catholicism
+17   17  17 65623       male   4 47372.98            8       Catholicism
+18   18  18 39120     female   5 53557.83            8           Judaism
+19   19  19 80636       male   2 88933.73            4             Islam
+20   20  20 66589     female   4 33516.81            2              None
+21   21  21 86492     female   4 60266.05            3              None
+22   22  22 84524     female   1  3234.65           11              None
+23   23  23 80539     female   3 18647.76            0     Protestantism
+24   24  24 82269     female   3 53198.80            0       Catholicism
+25   25  25 99830       male   4 66750.89            8     Protestantism
+26   26  26 22523     female   3 33275.84            2       Catholicism
+27   27  27 80333       male   3 43974.11            0       Catholicism
+28   28  28 80636     female   2 56904.06            2              None
+29   29  29 86759     female   1 49785.63            2             Islam
+30   30  30 50859     female   1 65838.27            4              None
+31   31  31 79875     female   3 43510.82            2       Catholicism
+32   32  32 80539     female   1 35050.43           11     Protestantism
+33   33  33 97222       male   1 45612.60            6              None
+34   34  34  6847     female   1 74064.45            2             Islam
+35   35  35 50735     female   1 19700.02            1              None
+36   36  36 88260     female   1 35491.71            1     Protestantism
+37   37  37 39444     female   1 31146.67            3     Protestantism
+38   38  38 80799     female   1 58538.33            1              None
+39   39  39 47249 non-binary   2 25565.51           10              None
+40   40  40 94535       male   4 53781.80           12              None
+41   41  41 72535       male   2 48621.36            6              None
+42   42  42 69437     female   4 52099.26            1              None
+43   43  43 44145       male   1 80544.39            5              None
+44   44  44 53773       male   3 44352.87            0              None
+45   45  45 79793       male   1 36923.45            5       Catholicism
+46   46  46 80539     female   5 89185.85            8       Catholicism
+47   47  47 74388       male   4 82695.22            6              None
+48   48  48 74906       male   5 89185.85           15     Protestantism
+49   49  49 39649 non-binary   1 43699.08            3     Protestantism
+50   50  50 64673       male   1 55256.89            8       Catholicism
+51   51  51 45479     female   1 57280.41            2     Protestantism
+52   52  52 97505     female   3 65257.71           15       Catholicism
+53   53  53 87730       male   2 73130.44            5     Protestantism
+54   54  54 13055     female   4 77231.91            5             Islam
+55   55  55 86567 non-binary   3 89185.85            4              None
+56   56  56 54538     female   4 49240.52            6              None
+57   57  57  3253       male   1 49181.85            1     Protestantism
+58   58  58 52224     female   3 45667.06           11       Catholicism
+59   59  59 36391       male   1 71020.92            3       Catholicism
+60   60  60 80636     female   4 17867.79            0              None
+61   61  61 90613       male   2 59154.65            7              None
+62   62  62 76137       male   1 34867.09            1     Protestantism
+63   63  63 31096       male   5 89185.85            9     Protestantism
+64   64  64 66509     female   3  6537.27            4             Islam
+65   65  65 72660 non-binary   1 53963.61            5     Protestantism
+66   66  66 80331       male   2 53233.39            0              None
+67   67  67 86688     female   5 35192.39            0       Catholicism
+68   68  68 76448       male   3 88998.52            7     Protestantism
+69   69  69  7985     female   2 76185.54           15              None
+70   70  70 29365       male   1 15277.69            1       Catholicism
+71   71  71 72149     female   4 32358.41            4     Protestantism
+72   72  72 64546     female   4 59564.29            0       Catholicism
+73   73  73 35764       male   1 44946.10            1              None
+74   74  74 79771       male   4 66701.73           10           Judaism
+75   75  75  7806     female   2 52378.45           13     Protestantism
+76   76  76 26131     female   2 28532.02            1     Protestantism
+77   77  77 80799       male   3 56000.53            5     Protestantism
+78   78  78 33758       male   1 69690.09           11              None
+79   79  79 65931     female   4 46431.85            2     Protestantism
+80   80  80 54306     female   5 85894.23            4              None
+81   81  81 80636     female   3 59395.77            3     Protestantism
+82   82  82 76530     female   1 50677.57            0     Protestantism
+83   83  83 84140       male   5 19523.64            3             Islam
+84   84  84 80636     female   2 60402.28            5     Protestantism
+85   85  85 24863       male   3 73762.07           15              None
+86   86  86 80636       male   4 57488.83            2       Catholicism
+87   87  87 80331     female   2 48387.34            4       Catholicism
+88   88  88 80539     female   3 51020.65           15       Catholicism
+89   89  89 28755 non-binary   2 89185.85            8              None
+90   90  90 94366     female   3 52973.81            5       Catholicism
+91   91  91 46395     female   1 65059.84            5     Protestantism
+92   92  92 80539     female   3 89185.85            5       Catholicism
+93   93  93 96277     female   4 60871.39           10       Catholicism
+94   94  94 80636       male   1 38100.28            1              None
+95   95  95 99706     female   5  1508.25            1              None
+96   96  96 13059     female   3 35839.71            2       Catholicism
+97   97  97 79585       male   5 33524.46            3              None
+98   98  98 80331     female   3 89185.85           10     Protestantism
+99   99  99 80539       male   3 37535.39           15              None
+100 100 100 88319       male   3 70163.08            3       Catholicism
+101 101 101  6217       male   1 44974.20            2          Buddhism
+102 102 102 80636       male   2 65006.97            5       Catholicism
+103 103 103 21789       male   3 28030.40           13     Protestantism
+104 104 104 45657       male   3 56143.31            1     Protestantism
+105 105 105  1445       male   1 21741.10           12       Catholicism
+106 106 106 92339     female   1 61855.98            1              None
+107 107 107 92289     female   1 15326.24            1              None
+108 108 108  1587       male   5  9709.52            5              None
+109 109 109 80799     female   3 25659.34            5       Catholicism
+110 110 110 91097     female   4 69044.93            3       Catholicism
+111 111 111 67482       male   2 66301.02            3     Protestantism
+112 112 112 23863     female   2 27090.40            2              None
+113 113 113 80333       male   3 45324.62            4              None
+114 114 114 93093       male   5 50849.11            5       Catholicism
+115 115 115 24784     female   5 30421.29           13              None
+116 116 116 80539     female   3 50230.45            3     Protestantism
+117 117 117 26121       male   1 37902.42            6              None
+118 118 118 86690     female   1 55949.20            1       Catholicism
+119 119 119 80799       male   3 53509.42            0              None
+120 120 120 56340     female   5 57558.17            2       Catholicism
+121 121 121 80539       male   2 67904.73            3     Protestantism
+122 122 122 80636       male   1 37003.44            1              None
+123 123 123 77756     female   3 74012.32            0              None
+124 124 124 53225       male   3 54693.74            0              None
+125 125 125 80539     female   5 36977.03           12              None
+126 126 126 80333       male   2 36546.40            2              None
+127 127 127 80799       male   2 84045.58           10       Catholicism
+128 128 128 80799     female   1 82138.06            1              None
+129 129 129 39599     female   4 30733.31            1              None
+130 130 130 76229       male   3 61673.59            3     Protestantism
+131 131 131  4416     female   4 69536.55            1     Protestantism
+132 132 132  8141       male   2 48347.66            6     Protestantism
+133 133 133  4821       male   2 66190.75            0     Protestantism
+134 134 134 86153       male   5 66078.75           11              None
+135 135 135 76698     female   4 18269.69            1              None
+136 136 136 86701 non-binary   3 59707.29            1     Protestantism
+137 137 137 58708       male   3 52099.71           15              None
+138 138 138 54455     female   1 34656.89            4     Protestantism
+139 139 139 35619       male   3 34257.44           10       Catholicism
+140 140 140 64385     female   2 24074.20           14              None
+141 141 141  6132       male   3 64152.22            1       Catholicism
+142 142 142 82110     female   3 83251.70            2     Protestantism
+143 143 143 73734     female   3 64440.78           13     Protestantism
+144 144 144 31249     female   1 47105.72            9              None
+145 145 145 94538     female   3 36879.16            3       Catholicism
+146 146 146 84130       male   2 42220.17           15     Protestantism
+147 147 147 57648       male   2 63960.04            0              None
+148 148 148 37449       male   4  3530.08            9              None
+149 149 149 80799     female   2 13668.60            4             Islam
+150 150 150 80333       male   3 50377.45            7     Protestantism
+151 151 151 31637     female   3 61128.01            3       Catholicism
+152 152 152  3253       male   1 43719.31            4              None
+153 153 153 80636     female   3 54589.13           10              None
+154 154 154 80799     female   4 19115.90           10              None
+155 155 155 27333     female   3 10024.02            2       Catholicism
+156 156 156 91284       male   1 85761.37            7       Catholicism
+157 157 157 80331 non-binary   5 82607.20            3       Catholicism
+158 158 158 80799       male   4 44383.80            1              None
+159 159 159  9380     female   2 66185.55           15       Catholicism
+160 160 160 80636       male   4 46443.35           11     Protestantism
+161 161 161 79256     female   4 41571.20            9     Protestantism
+162 162 162 86685     female   3 48002.36            1       Catholicism
+163 163 163 67468     female   3 64303.37            0     Protestantism
+164 164 164 47226     female   4 63828.73           10       Catholicism
+165 165 165 80539       male   1 62158.38            1             Islam
+166 166 166 53545     female   2 36173.97            6              None
+167 167 167 80799     female   3 22233.87            0             Islam
+168 168 168 54413       male   1 65795.96            2       Catholicism
+169 169 169 80333     female   1 50500.79            1              None
+170 170 170 94522     female   3 34635.22            6              None
+171 171 171 19209     female   5 51093.90           11              None
+172 172 172 37079       male   2 38140.07           13              None
+173 173 173 94239 non-binary   3 83316.86            2       Catholicism
+174 174 174 80333     female   3 89185.85           10              None
+175 175 175 14822       male   3 47266.68           13     Protestantism
+176 176 176 49429     female   1 38736.53            5       Catholicism
+177 177 177  9575       male   2 51254.30            9       Catholicism
+178 178 178 25879     female   3  3070.65            2             Islam
+179 179 179  2763       male   4 67298.52            7              None
+180 180 180 33719       male   3 52914.99            6     Protestantism
+181 181 181 80636     female   5 53761.55            3              None
+182 182 182 36043       male   3 62667.11           10       Catholicism
+183 183 183 24161     female   1 69837.87            1     Protestantism
+184 184 184 80331       male   2 48027.70            9              None
+185 185 185 32457       male   4 68760.98            6       Catholicism
+186 186 186 56424     female   1 53996.54            6              None
+187 187 187 18225 non-binary   5 29089.31            2     Protestantism
+188 188 188 76770     female   1 58074.39            0     Protestantism
+189 189 189 29525       male   2 43647.51            5          Buddhism
+190 190 190 39122     female   3 59911.66           15       Catholicism
+191 191 191 80539     female   3 15015.81            4              None
+192 192 192  8324       male   2 48884.82            3       Catholicism
+193 193 193 80333     female   2 11665.95            5     Protestantism
+194 194 194 80539       male   3 51434.15            6 Eastern Orthodoxy
+195 195 195 77815       male   2 73230.95           10       Catholicism
+196 196 196 72505       male   4 52969.14            5              None
+197 197 197 80331     female   2 38514.53           11              None
+198 198 198 54290     female   3 89185.85            0     Protestantism
+199 199 199 63920     female   2 58564.02            4       Catholicism
+200 200 200 97922     female   3 30312.73            3       Catholicism
+                                                      job_title      education
+1                                      Local government officer   trade school
+2                                           Structural engineer    high school
+3                               Psychotherapist, dance movement    high school
+4                                        Fitness centre manager    high school
+5                 Programme researcher, broadcasting/film/video    high school
+6                                        Chief Strategy Officer    high school
+7                                      Engineer, communications    high school
+8                                       Secretary/administrator     university
+9                                                  Video editor   trade school
+10                                                Hotel manager    high school
+11                                                    Herbalist     university
+12                                      Teacher, primary school    high school
+13                             Production assistant, television    high school
+14                                             Surveyor, mining    high school
+15                                               Data scientist    high school
+16                                     Programmer, applications    high school
+17                                   Horticulturist, commercial   trade school
+18                             Training and development officer    high school
+19                                             Catering manager    high school
+20                                             Textile designer      no degree
+21                                   Designer, fashion/clothing    high school
+22                                            Medical physicist    high school
+23                                          Seismic interpreter   trade school
+24                                          Biomedical engineer    high school
+25                                          Biomedical engineer      no degree
+26                                             Technical brewer     university
+27                                     Advertising art director    high school
+28                                Clothing/textile technologist    high school
+29                                                Stage manager     university
+30                                     Advertising art director    high school
+31                                                IT consultant     university
+32                                     Secondary school teacher   trade school
+33                                           Restaurant manager     university
+34                                       Politician's assistant   trade school
+35                                                  Illustrator    high school
+36                                         Community pharmacist    high school
+37                                                    Solicitor doctoral title
+38                                     Local government officer    high school
+39                                                    Osteopath    high school
+40                                          Medical illustrator    high school
+41                                                      Surgeon   trade school
+42                                         Financial controller    high school
+43                                              Systems analyst    high school
+44                                             Sports therapist    high school
+45                    Sound technician, broadcasting/film/video doctoral title
+46                                       Amenity horticulturist    high school
+47                                                  Firefighter     university
+48                                                         Copy    high school
+49                            Sales promotion account executive   trade school
+50                                     Public relations officer   trade school
+51                                            Financial planner    high school
+52                                       Museum/gallery curator    high school
+53                                                       Dealer    high school
+54                             Higher education careers adviser    high school
+55                                      General practice doctor     university
+56                                       Recruitment consultant     university
+57                             Training and development officer    high school
+58                                                    Mudlogger    high school
+59                                         Pharmacist, hospital    high school
+60                                     Horticultural consultant    high school
+61                                                   Ergonomist    high school
+62                                         Chartered accountant      no degree
+63                                                 Psychiatrist     university
+64                                      Data processing manager    high school
+65                                         Broadcast journalist   trade school
+66             Administrator, charities/voluntary organisations    high school
+67                                Speech and language therapist    high school
+68                                               Energy manager    high school
+69                                        Editor, commissioning    high school
+70                                Advertising account executive    high school
+71                                     Surveyor, land/geomatics    high school
+72                                        Exercise physiologist    high school
+73                                                 Risk manager   trade school
+74                                                 Risk manager    high school
+75                                              Games developer    high school
+76                                                  Illustrator     university
+77                                Speech and language therapist     university
+78                                                       Gaffer    high school
+79                                             Heritage manager    high school
+80                                            Buyer, industrial    high school
+81                                                 Psychiatrist     university
+82                                         Public house manager     university
+83                             Production assistant, television   trade school
+84                                           Wellsite geologist    high school
+85                                                       Dealer    high school
+86                                       Manufacturing engineer    high school
+87                                         Engineer, electrical     university
+88                                         Brewing technologist     university
+89                                            Social researcher   trade school
+90                                  Advertising account planner    high school
+91                                         Community pharmacist    high school
+92                                       Conservator, furniture      no degree
+93                          Designer, blown glass/stained glass     university
+94                       Scientist, product/process development    high school
+95                                                       Dealer   trade school
+96                                        Insurance underwriter    high school
+97                                                      Curator    high school
+98        Armed forces logistics/support/administrative officer     university
+99                                      Chief Executive Officer     university
+100                                      Special effects artist   trade school
+101                                              Quarry manager doctoral title
+102                                           Therapist, sports    high school
+103                             Chartered management accountant      no degree
+104                                            Graphic designer   trade school
+105                                          Professor Emeritus    high school
+106                             Runner, broadcasting/film/video    high school
+107                                       Forensic psychologist   trade school
+108                                        Engineer, electrical   trade school
+109                                         Designer, furniture     university
+110                             Engineer, manufacturing systems    high school
+111                                             Patent attorney    high school
+112                               Research officer, trade union     university
+113                                  Museum/gallery conservator    high school
+114                              Furniture conservator/restorer    high school
+115                                    Television floor manager     university
+116                                    Print production planner    high school
+117                                            Financial trader    high school
+118                                                Estate agent    high school
+119                                   Trading standards officer   trade school
+120                                     Housing manager/officer     university
+121                                        Community pharmacist    high school
+122                   Sound technician, broadcasting/film/video    high school
+123                                            Catering manager    high school
+124                                       Nutritional therapist doctoral title
+125                                            Surveyor, mining    high school
+126                                Designer, industrial/product   trade school
+127                    Geographical information systems officer    high school
+128                                          Furniture designer     university
+129                                       Multimedia programmer    high school
+130                                       Pharmacist, community doctoral title
+131                                                     Curator doctoral title
+132                                             Event organiser   trade school
+133                                             Energy engineer      no degree
+134                            Armed forces operational officer      no degree
+135                             Geophysicist/field seismologist    high school
+136                           Sales promotion account executive    high school
+137                    Conservation officer, historic buildings    high school
+138                                        Engineer, electrical   trade school
+139                                                Statistician doctoral title
+140                             Sport and exercise psychologist doctoral title
+141                                       Pharmacist, community    high school
+142                                              Water engineer    high school
+143                                              Data scientist     university
+144                                   Commercial horticulturist    high school
+145                                  Horticulturist, commercial      no degree
+146                                                   Homeopath    high school
+147                                           Minerals surveyor   trade school
+148                                                Cartographer   trade school
+149                                      Programmer, multimedia   trade school
+150                                                  IT trainer   trade school
+151                             Commercial/residential surveyor    high school
+152                                              Water engineer    high school
+153                                            Insurance broker     university
+154                          Museum/gallery exhibitions officer   trade school
+155                                           Ceramics designer    high school
+156                                             Camera operator    high school
+157                                                   Paramedic     university
+158                                      Fitness centre manager   trade school
+159                                                Immunologist    high school
+160                                     Chief Executive Officer    high school
+161                                          Purchasing manager   trade school
+162                                        Pharmacist, hospital     university
+163                                             Physiotherapist    high school
+164                                           Market researcher    high school
+165                                         Marketing executive    high school
+166                                     Horticulturist, amenity     university
+167                                          Jewellery designer   trade school
+168                                                        Make    high school
+169                                       Child psychotherapist     university
+170                               Interior and spatial designer    high school
+171                           Environmental health practitioner    high school
+172                                 Health and safety inspector    high school
+173                                        Broadcast journalist   trade school
+174                                              Health visitor    high school
+175                                                      Dancer    high school
+176                                               Lexicographer    high school
+177                                           Psychiatric nurse    high school
+178                                        Newspaper journalist     university
+179                                  Research scientist (maths)    high school
+180                               Restaurant manager, fast food   trade school
+181                                           Software engineer   trade school
+182                                        Engineer, electrical    high school
+183                                 Advertising account planner    high school
+184                                               Ranger/warden      no degree
+185 Scientist, clinical (histocompatibility and immunogenetics)      no degree
+186                                            Health physicist     university
+187                                      Special effects artist     university
+188                                         Hospital pharmacist     university
+189                                Medical sales representative doctoral title
+190                                    Technical sales engineer     university
+191                                     Engineer, manufacturing    high school
+192                            Surveyor, commercial/residential   trade school
+193                                    Scientist, water quality   trade school
+194                                  Museum/gallery conservator    high school
+195                                      Psychologist, forensic    high school
+196                                        Optician, dispensing    high school
+197                                                  Translator     university
+198                                          Secretary, company   trade school
+199                                                   Economist     university
+200                                         Marketing executive    high school
+    pol_immigration pol_environment pol_redistribution pol_eu_integration
+1                 5               4                  5                  2
+2                 3               5                  3                  4
+3                 2               1                  2                  5
+4                 2               3                  5                  1
+5                 2               4                  3                  3
+6                 2               5                  5                  4
+7                 2               3                  3                  2
+8                 5               5                  4                  5
+9                 1               3                  1                  3
+10                1               3                  3                  5
+11                4               4                  2                  2
+12                5               4                  2                  3
+13                3               2                  3                  2
+14                3               2                  5                  3
+15                5               1                  2                  3
+16                4               5                  5                  5
+17                2               3                  4                  3
+18                1               2                  1                  1
+19                1               2                  4                  4
+20                3               2                  3                  1
+21                5               3                  5                  1
+22                4               2                  4                  4
+23                1               2                  1                  3
+24                5               5                  4                  1
+25                5               5                  3                  4
+26                2               2                  2                  3
+27                4               2                  2                  4
+28                5               1                  1                  1
+29                2               2                  3                  2
+30                3               3                  5                  3
+31                3               2                  4                  1
+32                1               1                  5                  2
+33                5               3                  5                  1
+34                3               2                  3                  4
+35                4               1                  1                  5
+36                3               3                  3                  4
+37                1               4                  4                  5
+38                2               1                  5                  5
+39                1               2                  1                  3
+40                4               1                  5                  5
+41                4               2                  1                  3
+42                3               3                  3                  4
+43                5               2                  4                  2
+44                2               3                  4                  5
+45                2               2                  3                  5
+46                4               5                  4                  3
+47                2               1                  3                  1
+48                3               4                  4                  2
+49                5               4                  2                  3
+50                4               5                  5                  2
+51                5               3                  1                  1
+52                4               1                  4                  1
+53                3               3                  2                  3
+54                3               5                  2                  5
+55                5               2                  5                  2
+56                5               3                  5                  2
+57                3               1                  1                  4
+58                1               5                  4                  4
+59                1               4                  1                  4
+60                5               2                  5                  3
+61                4               2                  3                  1
+62                1               5                  4                  4
+63                4               2                  3                  2
+64                5               5                  5                  2
+65                5               1                  3                  5
+66                2               2                  1                  5
+67                1               3                  3                  5
+68                2               3                  3                  3
+69                3               5                  5                  5
+70                4               4                  2                  4
+71                1               3                  5                  4
+72                2               5                  1                  3
+73                1               3                  1                  5
+74                2               5                  5                  3
+75                5               4                  5                  2
+76                5               1                  5                  2
+77                5               3                  5                  2
+78                2               1                  1                  4
+79                5               3                  2                  3
+80                3               3                  4                  5
+81                3               4                  1                  2
+82                5               3                  3                  5
+83                2               3                  5                  4
+84                3               3                  5                  1
+85                4               5                  1                  3
+86                1               3                  5                  4
+87                2               3                  3                  1
+88                2               1                  2                  3
+89                4               1                  2                  1
+90                1               3                  3                  5
+91                4               4                  4                  3
+92                3               3                  2                  5
+93                4               1                  4                  3
+94                3               3                  3                  2
+95                1               5                  2                  2
+96                2               3                  1                  5
+97                4               5                  5                  2
+98                4               5                  5                  4
+99                3               2                  2                  2
+100               2               5                  2                  2
+101               5               4                  2                  5
+102               2               5                  4                  2
+103               2               3                  2                  3
+104               5               4                  3                  1
+105               2               3                  4                  1
+106               1               4                  3                  1
+107               3               5                  4                  3
+108               5               2                  2                  1
+109               3               4                  2                  1
+110               2               1                  2                  5
+111               2               5                  2                  1
+112               1               3                  2                  4
+113               4               5                  4                  4
+114               3               3                  1                  5
+115               3               5                  5                  4
+116               2               3                  3                  4
+117               4               4                  4                  1
+118               1               4                  4                  4
+119               1               4                  3                  5
+120               1               5                  1                  1
+121               2               1                  5                  2
+122               2               5                  2                  2
+123               1               1                  5                  5
+124               1               1                  4                  2
+125               3               5                  4                  3
+126               5               3                  1                  5
+127               4               3                  3                  3
+128               2               4                  5                  4
+129               1               2                  2                  3
+130               2               5                  4                  3
+131               4               3                  1                  1
+132               3               5                  5                  1
+133               2               3                  3                  2
+134               2               5                  3                  4
+135               3               4                  2                  1
+136               5               1                  2                  5
+137               3               2                  4                  1
+138               1               4                  5                  4
+139               5               5                  1                  1
+140               4               5                  2                  3
+141               3               1                  1                  5
+142               5               2                  1                  3
+143               4               1                  5                  1
+144               5               4                  4                  5
+145               4               1                  2                  1
+146               4               4                  4                  1
+147               2               4                  3                  2
+148               1               1                  2                  2
+149               3               2                  4                  4
+150               4               4                  3                  2
+151               1               3                  4                  3
+152               1               2                  4                  2
+153               2               4                  2                  5
+154               3               5                  5                  2
+155               4               4                  1                  4
+156               1               3                  1                  3
+157               4               2                  2                  3
+158               5               2                  3                  4
+159               1               2                  4                  2
+160               1               2                  3                  3
+161               1               5                  3                  1
+162               5               1                  1                  1
+163               3               5                  1                  5
+164               2               3                  2                  1
+165               4               4                  3                  1
+166               2               5                  3                  5
+167               1               2                  1                  2
+168               2               1                  2                  3
+169               1               3                  5                  5
+170               1               1                  4                  3
+171               2               4                  4                  5
+172               1               2                  5                  1
+173               2               1                  1                  5
+174               2               5                  4                  5
+175               5               2                  1                  3
+176               2               1                  4                  2
+177               5               4                  3                  2
+178               1               4                  2                  5
+179               3               4                  2                  5
+180               5               2                  1                  2
+181               3               4                  2                  1
+182               1               3                  5                  5
+183               1               3                  4                  4
+184               3               3                  1                  2
+185               1               3                  3                  2
+186               5               4                  3                  5
+187               1               3                  4                  1
+188               1               5                  1                  4
+189               2               1                  4                  5
+190               5               3                  4                  4
+191               4               1                  1                  3
+192               3               5                  4                  4
+193               1               1                  5                  1
+194               4               2                  3                  3
+195               4               1                  1                  2
+196               5               5                  4                  5
+197               5               3                  3                  4
+198               2               5                  1                  5
+199               4               3                  3                  5
+200               5               5                  5                  5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generalize PLZ</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_nonpert,</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">column =</span> <span class="st">"plz"</span>,</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">19999</span>, <span class="dv">39999</span>, <span class="dv">59999</span>, <span class="dv">79999</span>, <span class="dv">99999</span>),</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"00–19"</span>, <span class="st">"20–39"</span>, <span class="st">"40–59"</span>, <span class="st">"60–79"</span>, <span class="st">"80–99"</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The input dataset consists of 200 rows and 14 variables.
+  --&gt; Categorical key variables: gender, age, education, plz, years_in_job
+  --&gt; Numerical key variables: income
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Information on categorical key variables:
+
+Reported is the number, mean size and size of the smallest category &gt;0 for recoded variables.
+In parenthesis, the same statistics are shown for the unmodified data.
+Note: NA (missings) are counted as seperate categories!</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Key Variable Number of categories        Mean size         
+       &lt;char&gt;               &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;
+       gender                    3    (3)    66.667 (66.667)
+          age                    5   (52)    40.000  (3.846)
+    education                    5    (5)    40.000 (40.000)
+          plz                    5  (152)    40.000  (1.316)
+ years_in_job                   16   (21)    12.500  (9.524)
+ Size of smallest (&gt;0)       
+                &lt;char&gt; &lt;char&gt;
+                    10   (10)
+                    23    (1)
+                     9    (9)
+                    21    (1)
+                     1    (1)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Infos on 2/3-Anonymity:
+
+Number of observations violating
+  - 2-anonymity: 163 (81.500%) | in original data: 198 (99.000%)
+  - 3-anonymity: 193 (96.500%) | in original data: 200 (100.000%)
+  - 5-anonymity: 200 (100.000%) | in original data: 200 (100.000%)
+
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Numerical key variables: income
+
+Disclosure risk (~100.00% in original data):
+  modified data: [0.00%; 95.00%]
+
+Current Information Loss in modified data (0.00% in original data):
+  IL1: 346.87
+  Difference of Eigenvalues: 0.000%
+----------------------------------------------------------------------</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extractManipData</span>(sdc_nonpert)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      X  id plz     gender age   income years_in_job          religion
+1     1   1   5     female   1  8471.35            3       Catholicism
+2     2   2   5     female   2 34721.35            4              None
+3     3   3   5       male   5 89185.85            0              None
+4     4   4   5     female   5 59490.47            5              None
+5     5   5   3       male   1 52337.39            1             Islam
+6     6   6   5       male   5 60960.23            6     Protestantism
+7     7   7   5       male   2 61037.20           11              None
+8     8   8   4     female   2 58720.93            2          Buddhism
+9     9   9   4       male   2 55625.01            1       Catholicism
+10   10  10   5       male   1 75996.23            4       Catholicism
+11   11  11   2 non-binary   3 29760.83            6       Catholicism
+12   12  12   2     female   2 43369.95            9              None
+13   13  13   5       male   2 70224.28            3              None
+14   14  14   5     female   3 43707.07            2             Islam
+15   15  15   5     female   5 50073.94            5             Islam
+16   16  16   5     female   2 53897.71            9       Catholicism
+17   17  17   4       male   4 47372.98            8       Catholicism
+18   18  18   2     female   5 53557.83            8           Judaism
+19   19  19   5       male   2 88933.73            4             Islam
+20   20  20   4     female   4 33516.81            2              None
+21   21  21   5     female   4 60266.05            3              None
+22   22  22   5     female   1  3234.65           11              None
+23   23  23   5     female   3 18647.76            0     Protestantism
+24   24  24   5     female   3 53198.80            0       Catholicism
+25   25  25   5       male   4 66750.89            8     Protestantism
+26   26  26   2     female   3 33275.84            2       Catholicism
+27   27  27   5       male   3 43974.11            0       Catholicism
+28   28  28   5     female   2 56904.06            2              None
+29   29  29   5     female   1 49785.63            2             Islam
+30   30  30   3     female   1 65838.27            4              None
+31   31  31   4     female   3 43510.82            2       Catholicism
+32   32  32   5     female   1 35050.43           11     Protestantism
+33   33  33   5       male   1 45612.60            6              None
+34   34  34   1     female   1 74064.45            2             Islam
+35   35  35   3     female   1 19700.02            1              None
+36   36  36   5     female   1 35491.71            1     Protestantism
+37   37  37   2     female   1 31146.67            3     Protestantism
+38   38  38   5     female   1 58538.33            1              None
+39   39  39   3 non-binary   2 25565.51           10              None
+40   40  40   5       male   4 53781.80           12              None
+41   41  41   4       male   2 48621.36            6              None
+42   42  42   4     female   4 52099.26            1              None
+43   43  43   3       male   1 80544.39            5              None
+44   44  44   3       male   3 44352.87            0              None
+45   45  45   4       male   1 36923.45            5       Catholicism
+46   46  46   5     female   5 89185.85            8       Catholicism
+47   47  47   4       male   4 82695.22            6              None
+48   48  48   4       male   5 89185.85           15     Protestantism
+49   49  49   2 non-binary   1 43699.08            3     Protestantism
+50   50  50   4       male   1 55256.89            8       Catholicism
+51   51  51   3     female   1 57280.41            2     Protestantism
+52   52  52   5     female   3 65257.71           15       Catholicism
+53   53  53   5       male   2 73130.44            5     Protestantism
+54   54  54   1     female   4 77231.91            5             Islam
+55   55  55   5 non-binary   3 89185.85            4              None
+56   56  56   3     female   4 49240.52            6              None
+57   57  57   1       male   1 49181.85            1     Protestantism
+58   58  58   3     female   3 45667.06           11       Catholicism
+59   59  59   2       male   1 71020.92            3       Catholicism
+60   60  60   5     female   4 17867.79            0              None
+61   61  61   5       male   2 59154.65            7              None
+62   62  62   4       male   1 34867.09            1     Protestantism
+63   63  63   2       male   5 89185.85            9     Protestantism
+64   64  64   4     female   3  6537.27            4             Islam
+65   65  65   4 non-binary   1 53963.61            5     Protestantism
+66   66  66   5       male   2 53233.39            0              None
+67   67  67   5     female   5 35192.39            0       Catholicism
+68   68  68   4       male   3 88998.52            7     Protestantism
+69   69  69   1     female   2 76185.54           15              None
+70   70  70   2       male   1 15277.69            1       Catholicism
+71   71  71   4     female   4 32358.41            4     Protestantism
+72   72  72   4     female   4 59564.29            0       Catholicism
+73   73  73   2       male   1 44946.10            1              None
+74   74  74   4       male   4 66701.73           10           Judaism
+75   75  75   1     female   2 52378.45           13     Protestantism
+76   76  76   2     female   2 28532.02            1     Protestantism
+77   77  77   5       male   3 56000.53            5     Protestantism
+78   78  78   2       male   1 69690.09           11              None
+79   79  79   4     female   4 46431.85            2     Protestantism
+80   80  80   3     female   5 85894.23            4              None
+81   81  81   5     female   3 59395.77            3     Protestantism
+82   82  82   4     female   1 50677.57            0     Protestantism
+83   83  83   5       male   5 19523.64            3             Islam
+84   84  84   5     female   2 60402.28            5     Protestantism
+85   85  85   2       male   3 73762.07           15              None
+86   86  86   5       male   4 57488.83            2       Catholicism
+87   87  87   5     female   2 48387.34            4       Catholicism
+88   88  88   5     female   3 51020.65           15       Catholicism
+89   89  89   2 non-binary   2 89185.85            8              None
+90   90  90   5     female   3 52973.81            5       Catholicism
+91   91  91   3     female   1 65059.84            5     Protestantism
+92   92  92   5     female   3 89185.85            5       Catholicism
+93   93  93   5     female   4 60871.39           10       Catholicism
+94   94  94   5       male   1 38100.28            1              None
+95   95  95   5     female   5  1508.25            1              None
+96   96  96   1     female   3 35839.71            2       Catholicism
+97   97  97   4       male   5 33524.46            3              None
+98   98  98   5     female   3 89185.85           10     Protestantism
+99   99  99   5       male   3 37535.39           15              None
+100 100 100   5       male   3 70163.08            3       Catholicism
+101 101 101   1       male   1 44974.20            2          Buddhism
+102 102 102   5       male   2 65006.97            5       Catholicism
+103 103 103   2       male   3 28030.40           13     Protestantism
+104 104 104   3       male   3 56143.31            1     Protestantism
+105 105 105   1       male   1 21741.10           12       Catholicism
+106 106 106   5     female   1 61855.98            1              None
+107 107 107   5     female   1 15326.24            1              None
+108 108 108   1       male   5  9709.52            5              None
+109 109 109   5     female   3 25659.34            5       Catholicism
+110 110 110   5     female   4 69044.93            3       Catholicism
+111 111 111   4       male   2 66301.02            3     Protestantism
+112 112 112   2     female   2 27090.40            2              None
+113 113 113   5       male   3 45324.62            4              None
+114 114 114   5       male   5 50849.11            5       Catholicism
+115 115 115   2     female   5 30421.29           13              None
+116 116 116   5     female   3 50230.45            3     Protestantism
+117 117 117   2       male   1 37902.42            6              None
+118 118 118   5     female   1 55949.20            1       Catholicism
+119 119 119   5       male   3 53509.42            0              None
+120 120 120   3     female   5 57558.17            2       Catholicism
+121 121 121   5       male   2 67904.73            3     Protestantism
+122 122 122   5       male   1 37003.44            1              None
+123 123 123   4     female   3 74012.32            0              None
+124 124 124   3       male   3 54693.74            0              None
+125 125 125   5     female   5 36977.03           12              None
+126 126 126   5       male   2 36546.40            2              None
+127 127 127   5       male   2 84045.58           10       Catholicism
+128 128 128   5     female   1 82138.06            1              None
+129 129 129   2     female   4 30733.31            1              None
+130 130 130   4       male   3 61673.59            3     Protestantism
+131 131 131   1     female   4 69536.55            1     Protestantism
+132 132 132   1       male   2 48347.66            6     Protestantism
+133 133 133   1       male   2 66190.75            0     Protestantism
+134 134 134   5       male   5 66078.75           11              None
+135 135 135   4     female   4 18269.69            1              None
+136 136 136   5 non-binary   3 59707.29            1     Protestantism
+137 137 137   3       male   3 52099.71           15              None
+138 138 138   3     female   1 34656.89            4     Protestantism
+139 139 139   2       male   3 34257.44           10       Catholicism
+140 140 140   4     female   2 24074.20           14              None
+141 141 141   1       male   3 64152.22            1       Catholicism
+142 142 142   5     female   3 83251.70            2     Protestantism
+143 143 143   4     female   3 64440.78           13     Protestantism
+144 144 144   2     female   1 47105.72            9              None
+145 145 145   5     female   3 36879.16            3       Catholicism
+146 146 146   5       male   2 42220.17           15     Protestantism
+147 147 147   3       male   2 63960.04            0              None
+148 148 148   2       male   4  3530.08            9              None
+149 149 149   5     female   2 13668.60            4             Islam
+150 150 150   5       male   3 50377.45            7     Protestantism
+151 151 151   2     female   3 61128.01            3       Catholicism
+152 152 152   1       male   1 43719.31            4              None
+153 153 153   5     female   3 54589.13           10              None
+154 154 154   5     female   4 19115.90           10              None
+155 155 155   2     female   3 10024.02            2       Catholicism
+156 156 156   5       male   1 85761.37            7       Catholicism
+157 157 157   5 non-binary   5 82607.20            3       Catholicism
+158 158 158   5       male   4 44383.80            1              None
+159 159 159   1     female   2 66185.55           15       Catholicism
+160 160 160   5       male   4 46443.35           11     Protestantism
+161 161 161   4     female   4 41571.20            9     Protestantism
+162 162 162   5     female   3 48002.36            1       Catholicism
+163 163 163   4     female   3 64303.37            0     Protestantism
+164 164 164   3     female   4 63828.73           10       Catholicism
+165 165 165   5       male   1 62158.38            1             Islam
+166 166 166   3     female   2 36173.97            6              None
+167 167 167   5     female   3 22233.87            0             Islam
+168 168 168   3       male   1 65795.96            2       Catholicism
+169 169 169   5     female   1 50500.79            1              None
+170 170 170   5     female   3 34635.22            6              None
+171 171 171   1     female   5 51093.90           11              None
+172 172 172   2       male   2 38140.07           13              None
+173 173 173   5 non-binary   3 83316.86            2       Catholicism
+174 174 174   5     female   3 89185.85           10              None
+175 175 175   1       male   3 47266.68           13     Protestantism
+176 176 176   3     female   1 38736.53            5       Catholicism
+177 177 177   1       male   2 51254.30            9       Catholicism
+178 178 178   2     female   3  3070.65            2             Islam
+179 179 179   1       male   4 67298.52            7              None
+180 180 180   2       male   3 52914.99            6     Protestantism
+181 181 181   5     female   5 53761.55            3              None
+182 182 182   2       male   3 62667.11           10       Catholicism
+183 183 183   2     female   1 69837.87            1     Protestantism
+184 184 184   5       male   2 48027.70            9              None
+185 185 185   2       male   4 68760.98            6       Catholicism
+186 186 186   3     female   1 53996.54            6              None
+187 187 187   1 non-binary   5 29089.31            2     Protestantism
+188 188 188   4     female   1 58074.39            0     Protestantism
+189 189 189   2       male   2 43647.51            5          Buddhism
+190 190 190   2     female   3 59911.66           15       Catholicism
+191 191 191   5     female   3 15015.81            4              None
+192 192 192   1       male   2 48884.82            3       Catholicism
+193 193 193   5     female   2 11665.95            5     Protestantism
+194 194 194   5       male   3 51434.15            6 Eastern Orthodoxy
+195 195 195   4       male   2 73230.95           10       Catholicism
+196 196 196   4       male   4 52969.14            5              None
+197 197 197   5     female   2 38514.53           11              None
+198 198 198   3     female   3 89185.85            0     Protestantism
+199 199 199   4     female   2 58564.02            4       Catholicism
+200 200 200   5     female   3 30312.73            3       Catholicism
+                                                      job_title      education
+1                                      Local government officer   trade school
+2                                           Structural engineer    high school
+3                               Psychotherapist, dance movement    high school
+4                                        Fitness centre manager    high school
+5                 Programme researcher, broadcasting/film/video    high school
+6                                        Chief Strategy Officer    high school
+7                                      Engineer, communications    high school
+8                                       Secretary/administrator     university
+9                                                  Video editor   trade school
+10                                                Hotel manager    high school
+11                                                    Herbalist     university
+12                                      Teacher, primary school    high school
+13                             Production assistant, television    high school
+14                                             Surveyor, mining    high school
+15                                               Data scientist    high school
+16                                     Programmer, applications    high school
+17                                   Horticulturist, commercial   trade school
+18                             Training and development officer    high school
+19                                             Catering manager    high school
+20                                             Textile designer      no degree
+21                                   Designer, fashion/clothing    high school
+22                                            Medical physicist    high school
+23                                          Seismic interpreter   trade school
+24                                          Biomedical engineer    high school
+25                                          Biomedical engineer      no degree
+26                                             Technical brewer     university
+27                                     Advertising art director    high school
+28                                Clothing/textile technologist    high school
+29                                                Stage manager     university
+30                                     Advertising art director    high school
+31                                                IT consultant     university
+32                                     Secondary school teacher   trade school
+33                                           Restaurant manager     university
+34                                       Politician's assistant   trade school
+35                                                  Illustrator    high school
+36                                         Community pharmacist    high school
+37                                                    Solicitor doctoral title
+38                                     Local government officer    high school
+39                                                    Osteopath    high school
+40                                          Medical illustrator    high school
+41                                                      Surgeon   trade school
+42                                         Financial controller    high school
+43                                              Systems analyst    high school
+44                                             Sports therapist    high school
+45                    Sound technician, broadcasting/film/video doctoral title
+46                                       Amenity horticulturist    high school
+47                                                  Firefighter     university
+48                                                         Copy    high school
+49                            Sales promotion account executive   trade school
+50                                     Public relations officer   trade school
+51                                            Financial planner    high school
+52                                       Museum/gallery curator    high school
+53                                                       Dealer    high school
+54                             Higher education careers adviser    high school
+55                                      General practice doctor     university
+56                                       Recruitment consultant     university
+57                             Training and development officer    high school
+58                                                    Mudlogger    high school
+59                                         Pharmacist, hospital    high school
+60                                     Horticultural consultant    high school
+61                                                   Ergonomist    high school
+62                                         Chartered accountant      no degree
+63                                                 Psychiatrist     university
+64                                      Data processing manager    high school
+65                                         Broadcast journalist   trade school
+66             Administrator, charities/voluntary organisations    high school
+67                                Speech and language therapist    high school
+68                                               Energy manager    high school
+69                                        Editor, commissioning    high school
+70                                Advertising account executive    high school
+71                                     Surveyor, land/geomatics    high school
+72                                        Exercise physiologist    high school
+73                                                 Risk manager   trade school
+74                                                 Risk manager    high school
+75                                              Games developer    high school
+76                                                  Illustrator     university
+77                                Speech and language therapist     university
+78                                                       Gaffer    high school
+79                                             Heritage manager    high school
+80                                            Buyer, industrial    high school
+81                                                 Psychiatrist     university
+82                                         Public house manager     university
+83                             Production assistant, television   trade school
+84                                           Wellsite geologist    high school
+85                                                       Dealer    high school
+86                                       Manufacturing engineer    high school
+87                                         Engineer, electrical     university
+88                                         Brewing technologist     university
+89                                            Social researcher   trade school
+90                                  Advertising account planner    high school
+91                                         Community pharmacist    high school
+92                                       Conservator, furniture      no degree
+93                          Designer, blown glass/stained glass     university
+94                       Scientist, product/process development    high school
+95                                                       Dealer   trade school
+96                                        Insurance underwriter    high school
+97                                                      Curator    high school
+98        Armed forces logistics/support/administrative officer     university
+99                                      Chief Executive Officer     university
+100                                      Special effects artist   trade school
+101                                              Quarry manager doctoral title
+102                                           Therapist, sports    high school
+103                             Chartered management accountant      no degree
+104                                            Graphic designer   trade school
+105                                          Professor Emeritus    high school
+106                             Runner, broadcasting/film/video    high school
+107                                       Forensic psychologist   trade school
+108                                        Engineer, electrical   trade school
+109                                         Designer, furniture     university
+110                             Engineer, manufacturing systems    high school
+111                                             Patent attorney    high school
+112                               Research officer, trade union     university
+113                                  Museum/gallery conservator    high school
+114                              Furniture conservator/restorer    high school
+115                                    Television floor manager     university
+116                                    Print production planner    high school
+117                                            Financial trader    high school
+118                                                Estate agent    high school
+119                                   Trading standards officer   trade school
+120                                     Housing manager/officer     university
+121                                        Community pharmacist    high school
+122                   Sound technician, broadcasting/film/video    high school
+123                                            Catering manager    high school
+124                                       Nutritional therapist doctoral title
+125                                            Surveyor, mining    high school
+126                                Designer, industrial/product   trade school
+127                    Geographical information systems officer    high school
+128                                          Furniture designer     university
+129                                       Multimedia programmer    high school
+130                                       Pharmacist, community doctoral title
+131                                                     Curator doctoral title
+132                                             Event organiser   trade school
+133                                             Energy engineer      no degree
+134                            Armed forces operational officer      no degree
+135                             Geophysicist/field seismologist    high school
+136                           Sales promotion account executive    high school
+137                    Conservation officer, historic buildings    high school
+138                                        Engineer, electrical   trade school
+139                                                Statistician doctoral title
+140                             Sport and exercise psychologist doctoral title
+141                                       Pharmacist, community    high school
+142                                              Water engineer    high school
+143                                              Data scientist     university
+144                                   Commercial horticulturist    high school
+145                                  Horticulturist, commercial      no degree
+146                                                   Homeopath    high school
+147                                           Minerals surveyor   trade school
+148                                                Cartographer   trade school
+149                                      Programmer, multimedia   trade school
+150                                                  IT trainer   trade school
+151                             Commercial/residential surveyor    high school
+152                                              Water engineer    high school
+153                                            Insurance broker     university
+154                          Museum/gallery exhibitions officer   trade school
+155                                           Ceramics designer    high school
+156                                             Camera operator    high school
+157                                                   Paramedic     university
+158                                      Fitness centre manager   trade school
+159                                                Immunologist    high school
+160                                     Chief Executive Officer    high school
+161                                          Purchasing manager   trade school
+162                                        Pharmacist, hospital     university
+163                                             Physiotherapist    high school
+164                                           Market researcher    high school
+165                                         Marketing executive    high school
+166                                     Horticulturist, amenity     university
+167                                          Jewellery designer   trade school
+168                                                        Make    high school
+169                                       Child psychotherapist     university
+170                               Interior and spatial designer    high school
+171                           Environmental health practitioner    high school
+172                                 Health and safety inspector    high school
+173                                        Broadcast journalist   trade school
+174                                              Health visitor    high school
+175                                                      Dancer    high school
+176                                               Lexicographer    high school
+177                                           Psychiatric nurse    high school
+178                                        Newspaper journalist     university
+179                                  Research scientist (maths)    high school
+180                               Restaurant manager, fast food   trade school
+181                                           Software engineer   trade school
+182                                        Engineer, electrical    high school
+183                                 Advertising account planner    high school
+184                                               Ranger/warden      no degree
+185 Scientist, clinical (histocompatibility and immunogenetics)      no degree
+186                                            Health physicist     university
+187                                      Special effects artist     university
+188                                         Hospital pharmacist     university
+189                                Medical sales representative doctoral title
+190                                    Technical sales engineer     university
+191                                     Engineer, manufacturing    high school
+192                            Surveyor, commercial/residential   trade school
+193                                    Scientist, water quality   trade school
+194                                  Museum/gallery conservator    high school
+195                                      Psychologist, forensic    high school
+196                                        Optician, dispensing    high school
+197                                                  Translator     university
+198                                          Secretary, company   trade school
+199                                                   Economist     university
+200                                         Marketing executive    high school
+    pol_immigration pol_environment pol_redistribution pol_eu_integration
+1                 5               4                  5                  2
+2                 3               5                  3                  4
+3                 2               1                  2                  5
+4                 2               3                  5                  1
+5                 2               4                  3                  3
+6                 2               5                  5                  4
+7                 2               3                  3                  2
+8                 5               5                  4                  5
+9                 1               3                  1                  3
+10                1               3                  3                  5
+11                4               4                  2                  2
+12                5               4                  2                  3
+13                3               2                  3                  2
+14                3               2                  5                  3
+15                5               1                  2                  3
+16                4               5                  5                  5
+17                2               3                  4                  3
+18                1               2                  1                  1
+19                1               2                  4                  4
+20                3               2                  3                  1
+21                5               3                  5                  1
+22                4               2                  4                  4
+23                1               2                  1                  3
+24                5               5                  4                  1
+25                5               5                  3                  4
+26                2               2                  2                  3
+27                4               2                  2                  4
+28                5               1                  1                  1
+29                2               2                  3                  2
+30                3               3                  5                  3
+31                3               2                  4                  1
+32                1               1                  5                  2
+33                5               3                  5                  1
+34                3               2                  3                  4
+35                4               1                  1                  5
+36                3               3                  3                  4
+37                1               4                  4                  5
+38                2               1                  5                  5
+39                1               2                  1                  3
+40                4               1                  5                  5
+41                4               2                  1                  3
+42                3               3                  3                  4
+43                5               2                  4                  2
+44                2               3                  4                  5
+45                2               2                  3                  5
+46                4               5                  4                  3
+47                2               1                  3                  1
+48                3               4                  4                  2
+49                5               4                  2                  3
+50                4               5                  5                  2
+51                5               3                  1                  1
+52                4               1                  4                  1
+53                3               3                  2                  3
+54                3               5                  2                  5
+55                5               2                  5                  2
+56                5               3                  5                  2
+57                3               1                  1                  4
+58                1               5                  4                  4
+59                1               4                  1                  4
+60                5               2                  5                  3
+61                4               2                  3                  1
+62                1               5                  4                  4
+63                4               2                  3                  2
+64                5               5                  5                  2
+65                5               1                  3                  5
+66                2               2                  1                  5
+67                1               3                  3                  5
+68                2               3                  3                  3
+69                3               5                  5                  5
+70                4               4                  2                  4
+71                1               3                  5                  4
+72                2               5                  1                  3
+73                1               3                  1                  5
+74                2               5                  5                  3
+75                5               4                  5                  2
+76                5               1                  5                  2
+77                5               3                  5                  2
+78                2               1                  1                  4
+79                5               3                  2                  3
+80                3               3                  4                  5
+81                3               4                  1                  2
+82                5               3                  3                  5
+83                2               3                  5                  4
+84                3               3                  5                  1
+85                4               5                  1                  3
+86                1               3                  5                  4
+87                2               3                  3                  1
+88                2               1                  2                  3
+89                4               1                  2                  1
+90                1               3                  3                  5
+91                4               4                  4                  3
+92                3               3                  2                  5
+93                4               1                  4                  3
+94                3               3                  3                  2
+95                1               5                  2                  2
+96                2               3                  1                  5
+97                4               5                  5                  2
+98                4               5                  5                  4
+99                3               2                  2                  2
+100               2               5                  2                  2
+101               5               4                  2                  5
+102               2               5                  4                  2
+103               2               3                  2                  3
+104               5               4                  3                  1
+105               2               3                  4                  1
+106               1               4                  3                  1
+107               3               5                  4                  3
+108               5               2                  2                  1
+109               3               4                  2                  1
+110               2               1                  2                  5
+111               2               5                  2                  1
+112               1               3                  2                  4
+113               4               5                  4                  4
+114               3               3                  1                  5
+115               3               5                  5                  4
+116               2               3                  3                  4
+117               4               4                  4                  1
+118               1               4                  4                  4
+119               1               4                  3                  5
+120               1               5                  1                  1
+121               2               1                  5                  2
+122               2               5                  2                  2
+123               1               1                  5                  5
+124               1               1                  4                  2
+125               3               5                  4                  3
+126               5               3                  1                  5
+127               4               3                  3                  3
+128               2               4                  5                  4
+129               1               2                  2                  3
+130               2               5                  4                  3
+131               4               3                  1                  1
+132               3               5                  5                  1
+133               2               3                  3                  2
+134               2               5                  3                  4
+135               3               4                  2                  1
+136               5               1                  2                  5
+137               3               2                  4                  1
+138               1               4                  5                  4
+139               5               5                  1                  1
+140               4               5                  2                  3
+141               3               1                  1                  5
+142               5               2                  1                  3
+143               4               1                  5                  1
+144               5               4                  4                  5
+145               4               1                  2                  1
+146               4               4                  4                  1
+147               2               4                  3                  2
+148               1               1                  2                  2
+149               3               2                  4                  4
+150               4               4                  3                  2
+151               1               3                  4                  3
+152               1               2                  4                  2
+153               2               4                  2                  5
+154               3               5                  5                  2
+155               4               4                  1                  4
+156               1               3                  1                  3
+157               4               2                  2                  3
+158               5               2                  3                  4
+159               1               2                  4                  2
+160               1               2                  3                  3
+161               1               5                  3                  1
+162               5               1                  1                  1
+163               3               5                  1                  5
+164               2               3                  2                  1
+165               4               4                  3                  1
+166               2               5                  3                  5
+167               1               2                  1                  2
+168               2               1                  2                  3
+169               1               3                  5                  5
+170               1               1                  4                  3
+171               2               4                  4                  5
+172               1               2                  5                  1
+173               2               1                  1                  5
+174               2               5                  4                  5
+175               5               2                  1                  3
+176               2               1                  4                  2
+177               5               4                  3                  2
+178               1               4                  2                  5
+179               3               4                  2                  5
+180               5               2                  1                  2
+181               3               4                  2                  1
+182               1               3                  5                  5
+183               1               3                  4                  4
+184               3               3                  1                  2
+185               1               3                  3                  2
+186               5               4                  3                  5
+187               1               3                  4                  1
+188               1               5                  1                  4
+189               2               1                  4                  5
+190               5               3                  4                  4
+191               4               1                  1                  3
+192               3               5                  4                  4
+193               1               1                  5                  1
+194               4               2                  3                  3
+195               4               1                  1                  2
+196               5               5                  4                  5
+197               5               3                  3                  4
+198               2               5                  1                  5
+199               4               3                  3                  5
+200               5               5                  5                  5</code></pre>
+</div>
+</div>
+<p>The five regions map loosely to north, north-central, central, south-central, and south Germany.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Collapse rare religions</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect counts first</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
          Buddhism       Catholicism Eastern Orthodoxy             Islam 
@@ -680,24 +2061,24 @@ Expected number of re-identifications:
           Judaism              None     Protestantism 
                 2                75                50 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>data_religion_recoded <span class="ot">&lt;-</span> data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_lump_min</span>(religion, <span class="at">min =</span> <span class="dv">10</span>, <span class="at">other_level =</span> <span class="st">"Other"</span>))</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_religion_recoded<span class="sc">$</span>religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>data_religion_recoded <span class="ot">&lt;-</span> data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_lump_min</span>(religion, <span class="at">min =</span> <span class="dv">10</span>, <span class="at">other_level =</span> <span class="st">"Other"</span>))</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_religion_recoded<span class="sc">$</span>religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   Catholicism         Islam          None Protestantism         Other 
            56            13            75            50             6 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rebuild the sdc object with the recoded religion column</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">dat     =</span> data_religion_recoded,</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">keyVars =</span> <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"age"</span>, <span class="st">"education"</span>, <span class="st">"plz"</span>),</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">numVars =</span> <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Now apply the previous steps again on the fresh object, then check</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_nonpert, <span class="at">type =</span> <span class="st">"risk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rebuild the sdc object with the recoded religion column</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">dat     =</span> data_religion_recoded,</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">keyVars =</span> <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"age"</span>, <span class="st">"education"</span>, <span class="st">"plz"</span>),</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">numVars =</span> <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Now apply the previous steps again on the fresh object, then check</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_nonpert, <span class="at">type =</span> <span class="st">"risk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Risk measures:
 
@@ -708,7 +2089,7 @@ Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 <p><code>fct_lump_min(religion, min = 10)</code> merges any category with fewer than 10 observations into <code>"Other"</code>. This is transparent — you can see exactly which categories were affected by comparing the <code>table()</code> outputs before and after. Groups like “Judaism” or “Buddhism” which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes. <em>Compare to local suppression using function</em></p>
 <p>Save sdcObject</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_nonpert, <span class="st">"../sdc_nonpert.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_nonpert, <span class="st">"../sdc_nonpert.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
