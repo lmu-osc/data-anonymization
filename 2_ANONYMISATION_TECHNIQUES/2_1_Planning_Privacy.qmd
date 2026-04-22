@@ -87,10 +87,10 @@ For this object, we start with defining the following:
 ::: callout-note
 ## More Functions of sdcMicro
 
--   `extractManipData(sdc)`\
+-   `extractManipData(sdcObject)`\
     Extracts the anonymized dataset.
 
--   `undolast(sdc)`\
+-   `undolast(sdcObject)`\
     Reverts the last anonymization step.
 
 -   `get.sdcMicroObj()`\
@@ -151,6 +151,20 @@ individualrisk <- get.sdcMicroObj(sdc_data, "risk")$individual
 ```
 
 The individual risk shows a risk estimate for each individual in the dataset. `fk` is the frequency count in the sample and shows how many individuals share the same combination of key variables currently in our sdcObject. We can see that this is 1 for all participants except the IDs 94 and 122 I discussed above. `Fk` is the estimated frequency in the population; this only differs from `fk` in case of pre-defined sampling weights.
+:::
+
+::: callout-note
+## There Is No One Correct Variable Assignment
+
+How you assign variables to `keyVars` and `numVars` is a judgment call - there is no universally correct answer. It depends on who you think is likely to try to re-identify someone, and what information they would already have.
+
+The most realistic attack scenario for this dataset is probably someone who knows a study participant personally - a colleague, friend, or family member. Such a person would most likely know basic demographic attributes: the participant's gender, approximate age, postal code, and level of education. These are the variables an attacker is most plausibly able to use to find a specific record, which is why we treat them as `keyVars`.
+
+`income` is placed in `numVars` because it is less likely to be known in advance - it is something an attacker might *learn* from the dataset, not something they use to *search* it.
+
+`years_in_job` is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in `keyVars` is a conservative choice; if you consider it less likely to be known, moving it to `numVars` is also defensible.
+
+The same logic applies to `religion`: if a plausible attacker is someone who knows the participant from a religious community, then `religion` belongs in `keyVars`, not treated as a sensitive outcome. The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.
 :::
 
 At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need anonymization but can skip to preparing your data for publication.

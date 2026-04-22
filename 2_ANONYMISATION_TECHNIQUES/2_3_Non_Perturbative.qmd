@@ -121,7 +121,7 @@ The following `sdcMicro` functions are available to you:
 ::: callout-tip
 The `sdcMicro` functions operate directly on the `sdc` object and update risk estimates automatically. Check `?globalRecode`, `?topBotCoding`, and `?localSuppression` for argument details.
 
-The `forcat` function `fct_lump_min()` is applied to the dataset itself. The `sdcObject` needs to be updated afterwards.
+The `forcat` function `fct_lump_min()` is applied to the dataset itself. The `sdcObject` needs to be updated afterward.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -129,36 +129,39 @@ The `forcat` function `fct_lump_min()` is applied to the dataset itself. The `sd
 
 Keep in mind that this is just an example solution - there are many ways to achieve similar levels of privacy.
 
-I started by applying global recoding to age:
+I started by applying **global recoding to age**:
 
 ```{r}
 sdc_nonpert <- globalRecode(
   obj    = sdc_data,
   column = "age",
-  breaks = c(17, 29, 44, 59, 74, Inf), # Define breaks
-  labels = c("18-29", "30-44", "45-59", "60-74", "75+")
+  breaks = c(17, 29, 39, 49, 59, Inf), # Define breaks
+  labels = c("18-29", "30-39", "40-49", "50-59", "60+")
 )  
 
-sdc_nonpert
+sdc_nonpert # check summary after making the change
 print(sdc_nonpert, type = "risk") # check risk after making the change
 
 ```
 
+I started by dividing the age into five about 10-year breaks. This provides a mean of 40 persons per age break, while the smallest one still has 23. These breaks can be changed later if more privacy or more utility is needed.
+
+I then applied **top-coding to income**. My goal here is to protect the few individuals in the dataset with a very high income. I start by inspecting the data visually with a boxplot:
+
 ```{r}
+library(ggplot2)
 
+ggplot(data_withoutdirectidentifiers, aes(y = income)) +
+  geom_boxplot() +
+  theme_minimal()
 
+```
 
-# Generalize PLZ (does not work due to variable type)
-# sdc_nonpert <- globalRecode(
-#   obj    = sdc_data,
-#   column = "plz",
-#   breaks = c(0, 19999, 39999, 59999, 79999, 99999),
-#   labels = c("00–19", "20–39", "40–59", "60–79", "80–99")
-# )
+I see a few extreme outliers above 400 000 €. Choosing the 95th percentile at `r quantile(data_withoutdirectidentifiers$income, 0.95)`€ would cut these extreme values easily off, as well as some values around 100k. Let's start with going with that.
 
-# `globalRecode()` updates the key variable inside the `sdc` object directly and recalculates risk. The five regions map loosely to north, north-central, central, south-central, and south Germany.
+I'll use `topBotCoding` and set the value at the 95th percentile, replacing those values with that one.
 
-# Top-code income
+```{r}
 sdc_nonpert <- topBotCoding(
   obj         = sdc_nonpert,
   column      = "income",
@@ -167,28 +170,59 @@ sdc_nonpert <- topBotCoding(
   kind        = "top"
 )
 
+sdc_nonpert # check summary after making the change
 print(sdc_nonpert, type = "risk") # check risk after making the change
+```
 
-# Top code years in job
-# Inspect the distribution first to pick a sensible threshold
+As income is the only numeric variable in the `sdcObject`, the possible disclosure risk is reduced by those 5 percent points we cut off.
+
+I also used **top-coding for years in job**. Again, I started by familiarizing myself with the data.
+
+```{r}
+# Inspect the distribution first 
 summary(data_withoutdirectidentifiers$years_in_job)
 
+ggplot(data_withoutdirectidentifiers, aes(y = years_in_job)) +
+  geom_boxplot() +
+  theme_minimal()
+
+```
+
+I decided to use 15 as a cut-off value, as this cuts-off the extreme values.
+
+```{r}
 sdc_nonpert <- topBotCoding(
   obj         = sdc_nonpert,
   column      = "years_in_job",
-  value       = 20,        # values above 20 years get capped
-  replacement = 20,
+  value       = 15,        # values above 15 years get capped at 15
+  replacement = 15,
   kind        = "top"
 )
 
 print(sdc_nonpert, type = "risk")
-# `years_in_job` follows an exponential distribution, so a small number of people will have very high values. Capping at 20 years is a reasonable choice — adjust based on what the actual distribution looks like in your dataset.
+sdc_nonpert
+```
 
-# Apply local suppression to reach k = 3
-sdc_nonpert <- localSuppression(sdc_nonpert, k = 3)  # Compare risk before and after
+We see that k-anonymity values have not been influenced by the changes so far - this is primarily due to the plz variable that is unique for most participants. I therefore decided to generalize the postal code.
 
-print(sdc_nonpert, type = "risk")
+```{r}
 
+extractManipData(sdc_nonpert)
+
+# Generalize PLZ
+sdc_nonpert <- globalRecode(
+  obj    = sdc_nonpert,
+  column = "plz",
+  breaks = c(0, 19999, 39999, 59999, 79999, 99999),
+  labels = c("00–19", "20–39", "40–59", "60–79", "80–99")
+)
+sdc_nonpert
+extractManipData(sdc_nonpert)
+```
+
+The five regions map loosely to north, north-central, central, south-central, and south Germany.
+
+```{r}
 # Collapse rare religions
 library(forcats)
 

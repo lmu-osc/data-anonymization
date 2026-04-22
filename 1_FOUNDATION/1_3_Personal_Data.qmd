@@ -66,6 +66,16 @@ Copy this to a new Markdown file in RStudio to import the data for further analy
 # Load data based on downloaded file
 data <- read.csv("../SimulatedData.csv") # Change based on the location of your data file
 
+# data <- data %>%
+#   mutate(income = case_when(
+#     id == 198 ~ 480928.61,
+#     id == 55  ~ 902234.42,
+#     id == 3   ~ 724891.17,
+#     TRUE      ~ income  # keep everything else unchanged
+#   ))
+# 
+# write.csv(data, "../SimulatedData", row.names = FALSE)
+
 data
 ```
 
