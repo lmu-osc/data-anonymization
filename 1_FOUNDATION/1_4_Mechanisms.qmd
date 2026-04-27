@@ -69,13 +69,11 @@ Consent forms are often not read or not understood - which is why consent alone 
 
 ## Data Minimization
 
-
 Data minimization (or in German, *Datensparsamkeit*) follows a simple principle: **no data, no risk** - or more realistically, less data, less risk. The GDPR requires that you only collect data that is "adequate, relevant and limited to what is necessary" for your purpose (Art. 5(1)(c)).
 
 In research, this means resisting the temptation to collect demographics or other variables "just in case" or "because we always do." Every additional variable you collect increases the risk of re-identification when the data is shared. Ask yourself: Do I actually need this variable to answer my research question? If not, don't collect it.
 
-There is also a flip side to data minimization: whenever possible, re-use existing data instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles - making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody's life easier.
-(*link to LMU OS tutorials*)
+There is also a flip side to data minimization: whenever possible, re-use existing data instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles - making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody's life easier. (*link to LMU OS tutorials*)
 
 *Discuss issues of data minimization and privacy by design (i.e., norms, contextualization, exploration, reviewers)*
 
@@ -96,7 +94,6 @@ The GDPR requires controllers to implement "appropriate technical and organisati
 These measures add layers of protection around your data while it is still in personal form. They do not replace anonymization, but they are essential complements.
 
 ### Pseudonymization
-
 
 Pseudonymization is the process of replacing direct identifiers (like names) with artificial identifiers (like participant codes). It is an important first step, but it is crucial to understand its limits.
 
@@ -203,6 +200,7 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 
 **Pseudonymized** - the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.
 :::
+
 #### Learning Objective
 
 -   After completing this part of the tutorial, you will know how data protection is integrated into the research process.

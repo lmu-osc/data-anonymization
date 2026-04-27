@@ -8,6 +8,8 @@ The simplest version of this is just separating a dataset into two tables - one 
 
 More useful are approaches that preserve some analytical structure while still breaking the individual-level link - the two main ones being bucketization and anatomization.
 
+*add infographics*
+
 # Examples of De-associative Techniques
 
 ## Bucketization
@@ -35,14 +37,14 @@ Anatomization is particularly useful when the sensitive attribute is the main fo
 
 # Pro and Contra De-Associative Techniques
 
-# Exercise 
+*Write pro anc con*
 
 #### Learning Objective
 
--   After completing this part of the tutorial, you will be able to apply selected de-associative techniques in R.
+-   After completing this part of the tutorial, you will know selected de-associative techniques.
 
 #### Exercises
 
--   apply one selected technique to the dataset?
+-   none
 
 #### Resources, Links, Examples

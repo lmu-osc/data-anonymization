@@ -5,13 +5,13 @@ bibliography: ../references.bib
 
 # What is Data Privacy?
 
-This question has troubled (and engaged) scholars in privacy research for decades - there is no one agreed-upon definition. One quite influential way to formalize privacy is Nissenbaum's framework of Contextual Integrity [@nissenbaum2010].
+This question has troubled (and engaged) scholars in privacy research for decades - there is no one agreed-upon definition. It is mostly understood as controlled disclosure in some way, meaning that an individual can decide which information is shared.
 
-Consider a common scenario in psychological research: A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms - trusting that this information stays within the research context. The researcher publishes a dataset that is technically anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant's manager downloads the open dataset and identifies her employee.
+One quite influential way to formalize privacy is Nissenbaum's framework of Contextual Integrity [@nissenbaum2010], which I will explain shortly:
 
-Nothing was "leaked" in a traditional sense. The information flowed - but it violated the norms of the context in which it was shared. This is exactly what Nissenbaum's framework captures.
+Consider a common scenario in social science research: A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms - trusting that this information stays within the research context. The researcher publishes a dataset that is superficially anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant's manager downloads the open dataset and identifies her employee.
 
-At its core, it states: Privacy means that contextual information norms are respected in all information flows.
+Nothing was "leaked" in a traditional sense. The information flowed - but it violated the norms of the context in which it was shared. This is exactly what Nissenbaum's framework captures: Privacy means that contextual information norms are respected in all information flows.
 
 A context carries certain information, such as norms in your culture, laws, the people involved, and the situation you are in.
 
@@ -20,7 +20,7 @@ An information flow means the act of transferring information in any way. Inform
 ::: callout-note
 # Applying Contextual Integrity
 
-In the example above, nothing was "leaked" in a traditional sense — yet most of us would call this a privacy violation. Nissenbaum's framework explains why:
+In the example above, nothing was "leaked" in a traditional sense; yet most of us would call this a privacy violation. Nissenbaum's framework explains why:
 
 -   **Context:** Academic research, governed by ethics board approval and norms of confidentiality
 -   **Sender:** Survey participant (employee)
@@ -28,10 +28,10 @@ In the example above, nothing was "leaked" in a traditional sense — yet most o
 -   **Information type:** Sensitive personal disclosures (burnout, workplace stress)
 -   **Transmission principle:** Voluntary, under expectation of anonymity and confidentiality
 
-The information type and sender haven't changed — but the recipient and transmission principle have. The contextual norm is violated. This is a privacy violation not because a name was exposed, but because information flowed in a way that didn't match the norms of the context in which it was shared.
+The information type and sender haven't changed, but the recipient and transmission principle have. The contextual norm is violated. This is a privacy violation not because a name was exposed, but because information flowed in a way that didn't match the norms of the context in which it was shared. And in turn, this lead to the disclosure of an individual's identity as well as sensitive information about them and their work life.
 :::
 
-In this tutorial, I will show - why we - as researchers - need to carefully consider these contextual norms, and - how we can enable information flows of data (i.e., when sharing data).
+In this tutorial, I will show why we, as researchers, need to carefully consider these contextual norms and how we can enable information flows of data (i.e., when sharing data).
 
 Throughout this tutorial, I will use both the terms data protection and privacy. Privacy is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. Data protection is a term that is closely linked to actual techniques and is used in laws. Both translate (give or take) to "Datenschutz" in German.
 
@@ -61,19 +61,19 @@ Professional codes of conduct reinforce these obligations. Psychologists, for ex
 
 In practice, institutional review boards (IRBs) or ethics committees enforce these obligations before a study begins. However, their review typically focuses on the study design and informed consent. They rarely evaluate the technical details of how data will be stored, shared, or anonymized after collection. This gap is where the practical skills covered in this tutorial become relevant.
 
-One more thing worth mentioning: We tend to assume that informed consent solves the privacy problem. But research consistently shows that participants rarely read consent forms carefully, and even when they do, they may not fully understand the implications of data sharing [@Hallinan2023_UninformedConsentPsychologicala]. Consent is necessary, but it is not sufficient. More on this in the chapter on [mechanisms of data protection](1_4_Mechanisms.qmd).
+One more thing worth mentioning: We tend to assume that informed consent solves the privacy problem. But research shows that participants rarely read consent forms carefully [@obar2020, @foe2016], and even when they do, they may not fully understand the implications of data sharing. Consent is necessary, but it is not sufficient. More on this in the chapter on [mechanisms of data protection](1_4_Mechanisms.qmd).
 
 # Data Protection in Law
 
-Beyond ethics, data protection is also a legal requirement. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution are located. We cover the GDPR in more detail in the [next chapter](1_2_GDPR.qmd).
-
-This is especially important to understand: if your institution is based in the EU, or if you process data of people residing in the EU, the GDPR applies to you. There is no way around it.
+Beyond ethics, data protection is also a legal requirement. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution are located; it also apples, when your institution is absed in the EU. We cover the GDPR in more detail in the [next chapter](1_2_GDPR.qmd).
 
 Outside the EU, other frameworks exist. The US has sector-specific laws like [HIPAA](https://www.hhs.gov/hipaa/index.html) (for health data) and [FERPA](https://studentprivacy.ed.gov/) (for educational records), but no single comprehensive federal data protection law. Countries like Brazil ([LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)), Japan ([APPI](https://www.ppc.go.jp/en/legal/)), and South Korea ([PIPA](https://www.pipc.go.kr/eng/user/lgn/login.do)) have their own comprehensive frameworks, many of which share core principles with the GDPR.
 
-For this tutorial, we focus on the GDPR. It is one of the most stringent and widely applicable frameworks. The anonymization techniques we cover are relevant regardless of which specific law applies.
+For this tutorial, we focus on the GDPR. It is one of the most stringent and widely applicable frameworks. However, the anonymization techniques we cover later are relevant regardless of which specific law applies.
 
-*Acknowledge the existence of other relevant laws (e.g., export control of knowledge relating to national security; IP)*
+Next to data protection laws, there are other legal reasons for not-sharing information. To name the two most important ones: Intellectual property interests and export controls.
+
+*Add: relevant laws in Germany regarding IP and export controls, when is this relevant for researchers; contact your institution's legal support in case of questions*
 
 # Conclusion
 
@@ -83,7 +83,7 @@ These two goals - protecting privacy and sharing data - are not contradictory, b
 
 The good news is that anonymization gives us the tools to navigate this tension. By learning how to properly anonymize data, you can share your research data openly while still protecting the people who made your research possible. That is what this tutorial is about.
 
-Next, we will dive deeper into privacy laws: They provide concrete rules that guide data protection throughout the whole research cycle. 
+Next, we will dive deeper into privacy laws: They provide concrete rules that guide data protection throughout the whole research cycle.
 
 #### Learning Objective
 

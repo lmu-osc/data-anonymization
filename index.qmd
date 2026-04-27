@@ -2,13 +2,11 @@
 title: "Welcome to the Data Anonymization Course"
 ---
 
-This website is work in progress. Please come back later in 2026 :)
-
-*Explain purpose of tutorial and conditions (quantiative data in social sciences)*
+This website is a work in progress. Please come back later in 2026 :)
 
 # Tutorial Overview
 
-This **self-paced tutorial** is intended to take X hours to complete.
+This **self-paced tutorial** on anonymization of quantitative research data is intended to take three hours to complete.
 
 The tutorial is split into the following sections:
 
@@ -21,7 +19,7 @@ The tutorial is split into the following sections:
 
 By the end of this tutorial, you will be able to:
 
--   **Understand key concepts** in the world of privacy (e.g., anonymization, differential privacy)
+-   **Understand key concepts** in the world of privacy (e.g., anonymization, k-anonymity)
 
 -   **Classify data** in relevant categories for data protection (e.g., personal data, sensitive data)
 
@@ -36,22 +34,6 @@ By the end of this tutorial, you will be able to:
 
 # Prerequisites
 
--   link other tutorials?
+-   You need basic R skills (e.g., loading data and packages).
 
--   RStudio, installed software
-
-# Tutorial Navigation
-
-Callout boxes
-
--   further reading
-
--   attention/warnings
-
--   exercise solutions
-
-::: {.callout-tip title="Recommended Software"}
-This tutorial assumes you have the following software installed:
-
--   SOME SOFTWARE + LINK HERE
-:::
+-   Necessary software: R and RStudio

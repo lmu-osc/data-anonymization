@@ -11,7 +11,11 @@ library(tidyverse)
 
 data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Change based on the location of your data file
 
-sdc_data <- readRDS("../sdc_micro.rds") # Change based on the location of your Sdc-object file
+sdc_data <- createSdcObj(
+  dat     = data_withoutdirectidentifiers,
+  keyVars = c("gender", "age", "education", "plz"),
+  numVars = c("income", "years_in_job")
+)
 ```
 
 Non-perturbative techniques reduce re-identification risk without distorting the underlying values - they either remove information or make it less specific. What stays in the dataset is still true; there is just less of it. This is what sets them apart from perturbative techniques, which add noise or swap values to obscure the original data.
