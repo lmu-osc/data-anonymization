@@ -2,28 +2,40 @@
 title: "De-Associative Techniques"
 ---
 
--   idea: break the association between indirect identifiers and other data
+De-associative techniques protect privacy by breaking the link between indirect identifiers and sensitive attributes, rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person's record based on their demographic attributes, they should not be able to learn their sensitive values from it.
 
--   simplest idea: separating datasets
+The simplest version of this is just separating a dataset into two tables - one with the identifiers and one with the sensitive attributes. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.
 
-    -   disadvantage: no connection possible for data analysis purposes
-    -   rather: a last resort
+More useful are approaches that preserve some analytical structure while still breaking the individual-level link - the two main ones being bucketization and anatomization.
 
-Bucketization works by first grouping records into "buckets" based on their indirect identifiers (like age, gender, postal code). Each bucket must contain at least k records to satisfy k-anonymity. Within each bucket, the sensitive values (like income or political opinions) are then randomly shuffled, so the link between a specific person's indirect identifiers and their sensitive attributes is broken. An attacker might narrow someone down to a bucket, but they cannot tell which sensitive value belongs to whom within that bucket.
+# Examples of De-associative Techniques
 
-# Example Technique: Bucketization
+## Bucketization
 
--   idea: create QI groups with at least k records
+Bucketization groups records into "buckets" based on their indirect identifiers (like age, gender, or postal code), with each bucket required to contain at least k records to satisfy k-anonymity. Within each bucket, the sensitive values - such as income or political opinions - are randomly shuffled among the records. The result is that an attacker might be able to narrow someone down to a bucket, but cannot tell which sensitive value belongs to which specific person within it.
 
--   stems from the created buckets or partitions
+The process works in three steps:
 
--   1\. step: generalization to create buckets (e..g., countries to continents)
+1.  Generalize the indirect identifiers to create buckets (e.g., exact countries → continents).
+2.  De-generalize the identifiers within each bucket back to their original values (e.g., continents → countries again).
+3.  Permute the sensitive values randomly within each bucket.
 
--   2\. step: de-generalize the QI in the created buckets (i.e., continents back to countries)
+The shuffling in step 3 is what makes this a de-associative rather than a perturbative technique - the values themselves are unchanged, only the assignment between records and sensitive attributes is broken within each group.
 
--   3\. step: permutate sensitive values within each bucket
+## Anatomization
 
-*potentially swap for another technique that is not so confusing with regard to usual perturbative techniques (anatomization)*
+Anatomization is a cleaner alternative to bucketization that avoids some of its complexity. Rather than shuffling values within buckets, anatomization splits the dataset into two separate tables:
+
+-   A **quasi-identifier table** containing the indirect identifiers (e.g., age, gender, postal code), with a group ID linking each record to its group.
+-   A **sensitive table** containing the sensitive attributes and the same group ID, but with the individual record links removed.
+
+An analyst can still answer questions like "what is the distribution of political opinions among 30-44 year olds in postal region 8xxxx?" by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table - the individual-level association is gone.
+
+Anatomization is particularly useful when the sensitive attribute is the main focus of the research question, and when preserving group-level patterns is more important than individual-level linkage. For our dataset - where the research question is about the relationship between religion and political opinion - anatomization could work well: group-level associations are preserved, but no individual's religion and political views can be read together.
+
+# Pro and Contra De-Associative Techniques
+
+# Exercise 
 
 #### Learning Objective
 
