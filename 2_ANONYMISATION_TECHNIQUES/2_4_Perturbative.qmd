@@ -70,7 +70,7 @@ PRAM (Post RAndomisation Method) applies to categorical variables. Each value is
 
 # Keeping Utility
 
-After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover utility measures in the chapter on [Balancing Utility and Privacy](../3_PRIVACY_OPENNESS/3_1_Balancing.qmd).
+After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover utility measures in [the chapter on balancing utility and privacy](../3_PRIVACY_OPENNESS/3_1_Balancing).
 
 # Pro and Contra of Using Perturbative Techniques
 
@@ -149,7 +149,7 @@ sdc_noise
 
 `addNoise` draws from a normal distribution with mean 0 and standard deviation = `noise × sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income. When `noise = 3.5`, we achieve a disclosure risk of up to 75.5%.
 
-Let's save these objects for now. We will later come back to inspect the utility of both methods in the chapter on [Balancing Utility and Privacy](../3_PRIVACY_OPENNESS/3_1_Balancing.qmd).
+Let's save these objects for now. We will later come back to inspect the utility of both methods in [the chapter on balancing utility and privacy](../3_PRIVACY_OPENNESS/3_1_Balancing).
 
 ```{r}
 saveRDS(sdc_micro, "../sdc_micro.rds")
