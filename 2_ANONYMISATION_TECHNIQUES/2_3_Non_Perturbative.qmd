@@ -28,7 +28,7 @@ Depending on the specific data type and risk, different techniques are possible 
 
 # Examples of Non-Perturbative Techniques
 
-*explain each technique, use research-related terms, and add visualizations*
+*add visualizations*
 
 ## Global Recoding
 
@@ -64,7 +64,7 @@ Suppression can occur on different levels:
 
 -   Record suppression: Remove an entire participant's data if their combination of attributes is so unique that no other technique can adequately protect them.
 
--   Variable suppression: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case - we already did this in [Chapter 1.3](../1_FOUNDATION/1_3_Personal_Data).
+-   Variable suppression: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case - we already did this in [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data).
 
 Cell suppression can also follow a specific condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in the column “Customer Feedback” could be nullified if the customer feedback was negative [@raghunathan2013complete]. **Find better example**
 
@@ -104,7 +104,7 @@ Con:
 
 -   basic data wrangling operations in R or functions in sdcMicro (better than manual changes)
 
--   but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries; see [Chapter DOCUMENTATION](../3_PRIVACY_OPENNESS/3_2_Documentation))
+-   but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries; see [the chapter on documentation](../3_PRIVACY_OPENNESS/3_2_Documentation))
 
 ## Exercise: Applying Non-Perturbative Techniques
 

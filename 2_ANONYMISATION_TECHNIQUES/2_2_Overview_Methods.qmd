@@ -5,27 +5,25 @@ bibliography: ../references.bib
 
 Anonymization transforms data so that **individuals can no longer be identified**, while keeping the data useful for analysis. The challenge is always a trade-off: stronger anonymization means better privacy protection, but it can also mean less detailed or less useful data. Finding the right balance is the core problem we will deal with throughout this tutorial.
 
-Data anonymization is the process of transforming sensitive data to protect individuals' privacy [@el2013anonymizing]. Its primary goal is to remove the association between identifying data and the data subject, making it impossible or very difficult to trace the data back to an individual [@el2013anonymizing]
-
 In the next sections of the tutorial, I will present you with several groups of techniques for anonymization, following the taxonomy by @Carvalho2023_SurveyPrivacyPreservingTechniques.
 
 -   **Non-perturbative techniques** are those that do not change data values but rather mask them.
 
 -   **Perturbative techniques** involve modifying data values to anonymize the data.
 
--   **De-associative techniques** separate specific parts of the data from other parts.
+-   **De-associative techniques** separate specific inidrectly identying parts of the data from the sensitive parts.
 
 -   **Synthesizing data** means creating new data with the same statistical properties as the original data. I will not discuss this method in detail in this tutorial.
 
 *Insert graphics that explain the underlying principles*
 
-Each family of techniques addresses different types of risk. **Non-perturbative techniques** primarily reduce **identity disclosure** risk by making individuals less unique in the dataset - for example, by grouping age values into broader categories. **Perturbative techniques** protect against both **identity and attribute disclosure** because they change the actual data values: Even if someone is identified, the sensitive values may no longer be accurate. **De-associative techniques** break the link between identifiers and sensitive attributes, making it harder to connect a person to their data. **Synthetic data sidesteps disclosure risk** entirely by generating completely new records that were never tied to real individuals.
+Each family of techniques addresses different types of risk. **Non-perturbative techniques** primarily reduce **identity disclosure** risk by making individuals less unique in the dataset - for example, by grouping age values into broader categories. **Perturbative techniques** protect against both **identity and attribute disclosure** because they change the actual data values: Even if someone is identified, the other values may no longer be accurate. **De-associative techniques** break the link between identifiers and sensitive attributes, making it harder to connect a person to all data within the dataset. **Synthetic data sidesteps disclosure risk** entirely by generating completely new records that were never tied to real individuals.
 
 For each anonymization technique, the **variable's scale level** needs to be taken into account. Some techniques only work for categorical variables (i.e., discrete variables; e.g., gender, highest level of education), others only for continuous variables (e.g., income, age), and some work for both. Make sure to check each technique's requirements before applying it to your data.
 
-In the following chapters, we will go through each family of techniques one by one. Each chapter explains the underlying ideas and then provides hands-on exercises using the same simulated dataset from [Chapter 1.3](../1_3_Personal_Data) and the sdcMicro package. This way, you can see how each technique changes the data and its risk profile step by step.
+In the following chapters, we will go through each family of techniques one by one. I will first explain the underlying idea of a family and will then provide hands-on exercises for selected techniques using the same simulated dataset from [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data) and the `sdcMicro` package. This way, you can see how each technique changes the data and its risk profile step by step.
 
-After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in the [Chapter "Choosing the Right Technique"](../2_7_Choosing_technique).
+After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in the [the chapter on choosing the right technique](../2_7_Choosing_technique).
 
 #### Learning Objective
 

@@ -3,7 +3,7 @@ title: "Privacy Concepts"
 bibliography: ../references.bib
 ---
 
-Before we get into the actual anonymization techniques (in the next part of this tutorial), we need to understand what exactly we are protecting against. This chapter introduces the types of privacy risks that exist in typical quantitative research datasets and the foundational concept of k-anonymity, which will guide our risk assessment later on.
+Before we get into the actual anonymization techniques (in the next part of this tutorial), we need to understand what exactly we are protecting against. This chapter introduces the types of privacy risks that exist in typical quantitative research datasets and the foundational concept of k-anonymity, which will guide our risk assessment later.
 
 # Privacy Risks
 
@@ -61,12 +61,12 @@ The indirect identifiers that remain in a dataset - like age, gender, occupation
 
 -   **Politician mental health data:** A dataset on the mental health of German politicians is released publicly. It contains age range, gender, and political function. A journalist links this to publicly available information about members of the Bundestag and re-identifies several politicians (identity disclosure), gaining access to their mental health data (attribute disclosure).
 
--   **Latanya Sweeney's classic demonstration:** In the late 1990s, computer scientist Latanya Sweeney showed that 87% of the U.S. population could be uniquely identified by just three variables: date of birth, gender, and ZIP code. She famously re-identified the medical records of the Governor of Massachusetts by linking a "de-identified" hospital dataset with publicly available voter registration records [@Sweeney2000_SimpleDemographicsOften, Barth-Jones2012_ReIdentificationGovernorWilliam].
+-   **Latanya Sweeney's classic demonstration:** In the late 1990s, computer scientist Latanya Sweeney showed that 87% of the U.S. population could be uniquely identified by just three variables: date of birth, gender, and ZIP code. She famously re-identified the medical records of the Governor of Massachusetts by linking a "de-identified" hospital dataset with publicly available voter registration records [@Sweeney2000_SimpleDemographicsOften, @Barth-Jones2012_ReIdentificationGovernorWilliam].
 :::
 
 # Operationalizing Risk
 
-How do we move from "there might be a risk" to "this is how much risk there is"? In this tutorial, we focus on basic methods for quantifying re-identification risk for categorical variables and individuals. For more advanced approaches (group-level risks, continuous variables), see the [sdcPractice documentation](https://sdcpractice.readthedocs.io/en/latest/measure_risk.html).
+How do we move from "there might be a risk" to "this is how much risk there is"? In this tutorial, we focus on basic methods for quantifying re-identification risk for individuals. For more advanced approaches (e.g., group-level risks), see the [sdcPractice documentation](https://sdcpractice.readthedocs.io/en/latest/measure_risk.html).
 
 ::: callout-caution
 The inclusion of groups (e.g., school classes, partnerships, households) that share certain attributes introduces additional risk for individuals, since other group members may use shared knowledge to infer information about specific individuals in the dataset.
@@ -74,15 +74,15 @@ The inclusion of groups (e.g., school classes, partnerships, households) that sh
 
 # K-Anonymity
 
-K-anonymity is the most widely used concept for measuring re-identification risk in microdata, and it will be our primary tool for assessing risk throughout this tutorial.
+K-anonymity is the most widely used concept for measuring re-identification risk in quantitative research datasets, and it will be our primary tool for assessing risk throughout this tutorial.
 
 ## Origin
 
-K-anonymity was developed by computer scientist Latanya Sweeney after her demonstration of how she could re-identify supposedly anonymized medical records (described above). The concept directly addresses the linkage attack problem: if each individual in a dataset is indistinguishable from at least *k*-1 other individuals on a set of quasi-identifiers, then linking external information to a specific record becomes much harder.
+K-anonymity was developed by computer scientist Latanya Sweeney after her demonstration of how she could re-identify supposedly anonymized medical records (described above) [@Sweeney2000_SimpleDemographicsOften]. The concept directly addresses the linkage attack problem: if each individual in a dataset is indistinguishable from at least *k*-1 other individuals on a set of demographic variables, then linking external information to a specific individual becomes much harder.
 
 ## Definition
 
-A dataset satisfies **k-anonymity** if, for every combination of quasi-identifiers (the indirect identifiers that could be used for linking), there are at least *k* records sharing that same combination. In other words: no one is unique, and no one stands out from a group smaller than *k*.
+A dataset satisfies **k-anonymity** if, for every combination of quasi-identifiers (the indirect identifiers that could be used for linking), there are at least *k* records (of individuals) sharing that same combination. In other words: no one is unique, and no one stands out from a group smaller than *k*.
 
 -   If **k = 1**, there is at least one record that is unique on its quasi-identifiers - meaning someone could potentially be singled out. This is the highest risk.
 -   If **k = 5**, every individual shares their combination of quasi-identifiers with at least 4 others - making re-identification much harder.
@@ -102,7 +102,7 @@ Imagine a dataset with three quasi-identifiers: age, gender, and postal code.
 
 The first three rows share the same combination (34, Female, 80331), so they form a group of size 3. The last two rows share (51, Male, 80333), forming a group of size 2. The smallest group has 2 records, so this dataset satisfies **2-anonymity** - but not 3-anonymity.
 
-If an attacker knows that a 34-year-old woman living in 80331 is in the dataset, they can narrow it down to 3 possible records but cannot determine which one is hers.
+If an attacker knows that a 34-year-old woman living in 80331 is in the dataset, they can narrow it down to 3 possible records, but cannot determine which one is hers.
 
 ::: callout-tip
 # How Unique Are You?
@@ -119,7 +119,7 @@ K-anonymity is a useful starting point, but it has known limitations:
 
 Extensions like **l-diversity** (requiring diversity in sensitive values within each group) and **t-closeness** (requiring that the distribution of sensitive values within each group is close to the overall distribution) have been proposed to address these issues. For the scope of this tutorial, k-anonymity will be our main metric - but it is good to be aware that it is not a silver bullet.
 
-We will use k-anonymity practically in the [next part](../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd) of this tutorial, where we calculate it using R and the `sdcMicro` package.
+We will use k-anonymity practically in the [the next chapter](../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy) of this tutorial, where we calculate it using R and the `sdcMicro` package.
 
 #### Learning Objective
 

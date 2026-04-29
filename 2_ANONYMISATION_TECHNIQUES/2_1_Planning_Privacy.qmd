@@ -13,13 +13,13 @@ In the previous chapters, we covered the foundations: what counts as personal da
 
 Anonymization of data, in most cases, means covering or obscuring the data, meaning there is always a loss of information. However, when sharing data, we need to keep their utility; otherwise, they are rendered useless.
 
-The goal is to use the appropriate anonymization techniques to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also [BALANCING DATA PROTECTION AND OPENNESS](../3_PRIVACY_OPENNESS/3_1_Balancing)).
+The goal is to use the appropriate anonymization techniques to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also [the chapter on balancing privacy and utility](../3_PRIVACY_OPENNESS/3_1_Balancing)).
 
 To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, taking what we learned in the [last chapter](../1_FOUNDATIONS/1_5_Privacy_Concepts) and putting it into practice.
 
 # Identifying Privacy Risks
 
-Take another look at the dataset from [Chapter 1.3](../1_FOUNDATION/1_3_Personal_Data), the version without direct identifiers. Try to answer the following questions:
+Take another look at the dataset from [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data), the version without direct identifiers. Try to answer the following questions:
 
 -   Which combinations of indirect identifiers could potentially single out an individual?
 -   What attack scenarios are plausible? Think about who might try to re-identify someone in this dataset and what external information they might have access to.
@@ -28,40 +28,46 @@ Take another look at the dataset from [Chapter 1.3](../1_FOUNDATION/1_3_Personal
 ::: {.callout-note collapse="true"}
 ## Solution
 
-*Add concrete combinations*
+Here are a few concrete attack scenarios to consider, based on our dataset of 200 individuals in Germany (with variables: gender, age, education, plz, income, religion, years_in_job, and political opinion variables):
 
-Here are a few concrete attack scenarios to consider, based on our dataset of 200 individuals in Germany (with variables: gender, age, education, plz, income, religion, job_title, years_in_job, and political opinion variables):
-
--   A colleague knows that a specific person lives in a particular postal code area, works as a "Data Scientist," and is 34 years old. If the combination of plz, job_title, and age is unique in the dataset, that colleague can identify the person and look up their income and political opinions. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see callout box below).
--   A journalist cross-references the dataset with publicly available professional directories or LinkedIn profiles. By matching job_title, age, and education level, they could narrow down candidates and potentially identify individuals - especially in smaller postal code areas where few people share the same profession.
+-   A colleague knows that a specific person lives in a particular postal code area, holds a doctoral degree, and is 34 years old. If the combination of plz, education, and age is unique in the dataset, that colleague can identify the person and look up their income, political opinions, and religion. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see callout box below).
+-   A journalist cross-references the dataset with publicly available census or salary reports. By matching education level, income range, and age, they could narrow down candidates and potentially identify individuals - especially in smaller postal code areas where few people share the same combination of characteristics.
 -   A neighbor knows that someone in their building participated in the study. They know the person's approximate age, gender, and religion. Even if they cannot pinpoint the exact row, they might learn something new about that person's income or political views. This is attribute disclosure - the attacker does not need to find the exact record, just a group of records that all share the same sensitive value.
 
-These are just a few examples; in general, the existence and likelihood of risks is very much dependent on the variables in the dataset, the sensibility of data, the recruitment strategy, and many other factors. *Elaborate more/link to other relevant parts*
+For this dateset, identity and attribute disclosure are most likely. Since there is not one single group that was recruited, there is no membership disclosure possible.
+
+These are just a few examples; in general, the existence and likelihood of risks is very much dependent on the variables in the dataset, the sensibility of data, the recruitment strategy, and many other factors (see [this chapter on choosing the right technique](../2_7_Choosing_technique) for more information).
 :::
 
-*Add callout box whether participation knowledge needs to be assumed or not (and its implications)*
-
 ::: callout-note
-Felix's notes:
+## Participation Knowledge
 
--   "reasonably likely”: We should discuss here or somewhere else one of the main factors: The knowledge of an attacker whether a person is in a specific data set ("Teilnahmekenntnis"). This changes a lot for the k-anonymity. Here a my notes regarding this:
+A major factor that influences the risk assessment is participation knowledge: An attacker's knowledge of whether a person's data is in a specific dataset.
 
-    -   The relevant keyword is "Teilnahmekenntnis" / "participation knowledge": The re-identification risk rises very much when attacks know who participated in a survey. Von Klaus Pforr ([https://sciences.social/\@klauspforr/110775060196195399](https://sciences.social/@klauspforr/110775060196195399)): "Never post your survey participation in a run-of-the-mill survey on social media because the whole anonymisation concept most of time assumes negligble prior probs for these. Whenever you see this in the wild, send a direct message that people should refrain from this behavior in the future"
+In practice, participation knowledge is often not assumed in formal risk assessment [@guo2025]. The default is to treat every record as if the attacker does not know whether a specific person is in the dataset at all - making the risk assessment more conservative and manageable.
 
-    -   I talked to Johannes Breuer (who was at GESIS back then), and he said that the big surveys always assume NO Teilnahmekenntnis when evaluating their level of anonymity.
+However, I would advise taking participation knowledge into account - especially in contexts where it is likely that participants disclose their participation to others or the public (e.g., on social media). Here are a few examples of studies where I'd be especially careful and would rather err on the conservative side, assuming that participation knowledge might be given:
+
+-   **Snowball sampling or referral-based recruitment.** When participants are actively encouraged to recruit others, word of participation spreads naturally. It is reasonable to assume that at least some participants know others who are also in the dataset.
+
+-   **Highly interventional or attention-grabbing studies.** This could be co-design projects, clinical trials, or lifestyle interventions that require a big change in behavior (e.g., quitting smoking, not using one's phone for a few weeks). People tend to talk about these - to friends, family, or on social media.
+
+-   **Studies where participation is something to list as experience.** For example, when recruiting via freelancing or participant platforms, it is common for people to share prior study participation as part of their portfolio or work history. Others in their network may therefore be aware that they took part.
+
+-   **Grouped observations** (e.g., couples, families, classmates, or colleagues) are an extreme case: group members already know each other's participation by definition and may share identifying attributes. Refer to the [SDC Practice Guide](https://sdcpractice.readthedocs.io/en/latest/index.html) for specific guidance on handling grouped data.
+
+This is where k-anonymity comes into place: You cannot pinpoint an individual's data just based on demographics. When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. I advise for a k-anonymity level of at least 2 or 3 and at least 5 in case of studies that come with a high risk of participation knowledge.
 :::
 
 # Measuring Privacy Risks
 
 ## The `sdcMicro` Package
 
-To formally measure privacy risks (and for most of the following exercises), we will use the package `sdcMicro` in R.
+To formally measure privacy risks (and for most of the following exercises), we will use the package `sdcMicro` in R [@templ2015].
 
-sdcMicro is an R package specialized in the anonymization of micro (small) data sets. sdcMicro offers a command line and a Graphical User interface (GUI).
+`sdcMicro` is an R package specialized in the anonymization of micro (small) data sets. `sdcMicro` offers a command line and a Graphical User interface (GUI).
 
-*Include more info on functions in sdcMicro?*
-
-## Using `sdcMicro` To Assess Privacy Risks
+## Using `sdcMicro` to Assess Privacy Risks
 
 Let's start by creating a sdcMicro object using the class `sdcMicroObj`. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores
 
@@ -82,7 +88,7 @@ For this object, we start with defining the following:
 
 -   `numVars`: continuous (i.e., numeric) indirect identifiers (e.g., income)
 
-`sdcMicro` needs, at the least, the data and categorial indirect identifiers to assess risks. We can later add more information to the object.
+`sdcMicro` needs, at the least, the data and categorial indirect identifiers to assess risks.
 
 ::: callout-note
 ## More Functions of sdcMicro
@@ -96,12 +102,16 @@ For this object, we start with defining the following:
 -   `get.sdcMicroObj()`\
     Accesses internal components of the object.
 
-*Add info on GUI usage*
+-   `sdcApp()`Opens the GUI
+
+The GUI provides a nice overview of functions. In case you decide to use it (and I recommend to try it out), create an anonymization report and the end via `export data` to make your anonymization transparent.
 :::
 
 ## Exercise: Assessing Privacy Risks With `sdcMicro`
 
-1.  Create an object within sdcMicro. Inspect the object.
+In this exercise, you will assess privacy risks with `sdcMicro` using the example data from the [chapter on personal data](../1_FOUNDATIONS/1_3_Personal_Data). We will work with the dataset `data_withoutdirectidentifiers`.
+
+1.  Create an object within sdcMicro that contains the relevant `keyVars` and `numVars`. Inspect the object.
 2.  What k-anonymity level is currently reached?
 
 ::: {.callout-note collapse="true"}
@@ -121,13 +131,13 @@ sdc_data <- createSdcObj(
 sdc_data # Summarizes the risks overall
 ```
 
-`sdcMicro` shows us the unmodified, original parameters in parentheses. Right now, they are, of course, identical to the current parameters as we have not made any changes yet.
+`sdcMicro` shows us the unmodified, original parameters in parentheses within the summary of the `sdcObject`. Right now, the original parameters are, of course, identical to the current parameters as we have not made any changes yet.
 
 For the **categorial key variables**, we get information on the numbers and sizes of categories. The more categories and the smaller the number of entries in each category, the easier the de-identification as we have many unique individual values.
 
 We also get information on k-anonymity of the combinations of these categorial variables: Currently, all observations breach 3- and 5-anonymity. There are only two persons in our dataset who share the same gender, age, education, plz, and years_in_job; therefore, our dataset also breaches 2-anonymity. 99% of participants are unique, meaning they have a unique combination on these demographic variables.
 
-Upon closer inspection, these entries are IDs 94 and 122, who share many demographic details: both are 18 years old, live in Munich at postal code 80636, and have a high school degree. If I knew my male, 18-year-old friend living at 80636 had participated in this study, I could not identify him based on a combination of thes data points alone. However, if I knew his job title, I could still identify him. Let's keep this in mind for further analyses.
+Upon closer inspection, these entries are IDs 94 and 122, who share many demographic details: both are 18 years old, live in Munich at postal code 80636, and have a high school degree. If I knew my male, 18-year-old friend living at 80636 had participated in this study, I could not identify him based on a combination of these data points alone. However, if I knew his exact income, I could still identify him. Let's keep this in mind for further analyses.
 
 ```{r}
 knitr::kable(data_withoutdirectidentifiers[data_withoutdirectidentifiers$id %in% c(94, 122), ])
@@ -160,14 +170,12 @@ How you assign variables to `keyVars` and `numVars` is a judgment call - there i
 
 The most realistic attack scenario for this dataset is probably someone who knows a study participant personally - a colleague, friend, or family member. Such a person would most likely know basic demographic attributes: the participant's gender, approximate age, postal code, and level of education. These are the variables an attacker is most plausibly able to use to find a specific record, which is why we treat them as `keyVars`.
 
-`income` is placed in `numVars` because it is less likely to be known in advance - it is something an attacker might *learn* from the dataset, not something they use to *search* it.
+`income` is placed in `numVars` as it is a continuous variable.
 
-`years_in_job` is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in `keyVars` would be the conservative choice. In this case, I consider it less likely to be known, which is why i put it into `numVars`
+`years_in_job` is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in `keyVars` would be the conservative choice. In this case, I consider it less likely to be known exactly, which is why i put it into `numVars`
 
-The same logic applies to `religion`: if a plausible attacker is someone who knows the participant from a religious community, then `religion` belongs in `keyVars`, not treated as a sensitive outcome. The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.
+The same logic applies to `religion`: if a plausible attacker is someone who knows the participant from a religious community, then `religion` belongs in `keyVars`, not treated as a sensitive outcome. The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context. In this case, I think it is not likely to be known by an attacker.
 :::
-
-At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need anonymization but can skip to preparing your data for publication.
 
 Save the sdcObject for further anonymization steps.
 
@@ -175,7 +183,9 @@ Save the sdcObject for further anonymization steps.
 saveRDS(sdc_data, "../sdc_micro.rds")
 ```
 
-If the risk is not acceptable - as is the case here - we will start with the actual anonymization process. To that end, I will present you several techniques over the next few chapters.
+At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need to anonymize; you can skip to preparing your data for publication.
+
+If the risk is not acceptable - as is the case here - we will start with the actual anonymization process. To that end, I will present you with several techniques over the next few chapters.
 
 #### Learning Objective
 

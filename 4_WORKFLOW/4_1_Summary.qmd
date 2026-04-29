@@ -8,39 +8,39 @@ This chapter summarizes the full anonymization workflow. Use it as a reference o
 
 *Add a flowchart to the process*
 
-# Step 1: Implement Data Privacy Before and During Data Collection 
+# Step 1: Implement Data Privacy Before and During Data Collection
 
 Start with privacy by design: minimize the data you collect, plan your storage and access controls, and write a data management plan. Think about anonymization before you collect a single data point.
 
-# Step 2: Collect Data 
+# Step 2: Collect Data
 
 Collect only what you need. Use informed consent forms that clearly state how data will be used and whether it will be shared. Pseudonymize data as early as possible by replacing direct identifiers with codes.
 
-# Step 3: Analyze Attack Scenarios 
+# Step 3: Analyze Attack Scenarios
 
 Before anonymizing, think about who might try to re-identify individuals and what external information they could use. Consider identity disclosure, attribute disclosure, and membership disclosure risks.
 
-# Step 4: Calculate Disclosure Risk and Utility 
+# Step 4: Calculate Disclosure Risk and Utility
 
 Use tools like sdcMicro to measure k-anonymity and other risk metrics on your dataset. Also establish a baseline for data utility so you can compare later.
 
-# Step 5: Choose Anonymization Measures 
+# Step 5: Choose Anonymization Measures
 
 Based on your risk assessment, select appropriate techniques: non-perturbative (generalization, suppression), perturbative (noise, microaggregation), de-associative, or synthetic data generation.
 
-# Step 6: Apply Anonymization Techniques 
+# Step 6: Apply Anonymization Techniques
 
 Apply your chosen techniques, working through them step by step. Use the sdcMicro package or equivalent tools to keep track of changes.
 
-# Step 7: Recalculate Disclosure Risk and Utility 
+# Step 7: Recalculate Disclosure Risk and Utility
 
 After each anonymization step, re-measure risk and utility. If the balance is not satisfactory, go back to Step 3 and adjust your approach. This is an iterative process.
 
-# Step 8: Document the Process 
+# Step 8: Document the Process
 
 Create both internal documentation (full details for auditing) and external documentation (in the data dictionary). Review your scripts to ensure they do not accidentally reveal sensitive information.
 
-# Step 9: Publish Data 
+# Step 9: Publish Data
 
 Share your anonymized dataset along with the external documentation. Choose an appropriate repository and access level based on the remaining risk (best option is fully open).
 
