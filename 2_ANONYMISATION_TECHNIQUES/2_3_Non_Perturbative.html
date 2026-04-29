@@ -419,7 +419,7 @@ div.csl-indent {
 <p>Depending on the specific data type and risk, different techniques are possible <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">(<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">Carvalho et al. 2023</a>)</span>:</p>
 <section id="examples-of-non-perturbative-techniques" class="level1">
 <h1>Examples of Non-Perturbative Techniques</h1>
-<p><em>explain each technique, use research-related terms, and add visualizations</em></p>
+<p><em>add visualizations</em></p>
 <section id="global-recoding" class="level2">
 <h2 class="anchored" data-anchor-id="global-recoding">Global Recoding</h2>
 <p>Global recoding (also called generalization) replaces the exact values of a variable with broader categories - applied to every row in the dataset.</p>
@@ -445,7 +445,7 @@ div.csl-indent {
 <ul>
 <li><p>Cell suppression: Remove a single risky value while keeping the rest of the record. For example, if one participant has a unique job title that makes them identifiable, you can set only that cell to <code>NA</code>.</p></li>
 <li><p>Record suppression: Remove an entire participant’s data if their combination of attributes is so unique that no other technique can adequately protect them.</p></li>
-<li><p>Variable suppression: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case - we already did this in <a href="../1_FOUNDATION/1_3_Personal_Data">Chapter 1.3</a>.</p></li>
+<li><p>Variable suppression: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case - we already did this in <a href="../1_FOUNDATION/1_3_Personal_Data">the chapter on personal data</a>.</p></li>
 </ul>
 <p>Cell suppression can also follow a specific condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in the column “Customer Feedback” could be nullified if the customer feedback was negative <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>. <strong>Find better example</strong></p>
 <p>Another example is the replacement of credit card number values with XXX. In the credit card example, the application of the character masking technique can be <em>partial</em>, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.</p>
@@ -478,7 +478,7 @@ div.csl-indent {
 <h1>Applying Non-Perturbative Techniques With R</h1>
 <ul>
 <li><p>basic data wrangling operations in R or functions in sdcMicro (better than manual changes)</p></li>
-<li><p>but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries; see <a href="../3_PRIVACY_OPENNESS/3_2_Documentation">Chapter DOCUMENTATION</a>)</p></li>
+<li><p>but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries; see <a href="../3_PRIVACY_OPENNESS/3_2_Documentation">the chapter on documentation</a>)</p></li>
 </ul>
 <section id="exercise-applying-non-perturbative-techniques" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-applying-non-perturbative-techniques">Exercise: Applying Non-Perturbative Techniques</h2>
@@ -533,7 +533,7 @@ Tip
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="co"># check summary after making the change</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The input dataset consists of 200 rows and 13 variables.
+<pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
   --&gt; Numerical key variables: income, years_in_job
 ----------------------------------------------------------------------</code></pre>
@@ -608,7 +608,7 @@ Expected number of re-identifications:
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The input dataset consists of 200 rows and 13 variables.
+<pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
   --&gt; Numerical key variables: income, years_in_job
 ----------------------------------------------------------------------</code></pre>
@@ -686,7 +686,7 @@ Expected number of re-identifications:
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The input dataset consists of 200 rows and 13 variables.
+<pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
   --&gt; Numerical key variables: income, years_in_job
 ----------------------------------------------------------------------</code></pre>
@@ -758,7 +758,7 @@ Expected number of re-identifications:
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The input dataset consists of 200 rows and 13 variables.
+<pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
   --&gt; Numerical key variables: income, years_in_job
 ----------------------------------------------------------------------</code></pre>
@@ -844,7 +844,7 @@ Expected number of re-identifications:
 <span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The input dataset consists of 200 rows and 13 variables.
+<pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
   --&gt; Numerical key variables: income, years_in_job
 ----------------------------------------------------------------------</code></pre>
@@ -952,7 +952,7 @@ Expected number of re-identifications:
 <span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The input dataset consists of 200 rows and 13 variables.
+<pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
   --&gt; Numerical key variables: income, years_in_job
 ----------------------------------------------------------------------</code></pre>
@@ -1058,7 +1058,7 @@ Expected number of re-identifications:
 <span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The input dataset consists of 200 rows and 13 variables.
+<pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
   --&gt; Numerical key variables: income, years_in_job
 ----------------------------------------------------------------------</code></pre>
@@ -1353,408 +1353,408 @@ Expected number of re-identifications:
 198 198 8xxxx     female 40-49 89185.85            0     Protestantism
 199 199 8xxxx     female 30-39 58564.02            4       Catholicism
 200 200 other     female 40-49 30312.73            3       Catholicism
-                                                      job_title      education
-1                                      Local government officer   trade school
-2                                           Structural engineer    high school
-3                               Psychotherapist, dance movement    high school
-4                                        Fitness centre manager    high school
-5                 Programme researcher, broadcasting/film/video    high school
-6                                        Chief Strategy Officer    high school
-7                                      Engineer, communications    high school
-8                                       Secretary/administrator     university
-9                                                  Video editor   trade school
-10                                                Hotel manager    high school
-11                                                    Herbalist     university
-12                                      Teacher, primary school    high school
-13                             Production assistant, television    high school
-14                                             Surveyor, mining    high school
-15                                               Data scientist    high school
-16                                     Programmer, applications    high school
-17                                   Horticulturist, commercial   trade school
-18                             Training and development officer    high school
-19                                             Catering manager    high school
-20                                             Textile designer           &lt;NA&gt;
-21                                   Designer, fashion/clothing    high school
-22                                            Medical physicist    high school
-23                                          Seismic interpreter           &lt;NA&gt;
-24                                          Biomedical engineer    high school
-25                                          Biomedical engineer           &lt;NA&gt;
-26                                             Technical brewer     university
-27                                     Advertising art director    high school
-28                                Clothing/textile technologist    high school
-29                                                Stage manager     university
-30                                     Advertising art director    high school
-31                                                IT consultant     university
-32                                     Secondary school teacher   trade school
-33                                           Restaurant manager           &lt;NA&gt;
-34                                       Politician's assistant   trade school
-35                                                  Illustrator    high school
-36                                         Community pharmacist    high school
-37                                                    Solicitor           &lt;NA&gt;
-38                                     Local government officer    high school
-39                                                    Osteopath           &lt;NA&gt;
-40                                          Medical illustrator    high school
-41                                                      Surgeon   trade school
-42                                         Financial controller    high school
-43                                              Systems analyst    high school
-44                                             Sports therapist    high school
-45                    Sound technician, broadcasting/film/video doctoral title
-46                                       Amenity horticulturist    high school
-47                                                  Firefighter           &lt;NA&gt;
-48                                                         Copy    high school
-49                            Sales promotion account executive   trade school
-50                                     Public relations officer   trade school
-51                                            Financial planner    high school
-52                                       Museum/gallery curator    high school
-53                                                       Dealer    high school
-54                             Higher education careers adviser    high school
-55                                      General practice doctor           &lt;NA&gt;
-56                                       Recruitment consultant           &lt;NA&gt;
-57                             Training and development officer    high school
-58                                                    Mudlogger    high school
-59                                         Pharmacist, hospital    high school
-60                                     Horticultural consultant    high school
-61                                                   Ergonomist    high school
-62                                         Chartered accountant           &lt;NA&gt;
-63                                                 Psychiatrist           &lt;NA&gt;
-64                                      Data processing manager    high school
-65                                         Broadcast journalist   trade school
-66             Administrator, charities/voluntary organisations    high school
-67                                Speech and language therapist    high school
-68                                               Energy manager    high school
-69                                        Editor, commissioning    high school
-70                                Advertising account executive    high school
-71                                     Surveyor, land/geomatics    high school
-72                                        Exercise physiologist    high school
-73                                                 Risk manager   trade school
-74                                                 Risk manager    high school
-75                                              Games developer    high school
-76                                                  Illustrator     university
-77                                Speech and language therapist           &lt;NA&gt;
-78                                                       Gaffer    high school
-79                                             Heritage manager    high school
-80                                            Buyer, industrial    high school
-81                                                 Psychiatrist     university
-82                                         Public house manager     university
-83                             Production assistant, television           &lt;NA&gt;
-84                                           Wellsite geologist    high school
-85                                                       Dealer    high school
-86                                       Manufacturing engineer    high school
-87                                         Engineer, electrical           &lt;NA&gt;
-88                                         Brewing technologist     university
-89                                            Social researcher   trade school
-90                                  Advertising account planner    high school
-91                                         Community pharmacist    high school
-92                                       Conservator, furniture           &lt;NA&gt;
-93                          Designer, blown glass/stained glass           &lt;NA&gt;
-94                       Scientist, product/process development    high school
-95                                                       Dealer           &lt;NA&gt;
-96                                        Insurance underwriter    high school
-97                                                      Curator    high school
-98        Armed forces logistics/support/administrative officer     university
-99                                      Chief Executive Officer           &lt;NA&gt;
-100                                      Special effects artist   trade school
-101                                              Quarry manager doctoral title
-102                                           Therapist, sports    high school
-103                             Chartered management accountant           &lt;NA&gt;
-104                                            Graphic designer   trade school
-105                                          Professor Emeritus    high school
-106                             Runner, broadcasting/film/video    high school
-107                                       Forensic psychologist   trade school
-108                                        Engineer, electrical           &lt;NA&gt;
-109                                         Designer, furniture     university
-110                             Engineer, manufacturing systems    high school
-111                                             Patent attorney    high school
-112                               Research officer, trade union     university
-113                                  Museum/gallery conservator    high school
-114                              Furniture conservator/restorer    high school
-115                                    Television floor manager     university
-116                                    Print production planner    high school
-117                                            Financial trader    high school
-118                                                Estate agent    high school
-119                                   Trading standards officer   trade school
-120                                     Housing manager/officer     university
-121                                        Community pharmacist    high school
-122                   Sound technician, broadcasting/film/video    high school
-123                                            Catering manager    high school
-124                                       Nutritional therapist doctoral title
-125                                            Surveyor, mining    high school
-126                                Designer, industrial/product           &lt;NA&gt;
-127                    Geographical information systems officer    high school
-128                                          Furniture designer     university
-129                                       Multimedia programmer    high school
-130                                       Pharmacist, community doctoral title
-131                                                     Curator           &lt;NA&gt;
-132                                             Event organiser   trade school
-133                                             Energy engineer           &lt;NA&gt;
-134                            Armed forces operational officer           &lt;NA&gt;
-135                             Geophysicist/field seismologist    high school
-136                           Sales promotion account executive           &lt;NA&gt;
-137                    Conservation officer, historic buildings    high school
-138                                        Engineer, electrical   trade school
-139                                                Statistician doctoral title
-140                             Sport and exercise psychologist           &lt;NA&gt;
-141                                       Pharmacist, community    high school
-142                                              Water engineer    high school
-143                                              Data scientist     university
-144                                   Commercial horticulturist    high school
-145                                  Horticulturist, commercial           &lt;NA&gt;
-146                                                   Homeopath    high school
-147                                           Minerals surveyor   trade school
-148                                                Cartographer   trade school
-149                                      Programmer, multimedia           &lt;NA&gt;
-150                                                  IT trainer   trade school
-151                             Commercial/residential surveyor    high school
-152                                              Water engineer    high school
-153                                            Insurance broker     university
-154                          Museum/gallery exhibitions officer           &lt;NA&gt;
-155                                           Ceramics designer    high school
-156                                             Camera operator    high school
-157                                                   Paramedic     university
-158                                      Fitness centre manager           &lt;NA&gt;
-159                                                Immunologist    high school
-160                                     Chief Executive Officer    high school
-161                                          Purchasing manager           &lt;NA&gt;
-162                                        Pharmacist, hospital     university
-163                                             Physiotherapist    high school
-164                                           Market researcher    high school
-165                                         Marketing executive    high school
-166                                     Horticulturist, amenity     university
-167                                          Jewellery designer           &lt;NA&gt;
-168                                                        Make    high school
-169                                       Child psychotherapist     university
-170                               Interior and spatial designer    high school
-171                           Environmental health practitioner    high school
-172                                 Health and safety inspector    high school
-173                                        Broadcast journalist           &lt;NA&gt;
-174                                              Health visitor    high school
-175                                                      Dancer    high school
-176                                               Lexicographer    high school
-177                                           Psychiatric nurse    high school
-178                                        Newspaper journalist     university
-179                                  Research scientist (maths)    high school
-180                               Restaurant manager, fast food   trade school
-181                                           Software engineer           &lt;NA&gt;
-182                                        Engineer, electrical    high school
-183                                 Advertising account planner    high school
-184                                               Ranger/warden           &lt;NA&gt;
-185 Scientist, clinical (histocompatibility and immunogenetics)           &lt;NA&gt;
-186                                            Health physicist     university
-187                                      Special effects artist     university
-188                                         Hospital pharmacist     university
-189                                Medical sales representative           &lt;NA&gt;
-190                                    Technical sales engineer     university
-191                                     Engineer, manufacturing    high school
-192                            Surveyor, commercial/residential   trade school
-193                                    Scientist, water quality           &lt;NA&gt;
-194                                  Museum/gallery conservator    high school
-195                                      Psychologist, forensic    high school
-196                                        Optician, dispensing    high school
-197                                                  Translator           &lt;NA&gt;
-198                                          Secretary, company           &lt;NA&gt;
-199                                                   Economist     university
-200                                         Marketing executive    high school
-    pol_immigration pol_environment pol_redistribution pol_eu_integration
-1                 5               4                  5                  2
-2                 3               5                  3                  4
-3                 2               1                  2                  5
-4                 2               3                  5                  1
-5                 2               4                  3                  3
-6                 2               5                  5                  4
-7                 2               3                  3                  2
-8                 5               5                  4                  5
-9                 1               3                  1                  3
-10                1               3                  3                  5
-11                4               4                  2                  2
-12                5               4                  2                  3
-13                3               2                  3                  2
-14                3               2                  5                  3
-15                5               1                  2                  3
-16                4               5                  5                  5
-17                2               3                  4                  3
-18                1               2                  1                  1
-19                1               2                  4                  4
-20                3               2                  3                  1
-21                5               3                  5                  1
-22                4               2                  4                  4
-23                1               2                  1                  3
-24                5               5                  4                  1
-25                5               5                  3                  4
-26                2               2                  2                  3
-27                4               2                  2                  4
-28                5               1                  1                  1
-29                2               2                  3                  2
-30                3               3                  5                  3
-31                3               2                  4                  1
-32                1               1                  5                  2
-33                5               3                  5                  1
-34                3               2                  3                  4
-35                4               1                  1                  5
-36                3               3                  3                  4
-37                1               4                  4                  5
-38                2               1                  5                  5
-39                1               2                  1                  3
-40                4               1                  5                  5
-41                4               2                  1                  3
-42                3               3                  3                  4
-43                5               2                  4                  2
-44                2               3                  4                  5
-45                2               2                  3                  5
-46                4               5                  4                  3
-47                2               1                  3                  1
-48                3               4                  4                  2
-49                5               4                  2                  3
-50                4               5                  5                  2
-51                5               3                  1                  1
-52                4               1                  4                  1
-53                3               3                  2                  3
-54                3               5                  2                  5
-55                5               2                  5                  2
-56                5               3                  5                  2
-57                3               1                  1                  4
-58                1               5                  4                  4
-59                1               4                  1                  4
-60                5               2                  5                  3
-61                4               2                  3                  1
-62                1               5                  4                  4
-63                4               2                  3                  2
-64                5               5                  5                  2
-65                5               1                  3                  5
-66                2               2                  1                  5
-67                1               3                  3                  5
-68                2               3                  3                  3
-69                3               5                  5                  5
-70                4               4                  2                  4
-71                1               3                  5                  4
-72                2               5                  1                  3
-73                1               3                  1                  5
-74                2               5                  5                  3
-75                5               4                  5                  2
-76                5               1                  5                  2
-77                5               3                  5                  2
-78                2               1                  1                  4
-79                5               3                  2                  3
-80                3               3                  4                  5
-81                3               4                  1                  2
-82                5               3                  3                  5
-83                2               3                  5                  4
-84                3               3                  5                  1
-85                4               5                  1                  3
-86                1               3                  5                  4
-87                2               3                  3                  1
-88                2               1                  2                  3
-89                4               1                  2                  1
-90                1               3                  3                  5
-91                4               4                  4                  3
-92                3               3                  2                  5
-93                4               1                  4                  3
-94                3               3                  3                  2
-95                1               5                  2                  2
-96                2               3                  1                  5
-97                4               5                  5                  2
-98                4               5                  5                  4
-99                3               2                  2                  2
-100               2               5                  2                  2
-101               5               4                  2                  5
-102               2               5                  4                  2
-103               2               3                  2                  3
-104               5               4                  3                  1
-105               2               3                  4                  1
-106               1               4                  3                  1
-107               3               5                  4                  3
-108               5               2                  2                  1
-109               3               4                  2                  1
-110               2               1                  2                  5
-111               2               5                  2                  1
-112               1               3                  2                  4
-113               4               5                  4                  4
-114               3               3                  1                  5
-115               3               5                  5                  4
-116               2               3                  3                  4
-117               4               4                  4                  1
-118               1               4                  4                  4
-119               1               4                  3                  5
-120               1               5                  1                  1
-121               2               1                  5                  2
-122               2               5                  2                  2
-123               1               1                  5                  5
-124               1               1                  4                  2
-125               3               5                  4                  3
-126               5               3                  1                  5
-127               4               3                  3                  3
-128               2               4                  5                  4
-129               1               2                  2                  3
-130               2               5                  4                  3
-131               4               3                  1                  1
-132               3               5                  5                  1
-133               2               3                  3                  2
-134               2               5                  3                  4
-135               3               4                  2                  1
-136               5               1                  2                  5
-137               3               2                  4                  1
-138               1               4                  5                  4
-139               5               5                  1                  1
-140               4               5                  2                  3
-141               3               1                  1                  5
-142               5               2                  1                  3
-143               4               1                  5                  1
-144               5               4                  4                  5
-145               4               1                  2                  1
-146               4               4                  4                  1
-147               2               4                  3                  2
-148               1               1                  2                  2
-149               3               2                  4                  4
-150               4               4                  3                  2
-151               1               3                  4                  3
-152               1               2                  4                  2
-153               2               4                  2                  5
-154               3               5                  5                  2
-155               4               4                  1                  4
-156               1               3                  1                  3
-157               4               2                  2                  3
-158               5               2                  3                  4
-159               1               2                  4                  2
-160               1               2                  3                  3
-161               1               5                  3                  1
-162               5               1                  1                  1
-163               3               5                  1                  5
-164               2               3                  2                  1
-165               4               4                  3                  1
-166               2               5                  3                  5
-167               1               2                  1                  2
-168               2               1                  2                  3
-169               1               3                  5                  5
-170               1               1                  4                  3
-171               2               4                  4                  5
-172               1               2                  5                  1
-173               2               1                  1                  5
-174               2               5                  4                  5
-175               5               2                  1                  3
-176               2               1                  4                  2
-177               5               4                  3                  2
-178               1               4                  2                  5
-179               3               4                  2                  5
-180               5               2                  1                  2
-181               3               4                  2                  1
-182               1               3                  5                  5
-183               1               3                  4                  4
-184               3               3                  1                  2
-185               1               3                  3                  2
-186               5               4                  3                  5
-187               1               3                  4                  1
-188               1               5                  1                  4
-189               2               1                  4                  5
-190               5               3                  4                  4
-191               4               1                  1                  3
-192               3               5                  4                  4
-193               1               1                  5                  1
-194               4               2                  3                  3
-195               4               1                  1                  2
-196               5               5                  4                  5
-197               5               3                  3                  4
-198               2               5                  1                  5
-199               4               3                  3                  5
-200               5               5                  5                  5</code></pre>
+         education pol_immigration pol_environment pol_redistribution
+1     trade school               5               4                  5
+2      high school               3               5                  3
+3      high school               2               1                  2
+4      high school               2               3                  5
+5      high school               2               4                  3
+6      high school               2               5                  5
+7      high school               2               3                  3
+8       university               5               5                  4
+9     trade school               1               3                  1
+10     high school               1               3                  3
+11      university               4               4                  2
+12     high school               5               4                  2
+13     high school               3               2                  3
+14     high school               3               2                  5
+15     high school               5               1                  2
+16     high school               4               5                  5
+17    trade school               2               3                  4
+18     high school               1               2                  1
+19     high school               1               2                  4
+20            &lt;NA&gt;               3               2                  3
+21     high school               5               3                  5
+22     high school               4               2                  4
+23            &lt;NA&gt;               1               2                  1
+24     high school               5               5                  4
+25            &lt;NA&gt;               5               5                  3
+26      university               2               2                  2
+27     high school               4               2                  2
+28     high school               5               1                  1
+29      university               2               2                  3
+30     high school               3               3                  5
+31      university               3               2                  4
+32    trade school               1               1                  5
+33            &lt;NA&gt;               5               3                  5
+34    trade school               3               2                  3
+35     high school               4               1                  1
+36     high school               3               3                  3
+37            &lt;NA&gt;               1               4                  4
+38     high school               2               1                  5
+39            &lt;NA&gt;               1               2                  1
+40     high school               4               1                  5
+41    trade school               4               2                  1
+42     high school               3               3                  3
+43     high school               5               2                  4
+44     high school               2               3                  4
+45  doctoral title               2               2                  3
+46     high school               4               5                  4
+47            &lt;NA&gt;               2               1                  3
+48     high school               3               4                  4
+49    trade school               5               4                  2
+50    trade school               4               5                  5
+51     high school               5               3                  1
+52     high school               4               1                  4
+53     high school               3               3                  2
+54     high school               3               5                  2
+55            &lt;NA&gt;               5               2                  5
+56            &lt;NA&gt;               5               3                  5
+57     high school               3               1                  1
+58     high school               1               5                  4
+59     high school               1               4                  1
+60     high school               5               2                  5
+61     high school               4               2                  3
+62            &lt;NA&gt;               1               5                  4
+63            &lt;NA&gt;               4               2                  3
+64     high school               5               5                  5
+65    trade school               5               1                  3
+66     high school               2               2                  1
+67     high school               1               3                  3
+68     high school               2               3                  3
+69     high school               3               5                  5
+70     high school               4               4                  2
+71     high school               1               3                  5
+72     high school               2               5                  1
+73    trade school               1               3                  1
+74     high school               2               5                  5
+75     high school               5               4                  5
+76      university               5               1                  5
+77            &lt;NA&gt;               5               3                  5
+78     high school               2               1                  1
+79     high school               5               3                  2
+80     high school               3               3                  4
+81      university               3               4                  1
+82      university               5               3                  3
+83            &lt;NA&gt;               2               3                  5
+84     high school               3               3                  5
+85     high school               4               5                  1
+86     high school               1               3                  5
+87            &lt;NA&gt;               2               3                  3
+88      university               2               1                  2
+89    trade school               4               1                  2
+90     high school               1               3                  3
+91     high school               4               4                  4
+92            &lt;NA&gt;               3               3                  2
+93            &lt;NA&gt;               4               1                  4
+94     high school               3               3                  3
+95            &lt;NA&gt;               1               5                  2
+96     high school               2               3                  1
+97     high school               4               5                  5
+98      university               4               5                  5
+99            &lt;NA&gt;               3               2                  2
+100   trade school               2               5                  2
+101 doctoral title               5               4                  2
+102    high school               2               5                  4
+103           &lt;NA&gt;               2               3                  2
+104   trade school               5               4                  3
+105    high school               2               3                  4
+106    high school               1               4                  3
+107   trade school               3               5                  4
+108           &lt;NA&gt;               5               2                  2
+109     university               3               4                  2
+110    high school               2               1                  2
+111    high school               2               5                  2
+112     university               1               3                  2
+113    high school               4               5                  4
+114    high school               3               3                  1
+115     university               3               5                  5
+116    high school               2               3                  3
+117    high school               4               4                  4
+118    high school               1               4                  4
+119   trade school               1               4                  3
+120     university               1               5                  1
+121    high school               2               1                  5
+122    high school               2               5                  2
+123    high school               1               1                  5
+124 doctoral title               1               1                  4
+125    high school               3               5                  4
+126           &lt;NA&gt;               5               3                  1
+127    high school               4               3                  3
+128     university               2               4                  5
+129    high school               1               2                  2
+130 doctoral title               2               5                  4
+131           &lt;NA&gt;               4               3                  1
+132   trade school               3               5                  5
+133           &lt;NA&gt;               2               3                  3
+134           &lt;NA&gt;               2               5                  3
+135    high school               3               4                  2
+136           &lt;NA&gt;               5               1                  2
+137    high school               3               2                  4
+138   trade school               1               4                  5
+139 doctoral title               5               5                  1
+140           &lt;NA&gt;               4               5                  2
+141    high school               3               1                  1
+142    high school               5               2                  1
+143     university               4               1                  5
+144    high school               5               4                  4
+145           &lt;NA&gt;               4               1                  2
+146    high school               4               4                  4
+147   trade school               2               4                  3
+148   trade school               1               1                  2
+149           &lt;NA&gt;               3               2                  4
+150   trade school               4               4                  3
+151    high school               1               3                  4
+152    high school               1               2                  4
+153     university               2               4                  2
+154           &lt;NA&gt;               3               5                  5
+155    high school               4               4                  1
+156    high school               1               3                  1
+157     university               4               2                  2
+158           &lt;NA&gt;               5               2                  3
+159    high school               1               2                  4
+160    high school               1               2                  3
+161           &lt;NA&gt;               1               5                  3
+162     university               5               1                  1
+163    high school               3               5                  1
+164    high school               2               3                  2
+165    high school               4               4                  3
+166     university               2               5                  3
+167           &lt;NA&gt;               1               2                  1
+168    high school               2               1                  2
+169     university               1               3                  5
+170    high school               1               1                  4
+171    high school               2               4                  4
+172    high school               1               2                  5
+173           &lt;NA&gt;               2               1                  1
+174    high school               2               5                  4
+175    high school               5               2                  1
+176    high school               2               1                  4
+177    high school               5               4                  3
+178     university               1               4                  2
+179    high school               3               4                  2
+180   trade school               5               2                  1
+181           &lt;NA&gt;               3               4                  2
+182    high school               1               3                  5
+183    high school               1               3                  4
+184           &lt;NA&gt;               3               3                  1
+185           &lt;NA&gt;               1               3                  3
+186     university               5               4                  3
+187     university               1               3                  4
+188     university               1               5                  1
+189           &lt;NA&gt;               2               1                  4
+190     university               5               3                  4
+191    high school               4               1                  1
+192   trade school               3               5                  4
+193           &lt;NA&gt;               1               1                  5
+194    high school               4               2                  3
+195    high school               4               1                  1
+196    high school               5               5                  4
+197           &lt;NA&gt;               5               3                  3
+198           &lt;NA&gt;               2               5                  1
+199     university               4               3                  3
+200    high school               5               5                  5
+    pol_eu_integration
+1                    2
+2                    4
+3                    5
+4                    1
+5                    3
+6                    4
+7                    2
+8                    5
+9                    3
+10                   5
+11                   2
+12                   3
+13                   2
+14                   3
+15                   3
+16                   5
+17                   3
+18                   1
+19                   4
+20                   1
+21                   1
+22                   4
+23                   3
+24                   1
+25                   4
+26                   3
+27                   4
+28                   1
+29                   2
+30                   3
+31                   1
+32                   2
+33                   1
+34                   4
+35                   5
+36                   4
+37                   5
+38                   5
+39                   3
+40                   5
+41                   3
+42                   4
+43                   2
+44                   5
+45                   5
+46                   3
+47                   1
+48                   2
+49                   3
+50                   2
+51                   1
+52                   1
+53                   3
+54                   5
+55                   2
+56                   2
+57                   4
+58                   4
+59                   4
+60                   3
+61                   1
+62                   4
+63                   2
+64                   2
+65                   5
+66                   5
+67                   5
+68                   3
+69                   5
+70                   4
+71                   4
+72                   3
+73                   5
+74                   3
+75                   2
+76                   2
+77                   2
+78                   4
+79                   3
+80                   5
+81                   2
+82                   5
+83                   4
+84                   1
+85                   3
+86                   4
+87                   1
+88                   3
+89                   1
+90                   5
+91                   3
+92                   5
+93                   3
+94                   2
+95                   2
+96                   5
+97                   2
+98                   4
+99                   2
+100                  2
+101                  5
+102                  2
+103                  3
+104                  1
+105                  1
+106                  1
+107                  3
+108                  1
+109                  1
+110                  5
+111                  1
+112                  4
+113                  4
+114                  5
+115                  4
+116                  4
+117                  1
+118                  4
+119                  5
+120                  1
+121                  2
+122                  2
+123                  5
+124                  2
+125                  3
+126                  5
+127                  3
+128                  4
+129                  3
+130                  3
+131                  1
+132                  1
+133                  2
+134                  4
+135                  1
+136                  5
+137                  1
+138                  4
+139                  1
+140                  3
+141                  5
+142                  3
+143                  1
+144                  5
+145                  1
+146                  1
+147                  2
+148                  2
+149                  4
+150                  2
+151                  3
+152                  2
+153                  5
+154                  2
+155                  4
+156                  3
+157                  3
+158                  4
+159                  2
+160                  3
+161                  1
+162                  1
+163                  5
+164                  1
+165                  1
+166                  5
+167                  2
+168                  3
+169                  5
+170                  3
+171                  5
+172                  1
+173                  5
+174                  5
+175                  3
+176                  2
+177                  2
+178                  5
+179                  5
+180                  2
+181                  1
+182                  5
+183                  4
+184                  2
+185                  2
+186                  5
+187                  1
+188                  4
+189                  5
+190                  4
+191                  3
+192                  4
+193                  1
+194                  3
+195                  2
+196                  5
+197                  4
+198                  5
+199                  5
+200                  5</code></pre>
 </div>
 </div>
 <p>Finally, I <strong>generalize rare religion categories</strong> using <code>fct_lump_min()</code> from <code>forcats</code>. Since <code>religion</code> is not a <code>keyVar</code> in the <code>sdcObject</code>, I apply this directly to the dataset.</p>
