@@ -39,7 +39,7 @@ For this dateset, identity and attribute disclosure are most likely. Since there
 These are just a few examples; in general, the existence and likelihood of risks is very much dependent on the variables in the dataset, the sensibility of data, the recruitment strategy, and many other factors (see [this chapter on choosing the right technique](../2_7_Choosing_technique) for more information).
 :::
 
-::: callout-note
+::: {#participation-knowledge .callout-note}
 ## Participation Knowledge
 
 A major factor that influences the risk assessment is participation knowledge: An attacker's knowledge of whether a person's data is in a specific dataset.
@@ -102,16 +102,17 @@ For this object, we start with defining the following:
 -   `get.sdcMicroObj()`\
     Accesses internal components of the object.
 
--   `sdcApp()`Opens the GUI
+-   `sdcApp()`Opens the GUI: The GUI provides a nice overview of functions. In case you decide to use it (and I recommend to try it out), create an anonymization report and the end via "export data" to make your anonymization transparent.
 
-The GUI provides a nice overview of functions. In case you decide to use it (and I recommend to try it out), create an anonymization report and the end via `export data` to make your anonymization transparent.
+-   `AI_createSdcObj()` and `AI_applyAnonymization()`\
+    These new functions use LLMs to assist with the creation of an `sdcObject` and anonymization. [Here](https://cran.r-project.org/web/packages/sdcMicro/vignettes/ai_assisted_anonymization.html) is a tutorial on how to use them. We won't use these in the context of the tutorial, to learn the processes manually first.
 :::
 
 ## Exercise: Assessing Privacy Risks With `sdcMicro`
 
 In this exercise, you will assess privacy risks with `sdcMicro` using the example data from the [chapter on personal data](../1_FOUNDATIONS/1_3_Personal_Data). We will work with the dataset `data_withoutdirectidentifiers`.
 
-1.  Create an object within sdcMicro that contains the relevant `keyVars` and `numVars`. Inspect the object.
+1.  Create an object within sdcMicro that contains the relevant `keyVars` and `numVars` using the function `createSdcObj`. Inspect the object.
 2.  What k-anonymity level is currently reached?
 
 ::: {.callout-note collapse="true"}
@@ -196,3 +197,5 @@ If the risk is not acceptable - as is the case here - we will start with the act
 -   calculate the privacy risk for certain variables
 
 #### Resources, Links, Examples
+
+More information on assessing risks for public research data: [@morehouse2025]

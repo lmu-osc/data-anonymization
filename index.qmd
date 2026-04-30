@@ -29,9 +29,13 @@ By the end of this tutorial, you will be able to:
 
 # What You Will **NOT** Learn
 
--   anonymizing neuroimaging metadata (recommendations [here](https://doi.org/10.1162/IMAG.a.1144))
--   anonymizing qualitative textual data (video tutorial for QualiAnon [here](https://www.youtube.com/watch?v=RYQn4DjdKmo))
--   *insert other areas that we will not tackle and link to resoruces here*
+You will not learn anything other than anonymization of quantitative data.
+
+Here are a few helpful links for other data types:
+
+-   Anonymizing neuroimaging metadata ([recommendations](https://doi.org/10.1162/IMAG.a.1144))
+-   Anonymizing qualitative textual data ([video tutorial for QualiAnon](https://www.youtube.com/watch?v=RYQn4DjdKmo))
+-   Anonymizing sensitive qualitative data ([lecture](https://www.youtube.com/watch?v=-Pha3EINF3s&ab_channel=CenterforOpenScience) and [tutorial](https:/doi.org/10.1037/tra0001358))
 
 # Prerequisites
 

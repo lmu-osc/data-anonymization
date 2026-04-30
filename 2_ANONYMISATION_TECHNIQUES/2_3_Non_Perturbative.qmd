@@ -34,7 +34,11 @@ Depending on the specific data type and risk, different techniques are possible 
 
 Global recoding (also called generalization) replaces the exact values of a variable with broader categories - applied to every row in the dataset.
 
-Example: Replace specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”), recoding age in year to age in decade
+**Examples**
+
+-   Replacing specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”).
+
+-   Recoding age in year to age in decade.
 
 The key decision is how broadly to generalize. Wider categories reduce risk more, but also lose more information. The right granularity depends on how many people share each combination - which is exactly what k-anonymity measures. You will practice this trade-off in the exercise below.
 
@@ -42,15 +46,19 @@ The key decision is how broadly to generalize. Wider categories reduce risk more
 
 Local recoding generalizes values only where needed, rather than across the whole dataset. This is useful when only a small subset of values is rare enough to create risk.
 
-Example: If only few participant are from Asia, you may recode only their values (e.g., “China”, “India”, “Nepal”) to “Asia”, keeping all others unchanged.
+**Example**: If only few participant are from Asia, you may recode only their values (e.g., “China”, “India”, “Nepal”) to “Asia”, keeping all others unchanged.
 
 This means, that values are on different level (in this example: country vs. continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently - you need to be transparent about which categories were collapsed and why.
 
 ## Top-and-Bottom Coding
 
-Top-and-bottom coding is a special case of recoding that applies to numerical variables. Instead of grouping all values into bands, you cap the extreme ends of the distribution - replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes or very long job tenures might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value.
+Top-and-bottom coding is a special case of recoding that applies to numerical variables. Instead of grouping all values into bands, you cap the extreme ends of the distribution - replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value.
 
-Example: Instead of reporting “6 children”, report “4+ children” for anyone above this threshold; all participants below the age of 20 years are coded as “\<20 years”
+**Examples**
+
+-   Instead of reporting “6 children”, report “4+ children” for anyone above this threshold.
+
+-   All participants below the age of 20 years are coded as “\<20 years”.
 
 How to determine the threshold: The threshold can be calculated, but this is not trivial. A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles - capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.
 
@@ -60,31 +68,27 @@ Suppression means removing information entirely - replacing a value with a missi
 
 Suppression can occur on different levels:
 
--   Cell suppression: Remove a single risky value while keeping the rest of the record. For example, if one participant has a unique job title that makes them identifiable, you can set only that cell to `NA`.
+-   **Cell suppression**: Remove a single risky value while keeping the rest of the record. For example, if one participant has a unique job title that makes them identifiable, you can set only that cell to `NA`.
 
--   Record suppression: Remove an entire participant's data if their combination of attributes is so unique that no other technique can adequately protect them.
+-   **Record suppression**: Remove an entire participant's data if their combination of attributes is so unique that no other technique can adequately protect them.
 
--   Variable suppression: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case - we already did this in [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data).
+-   **Variable suppression**: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case - we already did this in [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data).
 
-Cell suppression can also follow a specific condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in the column “Customer Feedback” could be nullified if the customer feedback was negative [@raghunathan2013complete]. **Find better example**
-
-Another example is the replacement of credit card number values with XXX. In the credit card example, the application of the character masking technique can be *partial*, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.
+**Example**: Replacing credit card number values with XXX. In the credit card example, the application of the character masking technique can be *partial*, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.
 
 Suppression is often used as a last resort after recoding: if recoding alone is not enough to bring all records up to the required k-anonymity threshold, targeted cell suppression can close the remaining gaps.
 
 ## Sampling
 
-If your dataset covers an entire population - for example, all students enrolled in a particular program, or all employees of a specific company - then releasing it in full means that anyone who knows a person was part of that group can try to find their record. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
+If your dataset covers an entire population - for example, all students enrolled in a particular program, or all employees of a specific company - then releasing it in full means that anyone who knows a person was part of that group can try to find their record. [Participation knowledge](../2_1_Planning_Privacy#identifying-privacy-risks) would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
 
 A sample can be randomly selected, but also based on conditions (e.g., quotas for study subjects).
 
 Sampling is most relevant for administrative datasets and registers. For typical survey-based research, where participation is voluntary and not exhaustively documented, it is less commonly needed. If you do use it, keep in mind that the sample size affects both privacy and the statistical representativeness of the data.
 
-*Could aslo be quite effective in case of participation knowledge*
-
 # Pro and Contra Using Non-Perturbative Techniques
 
-Pro:
+Pro
 
 -   original data values are preserved (no distortion of statistics within remaining cells)
 
@@ -92,7 +96,7 @@ Pro:
 
 -   easy to document
 
-Con:
+Con
 
 -   information is lost (removed or coarsened)
 
@@ -100,21 +104,17 @@ Con:
 
 -   may not be sufficient on its own for high-risk data
 
-# Applying Non-Perturbative Techniques With R
-
--   basic data wrangling operations in R or functions in sdcMicro (better than manual changes)
-
--   but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries; see [the chapter on documentation](../3_PRIVACY_OPENNESS/3_2_Documentation))
-
-## Exercise: Applying Non-Perturbative Techniques
+# Exercise: Applying Non-Perturbative Techniques
 
 In this exercise, you will apply non-perturbative techniques to the data to reduce re-identification risk.
 
 The following `sdcMicro` functions are available to you:
 
--   `globalRecode()` — recodes a key variable into broader groups (e.g., exact age → age band)
--   `topBotCoding()` — caps extreme values at a given threshold
--   `localSuppression()` — suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful hwne using this function: It does a good job at finding individuals whose record is still unique. But it does not report changes transparently and leads to missing values. Instead, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from `forcats`. This function lumps all categories below a certain group size together.
+-   `globalRecode()` recodes a key variable into broader groups (e.g., exact age → age band)
+-   `topBotCoding()` caps extreme values at a given threshold
+-   `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
+
+In addition, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from `forcats`. This function lumps all categories below a certain group size together.
 
 1.  Look at the key variables in `sdc_data` (`gender`, `age`, `education`, `plz`) and decide which technique is appropriate for each. There is no single correct solution - choose thresholds and groupings that make sense given the data, and be prepared to justify your choices.
 2.  Apply these techniques using the functions mentioned above.
@@ -123,10 +123,8 @@ The following `sdcMicro` functions are available to you:
 ::: callout-tip
 The `sdcMicro` functions operate directly on the `sdc` object and update risk estimates automatically. Check `?globalRecode`, `?topBotCoding`, and `?localSuppression` for argument details.
 
-The `forcat` function `fct_lump_min()` is applied to the dataset itself. The `sdcObject` needs to be updated afterward.
+All manual changes as with`forcat` functions like `fct_lump_min()` are applied to the dataset itself. The `sdcObject` needs to be updated afterward.
 :::
-
-*Re-read for roter Faden*
 
 ::: {.callout-tip collapse="true"}
 ## Solution
@@ -170,7 +168,7 @@ The new categories map loosely to north-east (00-19), north-central (20-39), wes
 
 Looking at k-anonymity now, we see that there are still many unique observations. To reduce risk further, I will generalize `plz` even more. For this dataset, I mostly want to use `plz` to distinguish whether participants live in the Munich area or elsewhere in Germany. Postal codes starting with 8 cover roughly the areas surrounding Munich, so I will collapse `plz` into just two categories: `"8xxxx"` and `"other"`.
 
-`globalRecode()` cannot do this directly since `cut()` only handles continuous intervals - and "other" spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the `@manipKeyVars` slot of the sdcObject and recalculate risks:
+`globalRecode()` cannot do this directly since `cut()` only handles continuous intervals - and "other" spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the data stored with the `@manipKeyVars` slot of the `sdcObject` and recalculate risks:
 
 ```{r}
 library(forcats)
@@ -214,8 +212,10 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymity. Only 29 entries remain, that violate 5-anonymity. To me, this is enough protection on k-anonymity.
+With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymity. Only 29 entries remain, that violate 5-anonymity. To me, this is enough protection on k-anonymity, while still preserving most of utility, especially on the most interesting variables.
 :::
+
+# Further Anonymization Steps Using Perturbative Techniques
 
 Now that the key variables are in their final state, I applied **top-coding to income** and **years in job**.
 
@@ -271,44 +271,15 @@ print(sdc_nonpert, type = "risk")
 
 These techniques reduce the disclosure risk to up to 92% compared tot the original data.
 
-Now I can extract the dataset. Because sdcMicro stores recoded key variables as integer codes internally, I need to restore the labels manually using `mutate`:
+Finally, I save the `sdcObject`.
 
 ```{r}
-data_nonpert <- extractManipData(sdc_nonpert)
-
-# Restore labels for variables recoded inside sdcMicro
-age_labels    <- c("18-29", "30-39", "40-49", "50-59", "60+")
-plz_labels    <- c("8xxxx", "other")
-
-data_nonpert <- data_nonpert %>%
-  mutate(
-    age = factor(age, levels = seq_along(age_labels), labels = age_labels),
-    plz = factor(plz, levels = seq_along(plz_labels), labels = plz_labels)
-  )
-
-
-data_nonpert
+saveRDS(sdc_nonpert, "../sdc_nonpert.rds")}
 ```
 
-Finally, I **generalize rare religion categories** using `fct_lump_min()` from `forcats`. Since `religion` is not a `keyVar` in the `sdcObject`, I apply this directly to the dataset.
+*Move to other section?*
 
-```{r}
-# Inspect counts first
-table(data_nonpert$religion)
 
-data_nonpert <- data_nonpert %>%
-  mutate(religion = fct_lump_min(as.factor(religion), min = 10, other_level = "Other"))
-
-table(data_nonpert$religion)
-```
-
-`fct_lump_min(religion, min = 10)` merges any category with fewer than 10 observations into `"Other"`. Groups like "Judaism" or "Buddhism" which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes.
-
-Finally, I also save the `sdcObject`.
-
-```{r}
-saveRDS(sdc_nonpert, "../sdc_nonpert.rds")
-```
 
 #### Learning Objective
 

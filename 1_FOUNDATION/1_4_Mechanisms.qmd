@@ -8,7 +8,7 @@ bibliography: ../references.bib
 How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point - it is relevant at every stage. The table below maps common data protection mechanisms to the stages of the research lifecycle:
 
 | Stage | Mechanism |
-|----|----|
+|------------------------------------|------------------------------------|
 | 1 Plan | Data Management Plan, IRB Approval, Privacy by Design |
 | 2 Collect | Informed Consent, Data Minimization |
 | 3 Process | Technical and Organizational Measures, Anonymization, Data Subject Rights |
@@ -37,7 +37,7 @@ A data management plan (DMP) is a document that describes how you will handle yo
 
 Many funders now require a DMP, and writing one is a good exercise in data minimization and purpose limitation. Also, invest some time into enforcing the DMP. Clearly assign responsibilities for data and its protection in case of collaboration among multiple researchers. Changes to the DMP at later stages are absolutely okay, but keep it regularly updated.
 
-A useful template for DMPs is available at [Zenodo](https://zenodo.org/records/10782781).
+A useful template for DMPs is available at [Zenodo](https://zenodo.org/records/10782781); a tutorial on how to use DMPs is [here](https://lmu-osc.github.io/FAIR-Data-Management/dmp.html).
 
 ## Institutional Review Board (IRB) Approval
 
@@ -138,7 +138,7 @@ This sounds straightforward, but in practice, true anonymization is hard to achi
 The bulk of this tutorial is dedicated to teaching you these techniques and helping you assess whether your data is sufficiently anonymized for sharing. The key distinction to remember:
 
 |   | Pseudonymization | Anonymization |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **What it does** | Replaces direct identifiers with codes | Removes or transforms data so that individuals cannot be identified |
 | **Key file exists?** | Yes (or re-identification is otherwise possible) | No (re-identification is not reasonably possible) |
 | **Still personal data?** | Yes | No |
@@ -236,6 +236,4 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 
 #### Resources, Links, Examples
 
--   Reference to an instruction/checklist for data management plans (preferably by LMU)
-
--   Reference/call-out box to randomized response technique
+[Utrecht University's data privacy handbook](https://utrechtuniversity.github.io/dataprivacyhandbook/about.html) offers many insights into GDPR compliance, privacy by design, pseudonymisation, data minimization, encryption, and many other topics [@researchdatamanagementsupport].

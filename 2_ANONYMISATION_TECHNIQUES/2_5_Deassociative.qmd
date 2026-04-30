@@ -10,7 +10,7 @@ More useful are approaches that preserve some analytical structure while still b
 
 *add infographics*
 
-# Examples of De-associative Techniques
+# Examples of De-Associative Techniques
 
 ## Bucketization
 
@@ -18,8 +18,8 @@ Bucketization groups records into "buckets" based on their indirect identifiers 
 
 The process works in three steps:
 
-1.  Generalize the indirect identifiers to create buckets (e.g., exact countries → continents).
-2.  De-generalize the identifiers within each bucket back to their original values (e.g., continents → countries again).
+1.  Generalize the indirect identifiers to create buckets.
+2.  De-generalize the identifiers within each bucket back to their original values.
 3.  Permute the sensitive values randomly within each bucket.
 
 The shuffling in step 3 is what makes this a de-associative rather than a perturbative technique - the values themselves are unchanged, only the assignment between records and sensitive attributes is broken within each group.
@@ -31,13 +31,21 @@ Anatomization is a cleaner alternative to bucketization that avoids some of its 
 -   A **quasi-identifier table** containing the indirect identifiers (e.g., age, gender, postal code), with a group ID linking each record to its group.
 -   A **sensitive table** containing the sensitive attributes and the same group ID, but with the individual record links removed.
 
-An analyst can still answer questions like "what is the distribution of political opinions among 30-44 year olds in postal region 8xxxx?" by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table - the individual-level association is gone.
+A researcher re-using the data can still answer questions like "what is the distribution of political opinions among 30-44 year olds in postal region 8xxxx?" by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table - the individual-level association is gone.
 
 Anatomization is particularly useful when the sensitive attribute is the main focus of the research question, and when preserving group-level patterns is more important than individual-level linkage. For our dataset - where the research question is about the relationship between religion and political opinion - anatomization could work well: group-level associations are preserved, but no individual's religion and political views can be read together.
 
 # Pro and Contra De-Associative Techniques
 
-*Write pro anc con*
+Pro
+
+-   highly privacy preserving
+
+Con
+
+-   complex and not implemented in functions of R packages
+
+-   similar level of privacy can be reached by combining other techniques
 
 #### Learning Objective
 

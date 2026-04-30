@@ -4,8 +4,6 @@ title: "Summary of the Anonymization Workflow"
 
 This chapter summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data.
 
-*Add overview of all steps, kind of like handout; add notes on most important points to each step*
-
 *Add a flowchart to the process*
 
 # Step 1: Implement Data Privacy Before and During Data Collection

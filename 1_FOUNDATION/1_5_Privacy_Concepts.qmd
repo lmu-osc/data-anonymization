@@ -117,7 +117,7 @@ K-anonymity is a useful starting point, but it has known limitations:
 -   **Homogeneity attack:** If all *k* individuals in a group share the same sensitive attribute, then knowing someone is in that group reveals their sensitive value. (Example: all three 34-year-old women from 80331 have the same diagnosis.)
 -   **Background knowledge attack:** An attacker with additional knowledge (e.g., they know the person does *not* have a certain condition) can narrow down the possibilities further.
 
-Extensions like **l-diversity** (requiring diversity in sensitive values within each group) and **t-closeness** (requiring that the distribution of sensitive values within each group is close to the overall distribution) have been proposed to address these issues. For the scope of this tutorial, k-anonymity will be our main metric - but it is good to be aware that it is not a silver bullet.
+Extensions like **l-diversity** (requiring diversity in sensitive values within each group) and **t-closeness** (requiring that the distribution of sensitive values within each group is close to the overall distribution) have been proposed to address these issues. For the scope of this tutorial, k-anonymity will be our main metric - but it is good to be aware that it is not a silver bullet. More information on l-diversity and t-closedness can be accessed in [this practical tutorial by Utrecht university](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html).
 
 We will use k-anonymity practically in the [the next chapter](../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy) of this tutorial, where we calculate it using R and the `sdcMicro` package.
 

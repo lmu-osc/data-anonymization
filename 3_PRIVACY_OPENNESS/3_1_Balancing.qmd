@@ -10,7 +10,9 @@ library(sdcMicro)
 library(tidyverse)
 
 # Load data based on downloaded file
-sdc_micro <- readRDS("../sdc_noise.rds") # Change based on the location of your Sdc-object file
+sdc_nonpert <- readRDS("../sdc_nonpert.rds")
+sdc_noise <- readRDS("../sdc_noise.rds") # Change based on the location of your Sdc-object file
+sdc_micro <- readRDS("../sdc_micro.rds")
 data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Change based on the location of your data file
 ```
 
@@ -20,167 +22,156 @@ We therefore need to find a well-calibrated balance between utility and anonymiz
 
 # Measuring Privacy
 
--   Calculate privacy levels (k-anonymity) and compare to the value measured before
-
-*Include exercise on calculating the privacy level with k-anonymity like before in 2_1_Planning Privacy*
-
-The most straightforward way to measure privacy after anonymization is to compare k-anonymity before and after. In [the chapter on assessing privacy risks](../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy), we found that nearly every participant in the original dataset had a unique combination of key variables. After applying non-perturbative techniques in [the chapter on non-perturbative techniques](../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative), we achieved 3-anonymity - every record shares its key variable combination with at least two others. Printing the sdcObject gives you the current k-anonymity level directly:
+The most straightforward way to measure privacy after anonymization is to compare k-anonymity before and after. In [the chapter on assessing privacy risks](../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy), we found that nearly every participant in the original dataset had a unique combination of key variables. After applying non-perturbative techniques in [the chapter on non-perturbative techniques](../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative), we achieved 3-anonymity - every record shares its key variable combination with at least two others. Printing the `sdcObject` gives you the current k-anonymity level directly:
 
 ```{r}
-print(sdc_micro, type = "risk")
+sdc_nonpert
 ```
 
-The k-anonymity and disclosure risks are objective values, but always need to be considered in context: there are factors that are relevant here: what are key variables? what external data exist? what is the sampling strategy and what is known about that?
+The k-anonymity and disclosure risks are objective values, but always need to be considered in context: What variables did we define within the `sdcObject`? What external data exist? What is the sampling strategy and what is known about that?
 
-A less systematic approach to help here is red teaming data anonymization: Red teaming data anonymization [@Jansen2026_PuttingPrivacyTesta]
+In practice, it can be challenging to correctly assess these risks given the complexity of research projects and existing information. In such cases, red teaming the data anonymization can help [@Jansen2026_PuttingPrivacyTesta]: Another person (e.g., another member of your lab) is instructed to play the role of an attacker, by, e.g., searching for external information or singling out the least protected individuals.
+
+In general, it is worth it to check the assumptions of the anonymization process every few years after publication of the data, especially if new techniques have emerged (see callout box below).
+
+::: callout-note
+## Deanonymization Using AI
+
+AI tools are increasingly being used to re-identify individuals from datasets that were considered anonymous. Recent research shows that large language models (LLMs) can match anonymous text profiles to named individuals across platforms - for example, linking an anonymous forum post to a person's identified social media account [@lermen]. Separately, research has shown that individuals can be re-identified from behavioral traces alone, including web browsing history, geolocation data, and even face scans, by combining datasets that each seem innocuous on their own [@rocher2025].
+
+For quantitative survey or experimental data of the kind covered in this tutorial, I do not expect AI tools to fundamentally change the re-identification risk - the attack surface is just not the same as for text or behavioral data. That said, AI can make an attacker more efficient: tasks like searching for external information, generating plausible attack combinations, or automating record linkage are all easier with modern AI tools. This is another reason why it is worth revisiting your anonymization assumptions periodically after publication, especially as new techniques emerge.
+:::
 
 # Measuring Utility
 
 How do we know whether our anonymized data is still useful? There are several approaches to measuring utility, ranging from simple comparisons to formal indices.
 
-*Provide overview of utility measurements and maybe try out one*
+`sdcMicro` provides two built-in information loss measures for numeric variables. **IL1** is the average absolute difference between original and anonymized values, relative to the original. A value of 0 means no change; higher values mean more distortion. The **eigenvalue ratio** compares the eigenvalues of the original and anonymized data. Values close to 0 indicate the least changes. These indicators are primarily useful to compare different anonymization methods with each other.
 
--   utility indices [@Carvalho2023_SurveyPrivacyPreservingTechniques]
-    -   predictive performance measures for machine learning *(potentially as call-out box)*
-    -   information loss measures:
-        -   distance/distribution comparisons
-        -   a penalty of transformations through generalisation and suppression
-        -   statistical differences
--   assessing utility for the current use case
-    -   perform statistical analysis before and after anonymization
-    -   see if results are comparable
+Both values are part of the standard `sdcMicro` output after applying any anonymization technique.
 
-*Include exercise for calculating information loss measure*
+# Exercise: Evaluating Data Utility
 
-`sdcMicro` provides two built-in information loss measures for numeric variables. **IL1** is the average absolute difference between original and anonymized values, relative to the original. A value of 0 means no change; higher values mean more distortion. The **eigenvalue ratio** compares the covariance structure of the original and anonymized data - values close to 1 indicate that the relationships between variables have been preserved. Both were already shown in the sdcMicro output after applying perturbative techniques in [the chapter on perturbative techniques](../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative):
+## Using `sdcMicro`'s Parameters
+
+Let's go back to the two `sdcObjects` we created in [the chapter on perturbative techniques](#0): `sdc_micro` (where we applied microaggregation) and `sdc_noise` (where we applied noise).
+
+1.  Compare the utility with IL1 and the difference of eigenvalues. Which method do you prefer when looking at these utility indices?
+2.  Make a decision for one of the methods and export the data for further use.
+
+::: callout-note
+## Solution
+
+Simply inspect the `sdcObjects` to see the values of IL1 and the eigenvalue difference:
 
 ```{r}
-print(sdc_micro, type = "risk")
+sdc_micro
+sdc_noise
 ```
+
+Both indices prefer the microaggregation approach: The IL1 is much smaller, indicating that values are closer to the original data, and the difference of eigenvalues is slightly smaller, also indicating that microaggregation preserves the most utility.
+
+Now I can extract the dataset from the `sdc_micro` object. Because `sdcMicro` stores recoded key variables as integer codes internally, I need to restore the labels manually using `mutate`:
+
+```{r}
+data_anonymized <- extractManipData(sdc_micro)
+
+# Restore labels for variables recoded inside sdcMicro
+age_labels    <- c("18-29", "30-39", "40-49", "50-59", "60+")
+plz_labels    <- c("8xxxx", "other")
+
+data_anonymized <- data_anonymized %>%
+  mutate(
+    age = factor(age, levels = seq_along(age_labels), labels = age_labels),
+    plz = factor(plz, levels = seq_along(plz_labels), labels = plz_labels)
+  )
+
+data_anonymized
+```
+:::
+
+As a last anonymization step, I will now **generalize rare religion categories** using `fct_lump_min()` from `forcats`. Since `religion` is not a variable in the `sdcObject`, I apply this directly to the dataset as an additional layer, protecting individuals with rare religions.
+
+```{r}
+# Inspect counts first
+table(data_anonymized$religion)
+
+data_anonymized <- data_anonymized %>%
+  mutate(religion = fct_lump_min(as.factor(religion), min = 10, other_level = "Other"))
+
+table(data_anonymized$religion)
+```
+
+`fct_lump_min(religion, min = 10)` merges any category with fewer than 10 observations into `"Other"`. Groups like "Judaism" or "Buddhism" which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes.
+
+## Using Statistics
 
 For non-numeric variables that were recoded or suppressed, there is no single formal measure - but you can compare frequency tables before and after. For example, comparing the distribution of age bands or religion categories tells you whether the recoding preserved the overall composition of the sample.
 
-Beyond these built-in measures, the most practically relevant utility check is simply to re-run the analysis that motivated data collection on both the original and anonymized datasets and compare the results. For our dataset, that means checking whether the association between religion and political opinion is still visible after anonymization. If the key result holds, the anonymized data is fit for purpose.
+Beyond these built-in measures, the most practically relevant utility check is simply to re-run the analysis that motivated data collection on both the original and anonymized datasets and compare the results. For our dataset, that means checking whether the association between religion and political opinion is similar to before anonymization. If the key result holds, the anonymized data is fit for purpose.
+
+1.  Compare descriptive statistics on the indirect identifiers age, gender, education, income, plz, and years in job before and after anonymization.
+2.  Compare the relation between religion and the political opinion variables `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_integration` before and after anonymization.
+3.  Reflect on these comparisons: Is utility well-enough preserved?
+
+::: {.callout-note collapse="true"}
+## Solution
+
+**Descriptive statistics on indirect identifiers**
+
+Compare distributions before and after using `summary()` and frequency tables:
+
+```{r}
+# Before anonymization
+summary(data_withoutdirectidentifiers[, c("age", "income", "years_in_job")])
+table(data_withoutdirectidentifiers$gender, useNA = "always") # Make sure to show NAs as well
+table(data_withoutdirectidentifiers$education, useNA = "always")
+table(data_withoutdirectidentifiers$plz, useNA = "always")
+
+# After anonymization
+summary(data_anonymized[, c("income", "years_in_job")])
+table(data_anonymized$age, useNA = "always")
+table(data_anonymized$gender, useNA = "always")
+table(data_anonymized$education, useNA = "always")
+table(data_anonymized$plz, useNA = "always")
+```
+
+Age and postal code are now categorical bands, so the numeric summary is no longer meaningful - use frequency tables instead. Income and years in job are still numeric after microaggregation; their medians are very close to the original, but especially income's mean is lower now - this is due to the extreme outliers that were top-coded.
+
+For gender, 6 non-binary individuals' data was suppressed to achieve necessary k-anonymity.
+
+For education, all individuals without a degree were recoded to NA; in each other category, few individuals's data was suppressed. This might be a problem for data utility, especially if our goal was to show that we reached individuals from all educational levels. If this was the case, I'd recommend to go back to applying local suppression and to prioritize that educational level stays non-suppressed.
+
+We lost, as intended, a lot of information on plz and age. For our use case, this is okay.
+
+**Religion and political opinions**
+
+```{r}
+# Before
+data_withoutdirectidentifiers %>%
+  group_by(religion) %>%
+  summarise(across(c(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, .names = "mean_{.col}"))
+
+# After
+data_anonymized %>%
+  group_by(religion) %>%
+  summarise(across(c(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, .names = "mean_{.col}"))
+```
+
+The group-level means should be very the same between the original and anonymized datasets. The key research question - whether religion predicts political opinion - is still answerable. Note that some small religion categories have been merged into "Other", which changes the granularity of analysis but preserves the main patterns. Other than that, we did not change anything regarding these variables.
+
+**Reflection**
+
+For the purpose of this dataset - studying the relationship between religion and political opinion - utility is well-preserved. The main variable of interest (religion) is still present, just with fewer fine-grained categories. The political opinion variables are unchanged. Income and years in job show very similar distributions after microaggregation.
+:::
 
 # Striking the Right Balance
-
--   iterative process: rework anonymization after measuring both
 
 Balancing privacy and utility is not a one-shot decision - it is an iterative process. After measuring both, you may find that your current anonymization is too aggressive (data is well-protected but the key analysis no longer works) or too lenient (utility is preserved but too many records are still unique). In either case, you go back to the anonymization steps and adjust: changing recoding thresholds, relaxing or tightening the k-anonymity target, or choosing a different perturbative technique.
 
 For our dataset, a reasonable workflow looks like this: start by checking the k-anonymity level and disclosure risk on `sdc_nonpert` (from [the chapter on non-perturbative techniques](../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative)), then check the information loss after applying perturbative techniques on `sdc_micro` or `sdc_noise` (from [the chapter on perturbative techniques](../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative)), and finally compare the religion-political opinion analysis on original and anonymized data. If the analysis still holds and k-anonymity is at least 3, the anonymization is likely sufficient for sharing.
 
-There are no universal thresholds for "good enough" privacy or utility. A commonly used rule of thumb is that k-anonymity should be at least 3-5 for most research datasets, meaning every combination of quasi-identifiers appears at least 3-5 times. For utility, IL1 values close to 0 and eigenvalue ratios close to 1 indicate low distortion. But ultimately, the right balance depends on your specific context: how sensitive is the data, who will have access, and what analyses need to be supported. When in doubt, consult your institution's data protection officer or data steward.
-
-*Link to people to contact at LMU (data stewards? open science team?)*
-
-*Include finalization of data (export)*
-
-# Exercise
-
-Evaluate the utility of the dataset using `sdcMicro` functions.
-
-After anonymization, you need to check that the data is still **useful** - that the patterns you care about (e.g., the relationship between religion and political opinion) have not been destroyed. `sdcMicro` provides utility measures, but it is also worth comparing distributions and running the actual analysis on both the original and anonymised data.
-
-Key utility concepts:
-
--   **IL1** — average absolute difference between original and anonymised numeric values (lower = better)
--   **Eigen** — compares covariance structure; values close to 1 mean the relationships between variables are preserved
--   **`utility()` / `print(..., type = "utility")`** — overall summary
--   **Visual comparison** — plotting distributions side-by-side is often the most intuitive check
-
-## Exercise: Evaluating Data Utility
-
-Use the `sdc_micro` results from the previous exercises to compare it to the original data.
-
-1.  Print the utility summary of `sdc_micro`. What do IL1 and the eigen measure tell you?
-
-2.  Compare the income distribution before and after anonymisation. Plot histograms of the original and anonymised income side-by-side.
-
-3.  Re-run the analysis that motivated data collection**:** compute the mean political opinion scores (`pol_immigration`, `pol_redistribution`) by religion group on both the original and anonymised data. Are the group differences preserved?
-
-4.  Reflect**:** based on your findings, is the anonymised dataset fit for purpose? Would you adjust any of the anonymisation steps?
-
-::: {.callout-note collapse="true"}
-## Solution
-
-### Step 1 – Utility summary
-
-```{r}
-sdc_micro
-```
-
-IL1 close to 0 indicates little numeric distortion. Eigen values close to 1 indicate that the covariance structure between numeric variables is preserved. If you applied strong microaggregation (small `k` → large groups), you will see higher IL1 and eigen values further from 1.
-
-### Step 2 – Compare income distributions
-
-```{r}
-library(ggplot2)
-
-# Extract anonymised income from the sdc object
-income_original   <- data_withoutdirectidentifiers$income
-income_anonymised <- get.sdcMicroObj(sdc_micro, "manipNumVars")$income
-
-income_compare <- tibble(
-  income = c(income_original, income_anonymised),
-  version = rep(c("Original", "Anonymised"), each = length(income_original))
-)
-
-ggplot(income_compare, aes(x = income, fill = version)) +
-  geom_histogram(alpha = 0.6, bins = 30, position = "identity") +
-  scale_fill_manual(values = c("Original" = "#2E4057", "Anonymised" = "#E07A5F")) +
-  labs(
-    title = "Income distribution: original vs. anonymised",
-    x = "Annual income (€)", y = "Count", fill = NULL
-  ) +
-  theme_minimal()
-```
-
-The shapes should look similar. A heavily chunked distribution (tall bars at regular intervals) would indicate that microaggregation groups were too large.
-
-*Check data: anonymized data virtually identical with non-anonymized*
-
-### Step 3 – Check whether the key analysis still works
-
-```{r}
-# Analysis on original data
-original_summary <- data_withoutdirectidentifiers %>%
-  group_by(religion) %>%
-  summarise(
-    mean_immigration    = mean(pol_immigration,    na.rm = TRUE),
-    mean_redistribution = mean(pol_redistribution, na.rm = TRUE),
-    n = n()
-  )
-
-# Rebuild anonymised dataset with the manipulated variables
-anon_data <- get.sdcMicroObj(sdc_micro, "manipKeyVars") %>%
-  bind_cols(get.sdcMicroObj(sdc_micro, "manipNumVars")) %>%
-  bind_cols(
-    data_withoutdirectidentifiers %>% select(religion, starts_with("pol_"))
-  )
-
-anonymised_summary <- anon_data %>%
-  group_by(religion) %>%
-  summarise(
-    mean_immigration    = mean(pol_immigration,    na.rm = TRUE),
-    mean_redistribution = mean(pol_redistribution, na.rm = TRUE),
-    n = n()
-  )
-
-original_summary
-anonymised_summary
-```
-
-If the group means are close between both summaries, the anonymisation has preserved the analytical signal. Political opinion variables were not altered (they are neither key variables nor numeric variables in the sdcMicro object), so differences here would only arise if the grouping structure changed dramatically.
-
-### Step 4 – Reflection
-
-There is no single correct answer. Consider:
-
--   If income distributions look very similar and group means are preserved → the anonymisation is fit for purpose for this analysis
--   If you used `k = 5` and results still look good, increasing to `k = 3` would reduce distortion while still providing some protection, but weigh this against the risk reduction you found in the earlier exercises
--   Variables like `plz_region` and `age_group` were generalized; if a future analysis requires finer geographic or age breakdowns, you would need to rework the anonymization strategy
-:::
+There are no universal thresholds for "good enough" privacy or utility. A commonly used rule of thumb is that k-anonymity should be at least 3-5 for most research datasets, meaning every combination of quasi-identifiers appears at least 3-5 times. For utility, IL1 values eigenvalue differences close to 0 indicate low distortion. But ultimately, the right balance depends on your specific context: how sensitive is the data, who will have access, and what analyses need to be supported. When in doubt, consult your institution's data protection officer ([here at LMU](https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-representatives-and-contact-persons/data-protection-officer.html)), data steward (or a local research data management team, [here at LMU](https://www.ub.lmu.de/en/open-access-publishing/research-data/)), or open science team (here at LMU).
 
 Let's keep in mind, that while there is a tension between data protection and openness, in practice, these principles enable each other: Sharing data builds trust in research findings, while protecting participants builds trust in researchers. When done well, anonymization is the bridge between these goals - it lets you share data openly while honoring the privacy expectations of the people who provided it [@Jansen2025_TensionOpenData].
 

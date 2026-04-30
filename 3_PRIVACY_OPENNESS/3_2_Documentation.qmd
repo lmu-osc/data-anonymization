@@ -19,13 +19,35 @@ The external documentation is what you share alongside the anonymized dataset. I
 
 If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values - for example, a line like `filter(country == "Liechtenstein")` tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible.
 
-*Make more precise*
-
 # Exercise
 
-Make changes to the data dictionary in accordance with the anonymization steps you made in this tutorial.
+Make changes to the data dictionary from [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data) in accordance with the anonymization steps you made in this tutorial.
 
-*Insert solution of exercise*
+::: {.callout-note collapse="true"}
+## Solution
+
+The following variables were removed or modified during anonymization:
+
+| Variable Name | Status | Change |
+|------------------------|------------------------|------------------------|
+| `name` | **Removed** | Direct identifier - dropped before release |
+| `email` | **Removed** | Direct identifier - dropped before release |
+| `ip_address` | **Removed** | Direct identifier - dropped before release |
+| `id` | Unchanged |  |
+| `age` | **Modified** | Recoded from exact age in years (Integer; 18-100) to age band (Factor; "18-29", "30-39", "40-49", "50-59", "60+") |
+| `plz` | **Modified** | Recoded from full 5-digit postal code to regional indicator (Factor; "8xxxx" for Munich/southwest German region, "other" for all other codes); local suppression of 2 values that violate 3-anonymity |
+| `religion` | **Modified** | Categories with fewer than 10 observations merged into "Other" (Factor; "Catholicism", "Protestantism", "Islam", "None", "Other") |
+| `income` | **Modified** | Values replaced with group means via microaggregation; individual values no longer correspond to original responses (Integer) |
+| `years_in_job` | **Modified** | Values replaced with group means via microaggregation; individual values no longer correspond to original responses (Integer) |
+| `gender` | **Modified** | Local suppression of 6 values that violate 3-anonymity |
+| `education` | **Modified** | Local suppression of 40 values that violate 3-anonymity |
+| `pol_immigration` | Unchanged |  |
+| `pol_environment` | Unchanged |  |
+| `pol_redistribution` | Unchanged |  |
+| `pol_eu_integration` | Unchanged |  |
+
+Note that the anonymization script used to produce this dataset is available alongside the data. Be aware that scripts themselves can reveal information about the original data (e.g., thresholds used for top-coding, or country names referenced in recoding steps). The released script uses generic category labels where possible to avoid this.
+:::
 
 #### Learning Objective
 

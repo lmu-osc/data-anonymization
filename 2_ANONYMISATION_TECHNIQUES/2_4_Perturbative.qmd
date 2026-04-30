@@ -49,9 +49,11 @@ The noise can be uncorrelated - each value gets an independent random draw - or 
 
 Differential privacy is a formal privacy guarantee that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset - so the presence or absence of one person cannot be inferred from the result.
 
-In practice, this means adding carefully calibrated noise to query results or to the data itself, such that any individual's contribution is hidden within the noise. As one formulation puts it: “Even if the attacker already suspects X is the only possible HIV case in the dataset, the data release should not confirm or deny that suspicion.”
+In practice, this means adding carefully calibrated noise to query results or to the data itself, such that any individual's contribution is hidden within the noise.
 
-For R users, the `diffpriv` package implements differential privacy mechanisms and is a good starting point for exploring this approach. *add link to other resources*
+For example, in a dataset with medical data and tests on HIV, even if the attacker already suspects a person X is the only possible HIV case in the dataset, the data does then not confirm or deny that suspicion.
+
+For R users, the `diffpriv` package implements differential privacy mechanisms and is a good starting point for exploring this approach [@rubinstein2017].
 :::
 
 ## Microaggregation
@@ -62,15 +64,17 @@ The quality of the result depends on how homogeneous the groups are: the more si
 
 ## Rounding
 
-Rounding replaces exact values with rounded versions - for example, rounding income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range.
+Rounding replaces exact values with rounded versions. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or looses quite a lot of data in case of larger ranges that are rounded to the same value.
 
 ## PRAM
 
 PRAM (Post RAndomisation Method) applies to categorical variables. Each value is randomly recoded to a different category with a certain probability defined in a transition matrix. For example, a participant recorded as "male" might be recoded to "female" with probability 0.05 and kept as "male" with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.
 
+This technique can be applied to the `keyVars` we defined in the `sdcObject` earlier, but does not improve k-anonymity indicators since it doesn't reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that `sdcMicro` indicators can not measure.
+
 # Keeping Utility
 
-After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover utility measures in [the chapter on balancing utility and privacy](../3_PRIVACY_OPENNESS/3_1_Balancing).
+After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover formal utility measures in [the chapter on balancing utility and privacy](../3_PRIVACY_OPENNESS/3_1_Balancing).
 
 # Pro and Contra of Using Perturbative Techniques
 
@@ -90,22 +94,20 @@ Contra:
 
 -   If applied too aggressively, perturbative techniques can distort subgroup statistics in ways that are hard to detect.
 
-# Exercise
+# Exercise: Applying Perturbative Techniques
 
 Let's try out two common perturbative techniques - microaggregation and noise. Conveniently, both are available directly in `sdcMicro`.
 
-## Exercise: Applying Perturbative Techniques
-
 Continue working with `sdc_nonpert` from the previous exercise.
 
-1.  **Apply microaggregation** (with the function `microaggregation`) **to `income`** using the default method (`"mdav"`). Start with a group size of `aggr = 5`.
+1.  **Apply microaggregation** (with the function `microaggregation`) **to income** using the default method (`"mdav"`). Start with a group size of `aggr = 5`.
 
-2.  **Add additive noise to `income`** (with the function `adddNoise)` as an alternative. Start with a noise parameter of 1 .
+2.  **Add additive noise to income** (with the function `adddNoise)` as an alternative. Start with a noise parameter of 1 .
 
 3.  **Compare the methods:** Which parameters do you need to achieve similar levels of protection?
 
 ::: callout-tip
-You cannot undo perturbation steps within the same `sdc` object. Create a fresh copy of `sdc_nonpert` before trying the second method so you can compare them side-by-side.
+You cannot undo perturbation steps within the same `sdcObject`. Create a fresh copy of `sdc_nonpert` before trying the second method so you can compare them side-by-side.
 :::
 
 ::: {.callout-note collapse="true"}
