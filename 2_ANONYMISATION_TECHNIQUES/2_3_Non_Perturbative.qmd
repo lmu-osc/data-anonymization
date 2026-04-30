@@ -274,7 +274,7 @@ These techniques reduce the disclosure risk to up to 92% compared tot the origin
 Finally, I save the `sdcObject`.
 
 ```{r}
-saveRDS(sdc_nonpert, "../sdc_nonpert.rds")}
+saveRDS(sdc_nonpert, "../sdc_nonpert.rds")
 ```
 
 *Move to other section?*
