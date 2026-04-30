@@ -385,10 +385,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#keeping-utility" id="toc-keeping-utility" class="nav-link" data-scroll-target="#keeping-utility">Keeping Utility</a></li>
   <li><a href="#pro-and-contra-of-using-perturbative-techniques" id="toc-pro-and-contra-of-using-perturbative-techniques" class="nav-link" data-scroll-target="#pro-and-contra-of-using-perturbative-techniques">Pro and Contra of Using Perturbative Techniques</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
-  <ul class="collapse">
   <li><a href="#exercise-applying-perturbative-techniques" id="toc-exercise-applying-perturbative-techniques" class="nav-link" data-scroll-target="#exercise-applying-perturbative-techniques">Exercise: Applying Perturbative Techniques</a></li>
-  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -447,8 +444,9 @@ div.csl-indent {
 </div>
 <div class="callout-body-container callout-body">
 <p>Differential privacy is a formal privacy guarantee that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset - so the presence or absence of one person cannot be inferred from the result.</p>
-<p>In practice, this means adding carefully calibrated noise to query results or to the data itself, such that any individual’s contribution is hidden within the noise. As one formulation puts it: “Even if the attacker already suspects X is the only possible HIV case in the dataset, the data release should not confirm or deny that suspicion.”</p>
-<p>For R users, the <code>diffpriv</code> package implements differential privacy mechanisms and is a good starting point for exploring this approach. <em>add link to other resources</em></p>
+<p>In practice, this means adding carefully calibrated noise to query results or to the data itself, such that any individual’s contribution is hidden within the noise.</p>
+<p>For example, in a dataset with medical data and tests on HIV, even if the attacker already suspects a person X is the only possible HIV case in the dataset, the data does then not confirm or deny that suspicion.</p>
+<p>For R users, the <code>diffpriv</code> package implements differential privacy mechanisms and is a good starting point for exploring this approach <span class="citation" data-cites="rubinstein2017">(<a href="#ref-rubinstein2017" role="doc-biblioref">Rubinstein and Alda 2017</a>)</span>.</p>
 </div>
 </div>
 </section>
@@ -459,16 +457,17 @@ div.csl-indent {
 </section>
 <section id="rounding" class="level2">
 <h2 class="anchored" data-anchor-id="rounding">Rounding</h2>
-<p>Rounding replaces exact values with rounded versions - for example, rounding income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range.</p>
+<p>Rounding replaces exact values with rounded versions. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or looses quite a lot of data in case of larger ranges that are rounded to the same value.</p>
 </section>
 <section id="pram" class="level2">
 <h2 class="anchored" data-anchor-id="pram">PRAM</h2>
 <p>PRAM (Post RAndomisation Method) applies to categorical variables. Each value is randomly recoded to a different category with a certain probability defined in a transition matrix. For example, a participant recorded as “male” might be recoded to “female” with probability 0.05 and kept as “male” with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.</p>
+<p>This technique can be applied to the <code>keyVars</code> we defined in the <code>sdcObject</code> earlier, but does not improve k-anonymity indicators since it doesn’t reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that <code>sdcMicro</code> indicators can not measure.</p>
 </section>
 </section>
 <section id="keeping-utility" class="level1">
 <h1>Keeping Utility</h1>
-<p>After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover utility measures in <a href="../3_PRIVACY_OPENNESS/3_1_Balancing">the chapter on balancing utility and privacy</a>.</p>
+<p>After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover formal utility measures in <a href="../3_PRIVACY_OPENNESS/3_1_Balancing">the chapter on balancing utility and privacy</a>.</p>
 </section>
 <section id="pro-and-contra-of-using-perturbative-techniques" class="level1">
 <h1>Pro and Contra of Using Perturbative Techniques</h1>
@@ -485,15 +484,13 @@ div.csl-indent {
 <li><p>If applied too aggressively, perturbative techniques can distort subgroup statistics in ways that are hard to detect.</p></li>
 </ul>
 </section>
-<section id="exercise" class="level1">
-<h1>Exercise</h1>
+<section id="exercise-applying-perturbative-techniques" class="level1">
+<h1>Exercise: Applying Perturbative Techniques</h1>
 <p>Let’s try out two common perturbative techniques - microaggregation and noise. Conveniently, both are available directly in <code>sdcMicro</code>.</p>
-<section id="exercise-applying-perturbative-techniques" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-applying-perturbative-techniques">Exercise: Applying Perturbative Techniques</h2>
 <p>Continue working with <code>sdc_nonpert</code> from the previous exercise.</p>
 <ol type="1">
-<li><p><strong>Apply microaggregation</strong> (with the function <code>microaggregation</code>) <strong>to <code>income</code></strong> using the default method (<code>"mdav"</code>). Start with a group size of <code>aggr = 5</code>.</p></li>
-<li><p><strong>Add additive noise to <code>income</code></strong> (with the function <code>adddNoise)</code> as an alternative. Start with a noise parameter of 1 .</p></li>
+<li><p><strong>Apply microaggregation</strong> (with the function <code>microaggregation</code>) <strong>to income</strong> using the default method (<code>"mdav"</code>). Start with a group size of <code>aggr = 5</code>.</p></li>
+<li><p><strong>Add additive noise to income</strong> (with the function <code>adddNoise)</code> as an alternative. Start with a noise parameter of 1 .</p></li>
 <li><p><strong>Compare the methods:</strong> Which parameters do you need to achieve similar levels of protection?</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -506,7 +503,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You cannot undo perturbation steps within the same <code>sdc</code> object. Create a fresh copy of <code>sdc_nonpert</code> before trying the second method so you can compare them side-by-side.</p>
+<p>You cannot undo perturbation steps within the same <code>sdcObject</code>. Create a fresh copy of <code>sdc_nonpert</code> before trying the second method so you can compare them side-by-side.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1285,11 +1282,11 @@ Number of observations violating
 <pre><code>Numerical key variables: income, years_in_job
 
 Disclosure risk (~100.00% in original data):
-  modified data: [0.00%; 72.00%]
+  modified data: [0.00%; 79.00%]
 
 Current Information Loss in modified data (0.00% in original data):
-  IL1: 916.75
-  Difference of Eigenvalues: 6.360%
+  IL1: 876.21
+  Difference of Eigenvalues: 6.040%
 ----------------------------------------------------------------------</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -1323,8 +1320,8 @@ Current Information Loss in modified data (0.00% in original data):
 <li>After completing this part of the tutorial, you will be able to apply selected perturbative techniques in R.</li>
 </ul>
 </section>
-<section id="exercise-1" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-1">Exercise</h4>
+<section id="exercise" class="level4">
+<h4 class="anchored" data-anchor-id="exercise">Exercise</h4>
 <ul>
 <li>Apply one or two techniques for certain variables in R</li>
 </ul>
@@ -1334,7 +1331,6 @@ Current Information Loss in modified data (0.00% in original data):
 <ul>
 <li>adding noise with the <code>sdcMicro</code> R package</li>
 </ul>
-</section>
 </section>
 </section>
 <section id="references" class="level1">
@@ -1347,6 +1343,9 @@ Current Information Loss in modified data (0.00% in original data):
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
 Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
+</div>
+<div id="ref-rubinstein2017" class="csl-entry" role="listitem">
+Rubinstein, Benjamin I. P., and Francesco Alda. 2017. <span>“Pain-Free Random Differential Privacy with Sensitivity Sampling.”</span>
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -383,10 +383,8 @@ div.csl-indent {
   <li><a href="#sampling" id="toc-sampling" class="nav-link" data-scroll-target="#sampling">Sampling</a></li>
   </ul></li>
   <li><a href="#pro-and-contra-using-non-perturbative-techniques" id="toc-pro-and-contra-using-non-perturbative-techniques" class="nav-link" data-scroll-target="#pro-and-contra-using-non-perturbative-techniques">Pro and Contra Using Non-Perturbative Techniques</a></li>
-  <li><a href="#applying-non-perturbative-techniques-with-r" id="toc-applying-non-perturbative-techniques-with-r" class="nav-link" data-scroll-target="#applying-non-perturbative-techniques-with-r">Applying Non-Perturbative Techniques With R</a>
-  <ul class="collapse">
   <li><a href="#exercise-applying-non-perturbative-techniques" id="toc-exercise-applying-non-perturbative-techniques" class="nav-link" data-scroll-target="#exercise-applying-non-perturbative-techniques">Exercise: Applying Non-Perturbative Techniques</a></li>
-  </ul></li>
+  <li><a href="#further-anonymization-steps-using-perturbative-techniques" id="toc-further-anonymization-steps-using-perturbative-techniques" class="nav-link" data-scroll-target="#further-anonymization-steps-using-perturbative-techniques">Further Anonymization Steps Using Perturbative Techniques</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -423,19 +421,27 @@ div.csl-indent {
 <section id="global-recoding" class="level2">
 <h2 class="anchored" data-anchor-id="global-recoding">Global Recoding</h2>
 <p>Global recoding (also called generalization) replaces the exact values of a variable with broader categories - applied to every row in the dataset.</p>
-<p>Example: Replace specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”), recoding age in year to age in decade</p>
+<p><strong>Examples</strong></p>
+<ul>
+<li><p>Replacing specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”).</p></li>
+<li><p>Recoding age in year to age in decade.</p></li>
+</ul>
 <p>The key decision is how broadly to generalize. Wider categories reduce risk more, but also lose more information. The right granularity depends on how many people share each combination - which is exactly what k-anonymity measures. You will practice this trade-off in the exercise below.</p>
 </section>
 <section id="local-recoding" class="level2">
 <h2 class="anchored" data-anchor-id="local-recoding">Local Recoding</h2>
 <p>Local recoding generalizes values only where needed, rather than across the whole dataset. This is useful when only a small subset of values is rare enough to create risk.</p>
-<p>Example: If only few participant are from Asia, you may recode only their values (e.g., “China”, “India”, “Nepal”) to “Asia”, keeping all others unchanged.</p>
+<p><strong>Example</strong>: If only few participant are from Asia, you may recode only their values (e.g., “China”, “India”, “Nepal”) to “Asia”, keeping all others unchanged.</p>
 <p>This means, that values are on different level (in this example: country vs.&nbsp;continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently - you need to be transparent about which categories were collapsed and why.</p>
 </section>
 <section id="top-and-bottom-coding" class="level2">
 <h2 class="anchored" data-anchor-id="top-and-bottom-coding">Top-and-Bottom Coding</h2>
-<p>Top-and-bottom coding is a special case of recoding that applies to numerical variables. Instead of grouping all values into bands, you cap the extreme ends of the distribution - replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes or very long job tenures might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value.</p>
-<p>Example: Instead of reporting “6 children”, report “4+ children” for anyone above this threshold; all participants below the age of 20 years are coded as “&lt;20 years”</p>
+<p>Top-and-bottom coding is a special case of recoding that applies to numerical variables. Instead of grouping all values into bands, you cap the extreme ends of the distribution - replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value.</p>
+<p><strong>Examples</strong></p>
+<ul>
+<li><p>Instead of reporting “6 children”, report “4+ children” for anyone above this threshold.</p></li>
+<li><p>All participants below the age of 20 years are coded as “&lt;20 years”.</p></li>
+</ul>
 <p>How to determine the threshold: The threshold can be calculated, but this is not trivial. A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles - capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.</p>
 </section>
 <section id="suppression" class="level2">
@@ -443,52 +449,45 @@ div.csl-indent {
 <p>Suppression means removing information entirely - replacing a value with a missing value (<code>NA</code>) or dropping it altogether. This is also known as nulling. It is the most straightforward way to handle data that is too risky to release, but it also loses the most information.</p>
 <p>Suppression can occur on different levels:</p>
 <ul>
-<li><p>Cell suppression: Remove a single risky value while keeping the rest of the record. For example, if one participant has a unique job title that makes them identifiable, you can set only that cell to <code>NA</code>.</p></li>
-<li><p>Record suppression: Remove an entire participant’s data if their combination of attributes is so unique that no other technique can adequately protect them.</p></li>
-<li><p>Variable suppression: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case - we already did this in <a href="../1_FOUNDATION/1_3_Personal_Data">the chapter on personal data</a>.</p></li>
+<li><p><strong>Cell suppression</strong>: Remove a single risky value while keeping the rest of the record. For example, if one participant has a unique job title that makes them identifiable, you can set only that cell to <code>NA</code>.</p></li>
+<li><p><strong>Record suppression</strong>: Remove an entire participant’s data if their combination of attributes is so unique that no other technique can adequately protect them.</p></li>
+<li><p><strong>Variable suppression</strong>: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case - we already did this in <a href="../1_FOUNDATION/1_3_Personal_Data">the chapter on personal data</a>.</p></li>
 </ul>
-<p>Cell suppression can also follow a specific condition: Conditional Nulling means replacing data entries with zeros based on a condition. For example, entries in the column “Customer Feedback” could be nullified if the customer feedback was negative <span class="citation" data-cites="raghunathan2013complete">(<a href="#ref-raghunathan2013complete" role="doc-biblioref">Raghunathan 2013</a>)</span>. <strong>Find better example</strong></p>
-<p>Another example is the replacement of credit card number values with XXX. In the credit card example, the application of the character masking technique can be <em>partial</em>, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.</p>
+<p><strong>Example</strong>: Replacing credit card number values with XXX. In the credit card example, the application of the character masking technique can be <em>partial</em>, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.</p>
 <p>Suppression is often used as a last resort after recoding: if recoding alone is not enough to bring all records up to the required k-anonymity threshold, targeted cell suppression can close the remaining gaps.</p>
 </section>
 <section id="sampling" class="level2">
 <h2 class="anchored" data-anchor-id="sampling">Sampling</h2>
-<p>If your dataset covers an entire population - for example, all students enrolled in a particular program, or all employees of a specific company - then releasing it in full means that anyone who knows a person was part of that group can try to find their record. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.</p>
+<p>If your dataset covers an entire population - for example, all students enrolled in a particular program, or all employees of a specific company - then releasing it in full means that anyone who knows a person was part of that group can try to find their record. <a href="../2_1_Planning_Privacy#identifying-privacy-risks">Participation knowledge</a> would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.</p>
 <p>A sample can be randomly selected, but also based on conditions (e.g., quotas for study subjects).</p>
 <p>Sampling is most relevant for administrative datasets and registers. For typical survey-based research, where participation is voluntary and not exhaustively documented, it is less commonly needed. If you do use it, keep in mind that the sample size affects both privacy and the statistical representativeness of the data.</p>
-<p><em>Could aslo be quite effective in case of participation knowledge</em></p>
 </section>
 </section>
 <section id="pro-and-contra-using-non-perturbative-techniques" class="level1">
 <h1>Pro and Contra Using Non-Perturbative Techniques</h1>
-<p>Pro:</p>
+<p>Pro</p>
 <ul>
 <li><p>original data values are preserved (no distortion of statistics within remaining cells)</p></li>
 <li><p>straightforward to implement and explain</p></li>
 <li><p>easy to document</p></li>
 </ul>
-<p>Con:</p>
+<p>Con</p>
 <ul>
 <li><p>information is lost (removed or coarsened)</p></li>
 <li><p>heavy suppression can make the dataset hard to use</p></li>
 <li><p>may not be sufficient on its own for high-risk data</p></li>
 </ul>
 </section>
-<section id="applying-non-perturbative-techniques-with-r" class="level1">
-<h1>Applying Non-Perturbative Techniques With R</h1>
-<ul>
-<li><p>basic data wrangling operations in R or functions in sdcMicro (better than manual changes)</p></li>
-<li><p>but: when publishing anonymization script: needs to be anonymous as well (e.g., not naming specific countries; see <a href="../3_PRIVACY_OPENNESS/3_2_Documentation">the chapter on documentation</a>)</p></li>
-</ul>
-<section id="exercise-applying-non-perturbative-techniques" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-applying-non-perturbative-techniques">Exercise: Applying Non-Perturbative Techniques</h2>
+<section id="exercise-applying-non-perturbative-techniques" class="level1">
+<h1>Exercise: Applying Non-Perturbative Techniques</h1>
 <p>In this exercise, you will apply non-perturbative techniques to the data to reduce re-identification risk.</p>
 <p>The following <code>sdcMicro</code> functions are available to you:</p>
 <ul>
-<li><code>globalRecode()</code> — recodes a key variable into broader groups (e.g., exact age → age band)</li>
-<li><code>topBotCoding()</code> — caps extreme values at a given threshold</li>
-<li><code>localSuppression()</code> — suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful hwne using this function: It does a good job at finding individuals whose record is still unique. But it does not report changes transparently and leads to missing values. Instead, you can recode data manually, e.g., by using <code>mutate</code>, or by using a function such as <code>fct_lump_min()</code> from <code>forcats</code>. This function lumps all categories below a certain group size together.</li>
+<li><code>globalRecode()</code> recodes a key variable into broader groups (e.g., exact age → age band)</li>
+<li><code>topBotCoding()</code> caps extreme values at a given threshold</li>
+<li><code>localSuppression()</code> suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the <code>sdcObject</code>.</li>
 </ul>
+<p>In addition, you can recode data manually, e.g., by using <code>mutate</code>, or by using a function such as <code>fct_lump_min()</code> from <code>forcats</code>. This function lumps all categories below a certain group size together.</p>
 <ol type="1">
 <li>Look at the key variables in <code>sdc_data</code> (<code>gender</code>, <code>age</code>, <code>education</code>, <code>plz</code>) and decide which technique is appropriate for each. There is no single correct solution - choose thresholds and groupings that make sense given the data, and be prepared to justify your choices.</li>
 <li>Apply these techniques using the functions mentioned above.</li>
@@ -505,10 +504,9 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>The <code>sdcMicro</code> functions operate directly on the <code>sdc</code> object and update risk estimates automatically. Check <code>?globalRecode</code>, <code>?topBotCoding</code>, and <code>?localSuppression</code> for argument details.</p>
-<p>The <code>forcat</code> function <code>fct_lump_min()</code> is applied to the dataset itself. The <code>sdcObject</code> needs to be updated afterward.</p>
+<p>All manual changes as with<code>forcat</code> functions like <code>fct_lump_min()</code> are applied to the dataset itself. The <code>sdcObject</code> needs to be updated afterward.</p>
 </div>
 </div>
-<p><em>Re-read for roter Faden</em></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -672,7 +670,7 @@ Expected number of re-identifications:
 </div>
 <p>The new categories map loosely to north-east (00-19), north-central (20-39), west (40-59), south-west (60-79), and south-east (80-99) Germany.</p>
 <p>Looking at k-anonymity now, we see that there are still many unique observations. To reduce risk further, I will generalize <code>plz</code> even more. For this dataset, I mostly want to use <code>plz</code> to distinguish whether participants live in the Munich area or elsewhere in Germany. Postal codes starting with 8 cover roughly the areas surrounding Munich, so I will collapse <code>plz</code> into just two categories: <code>"8xxxx"</code> and <code>"other"</code>.</p>
-<p><code>globalRecode()</code> cannot do this directly since <code>cut()</code> only handles continuous intervals - and “other” spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the <code>@manipKeyVars</code> slot of the sdcObject and recalculate risks:</p>
+<p><code>globalRecode()</code> cannot do this directly since <code>cut()</code> only handles continuous intervals - and “other” spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the data stored with the <code>@manipKeyVars</code> slot of the <code>sdcObject</code> and recalculate risks:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -920,10 +918,13 @@ Expected number of re-identifications:
   in original data: 199.00 (99.50 %)</code></pre>
 </div>
 </div>
-<p>With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymity. Only 29 entries remain, that violate 5-anonymity. To me, this is enough protection on k-anonymity.</p>
+<p>With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymity. Only 29 entries remain, that violate 5-anonymity. To me, this is enough protection on k-anonymity, while still preserving most of utility, especially on the most interesting variables.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="further-anonymization-steps-using-perturbative-techniques" class="level1">
+<h1>Further Anonymization Steps Using Perturbative Techniques</h1>
 <p>Now that the key variables are in their final state, I applied <strong>top-coding to income</strong> and <strong>years in job</strong>.</p>
 <p>My goal with income is to protect the few individuals with a very high income. I start by inspecting the distribution:</p>
 <div class="cell">
@@ -1135,654 +1136,11 @@ Expected number of re-identifications:
 </div>
 </div>
 <p>These techniques reduce the disclosure risk to up to 92% compared tot the original data.</p>
-<p>Now I can extract the dataset. Because sdcMicro stores recoded key variables as integer codes internally, I need to restore the labels manually using <code>mutate</code>:</p>
+<p>Finally, I save the <code>sdcObject</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>data_nonpert <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdc_nonpert)</span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore labels for variables recoded inside sdcMicro</span></span>
-<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>age_labels    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"18-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60+"</span>)</span>
-<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>plz_labels    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"8xxxx"</span>, <span class="st">"other"</span>)</span>
-<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>data_nonpert <span class="ot">&lt;-</span> data_nonpert <span class="sc">%&gt;%</span></span>
-<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">factor</span>(age, <span class="at">levels =</span> <span class="fu">seq_along</span>(age_labels), <span class="at">labels =</span> age_labels),</span>
-<span id="cb80-10"><a href="#cb80-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">plz =</span> <span class="fu">factor</span>(plz, <span class="at">levels =</span> <span class="fu">seq_along</span>(plz_labels), <span class="at">labels =</span> plz_labels)</span>
-<span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb80-12"><a href="#cb80-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-13"><a href="#cb80-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-14"><a href="#cb80-14" aria-hidden="true" tabindex="-1"></a>data_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     id   plz     gender   age   income years_in_job          religion
-1     1 other     female 18-29  8471.35            3       Catholicism
-2     2 other     female 30-39 34721.35            4              None
-3     3 other       male   60+ 89185.85            0              None
-4     4 other     female   60+ 59490.47            5              None
-5     5 8xxxx       male 18-29 52337.39            1             Islam
-6     6 other       male   60+ 60960.23            6     Protestantism
-7     7 other       male 30-39 61037.20           11              None
-8     8 8xxxx     female 30-39 58720.93            2          Buddhism
-9     9 8xxxx       male 30-39 55625.01            1       Catholicism
-10   10 other       male 18-29 75996.23            4       Catholicism
-11   11  &lt;NA&gt; non-binary 40-49 29760.83            6       Catholicism
-12   12 8xxxx     female 30-39 43369.95            9              None
-13   13 other       male 30-39 70224.28            3              None
-14   14 other     female 40-49 43707.07            2             Islam
-15   15 other     female   60+ 50073.94            5             Islam
-16   16 other     female 30-39 53897.71            9       Catholicism
-17   17 8xxxx       male 50-59 47372.98            8       Catholicism
-18   18 8xxxx     female   60+ 53557.83            8           Judaism
-19   19 other       male 30-39 88933.73            4             Islam
-20   20 8xxxx     female 50-59 33516.81            2              None
-21   21 other     female 50-59 60266.05            3              None
-22   22 other     female 18-29  3234.65           11              None
-23   23 other     female 40-49 18647.76            0     Protestantism
-24   24 other     female 40-49 53198.80            0       Catholicism
-25   25 other       male 50-59 66750.89            8     Protestantism
-26   26 8xxxx     female 40-49 33275.84            2       Catholicism
-27   27 other       male 40-49 43974.11            0       Catholicism
-28   28 other     female 30-39 56904.06            2              None
-29   29 other     female 18-29 49785.63            2             Islam
-30   30 8xxxx     female 18-29 65838.27            4              None
-31   31 8xxxx     female 40-49 43510.82            2       Catholicism
-32   32 other     female 18-29 35050.43           11     Protestantism
-33   33 other       male 18-29 45612.60            6              None
-34   34 8xxxx     female 18-29 74064.45            2             Islam
-35   35 8xxxx     female 18-29 19700.02            1              None
-36   36 other     female 18-29 35491.71            1     Protestantism
-37   37 8xxxx     female 18-29 31146.67            3     Protestantism
-38   38 other     female 18-29 58538.33            1              None
-39   39 8xxxx       &lt;NA&gt; 30-39 25565.51           10              None
-40   40 other       male 50-59 53781.80           12              None
-41   41 8xxxx       male 30-39 48621.36            6              None
-42   42 8xxxx     female 50-59 52099.26            1              None
-43   43 8xxxx       male 18-29 80544.39            5              None
-44   44 8xxxx       male 40-49 44352.87            0              None
-45   45 8xxxx       male 18-29 36923.45            5       Catholicism
-46   46 other     female   60+ 89185.85            8       Catholicism
-47   47 8xxxx       male 50-59 82695.22            6              None
-48   48 8xxxx       male   60+ 89185.85           15     Protestantism
-49   49 8xxxx       &lt;NA&gt; 18-29 43699.08            3     Protestantism
-50   50 8xxxx       male 18-29 55256.89            8       Catholicism
-51   51 8xxxx     female 18-29 57280.41            2     Protestantism
-52   52 other     female 40-49 65257.71           15       Catholicism
-53   53 other       male 30-39 73130.44            5     Protestantism
-54   54 8xxxx     female 50-59 77231.91            5             Islam
-55   55 other non-binary 40-49 89185.85            4              None
-56   56 8xxxx     female 50-59 49240.52            6              None
-57   57 8xxxx       male 18-29 49181.85            1     Protestantism
-58   58 8xxxx     female 40-49 45667.06           11       Catholicism
-59   59 8xxxx       male 18-29 71020.92            3       Catholicism
-60   60 other     female 50-59 17867.79            0              None
-61   61 other       male 30-39 59154.65            7              None
-62   62 8xxxx       male 18-29 34867.09            1     Protestantism
-63   63 8xxxx       male   60+ 89185.85            9     Protestantism
-64   64 8xxxx     female 40-49  6537.27            4             Islam
-65   65 8xxxx       &lt;NA&gt; 18-29 53963.61            5     Protestantism
-66   66 other       male 30-39 53233.39            0              None
-67   67 other     female   60+ 35192.39            0       Catholicism
-68   68 8xxxx       male 40-49 88998.52            7     Protestantism
-69   69 8xxxx     female 30-39 76185.54           15              None
-70   70 8xxxx       male 18-29 15277.69            1       Catholicism
-71   71 8xxxx     female 50-59 32358.41            4     Protestantism
-72   72 8xxxx     female 50-59 59564.29            0       Catholicism
-73   73 8xxxx       male 18-29 44946.10            1              None
-74   74 8xxxx       male 50-59 66701.73           10           Judaism
-75   75 8xxxx     female 30-39 52378.45           13     Protestantism
-76   76 8xxxx     female 30-39 28532.02            1     Protestantism
-77   77 other       male 40-49 56000.53            5     Protestantism
-78   78 8xxxx       male 18-29 69690.09           11              None
-79   79 8xxxx     female 50-59 46431.85            2     Protestantism
-80   80 8xxxx     female   60+ 85894.23            4              None
-81   81 other     female 40-49 59395.77            3     Protestantism
-82   82 8xxxx     female 18-29 50677.57            0     Protestantism
-83   83 other       male   60+ 19523.64            3             Islam
-84   84 other     female 30-39 60402.28            5     Protestantism
-85   85 8xxxx       male 40-49 73762.07           15              None
-86   86 other       male 50-59 57488.83            2       Catholicism
-87   87 other     female 30-39 48387.34            4       Catholicism
-88   88 other     female 40-49 51020.65           15       Catholicism
-89   89 8xxxx       &lt;NA&gt; 30-39 89185.85            8              None
-90   90 other     female 40-49 52973.81            5       Catholicism
-91   91 8xxxx     female 18-29 65059.84            5     Protestantism
-92   92 other     female 40-49 89185.85            5       Catholicism
-93   93 other     female 50-59 60871.39           10       Catholicism
-94   94 other       male 18-29 38100.28            1              None
-95   95 other     female   60+  1508.25            1              None
-96   96 8xxxx     female 40-49 35839.71            2       Catholicism
-97   97 8xxxx       male   60+ 33524.46            3              None
-98   98 other     female 40-49 89185.85           10     Protestantism
-99   99 other       male 40-49 37535.39           15              None
-100 100 other       male 40-49 70163.08            3       Catholicism
-101 101 8xxxx       male 18-29 44974.20            2          Buddhism
-102 102 other       male 30-39 65006.97            5       Catholicism
-103 103 8xxxx       male 40-49 28030.40           13     Protestantism
-104 104 8xxxx       male 40-49 56143.31            1     Protestantism
-105 105 8xxxx       male 18-29 21741.10           12       Catholicism
-106 106 other     female 18-29 61855.98            1              None
-107 107 other     female 18-29 15326.24            1              None
-108 108 8xxxx       male   60+  9709.52            5              None
-109 109 other     female 40-49 25659.34            5       Catholicism
-110 110 other     female 50-59 69044.93            3       Catholicism
-111 111 8xxxx       male 30-39 66301.02            3     Protestantism
-112 112 8xxxx     female 30-39 27090.40            2              None
-113 113 other       male 40-49 45324.62            4              None
-114 114 other       male   60+ 50849.11            5       Catholicism
-115 115 8xxxx     female   60+ 30421.29           13              None
-116 116 other     female 40-49 50230.45            3     Protestantism
-117 117 8xxxx       male 18-29 37902.42            6              None
-118 118 other     female 18-29 55949.20            1       Catholicism
-119 119 other       male 40-49 53509.42            0              None
-120 120 8xxxx     female   60+ 57558.17            2       Catholicism
-121 121 other       male 30-39 67904.73            3     Protestantism
-122 122 other       male 18-29 37003.44            1              None
-123 123 8xxxx     female 40-49 74012.32            0              None
-124 124 8xxxx       male 40-49 54693.74            0              None
-125 125 other     female   60+ 36977.03           12              None
-126 126 other       male 30-39 36546.40            2              None
-127 127 other       male 30-39 84045.58           10       Catholicism
-128 128 other     female 18-29 82138.06            1              None
-129 129 8xxxx     female 50-59 30733.31            1              None
-130 130 8xxxx       male 40-49 61673.59            3     Protestantism
-131 131 8xxxx     female 50-59 69536.55            1     Protestantism
-132 132 8xxxx       male 30-39 48347.66            6     Protestantism
-133 133 8xxxx       male 30-39 66190.75            0     Protestantism
-134 134 other       male   60+ 66078.75           11              None
-135 135 8xxxx     female 50-59 18269.69            1              None
-136 136 other non-binary 40-49 59707.29            1     Protestantism
-137 137 8xxxx       male 40-49 52099.71           15              None
-138 138 8xxxx     female 18-29 34656.89            4     Protestantism
-139 139 8xxxx       male 40-49 34257.44           10       Catholicism
-140 140 8xxxx     female 30-39 24074.20           14              None
-141 141 8xxxx       male 40-49 64152.22            1       Catholicism
-142 142 other     female 40-49 83251.70            2     Protestantism
-143 143 8xxxx     female 40-49 64440.78           13     Protestantism
-144 144 8xxxx     female 18-29 47105.72            9              None
-145 145 other     female 40-49 36879.16            3       Catholicism
-146 146 other       male 30-39 42220.17           15     Protestantism
-147 147 8xxxx       male 30-39 63960.04            0              None
-148 148 8xxxx       male 50-59  3530.08            9              None
-149 149 other     female 30-39 13668.60            4             Islam
-150 150 other       male 40-49 50377.45            7     Protestantism
-151 151 8xxxx     female 40-49 61128.01            3       Catholicism
-152 152 8xxxx       male 18-29 43719.31            4              None
-153 153 other     female 40-49 54589.13           10              None
-154 154 other     female 50-59 19115.90           10              None
-155 155 8xxxx     female 40-49 10024.02            2       Catholicism
-156 156 other       male 18-29 85761.37            7       Catholicism
-157 157  &lt;NA&gt;       &lt;NA&gt;   60+ 82607.20            3       Catholicism
-158 158 other       male 50-59 44383.80            1              None
-159 159 8xxxx     female 30-39 66185.55           15       Catholicism
-160 160 other       male 50-59 46443.35           11     Protestantism
-161 161 8xxxx     female 50-59 41571.20            9     Protestantism
-162 162 other     female 40-49 48002.36            1       Catholicism
-163 163 8xxxx     female 40-49 64303.37            0     Protestantism
-164 164 8xxxx     female 50-59 63828.73           10       Catholicism
-165 165 other       male 18-29 62158.38            1             Islam
-166 166 8xxxx     female 30-39 36173.97            6              None
-167 167 other     female 40-49 22233.87            0             Islam
-168 168 8xxxx       male 18-29 65795.96            2       Catholicism
-169 169 other     female 18-29 50500.79            1              None
-170 170 other     female 40-49 34635.22            6              None
-171 171 8xxxx     female   60+ 51093.90           11              None
-172 172 8xxxx       male 30-39 38140.07           13              None
-173 173 other non-binary 40-49 83316.86            2       Catholicism
-174 174 other     female 40-49 89185.85           10              None
-175 175 8xxxx       male 40-49 47266.68           13     Protestantism
-176 176 8xxxx     female 18-29 38736.53            5       Catholicism
-177 177 8xxxx       male 30-39 51254.30            9       Catholicism
-178 178 8xxxx     female 40-49  3070.65            2             Islam
-179 179 8xxxx       male 50-59 67298.52            7              None
-180 180 8xxxx       male 40-49 52914.99            6     Protestantism
-181 181 other     female   60+ 53761.55            3              None
-182 182 8xxxx       male 40-49 62667.11           10       Catholicism
-183 183 8xxxx     female 18-29 69837.87            1     Protestantism
-184 184 other       male 30-39 48027.70            9              None
-185 185 8xxxx       male 50-59 68760.98            6       Catholicism
-186 186 8xxxx     female 18-29 53996.54            6              None
-187 187 8xxxx       &lt;NA&gt;   60+ 29089.31            2     Protestantism
-188 188 8xxxx     female 18-29 58074.39            0     Protestantism
-189 189 8xxxx       male 30-39 43647.51            5          Buddhism
-190 190 8xxxx     female 40-49 59911.66           15       Catholicism
-191 191 other     female 40-49 15015.81            4              None
-192 192 8xxxx       male 30-39 48884.82            3       Catholicism
-193 193 other     female 30-39 11665.95            5     Protestantism
-194 194 other       male 40-49 51434.15            6 Eastern Orthodoxy
-195 195 8xxxx       male 30-39 73230.95           10       Catholicism
-196 196 8xxxx       male 50-59 52969.14            5              None
-197 197 other     female 30-39 38514.53           11              None
-198 198 8xxxx     female 40-49 89185.85            0     Protestantism
-199 199 8xxxx     female 30-39 58564.02            4       Catholicism
-200 200 other     female 40-49 30312.73            3       Catholicism
-         education pol_immigration pol_environment pol_redistribution
-1     trade school               5               4                  5
-2      high school               3               5                  3
-3      high school               2               1                  2
-4      high school               2               3                  5
-5      high school               2               4                  3
-6      high school               2               5                  5
-7      high school               2               3                  3
-8       university               5               5                  4
-9     trade school               1               3                  1
-10     high school               1               3                  3
-11      university               4               4                  2
-12     high school               5               4                  2
-13     high school               3               2                  3
-14     high school               3               2                  5
-15     high school               5               1                  2
-16     high school               4               5                  5
-17    trade school               2               3                  4
-18     high school               1               2                  1
-19     high school               1               2                  4
-20            &lt;NA&gt;               3               2                  3
-21     high school               5               3                  5
-22     high school               4               2                  4
-23            &lt;NA&gt;               1               2                  1
-24     high school               5               5                  4
-25            &lt;NA&gt;               5               5                  3
-26      university               2               2                  2
-27     high school               4               2                  2
-28     high school               5               1                  1
-29      university               2               2                  3
-30     high school               3               3                  5
-31      university               3               2                  4
-32    trade school               1               1                  5
-33            &lt;NA&gt;               5               3                  5
-34    trade school               3               2                  3
-35     high school               4               1                  1
-36     high school               3               3                  3
-37            &lt;NA&gt;               1               4                  4
-38     high school               2               1                  5
-39            &lt;NA&gt;               1               2                  1
-40     high school               4               1                  5
-41    trade school               4               2                  1
-42     high school               3               3                  3
-43     high school               5               2                  4
-44     high school               2               3                  4
-45  doctoral title               2               2                  3
-46     high school               4               5                  4
-47            &lt;NA&gt;               2               1                  3
-48     high school               3               4                  4
-49    trade school               5               4                  2
-50    trade school               4               5                  5
-51     high school               5               3                  1
-52     high school               4               1                  4
-53     high school               3               3                  2
-54     high school               3               5                  2
-55            &lt;NA&gt;               5               2                  5
-56            &lt;NA&gt;               5               3                  5
-57     high school               3               1                  1
-58     high school               1               5                  4
-59     high school               1               4                  1
-60     high school               5               2                  5
-61     high school               4               2                  3
-62            &lt;NA&gt;               1               5                  4
-63            &lt;NA&gt;               4               2                  3
-64     high school               5               5                  5
-65    trade school               5               1                  3
-66     high school               2               2                  1
-67     high school               1               3                  3
-68     high school               2               3                  3
-69     high school               3               5                  5
-70     high school               4               4                  2
-71     high school               1               3                  5
-72     high school               2               5                  1
-73    trade school               1               3                  1
-74     high school               2               5                  5
-75     high school               5               4                  5
-76      university               5               1                  5
-77            &lt;NA&gt;               5               3                  5
-78     high school               2               1                  1
-79     high school               5               3                  2
-80     high school               3               3                  4
-81      university               3               4                  1
-82      university               5               3                  3
-83            &lt;NA&gt;               2               3                  5
-84     high school               3               3                  5
-85     high school               4               5                  1
-86     high school               1               3                  5
-87            &lt;NA&gt;               2               3                  3
-88      university               2               1                  2
-89    trade school               4               1                  2
-90     high school               1               3                  3
-91     high school               4               4                  4
-92            &lt;NA&gt;               3               3                  2
-93            &lt;NA&gt;               4               1                  4
-94     high school               3               3                  3
-95            &lt;NA&gt;               1               5                  2
-96     high school               2               3                  1
-97     high school               4               5                  5
-98      university               4               5                  5
-99            &lt;NA&gt;               3               2                  2
-100   trade school               2               5                  2
-101 doctoral title               5               4                  2
-102    high school               2               5                  4
-103           &lt;NA&gt;               2               3                  2
-104   trade school               5               4                  3
-105    high school               2               3                  4
-106    high school               1               4                  3
-107   trade school               3               5                  4
-108           &lt;NA&gt;               5               2                  2
-109     university               3               4                  2
-110    high school               2               1                  2
-111    high school               2               5                  2
-112     university               1               3                  2
-113    high school               4               5                  4
-114    high school               3               3                  1
-115     university               3               5                  5
-116    high school               2               3                  3
-117    high school               4               4                  4
-118    high school               1               4                  4
-119   trade school               1               4                  3
-120     university               1               5                  1
-121    high school               2               1                  5
-122    high school               2               5                  2
-123    high school               1               1                  5
-124 doctoral title               1               1                  4
-125    high school               3               5                  4
-126           &lt;NA&gt;               5               3                  1
-127    high school               4               3                  3
-128     university               2               4                  5
-129    high school               1               2                  2
-130 doctoral title               2               5                  4
-131           &lt;NA&gt;               4               3                  1
-132   trade school               3               5                  5
-133           &lt;NA&gt;               2               3                  3
-134           &lt;NA&gt;               2               5                  3
-135    high school               3               4                  2
-136           &lt;NA&gt;               5               1                  2
-137    high school               3               2                  4
-138   trade school               1               4                  5
-139 doctoral title               5               5                  1
-140           &lt;NA&gt;               4               5                  2
-141    high school               3               1                  1
-142    high school               5               2                  1
-143     university               4               1                  5
-144    high school               5               4                  4
-145           &lt;NA&gt;               4               1                  2
-146    high school               4               4                  4
-147   trade school               2               4                  3
-148   trade school               1               1                  2
-149           &lt;NA&gt;               3               2                  4
-150   trade school               4               4                  3
-151    high school               1               3                  4
-152    high school               1               2                  4
-153     university               2               4                  2
-154           &lt;NA&gt;               3               5                  5
-155    high school               4               4                  1
-156    high school               1               3                  1
-157     university               4               2                  2
-158           &lt;NA&gt;               5               2                  3
-159    high school               1               2                  4
-160    high school               1               2                  3
-161           &lt;NA&gt;               1               5                  3
-162     university               5               1                  1
-163    high school               3               5                  1
-164    high school               2               3                  2
-165    high school               4               4                  3
-166     university               2               5                  3
-167           &lt;NA&gt;               1               2                  1
-168    high school               2               1                  2
-169     university               1               3                  5
-170    high school               1               1                  4
-171    high school               2               4                  4
-172    high school               1               2                  5
-173           &lt;NA&gt;               2               1                  1
-174    high school               2               5                  4
-175    high school               5               2                  1
-176    high school               2               1                  4
-177    high school               5               4                  3
-178     university               1               4                  2
-179    high school               3               4                  2
-180   trade school               5               2                  1
-181           &lt;NA&gt;               3               4                  2
-182    high school               1               3                  5
-183    high school               1               3                  4
-184           &lt;NA&gt;               3               3                  1
-185           &lt;NA&gt;               1               3                  3
-186     university               5               4                  3
-187     university               1               3                  4
-188     university               1               5                  1
-189           &lt;NA&gt;               2               1                  4
-190     university               5               3                  4
-191    high school               4               1                  1
-192   trade school               3               5                  4
-193           &lt;NA&gt;               1               1                  5
-194    high school               4               2                  3
-195    high school               4               1                  1
-196    high school               5               5                  4
-197           &lt;NA&gt;               5               3                  3
-198           &lt;NA&gt;               2               5                  1
-199     university               4               3                  3
-200    high school               5               5                  5
-    pol_eu_integration
-1                    2
-2                    4
-3                    5
-4                    1
-5                    3
-6                    4
-7                    2
-8                    5
-9                    3
-10                   5
-11                   2
-12                   3
-13                   2
-14                   3
-15                   3
-16                   5
-17                   3
-18                   1
-19                   4
-20                   1
-21                   1
-22                   4
-23                   3
-24                   1
-25                   4
-26                   3
-27                   4
-28                   1
-29                   2
-30                   3
-31                   1
-32                   2
-33                   1
-34                   4
-35                   5
-36                   4
-37                   5
-38                   5
-39                   3
-40                   5
-41                   3
-42                   4
-43                   2
-44                   5
-45                   5
-46                   3
-47                   1
-48                   2
-49                   3
-50                   2
-51                   1
-52                   1
-53                   3
-54                   5
-55                   2
-56                   2
-57                   4
-58                   4
-59                   4
-60                   3
-61                   1
-62                   4
-63                   2
-64                   2
-65                   5
-66                   5
-67                   5
-68                   3
-69                   5
-70                   4
-71                   4
-72                   3
-73                   5
-74                   3
-75                   2
-76                   2
-77                   2
-78                   4
-79                   3
-80                   5
-81                   2
-82                   5
-83                   4
-84                   1
-85                   3
-86                   4
-87                   1
-88                   3
-89                   1
-90                   5
-91                   3
-92                   5
-93                   3
-94                   2
-95                   2
-96                   5
-97                   2
-98                   4
-99                   2
-100                  2
-101                  5
-102                  2
-103                  3
-104                  1
-105                  1
-106                  1
-107                  3
-108                  1
-109                  1
-110                  5
-111                  1
-112                  4
-113                  4
-114                  5
-115                  4
-116                  4
-117                  1
-118                  4
-119                  5
-120                  1
-121                  2
-122                  2
-123                  5
-124                  2
-125                  3
-126                  5
-127                  3
-128                  4
-129                  3
-130                  3
-131                  1
-132                  1
-133                  2
-134                  4
-135                  1
-136                  5
-137                  1
-138                  4
-139                  1
-140                  3
-141                  5
-142                  3
-143                  1
-144                  5
-145                  1
-146                  1
-147                  2
-148                  2
-149                  4
-150                  2
-151                  3
-152                  2
-153                  5
-154                  2
-155                  4
-156                  3
-157                  3
-158                  4
-159                  2
-160                  3
-161                  1
-162                  1
-163                  5
-164                  1
-165                  1
-166                  5
-167                  2
-168                  3
-169                  5
-170                  3
-171                  5
-172                  1
-173                  5
-174                  5
-175                  3
-176                  2
-177                  2
-178                  5
-179                  5
-180                  2
-181                  1
-182                  5
-183                  4
-184                  2
-185                  2
-186                  5
-187                  1
-188                  4
-189                  5
-190                  4
-191                  3
-192                  4
-193                  1
-194                  3
-195                  2
-196                  5
-197                  4
-198                  5
-199                  5
-200                  5</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_nonpert, <span class="st">"../sdc_nonpert.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<p>Finally, I <strong>generalize rare religion categories</strong> using <code>fct_lump_min()</code> from <code>forcats</code>. Since <code>religion</code> is not a <code>keyVar</code> in the <code>sdcObject</code>, I apply this directly to the dataset.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect counts first</span></span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_nonpert<span class="sc">$</span>religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-         Buddhism       Catholicism Eastern Orthodoxy             Islam 
-                3                56                 1                13 
-          Judaism              None     Protestantism 
-                2                75                50 </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>data_nonpert <span class="ot">&lt;-</span> data_nonpert <span class="sc">%&gt;%</span></span>
-<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_lump_min</span>(<span class="fu">as.factor</span>(religion), <span class="at">min =</span> <span class="dv">10</span>, <span class="at">other_level =</span> <span class="st">"Other"</span>))</span>
-<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_nonpert<span class="sc">$</span>religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  Catholicism         Islam          None Protestantism         Other 
-           56            13            75            50             6 </code></pre>
-</div>
-</div>
-<p><code>fct_lump_min(religion, min = 10)</code> merges any category with fewer than 10 observations into <code>"Other"</code>. Groups like “Judaism” or “Buddhism” which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes.</p>
-<p>Finally, I also save the <code>sdcObject</code>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_nonpert, <span class="st">"../sdc_nonpert.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p><em>Move to other section?</em></p>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>
@@ -1800,7 +1158,6 @@ Expected number of re-identifications:
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 </section>
 </section>
-</section>
 <section id="references" class="level1">
 
 
@@ -1811,9 +1168,6 @@ Expected number of re-identifications:
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
 Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
-</div>
-<div id="ref-raghunathan2013complete" class="csl-entry" role="listitem">
-Raghunathan, Balaji. 2013. <em>The Complete Book of Data Anonymization: From Planning to Implementation</em>. CRC Press.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

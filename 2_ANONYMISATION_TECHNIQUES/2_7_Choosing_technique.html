@@ -339,7 +339,9 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link active" data-scroll-target="#exercise">Exercise</a></li>
+  <li><a href="#contextual-factors" id="toc-contextual-factors" class="nav-link active" data-scroll-target="#contextual-factors">Contextual Factors</a></li>
+  <li><a href="#technical-constraints" id="toc-technical-constraints" class="nav-link" data-scroll-target="#technical-constraints">Technical Constraints</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -366,30 +368,88 @@ div.csl-indent {
 </header>
 
 
-<ul>
-<li>contextual factors are important for risk analysis (callback to contextual integrity)
-<ul>
-<li>sampling strategy <span class="citation" data-cites="guo2025">(<a href="#ref-guo2025" role="doc-biblioref">Guo et al. 2025</a>)</span>: can diminish risks (e.g., random sampling in whole population) or heighten them (e.g., all first-year students of one subject at one university)</li>
-<li>release type of data <span class="citation" data-cites="Benschop_StatisticalDisclosureControl">(<a href="#ref-Benschop_StatisticalDisclosureControl" role="doc-biblioref">Benschop and Welch, n.d.</a>)</span>: only partial access for very risky data</li>
-<li>sensitivity level: How sensitive is the data? Health data or political opinions may require stronger protection than general demographics.</li>
-<li>intended use: What analyses will users run on the anonymized data? If exact values matter (e.g., income regressions), perturbative methods with low noise may be better than heavy generalization.</li>
-<li>attacker model: Who might try to re-identify individuals, and what external information do they have access to? A dataset about employees of one company faces different risks than a nationally representative survey.</li>
-</ul></li>
-<li>factors limiting the technique you can apply
-<ul>
-<li>data type: Are your variables categorical, continuous, or a mix? This narrows down which techniques are applicable.</li>
-<li>sample size: Smaller datasets are harder to anonymize because individuals are more likely to be unique. Techniques like suppression or sampling may remove too much data.</li>
-</ul></li>
-</ul>
-<p><em>Determine more relevant risk factors for making that decision</em></p>
-<p><em>Create some kind of decision tree/checklist to choose techniques</em></p>
+<p>There is no universal recipe for choosing an anonymization technique. The right approach depends on your data, your audience, and your specific risk context. This chapter walks you through the most important factors to consider.</p>
+<section id="contextual-factors" class="level1">
+<h1>Contextual Factors</h1>
+<p><strong>Sampling strategy</strong> affects both the level of risk and what techniques make sense. Random sampling from a large population reduces risk because an attacker cannot be certain a given individual is even in the released dataset. But if your sample covers an entire group - say, all first-year students in one subject at one university, or all employees of a company - membership is effectively known, and risk is considerably higher <span class="citation" data-cites="guo2025">(<a href="#ref-guo2025" role="doc-biblioref">Guo et al. 2025</a>)</span>.</p>
+<p><strong>Release type</strong>: If the data will only be accessible to vetted researchers under a data use agreement, you can afford somewhat weaker anonymization than for a fully open public release. Some datasets may warrant restricted access rather than open publication <span class="citation" data-cites="Benschop_StatisticalDisclosureControl">(<a href="#ref-Benschop_StatisticalDisclosureControl" role="doc-biblioref">Benschop and Welch, n.d.</a>)</span>. However, non-public access comes with many disadvantages; the biggest one is that it takes time and extra work for anyone who wants to access the work. I would therefore advice against restricting access and would only consider this as the absolute last resort.</p>
+<p><strong>Sensitivity level</strong>: How sensitive is the data? Health data, political opinions, religious beliefs, and other special categories under GDPR Art. 9 require stronger protection than general demographics.</p>
+<p><strong>Intended use</strong>: What analyses will users run on the anonymized data? If exact values matter - for example, income in a regression model - perturbative methods with low noise may be preferable to heavy generalization. If only group-level comparisons are needed, aggressive recoding may be perfectly fine.</p>
+<p><strong>Attacker model</strong>: Who might try to re-identify individuals, and what do they already know? A dataset about employees of one company faces very different risks than a nationally representative survey. Someone who knows a participant personally is more dangerous than a random adversary with no prior knowledge (see the section on <a href="2_1_Planning_Privacy#identifying-privacy-risks">participation knowledge</a>).</p>
+</section>
+<section id="technical-constraints" class="level1">
+<h1>Technical Constraints</h1>
+<p><strong>Data type</strong> determines which techniques are even applicable. Recoding and PRAM only work for categorical variables; noise addition and microaggregation target continuous ones. Suppression and sampling work for both. Always check whether your key variables are categorical or continuous before picking a technique.</p>
+<p><strong>Sample size</strong> is a key constraint. Smaller datasets are harder to anonymize because individuals are more likely to have unique combinations of attributes. Techniques like sampling may remove too much data to be useful in small samples - you may need to accept lower k-anonymity or consider restricted access instead of full open publication.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Achieving k-Anonymity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To achieve k-anonymity, use non-perturbative techniques on categorial indirect identifiers. Most other techniques add additional, other levels of protection.</p>
+</div>
+</div>
+</section>
 <section id="exercise" class="level1">
 <h1>Exercise</h1>
-<p>Below are three fictional datasets. For each, decide which anonymization technique(s) you would apply and why.</p>
+<p>Below are descriptions of three fictional datasets. For each, decide which anonymization technique(s) you would apply and why.</p>
 <p>1. A national survey (n = 10,000) on voting behavior. Variables: age group, gender, federal state, party preference, income bracket. The data will be published as a fully open dataset.</p>
-<p>2. A study on workplace bullying at a mid-sized company (n = 120). Variables: department, job level, years at company, bullying score, mental health score. The data will be shared with other researchers under a data use agreement.</p>
-<p>3. A clinical trial dataset (n = 500) with diagnosis codes, treatment group, age, sex, and a rare genetic marker. The data must be deposited in a public repository as required by the funder.</p>
-<p><em>Add solutions</em></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The large sample size works in your favor: with 10,000 records, most combinations of age group, gender, and federal state will not be unique. Start by checking k-anonymity across the key quasi-identifiers (age group, gender, federal state, income bracket). Political opinion is a sensitive variable under GDPR Art. 9, but it is also the core research variable - removing it is not an option. Instead, ensure all indirect identifiers are sufficiently generalized so that the combination does not single anyone out. Top-bottom code income at the extremes to protect very high and very low earners. A k-anonymity target of k = 3 is reasonable given the political sensitivity of the data on the one hand and the low participation knowledge risk on the other hand. Perturbative techniques are generally not needed here given the large sample (and since income is already in a bracket).</p>
+</div>
+</div>
+</div>
+<p>2. A study on workplace bullying at a mid-sized company (n = 120). Every employee participated in the study. Variables: department, job level, years at company, bullying score, mental health score. The data will be published as a fully open dataset</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is a high-risk case for several reasons: every employee participated (so participation knowledge is guaranteed for the entire dataset), the sample is small, and the topic is sensitive. Any colleague, manager, or HR staff member knows their coworkers are in the data - re-identification attempts are very plausible.</p>
+<p>Recommended steps: combine small departments into broader groups, generalize job level and years at company into bands, and apply noise or microaggregation to the bullying and mental health scores to protect individual values. Aim for k-anonymity ≥ 5. Even after these steps, fully open publication of these data may not be appropriate here - consider synthesizing the data instead. The combination of guaranteed participation knowledge, small sample, and sensitive outcomes makes this one of the harder cases.</p>
+</div>
+</div>
+</div>
+<p>3. A clinical trial dataset (n = 500) with diagnosis codes, treatment group, age, sex, and a rare genetic marker. The data will be published as a fully open dataset.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The rare genetic marker is the most critical variable. If it applies to only a small subset of participants, it is likely unique enough on its own to identify individuals. Consider then to use a de-associative technique like anatomization to split the genetic marker and the other variables. Diagnosis codes should be generalized from specific ICD codes to broader disease categories. Age should be recoded, probably to 10-year bands. Sex is low-risk on its own. Treatment group is needed for analysis and unlikely to cause identification issues. Check the k-anonymity across the indirect identifiers. Aim for k ≥ 5 given the health data sensitivity.</p>
+</div>
+</div>
+</div>
 <section id="learning-objective" class="level4">
 <h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
 <ul>

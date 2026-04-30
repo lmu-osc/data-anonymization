@@ -441,7 +441,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div id="participation-knowledge" class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -507,9 +507,10 @@ Extracts the anonymized dataset.</p></li>
 Reverts the last anonymization step.</p></li>
 <li><p><code>get.sdcMicroObj()</code><br>
 Accesses internal components of the object.</p></li>
-<li><p><code>sdcApp()</code>Opens the GUI</p></li>
+<li><p><code>sdcApp()</code>Opens the GUI: The GUI provides a nice overview of functions. In case you decide to use it (and I recommend to try it out), create an anonymization report and the end via “export data” to make your anonymization transparent.</p></li>
+<li><p><code>AI_createSdcObj()</code> and <code>AI_applyAnonymization()</code><br>
+These new functions use LLMs to assist with the creation of an <code>sdcObject</code> and anonymization. <a href="https://cran.r-project.org/web/packages/sdcMicro/vignettes/ai_assisted_anonymization.html">Here</a> is a tutorial on how to use them. We won’t use these in the context of the tutorial, to learn the processes manually first.</p></li>
 </ul>
-<p>The GUI provides a nice overview of functions. In case you decide to use it (and I recommend to try it out), create an anonymization report and the end via <code>export data</code> to make your anonymization transparent.</p>
 </div>
 </div>
 </section>
@@ -517,7 +518,7 @@ Accesses internal components of the object.</p></li>
 <h2 class="anchored" data-anchor-id="exercise-assessing-privacy-risks-with-sdcmicro">Exercise: Assessing Privacy Risks With <code>sdcMicro</code></h2>
 <p>In this exercise, you will assess privacy risks with <code>sdcMicro</code> using the example data from the <a href="../1_FOUNDATIONS/1_3_Personal_Data">chapter on personal data</a>. We will work with the dataset <code>data_withoutdirectidentifiers</code>.</p>
 <ol type="1">
-<li>Create an object within sdcMicro that contains the relevant <code>keyVars</code> and <code>numVars</code>. Inspect the object.</li>
+<li>Create an object within sdcMicro that contains the relevant <code>keyVars</code> and <code>numVars</code> using the function <code>createSdcObj</code>. Inspect the object.</li>
 <li>What k-anonymity level is currently reached?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -725,7 +726,8 @@ Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 </ul>
 </section>
 <section id="resources-links-examples" class="level4">
-
+<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+<p>More information on assessing risks for public research data: <span class="citation" data-cites="morehouse2025">(<a href="#ref-morehouse2025" role="doc-biblioref">Morehouse et al. 2025</a>)</span></p>
 
 
 
@@ -733,9 +735,12 @@ Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Resources, Links, Examples</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-guo2025" class="csl-entry" role="listitem">
 Guo, Wentao, Paige Pepitone, Adam J Aviv, and Michelle L Mazurek. 2025. <span>“USENIX Security Symposium.”</span> (Seattle, WA, USA). <a href="https://www.usenix.org/system/files/usenixsecurity25-guo-wentao.pdf">https://www.usenix.org/system/files/usenixsecurity25-guo-wentao.pdf</a>.
+</div>
+<div id="ref-morehouse2025" class="csl-entry" role="listitem">
+Morehouse, Kirsten N., Benedek Kurdi, and Brian A. Nosek. 2025. <span>“Responsible Data Sharing: Identifying and Remedying Possible Re-Identification of Human Participants.”</span> <em>American Psychologist</em> 80 (6): 928–41. <a href="https://doi.org/10.1037/amp0001346">https://doi.org/10.1037/amp0001346</a>.
 </div>
 <div id="ref-templ2015" class="csl-entry" role="listitem">
 Templ, Matthias, Alexander Kowarik, and Bernhard Meindl. 2015. <span>“Statistical Disclosure Control for Micro-Data Using the <span><em>R</em></span> Package <span><strong>sdcMicro</strong></span>.”</span> <em>Journal of Statistical Software</em> 67 (4). <a href="https://doi.org/10.18637/jss.v067.i04">https://doi.org/10.18637/jss.v067.i04</a>.
