@@ -170,7 +170,7 @@ The new categories map loosely to north-east (00-19), north-central (20-39), wes
 
 Looking at k-anonymity now, we see that there are still many unique observations. To reduce risk further, I will generalize `plz` even more. For this dataset, I mostly want to use `plz` to distinguish whether participants live in the Munich area or elsewhere in Germany. Postal codes starting with 8 cover roughly the areas surrounding Munich, so I will collapse `plz` into just two categories: `"8xxxx"` and `"other"`.
 
-`globalRecode()` cannot do this directly since `cut()` only handles contiguous intervals - and "other" spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the `@manipKeyVars` slot of the sdcObject and recalculate risks:
+`globalRecode()` cannot do this directly since `cut()` only handles continuous intervals - and "other" spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the `@manipKeyVars` slot of the sdcObject and recalculate risks:
 
 ```{r}
 library(forcats)
