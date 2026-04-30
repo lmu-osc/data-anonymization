@@ -672,7 +672,7 @@ Expected number of re-identifications:
 </div>
 <p>The new categories map loosely to north-east (00-19), north-central (20-39), west (40-59), south-west (60-79), and south-east (80-99) Germany.</p>
 <p>Looking at k-anonymity now, we see that there are still many unique observations. To reduce risk further, I will generalize <code>plz</code> even more. For this dataset, I mostly want to use <code>plz</code> to distinguish whether participants live in the Munich area or elsewhere in Germany. Postal codes starting with 8 cover roughly the areas surrounding Munich, so I will collapse <code>plz</code> into just two categories: <code>"8xxxx"</code> and <code>"other"</code>.</p>
-<p><code>globalRecode()</code> cannot do this directly since <code>cut()</code> only handles contiguous intervals - and “other” spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the <code>@manipKeyVars</code> slot of the sdcObject and recalculate risks:</p>
+<p><code>globalRecode()</code> cannot do this directly since <code>cut()</code> only handles continuous intervals - and “other” spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the <code>@manipKeyVars</code> slot of the sdcObject and recalculate risks:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
