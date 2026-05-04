@@ -148,7 +148,6 @@ sdc_nonpert <- globalRecode(
 
 sdc_nonpert # check summary after making the change
 print(sdc_nonpert, type = "risk") # check risk after making the change
-
 ```
 
 I started by dividing the age into five about 10-year breaks. This provides a mean of 40 persons per age break, while the smallest one still has 23. These breaks can be changed later if more privacy or more utility is needed.
@@ -162,7 +161,7 @@ sdc_nonpert <- globalRecode(
   obj    = sdc_nonpert,
   column = "plz",
   breaks = c(0, 19999, 39999, 59999, 79999, 99999),
-  labels = c('00-19', '20-39', '40-59', '60-79', '80-99')
+  labels = c("00-19", "20-39", "40-59", "60-79", "80-99")
 )
 
 sdc_nonpert
@@ -197,7 +196,7 @@ sdc_nonpert <- localSuppression(
   sdc_nonpert,
   k = 2, # define wanted k-anonymity level, k = 2 is the default
   importance = c(2, 1, 4, 3) # this defines the order of importance; the algorithm begins suppressing on the variable marked as 4
-  )
+)
 
 sdc_nonpert
 print(sdc_nonpert, type = "risk")
@@ -206,12 +205,11 @@ print(sdc_nonpert, type = "risk")
 The summary of the `sdcObject` shows us what the last local suppression step has achieved: It suppressed 28 values on the education variable and 2 each on gender and postal code. Now, 2-anonymity is reached for all participants. 16 entries violate 3-anonymity; I will try local suppression at k = 3 to see how much more suppression would be necessary to achieve this.
 
 ```{r}
-
 sdc_nonpert <- localSuppression(
   sdc_nonpert,
   k = 3, # define wanted k-anonymity level, k = 2 is the default
   importance = c(2, 1, 4, 3) # this defines the order of importance; the algorithm begins suppressing on the variable marked as 4
-  )
+)
 
 sdc_nonpert
 print(sdc_nonpert, type = "risk")

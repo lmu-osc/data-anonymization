@@ -70,7 +70,6 @@ Copy this to a new Markdown file in RStudio to import the data for further analy
 
 # Load data based on downloaded file
 data <- read.csv("../SimulatedData.csv") # Change based on the location of your data file
-
 ```
 
 ::: {.callout-note collapse="false"}
@@ -160,7 +159,6 @@ library(tidyverse)
 
 data_withoutdirectidentifiers <- data %>%
   select(-name, -email, -ip_address)
-
 ```
 
 Save the new file

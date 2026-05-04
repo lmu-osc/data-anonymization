@@ -135,7 +135,7 @@ sdc_data <- createSdcObj(
   dat = data_withoutdirectidentifiers,
   keyVars = c("gender", "age", "education", "plz"),
   numVars = c("income", "years_in_job")
-  )
+)
 
 sdc_data # Summarizes the risks overall
 ```
@@ -166,7 +166,6 @@ print(sdc_data, type = "risk")
 
 # Individual risk
 individualrisk <- get.sdcMicroObj(sdc_data, "risk")$individual
-
 ```
 
 The individual risk shows a risk estimate for each individual in the dataset. `fk` is the frequency count in the sample and shows how many individuals share the same combination of key variables currently in our sdcObject. We can see that this is 1 for all participants except the IDs 94 and 122 I discussed above. `Fk` is the estimated frequency in the population; this only differs from `fk` in case of pre-defined sampling weights.

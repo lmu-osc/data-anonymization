@@ -83,15 +83,14 @@ Now I can extract the dataset from the `sdc_micro` object. Because `sdcMicro` st
 data_anonymized <- extractManipData(sdc_micro)
 
 # Restore labels for variables recoded inside sdcMicro
-age_labels    <- c("18-29", "30-39", "40-49", "50-59", "60+")
-plz_labels    <- c("8xxxx", "other")
+age_labels <- c("18-29", "30-39", "40-49", "50-59", "60+")
+plz_labels <- c("8xxxx", "other")
 
 data_anonymized <- data_anonymized %>%
   mutate(
     age = factor(age, levels = seq_along(age_labels), labels = age_labels),
     plz = factor(plz, levels = seq_along(plz_labels), labels = plz_labels)
   )
-
 ```
 :::
 

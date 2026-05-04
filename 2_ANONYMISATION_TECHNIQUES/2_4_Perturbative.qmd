@@ -125,10 +125,10 @@ I start by applying microaggreagation with a group size of 5 on a new `sdcObject
 
 ```{r}
 sdc_micro <- microaggregation(
-  obj    = sdc_nonpert,
+  obj = sdc_nonpert,
   variables = "income",
-  aggr   =  5,          # group size
-  method = "mdav"      # Maximum Distance to Average Vector
+  aggr = 5, # group size
+  method = "mdav" # Maximum Distance to Average Vector
 )
 
 sdc_micro
@@ -145,9 +145,9 @@ As we can see in the output of the `sdcObject`, the disclosure risk is reduced t
 
 ```{r}
 sdc_noise <- addNoise(
-  obj    = sdc_nonpert,
+  obj = sdc_nonpert,
   variables = "income",
-  noise  = 3.5          # noise level as fraction of SD
+  noise = 3.5 # noise level as fraction of SD
 )
 
 print(sdc_noise, type = "risk")
@@ -161,7 +161,6 @@ Let's save these objects for now. We will later come back to inspect the utility
 ```{r}
 saveRDS(sdc_micro, "../sdc_micro.rds")
 saveRDS(sdc_noise, "../sdc_noise.rds")
-
 ```
 :::
 
