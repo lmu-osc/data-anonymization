@@ -3,6 +3,13 @@ title: "Privacy Concepts"
 bibliography: ../references.bib
 ---
 
+::: {.callout-tip collapse="true"}
+## Learning Objective
+
+-   After completing this part of the tutorial, you will understand essential privacy risks.
+-   After completing this part of the tutorial, you will understand the basic idea of k-anonymity.
+:::
+
 Before we get into the actual anonymization techniques (in the next part of this tutorial), we need to understand what exactly we are protecting against. This chapter introduces the types of privacy risks that exist in typical quantitative research datasets and the foundational concept of k-anonymity, which will guide our risk assessment later.
 
 # Privacy Risks
@@ -33,7 +40,7 @@ Membership disclosure occurs when an intruder can determine whether a particular
 
 **Research example:** A research team publishes a dataset from a study on undocumented immigrants. If someone can determine that a specific person is in the dataset they have learned something sensitive about that individual.
 
-::: callout-important
+::: {.callout-warning collapse="false"}
 # Primary Goal of Anonymization
 
 The primary goal of anonymization is to prevent **identity disclosure** and **attribute disclosure**. These are the most direct and damaging types of risk. Inferential and membership disclosure are also worth considering, but they are harder to control and often less relevant for typical research datasets.
@@ -54,7 +61,7 @@ Where can this external information come from?
 
 The indirect identifiers that remain in a dataset - like age, gender, occupation, and location - are the bridge that connects the released data to external information.
 
-::: callout-note
+::: {.callout-note collapse="false"}
 # Examples of De-Anonymization
 
 -   **Student data:** A dataset on online behaviors contains demographic information of first-year students at a university. Another student recognizes a person with a unique combination of age, gender, and study subject (identity disclosure). They can then see which websites this student visits most frequently (attribute disclosure).
@@ -68,7 +75,7 @@ The indirect identifiers that remain in a dataset - like age, gender, occupation
 
 How do we move from "there might be a risk" to "this is how much risk there is"? In this tutorial, we focus on basic methods for quantifying re-identification risk for individuals. For more advanced approaches (e.g., group-level risks), see the [sdcPractice documentation](https://sdcpractice.readthedocs.io/en/latest/measure_risk.html).
 
-::: callout-caution
+::: {.callout-warning collapse="false"}
 The inclusion of groups (e.g., school classes, partnerships, households) that share certain attributes introduces additional risk for individuals, since other group members may use shared knowledge to infer information about specific individuals in the dataset.
 :::
 
@@ -104,7 +111,7 @@ The first three rows share the same combination (34, Female, 80331), so they for
 
 If an attacker knows that a 34-year-old woman living in 80331 is in the dataset, they can narrow it down to 3 possible records, but cannot determine which one is hers.
 
-::: callout-tip
+::: {.callout-tip collapse="false"}
 # How Unique Are You?
 
 Try this tool to find out how identifiable you are based on just a few demographic variables: [Individual Risk Explorer](https://aisp.doc.ic.ac.uk/individual-risk/). Using just gender, date of birth, and ZIP code, approximately 83% of the U.S. population can be uniquely identified.
@@ -120,15 +127,6 @@ K-anonymity is a useful starting point, but it has known limitations:
 Extensions like **l-diversity** (requiring diversity in sensitive values within each group) and **t-closeness** (requiring that the distribution of sensitive values within each group is close to the overall distribution) have been proposed to address these issues. For the scope of this tutorial, k-anonymity will be our main metric - but it is good to be aware that it is not a silver bullet. More information on l-diversity and t-closedness can be accessed in [this practical tutorial by Utrecht university](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html).
 
 We will use k-anonymity practically in the [the next chapter](../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy) of this tutorial, where we calculate it using R and the `sdcMicro` package.
-
-#### Learning Objective
-
--   After completing this part of the tutorial, you will understand essential privacy risks.
--   After completing this part of the tutorial, you will understand the basic idea of k-anonymity.
-
-#### Exercise
-
--   none or quiz
 
 # Further Reading
 

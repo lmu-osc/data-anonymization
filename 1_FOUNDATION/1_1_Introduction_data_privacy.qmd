@@ -3,6 +3,12 @@ title: "Introduction to Data Privacy"
 bibliography: ../references.bib
 ---
 
+::: {.callout-tip collapse="true"}
+## Learning Objective
+
+-   After completing this part of the tutorial, you will have a fundamental understanding of privacy and data protection.
+:::
+
 # What is Data Privacy?
 
 This question has troubled (and engaged) scholars in privacy research for decades - there is no one agreed-upon definition. It is mostly understood as controlled disclosure in some way, meaning that an individual can decide which information is shared.
@@ -17,7 +23,7 @@ A context carries certain information, such as norms in your culture, laws, the 
 
 An information flow means the act of transferring information in any way. Information norms depend on the sender, recipient, information type, and conditions of the information flow (e.g., voluntary, with permission, confidentially; Nissenbaum calls this transmission principle). It may be normative or descriptive.
 
-::: callout-note
+::: {.callout-note collapse="false"}
 # Applying Contextual Integrity
 
 In the example above, nothing was "leaked" in a traditional sense; yet most of us would call this a privacy violation. Nissenbaum's framework explains why:
@@ -28,7 +34,7 @@ In the example above, nothing was "leaked" in a traditional sense; yet most of u
 -   **Information type:** Sensitive personal disclosures (burnout, workplace stress)
 -   **Transmission principle:** Voluntary, under expectation of anonymity and confidentiality
 
-The information type and sender haven't changed, but the recipient and transmission principle have. The contextual norm is violated. This is a privacy violation not because a name was exposed, but because information flowed in a way that didn't match the norms of the context in which it was shared. And in turn, this lead to the disclosure of an individual's identity as well as sensitive information about them and their work life.
+The information type and sender haven't changed, but the recipient and transmission principle have. The contextual norm is violated. This is a privacy violation, not because a name was exposed, but because information flowed in a way that didn't match the norms of the context in which it was shared. And in turn, this led to the disclosure of an individual's identity as well as sensitive information about them and their work life.
 :::
 
 In this tutorial, I will show why we, as researchers, need to carefully consider these contextual norms and how we can enable information flows of data (i.e., when sharing data).
@@ -37,7 +43,7 @@ Throughout this tutorial, I will use both the terms data protection and privacy.
 
 # Why is Data Protection Important?
 
-::: callout-tip
+::: {.callout-tip collapse="false"}
 # Reflection
 
 Take a moment to think about the following scenarios. For each one, consider: Would you share your data? What conditions would need to be met? Think about the role of the researcher, the institution, and the way your data is handled. You might want to jot down a few notes before reading on.
@@ -84,14 +90,6 @@ These two goals - protecting privacy and sharing data - are not contradictory, b
 The good news is that anonymization gives us the tools to navigate this tension. By learning how to properly anonymize data, you can share your research data openly while still protecting the people who made your research possible. That is what this tutorial is about.
 
 Next, we will dive deeper into privacy laws: They provide concrete rules that guide data protection throughout the whole research cycle.
-
-#### Learning Objective
-
--   After completing this part of the tutorial, you will have a fundamental understanding of privacy and data protection.
-
-#### Exercises
-
--   Reflection exercise regarding privacy risks
 
 #### Resources, Links, Examples
 

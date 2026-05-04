@@ -3,6 +3,12 @@ title: "Personal Data"
 bibliography: ../references.bib
 ---
 
+::: {.callout-tip collapse="true"}
+## Learning Objective
+
+-   After completing this part of the tutorial, you will be able to distinguish between personal data and non-personal data, as well as sensitive and non-sensitive data, and be able to identify direct and indirect identifiers.
+:::
+
 Watch this 3-minute video that explains what personal data are:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/egVmd_QFY_o?si=G5-budrhxU_D-AMx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
@@ -68,7 +74,7 @@ data <- read.csv("../SimulatedData.csv") # Change based on the location of your 
 
 ```
 
-::: callout-note
+::: {.callout-note collapse="false"}
 ## Data Dictionary
 
 | Variable Name | Description | Item | Values |
@@ -96,7 +102,7 @@ Inspect the dataset `data`. Answer the following questions:
 
 1\. Which columns contain direct identifiers?
 
-::: {.callout-note collapse="true"}
+::: {.callout-important collapse="true"}
 ## Solution
 
 ### Direct identifiers: `name`, `email`, `ip_address`
@@ -110,7 +116,7 @@ IP addresses can be linked back to specific devices and, through Internet servic
 
 2\. Which columns contains indirect identifiers?
 
-::: {.callout-note collapse="true"}
+::: {.callout-important collapse="true"}
 ## Solution
 
 ### Indirect identifiers: `gender`, `age`, `education`, `income`, `plz`, `years_in_job`
@@ -120,7 +126,7 @@ Gender, age, education, postal code, income, and years in job are indirect ident
 
 3\. Which columns contain special categories of personal data?
 
-::: {.callout-note collapse="true"}
+::: {.callout-important collapse="true"}
 ## Solution
 
 ### Special category data: all `pol\_` variables (political opinion), `religion`
@@ -130,7 +136,7 @@ The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_inte
 
 4\. Is there any column that does not contain personal data?
 
-::: {.callout-note collapse="true"}
+::: {.callout-important collapse="true"}
 ## Solution
 
 ### Personal data: All columns contain personal data.
@@ -144,7 +150,7 @@ As a first step, you always want to remove the direct identifiers as soon as you
 
 Now, delete all direct identifiers from the dataset.
 
-::: callout-note
+::: {.callout-important collapse="true"}
 ## Solution
 
 Any solution that deletes the name, email address, and IP address is correct. I use tidyverse syntax:
@@ -152,7 +158,7 @@ Any solution that deletes the name, email address, and IP address is correct. I 
 ```{r}
 library(tidyverse)
 
-data_withoutdirectidentifiers <- data %>% 
+data_withoutdirectidentifiers <- data %>%
   select(-name, -email, -ip_address)
 
 ```
@@ -165,14 +171,6 @@ write.csv(data_withoutdirectidentifiers, "../SimulatedData_noidentifiers.csv", r
 
 Delete the old file.
 :::
-
-#### Learning Objective
-
--   After completing this part of the tutorial, you will be able to distinguish between personal data and non-personal data, as well as sensitive and non-sensitive data, and be able to identify direct and indirect identifiers.
-
-#### Exercises
-
--   Identify variables that contain direct identifiers, indirect identifiers, and sensitive data
 
 #### Resources, Links, Examples
 

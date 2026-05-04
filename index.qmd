@@ -1,16 +1,16 @@
 ---
-title: "Welcome to the Data Anonymization Course"
+title: "Welcome to the Data Anonymization Course!"
 ---
 
 This website is a work in progress. Please come back later in 2026 :)
 
 # Tutorial Overview
 
-This **self-paced tutorial** on anonymization of quantitative research data is intended to take three hours to complete.
+This **self-paced tutorial** on anonymization of quantitative research data is intended to take about three hours to complete.
 
 The tutorial is split into the following sections:
 
-1.  [**FOUNDATIONS OF DATA PROTECTION**](1_FOUNDATION/1_1_Introduction_data_privacy) talks about data protection basics in ethics and law, mechanisms of data protection in research, and foundational terms.
+1.  [**FOUNDATIONS OF DATA PROTECTION**](1_FOUNDATION/1_1_Introduction_data_privacy) talks about data protection basics in ethics and law, mechanisms of data protection in research, and basic terms.
 2.  [**DATA ANONYMIZATION PROCESS**](2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy) walks you through the process of anonymizing your research data based on example data.
 3.  [**BALANCING DATA PROTECTION AND OPENNESS**](3_PRIVACY_OPENNESS/3_1_Balancing) presents methods for aligning your data protection and open science interests.
 4.  [**ANONYMIZATION WORKFLOW**](4_WORKFLOW/4_1_Summary) closes this tutorial by summarizing the learned workflow.
@@ -39,6 +39,5 @@ Here are a few helpful links for other data types:
 
 # Prerequisites
 
--   You need basic R skills (e.g., loading data and packages).
-
+-   You need basic R skills (e.g., loading data and packages). Experience with data wrangling with tidyverse is beneficial.
 -   Necessary software: R and RStudio

@@ -2,6 +2,12 @@
 title: "Documentation"
 ---
 
+::: {.callout-tip collapse="true"}
+## Learning Objective
+
+-   After completing this part of the tutorial, you will know best practices on how to document your anonymization process.
+:::
+
 # Why Document?
 
 Thorough documentation of your anonymization process serves two purposes:
@@ -23,13 +29,13 @@ If you publish your anonymization scripts (which is good practice for reproducib
 
 Make changes to the data dictionary from [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data) in accordance with the anonymization steps you made in this tutorial.
 
-::: {.callout-note collapse="true"}
+::: {.callout-important collapse="true"}
 ## Solution
 
 The following variables were removed or modified during anonymization:
 
 | Variable Name | Status | Change |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | `name` | **Removed** | Direct identifier - dropped before release |
 | `email` | **Removed** | Direct identifier - dropped before release |
 | `ip_address` | **Removed** | Direct identifier - dropped before release |
@@ -48,14 +54,5 @@ The following variables were removed or modified during anonymization:
 
 Note that the anonymization script used to produce this dataset is available alongside the data. Be aware that scripts themselves can reveal information about the original data (e.g., thresholds used for top-coding, or country names referenced in recoding steps). The released script uses generic category labels where possible to avoid this.
 :::
-
-#### Learning Objective
-
--   After completing this part of the tutorial, you will know best practices on how to document your anonymization process.
-
-#### Exercises
-
--   Make changes to this codebook to document anonymization steps (show old codebook of exercise data)
--   Include an exercise on writing an internal report of risk management?
 
 #### Resources, Links, Examples

@@ -3,6 +3,13 @@ title: "Non-Perturbative Techniques"
 bibliography: ../references.bib
 ---
 
+::: {.callout-tip collapse="true"}
+## Learning Objective
+
+-   After completing this part of the tutorial, you will be able to choose an appropriate non-perturbative technique
+-   After completing this part of the tutorial, you will be able to apply simple non-perturbative techniques
+:::
+
 ```{r Setup}
 #| include: false
 
@@ -36,7 +43,7 @@ Global recoding (also called generalization) replaces the exact values of a vari
 
 **Examples**
 
--   Replacing specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”).
+-   Replacing specific countries with world regions (e.g., "Germany", "France" → "Western Europe").
 
 -   Recoding age in year to age in decade.
 
@@ -46,7 +53,7 @@ The key decision is how broadly to generalize. Wider categories reduce risk more
 
 Local recoding generalizes values only where needed, rather than across the whole dataset. This is useful when only a small subset of values is rare enough to create risk.
 
-**Example**: If only few participant are from Asia, you may recode only their values (e.g., “China”, “India”, “Nepal”) to “Asia”, keeping all others unchanged.
+**Example**: If only few participant are from Asia, you may recode only their values (e.g., "China", "India", "Nepal") to "Asia", keeping all others unchanged.
 
 This means, that values are on different level (in this example: country vs. continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently - you need to be transparent about which categories were collapsed and why.
 
@@ -56,9 +63,9 @@ Top-and-bottom coding is a special case of recoding that applies to numerical va
 
 **Examples**
 
--   Instead of reporting “6 children”, report “4+ children” for anyone above this threshold.
+-   Instead of reporting "6 children", report "4+ children" for anyone above this threshold.
 
--   All participants below the age of 20 years are coded as “\<20 years”.
+-   All participants below the age of 20 years are coded as "\<20 years".
 
 How to determine the threshold: The threshold can be calculated, but this is not trivial. A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles - capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.
 
@@ -120,13 +127,13 @@ In addition, you can recode data manually, e.g., by using `mutate`, or by using 
 2.  Apply these techniques using the functions mentioned above.
 3.  Compare the new risk summary to the one from the previous exercise.
 
-::: callout-tip
+::: {.callout-tip collapse="false"}
 The `sdcMicro` functions operate directly on the `sdc` object and update risk estimates automatically. Check `?globalRecode`, `?topBotCoding`, and `?localSuppression` for argument details.
 
 All manual changes as with`forcat` functions like `fct_lump_min()` are applied to the dataset itself. The `sdcObject` needs to be updated afterward.
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-important collapse="true"}
 ## Solution
 
 Keep in mind that this is just an example solution - there are many ways to achieve similar levels of privacy.
@@ -139,7 +146,7 @@ sdc_nonpert <- globalRecode(
   column = "age",
   breaks = c(17, 29, 39, 49, 59, Inf), # Define breaks
   labels = c("18-29", "30-39", "40-49", "50-59", "60+")
-)  
+)
 
 sdc_nonpert # check summary after making the change
 print(sdc_nonpert, type = "risk") # check risk after making the change
@@ -278,17 +285,6 @@ saveRDS(sdc_nonpert, "../sdc_nonpert.rds")
 ```
 
 *Move to other section?*
-
-
-
-#### Learning Objective
-
--   After completing this part of the tutorial, you will be able to choose an appropriate non-perturbative technique
--   After completing this part of the tutorial, you will be able to apply simple non-perturbative techniques
-
-#### Exercises
-
--   choosing and applying non-perturbative techniques (data set with some demographics, task: anonymize age, gender, country of residence, e-mail addresses, etc., choose appropriate techniques); show example solution (with explanation for decisions and emphasis that there is no one right answer)
 
 #### Resources, Links, Examples
 

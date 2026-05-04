@@ -2,6 +2,12 @@
 title: "Summary of the Anonymization Workflow"
 ---
 
+::: {.callout-tip collapse="true"}
+## Learning Objective
+
+After completing this part of the tutorial, you will understand the anonymization workflow.
+:::
+
 This chapter summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data.
 
 *Add a flowchart to the process*
@@ -41,14 +47,6 @@ Create both internal documentation (full details for auditing) and external docu
 # Step 9: Publish Data
 
 Share your anonymized dataset along with the external documentation. Choose an appropriate repository and access level based on the remaining risk (best option is fully open).
-
-#### Learning Objective
-
-After completing this part of the tutorial, you will understand the anonymization workflow.
-
-#### Exercises
-
--   none
 
 #### Resources, Links, Examples
 

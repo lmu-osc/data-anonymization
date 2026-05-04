@@ -3,6 +3,12 @@ title: "Perturbative Techniques"
 bibliography: ../references.bib
 ---
 
+::: {.callout-tip collapse="true"}
+## Learning Objective
+
+-   After completing this part of the tutorial, you will be able to apply selected perturbative techniques in R.
+:::
+
 ```{r Setup}
 #| include: false
 
@@ -44,7 +50,7 @@ Noise addition (also known as randomization) adds a random value to each origina
 
 The noise can be uncorrelated - each value gets an independent random draw - or correlated with the original values, which better preserves the correlation structure between variables. Transformations of the variable (e.g., log-transforming income before adding noise) are also possible and can improve the result for skewed distributions.
 
-::: callout-note
+::: {.callout-note collapse="false"}
 ## Differential Privacy
 
 Differential privacy is a formal privacy guarantee that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset - so the presence or absence of one person cannot be inferred from the result.
@@ -106,11 +112,11 @@ Continue working with `sdc_nonpert` from the previous exercise.
 
 3.  **Compare the methods:** Which parameters do you need to achieve similar levels of protection?
 
-::: callout-tip
+::: {.callout-tip collapse="false"}
 You cannot undo perturbation steps within the same `sdcObject`. Create a fresh copy of `sdc_nonpert` before trying the second method so you can compare them side-by-side.
 :::
 
-::: {.callout-note collapse="true"}
+::: {.callout-important collapse="true"}
 ## Solution
 
 ### Microaggregation
@@ -121,7 +127,7 @@ I start by applying microaggreagation with a group size of 5 on a new `sdcObject
 sdc_micro <- microaggregation(
   obj    = sdc_nonpert,
   variables = "income",
-  aggr   =  5,          # group size 
+  aggr   =  5,          # group size
   method = "mdav"      # Maximum Distance to Average Vector
 )
 
@@ -129,7 +135,7 @@ sdc_micro
 print(sdc_micro, type = "risk")
 
 data_micro <- extractManipData(sdc_micro) # Extract the manipulated data
-data_micro 
+data_micro
 ```
 
 `mdav` groups records by their distance to the group centroid, then replaces each value with the group mean. With `aggr = 5`, at least 5 records share the same income value, so singling out an individual is harder.
@@ -159,14 +165,6 @@ saveRDS(sdc_noise, "../sdc_noise.rds")
 
 ```
 :::
-
-#### Learning Objective
-
--   After completing this part of the tutorial, you will be able to apply selected perturbative techniques in R.
-
-#### Exercise
-
--   Apply one or two techniques for certain variables in R
 
 #### Resources, Links, Examples
 

@@ -3,6 +3,13 @@ title: "Mechanisms of Data Protection in Research"
 bibliography: ../references.bib
 ---
 
+::: {.callout-tip collapse="true"}
+## Learning Objective
+
+-   After completing this part of the tutorial, you will know how data protection is integrated into the research process.
+-   After completing this part of the tutorial, you will know the difference between anonymization and pseudonymization.
+:::
+
 # Overview
 
 How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point - it is relevant at every stage. The table below maps common data protection mechanisms to the stages of the research lifecycle:
@@ -17,7 +24,7 @@ How can research protect (personal) data of participants throughout the research
 | 6 Publish | Anonymization |
 | 7 Re-Use |  |
 
-*Show graph with research process and all mechanisms*
+![Research Process and Mechanisms](../pictures/Mechanisms-cropped.svg)
 
 As you can see, some mechanisms (like anonymization) are relevant across many stages, while others (like informed consent) are specific to a particular point. Let's walk through each stage.
 
@@ -49,7 +56,7 @@ Privacy by Design (PbD) is a set of principles that require privacy protection t
 
 For research, PbD means thinking about privacy before you start collecting data: What is the minimum data you need? How will you store it securely? When and how will you anonymize it? A detailed data management plan can be a great tool for putting PbD into practice.
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="false"}
 # The Seven Principles of Privacy by Design [@Cavoukian2011_PrivacyDesignLaw]
 
 PbD is primarily targeted at software products and less at research projects. Nevertheless, I think the principles can also guide us when designing a research study in a privacy-conscious way.
@@ -87,7 +94,7 @@ In research, this means resisting the temptation to collect demographics or othe
 
 There is also a flip side to data minimization: whenever possible, reuse existing data instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles - making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody's life easier (find a tutorial on FAIR data management [here](https://lmu-osc.github.io/FAIR-Data-Management/)).
 
-::: callout-note
+::: {.callout-note collapse="false"}
 ## Randomized Response Technique
 
 The randomized response technique is a technique that transparently adds privacy at the stage of data collection [@warner1965, @moshagen2012]. For the collection of a sensitive attribute (e.g., abusive behavior), participants are instructed to:
@@ -159,7 +166,7 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 
 ### Scenario 1: Medical Records for Research
 
-::: {.callout-tip collapse="true"}
+::: {.callout-important collapse="true"}
 # A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.
 
 **Pseudonymized** - because the re-identification key still exists.
@@ -169,7 +176,7 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 
 ### Scenario 2: City Council Survey
 
-::: {.callout-tip collapse="true"}
+::: {.callout-important collapse="true"}
 # The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.
 
 **Anonymized** - the data is aggregated, no individuals can be singled out.
@@ -179,7 +186,7 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 
 ### Scenario 3: Fitness Tracker Data
 
-::: {.callout-tip collapse="true"}
+::: {.callout-important collapse="true"}
 # A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.
 
 **Not clear** - technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.
@@ -189,7 +196,7 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 
 ### Scenario 4: University Exam Scores
 
-::: {.callout-tip collapse="true"}
+::: {.callout-important collapse="true"}
 # Exam results are shared with teachers, identified only by student number. The university has the key to look up the names behind the numbers.
 
 **Pseudonymized** - the student number acts as a pseudonym, and the university holds the key.
@@ -199,7 +206,7 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 
 ### Scenario 5: Online Store Reviews
 
-::: {.callout-tip collapse="true"}
+::: {.callout-important collapse="true"}
 # A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis.
 
 **Not clear** - identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.
@@ -209,7 +216,7 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 
 ### Scenario 6: Traffic Accident Database
 
-::: {.callout-tip collapse="true"}
+::: {.callout-important collapse="true"}
 # A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.
 
 **Not clear / borderline anonymized** - no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.
@@ -219,20 +226,11 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 
 ### Scenario 7: Genetic Study
 
-::: {.callout-tip collapse="true"}
+::: {.callout-important collapse="true"}
 # DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.
 
 **Pseudonymized** - the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.
 :::
-
-#### Learning Objective
-
--   After completing this part of the tutorial, you will know how data protection is integrated into the research process.
--   After completing this part of the tutorial, you will know the difference between anonymization and pseudonymization.
-
-#### Exercises
-
--   Exercise on Differentiating Anonymization and Pseudonymization
 
 #### Resources, Links, Examples
 
