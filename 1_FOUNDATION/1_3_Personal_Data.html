@@ -433,8 +433,8 @@ div.csl-indent {
 <li><p><strong>Direct identifiers</strong>. These are information that can directly point out and identify an individual, such as address, social security number, bank accounts, or an email address.</p></li>
 <li><p><strong>Indirect or quasi identifiers</strong>. These are data that can, when combined with other pieces of data, lead to the identification of an individual. Examples include date of birth, age, gender, geographic location (like a ZIP or postal code), marital status, or details about events (e.g., hospital admission dates).</p></li>
 </ul>
-<p>The assessment of whether a person is identifiable takes into account all means reasonably likely to be used by the data controller or another person to identify the natural person, including methods such as “singling out”. This “reasonably likely” criterion considers objective factors such as costs, time, effort, and the technological means available at the time of processing, as well as potential future technological developments. For instance, a dynamic IP address can qualify as personal data if it can be linked to a specific person, even if that linking capability resides with an Internet Service Provider and requires a court order <span class="citation" data-cites="breyer2016">(<a href="#ref-breyer2016" role="doc-biblioref"><em>Breyer v <span>Bundesrepublik Deutschland</span></em> 2016</a>)</span>.</p>
-<p>In a research context, this means that even datasets without names or email addresses can contain personal data. A dataset with age, gender, postal code, and occupation might seem harmless - but in the case of rare occupations, an attacker might be able to single individuals out using just these variables. This is especially relevant for smaller or more specialized samples (e.g., employees of a specific company, students in a specific program) where combinations of demographic variables become more unique. It is also relevant when your data contains grouped observations - for example, couples, families, or school classes - since group members share certain attributes and may use their knowledge about other members to identify them in the dataset.</p>
+<p>The assessment of whether a person is identifiable takes into account all <strong>means reasonably likely to be used</strong> by the data controller or another person to identify the natural person, including methods such as “singling out”. This “reasonably likely” criterion considers objective factors such as costs, time, effort, and the technological means available at the time of processing, as well as potential future technological developments. For instance, a dynamic IP address can qualify as personal data if it can be linked to a specific person, even if that linking capability resides with an Internet Service Provider and requires a court order <span class="citation" data-cites="breyer2016">(<a href="#ref-breyer2016" role="doc-biblioref"><em>Breyer v <span>Bundesrepublik Deutschland</span></em> 2016</a>)</span>.</p>
+<p>In a research context, this means that even <strong>datasets without names or email addresses can contain personal data</strong>. A dataset with age, gender, postal code, and occupation might seem harmless - but in the case of rare occupations, an attacker might be able to single individuals out using just these variables. This is especially relevant for <strong>smaller or more specialized samples</strong> (e.g., employees of a specific company, students in a specific program) where combinations of demographic variables become more unique. It is also relevant when your data contains grouped observations - for example, couples, families, or school classes - since group members share certain attributes and may use their knowledge about other members to identify them in the dataset.</p>
 <section id="special-types-of-personal-data" class="level2">
 <h2 class="anchored" data-anchor-id="special-types-of-personal-data">Special Types of Personal Data</h2>
 <p>The GDPR (Art. 9) describes several categories of <strong>sensitive data</strong> that receive heightened protection:</p>
@@ -452,11 +452,11 @@ div.csl-indent {
 <li>information about criminal convictions and offenses</li>
 <li>financial data</li>
 </ul>
-<p>In practice, this means you need to be extra careful with these variables when sharing data - they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.</p>
+<p>In practice, this means you need to be <strong>extra careful</strong> with these variables when sharing data - they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.</p>
 </section>
 <section id="exercise-personal-data" class="level1">
 <h1>Exercise: Personal Data</h1>
-<p>Here is a simulated dataset of 200 Germans. The data’s purpose is to answer whether certain political opinions are linked to religion. This dataset will be used throughout the exercises.</p>
+<p>Here is a <strong>simulated dataset</strong> of 200 Germans. The data’s purpose is to answer whether <strong>certain political opinions are linked to religion</strong>. This dataset will be used throughout the exercises.</p>
 <p>Download the dataset here:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -594,7 +594,7 @@ div.csl-indent {
 <section id="exercise-direct-identifiers-indirect-identifiers-and-special-categories" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-direct-identifiers-indirect-identifiers-and-special-categories">Exercise: Direct Identifiers, Indirect Identifiers, and Special Categories</h2>
 <p>Inspect the dataset <code>data</code>. Answer the following questions:</p>
-<p>1. Which columns contain direct identifiers?</p>
+<p>1. Which columns contain <strong>direct identifiers</strong>?</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -608,13 +608,13 @@ div.csl-indent {
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <section id="direct-identifiers-name-email-ip_address" class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="direct-identifiers-name-email-ip_address">Direct identifiers: <code>name</code>, <code>email</code>, <code>ip_address</code></h3>
-<p>Name is probably the most obvious identifier there is.</p>
-<p>Email addresses are considered direct identifiers since they often contain names and therefore, clearly specify certain individuals. However, even when not containing names, they can act as indirect identifiers by linking to an account or revealing a person’s organization.</p>
-<p>IP addresses can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the ISP <span class="citation" data-cites="breyer2016">(<a href="#ref-breyer2016" role="doc-biblioref"><em>Breyer v <span>Bundesrepublik Deutschland</span></em> 2016</a>)</span>. In a research context, they should be treated as direct identifiers.</p>
+<p><strong>Name</strong> is probably the most obvious identifier there is.</p>
+<p><strong>Email addresses</strong> are considered direct identifiers since they often contain names and therefore, clearly specify certain individuals. However, even when not containing names, they can act as indirect identifiers by linking to an account or revealing a person’s organization.</p>
+<p><strong>IP addresses</strong> can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the ISP <span class="citation" data-cites="breyer2016">(<a href="#ref-breyer2016" role="doc-biblioref"><em>Breyer v <span>Bundesrepublik Deutschland</span></em> 2016</a>)</span>. In a research context, they should be treated as direct identifiers.</p>
 </section>
 </div>
 </div>
-<p>2. Which columns contains indirect identifiers?</p>
+<p>2. Which columns contain <strong>indirect identifiers</strong>?</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -628,11 +628,11 @@ div.csl-indent {
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <section id="indirect-identifiers-gender-age-education-income-plz-years_in_job" class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="indirect-identifiers-gender-age-education-income-plz-years_in_job">Indirect identifiers: <code>gender</code>, <code>age</code>, <code>education</code>, <code>income</code>, <code>plz</code>, <code>years_in_job</code></h3>
-<p>Gender, age, education, postal code, income, and years in job are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be linked with each other or external knowledge. When an attacker knows of a person who participated in the study and knows their education level, they could identify the person in the data.</p>
+<p><strong>Gender</strong>, <strong>age</strong>, <strong>education</strong>, <strong>postal code</strong>, <strong>income</strong>, and <strong>years in job</strong> are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be <strong>linked</strong> with each other or external knowledge. When an attacker knows of a person who participated in the study and knows their education level, they could identify the person in the data.</p>
 </section>
 </div>
 </div>
-<p>3. Which columns contain special categories of personal data?</p>
+<p>3. Which columns contain <strong>special categories of personal data</strong> (= sensitive data)?</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -646,11 +646,11 @@ div.csl-indent {
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <section id="special-category-data-all-pol_-variables-political-opinion-religion" class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="special-category-data-all-pol_-variables-political-opinion-religion">Special category data: all <code>pol\_</code> variables (political opinion), <code>religion</code></h3>
-<p>The <code>pol_immigration</code>, <code>pol_environment</code>, <code>pol_redistribution</code>, and <code>pol_eu_integration</code> variables capture political opinions, and <code>religion</code> captures religious beliefs. Both categories are explicitly listed as sensitive data under Art. 9 GDPR. These variables require heightened protection because their disclosure could lead to discrimination or other harm for the individuals involved.</p>
+<p>The <code>pol_immigration</code>, <code>pol_environment</code>, <code>pol_redistribution</code>, and <code>pol_eu_integration</code> variables capture <strong>political opinions</strong>, and <code>religion</code> captures <strong>religious beliefs</strong>. Both categories are explicitly listed as sensitive data under Art. 9 GDPR. These variables require <strong>heightened protection</strong> because their disclosure could lead to discrimination or other harm for the individuals involved.</p>
 </section>
 </div>
 </div>
-<p>4. Is there any column that does not contain personal data?</p>
+<p>4. Is there any column that does <strong>not</strong> contain personal data?</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -668,7 +668,7 @@ div.csl-indent {
 </section>
 </div>
 </div>
-<p>As a first step, you always want to remove the direct identifiers as soon as you do not need them anymore. I would recommend to perform this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators.</p>
+<p>As a first step, you always want to <strong>remove the direct identifiers</strong> as soon as you don’t need them anymore. I would recommend performing this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators.</p>
 </section>
 <section id="exercise-remove-direct-identifiers" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-remove-direct-identifiers">Exercise: Remove Direct Identifiers</h2>
@@ -687,7 +687,6 @@ div.csl-indent {
 <div class="callout-body-container callout-body">
 <p>Any solution that deletes the name, email address, and IP address is correct. I use tidyverse syntax:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.6
@@ -700,12 +699,10 @@ div.csl-indent {
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>name, <span class="sc">-</span>email, <span class="sc">-</span>ip_address)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Save the new file</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data_withoutdirectidentifiers, <span class="st">"../SimulatedData_noidentifiers.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data_withoutdirectidentifiers, <span class="st">"../SimulatedData_noidentifiers.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Delete the old file.</p>
 </div>
@@ -714,7 +711,7 @@ div.csl-indent {
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 <ul>
-<li>examples for how to categorize data: <span class="citation" data-cites="VanRavenzwaaij2025_DeidentificationWhenMaking">Van Ravenzwaaij et al. (<a href="#ref-VanRavenzwaaij2025_DeidentificationWhenMaking" role="doc-biblioref">2025</a>)</span></li>
+<li>In their tutorial, <span class="citation" data-cites="VanRavenzwaaij2025_DeidentificationWhenMaking">Van Ravenzwaaij et al. (<a href="#ref-VanRavenzwaaij2025_DeidentificationWhenMaking" role="doc-biblioref">2025</a>)</span> present example datasets and how to categorize variables into these categories.</li>
 </ul>
 </section>
 </section>
