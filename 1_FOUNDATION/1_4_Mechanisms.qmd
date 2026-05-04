@@ -85,7 +85,7 @@ There is also a flip side to data minimization: whenever possible, **reuse exist
 ::: {.callout-note collapse="false"}
 ## Randomized Response Technique
 
-The randomized response technique is a technique that **transparently adds privacy at the stage of data collection** \[@moshagen2012, @warner1965\].
+The randomized response technique is a technique that **transparently adds privacy at the stage of data collection** [@moshagen2012, @warner1965].
 
 For the collection of a sensitive attribute (e.g., abusive behavior), participants are instructed to:
 
@@ -112,7 +112,7 @@ The GDPR requires controllers to implement "appropriate technical and organizati
 -   **Access control:** Only people who need the data for the research should **have** access. Use role-based permissions where possible.
 -   **Storage limitation:** Don't keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to add a reminder to my calendar for dates when I need to delete data.
 -   **Transfer security:** When sharing data with collaborators, use encrypted channels - not email attachments.
--   **Pseudonymization**: Replace direct identifiers (like names) with artificial identifiers (like participant codes) (see below for more information).
+-   **Pseudonymization**: Replace direct identifiers (like names) with artificial identifiers (like participant codes). See below for more information.
 
 These measures add layers of protection around your data while it is still in personal form. They do not replace anonymization, but they are essential complements.
 
@@ -128,25 +128,25 @@ The GDPR considers pseudonymization a useful safeguard and a step in the right d
 
 ## Anonymization
 
-Anonymization goes further than pseudonymization. The goal is to transform personal data so that individuals can no longer be identified - directly or indirectly - by any means reasonably likely to be used. When data is truly anonymized, it falls outside the scope of the GDPR (Recital 26), which means it can be shared, published, and reused without the legal restrictions that apply to personal data.
+Anonymization goes further than pseudonymization. The goal is to **transform personal data so that individuals can no longer be identified** - directly or indirectly - by any means reasonably likely to be used. When data is truly anonymized, it falls **outside the scope of the GDPR** (Recital 26), which means it can be shared, published, and reused without the legal restrictions that apply to personal data.
 
-This sounds straightforward, but in practice, true anonymization is hard to achieve. Simply removing names and email addresses is usually not enough - indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a process that requires careful analysis of risks and the application of specific techniques.
+This sounds straightforward, but in practice, **true anonymization is hard to achieve**. Simply removing names and email addresses is usually not enough - indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a **process that requires careful analysis of risks and the application of specific techniques**.
 
 The bulk of this tutorial is dedicated to teaching you these techniques and helping you assess whether your data is sufficiently anonymized for sharing. The key distinction to remember:
 
 |   | Pseudonymization | Anonymization |
 |------------------------|------------------------|------------------------|
-| **What it does** | Replaces direct identifiers with codes | Removes or transforms data so that individuals cannot be identified |
-| **Key file exists?** | Yes (or re-identification is otherwise possible) | No (re-identification is not reasonably possible) |
-| **Still personal data?** | Yes | No |
-| **GDPR applies?** | Yes | No |
+| **What?** | Replaces direct identifiers with codes | Removes or transforms data so that individuals cannot be identified |
+| **Does a key file exist?** | Yes (or re-identification is otherwise possible) | No (re-identification is not reasonably possible) |
+| **Is it still personal data?** | Yes | No |
+| **Does GDPR apply?** | Yes | No |
 
 ## Data Subject Rights
 
 Even during processing and analysis, participants retain their rights under the GDPR. The most relevant ones for this stage are:
 
 -   **Right to access:** Participants can ask to see what data you hold about them. This is easier to fulfill if your data is well-organized and pseudonymized (so you can look up individual records).
--   **Right to erasure:** Participants can request that their data be deleted, for example if they withdraw consent. Again, this requires that you can identify their records - another reason for careful pseudonymization during the active research phase.
+-   **Right to erasure:** Participants can request that their data be deleted, for example, if they withdraw consent. Again, this requires that you can identify their records - another reason for careful pseudonymization during the active research phase.
 
 Once data is fully anonymized, these rights no longer apply (since you can no longer identify whose data is whose). Communicate your timeline transparently to participants during participation in the study.
 
@@ -155,69 +155,58 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 ## Exercise: Anonymized, Pseudonymized, or Not Clear?
 
 ### Scenario 1: Medical Records for Research
-
+A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.
 ::: {.callout-important collapse="true"}
-# A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.
+# Solution
 
 **Pseudonymized** - because the re-identification key still exists.
 :::
 
-------------------------------------------------------------------------
-
 ### Scenario 2: City Council Survey
-
+The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.
 ::: {.callout-important collapse="true"}
-# The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.
+# Solution
 
 **Anonymized** - the data is aggregated, no individuals can be singled out.
 :::
 
-------------------------------------------------------------------------
-
 ### Scenario 3: Fitness Tracker Data
-
+A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.
 ::: {.callout-important collapse="true"}
-# A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.
+# Solution
 
 **Not clear** - technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.
 :::
 
-------------------------------------------------------------------------
-
 ### Scenario 4: University Exam Scores
-
+Exam results are shared with teachers, identified only by student number. The university has the key to look up the names behind the numbers.
 ::: {.callout-important collapse="true"}
-# Exam results are shared with teachers, identified only by student number. The university has the key to look up the names behind the numbers.
+# Solution
 
 **Pseudonymized** - the student number acts as a pseudonym, and the university holds the key.
 :::
 
-------------------------------------------------------------------------
-
 ### Scenario 5: Online Store Reviews
-
+A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis.
 ::: {.callout-important collapse="true"}
-# A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis.
+# Solution
 
 **Not clear** - identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.
 :::
 
-------------------------------------------------------------------------
 
 ### Scenario 6: Traffic Accident Database
-
+A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.
 ::: {.callout-important collapse="true"}
-# A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.
+# Solution
 
 **Not clear / borderline anonymized** - no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.
 :::
 
-------------------------------------------------------------------------
-
 ### Scenario 7: Genetic Study
-
+DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.
 ::: {.callout-important collapse="true"}
-# DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.
+# Solution
 
 **Pseudonymized** - the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.
 :::

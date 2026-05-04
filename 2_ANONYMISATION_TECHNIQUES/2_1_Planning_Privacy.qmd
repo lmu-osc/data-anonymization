@@ -15,15 +15,17 @@ bibliography: ../references.bib
 data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Change based on the location of your data file
 ```
 
-In the previous chapters, we covered the foundations: what counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now we move to the practical part - actually anonymizing data. But before we jump into specific techniques, we first need to assess how much risk our data carries. That is what this chapter is about.
+In the previous chapters, we covered the foundations: What counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now we move to the practical part - actually anonymizing data. But before we jump into specific techniques, we first need to assess **how much risk** our data carries. That is what this chapter is about.
 
 Anonymization of data, in most cases, means covering or obscuring the data, meaning there is always a loss of information. However, when sharing data, we need to keep their utility; otherwise, they are rendered useless.
 
-The goal is to use the appropriate anonymization techniques to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also [the chapter on balancing privacy and utility](../3_PRIVACY_OPENNESS/3_1_Balancing)).
+The goal is to use the **appropriate anonymization techniques** to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also [the chapter on balancing privacy and utility](../3_PRIVACY_OPENNESS/3_1_Balancing)).
 
 To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, taking what we learned in the [last chapter](../1_FOUNDATION/1_5_Privacy_Concepts) and putting it into practice.
 
 # Identifying Privacy Risks
+
+## Exercise: Privacy Risks in the Example Data
 
 Take another look at the dataset from [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data), the version without direct identifiers. Try to answer the following questions:
 
@@ -40,19 +42,19 @@ Here are a few concrete attack scenarios to consider, based on our dataset of 20
 -   A journalist cross-references the dataset with publicly available census or salary reports. By matching education level, income range, and age, they could narrow down candidates and potentially identify individuals - especially in smaller postal code areas where few people share the same combination of characteristics.
 -   A neighbor knows that someone in their building participated in the study. They know the person's approximate age, gender, and religion. Even if they cannot pinpoint the exact row, they might learn something new about that person's income or political views. This is attribute disclosure - the attacker does not need to find the exact record, just a group of records that all share the same sensitive value.
 
-For this dateset, identity and attribute disclosure are most likely. Since there is not one single group that was recruited, there is no membership disclosure possible.
+For this dateset, **identity and attribute disclosure** are most likely. Since there is not one single group that was recruited, membership disclosure is not possible.
 
-These are just a few examples; in general, the existence and likelihood of risks is very much dependent on the variables in the dataset, the sensibility of data, the recruitment strategy, and many other factors (see [this chapter on choosing the right technique](../2_7_Choosing_technique) for more information).
+These are just a few examples; in general, the existence and likelihood of risks are very much dependent on the variables in the dataset, the sensitivity of data, the recruitment strategy, and many other factors (see [this chapter on choosing the right technique](../2_7_Choosing_technique) for more information).
 :::
 
 ::: {#participation-knowledge .callout-warning collapse="false"}
 ## Participation Knowledge
 
-A major factor that influences the risk assessment is participation knowledge: An attacker's knowledge of whether a person's data is in a specific dataset.
+A major factor that influences the risk assessment is participation knowledge: An attacker's **knowledge of whether a person's data is in a specific dataset**.
 
-In practice, participation knowledge is often not assumed in formal risk assessment [@guo2025]. The default is to treat every record as if the attacker does not know whether a specific person is in the dataset at all - making the risk assessment more conservative and manageable.
+In practice, participation knowledge is **often not assumed** in formal risk assessment [@guo2025]. The default is to treat every record as if the attacker does not know whether a specific person is in the dataset at all - making the risk assessment more conservative and manageable.
 
-However, I would advise taking participation knowledge into account - especially in contexts where it is likely that participants disclose their participation to others or the public (e.g., on social media). Here are a few examples of studies where I'd be especially careful and would rather err on the conservative side, assuming that participation knowledge might be given:
+However, I would advise **taking participation knowledge into account** - especially in contexts where it is likely that participants disclose their participation to others or the public (e.g., on social media). Here are a few examples of studies where I'd be especially careful and would rather err on the protective side, assuming that participation knowledge might be given:
 
 -   **Snowball sampling or referral-based recruitment.** When participants are actively encouraged to recruit others, word of participation spreads naturally. It is reasonable to assume that at least some participants know others who are also in the dataset.
 
@@ -60,7 +62,7 @@ However, I would advise taking participation knowledge into account - especially
 
 -   **Studies where participation is something to list as experience.** For example, when recruiting via freelancing or participant platforms, it is common for people to share prior study participation as part of their portfolio or work history. Others in their network may therefore be aware that they took part.
 
--   **Grouped observations** (e.g., couples, families, classmates, or colleagues) are an extreme case: group members already know each other's participation by definition and may share identifying attributes. Refer to the [SDC Practice Guide](https://sdcpractice.readthedocs.io/en/latest/index.html) for specific guidance on handling grouped data.
+-   **Grouped observations** (e.g., couples, families, classmates, or colleagues) are an extreme case: Group members already know each other's participation by definition and may share identifying attributes. Refer to the [SDC Practice Guide](https://sdcpractice.readthedocs.io/en/latest/index.html) for specific guidance on handling grouped data.
 
 This is where k-anonymity comes into place: You cannot pinpoint an individual's data just based on demographics. When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. I advise for a k-anonymity level of at least 2 or 3 and at least 5 in case of studies that come with a high risk of participation knowledge.
 :::
@@ -196,4 +198,4 @@ If the risk is not acceptable - as is the case here - we will start with the act
 
 #### Resources, Links, Examples
 
-More information on assessing risks for public research data: [@morehouse2025]
+More information on assessing risks for public research data: @morehouse2025

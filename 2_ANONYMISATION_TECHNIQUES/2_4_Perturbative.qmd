@@ -20,7 +20,7 @@ data_withoutidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Chan
 sdc_nonpert <- readRDS("../sdc_nonpert.rds") # Change based on the location of your Sdc-object file
 ```
 
-The core idea behind perturbative techniques is to introduce controlled changes to data values. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but alter the values themselves. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.
+The core idea behind perturbative techniques is to introduce **controlled changes to data values**. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but **alter the values themselves**. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.
 
 In general, perturbation does not increase k-anonymity. Rather, it adds another layer of protection, especially to continuous variables.
 
@@ -30,7 +30,7 @@ In this chapter, I will present a few perturbative techniques introduced in @Car
 
 ## Swapping
 
-Swapping exchanges values of a variable between participants. Instead of altering the values themselves, it breaks the link between a record and the individual it belongs to.
+Swapping **exchanges values of a variable between participants**. Instead of altering the values themselves, it breaks the link between a record and the individual it belongs to.
 
 There are two main variants. **Record swapping** (also known as data swapping) applies to categorical variables: values like gender or country of residence are swapped between records. A useful property here is t-order equivalence - for example, 1-order equivalence means the marginal frequencies are preserved (same number of males and females as before), and 2-order equivalence means joint frequencies are also preserved (same number of males and females from each country).
 
@@ -42,18 +42,18 @@ The main advantage of swapping is that it removes the relationship between a rec
 
 ## Re-sampling
 
-Re-sampling replaces original values with averages computed from bootstrap samples. You draw multiple independent bootstrap samples from the original data, compute the statistic of interest (e.g., the mean) for each sample, and then replace the original value of each record with the bootstrapped estimate for that record. The result preserves the overall distribution but individual values no longer correspond to real observations.
+Re-sampling **replaces original values with averages** computed from bootstrap samples. You draw multiple independent bootstrap samples from the original data, compute the statistic of interest (e.g., the mean) for each sample, and then replace the original value of each record with the bootstrapped estimate for that record. The result preserves the overall distribution but individual values no longer correspond to real observations.
 
 ## Noise
 
-Noise addition (also known as randomization) adds a random value to each original value. The most common form is **additive noise**: a random draw from a distribution (typically normal with mean 0) is added to the original value. **Multiplicative noise** works similarly but multiplies the original value by a random factor, which scales the perturbation to the magnitude of the variable.
+Noise addition (also known as randomization) **adds a random value** to each original value. The most common form is **additive noise**: a random draw from a distribution (typically normal with mean 0) is added to the original value. **Multiplicative noise** works similarly but multiplies the original value by a random factor, which scales the perturbation to the magnitude of the variable.
 
 The noise can be uncorrelated - each value gets an independent random draw - or correlated with the original values, which better preserves the correlation structure between variables. Transformations of the variable (e.g., log-transforming income before adding noise) are also possible and can improve the result for skewed distributions.
 
 ::: {.callout-note collapse="false"}
 ## Differential Privacy
 
-Differential privacy is a formal privacy guarantee that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset - so the presence or absence of one person cannot be inferred from the result.
+Differential privacy is a **formal privacy guarantee** that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset - so the presence or absence of one person cannot be inferred from the result.
 
 In practice, this means adding carefully calibrated noise to query results or to the data itself, such that any individual's contribution is hidden within the noise.
 
@@ -64,17 +64,17 @@ For R users, the `diffpriv` package implements differential privacy mechanisms a
 
 ## Microaggregation
 
-Microaggregation groups records by similarity on the variable of interest and replaces each value with a group aggregate - usually the mean or median. Records within the same group end up sharing the same value, which makes it impossible to single out an individual based on that variable alone.
+Microaggregation **groups records by similarity on the variable of interest and replaces each value with a group aggregate** - usually the mean or median. Records within the same group end up sharing the same value, which makes it impossible to single out an individual based on that variable alone.
 
 The quality of the result depends on how homogeneous the groups are: the more similar the original values within a group, the less information is lost when replacing them with the group mean. This is why the grouping algorithm matters - `mdav` (Maximum Distance to Average Vector), the default in `sdcMicro`, tries to form compact groups to minimize distortion.
 
 ## Rounding
 
-Rounding replaces exact values with rounded versions. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or looses quite a lot of data in case of larger ranges that are rounded to the same value.
+**Rounding replaces exact values with rounded versions**. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or looses quite a lot of data in case of larger ranges that are rounded to the same value.
 
 ## PRAM
 
-PRAM (Post RAndomisation Method) applies to categorical variables. Each value is randomly recoded to a different category with a certain probability defined in a transition matrix. For example, a participant recorded as "male" might be recoded to "female" with probability 0.05 and kept as "male" with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.
+PRAM (Post RAndomisation Method) applies to categorical variables. Each value is **randomly recoded to a different category with a certain probability** defined in a transition matrix. For example, a participant recorded as "male" might be recoded to "female" with probability 0.05 and kept as "male" with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.
 
 This technique can be applied to the `keyVars` we defined in the `sdcObject` earlier, but does not improve k-anonymity indicators since it doesn't reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that `sdcMicro` indicators can not measure.
 
@@ -135,7 +135,6 @@ sdc_micro
 print(sdc_micro, type = "risk")
 
 data_micro <- extractManipData(sdc_micro) # Extract the manipulated data
-data_micro
 ```
 
 `mdav` groups records by their distance to the group centroid, then replaces each value with the group mean. With `aggr = 5`, at least 5 records share the same income value, so singling out an individual is harder.
@@ -165,9 +164,5 @@ saveRDS(sdc_noise, "../sdc_noise.rds")
 
 ```
 :::
-
-#### Resources, Links, Examples
-
--   adding noise with the `sdcMicro` R package
 
 # References

@@ -8,11 +8,11 @@ title: "Synthetic Data"
 -   After completing this part of the tutorial, you will understand the idea of synthesizing data for anonymization.
 :::
 
-Synthetic data is data that is generated from scratch using statistical models or machine learning algorithms trained on the original dataset. The synthetic records do not correspond to any real individual - they are entirely artificial - but they reproduce the statistical patterns (distributions, correlations, group differences) of the original data.
+Synthetic data is data that is **generated from scratch using statistical models or machine learning algorithms trained on the original dataset**. The synthetic records do not correspond to any real individual - they are entirely artificial - but they reproduce the statistical patterns (distributions, correlations, group differences) of the original data.
 
-The big advantage in terms of anonymization is that, since no real individual's data appears in the synthetic dataset, the risk of re-identification is fundamentally different from other techniques. Synthetic data can be shared freely, and it preserves the analytical utility of the data if the generating model is good enough.
+The big advantage in terms of anonymization is that, since no real individual's data appears in the synthetic dataset, the **risk of re-identification is fundamentally different from other techniques**. Synthetic data can be shared freely, and it preserves the **analytical utility** of the data if the generating model is good enough.
 
-But: The quality of synthetic data depends entirely on the model used to generate it. If the model misses important patterns (e.g., non-linear relationships, rare subgroups), the synthetic data will not be a faithful stand-in for the original. Generating high-quality synthetic data also requires technical expertise. .
+But: The quality of synthetic data depends entirely on the model used to generate it. If the model misses important patterns (e.g., non-linear relationships, rare subgroups), the synthetic data will not be a faithful stand-in for the original. Generating high-quality synthetic data also requires technical expertise.
 
 For a guide on creating synthetic data, see the [LMU Tutorial on synthesizing data](https://lmu-osc.github.io/synthetic-data-tutorial/)
 

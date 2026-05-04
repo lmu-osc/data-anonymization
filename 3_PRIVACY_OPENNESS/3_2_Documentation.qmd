@@ -8,7 +8,7 @@ title: "Documentation"
 -   After completing this part of the tutorial, you will know best practices on how to document your anonymization process.
 :::
 
-# Why Document?
+# Goals of Documentation of Anonymization
 
 Thorough documentation of your anonymization process serves two purposes:
 
@@ -17,11 +17,11 @@ Thorough documentation of your anonymization process serves two purposes:
 
 # Internal Documentation
 
-Your internal documentation should describe the full anonymization workflow: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a lab notebook for your data processing. This document should be stored securely alongside the original data - it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding).
+Your internal documentation should describe the **full anonymization workflow**: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a **lab notebook** for your data processing. This document should be stored securely alongside the original data - it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). In our case, this is the full, well-commented **R script**.
 
 # External Documentation in Data Dictionary
 
-The external documentation is what you share alongside the anonymized dataset. It should include a data dictionary (codebook) describing every variable in the released dataset, including any changes from the original. For example, if `age` was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.
+The external documentation is what you **share alongside the anonymized dataset**. It should include a **data dictionary** describing every variable in the released dataset, including any changes from the original. For example, if `age` was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.
 
 If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values - for example, a line like `filter(country == "Liechtenstein")` tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible.
 
@@ -35,7 +35,7 @@ Make changes to the data dictionary from [the chapter on personal data](../1_FOU
 The following variables were removed or modified during anonymization:
 
 | Variable Name | Status | Change |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `name` | **Removed** | Direct identifier - dropped before release |
 | `email` | **Removed** | Direct identifier - dropped before release |
 | `ip_address` | **Removed** | Direct identifier - dropped before release |
@@ -54,5 +54,3 @@ The following variables were removed or modified during anonymization:
 
 Note that the anonymization script used to produce this dataset is available alongside the data. Be aware that scripts themselves can reveal information about the original data (e.g., thresholds used for top-coding, or country names referenced in recoding steps). The released script uses generic category labels where possible to avoid this.
 :::
-
-#### Resources, Links, Examples

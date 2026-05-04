@@ -31,6 +31,6 @@ After learning more about these techniques in the following chapters, I will exp
 
 #### Resources, Links, Examples
 
-@Carvalho2023_SurveyPrivacyPreservingTechniques for detailed information
+See @Carvalho2023_SurveyPrivacyPreservingTechniques for detailed information on these techniques.
 
 # References

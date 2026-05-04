@@ -65,6 +65,4 @@ Recommended steps: combine small departments into broader groups, generalize job
 The rare genetic marker is the most critical variable. If it applies to only a small subset of participants, it is likely unique enough on its own to identify individuals. Consider then to use a de-associative technique like anatomization to split the genetic marker and the other variables. Diagnosis codes should be generalized from specific ICD codes to broader disease categories. Age should be recoded, probably to 10-year bands. Sex is low-risk on its own. Treatment group is needed for analysis and unlikely to cause identification issues. Check the k-anonymity across the indirect identifiers. Aim for k ≥ 5 given the health data sensitivity.
 :::
 
-#### Resources, Links, Examples
-
 # References

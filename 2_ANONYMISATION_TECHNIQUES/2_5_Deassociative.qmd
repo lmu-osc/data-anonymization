@@ -8,9 +8,9 @@ title: "De-Associative Techniques"
 -   After completing this part of the tutorial, you will know selected de-associative techniques.
 :::
 
-De-associative techniques protect privacy by breaking the link between indirect identifiers and sensitive attributes, rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person's record based on their demographic attributes, they should not be able to learn their sensitive values from it.
+De-associative techniques protect privacy by **breaking the link between indirect identifiers and sensitive variables,** rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person's record based on their demographic attributes, they should not be able to learn their sensitive values from it.
 
-The simplest version of this is just separating a dataset into two tables - one with the identifiers and one with the sensitive attributes. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.
+The simplest version of this is just **separating a dataset into two tables - one with the identifiers and one with the sensitive attributes**. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.
 
 More useful are approaches that preserve some analytical structure while still breaking the individual-level link - the two main ones being bucketization and anatomization.
 
@@ -54,3 +54,7 @@ Con
 -   similar level of privacy can be reached by combining other techniques
 
 #### Resources, Links, Examples
+
+See @Carvalho2023_SurveyPrivacyPreservingTechniques for more de-associative techniques.
+
+# References
