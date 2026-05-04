@@ -411,6 +411,25 @@ div.csl-indent {
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Learning Objective
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>After completing this part of the tutorial, you will be able to choose an appropriate non-perturbative technique</li>
+<li>After completing this part of the tutorial, you will be able to apply simple non-perturbative techniques</li>
+</ul>
+</div>
+</div>
+</div>
 <p>Non-perturbative techniques reduce re-identification risk without distorting the underlying values - they either remove information or make it less specific. What stays in the dataset is still true; there is just less of it. This is what sets them apart from perturbative techniques, which add noise or swap values to obscure the original data.</p>
 <p>Non-perturbative techniques include all techniques referred to as data masking, suppression, and deletion.</p>
 <p>Non-perturbative techniques are usually the right starting point. They are easy to explain, easy to document, and easy to verify. For many research datasets, they are enough on their own.</p>
@@ -494,30 +513,33 @@ div.csl-indent {
 <li>Compare the new risk summary to the one from the previous exercise.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Tip
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>The <code>sdcMicro</code> functions operate directly on the <code>sdc</code> object and update risk estimates automatically. Check <code>?globalRecode</code>, <code>?topBotCoding</code>, and <code>?localSuppression</code> for argument details.</p>
 <p>All manual changes as with<code>forcat</code> functions like <code>fct_lump_min()</code> are applied to the dataset itself. The <code>sdcObject</code> needs to be updated afterward.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution
+<span class="screen-reader-only">Important</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Keep in mind that this is just an example solution - there are many ways to achieve similar levels of privacy.</p>
 <p>I started by applying <strong>global recoding to age</strong>:</p>
@@ -527,7 +549,7 @@ Tip
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column =</span> <span class="st">"age"</span>,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">29</span>, <span class="dv">39</span>, <span class="dv">49</span>, <span class="dv">59</span>, <span class="cn">Inf</span>), <span class="co"># Define breaks</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"18-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60+"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="co"># check summary after making the change</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
@@ -1141,19 +1163,6 @@ Expected number of re-identifications:
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_nonpert, <span class="st">"../sdc_nonpert.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><em>Move to other section?</em></p>
-<section id="learning-objective" class="level4">
-<h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
-<ul>
-<li>After completing this part of the tutorial, you will be able to choose an appropriate non-perturbative technique</li>
-<li>After completing this part of the tutorial, you will be able to apply simple non-perturbative techniques</li>
-</ul>
-</section>
-<section id="exercises" class="level4">
-<h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
-<ul>
-<li>choosing and applying non-perturbative techniques (data set with some demographics, task: anonymize age, gender, country of residence, e-mail addresses, etc., choose appropriate techniques); show example solution (with explanation for decisions and emphasis that there is no one right answer)</li>
-</ul>
-</section>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 </section>

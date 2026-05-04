@@ -406,6 +406,24 @@ div.csl-indent {
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Learning Objective
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>After completing this part of the tutorial, you will be able to distinguish between personal data and non-personal data, as well as sensitive and non-sensitive data, and be able to identify direct and indirect identifiers.</li>
+</ul>
+</div>
+</div>
+</div>
 <p>Watch this 3-minute video that explains what personal data are:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/egVmd_QFY_o?si=G5-budrhxU_D-AMx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
@@ -451,14 +469,16 @@ div.csl-indent {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../SimulatedData.csv"</span>) <span class="co"># Change based on the location of your data file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Note</span>Data Dictionary
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <colgroup>
@@ -570,21 +590,22 @@ div.csl-indent {
 </table>
 </div>
 </div>
+</div>
 <section id="exercise-direct-identifiers-indirect-identifiers-and-special-categories" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-direct-identifiers-indirect-identifiers-and-special-categories">Exercise: Direct Identifiers, Indirect Identifiers, and Special Categories</h2>
 <p>Inspect the dataset <code>data</code>. Answer the following questions:</p>
 <p>1. Which columns contain direct identifiers?</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Solution
+<span class="screen-reader-only">Important</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <section id="direct-identifiers-name-email-ip_address" class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="direct-identifiers-name-email-ip_address">Direct identifiers: <code>name</code>, <code>email</code>, <code>ip_address</code></h3>
 <p>Name is probably the most obvious identifier there is.</p>
@@ -594,17 +615,17 @@ div.csl-indent {
 </div>
 </div>
 <p>2. Which columns contains indirect identifiers?</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Solution
+<span class="screen-reader-only">Important</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <section id="indirect-identifiers-gender-age-education-income-plz-years_in_job" class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="indirect-identifiers-gender-age-education-income-plz-years_in_job">Indirect identifiers: <code>gender</code>, <code>age</code>, <code>education</code>, <code>income</code>, <code>plz</code>, <code>years_in_job</code></h3>
 <p>Gender, age, education, postal code, income, and years in job are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be linked with each other or external knowledge. When an attacker knows of a person who participated in the study and knows their education level, they could identify the person in the data.</p>
@@ -612,17 +633,17 @@ div.csl-indent {
 </div>
 </div>
 <p>3. Which columns contain special categories of personal data?</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Solution
+<span class="screen-reader-only">Important</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <section id="special-category-data-all-pol_-variables-political-opinion-religion" class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="special-category-data-all-pol_-variables-political-opinion-religion">Special category data: all <code>pol\_</code> variables (political opinion), <code>religion</code></h3>
 <p>The <code>pol_immigration</code>, <code>pol_environment</code>, <code>pol_redistribution</code>, and <code>pol_eu_integration</code> variables capture political opinions, and <code>religion</code> captures religious beliefs. Both categories are explicitly listed as sensitive data under Art. 9 GDPR. These variables require heightened protection because their disclosure could lead to discrimination or other harm for the individuals involved.</p>
@@ -630,17 +651,17 @@ div.csl-indent {
 </div>
 </div>
 <p>4. Is there any column that does not contain personal data?</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Solution
+<span class="screen-reader-only">Important</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <section id="personal-data-all-columns-contain-personal-data." class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="personal-data-all-columns-contain-personal-data.">Personal data: All columns contain personal data.</h3>
 <p>Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as <code>name</code>) is possible, it is considered personal data, and GDPR applies.</p>
@@ -652,15 +673,17 @@ div.csl-indent {
 <section id="exercise-remove-direct-identifiers" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-remove-direct-identifiers">Exercise: Remove Direct Identifiers</h2>
 <p>Now, delete all direct identifiers from the dataset.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Solution
+<span class="screen-reader-only">Important</span>Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Any solution that deletes the name, email address, and IP address is correct. I use tidyverse syntax:</p>
 <div class="cell">
@@ -677,7 +700,7 @@ div.csl-indent {
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>name, <span class="sc">-</span>email, <span class="sc">-</span>ip_address)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Save the new file</p>
@@ -687,18 +710,7 @@ div.csl-indent {
 <p>Delete the old file.</p>
 </div>
 </div>
-<section id="learning-objective" class="level4">
-<h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
-<ul>
-<li>After completing this part of the tutorial, you will be able to distinguish between personal data and non-personal data, as well as sensitive and non-sensitive data, and be able to identify direct and indirect identifiers.</li>
-</ul>
-</section>
-<section id="exercises" class="level4">
-<h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
-<ul>
-<li>Identify variables that contain direct identifiers, indirect identifiers, and sensitive data</li>
-</ul>
-</section>
+</div>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 <ul>

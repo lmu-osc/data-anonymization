@@ -408,6 +408,24 @@ div.csl-indent {
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Learning Objective
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>After completing this part of the tutorial, you will be able to make informed decisions when balancing the risks and utility of the anonymized data.</li>
+</ul>
+</div>
+</div>
+</div>
 <p>As we have seen, anonymization techniques are all about hiding or obscuring the data or links within the data. This, of course, comes at a cost: The data may lose some of its <strong>utility</strong>.</p>
 <p>We therefore need to find a well-calibrated balance between utility and anonymization, the famous sweet spot where we share data “as open as possible, as closed as necessary.” To achieve this, we can utilize various measures - many of which we have already seen in <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the chapter on assessing privacy risks</a> and in various <code>sdcMicro</code> outputs.</p>
 <section id="measuring-privacy" class="level1">
@@ -485,17 +503,20 @@ Current Information Loss in modified data (0.00% in original data):
 <p>In practice, it can be challenging to correctly assess these risks given the complexity of research projects and existing information. In such cases, red teaming the data anonymization can help <span class="citation" data-cites="Jansen2026_PuttingPrivacyTesta">(<a href="#ref-Jansen2026_PuttingPrivacyTesta" role="doc-biblioref">Jansen et al. 2026</a>)</span>: Another person (e.g., another member of your lab) is instructed to play the role of an attacker, by, e.g., searching for external information or singling out the least protected individuals.</p>
 <p>In general, it is worth it to check the assumptions of the anonymization process every few years after publication of the data, especially if new techniques have emerged (see callout box below).</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Note</span>Deanonymization Using AI
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>AI tools are increasingly being used to re-identify individuals from datasets that were considered anonymous. Recent research shows that large language models (LLMs) can match anonymous text profiles to named individuals across platforms - for example, linking an anonymous forum post to a person’s identified social media account <span class="citation" data-cites="lermen">(<a href="#ref-lermen" role="doc-biblioref">Lermen et al., n.d.</a>)</span>. Separately, research has shown that individuals can be re-identified from behavioral traces alone, including web browsing history, geolocation data, and even face scans, by combining datasets that each seem innocuous on their own <span class="citation" data-cites="rocher2025">(<a href="#ref-rocher2025" role="doc-biblioref">Rocher et al. 2025</a>)</span>.</p>
 <p>For quantitative survey or experimental data of the kind covered in this tutorial, I do not expect AI tools to fundamentally change the re-identification risk - the attack surface is just not the same as for text or behavioral data. That said, AI can make an attacker more efficient: tasks like searching for external information, generating plausible attack combinations, or automating record linkage are all easier with modern AI tools. This is another reason why it is worth revisiting your anonymization assumptions periodically after publication, especially as new techniques emerge.</p>
+</div>
 </div>
 </div>
 </section>
@@ -509,20 +530,22 @@ Current Information Loss in modified data (0.00% in original data):
 <h1>Exercise: Evaluating Data Utility</h1>
 <section id="using-sdcmicros-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="using-sdcmicros-parameters">Using <code>sdcMicro</code>’s Parameters</h2>
-<p>Let’s go back to the two <code>sdcObjects</code> we created in <a href="#0">the chapter on perturbative techniques</a>: <code>sdc_micro</code> (where we applied microaggregation) and <code>sdc_noise</code>&nbsp;(where we applied noise).</p>
+<p>Let’s go back to the two <code>sdcObjects</code> we created in <a href="#0">the chapter on perturbative techniques</a>: <code>sdc_micro</code> (where we applied microaggregation) and <code>sdc_noise</code> (where we applied noise).</p>
 <ol type="1">
 <li>Compare the utility with IL1 and the difference of eigenvalues. Which method do you prefer when looking at these utility indices?</li>
 <li>Make a decision for one of the methods and export the data for further use.</li>
 </ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Solution
+<span class="screen-reader-only">Important</span>Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Simply inspect the <code>sdcObjects</code> to see the values of IL1 and the eigenvalue difference:</p>
 <div class="cell">
@@ -1283,6 +1306,7 @@ Current Information Loss in modified data (0.00% in original data):
 </div>
 </div>
 </div>
+</div>
 <p>As a last anonymization step, I will now <strong>generalize rare religion categories</strong> using <code>fct_lump_min()</code> from <code>forcats</code>. Since <code>religion</code> is not a variable in the <code>sdcObject</code>, I apply this directly to the dataset as an additional layer, protecting individuals with rare religions.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect counts first</span></span>
@@ -1315,17 +1339,17 @@ Current Information Loss in modified data (0.00% in original data):
 <li>Compare the relation between religion and the political opinion variables <code>pol_immigration</code>, <code>pol_environment</code>, <code>pol_redistribution</code>, and <code>pol_eu_integration</code> before and after anonymization.</li>
 <li>Reflect on these comparisons: Is utility well-enough preserved?</li>
 </ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Solution
+<span class="screen-reader-only">Important</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Descriptive statistics on indirect identifiers</strong></p>
 <p>Compare distributions before and after using <code>summary()</code> and frequency tables:</p>
@@ -1474,23 +1498,10 @@ doctoral title    high school   trade school     university           &lt;NA&gt;
 <p>For our dataset, a reasonable workflow looks like this: start by checking the k-anonymity level and disclosure risk on <code>sdc_nonpert</code> (from <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative">the chapter on non-perturbative techniques</a>), then check the information loss after applying perturbative techniques on <code>sdc_micro</code> or <code>sdc_noise</code> (from <a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative">the chapter on perturbative techniques</a>), and finally compare the religion-political opinion analysis on original and anonymized data. If the analysis still holds and k-anonymity is at least 3, the anonymization is likely sufficient for sharing.</p>
 <p>There are no universal thresholds for “good enough” privacy or utility. A commonly used rule of thumb is that k-anonymity should be at least 3-5 for most research datasets, meaning every combination of quasi-identifiers appears at least 3-5 times. For utility, IL1 values eigenvalue differences close to 0 indicate low distortion. But ultimately, the right balance depends on your specific context: how sensitive is the data, who will have access, and what analyses need to be supported. When in doubt, consult your institution’s data protection officer (<a href="https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-representatives-and-contact-persons/data-protection-officer.html">here at LMU</a>), data steward (or a local research data management team, <a href="https://www.ub.lmu.de/en/open-access-publishing/research-data/">here at LMU</a>), or open science team (here at LMU).</p>
 <p>Let’s keep in mind, that while there is a tension between data protection and openness, in practice, these principles enable each other: Sharing data builds trust in research findings, while protecting participants builds trust in researchers. When done well, anonymization is the bridge between these goals - it lets you share data openly while honoring the privacy expectations of the people who provided it <span class="citation" data-cites="Jansen2025_TensionOpenData">(<a href="#ref-Jansen2025_TensionOpenData" role="doc-biblioref">Jansen et al. 2025</a>)</span>.</p>
-<section id="learning-objective" class="level4">
-<h4 class="anchored" data-anchor-id="learning-objective">Learning Objective</h4>
-<ul>
-<li>After completing this part of the tutorial, you will be able to make informed decisions when balancing the risks and utility of the anonymized data.</li>
-</ul>
-</section>
-<section id="exercises" class="level4">
-<h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
-<ul>
-<li><p>apply measurement of k-anonymity</p></li>
-<li><p>apply measurement of utility</p></li>
-</ul>
-</section>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 <ul>
-<li>examples in UK:&nbsp;<a href="https://ukdataservice.ac.uk/deposit-data/sharing-experiences/" class="uri">https://ukdataservice.ac.uk/deposit-data/sharing-experiences/</a></li>
+<li>examples in UK: <a href="https://ukdataservice.ac.uk/deposit-data/sharing-experiences/" class="uri">https://ukdataservice.ac.uk/deposit-data/sharing-experiences/</a></li>
 </ul>
 </section>
 </section>
