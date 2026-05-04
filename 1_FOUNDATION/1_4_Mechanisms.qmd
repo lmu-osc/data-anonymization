@@ -10,19 +10,7 @@ bibliography: ../references.bib
 -   After completing this part of the tutorial, you will know the difference between anonymization and pseudonymization.
 :::
 
-# Overview
-
-How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point - it is relevant at every stage. The table below maps common data protection mechanisms to the stages of the research lifecycle:
-
-| Stage | Mechanism |
-|------------------------------------|------------------------------------|
-| 1 Plan | Data Management Plan, IRB Approval, Privacy by Design |
-| 2 Collect | Informed Consent, Data Minimization |
-| 3 Process | Technical and Organizational Measures, Anonymization, Data Subject Rights |
-| 4 Analyze | Technical and Organizational Measures, Anonymization, Data Subject Rights |
-| 5 Preserve | Technical and Organizational Measures, Anonymization, Data Subject Rights |
-| 6 Publish | Anonymization |
-| 7 Re-Use |  |
+How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point - it is relevant at every stage. The graph below maps common data protection mechanisms to the stages of the research lifecycle:
 
 ![Research Process and Mechanisms](../pictures/Mechanisms-cropped.svg)
 
@@ -32,34 +20,34 @@ As you can see, some mechanisms (like anonymization) are relevant across many st
 
 ## Data Management Plan
 
-A data management plan (DMP) is a document that describes how you will handle your data during and after your research project. It forces you to think about data protection early. It provides answers to questions such as:
+A **data management plan (DMP)** is a document that describes how you will handle your data during and after your research project. It forces you to think about data protection early. It provides answers to questions such as:
 
--   What data will you collect?
+-   What data will you **collect**?
 
--   How will you store the data?
+-   How will you **store** the data?
 
--   Who will have access to the data?
+-   **Who** will have **access** to the data?
 
--   How will you share the data?
+-   How will you **share** the data?
 
-Many funders now require a DMP, and writing one is a good exercise in data minimization and purpose limitation. Also, invest some time into enforcing the DMP. Clearly assign responsibilities for data and its protection in case of collaboration among multiple researchers. Changes to the DMP at later stages are absolutely okay, but keep it regularly updated.
+Many funders now require a DMP, and writing one is a good exercise in data minimization and purpose limitation. Also, invest some time in **enforcing** **the DMP**. Clearly **assign responsibilities** for data and its protection in case of collaboration among multiple researchers. Changes to the DMP at later stages are absolutely okay, but **keep it regularly updated**.
 
 A useful template for DMPs is available at [Zenodo](https://zenodo.org/records/10782781); a tutorial on how to use DMPs is [here](https://lmu-osc.github.io/FAIR-Data-Management/dmp.html).
 
 ## Institutional Review Board (IRB) Approval
 
-Ethics committees or IRBs review your study before data collection begins. Their focus is primarily ethical - does the study design respect participants' rights and well-being? They may also consider data protection aspects, but they are typically not technical experts in anonymization or data security. Think of IRB approval as a necessary but not sufficient step: it gets you started on the right track, but you still need to handle the technical side of data protection yourself.
+**Ethics committees or IRBs** review your study before data collection begins. Their focus is **primarily ethical** - does the study design respect participants' rights and well-being? They may also consider data protection aspects, but they are typically not technical experts in anonymization or data security. Think of IRB approval as a **necessary but not sufficient step**: it gets you started on the right track, but you still need to handle the technical side of data protection yourself.
 
 ## Privacy by Design
 
-Privacy by Design (PbD) is a set of principles that require privacy protection to be built into the design of systems and processes from the very beginning, rather than added as an afterthought [@Cavoukian2011_PrivacyDesignLaw]. It is also enshrined as a principle in the GDPR (Art. 25).
+Privacy by Design (PbD) is a **set of principles** that require privacy protection to be **built into the design** of systems and processes from the very beginning, rather than added as an afterthought [@Cavoukian2011_PrivacyDesignLaw]. It is also enshrined as a **principle in the GDPR** (Art. 25).
 
 For research, PbD means thinking about privacy before you start collecting data: What is the minimum data you need? How will you store it securely? When and how will you anonymize it? A detailed data management plan can be a great tool for putting PbD into practice.
 
 ::: {.callout-note collapse="false"}
 # The Seven Principles of Privacy by Design [@Cavoukian2011_PrivacyDesignLaw]
 
-PbD is primarily targeted at software products and less at research projects. Nevertheless, I think the principles can also guide us when designing a research study in a privacy-conscious way.
+PbD is primarily targeted at software products and less at research projects. Nevertheless, I think the principles can also guide us when designing a research study in a privacy-conscious way:
 
 1.  **Proactive, not reactive:** Anticipate and prevent privacy risks before they occur. Don't wait for a breach to think about data protection.
 
@@ -80,11 +68,11 @@ PbD is primarily targeted at software products and less at research projects. Ne
 
 ## Informed Consent
 
-Informed consent is both an ethical and a legal requirement. Under the GDPR, consent is one possible legal basis for processing personal data (Art. 6(1)(a)), and participants have the right to be informed about how their data will be used at the point of collection.
+Informed consent is both an **ethical and** (often) **a legal requirement**. Under the GDPR, consent is one possible legal basis for processing personal data (Art. 6(1)(a)). In any case, independent of the legal basis, participants have the **right to be informed** about how their data will be used at the point of collection.
 
 In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. Also, mention what rights participants have and who they can contact in case of issues. If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed.
 
-Consent forms are often not read or not understood, which is why consent alone is not a sufficient data protection mechanism.
+Consent forms are often not read or not understood, which is why consent alone is **not** a **sufficient** data protection mechanism.
 
 ## Data Minimization
 
@@ -92,12 +80,14 @@ Data minimization (or in German, *Datensparsamkeit*) follows a simple principle:
 
 In research, this means resisting the temptation to collect demographics or other variables "just in case" or "because we always do." Every additional variable you collect increases the risk of re-identification when the data is shared.
 
-There is also a flip side to data minimization: whenever possible, reuse existing data instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles - making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody's life easier (find a tutorial on FAIR data management [here](https://lmu-osc.github.io/FAIR-Data-Management/)).
+There is also a flip side to data minimization: whenever possible, **reuse existing data** instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles - making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody's life easier (find a tutorial on FAIR data management [here](https://lmu-osc.github.io/FAIR-Data-Management/)).
 
 ::: {.callout-note collapse="false"}
 ## Randomized Response Technique
 
-The randomized response technique is a technique that transparently adds privacy at the stage of data collection [@warner1965, @moshagen2012]. For the collection of a sensitive attribute (e.g., abusive behavior), participants are instructed to:
+The randomized response technique is a technique that **transparently adds privacy at the stage of data collection** \[@moshagen2012, @warner1965\].
+
+For the collection of a sensitive attribute (e.g., abusive behavior), participants are instructed to:
 
 -   If they have abused a person in the past, answer a statement A (i.e., "I have abused a person in the past")
 
@@ -107,7 +97,7 @@ The randomized response technique is a technique that transparently adds privacy
 
     -   In case of a birth month between May and December: the statement B that is the negated version of statement A (i.e., "I have **never** abused a person")
 
-This means that a "yes" to this question can be either due to the person having abused someone before, or a person who has not done that but was randomly assigned to answer statement B. When the base rates of the random distribution are known (as is the case with birth months), one can calculate the true percentage of people who have physically abused someone in the past without being able to identify any individuals who have done so.
+This means that a "yes" to this question can be eithe**r due to the person having abused someone before, or a person who has not done that but was randomly assigned to answer statement B**. When the base rates of the random distribution are known (as is the case with birth months), one can **calculate the true percentage of people who have physically abused someone** in the past **without being able to identify any individuals who have done so**.
 
 This technique requires a larger sample size to estimate prevalence and severely limits the interpretability of relations between variables, but it transparently adds privacy from the outset of data collection.
 :::
@@ -118,9 +108,9 @@ This technique requires a larger sample size to estimate prevalence and severely
 
 The GDPR requires controllers to implement "appropriate technical and organizational measures" to protect personal data (Art. 32). In a research context, this includes:
 
--   **Secure storage:** Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU, for example, the [LRZ](https://www.lrz.de) provides cloud storage and sync services that keep data within Germany. However, standard LRZ services are not approved for special-category personal data (e.g., health data) without additional agreements - check with your data protection officer (link to the [LMU data protection officer](https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-and-representatives/data-protection-officer.html)) if you work with sensitive data.
+-   **Secure storage:** Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU, for example, the [LRZ](https://www.lrz.de) provides cloud storage and sync services that keep data within Germany.
 -   **Access control:** Only people who need the data for the research should **have** access. Use role-based permissions where possible.
--   **Storage limitation:** Don't keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to put a reminder in my calendar for dates I need to delete data.
+-   **Storage limitation:** Don't keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to add a reminder to my calendar for dates when I need to delete data.
 -   **Transfer security:** When sharing data with collaborators, use encrypted channels - not email attachments.
 -   **Pseudonymization**: Replace direct identifiers (like names) with artificial identifiers (like participant codes) (see below for more information).
 
