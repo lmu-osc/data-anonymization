@@ -498,7 +498,7 @@ div.csl-indent {
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>The randomized response technique is a technique that <strong>transparently adds privacy at the stage of data collection</strong> [<span class="citation" data-cites="moshagen2012">Moshagen et al. (<a href="#ref-moshagen2012" role="doc-biblioref">2012</a>)</span>, <span class="citation" data-cites="warner1965">Warner (<a href="#ref-warner1965" role="doc-biblioref">1965</a>)</span>].</p>
+<p>The randomized response technique is a technique that <strong>transparently adds privacy at the stage of data collection</strong> <span class="citation" data-cites="moshagen2012">Warner (<a href="#ref-warner1965" role="doc-biblioref">1965</a>)</span>.</p>
 <p>For the collection of a sensitive attribute (e.g., abusive behavior), participants are instructed to:</p>
 <ul>
 <li><p>If they have abused a person in the past, answer a statement A (i.e., “I have abused a person in the past”)</p></li>
@@ -525,7 +525,7 @@ div.csl-indent {
 <li><strong>Access control:</strong> Only people who need the data for the research should <strong>have</strong> access. Use role-based permissions where possible.</li>
 <li><strong>Storage limitation:</strong> Don’t keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to add a reminder to my calendar for dates when I need to delete data.</li>
 <li><strong>Transfer security:</strong> When sharing data with collaborators, use encrypted channels - not email attachments.</li>
-<li><strong>Pseudonymization</strong>: Replace direct identifiers (like names) with artificial identifiers (like participant codes) (see below for more information).</li>
+<li><strong>Pseudonymization</strong>: Replace direct identifiers (like names) with artificial identifiers (like participant codes). See below for more information.</li>
 </ul>
 <p>These measures add layers of protection around your data while it is still in personal form. They do not replace anonymization, but they are essential complements.</p>
 <section id="pseudonymization" class="level3">
@@ -538,8 +538,8 @@ div.csl-indent {
 </section>
 <section id="anonymization" class="level2">
 <h2 class="anchored" data-anchor-id="anonymization">Anonymization</h2>
-<p>Anonymization goes further than pseudonymization. The goal is to transform personal data so that individuals can no longer be identified - directly or indirectly - by any means reasonably likely to be used. When data is truly anonymized, it falls outside the scope of the GDPR (Recital 26), which means it can be shared, published, and reused without the legal restrictions that apply to personal data.</p>
-<p>This sounds straightforward, but in practice, true anonymization is hard to achieve. Simply removing names and email addresses is usually not enough - indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a process that requires careful analysis of risks and the application of specific techniques.</p>
+<p>Anonymization goes further than pseudonymization. The goal is to <strong>transform personal data so that individuals can no longer be identified</strong> - directly or indirectly - by any means reasonably likely to be used. When data is truly anonymized, it falls <strong>outside the scope of the GDPR</strong> (Recital 26), which means it can be shared, published, and reused without the legal restrictions that apply to personal data.</p>
+<p>This sounds straightforward, but in practice, <strong>true anonymization is hard to achieve</strong>. Simply removing names and email addresses is usually not enough - indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a <strong>process that requires careful analysis of risks and the application of specific techniques</strong>.</p>
 <p>The bulk of this tutorial is dedicated to teaching you these techniques and helping you assess whether your data is sufficiently anonymized for sharing. The key distinction to remember:</p>
 <table class="caption-top table">
 <colgroup>
@@ -556,22 +556,22 @@ div.csl-indent {
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>What it does</strong></td>
+<td><strong>What?</strong></td>
 <td>Replaces direct identifiers with codes</td>
 <td>Removes or transforms data so that individuals cannot be identified</td>
 </tr>
 <tr class="even">
-<td><strong>Key file exists?</strong></td>
+<td><strong>Does a key file exist?</strong></td>
 <td>Yes (or re-identification is otherwise possible)</td>
 <td>No (re-identification is not reasonably possible)</td>
 </tr>
 <tr class="odd">
-<td><strong>Still personal data?</strong></td>
+<td><strong>Is it still personal data?</strong></td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="even">
-<td><strong>GDPR applies?</strong></td>
+<td><strong>Does GDPR apply?</strong></td>
 <td>Yes</td>
 <td>No</td>
 </tr>
@@ -583,7 +583,7 @@ div.csl-indent {
 <p>Even during processing and analysis, participants retain their rights under the GDPR. The most relevant ones for this stage are:</p>
 <ul>
 <li><strong>Right to access:</strong> Participants can ask to see what data you hold about them. This is easier to fulfill if your data is well-organized and pseudonymized (so you can look up individual records).</li>
-<li><strong>Right to erasure:</strong> Participants can request that their data be deleted, for example if they withdraw consent. Again, this requires that you can identify their records - another reason for careful pseudonymization during the active research phase.</li>
+<li><strong>Right to erasure:</strong> Participants can request that their data be deleted, for example, if they withdraw consent. Again, this requires that you can identify their records - another reason for careful pseudonymization during the active research phase.</li>
 </ul>
 <p>Once data is fully anonymized, these rights no longer apply (since you can no longer identify whose data is whose). Communicate your timeline transparently to participants during participation in the study.</p>
 </section>
@@ -594,142 +594,38 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="exercise-anonymized-pseudonymized-or-not-clear">Exercise: Anonymized, Pseudonymized, or Not Clear?</h2>
 <section id="scenario-1-medical-records-for-research" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-1-medical-records-for-research">Scenario 1: Medical Records for Research</h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Pseudonymized</strong> - because the re-identification key still exists.</p>
-</div>
-</div>
-</div>
-<hr>
+<p>A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities. ::: {.callout-important collapse=“true”} # Solution</p>
+<p><strong>Pseudonymized</strong> - because the re-identification key still exists. :::</p>
 </section>
 <section id="scenario-2-city-council-survey" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-2-city-council-survey">Scenario 2: City Council Survey</h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Anonymized</strong> - the data is aggregated, no individuals can be singled out.</p>
-</div>
-</div>
-</div>
-<hr>
+<p>The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included. ::: {.callout-important collapse=“true”} # Solution</p>
+<p><strong>Anonymized</strong> - the data is aggregated, no individuals can be singled out. :::</p>
 </section>
 <section id="scenario-3-fitness-tracker-data" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-3-fitness-tracker-data">Scenario 3: Fitness Tracker Data</h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Not clear</strong> - technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.</p>
-</div>
-</div>
-</div>
-<hr>
+<p>A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs. ::: {.callout-important collapse=“true”} # Solution</p>
+<p><strong>Not clear</strong> - technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough. :::</p>
 </section>
 <section id="scenario-4-university-exam-scores" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-4-university-exam-scores">Scenario 4: University Exam Scores</h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Exam results are shared with teachers, identified only by student number. The university has the key to look up the names behind the numbers.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Pseudonymized</strong> - the student number acts as a pseudonym, and the university holds the key.</p>
-</div>
-</div>
-</div>
-<hr>
+<p>Exam results are shared with teachers, identified only by student number. The university has the key to look up the names behind the numbers. ::: {.callout-important collapse=“true”} # Solution</p>
+<p><strong>Pseudonymized</strong> - the student number acts as a pseudonym, and the university holds the key. :::</p>
 </section>
 <section id="scenario-5-online-store-reviews" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-5-online-store-reviews">Scenario 5: Online Store Reviews</h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Not clear</strong> - identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.</p>
-</div>
-</div>
-</div>
-<hr>
+<p>A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis. ::: {.callout-important collapse=“true”} # Solution</p>
+<p><strong>Not clear</strong> - identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize. :::</p>
 </section>
 <section id="scenario-6-traffic-accident-database" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-6-traffic-accident-database">Scenario 6: Traffic Accident Database</h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Not clear / borderline anonymized</strong> - no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.</p>
-</div>
-</div>
-</div>
-<hr>
+<p>A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept. ::: {.callout-important collapse=“true”} # Solution</p>
+<p><strong>Not clear / borderline anonymized</strong> - no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media. :::</p>
 </section>
 <section id="scenario-7-genetic-study" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-7-genetic-study">Scenario 7: Genetic Study</h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Pseudonymized</strong> - the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.</p>
-</div>
-</div>
-</div>
+<p>DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file. ::: {.callout-important collapse=“true”} # Solution</p>
+<p><strong>Pseudonymized</strong> - the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR. :::</p>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 <p><a href="https://utrechtuniversity.github.io/dataprivacyhandbook/about.html">Utrecht University’s data privacy handbook</a> offers many insights into GDPR compliance, privacy by design, pseudonymisation, data minimization, encryption, and many other topics <span class="citation" data-cites="researchdatamanagementsupport">(<a href="#ref-researchdatamanagementsupport" role="doc-biblioref">Research Data Management Support et al., n.d.</a>)</span>.</p>

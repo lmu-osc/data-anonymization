@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -326,6 +345,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#anatomization" id="toc-anatomization" class="nav-link" data-scroll-target="#anatomization">Anatomization</a></li>
   </ul></li>
   <li><a href="#pro-and-contra-de-associative-techniques" id="toc-pro-and-contra-de-associative-techniques" class="nav-link" data-scroll-target="#pro-and-contra-de-associative-techniques">Pro and Contra De-Associative Techniques</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -369,8 +389,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>De-associative techniques protect privacy by breaking the link between indirect identifiers and sensitive attributes, rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person’s record based on their demographic attributes, they should not be able to learn their sensitive values from it.</p>
-<p>The simplest version of this is just separating a dataset into two tables - one with the identifiers and one with the sensitive attributes. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.</p>
+<p>De-associative techniques protect privacy by <strong>breaking the link between indirect identifiers and sensitive variables,</strong> rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person’s record based on their demographic attributes, they should not be able to learn their sensitive values from it.</p>
+<p>The simplest version of this is just <strong>separating a dataset into two tables - one with the identifiers and one with the sensitive attributes</strong>. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.</p>
 <p>More useful are approaches that preserve some analytical structure while still breaking the individual-level link - the two main ones being bucketization and anatomization.</p>
 <p><em>add infographics</em></p>
 <section id="examples-of-de-associative-techniques" class="level1">
@@ -410,12 +430,21 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+<p>See <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span> for more de-associative techniques.</p>
+</section>
+</section>
+<section id="references" class="level1">
+
+
 
 
 </section>
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
+Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

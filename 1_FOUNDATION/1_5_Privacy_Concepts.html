@@ -401,28 +401,28 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Before we get into the actual anonymization techniques (in the next part of this tutorial), we need to understand what exactly we are protecting against. This chapter introduces the types of privacy risks that exist in typical quantitative research datasets and the foundational concept of k-anonymity, which will guide our risk assessment later.</p>
+<p>Before we get into the actual anonymization techniques (in the next part of this tutorial), we need to understand what exactly we are protecting against. This chapter introduces the <strong>types of privacy risks</strong> that exist in typical quantitative research datasets and the <strong>foundational concept of k-anonymity</strong>, which will guide our risk assessment later.</p>
 <section id="privacy-risks" class="level1">
 <h1>Privacy Risks</h1>
 <p>When we talk about the risk of releasing a dataset, we are talking about <strong>disclosure risks</strong> - the risk that someone could learn something about an individual from the data that they were not supposed to learn. <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span> distinguish four types of disclosure:</p>
 <section id="identity-disclosure" class="level2">
 <h2 class="anchored" data-anchor-id="identity-disclosure">Identity Disclosure</h2>
-<p>Identity disclosure occurs when an intruder can determine that a specific record in the released dataset belongs to a known individual. This is the most intuitive type of risk: someone looks at the data and says, “That row is about person X.”</p>
+<p>Identity disclosure occurs when an attacker can determine that a <strong>specific row in the released dataset belongs to a known individual</strong>. This is the most intuitive type of risk: someone looks at the data and says, “That row is about person X.”</p>
 <p><strong>Research example:</strong> You publish a dataset from a survey of doctoral students at your department. The dataset contains age, gender, and research topic. A colleague recognizes that there is only one 28-year-old female working on computational linguistics - and now they can see her responses to all other questions in the dataset.</p>
 </section>
 <section id="attribute-disclosure" class="level2">
 <h2 class="anchored" data-anchor-id="attribute-disclosure">Attribute Disclosure</h2>
-<p>Attribute disclosure occurs when an intruder learns new information about an individual from the released data, even if they cannot pinpoint the exact record. This can happen when all individuals who share certain characteristics also share a sensitive attribute.</p>
+<p>Attribute disclosure occurs when an attacker <strong>learns new information about an individual</strong> from the released data, even if they cannot pinpoint the exact row. This can happen when all individuals who share certain characteristics also share a sensitive attribute.</p>
 <p><strong>Research example:</strong> A dataset on employee well-being shows that all participants from a specific department who are aged 40-50 reported burnout symptoms. A manager who knows that their employee participated and is in that age range can now infer their burnout status - without needing to know exactly which row belongs to them.</p>
 </section>
 <section id="inferential-disclosure" class="level2">
 <h2 class="anchored" data-anchor-id="inferential-disclosure">Inferential Disclosure</h2>
-<p>Inferential disclosure occurs when an intruder can infer an individual’s private information with high confidence from statistical properties of the released data. This is subtler and less common in research datasets because inferences are probabilistic, not certain, but it can still be a concern.</p>
-<p><strong>Research example:</strong> A published dataset reveals that 90% of female participants aged 40-50 in a particular occupation report burnout. If someone knows a person matching that profile who participated in the study, they can infer with high confidence that this person has burnout - even without identifying their specific record. Note that this type of inference can also extend to people who are <em>not</em> in the dataset but match the same profile.</p>
+<p>Inferential disclosure occurs when an attacker can infer an individual’s private information with high confidence from <strong>statistical properties</strong> of the data. This is subtler and less common in research datasets because inferences are probabilistic, not certain, but it can still be a concern.</p>
+<p><strong>Research example:</strong> A published dataset reveals that 90% of female participants aged 40-50 in a particular occupation report burnout. If someone knows a person matching that profile who participated in the study, they can infer with high confidence that this person has burnout - even without identifying their specific row. Note that this type of inference can also extend to people who are <em>not</em> in the dataset but match the same profile.</p>
 </section>
 <section id="membership-disclosure" class="level2">
 <h2 class="anchored" data-anchor-id="membership-disclosure">Membership Disclosure</h2>
-<p>Membership disclosure occurs when an intruder can determine whether a particular individual’s data is present in the dataset at all. This matters when the mere fact of being in a dataset reveals sensitive information.</p>
+<p>Membership disclosure occurs when an attacker can determine whether a particular individual’s data is <strong>present in the dataset at all</strong>. This matters when the mere fact of being in a dataset reveals sensitive information.</p>
 <p><strong>Research example:</strong> A research team publishes a dataset from a study on undocumented immigrants. If someone can determine that a specific person is in the dataset they have learned something sensitive about that individual.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
@@ -436,7 +436,7 @@ div.csl-indent {
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>The primary goal of anonymization is to prevent <strong>identity disclosure</strong> and <strong>attribute disclosure</strong>. These are the most direct and damaging types of risk. Inferential and membership disclosure are also worth considering, but they are harder to control and often less relevant for typical research datasets.</p>
+<p>The primary goal of anonymization is to prevent <strong>identity disclosure</strong> and <strong>attribute disclosure</strong>. These are the most direct and damaging types of risk and often occur in combination (identity disclosure leading to attribute disclosure). Inferential and membership disclosure are also worth considering, but they are harder to control and often less relevant for typical research datasets.</p>
 </div>
 </div>
 </div>
@@ -444,7 +444,7 @@ div.csl-indent {
 </section>
 <section id="de-anonymization-how-it-happens" class="level1">
 <h1>De-Anonymization: How It Happens</h1>
-<p>The most common de-anonymization scenario is a <strong>linkage attack</strong>: an intruder combines information from the released dataset with external information (from public records, social media, other datasets, or personal knowledge) to identify individuals.</p>
+<p>The most common de-anonymization scenario is a <strong>linkage attack</strong>: an attacker combines information from the released dataset with external information (from public records, social media, other datasets, or personal knowledge) to identify individuals.</p>
 <p>Where can this external information come from?</p>
 <ul>
 <li><strong>Public records:</strong> Voter registrations, professional directories, company websites, university staff pages</li>
@@ -452,7 +452,6 @@ div.csl-indent {
 <li><strong>Other datasets:</strong> Previously released datasets, administrative records, census data</li>
 <li><strong>Personal knowledge:</strong> A colleague, supervisor, or acquaintance who knows that a specific person participated in the study</li>
 </ul>
-<p><em>Insert information on: do we calculate risk with participation knowledge in mind?</em></p>
 <p>The indirect identifiers that remain in a dataset - like age, gender, occupation, and location - are the bridge that connects the released data to external information.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
@@ -468,7 +467,7 @@ div.csl-indent {
 <div class="callout-body-container callout-body">
 <ul>
 <li><p><strong>Student data:</strong> A dataset on online behaviors contains demographic information of first-year students at a university. Another student recognizes a person with a unique combination of age, gender, and study subject (identity disclosure). They can then see which websites this student visits most frequently (attribute disclosure).</p></li>
-<li><p><strong>Politician mental health data:</strong> A dataset on the mental health of German politicians is released publicly. It contains age range, gender, and political function. A journalist links this to publicly available information about members of the Bundestag and re-identifies several politicians (identity disclosure), gaining access to their mental health data (attribute disclosure).</p></li>
+<li><p><strong>Politician mental health data:</strong> A dataset on the mental health of German politicians was released publicly. It contains age range, gender, and political function. A journalist links this to publicly available information about members of the Bundestag and re-identifies several politicians (identity disclosure), gaining access to their mental health data (attribute disclosure).</p></li>
 <li><p><strong>Latanya Sweeney’s classic demonstration:</strong> In the late 1990s, computer scientist Latanya Sweeney showed that 87% of the U.S. population could be uniquely identified by just three variables: date of birth, gender, and ZIP code. She famously re-identified the medical records of the Governor of Massachusetts by linking a “de-identified” hospital dataset with publicly available voter registration records <span class="citation" data-cites="Sweeney2000_SimpleDemographicsOften">Barth-Jones (<a href="#ref-Barth-Jones2012_ReIdentificationGovernorWilliam" role="doc-biblioref">2012</a>)</span>.</p></li>
 </ul>
 </div>
@@ -500,20 +499,20 @@ Warning
 <p>K-anonymity is the most widely used concept for measuring re-identification risk in quantitative research datasets, and it will be our primary tool for assessing risk throughout this tutorial.</p>
 <section id="origin" class="level2">
 <h2 class="anchored" data-anchor-id="origin">Origin</h2>
-<p>K-anonymity was developed by computer scientist Latanya Sweeney after her demonstration of how she could re-identify supposedly anonymized medical records (described above) <span class="citation" data-cites="Sweeney2000_SimpleDemographicsOften">(<a href="#ref-Sweeney2000_SimpleDemographicsOften" role="doc-biblioref">Sweeney 2000</a>)</span>. The concept directly addresses the linkage attack problem: if each individual in a dataset is indistinguishable from at least <em>k</em>-1 other individuals on a set of demographic variables, then linking external information to a specific individual becomes much harder.</p>
+<p>K-anonymity was developed by computer scientist Latanya Sweeney after her demonstration of how she could re-identify supposedly anonymized medical records (described above) <span class="citation" data-cites="Sweeney2000_SimpleDemographicsOften">(<a href="#ref-Sweeney2000_SimpleDemographicsOften" role="doc-biblioref">Sweeney 2000</a>)</span>. The concept directly addresses the linkage attack problem: if each individual in a dataset is <strong>indistinguishable from at least <em>k</em>-1 other individuals</strong> on a set of demographic variables, then <strong>linking external information to a specific individual becomes much harder</strong>.</p>
 </section>
 <section id="definition" class="level2">
 <h2 class="anchored" data-anchor-id="definition">Definition</h2>
-<p>A dataset satisfies <strong>k-anonymity</strong> if, for every combination of quasi-identifiers (the indirect identifiers that could be used for linking), there are at least <em>k</em> records (of individuals) sharing that same combination. In other words: no one is unique, and no one stands out from a group smaller than <em>k</em>.</p>
+<p>A dataset satisfies <strong>k-anonymity</strong> if, for every combination of indirect identifiers, <strong>there are at least <em>k</em> individuals sharing that same combination</strong>. In other words: no one is unique, and no one stands out from a group smaller than <em>k</em>.</p>
 <ul>
-<li>If <strong>k = 1</strong>, there is at least one record that is unique on its quasi-identifiers - meaning someone could potentially be singled out. This is the highest risk.</li>
-<li>If <strong>k = 5</strong>, every individual shares their combination of quasi-identifiers with at least 4 others - making re-identification much harder.</li>
+<li>If <strong>k = 1</strong>, there is at least one individual who is unique on their indirect identifiers - meaning someone could potentially be singled out. This is the highest risk.</li>
+<li>If <strong>k = 5</strong>, every individual shares their combination of indirect identifiers with at least 4 others - making re-identification much harder.</li>
 <li>Higher values of <em>k</em> mean lower re-identification risk, but also potentially lower data utility (because more generalization or suppression is needed to achieve them).</li>
 </ul>
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
-<p>Imagine a dataset with three quasi-identifiers: age, gender, and postal code.</p>
+<p>Imagine a dataset with three indirect identifiers: age, gender, and postal code.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -556,8 +555,8 @@ Warning
 </tr>
 </tbody>
 </table>
-<p>The first three rows share the same combination (34, Female, 80331), so they form a group of size 3. The last two rows share (51, Male, 80333), forming a group of size 2. The smallest group has 2 records, so this dataset satisfies <strong>2-anonymity</strong> - but not 3-anonymity.</p>
-<p>If an attacker knows that a 34-year-old woman living in 80331 is in the dataset, they can narrow it down to 3 possible records, but cannot determine which one is hers.</p>
+<p>The first three rows share the same combination (34, Female, 80331), so they form a group of size 3. The last two rows share 51, Male, and 80333, forming a group of size 2. The smallest group has 2 individuals, so this dataset satisfies <strong>2-anonymity</strong> - but not 3-anonymity.</p>
+<p>If an attacker knows that a 34-year-old woman living in 80331 is in the dataset, they can narrow it down to 3 possible rows, but cannot determine which one is hers.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -579,11 +578,11 @@ Warning
 <h2 class="anchored" data-anchor-id="limitations-of-k-anonymity">Limitations of K-Anonymity</h2>
 <p>K-anonymity is a useful starting point, but it has known limitations:</p>
 <ul>
-<li><strong>Homogeneity attack:</strong> If all <em>k</em> individuals in a group share the same sensitive attribute, then knowing someone is in that group reveals their sensitive value. (Example: all three 34-year-old women from 80331 have the same diagnosis.)</li>
+<li><strong>Homogeneity attack:</strong> If all <em>k</em> individuals in a group share the same sensitive attribute, then knowing someone is in that group reveals their sensitive value. For example, all three 34-year-old women from 80331 could have the same diagnosis.</li>
 <li><strong>Background knowledge attack:</strong> An attacker with additional knowledge (e.g., they know the person does <em>not</em> have a certain condition) can narrow down the possibilities further.</li>
 </ul>
 <p>Extensions like <strong>l-diversity</strong> (requiring diversity in sensitive values within each group) and <strong>t-closeness</strong> (requiring that the distribution of sensitive values within each group is close to the overall distribution) have been proposed to address these issues. For the scope of this tutorial, k-anonymity will be our main metric - but it is good to be aware that it is not a silver bullet. More information on l-diversity and t-closedness can be accessed in <a href="https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html">this practical tutorial by Utrecht university</a>.</p>
-<p>We will use k-anonymity practically in the <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the next chapter</a> of this tutorial, where we calculate it using R and the <code>sdcMicro</code> package.</p>
+<p>We will use k-anonymity practically in the <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the next chapter</a> of this tutorial, where we’ll calculate it using R and the <code>sdcMicro</code> package.</p>
 </section>
 </section>
 <section id="further-reading" class="level1">

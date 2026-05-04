@@ -374,7 +374,10 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#identifying-privacy-risks" id="toc-identifying-privacy-risks" class="nav-link active" data-scroll-target="#identifying-privacy-risks">Identifying Privacy Risks</a></li>
+  <li><a href="#identifying-privacy-risks" id="toc-identifying-privacy-risks" class="nav-link active" data-scroll-target="#identifying-privacy-risks">Identifying Privacy Risks</a>
+  <ul class="collapse">
+  <li><a href="#exercise-privacy-risks-in-the-example-data" id="toc-exercise-privacy-risks-in-the-example-data" class="nav-link" data-scroll-target="#exercise-privacy-risks-in-the-example-data">Exercise: Privacy Risks in the Example Data</a></li>
+  </ul></li>
   <li><a href="#measuring-privacy-risks" id="toc-measuring-privacy-risks" class="nav-link" data-scroll-target="#measuring-privacy-risks">Measuring Privacy Risks</a>
   <ul class="collapse">
   <li><a href="#the-sdcmicro-package" id="toc-the-sdcmicro-package" class="nav-link" data-scroll-target="#the-sdcmicro-package">The <code>sdcMicro</code> Package</a></li>
@@ -424,12 +427,14 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>In the previous chapters, we covered the foundations: what counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now we move to the practical part - actually anonymizing data. But before we jump into specific techniques, we first need to assess how much risk our data carries. That is what this chapter is about.</p>
+<p>In the previous chapters, we covered the foundations: What counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now we move to the practical part - actually anonymizing data. But before we jump into specific techniques, we first need to assess <strong>how much risk</strong> our data carries. That is what this chapter is about.</p>
 <p>Anonymization of data, in most cases, means covering or obscuring the data, meaning there is always a loss of information. However, when sharing data, we need to keep their utility; otherwise, they are rendered useless.</p>
-<p>The goal is to use the appropriate anonymization techniques to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also <a href="../3_PRIVACY_OPENNESS/3_1_Balancing">the chapter on balancing privacy and utility</a>).</p>
+<p>The goal is to use the <strong>appropriate anonymization techniques</strong> to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also <a href="../3_PRIVACY_OPENNESS/3_1_Balancing">the chapter on balancing privacy and utility</a>).</p>
 <p>To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, taking what we learned in the <a href="../1_FOUNDATION/1_5_Privacy_Concepts">last chapter</a> and putting it into practice.</p>
 <section id="identifying-privacy-risks" class="level1">
 <h1>Identifying Privacy Risks</h1>
+<section id="exercise-privacy-risks-in-the-example-data" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-privacy-risks-in-the-example-data">Exercise: Privacy Risks in the Example Data</h2>
 <p>Take another look at the dataset from <a href="../1_FOUNDATION/1_3_Personal_Data">the chapter on personal data</a>, the version without direct identifiers. Try to answer the following questions:</p>
 <ul>
 <li>Which combinations of indirect identifiers could potentially single out an individual?</li>
@@ -454,8 +459,8 @@ div.csl-indent {
 <li>A journalist cross-references the dataset with publicly available census or salary reports. By matching education level, income range, and age, they could narrow down candidates and potentially identify individuals - especially in smaller postal code areas where few people share the same combination of characteristics.</li>
 <li>A neighbor knows that someone in their building participated in the study. They know the person’s approximate age, gender, and religion. Even if they cannot pinpoint the exact row, they might learn something new about that person’s income or political views. This is attribute disclosure - the attacker does not need to find the exact record, just a group of records that all share the same sensitive value.</li>
 </ul>
-<p>For this dateset, identity and attribute disclosure are most likely. Since there is not one single group that was recruited, there is no membership disclosure possible.</p>
-<p>These are just a few examples; in general, the existence and likelihood of risks is very much dependent on the variables in the dataset, the sensibility of data, the recruitment strategy, and many other factors (see <a href="../2_7_Choosing_technique">this chapter on choosing the right technique</a> for more information).</p>
+<p>For this dateset, <strong>identity and attribute disclosure</strong> are most likely. Since there is not one single group that was recruited, membership disclosure is not possible.</p>
+<p>These are just a few examples; in general, the existence and likelihood of risks are very much dependent on the variables in the dataset, the sensitivity of data, the recruitment strategy, and many other factors (see <a href="../2_7_Choosing_technique">this chapter on choosing the right technique</a> for more information).</p>
 </div>
 </div>
 </div>
@@ -471,19 +476,20 @@ div.csl-indent {
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>A major factor that influences the risk assessment is participation knowledge: An attacker’s knowledge of whether a person’s data is in a specific dataset.</p>
-<p>In practice, participation knowledge is often not assumed in formal risk assessment <span class="citation" data-cites="guo2025">(<a href="#ref-guo2025" role="doc-biblioref">Guo et al. 2025</a>)</span>. The default is to treat every record as if the attacker does not know whether a specific person is in the dataset at all - making the risk assessment more conservative and manageable.</p>
-<p>However, I would advise taking participation knowledge into account - especially in contexts where it is likely that participants disclose their participation to others or the public (e.g., on social media). Here are a few examples of studies where I’d be especially careful and would rather err on the conservative side, assuming that participation knowledge might be given:</p>
+<p>A major factor that influences the risk assessment is participation knowledge: An attacker’s <strong>knowledge of whether a person’s data is in a specific dataset</strong>.</p>
+<p>In practice, participation knowledge is <strong>often not assumed</strong> in formal risk assessment <span class="citation" data-cites="guo2025">(<a href="#ref-guo2025" role="doc-biblioref">Guo et al. 2025</a>)</span>. The default is to treat every record as if the attacker does not know whether a specific person is in the dataset at all - making the risk assessment more conservative and manageable.</p>
+<p>However, I would advise <strong>taking participation knowledge into account</strong> - especially in contexts where it is likely that participants disclose their participation to others or the public (e.g., on social media). Here are a few examples of studies where I’d be especially careful and would rather err on the protective side, assuming that participation knowledge might be given:</p>
 <ul>
 <li><p><strong>Snowball sampling or referral-based recruitment.</strong> When participants are actively encouraged to recruit others, word of participation spreads naturally. It is reasonable to assume that at least some participants know others who are also in the dataset.</p></li>
 <li><p><strong>Highly interventional or attention-grabbing studies.</strong> This could be co-design projects, clinical trials, or lifestyle interventions that require a big change in behavior (e.g., quitting smoking, not using one’s phone for a few weeks). People tend to talk about these - to friends, family, or on social media.</p></li>
 <li><p><strong>Studies where participation is something to list as experience.</strong> For example, when recruiting via freelancing or participant platforms, it is common for people to share prior study participation as part of their portfolio or work history. Others in their network may therefore be aware that they took part.</p></li>
-<li><p><strong>Grouped observations</strong> (e.g., couples, families, classmates, or colleagues) are an extreme case: group members already know each other’s participation by definition and may share identifying attributes. Refer to the <a href="https://sdcpractice.readthedocs.io/en/latest/index.html">SDC Practice Guide</a> for specific guidance on handling grouped data.</p></li>
+<li><p><strong>Grouped observations</strong> (e.g., couples, families, classmates, or colleagues) are an extreme case: Group members already know each other’s participation by definition and may share identifying attributes. Refer to the <a href="https://sdcpractice.readthedocs.io/en/latest/index.html">SDC Practice Guide</a> for specific guidance on handling grouped data.</p></li>
 </ul>
 <p>This is where k-anonymity comes into place: You cannot pinpoint an individual’s data just based on demographics. When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. I advise for a k-anonymity level of at least 2 or 3 and at least 5 in case of studies that come with a high risk of participation knowledge.</p>
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="measuring-privacy-risks" class="level1">
 <h1>Measuring Privacy Risks</h1>
@@ -742,7 +748,7 @@ Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 <p>If the risk is not acceptable - as is the case here - we will start with the actual anonymization process. To that end, I will present you with several techniques over the next few chapters.</p>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
-<p>More information on assessing risks for public research data: <span class="citation" data-cites="morehouse2025">(<a href="#ref-morehouse2025" role="doc-biblioref">Morehouse et al. 2025</a>)</span></p>
+<p>More information on assessing risks for public research data: <span class="citation" data-cites="morehouse2025">Morehouse et al. (<a href="#ref-morehouse2025" role="doc-biblioref">2025</a>)</span></p>
 
 
 

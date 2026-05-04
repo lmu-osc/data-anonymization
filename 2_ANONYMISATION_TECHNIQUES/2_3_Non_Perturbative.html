@@ -430,16 +430,15 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Non-perturbative techniques reduce re-identification risk without distorting the underlying values - they either remove information or make it less specific. What stays in the dataset is still true; there is just less of it. This is what sets them apart from perturbative techniques, which add noise or swap values to obscure the original data.</p>
+<p>Non-perturbative techniques reduce re-identification risk <strong>without distorting the underlying values</strong> - they either remove information or make it less specific. What stays in the dataset is still true; there is just <strong>less</strong> of it. This is what sets them apart from perturbative techniques, which add noise or swap values to obscure the original data.</p>
 <p>Non-perturbative techniques include all techniques referred to as data masking, suppression, and deletion.</p>
-<p>Non-perturbative techniques are usually the right starting point. They are easy to explain, easy to document, and easy to verify. For many research datasets, they are enough on their own.</p>
+<p>Non-perturbative techniques are usually the <strong>right starting point</strong>. They are easy to explain, easy to document, and easy to verify. For many research datasets, they are enough on their own.</p>
 <p>Depending on the specific data type and risk, different techniques are possible <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">(<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">Carvalho et al. 2023</a>)</span>:</p>
 <section id="examples-of-non-perturbative-techniques" class="level1">
 <h1>Examples of Non-Perturbative Techniques</h1>
-<p><em>add visualizations</em></p>
 <section id="global-recoding" class="level2">
 <h2 class="anchored" data-anchor-id="global-recoding">Global Recoding</h2>
-<p>Global recoding (also called generalization) replaces the exact values of a variable with broader categories - applied to every row in the dataset.</p>
+<p>Global recoding (also called generalization) replaces the exact values of a variable with <strong>broader categories</strong> - applied to <strong>every row</strong> in the dataset.</p>
 <p><strong>Examples</strong></p>
 <ul>
 <li><p>Replacing specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”).</p></li>
@@ -449,23 +448,23 @@ div.csl-indent {
 </section>
 <section id="local-recoding" class="level2">
 <h2 class="anchored" data-anchor-id="local-recoding">Local Recoding</h2>
-<p>Local recoding generalizes values only where needed, rather than across the whole dataset. This is useful when only a small subset of values is rare enough to create risk.</p>
+<p>Local recoding <strong>generalizes values only where needed</strong>, rather than across the whole dataset. This is useful when only a small subset of values is rare enough to create risk.</p>
 <p><strong>Example</strong>: If only few participant are from Asia, you may recode only their values (e.g., “China”, “India”, “Nepal”) to “Asia”, keeping all others unchanged.</p>
 <p>This means, that values are on different level (in this example: country vs.&nbsp;continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently - you need to be transparent about which categories were collapsed and why.</p>
 </section>
 <section id="top-and-bottom-coding" class="level2">
 <h2 class="anchored" data-anchor-id="top-and-bottom-coding">Top-and-Bottom Coding</h2>
-<p>Top-and-bottom coding is a special case of recoding that applies to numerical variables. Instead of grouping all values into bands, you cap the extreme ends of the distribution - replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value.</p>
+<p>Top-and-bottom coding is a special case of <strong>recoding that applies to numerical variables</strong>. Instead of grouping all values into bands, you <strong>cap the extreme ends of the distribution</strong> - replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value.</p>
 <p><strong>Examples</strong></p>
 <ul>
 <li><p>Instead of reporting “6 children”, report “4+ children” for anyone above this threshold.</p></li>
 <li><p>All participants below the age of 20 years are coded as “&lt;20 years”.</p></li>
 </ul>
-<p>How to determine the threshold: The threshold can be calculated, but this is not trivial. A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles - capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.</p>
+<p>How to determine the threshold: A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles - capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.</p>
 </section>
 <section id="suppression" class="level2">
 <h2 class="anchored" data-anchor-id="suppression">Suppression</h2>
-<p>Suppression means removing information entirely - replacing a value with a missing value (<code>NA</code>) or dropping it altogether. This is also known as nulling. It is the most straightforward way to handle data that is too risky to release, but it also loses the most information.</p>
+<p>Suppression means <strong>removing information entirely</strong> - replacing a value with a missing value (<code>NA</code>) or dropping it altogether. This is also known as nulling. It is the most straightforward way to handle data that is too risky to release, but it also loses the most information.</p>
 <p>Suppression can occur on different levels:</p>
 <ul>
 <li><p><strong>Cell suppression</strong>: Remove a single risky value while keeping the rest of the record. For example, if one participant has a unique job title that makes them identifiable, you can set only that cell to <code>NA</code>.</p></li>
@@ -1162,10 +1161,6 @@ Expected number of re-identifications:
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_nonpert, <span class="st">"../sdc_nonpert.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><em>Move to other section?</em></p>
-<section id="resources-links-examples" class="level4">
-<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
-</section>
 </section>
 <section id="references" class="level1">
 

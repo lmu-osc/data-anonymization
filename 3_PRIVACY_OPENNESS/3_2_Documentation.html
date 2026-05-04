@@ -320,7 +320,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-document" id="toc-why-document" class="nav-link active" data-scroll-target="#why-document">Why Document?</a></li>
+  <li><a href="#goals-of-documentation-of-anonymization" id="toc-goals-of-documentation-of-anonymization" class="nav-link active" data-scroll-target="#goals-of-documentation-of-anonymization">Goals of Documentation of Anonymization</a></li>
   <li><a href="#internal-documentation" id="toc-internal-documentation" class="nav-link" data-scroll-target="#internal-documentation">Internal Documentation</a></li>
   <li><a href="#external-documentation-in-data-dictionary" id="toc-external-documentation-in-data-dictionary" class="nav-link" data-scroll-target="#external-documentation-in-data-dictionary">External Documentation in Data Dictionary</a></li>
   <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
@@ -367,8 +367,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<section id="why-document" class="level1">
-<h1>Why Document?</h1>
+<section id="goals-of-documentation-of-anonymization" class="level1">
+<h1>Goals of Documentation of Anonymization</h1>
 <p>Thorough documentation of your anonymization process serves two purposes:</p>
 <ol type="1">
 <li>It provides an <strong>internal record for auditing</strong> - if questions arise later about how the data was handled, you can retrace every step.</li>
@@ -377,11 +377,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="internal-documentation" class="level1">
 <h1>Internal Documentation</h1>
-<p>Your internal documentation should describe the full anonymization workflow: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a lab notebook for your data processing. This document should be stored securely alongside the original data - it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding).</p>
+<p>Your internal documentation should describe the <strong>full anonymization workflow</strong>: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a <strong>lab notebook</strong> for your data processing. This document should be stored securely alongside the original data - it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). In our case, this is the full, well-commented <strong>R script</strong>.</p>
 </section>
 <section id="external-documentation-in-data-dictionary" class="level1">
 <h1>External Documentation in Data Dictionary</h1>
-<p>The external documentation is what you share alongside the anonymized dataset. It should include a data dictionary (codebook) describing every variable in the released dataset, including any changes from the original. For example, if <code>age</code> was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.</p>
+<p>The external documentation is what you <strong>share alongside the anonymized dataset</strong>. It should include a <strong>data dictionary</strong> describing every variable in the released dataset, including any changes from the original. For example, if <code>age</code> was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.</p>
 <p>If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values - for example, a line like <code>filter(country == "Liechtenstein")</code> tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible.</p>
 </section>
 <section id="exercise" class="level1">
@@ -495,11 +495,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<section id="resources-links-examples" class="level4">
-<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

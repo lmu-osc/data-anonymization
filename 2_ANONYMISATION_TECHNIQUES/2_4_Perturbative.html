@@ -430,14 +430,14 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>The core idea behind perturbative techniques is to introduce controlled changes to data values. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but alter the values themselves. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.</p>
+<p>The core idea behind perturbative techniques is to introduce <strong>controlled changes to data values</strong>. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but <strong>alter the values themselves</strong>. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.</p>
 <p>In general, perturbation does not increase k-anonymity. Rather, it adds another layer of protection, especially to continuous variables.</p>
 <p>In this chapter, I will present a few perturbative techniques introduced in <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span>.</p>
 <section id="examples-of-perturbative-techniques" class="level1">
 <h1>Examples of Perturbative Techniques</h1>
 <section id="swapping" class="level2">
 <h2 class="anchored" data-anchor-id="swapping">Swapping</h2>
-<p>Swapping exchanges values of a variable between participants. Instead of altering the values themselves, it breaks the link between a record and the individual it belongs to.</p>
+<p>Swapping <strong>exchanges values of a variable between participants</strong>. Instead of altering the values themselves, it breaks the link between a record and the individual it belongs to.</p>
 <p>There are two main variants. <strong>Record swapping</strong> (also known as data swapping) applies to categorical variables: values like gender or country of residence are swapped between records. A useful property here is t-order equivalence - for example, 1-order equivalence means the marginal frequencies are preserved (same number of males and females as before), and 2-order equivalence means joint frequencies are also preserved (same number of males and females from each country).</p>
 <p><em>Add illustration here</em></p>
 <p><strong>Rank swapping</strong> applies to continuous variables: values are only swapped with other values that are close in rank, which limits how much the distribution is distorted.</p>
@@ -445,11 +445,11 @@ div.csl-indent {
 </section>
 <section id="re-sampling" class="level2">
 <h2 class="anchored" data-anchor-id="re-sampling">Re-sampling</h2>
-<p>Re-sampling replaces original values with averages computed from bootstrap samples. You draw multiple independent bootstrap samples from the original data, compute the statistic of interest (e.g., the mean) for each sample, and then replace the original value of each record with the bootstrapped estimate for that record. The result preserves the overall distribution but individual values no longer correspond to real observations.</p>
+<p>Re-sampling <strong>replaces original values with averages</strong> computed from bootstrap samples. You draw multiple independent bootstrap samples from the original data, compute the statistic of interest (e.g., the mean) for each sample, and then replace the original value of each record with the bootstrapped estimate for that record. The result preserves the overall distribution but individual values no longer correspond to real observations.</p>
 </section>
 <section id="noise" class="level2">
 <h2 class="anchored" data-anchor-id="noise">Noise</h2>
-<p>Noise addition (also known as randomization) adds a random value to each original value. The most common form is <strong>additive noise</strong>: a random draw from a distribution (typically normal with mean 0) is added to the original value. <strong>Multiplicative noise</strong> works similarly but multiplies the original value by a random factor, which scales the perturbation to the magnitude of the variable.</p>
+<p>Noise addition (also known as randomization) <strong>adds a random value</strong> to each original value. The most common form is <strong>additive noise</strong>: a random draw from a distribution (typically normal with mean 0) is added to the original value. <strong>Multiplicative noise</strong> works similarly but multiplies the original value by a random factor, which scales the perturbation to the magnitude of the variable.</p>
 <p>The noise can be uncorrelated - each value gets an independent random draw - or correlated with the original values, which better preserves the correlation structure between variables. Transformations of the variable (e.g., log-transforming income before adding noise) are also possible and can improve the result for skewed distributions.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
@@ -463,7 +463,7 @@ div.csl-indent {
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>Differential privacy is a formal privacy guarantee that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset - so the presence or absence of one person cannot be inferred from the result.</p>
+<p>Differential privacy is a <strong>formal privacy guarantee</strong> that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset - so the presence or absence of one person cannot be inferred from the result.</p>
 <p>In practice, this means adding carefully calibrated noise to query results or to the data itself, such that any individual’s contribution is hidden within the noise.</p>
 <p>For example, in a dataset with medical data and tests on HIV, even if the attacker already suspects a person X is the only possible HIV case in the dataset, the data does then not confirm or deny that suspicion.</p>
 <p>For R users, the <code>diffpriv</code> package implements differential privacy mechanisms and is a good starting point for exploring this approach <span class="citation" data-cites="rubinstein2017">(<a href="#ref-rubinstein2017" role="doc-biblioref">Rubinstein and Alda 2017</a>)</span>.</p>
@@ -473,16 +473,16 @@ div.csl-indent {
 </section>
 <section id="microaggregation" class="level2">
 <h2 class="anchored" data-anchor-id="microaggregation">Microaggregation</h2>
-<p>Microaggregation groups records by similarity on the variable of interest and replaces each value with a group aggregate - usually the mean or median. Records within the same group end up sharing the same value, which makes it impossible to single out an individual based on that variable alone.</p>
+<p>Microaggregation <strong>groups records by similarity on the variable of interest and replaces each value with a group aggregate</strong> - usually the mean or median. Records within the same group end up sharing the same value, which makes it impossible to single out an individual based on that variable alone.</p>
 <p>The quality of the result depends on how homogeneous the groups are: the more similar the original values within a group, the less information is lost when replacing them with the group mean. This is why the grouping algorithm matters - <code>mdav</code> (Maximum Distance to Average Vector), the default in <code>sdcMicro</code>, tries to form compact groups to minimize distortion.</p>
 </section>
 <section id="rounding" class="level2">
 <h2 class="anchored" data-anchor-id="rounding">Rounding</h2>
-<p>Rounding replaces exact values with rounded versions. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or looses quite a lot of data in case of larger ranges that are rounded to the same value.</p>
+<p><strong>Rounding replaces exact values with rounded versions</strong>. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or looses quite a lot of data in case of larger ranges that are rounded to the same value.</p>
 </section>
 <section id="pram" class="level2">
 <h2 class="anchored" data-anchor-id="pram">PRAM</h2>
-<p>PRAM (Post RAndomisation Method) applies to categorical variables. Each value is randomly recoded to a different category with a certain probability defined in a transition matrix. For example, a participant recorded as “male” might be recoded to “female” with probability 0.05 and kept as “male” with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.</p>
+<p>PRAM (Post RAndomisation Method) applies to categorical variables. Each value is <strong>randomly recoded to a different category with a certain probability</strong> defined in a transition matrix. For example, a participant recorded as “male” might be recoded to “female” with probability 0.05 and kept as “male” with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.</p>
 <p>This technique can be applied to the <code>keyVars</code> we defined in the <code>sdcObject</code> earlier, but does not improve k-anonymity indicators since it doesn’t reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that <code>sdcMicro</code> indicators can not measure.</p>
 </section>
 </section>
@@ -630,613 +630,7 @@ Expected number of re-identifications:
   in modified data: 30.27 (15.13 %)
   in original data: 199.00 (99.50 %)</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_micro <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdc_micro) <span class="co"># Extract the manipulated data</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>data_micro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     id plz     gender age   income years_in_job          religion
-1     1   2     female   1 10707.89            3       Catholicism
-2     2   2     female   2 35064.59            4              None
-3     3   2       male   5 89185.85            0              None
-4     4   2     female   5 59613.90            5              None
-5     5   1       male   1 52714.76            1             Islam
-6     6   2       male   5 60707.43            6     Protestantism
-7     7   2       male   2 60707.43           11              None
-8     8   1     female   2 58610.46            2          Buddhism
-9     9   1       male   2 55505.07            1       Catholicism
-10   10   2       male   1 76804.50            4       Catholicism
-11   11  NA non-binary   3 29145.06            6       Catholicism
-12   12   1     female   2 43586.89            9              None
-13   13   2       male   2 69890.37            3              None
-14   14   2     female   3 43586.89            2             Islam
-15   15   2     female   5 49702.48            5             Islam
-16   16   2     female   2 54045.76            9       Catholicism
-17   17   1       male   4 47238.22            8       Catholicism
-18   18   1     female   5 53452.20            8           Judaism
-19   19   2       male   2 86726.69            4             Islam
-20   20   1     female   4 34118.16            2              None
-21   21   2     female   4 60707.43            3              None
-22   22   2     female   1  3576.18           11              None
-23   23   2     female   3 19745.68            0     Protestantism
-24   24   2     female   3 53452.20            0       Catholicism
-25   25   2       male   4 67952.01            8     Protestantism
-26   26   1     female   3 31587.10            2       Catholicism
-27   27   2       male   3 44275.24            0       Catholicism
-28   28   2     female   2 57074.96            2              None
-29   29   2     female   1 49702.48            2             Islam
-30   30   1     female   1 65391.75            4              None
-31   31   1     female   3 43586.89            2       Catholicism
-32   32   2     female   1 35064.59           11     Protestantism
-33   33   2       male   1 45602.07            6              None
-34   34   1     female   1 76804.50            2             Islam
-35   35   1     female   1 19745.68            1              None
-36   36   2     female   1 35064.59            1     Protestantism
-37   37   1     female   1 31587.10            3     Protestantism
-38   38   2     female   1 58610.46            1              None
-39   39   1       &lt;NA&gt;   2 24924.66           10              None
-40   40   2       male   4 54045.76           12              None
-41   41   1       male   2 48453.78            6              None
-42   42   1     female   4 51596.26            1              None
-43   43   1       male   1 76804.50            5              None
-44   44   1       male   3 44275.24            0              None
-45   45   1       male   1 36472.54            5       Catholicism
-46   46   2     female   5 89185.85            8       Catholicism
-47   47   1       male   4 82801.81            6              None
-48   48   1       male   5 89185.85           15     Protestantism
-49   49   1       &lt;NA&gt;   1 43586.89            3     Protestantism
-50   50   1       male   1 55505.07            8       Catholicism
-51   51   1     female   1 57074.96            2     Protestantism
-52   52   2     female   3 65391.75           15       Catholicism
-53   53   2       male   2 73031.34            5     Protestantism
-54   54   1     female   4 76804.50            5             Islam
-55   55   2 non-binary   3 89185.85            4              None
-56   56   1     female   4 49702.48            6              None
-57   57   1       male   1 49702.48            1     Protestantism
-58   58   1     female   3 45602.07           11       Catholicism
-59   59   1       male   1 73031.34            3       Catholicism
-60   60   2     female   4 16351.44            0              None
-61   61   2       male   2 58610.46            7              None
-62   62   1       male   1 35064.59            1     Protestantism
-63   63   1       male   5 89185.85            9     Protestantism
-64   64   1     female   3  3576.18            4             Islam
-65   65   1       &lt;NA&gt;   1 54045.76            5     Protestantism
-66   66   2       male   2 53452.20            0              None
-67   67   2     female   5 35064.59            0       Catholicism
-68   68   1       male   3 86726.69            7     Protestantism
-69   69   1     female   2 76804.50           15              None
-70   70   1       male   1 16351.44            1       Catholicism
-71   71   1     female   4 31587.10            4     Protestantism
-72   72   1     female   4 59613.90            0       Catholicism
-73   73   1       male   1 44275.24            1              None
-74   74   1       male   4 66291.56           10           Judaism
-75   75   1     female   2 52714.76           13     Protestantism
-76   76   1     female   2 29145.06            1     Protestantism
-77   77   2       male   3 55505.07            5     Protestantism
-78   78   1       male   1 69890.37           11              None
-79   79   1     female   4 45602.07            2     Protestantism
-80   80   1     female   5 86726.69            4              None
-81   81   2     female   3 59613.90            3     Protestantism
-82   82   1     female   1 50685.11            0     Protestantism
-83   83   2       male   5 19745.68            3             Islam
-84   84   2     female   2 60707.43            5     Protestantism
-85   85   1       male   3 73031.34           15              None
-86   86   2       male   4 57074.96            2       Catholicism
-87   87   2     female   2 48453.78            4       Catholicism
-88   88   2     female   3 50685.11           15       Catholicism
-89   89   1       &lt;NA&gt;   2 89185.85            8              None
-90   90   2     female   3 52714.76            5       Catholicism
-91   91   1     female   1 65391.75            5     Protestantism
-92   92   2     female   3 89185.85            5       Catholicism
-93   93   2     female   4 60707.43           10       Catholicism
-94   94   2       male   1 37503.71            1              None
-95   95   2     female   5  3576.18            1              None
-96   96   1     female   3 36472.54            2       Catholicism
-97   97   1       male   5 34118.16            3              None
-98   98   2     female   3 89185.85           10     Protestantism
-99   99   2       male   3 37503.71           15              None
-100 100   2       male   3 69890.37            3       Catholicism
-101 101   1       male   1 45602.07            2          Buddhism
-102 102   2       male   2 65391.75            5       Catholicism
-103 103   1       male   3 29145.06           13     Protestantism
-104 104   1       male   3 57074.96            1     Protestantism
-105 105   1       male   1 19745.68           12       Catholicism
-106 106   2     female   1 61896.61            1              None
-107 107   2     female   1 16351.44            1              None
-108 108   1       male   5 10707.89            5              None
-109 109   2     female   3 24924.66            5       Catholicism
-110 110   2     female   4 67952.01            3       Catholicism
-111 111   1       male   2 66291.56            3     Protestantism
-112 112   1     female   2 24924.66            2              None
-113 113   2       male   3 45602.07            4              None
-114 114   2       male   5 50685.11            5       Catholicism
-115 115   1     female   5 31587.10           13              None
-116 116   2     female   3 49702.48            3     Protestantism
-117 117   1       male   1 37503.71            6              None
-118 118   2     female   1 55505.07            1       Catholicism
-119 119   2       male   3 53452.20            0              None
-120 120   1     female   5 57074.96            2       Catholicism
-121 121   2       male   2 67952.01            3     Protestantism
-122 122   2       male   1 37503.71            1              None
-123 123   1     female   3 73031.34            0              None
-124 124   1       male   3 55505.07            0              None
-125 125   2     female   5 37503.71           12              None
-126 126   2       male   2 36472.54            2              None
-127 127   2       male   2 86726.69           10       Catholicism
-128 128   2     female   1 82801.81            1              None
-129 129   1     female   4 31587.10            1              None
-130 130   1       male   3 61896.61            3     Protestantism
-131 131   1     female   4 69890.37            1     Protestantism
-132 132   1       male   2 48453.78            6     Protestantism
-133 133   1       male   2 66291.56            0     Protestantism
-134 134   2       male   5 66291.56           11              None
-135 135   1     female   4 16351.44            1              None
-136 136   2 non-binary   3 59613.90            1     Protestantism
-137 137   1       male   3 51596.26           15              None
-138 138   1     female   1 34118.16            4     Protestantism
-139 139   1       male   3 34118.16           10       Catholicism
-140 140   1     female   2 24924.66           14              None
-141 141   1       male   3 64137.03            1       Catholicism
-142 142   2     female   3 82801.81            2     Protestantism
-143 143   1     female   3 64137.03           13     Protestantism
-144 144   1     female   1 47238.22            9              None
-145 145   2     female   3 36472.54            3       Catholicism
-146 146   2       male   2 39836.50           15     Protestantism
-147 147   1       male   2 64137.03            0              None
-148 148   1       male   4  3576.18            9              None
-149 149   2     female   2 10707.89            4             Islam
-150 150   2       male   3 50685.11            7     Protestantism
-151 151   1     female   3 61896.61            3       Catholicism
-152 152   1       male   1 44275.24            4              None
-153 153   2     female   3 54045.76           10              None
-154 154   2     female   4 19745.68           10              None
-155 155   1     female   3 10707.89            2       Catholicism
-156 156   2       male   1 86726.69            7       Catholicism
-157 157  NA       &lt;NA&gt;   5 82801.81            3       Catholicism
-158 158   2       male   4 44275.24            1              None
-159 159   1     female   2 66291.56           15       Catholicism
-160 160   2       male   4 47238.22           11     Protestantism
-161 161   1     female   4 39836.50            9     Protestantism
-162 162   2     female   3 47238.22            1       Catholicism
-163 163   1     female   3 64137.03            0     Protestantism
-164 164   1     female   4 64137.03           10       Catholicism
-165 165   2       male   1 61896.61            1             Islam
-166 166   1     female   2 36472.54            6              None
-167 167   2     female   3 24924.66            0             Islam
-168 168   1       male   1 65391.75            2       Catholicism
-169 169   2     female   1 50685.11            1              None
-170 170   2     female   3 34118.16            6              None
-171 171   1     female   5 51596.26           11              None
-172 172   1       male   2 39836.50           13              None
-173 173   2 non-binary   3 82801.81            2       Catholicism
-174 174   2     female   3 89185.85           10              None
-175 175   1       male   3 47238.22           13     Protestantism
-176 176   1     female   1 39836.50            5       Catholicism
-177 177   1       male   2 51596.26            9       Catholicism
-178 178   1     female   3  3576.18            2             Islam
-179 179   1       male   4 67952.01            7              None
-180 180   1       male   3 52714.76            6     Protestantism
-181 181   2     female   5 53452.20            3              None
-182 182   1       male   3 61896.61           10       Catholicism
-183 183   1     female   1 69890.37            1     Protestantism
-184 184   2       male   2 48453.78            9              None
-185 185   1       male   4 67952.01            6       Catholicism
-186 186   1     female   1 54045.76            6              None
-187 187   1       &lt;NA&gt;   5 29145.06            2     Protestantism
-188 188   1     female   1 58610.46            0     Protestantism
-189 189   1       male   2 43586.89            5          Buddhism
-190 190   1     female   3 59613.90           15       Catholicism
-191 191   2     female   3 16351.44            4              None
-192 192   1       male   2 48453.78            3       Catholicism
-193 193   2     female   2 10707.89            5     Protestantism
-194 194   2       male   3 51596.26            6 Eastern Orthodoxy
-195 195   1       male   2 73031.34           10       Catholicism
-196 196   1       male   4 52714.76            5              None
-197 197   2     female   2 39836.50           11              None
-198 198   1     female   3 89185.85            0     Protestantism
-199 199   1     female   2 58610.46            4       Catholicism
-200 200   2     female   3 29145.06            3       Catholicism
-         education pol_immigration pol_environment pol_redistribution
-1     trade school               5               4                  5
-2      high school               3               5                  3
-3      high school               2               1                  2
-4      high school               2               3                  5
-5      high school               2               4                  3
-6      high school               2               5                  5
-7      high school               2               3                  3
-8       university               5               5                  4
-9     trade school               1               3                  1
-10     high school               1               3                  3
-11      university               4               4                  2
-12     high school               5               4                  2
-13     high school               3               2                  3
-14     high school               3               2                  5
-15     high school               5               1                  2
-16     high school               4               5                  5
-17    trade school               2               3                  4
-18     high school               1               2                  1
-19     high school               1               2                  4
-20            &lt;NA&gt;               3               2                  3
-21     high school               5               3                  5
-22     high school               4               2                  4
-23            &lt;NA&gt;               1               2                  1
-24     high school               5               5                  4
-25            &lt;NA&gt;               5               5                  3
-26      university               2               2                  2
-27     high school               4               2                  2
-28     high school               5               1                  1
-29      university               2               2                  3
-30     high school               3               3                  5
-31      university               3               2                  4
-32    trade school               1               1                  5
-33            &lt;NA&gt;               5               3                  5
-34    trade school               3               2                  3
-35     high school               4               1                  1
-36     high school               3               3                  3
-37            &lt;NA&gt;               1               4                  4
-38     high school               2               1                  5
-39            &lt;NA&gt;               1               2                  1
-40     high school               4               1                  5
-41    trade school               4               2                  1
-42     high school               3               3                  3
-43     high school               5               2                  4
-44     high school               2               3                  4
-45  doctoral title               2               2                  3
-46     high school               4               5                  4
-47            &lt;NA&gt;               2               1                  3
-48     high school               3               4                  4
-49    trade school               5               4                  2
-50    trade school               4               5                  5
-51     high school               5               3                  1
-52     high school               4               1                  4
-53     high school               3               3                  2
-54     high school               3               5                  2
-55            &lt;NA&gt;               5               2                  5
-56            &lt;NA&gt;               5               3                  5
-57     high school               3               1                  1
-58     high school               1               5                  4
-59     high school               1               4                  1
-60     high school               5               2                  5
-61     high school               4               2                  3
-62            &lt;NA&gt;               1               5                  4
-63            &lt;NA&gt;               4               2                  3
-64     high school               5               5                  5
-65    trade school               5               1                  3
-66     high school               2               2                  1
-67     high school               1               3                  3
-68     high school               2               3                  3
-69     high school               3               5                  5
-70     high school               4               4                  2
-71     high school               1               3                  5
-72     high school               2               5                  1
-73    trade school               1               3                  1
-74     high school               2               5                  5
-75     high school               5               4                  5
-76      university               5               1                  5
-77            &lt;NA&gt;               5               3                  5
-78     high school               2               1                  1
-79     high school               5               3                  2
-80     high school               3               3                  4
-81      university               3               4                  1
-82      university               5               3                  3
-83            &lt;NA&gt;               2               3                  5
-84     high school               3               3                  5
-85     high school               4               5                  1
-86     high school               1               3                  5
-87            &lt;NA&gt;               2               3                  3
-88      university               2               1                  2
-89    trade school               4               1                  2
-90     high school               1               3                  3
-91     high school               4               4                  4
-92            &lt;NA&gt;               3               3                  2
-93            &lt;NA&gt;               4               1                  4
-94     high school               3               3                  3
-95            &lt;NA&gt;               1               5                  2
-96     high school               2               3                  1
-97     high school               4               5                  5
-98      university               4               5                  5
-99            &lt;NA&gt;               3               2                  2
-100   trade school               2               5                  2
-101 doctoral title               5               4                  2
-102    high school               2               5                  4
-103           &lt;NA&gt;               2               3                  2
-104   trade school               5               4                  3
-105    high school               2               3                  4
-106    high school               1               4                  3
-107   trade school               3               5                  4
-108           &lt;NA&gt;               5               2                  2
-109     university               3               4                  2
-110    high school               2               1                  2
-111    high school               2               5                  2
-112     university               1               3                  2
-113    high school               4               5                  4
-114    high school               3               3                  1
-115     university               3               5                  5
-116    high school               2               3                  3
-117    high school               4               4                  4
-118    high school               1               4                  4
-119   trade school               1               4                  3
-120     university               1               5                  1
-121    high school               2               1                  5
-122    high school               2               5                  2
-123    high school               1               1                  5
-124 doctoral title               1               1                  4
-125    high school               3               5                  4
-126           &lt;NA&gt;               5               3                  1
-127    high school               4               3                  3
-128     university               2               4                  5
-129    high school               1               2                  2
-130 doctoral title               2               5                  4
-131           &lt;NA&gt;               4               3                  1
-132   trade school               3               5                  5
-133           &lt;NA&gt;               2               3                  3
-134           &lt;NA&gt;               2               5                  3
-135    high school               3               4                  2
-136           &lt;NA&gt;               5               1                  2
-137    high school               3               2                  4
-138   trade school               1               4                  5
-139 doctoral title               5               5                  1
-140           &lt;NA&gt;               4               5                  2
-141    high school               3               1                  1
-142    high school               5               2                  1
-143     university               4               1                  5
-144    high school               5               4                  4
-145           &lt;NA&gt;               4               1                  2
-146    high school               4               4                  4
-147   trade school               2               4                  3
-148   trade school               1               1                  2
-149           &lt;NA&gt;               3               2                  4
-150   trade school               4               4                  3
-151    high school               1               3                  4
-152    high school               1               2                  4
-153     university               2               4                  2
-154           &lt;NA&gt;               3               5                  5
-155    high school               4               4                  1
-156    high school               1               3                  1
-157     university               4               2                  2
-158           &lt;NA&gt;               5               2                  3
-159    high school               1               2                  4
-160    high school               1               2                  3
-161           &lt;NA&gt;               1               5                  3
-162     university               5               1                  1
-163    high school               3               5                  1
-164    high school               2               3                  2
-165    high school               4               4                  3
-166     university               2               5                  3
-167           &lt;NA&gt;               1               2                  1
-168    high school               2               1                  2
-169     university               1               3                  5
-170    high school               1               1                  4
-171    high school               2               4                  4
-172    high school               1               2                  5
-173           &lt;NA&gt;               2               1                  1
-174    high school               2               5                  4
-175    high school               5               2                  1
-176    high school               2               1                  4
-177    high school               5               4                  3
-178     university               1               4                  2
-179    high school               3               4                  2
-180   trade school               5               2                  1
-181           &lt;NA&gt;               3               4                  2
-182    high school               1               3                  5
-183    high school               1               3                  4
-184           &lt;NA&gt;               3               3                  1
-185           &lt;NA&gt;               1               3                  3
-186     university               5               4                  3
-187     university               1               3                  4
-188     university               1               5                  1
-189           &lt;NA&gt;               2               1                  4
-190     university               5               3                  4
-191    high school               4               1                  1
-192   trade school               3               5                  4
-193           &lt;NA&gt;               1               1                  5
-194    high school               4               2                  3
-195    high school               4               1                  1
-196    high school               5               5                  4
-197           &lt;NA&gt;               5               3                  3
-198           &lt;NA&gt;               2               5                  1
-199     university               4               3                  3
-200    high school               5               5                  5
-    pol_eu_integration
-1                    2
-2                    4
-3                    5
-4                    1
-5                    3
-6                    4
-7                    2
-8                    5
-9                    3
-10                   5
-11                   2
-12                   3
-13                   2
-14                   3
-15                   3
-16                   5
-17                   3
-18                   1
-19                   4
-20                   1
-21                   1
-22                   4
-23                   3
-24                   1
-25                   4
-26                   3
-27                   4
-28                   1
-29                   2
-30                   3
-31                   1
-32                   2
-33                   1
-34                   4
-35                   5
-36                   4
-37                   5
-38                   5
-39                   3
-40                   5
-41                   3
-42                   4
-43                   2
-44                   5
-45                   5
-46                   3
-47                   1
-48                   2
-49                   3
-50                   2
-51                   1
-52                   1
-53                   3
-54                   5
-55                   2
-56                   2
-57                   4
-58                   4
-59                   4
-60                   3
-61                   1
-62                   4
-63                   2
-64                   2
-65                   5
-66                   5
-67                   5
-68                   3
-69                   5
-70                   4
-71                   4
-72                   3
-73                   5
-74                   3
-75                   2
-76                   2
-77                   2
-78                   4
-79                   3
-80                   5
-81                   2
-82                   5
-83                   4
-84                   1
-85                   3
-86                   4
-87                   1
-88                   3
-89                   1
-90                   5
-91                   3
-92                   5
-93                   3
-94                   2
-95                   2
-96                   5
-97                   2
-98                   4
-99                   2
-100                  2
-101                  5
-102                  2
-103                  3
-104                  1
-105                  1
-106                  1
-107                  3
-108                  1
-109                  1
-110                  5
-111                  1
-112                  4
-113                  4
-114                  5
-115                  4
-116                  4
-117                  1
-118                  4
-119                  5
-120                  1
-121                  2
-122                  2
-123                  5
-124                  2
-125                  3
-126                  5
-127                  3
-128                  4
-129                  3
-130                  3
-131                  1
-132                  1
-133                  2
-134                  4
-135                  1
-136                  5
-137                  1
-138                  4
-139                  1
-140                  3
-141                  5
-142                  3
-143                  1
-144                  5
-145                  1
-146                  1
-147                  2
-148                  2
-149                  4
-150                  2
-151                  3
-152                  2
-153                  5
-154                  2
-155                  4
-156                  3
-157                  3
-158                  4
-159                  2
-160                  3
-161                  1
-162                  1
-163                  5
-164                  1
-165                  1
-166                  5
-167                  2
-168                  3
-169                  5
-170                  3
-171                  5
-172                  1
-173                  5
-174                  5
-175                  3
-176                  2
-177                  2
-178                  5
-179                  5
-180                  2
-181                  1
-182                  5
-183                  4
-184                  2
-185                  2
-186                  5
-187                  1
-188                  4
-189                  5
-190                  4
-191                  3
-192                  4
-193                  1
-194                  3
-195                  2
-196                  5
-197                  4
-198                  5
-199                  5
-200                  5</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_micro <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdc_micro) <span class="co"># Extract the manipulated data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>mdav</code> groups records by their distance to the group centroid, then replaces each value with the group mean. With <code>aggr = 5</code>, at least 5 records share the same income value, so singling out an individual is harder.</p>
 <p>As we can see in the output of the <code>sdcObject</code>, the disclosure risk is reduced to up to 77.5% compared to the beginning.</p>
@@ -1244,13 +638,13 @@ Expected number of re-identifications:
 <section id="additive-noise" class="level3">
 <h3 class="anchored" data-anchor-id="additive-noise">Additive noise</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sdc_noise <span class="ot">&lt;-</span> <span class="fu">addNoise</span>(</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_nonpert,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">variables =</span> <span class="st">"income"</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">noise  =</span> <span class="fl">3.5</span>          <span class="co"># noise level as fraction of SD</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_noise, <span class="at">type =</span> <span class="st">"risk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sdc_noise <span class="ot">&lt;-</span> <span class="fu">addNoise</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_nonpert,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">variables =</span> <span class="st">"income"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">noise  =</span> <span class="fl">3.5</span>          <span class="co"># noise level as fraction of SD</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_noise, <span class="at">type =</span> <span class="st">"risk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Risk measures:
 
@@ -1261,7 +655,7 @@ Expected number of re-identifications:
   in modified data: 30.27 (15.13 %)
   in original data: 199.00 (99.50 %)</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sdc_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sdc_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -1306,11 +700,11 @@ Number of observations violating
 <pre><code>Numerical key variables: income, years_in_job
 
 Disclosure risk (~100.00% in original data):
-  modified data: [0.00%; 81.00%]
+  modified data: [0.00%; 74.50%]
 
 Current Information Loss in modified data (0.00% in original data):
-  IL1: 798.42
-  Difference of Eigenvalues: 5.780%
+  IL1: 885.34
+  Difference of Eigenvalues: 6.190%
 ----------------------------------------------------------------------</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -1331,19 +725,13 @@ Current Information Loss in modified data (0.00% in original data):
 <p><code>addNoise</code> draws from a normal distribution with mean 0 and standard deviation = <code>noise × sd(income)</code> and adds it to each value. Every record gets a unique (slightly wrong) income. When <code>noise = 3.5</code>, we achieve a disclosure risk of up to 75.5%.</p>
 <p>Let’s save these objects for now. We will later come back to inspect the utility of both methods in <a href="../3_PRIVACY_OPENNESS/3_1_Balancing">the chapter on balancing utility and privacy</a>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_micro, <span class="st">"../sdc_micro.rds"</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_noise, <span class="st">"../sdc_noise.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_micro, <span class="st">"../sdc_micro.rds"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_noise, <span class="st">"../sdc_noise.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </div>
 </div>
 </div>
-<section id="resources-links-examples" class="level4">
-<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
-<ul>
-<li>adding noise with the <code>sdcMicro</code> R package</li>
-</ul>
-</section>
 </section>
 <section id="references" class="level1">
 
