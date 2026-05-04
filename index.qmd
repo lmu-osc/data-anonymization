@@ -39,5 +39,5 @@ Here are a few helpful links for other data types:
 
 # Prerequisites
 
--   You need basic R skills (e.g., loading data and packages). Experience with data wrangling with tidyverse is beneficial.
--   Necessary software: R and RStudio
+-   You need basic R skills (e.g., loading data and packages). Experience with data wrangling with `tidyverse` is beneficial.
+-   Necessary software: `R` and `RStudio`
