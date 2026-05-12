@@ -126,9 +126,9 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-
 <!-- Matomo -->
 <script>
+if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(['trackPageView']);
@@ -140,6 +140,7 @@ div.csl-indent {
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
+  }
 </script>
 <!-- End Matomo Code -->
   
@@ -700,11 +701,11 @@ Number of observations violating
 <pre><code>Numerical key variables: income, years_in_job
 
 Disclosure risk (~100.00% in original data):
-  modified data: [0.00%; 81.00%]
+  modified data: [0.00%; 84.50%]
 
 Current Information Loss in modified data (0.00% in original data):
-  IL1: 824.13
-  Difference of Eigenvalues: 5.720%
+  IL1: 766.29
+  Difference of Eigenvalues: 5.930%
 ----------------------------------------------------------------------</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
