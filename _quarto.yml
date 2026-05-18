@@ -36,7 +36,7 @@ website:
           - text: Report a Bug
             url:  https://github.com/lmu-osc/REPO-NAME-HERE/issues
       - icon: house-heart
-        url: https://www.osc.uni-muenchen.de/index.html
+        url: https://www.osc.lmu.de/
    
         
   sidebar:
