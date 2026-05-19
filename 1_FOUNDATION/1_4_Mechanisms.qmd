@@ -6,13 +6,14 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   After completing this part of the tutorial, you will know how data protection is integrated into the research process.
--   After completing this part of the tutorial, you will know the difference between anonymization and pseudonymization.
+After completing this part of the tutorial, you will know 
+-   how data protection is integrated into the research process;
+-   the difference between anonymization and pseudonymization.
 :::
 
 How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point - it is relevant at every stage. The graph below maps common data protection mechanisms to the stages of the research lifecycle:
 
-![Research Process and Mechanisms](../pictures/Mechanisms-cropped.svg)
+![Research Process and Mechanisms](../pictures/Mechanisms-cropped.svg){fig-alt="FIXME"}<!-- add alt-text describing the figure? + add TOMs in legend as we haven't encountered that term yet)-->
 
 As you can see, some mechanisms (like anonymization) are relevant across many stages, while others (like informed consent) are specific to a particular point. Let's walk through each stage.
 
@@ -23,20 +24,20 @@ As you can see, some mechanisms (like anonymization) are relevant across many st
 A **data management plan (DMP)** is a document that describes how you will handle your data during and after your research project. It forces you to think about data protection early. It provides answers to questions such as:
 
 -   What data will you **collect**?
-
 -   How will you **store** the data?
-
 -   **Who** will have **access** to the data?
-
 -   How will you **share** the data?
 
 Many funders now require a DMP, and writing one is a good exercise in data minimization and purpose limitation. Also, invest some time in **enforcing** **the DMP**. Clearly **assign responsibilities** for data and its protection in case of collaboration among multiple researchers. Changes to the DMP at later stages are absolutely okay, but **keep it regularly updated**.
 
-A useful template for DMPs is available at [Zenodo](https://zenodo.org/records/10782781); a tutorial on how to use DMPs is [here](https://lmu-osc.github.io/FAIR-Data-Management/dmp.html).
+#### Resources, Links, Examples
+A useful template for DMPs is available on [Zenodo](https://zenodo.org/records/10782781).<!-- is this really a DMP? it seems like a anonymization plan for qualitative research; specify this?-->
+
+Learn more on how to create and take advantage of DMPs in the [DMP tutorial of the OSC](https://lmu-osc.github.io/FAIR-Data-Management/dmp.html).
 
 ## Institutional Review Board (IRB) Approval
 
-**Ethics committees or IRBs** review your study before data collection begins. Their focus is **primarily ethical** - does the study design respect participants' rights and well-being? They may also consider data protection aspects, but they are typically not technical experts in anonymization or data security. Think of IRB approval as a **necessary but not sufficient step**: it gets you started on the right track, but you still need to handle the technical side of data protection yourself.
+**Ethics committees or IRBs** review your study before data collection begins. Their focus is **primarily ethical**: does the study design respect participants' rights and well-being? They may also consider data protection aspects, but they are typically not technical experts in anonymization or data security. Think of IRB approval as a **necessary but not sufficient step**: it gets you started on the right track, but you still need to handle the technical side of data protection yourself.
 
 ## Privacy by Design
 
@@ -47,7 +48,7 @@ For research, PbD means thinking about privacy before you start collecting data:
 ::: {.callout-note collapse="false"}
 # The Seven Principles of Privacy by Design [@Cavoukian2011_PrivacyDesignLaw]
 
-PbD is primarily targeted at software products and less at research projects. Nevertheless, I think the principles can also guide us when designing a research study in a privacy-conscious way:
+PbD is primarily targeted at software products and less at research projects. Nevertheless, the principles can also guide us when designing a research study in a privacy-conscious way:
 
 1.  **Proactive, not reactive:** Anticipate and prevent privacy risks before they occur. Don't wait for a breach to think about data protection.
 
@@ -80,12 +81,12 @@ Data minimization (or in German, *Datensparsamkeit*) follows a simple principle:
 
 In research, this means resisting the temptation to collect demographics or other variables "just in case" or "because we always do." Every additional variable you collect increases the risk of re-identification when the data is shared.
 
-There is also a flip side to data minimization: whenever possible, **reuse existing data** instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles - making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody's life easier (find a tutorial on FAIR data management [here](https://lmu-osc.github.io/FAIR-Data-Management/)).
+There is also a flip side to data minimization: whenever possible, **reuse existing data** instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles - making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody's life easier (feel free to review the [OSC tutorial on FAIR data management](https://lmu-osc.github.io/FAIR-Data-Management/)).
 
 ::: {.callout-note collapse="false"}
 ## Randomized Response Technique
 
-The randomized response technique is a technique that **transparently adds privacy at the stage of data collection** [@moshagen2012, @warner1965].
+The randomized response technique is a technique that **transparently adds privacy at the stage of data collection** [@moshagen2012; @warner1965].
 
 For the collection of a sensitive attribute (e.g., abusive behavior), participants are instructed to:
 
@@ -108,7 +109,7 @@ This technique requires a larger sample size to estimate prevalence and severely
 
 The GDPR requires controllers to implement "appropriate technical and organizational measures" to protect personal data (Art. 32). In a research context, this includes:
 
--   **Secure storage:** Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU, for example, the [LRZ](https://www.lrz.de) provides cloud storage and sync services that keep data within Germany.
+-   **Secure storage:** Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU Munich, for example, the [LRZ](https://www.lrz.de) provides cloud storage and sync services that keep data within Germany.
 -   **Access control:** Only people who need the data for the research should **have** access. Use role-based permissions where possible.
 -   **Storage limitation:** Don't keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to add a reminder to my calendar for dates when I need to delete data.
 -   **Transfer security:** When sharing data with collaborators, use encrypted channels - not email attachments.
@@ -120,7 +121,7 @@ These measures add layers of protection around your data while it is still in pe
 
 Pseudonymization is the process of replacing direct identifiers (like names) with artificial identifiers (like participant codes). It is an important first step, but it is crucial to understand its limits.
 
-The key point: **pseudonymized data is still personal data.** The GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (Recital 26). As long as a key file exists that links participant codes back to real identities - or as long as indirect identifiers in the data could allow re-identification - the data remains personal, and the GDPR fully applies.
+The key point: **pseudonymized data is still personal data.** The GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (Recital 26)<!--oh is this a paragraph in the gdpr text? make cleaer, hyperlink to gdpr text?-->. As long as a key file exists that links participant codes back to real identities - or as long as indirect identifiers in the data could allow re-identification - the data remains personal, and the GDPR fully applies.
 
 Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. We discussed this in [the chapter on personal data](1_3_Personal_Data), and we will look at it more formally in [the chapter on privacy concepts](1_5_Privacy_Concepts).
 
