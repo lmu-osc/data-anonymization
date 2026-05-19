@@ -69,7 +69,7 @@ The ethical obligation to protect participants' data is deeply rooted in researc
 
 In practice, **institutional review boards** (IRBs) or ethics committees enforce these obligations before a study begins. However, their review typically focuses on the study design and informed consent. They rarely evaluate the technical details of how data will be stored, shared, or anonymized after collection. This gap is where the practical skills covered in this tutorial become relevant.
 
-One more thing worth mentioning: We tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully ([@obar2020, @foe2016])<!--  the first citation doesn't appear inline (but is present in the ref list) in the rendered version? here I added brackets as it was otherwise in the sentence without punctuation, but perhaps we want those as index numbers instead? so the number appear in the reference list / foot notes of the page?-->, and even when they do, they may not fully understand the implications of data sharing. Consent is necessary, but it is not sufficient. More on this in [the chapter on mechanisms of data protection](1_4_Mechanisms).
+One more thing worth mentioning: We tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully [@obar2020; @foe2016], and even when they do, they may not fully understand the implications of data sharing. Consent is necessary, but it is not sufficient. More on this in [the chapter on mechanisms of data protection](1_4_Mechanisms).
 
 # Data Protection in Law
 
