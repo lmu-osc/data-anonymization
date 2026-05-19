@@ -20,11 +20,8 @@ The tutorial is split into the following sections:
 By the end of this tutorial, you will be able to:
 
 -   **Understand key concepts** in the world of privacy (e.g., anonymization, k-anonymity)
-
 -   **Classify data** in relevant categories for data protection (e.g., personal data, sensitive data)
-
 -   **Apply anonymization techniques** using R in a coherent workflow
-
 -   **Make informed decisions when balancing the risks and utility** of the anonymized data
 
 # What You Will **NOT** Learn
@@ -33,9 +30,9 @@ You will not learn anything other than anonymization of quantitative data.
 
 Here are a few helpful links for other data types:
 
--   Anonymizing neuroimaging metadata ([recommendations](https://doi.org/10.1162/IMAG.a.1144))
--   Anonymizing qualitative textual data ([video tutorial for QualiAnon](https://www.youtube.com/watch?v=RYQn4DjdKmo))
--   Anonymizing sensitive qualitative data ([lecture](https://www.youtube.com/watch?v=-Pha3EINF3s&ab_channel=CenterforOpenScience) and [tutorial](https:/doi.org/10.1037/tra0001358))
+-   Anonymizing neuroimaging metadata ([article](https://doi.org/10.1162/IMAG.a.1144))
+-   Anonymizing qualitative textual data with the tool QualiAnon ([video tutorial](https://www.youtube.com/watch?v=RYQn4DjdKmo))
+-   Anonymizing sensitive qualitative data ([lecture recording](https://www.youtube.com/watch?v=-Pha3EINF3s&ab_channel=CenterforOpenScience) and [article](https:/doi.org/10.1037/tra0001358))
 
 # Prerequisites
 
