@@ -39,7 +39,7 @@ The GDPR (Art. 9) describes several categories of **sensitive data** that receiv
 -   health data,
 -   and data concerning a natural person's sex life or sexual orientation.
 
-Otherwise sensitive data include:
+Additional sensitive data include<!--how are they different from the above?-->:
 
 -   information about criminal convictions and offenses
 -   financial data
@@ -110,7 +110,7 @@ Inspect the dataset `data`. Answer the following questions:
 
 **Email addresses** are considered direct identifiers since they often contain names and therefore, clearly specify certain individuals. However, even when not containing names, they can act as indirect identifiers by linking to an account or revealing a person's organization.
 
-**IP addresses** can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the ISP [@breyer2016]. In a research context, they should be treated as direct identifiers.
+**IP addresses** can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the ISP<!--whats ISP?--> [@breyer2016]. In a research context, they should be treated as direct identifiers.
 :::
 
 2\. Which columns contain **indirect identifiers**?
@@ -120,7 +120,7 @@ Inspect the dataset `data`. Answer the following questions:
 
 ### Indirect identifiers: `gender`, `age`, `education`, `income`, `plz`, `years_in_job`
 
-**Gender**, **age**, **education**, **postal code**, **income**, and **years in job** are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be **linked** with each other or external knowledge. When an attacker knows of a person who participated in the study and knows their education level, they could identify the person in the data.
+**Gender**, **age**, **education**, **postal code**, **income**, and **years in job** are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be **linked** with each other or external knowledge. When an attacker knows of a person who participated in the study and, for instance, knows their education level, they could identify the person in the data.
 :::
 
 3\. Which columns contain **special categories of personal data** (= sensitive data)?
@@ -143,7 +143,7 @@ The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_inte
 Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as `name`) is possible, it is considered personal data, and GDPR applies.
 :::
 
-As a first step, you always want to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators.
+As a first step, you always want to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators.<!-- stronger recommendations here? raw data in a safe server, as read only, and preproccessed data (without direct identifiers, done through script)? @Felix?-->
 
 ## Exercise: Remove Direct Identifiers
 
@@ -155,7 +155,9 @@ Now, delete all direct identifiers from the dataset.
 Any solution that deletes the name, email address, and IP address is correct. I use tidyverse syntax:
 
 ```{r}
-#| echo: false
+#| warning: FALSE
+#| message: FALSE
+
 library(tidyverse)
 
 data_withoutdirectidentifiers <- data %>%
@@ -169,7 +171,7 @@ Save the new file
 write.csv(data_withoutdirectidentifiers, "../SimulatedData_noidentifiers.csv", row.names = FALSE)
 ```
 
-Delete the old file.
+Delete the old file.<!--mmhh that info is needed for something otherwise why was it collected? minimally the name is needed to withdraw people's data if request it; and email if you detect a disease and need to inform them @Felix?-->
 :::
 
 #### Resources, Links, Examples
