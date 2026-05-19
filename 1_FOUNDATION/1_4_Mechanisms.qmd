@@ -6,7 +6,8 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
-After completing this part of the tutorial, you will know 
+After completing this part of the tutorial, you will know  
+
 -   how data protection is integrated into the research process;
 -   the difference between anonymization and pseudonymization.
 :::
