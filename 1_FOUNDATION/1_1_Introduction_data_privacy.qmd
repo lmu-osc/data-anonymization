@@ -59,7 +59,7 @@ Take a moment to think about the following scenarios. For each one, consider: Wo
 
 Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with us because they trust that we handle it responsibly. If that trust erodes - let's say, because a dataset gets re-identified or a data breach makes headlines - people become less willing to participate in research. And without participants, there is no empirical research.
 
-As researchers, our obligation to data protection arises from two directions that overlap quite a bit: ethics and law.
+As researchers, our obligation towards data protection arises from two directions that overlap quite a bit: ethics and law.
 
 # Data Protection in Research Ethics
 
@@ -69,17 +69,19 @@ The ethical obligation to protect participants' data is deeply rooted in researc
 
 In practice, **institutional review boards** (IRBs) or ethics committees enforce these obligations before a study begins. However, their review typically focuses on the study design and informed consent. They rarely evaluate the technical details of how data will be stored, shared, or anonymized after collection. This gap is where the practical skills covered in this tutorial become relevant.
 
-One more thing worth mentioning: We tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully [@obar2020, @foe2016], and even when they do, they may not fully understand the implications of data sharing. Consent is necessary, but it is not sufficient. More on this in [the chapter on mechanisms of data protection](1_4_Mechanisms).
+One more thing worth mentioning: We tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully ([@obar2020, @foe2016])<!--  the first citation doesn't appear inline (but is present in the ref list) in the rendered version? here I added brackets as it was otherwise in the sentence without punctuation, but perhaps we want those as index numbers instead? so the number appear in the reference list / foot notes of the page?-->, and even when they do, they may not fully understand the implications of data sharing. Consent is necessary, but it is not sufficient. More on this in [the chapter on mechanisms of data protection](1_4_Mechanisms).
 
 # Data Protection in Law
 
-Beyond ethics, data protection is also a **legal requirement**. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU. We cover the GDPR in more detail in [the next chapter](1_2_GDPR).
+Beyond ethics, data protection is also a **legal requirement**. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU, wherever your participants are located<!-- true??-->. We cover the GDPR in more detail in [the next chapter](1_2_GDPR).
 
 Outside the EU, other frameworks exist. The US has sector-specific laws like [HIPAA](https://www.hhs.gov/hipaa/index.html) (for health data) and [FERPA](https://studentprivacy.ed.gov/) (for educational records), but no single comprehensive federal data protection law. Countries like Brazil ([LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)), Japan ([APPI](https://www.ppc.go.jp/en/legal/)), and South Korea ([PIPA](https://www.pipc.go.kr/eng/user/lgn/login.do)) have their own comprehensive frameworks, many of which share core principles with the GDPR.
 
 For this tutorial, we focus on the GDPR. It is one of the most stringent and widely applicable frameworks. However, the anonymization techniques we cover later are relevant regardless of which specific law applies.
 
 Next to data protection laws, there are other legal reasons for not sharing information. To name the two most important ones: [Intellectual property interests](https://www.dpma.de/english/services/ip_rights_briefly_explained/index.html) of other people, covering mostly technical inventions, and [export controls](https://www.bafa.de/EN/Foreign_Trade/Export_Control/export_control_node.html), covering products and knowledge with military significance. If you fear your research topic may touch any of these laws, contact your institution's knowledge security office or legal department.
+
+<!-- add callout box info with contact details of LMU data protection officer and expert control office and IP officer -->
 
 # Conclusion
 
