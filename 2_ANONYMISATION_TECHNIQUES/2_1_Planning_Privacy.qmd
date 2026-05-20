@@ -189,7 +189,7 @@ The same logic applies to `religion`: if a plausible attacker is someone who kno
 Save the sdcObject for further anonymization steps.
 
 ```{r}
-saveRDS(sdc_data, "../sdc_micro.rds")
+saveRDS(sdc_data, "../sdc_data.rds")
 ```
 
 At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need to anonymize; you can skip to preparing your data for publication.
