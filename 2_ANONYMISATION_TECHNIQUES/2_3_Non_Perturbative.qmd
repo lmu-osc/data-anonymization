@@ -95,13 +95,13 @@ Sampling is most relevant for administrative datasets and registers. For typical
 
 # Pro and Contra Using Non-Perturbative Techniques
 
-Pro
+Pros
 
 -   original data values are preserved (no distortion of statistics within remaining cells)
 -   straightforward to implement and explain
 -   easy to document
 
-Con
+Cons
 
 -   information is lost (removed or coarsened)
 -   heavy suppression can make the dataset hard to use

@@ -22,7 +22,7 @@ sdc_nonpert <- readRDS("../sdc_nonpert.rds") # Change based on the location of y
 
 The core idea behind perturbative techniques is to introduce **controlled changes to data values**. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but **alter the values themselves**. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.
 
-In general, perturbation does not increase k-anonymity. Rather, it adds another layer of protection, especially to continuous variables.
+In general, perturbation does not increase k-anonymity<!--why?-->. Rather, it adds another layer of protection, especially to continuous variables.
 
 In this chapter, I will present a few perturbative techniques introduced in @Carvalho2023_SurveyPrivacyPreservingTechniques.
 
@@ -32,13 +32,13 @@ In this chapter, I will present a few perturbative techniques introduced in @Car
 
 Swapping **exchanges values of a variable between participants**. Instead of altering the values themselves, it breaks the link between a record and the individual it belongs to.
 
-There are two main variants. **Record swapping** (also known as data swapping) applies to categorical variables: values like gender or country of residence are swapped between records. A useful property here is t-order equivalence - for example, 1-order equivalence means the marginal frequencies are preserved (same number of males and females as before), and 2-order equivalence means joint frequencies are also preserved (same number of males and females from each country).
+There are two main variants. **Record swapping** (also known as data swapping) applies to categorical variables: values like gender or country of residence are swapped between records. A useful property here is t-order equivalence. For example, 1-order equivalence means the marginal frequencies are preserved (same number of males and females as before), and 2-order equivalence means joint frequencies are also preserved (same number of males and females from each country).
 
 *Add illustration here*
 
 **Rank swapping** applies to continuous variables: values are only swapped with other values that are close in rank, which limits how much the distribution is distorted.
 
-The main advantage of swapping is that it removes the relationship between a record and the individual without introducing new values that never existed in the data. It can protect rare and unique values and works across variable types. On the downside, non-random swapping requires careful implementation, and swapping can produce unusual combinations of values that did not exist in the original data. It is also not effective against membership disclosure - an attacker who does not need to identify a specific record but just wants to learn something about a group will not be deterred.
+The main **advantage** of swapping is that it removes the relationship between a record and the individual without introducing new values that never existed in the data. It can protect rare and unique values and works across variable types. On the **downside**, non-random swapping requires careful implementation, and swapping can produce unusual combinations of values that did not exist in the original data. It is also not effective against membership disclosure - an attacker who does not need to identify a specific record but just wants to learn something about a group will not be deterred.<!--which is better then? cite?-->
 
 ## Re-sampling
 
@@ -52,12 +52,12 @@ The noise can be uncorrelated - each value gets an independent random draw - or 
 
 ::: {.callout-note collapse="false"}
 ## Differential Privacy
-
+<!--not clear? @Felix?-->
 Differential privacy is a **formal privacy guarantee** that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset - so the presence or absence of one person cannot be inferred from the result.
 
 In practice, this means adding carefully calibrated noise to query results or to the data itself, such that any individual's contribution is hidden within the noise.
 
-For example, in a dataset with medical data and tests on HIV, even if the attacker already suspects a person X is the only possible HIV case in the dataset, the data does then not confirm or deny that suspicion.
+For example, in a dataset with medical data and tests on HIV, even if the attacker already suspects a person X is the only possible HIV case in the dataset, the data does then not confirm or deny that suspicion.<!-- how?-->
 
 For R users, the `diffpriv` package implements differential privacy mechanisms and is a good starting point for exploring this approach [@rubinstein2017].
 :::
@@ -66,7 +66,7 @@ For R users, the `diffpriv` package implements differential privacy mechanisms a
 
 Microaggregation **groups records by similarity on the variable of interest and replaces each value with a group aggregate** - usually the mean or median. Records within the same group end up sharing the same value, which makes it impossible to single out an individual based on that variable alone.
 
-The quality of the result depends on how homogeneous the groups are: the more similar the original values within a group, the less information is lost when replacing them with the group mean. This is why the grouping algorithm matters - `mdav` (Maximum Distance to Average Vector), the default in `sdcMicro`, tries to form compact groups to minimize distortion.
+The quality of the result depends on how homogeneous the groups are: the more similar the original values within a group, the less information is lost when replacing them with the group mean. This is why the grouping algorithm matters. The default in `sdcMicro`, `mdav` (Maximum Distance to Average Vector), tries to form compact groups to minimize distortion.
 
 ## Rounding
 
@@ -84,25 +84,21 @@ After applying any perturbative technique, you should compare key statistics (me
 
 # Pro and Contra of Using Perturbative Techniques
 
-Pro:
+Pros:
 
 -   No records or variables are removed; the dataset stays complete.
-
 -   Statistical properties like means, variances, and correlations can be largely preserved
-
 -   Easy to tune the privacy-utility trade-off by adjusting the noise level or group size.
 
-Contra:
+Cons:
 
 -   Individual values are no longer accurate. This makes perturbative techniques unsuitable if exact values matter - for example, if a researcher needs to verify that a specific participant had a specific income.
-
 -   Risk of reverse-engineering: if the perturbation method and its parameters are known, an attacker may be able to approximately reconstruct the original values.
-
 -   If applied too aggressively, perturbative techniques can distort subgroup statistics in ways that are hard to detect.
 
 # Exercise: Applying Perturbative Techniques
 
-Let's try out two common perturbative techniques - microaggregation and noise. Conveniently, both are available directly in `sdcMicro`.
+Let's try out two common perturbative techniques: microaggregation and noise. Conveniently, both are available directly in `sdcMicro`.
 
 Continue working with `sdc_nonpert` from the previous exercise.
 
@@ -154,7 +150,7 @@ print(sdc_noise, type = "risk")
 sdc_noise
 ```
 
-`addNoise` draws from a normal distribution with mean 0 and standard deviation = `noise × sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income. When `noise = 3.5`, we achieve a disclosure risk of up to 75.5%.
+`addNoise` draws from a normal distribution with mean 0 and standard deviation = `noise × sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income. When `noise = 3.5`, we achieve a disclosure risk of up to 75.5%.<!--shouldn't this be down to?-->
 
 Let's save these objects for now. We will later come back to inspect the utility of both methods in [the chapter on balancing utility and privacy](../3_PRIVACY_OPENNESS/3_1_Balancing).
 
