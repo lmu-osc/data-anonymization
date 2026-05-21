@@ -1,6 +1,8 @@
 ---
 title: "Non-Perturbative Techniques"
 bibliography: ../references.bib
+execute:
+    cache: true
 ---
 
 ::: {.callout-tip collapse="true"}
@@ -10,11 +12,13 @@ bibliography: ../references.bib
 -   After completing this part of the tutorial, you will be able to apply simple non-perturbative techniques
 :::
 
-```{r Setup}
+```{r setup}
 #| include: false
 
 library(sdcMicro)
 library(tidyverse)
+
+set.seed(1)
 
 data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Change based on the location of your data file
 
