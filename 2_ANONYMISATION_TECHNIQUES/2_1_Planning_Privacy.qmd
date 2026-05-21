@@ -82,7 +82,7 @@ install.packages("sdcMicro")
 
 ## Using `sdcMicro` to Assess Privacy Risks
 
-Let's start by creating a sdcMicro object using the class `sdcMicroObj`<!--I dont know where the class of the object is provided, shouldn't you say 'using the function createSdcObj' instead? or both?-->. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores
+Let's start by creating a sdcMicro object using the class `sdcMicroObj`<!--I dont know where the class of the object is provided, shouldn't you say 'using the function createSdcObj' instead? or both? or perhaps 'of the class' using sounds like I need to do something but I don't know what to do-->. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores
 
 -   the original dataset,
 -   the roles of variables within the dataset,
