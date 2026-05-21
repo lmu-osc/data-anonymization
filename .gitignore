@@ -50,6 +50,7 @@ rsconnect/
 
 # Quarto
 /.quarto/
+**_files/
 
 # Future-proofing: ignore commonly included files that should not be tracked
 # Inspired by usethis::git_vaccinate() options

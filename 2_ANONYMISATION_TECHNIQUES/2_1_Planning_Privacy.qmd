@@ -1,6 +1,8 @@
 ---
 title: "Assessing Privacy Risks"
 bibliography: ../references.bib
+execute:
+    cache: true
 ---
 
 ::: {.callout-tip collapse="true"}
@@ -9,8 +11,10 @@ bibliography: ../references.bib
 -   After completing this part of the tutorial, you will be able to calculate individual privacy risks for continuous variables by utilizing k-anonymity.
 :::
 
-```{r Setup}
+```{r setup}
 #| include: false
+
+set.seed(1)
 
 data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Change based on the location of your data file
 ```
