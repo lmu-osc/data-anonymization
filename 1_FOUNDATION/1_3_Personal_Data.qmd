@@ -160,6 +160,7 @@ Any solution that deletes the name, email address, and IP address is correct. I 
 
 library(tidyverse)
 
+# remove direct identifiers
 data_withoutdirectidentifiers <- data %>%
   select(-name, -email, -ip_address)
 
