@@ -54,7 +54,7 @@ The large sample size works in your favor: with 10,000 records, most combination
 
 This is a high-risk case for several reasons: every employee participated (so participation knowledge is guaranteed for the entire dataset), the sample is small, and the topic is sensitive. Any colleague, manager, or HR staff member knows their coworkers are in the data - re-identification attempts are very plausible.
 
-Recommended steps: combine small departments into broader groups, generalize job level and years at company into bands, and apply noise or microaggregation to the bullying and mental health scores to protect individual values. Aim for k-anonymity ≥ 5. Even after these steps, fully open publication of these data may not be appropriate here - consider synthesizing the data instead. The combination of guaranteed participation knowledge, small sample, and sensitive outcomes makes this one of the harder cases.
+Recommended steps: combine small departments into broader groups, generalize job level and years at company into bands, and apply noise or microaggregation to the bullying and mental health scores to protect individual values. Aim for k-anonymity ≥ 5. Even after these steps, fully open publication of these data may not be appropriate here - consider synthesizing the data instead. The combination of guaranteed participation knowledge, small sample, and sensitive outcomes makes this scenario one of the harder cases.
 :::
 
 3\. A clinical trial dataset (n = 500) with diagnosis codes, treatment group, age, sex, and a rare genetic marker. The data will be published as a fully open dataset.
@@ -62,7 +62,7 @@ Recommended steps: combine small departments into broader groups, generalize job
 ::: {.callout-important collapse="true"}
 ## Example Solution
 
-The rare genetic marker is the most critical variable. If it applies to only a small subset of participants, it is likely unique enough on its own to identify individuals. Consider then to use a de-associative technique like anatomization to split the genetic marker and the other variables. Diagnosis codes should be generalized from specific ICD codes to broader disease categories. Age should be recoded, probably to 10-year bands. Sex is low-risk on its own. Treatment group is needed for analysis and unlikely to cause identification issues. Check the k-anonymity across the indirect identifiers. Aim for k ≥ 5 given the health data sensitivity.
+The rare genetic marker is the most critical variable. If it applies to only a small subset of participants, it is likely unique enough on its own to identify individuals. Consider then to use a de-associative technique like anatomization to split the genetic marker and the other variables. Diagnosis codes should be generalized from specific ICD<!--meaning?--> codes to broader disease categories. Age should be recoded, probably to 10-year bands. Sex is low-risk on its own. Treatment group is needed for analysis and unlikely to cause identification issues. Check the k-anonymity across the indirect identifiers. Aim for k ≥ 5 given the health data sensitivity.
 :::
 
 # References
