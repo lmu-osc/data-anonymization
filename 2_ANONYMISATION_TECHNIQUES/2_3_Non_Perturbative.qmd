@@ -6,8 +6,10 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   After completing this part of the tutorial, you will be able to choose an appropriate non-perturbative technique
--   After completing this part of the tutorial, you will be able to apply simple non-perturbative techniques
+After completing this part of the tutorial, you will be able to
+
+-   choose an appropriate non-perturbative technique
+-   apply simple non-perturbative techniques
 :::
 
 ```{r Setup}
@@ -85,7 +87,7 @@ Suppression is often used as a last resort after recoding: if recoding alone is 
 
 ## Sampling
 
-If your dataset covers an entire population - for example, all students enrolled in a particular program, or all employees of a specific company - then releasing it in full means that anyone who knows a person was part of that group can try to find their record. [Participation knowledge](../2_1_Planning_Privacy#identifying-privacy-risks) would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
+If your dataset covers an entire population - for example, all students enrolled in a particular program, or all employees of a specific company - then releasing it in full means that anyone who knows a person was part of that group can try to find their record. [Participation knowledge](../2_1_Planning_Privacy#exercise-privacy-risks-in-the-example-data) would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
 
 A sample can be randomly selected, but also based on conditions (e.g., quotas for study subjects).
 
@@ -96,17 +98,13 @@ Sampling is most relevant for administrative datasets and registers. For typical
 Pro
 
 -   original data values are preserved (no distortion of statistics within remaining cells)
-
 -   straightforward to implement and explain
-
 -   easy to document
 
 Con
 
 -   information is lost (removed or coarsened)
-
 -   heavy suppression can make the dataset hard to use
-
 -   may not be sufficient on its own for high-risk data
 
 # Exercise: Applying Non-Perturbative Techniques
@@ -119,7 +117,7 @@ The following `sdcMicro` functions are available to you:
 -   `topBotCoding()` caps extreme values at a given threshold
 -   `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
 
-In addition, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from `forcats`. This function lumps all categories below a certain group size together.
+In addition, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from the R pakage `forcats`. This function lumps all categories below a certain group size together.
 
 1.  Look at the key variables in `sdc_data` (`gender`, `age`, `education`, `plz`) and decide which technique is appropriate for each. There is no single correct solution - choose thresholds and groupings that make sense given the data, and be prepared to justify your choices.
 2.  Apply these techniques using the functions mentioned above.
@@ -222,7 +220,7 @@ With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymi
 
 # Further Anonymization Steps Using Perturbative Techniques
 
-Now that the key variables are in their final state, I applied **top-coding to income** and **years in job**.
+Now that the key categorical variables are in their final state<!--do you mean the categorical key variables rights? income and and year in job are also key bu continuous- is it what you meant?-->, I applied **top-coding** to the key continuous variables income and years in job.
 
 My goal with income is to protect the few individuals with a very high income. I start by inspecting the distribution:
 
@@ -274,7 +272,7 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-These techniques reduce the disclosure risk to up to 92% compared tot the original data.
+These techniques reduce the disclosure risk to up to 92% compared to the original data.
 
 Finally, I save the `sdcObject`.
 
