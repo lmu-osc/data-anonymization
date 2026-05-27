@@ -26,7 +26,7 @@ By the end of this tutorial, you will be able to:
 
 # What You Will **NOT** Learn
 
-You will not learn anything other than anonymization of quantitative data.
+You will not learn anything other than anonymization of quantitative tabular data.
 
 Here are a few helpful links for other data types:
 
