@@ -77,7 +77,7 @@ Beyond ethics, data protection is also a **legal requirement**. Many countries a
 
 Outside the EU, other frameworks exist. The US has sector-specific laws like [HIPAA](https://www.hhs.gov/hipaa/index.html) (for health data) and [FERPA](https://studentprivacy.ed.gov/) (for educational records), but no single comprehensive federal data protection law. Countries like Brazil ([LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)), Japan ([APPI](https://www.ppc.go.jp/en/legal/)), and South Korea ([PIPA](https://www.pipc.go.kr/eng/user/lgn/login.do)) have their own comprehensive frameworks, many of which share core principles with the GDPR.
 
-For this tutorial, we focus on the GDPR. It is one of the most stringent and widely applicable frameworks. However, the anonymization techniques we cover later are relevant regardless of which specific law applies.
+For this tutorial, we focus on the GDPR. It is one of the most stringent and widely applicable frameworks. However, the anonymization techniques we cover later are relevant regardless of which specific law applies. 
 
 Next to data protection laws, there are other legal reasons for not sharing information. To name the two most important ones: [Intellectual property interests](https://www.dpma.de/english/services/ip_rights_briefly_explained/index.html) of other people, covering mostly technical inventions, and [export controls](https://www.bafa.de/EN/Foreign_Trade/Export_Control/export_control_node.html), covering products and knowledge with military significance. If you fear your research topic may touch any of these laws, contact your institution's knowledge security office or legal department.
 
