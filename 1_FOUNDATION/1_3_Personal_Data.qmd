@@ -32,19 +32,22 @@ In a research context, this means that even **datasets without names or email ad
 The GDPR (Art. 9) describes several categories of **sensitive data** that receive heightened protection:
 
 -   racial or ethnic origin,
+
 -   political opinions,
+
 -   religious or philosophical beliefs,
+
 -   trade union membership,
+
 -   genetic data, biometric data (for unique identification),
+
 -   health data,
+
 -   and data concerning a natural person's sex life or sexual orientation.
 
-Additional sensitive data include<!--how are they different from the above?-->:
-
--   information about criminal convictions and offenses
--   financial data
-
 In practice, this means you need to be **extra careful** with these variables when sharing data - they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
+
+**Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend to talk to your institution's data protection officer.
 
 # Exercise: Personal Data
 
@@ -110,7 +113,7 @@ Inspect the dataset `data`. Answer the following questions:
 
 **Email addresses** are considered direct identifiers since they often contain names and therefore, clearly specify certain individuals. However, even when not containing names, they can act as indirect identifiers by linking to an account or revealing a person's organization.
 
-**IP addresses** can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the ISP<!--whats ISP?--> [@breyer2016]. In a research context, they should be treated as direct identifiers.
+**IP addresses** can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the Internet service provider [@breyer2016]. In a research context, they should be treated as direct identifiers.
 :::
 
 2\. Which columns contain **indirect identifiers**?
@@ -143,7 +146,7 @@ The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_inte
 Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as `name`) is possible, it is considered personal data, and GDPR applies.
 :::
 
-As a first step, you always want to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators.<!-- stronger recommendations here? raw data in a safe server, as read only, and preproccessed data (without direct identifiers, done through script)? @Felix?-->
+As a first step, you always want to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators. <!-- TODO stronger recommendations here? raw data in a safe server, as read only, and preproccessed data (without direct identifiers, done through script)? @Felix?-->
 
 ## Exercise: Remove Direct Identifiers
 
@@ -172,7 +175,7 @@ Save the new file
 write.csv(data_withoutdirectidentifiers, "../SimulatedData_noidentifiers.csv", row.names = FALSE)
 ```
 
-Delete the old file.<!--mmhh that info is needed for something otherwise why was it collected? minimally the name is needed to withdraw people's data if request it; and email if you detect a disease and need to inform them @Felix?-->
+Delete the old file.<!-- TODO mmhh that info is needed for something otherwise why was it collected? minimally the name is needed to withdraw people's data if request it; and email if you detect a disease and need to inform them @Felix?-->
 :::
 
 #### Resources, Links, Examples
