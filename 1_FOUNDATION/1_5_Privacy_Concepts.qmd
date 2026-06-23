@@ -6,7 +6,7 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
-After completing this part of the tutorial, you will understand 
+After completing this part of the tutorial, you will understand
 
 -   essential privacy risks;
 -   the basic idea of k-anonymity.
@@ -73,7 +73,7 @@ The indirect identifiers that remain in a dataset - like age, gender, occupation
 
 # Operationalizing Risk
 
-How do we move from "there might be a risk" to "this is how much risk there is"? In this tutorial, we focus on basic methods for quantifying re-identification risk for individuals. For more advanced approaches (e.g., group-level risks), see the [Statistical Disclosure Control for Microdata: A Practice Guide. _Measuring Risk_](https://sdcpractice.readthedocs.io/en/latest/measure_risk.html).
+How do we move from "there might be a risk" to "this is how much risk there is"? In this tutorial, we focus on basic methods for quantifying re-identification risk for individuals. For more advanced approaches (e.g., group-level risks), see the [Statistical Disclosure Control for Microdata: A Practice Guide. *Measuring Risk*](https://sdcpractice.readthedocs.io/en/latest/measure_risk.html).
 
 ::: {.callout-warning collapse="false"}
 The inclusion of groups (e.g., school classes, partnerships, households) that share certain attributes introduces additional risk for individuals, since other group members may use shared knowledge to infer information about specific individuals in the dataset.
