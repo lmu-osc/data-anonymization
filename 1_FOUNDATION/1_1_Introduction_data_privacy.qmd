@@ -73,7 +73,7 @@ One more thing worth mentioning: We tend to assume that **informed consent** sol
 
 # Data Protection in Law
 
-Beyond ethics, data protection is also a **legal requirement**. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU, wherever your participants are located<!-- true??-->. We cover the GDPR in more detail in [the next chapter](1_2_GDPR).
+Beyond ethics, data protection is also a **legal requirement**. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU, wherever your participants are located. We cover the GDPR in more detail in [the next chapter](1_2_GDPR).
 
 Outside the EU, other frameworks exist. The US has sector-specific laws like [HIPAA](https://www.hhs.gov/hipaa/index.html) (for health data) and [FERPA](https://studentprivacy.ed.gov/) (for educational records), but no single comprehensive federal data protection law. Countries like Brazil ([LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)), Japan ([APPI](https://www.ppc.go.jp/en/legal/)), and South Korea ([PIPA](https://www.pipc.go.kr/eng/user/lgn/login.do)) have their own comprehensive frameworks, many of which share core principles with the GDPR.
 
@@ -81,7 +81,6 @@ For this tutorial, we focus on the GDPR. It is one of the most stringent and wid
 
 Next to data protection laws, there are other legal reasons for not sharing information. To name the two most important ones: [Intellectual property interests](https://www.dpma.de/english/services/ip_rights_briefly_explained/index.html) of other people, covering mostly technical inventions, and [export controls](https://www.bafa.de/EN/Foreign_Trade/Export_Control/export_control_node.html), covering products and knowledge with military significance. If you fear your research topic may touch any of these laws, contact your institution's knowledge security office or legal department.
 
-<!-- add callout box info with contact details of LMU data protection officer and expert control office and IP officer -->
 ::: {.callout-note collapse="false"}
 Some useful contact for researchers at LMU Munich:
 
