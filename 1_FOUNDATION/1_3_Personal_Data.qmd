@@ -60,7 +60,7 @@ Download the dataset here:
 #| echo: false
 # Generates a clickable download link for the GitHub Pages website
 xfun::embed_file(
-  "../SimulatedData.csv",
+  here::here("SimulatedData.csv"),
   text = "⬇️ Download SimulatedData.csv"
 )
 ```
@@ -72,7 +72,7 @@ Copy this to a new Markdown file in RStudio to import the data for further analy
 #| message: false
 
 # Load data based on downloaded file
-data <- read.csv("../SimulatedData.csv") # Change based on the location of your data file
+data <- read.csv(here::here("SimulatedData.csv")) # Change based on the location of your data file
 
 ```
 
@@ -172,7 +172,7 @@ data_withoutdirectidentifiers <- data %>%
 Save the new file
 
 ```{r}
-write.csv(data_withoutdirectidentifiers, "../SimulatedData_noidentifiers.csv", row.names = FALSE)
+write.csv(data_withoutdirectidentifiers, here::here("SimulatedData_noidentifiers.csv"), row.names = FALSE)
 ```
 
 Delete the old file.<!-- TODO mmhh that info is needed for something otherwise why was it collected? minimally the name is needed to withdraw people's data if request it; and email if you detect a disease and need to inform them @Felix?-->

@@ -16,10 +16,10 @@ library(sdcMicro)
 library(tidyverse)
 
 # Load data based on downloaded file
-sdc_nonpert <- readRDS("../sdc_nonpert.rds")
-sdc_noise <- readRDS("../sdc_noise.rds") # Change based on the location of your Sdc-object file
-sdc_micro <- readRDS("../sdc_micro.rds")
-data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Change based on the location of your data file
+sdc_nonpert <- readRDS(here::here("sdc_nonpert.rds"))
+sdc_noise <- readRDS(here::here("sdc_noise.rds")) # Change based on the location of your Sdc-object file
+sdc_micro <- readRDS(here::here("sdc_micro.rds"))
+data_withoutdirectidentifiers <- read.csv(here::here("SimulatedData_noidentifiers.csv")) # Change based on the location of your data file
 ```
 
 As we have seen, anonymization techniques are all about hiding or obscuring the data or links within the data. This, of course, comes at a cost: The data may lose some of its **utility**.

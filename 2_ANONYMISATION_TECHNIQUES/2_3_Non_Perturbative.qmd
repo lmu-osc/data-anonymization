@@ -18,7 +18,7 @@ After completing this part of the tutorial, you will be able to
 library(sdcMicro)
 library(tidyverse)
 
-data_withoutdirectidentifiers <- read.csv("../SimulatedData_noidentifiers.csv") # Change based on the location of your data file
+data_withoutdirectidentifiers <- read.csv(here::here("SimulatedData_noidentifiers.csv")) # Change based on the location of your data file
 
 sdc_data <- createSdcObj(
   dat     = data_withoutdirectidentifiers,
@@ -277,7 +277,7 @@ These techniques reduce the disclosure risk to up to 92% compared to the origina
 Finally, I save the `sdcObject`.
 
 ```{r}
-saveRDS(sdc_nonpert, "../sdc_nonpert.rds")
+saveRDS(sdc_nonpert, here::here("sdc_nonpert.rds"))
 ```
 
 # References

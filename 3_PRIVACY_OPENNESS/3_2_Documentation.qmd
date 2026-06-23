@@ -21,7 +21,7 @@ Your internal documentation should describe the **full anonymization workflow**:
 
 # External Documentation in Data Dictionary
 
-The external documentation is what you **share alongside the anonymized dataset**. It should include a **data dictionary** describing every variable in the released dataset, including any changes from the original. For example, if `age` was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization. 
+The external documentation is what you **share alongside the anonymized dataset**. It should include a **data dictionary** describing every variable in the released dataset, including any changes from the original. For example, if `age` was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.
 
 If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values - for example, a line like `filter(country == "Liechtenstein")` tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible.
 
