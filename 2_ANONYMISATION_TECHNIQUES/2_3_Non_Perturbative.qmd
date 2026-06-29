@@ -59,7 +59,7 @@ This means, that values are on different level (in this example: country vs. con
 
 ## Top-and-Bottom Coding
 
-Top-and-bottom coding is a special case of **recoding that applies to numerical variables**. Instead of grouping all values into bands, you **cap the extreme ends of the distribution** - replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value.
+Top-and-bottom coding is a special case of **recoding that applies to numerical variables**. Instead of grouping all values into bands, you **cap the extreme ends of the distribution** - replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value. <!-- TODO explain why this is non-perturbativee  -->
 
 **Examples**
 
@@ -95,13 +95,13 @@ Sampling is most relevant for administrative datasets and registers. For typical
 
 # Pro and Contra Using Non-Perturbative Techniques
 
-Pros
+Pros:
 
 -   original data values are preserved (no distortion of statistics within remaining cells)
 -   straightforward to implement and explain
 -   easy to document
 
-Cons
+Cons:
 
 -   information is lost (removed or coarsened)
 -   heavy suppression can make the dataset hard to use
@@ -220,7 +220,7 @@ With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymi
 
 # Further Anonymization Steps Using Perturbative Techniques
 
-Now that the key categorical variables are in their final state<!--do you mean the categorical key variables rights? income and and year in job are also key bu continuous- is it what you meant?-->, I applied **top-coding** to the key continuous variables income and years in job.
+Now that the categorical key variables are in their final state, I applied **top-coding** to the continuous key variables income and years in job.
 
 My goal with income is to protect the few individuals with a very high income. I start by inspecting the distribution:
 

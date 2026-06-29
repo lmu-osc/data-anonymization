@@ -22,7 +22,7 @@ sdc_nonpert <- readRDS(here::here("sdc_nonpert.rds")) # Change based on the loca
 
 The core idea behind perturbative techniques is to introduce **controlled changes to data values**. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but **alter the values themselves**. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.
 
-In general, perturbation does not increase k-anonymity<!--why?-->. Rather, it adds another layer of protection, especially to continuous variables.
+In general, perturbation does not increase k-anonymity<!-- TODO Explain this -->. Rather, it adds another layer of protection, especially to continuous variables.
 
 In this chapter, I will present a few perturbative techniques introduced in @Carvalho2023_SurveyPrivacyPreservingTechniques.
 
@@ -53,7 +53,7 @@ The noise can be uncorrelated - each value gets an independent random draw - or 
 ::: {.callout-note collapse="false"}
 ## Differential Privacy
 
-<!--not clear? @Felix?-->
+<!--TODO Improve this-->
 
 Differential privacy is a **formal privacy guarantee** that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset - so the presence or absence of one person cannot be inferred from the result.
 
@@ -152,7 +152,7 @@ print(sdc_noise, type = "risk")
 sdc_noise
 ```
 
-`addNoise` draws from a normal distribution with mean 0 and standard deviation = `noise × sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income. When `noise = 3.5`, we achieve a disclosure risk of up to 75.5%.<!--shouldn't this be down to?-->
+`addNoise` draws from a normal distribution with mean 0 and standard deviation = `noise × sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income. When `noise = 3.5`, we achieve a disclosure risk between 0% and 75.5%, instead of one between 0% and 100% that we started with.
 
 Let's save these objects for now. We will later come back to inspect the utility of both methods in [the chapter on balancing utility and privacy](../3_PRIVACY_OPENNESS/3_1_Balancing).
 

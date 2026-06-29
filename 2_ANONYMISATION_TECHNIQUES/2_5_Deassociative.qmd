@@ -39,15 +39,15 @@ Anatomization is a cleaner alternative to bucketization that avoids some of its 
 
 A researcher re-using the data can still answer questions like "what is the distribution of political opinions among 30-44 year olds in postal region 8xxxx?" by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table - the individual-level association is gone.
 
-Anatomization is particularly useful when the sensitive attribute is the main focus of the research question, and when preserving group-level patterns is more important than individual-level linkage. For our dataset - where the research question is about the relationship between religion and political opinion - anatomization could work well: group-level associations are preserved, but no individual's religion and political views can be read together. <!-- I think I need a visual here. also, perhaps we can do that exercice given it could well apply to our dataset? and I'm still not sure what's happening with this technique or how to apply it. if exercice include, we should amend the learning objectives to 'being able to apply the technique" -->
+Anatomization is particularly useful when the sensitive attribute is the main focus of the research question, and when preserving group-level patterns is more important than individual-level linkage. For our dataset - where the research question is about the relationship between religion and political opinion - anatomization could work well: group-level associations are preserved, but no individual's religion and political views can be read together. <!--TODO: Add exercise -->
 
 # Pro and Contra De-Associative Techniques
 
-Pro
+Pros:
 
 -   highly privacy preserving
 
-Cons
+Cons:
 
 -   complex and not implemented in functions of R packages
 -   similar level of privacy can be reached by combining other techniques
