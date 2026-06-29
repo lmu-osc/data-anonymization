@@ -52,7 +52,7 @@ For **quantitative survey** or experimental data of the kind covered in this tut
 
 How do we know whether our anonymized data is still useful? There are several approaches to **measuring utility**, ranging from simple comparisons to formal indices.
 
-`sdcMicro` provides two built-in information loss measures for numeric variables. **IL1** is the average absolute difference between original and anonymized values, relative to the original. A value of 0 means no change; higher values mean more distortion. The **eigenvalue ratio** compares the eigenvalues of the original and anonymized data. Values close to 0 indicate the least changes. These indicators are primarily useful to compare different anonymization methods with each other.
+`sdcMicro` provides two built-in information loss measures for numeric variables. **IL1** is the sum of absolute differences between original and anonymized values, relative to the original. A value of 0 means no change; higher values mean more distortion. The **eigenvalue ratio** compares the eigenvalues of the original covariance matrix to the eigenvalues of the anonymized data's covariance matrix. Values close to 0 indicate the least changes. These indicators are primarily useful to compare different anonymization methods with each other.
 
 Both values are part of the standard `sdcMicro` output after applying any anonymization technique.
 
