@@ -137,7 +137,7 @@ data_micro <- extractManipData(sdc_micro) # Extract the manipulated data
 
 `mdav` groups records by their distance to the group centroid, then replaces each value with the group mean. With `aggr = 5`, at least 5 records share the same income value, so singling out an individual is harder.
 
-As we can see in the output of the `sdcObject`, the disclosure risk is reduced to up to 77.5% compared to the beginning.
+As we can see in the output of the `sdcObject`, the disclosure risk is reduced from up to 100% in the beginning to a range going only up to 77.5%.
 
 ### Additive noise
 
