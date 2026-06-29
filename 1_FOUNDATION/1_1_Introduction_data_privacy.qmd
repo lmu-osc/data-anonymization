@@ -36,9 +36,9 @@ In the example above, nothing was leaked in a traditional sense; yet most of us 
 -   **Information type:** Sensitive personal disclosures (burnout, workplace stress)
 -   **Transmission principle:** Voluntary, under expectation of anonymity and confidentiality
 
-The information type and sender haven't changed, but the recipient has changed (from "Researchers" to "Anybody", in particular the participant's manager) and also transmission principle has changed (from the expectation of anonymity towards a situation where the participant could be re-identified).
+The information type and sender haven't changed, but the recipient has changed (from "Researchers" to "Anybody", in particular the participant's manager) and also the transmission principle has changed (from the expectation of anonymity towards a situation where the participant could be re-identified).
 
-The contextual norm is violated. This is a privacy violation, not because a name was exposed, but because information flowed in a way that didn't match the norms of the context in which it was shared. And in turn, this led to the disclosure of an individual's identity as well as sensitive information about them and their work life.
+The contextual norm (i.e., the sum of context, information flow, and information norms) is violated. This is a privacy violation, not because a name was exposed, but because information flowed in a way that didn't match the norms of the context in which it was shared. And in turn, this led to the disclosure of an individual's identity as well as sensitive information about them and their work life.
 :::
 
 In this tutorial, I will show why we, as researchers, need to carefully consider these contextual norms and how we can enable information flows of data (i.e., when sharing data).

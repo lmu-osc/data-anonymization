@@ -32,7 +32,7 @@ There is no universal recipe for choosing an anonymization technique. The right 
 ::: {.callout-warning collapse="false"}
 ## Achieving k-Anonymity
 
-To achieve k-anonymity, use non-perturbative techniques on categorial indirect identifiers. Most other techniques add additional, other levels of protection.
+To achieve k-anonymity, use non-perturbative techniques on categorial indirect identifiers. Most other techniques add additional levels of protection.
 :::
 
 # Exercise

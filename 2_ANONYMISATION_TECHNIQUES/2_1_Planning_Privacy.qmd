@@ -48,7 +48,7 @@ These are just a few examples; in general, the existence and likelihood of risks
 :::
 
 ::: {#participation-knowledge .callout-warning collapse="false"}
-## Participation Knowledge
+## Participation Knowledge and What is a Reasonable Level of k-Anonymity?
 
 A major factor that influences the risk assessment is participation knowledge: An attacker's **knowledge of whether a person's data is in a specific dataset**.
 
@@ -64,7 +64,7 @@ However, participation knowledge should be taken into account in **contexts wher
 
 -   **Grouped observations** (e.g., couples, families, classmates, or colleagues) are an extreme case: Group members already know each other's participation by definition and may share identifying attributes. Refer to the [SDC Practice Guide](https://sdcpractice.readthedocs.io/en/latest/index.html) for specific guidance on handling grouped data.
 
-This is where k-anonymity comes into place: You cannot pinpoint an individual's data just based on demographics. When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. I advise for a k-anonymity level of at least 2 or 3 and at least 5 in case of studies that come with a high risk of participation knowledge.
+This is where k-anonymity comes into place: You cannot pinpoint an individual's data just based on demographics. When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. **I advise for a k-anonymity level of, generally, at least 3 and at least 5 in case of studies that come with a high risk of participation knowledge.** In case of especially sensitive data, going up to a higher k (e.g., k = 10) is advisable.
 :::
 
 # Measuring Privacy Risks
