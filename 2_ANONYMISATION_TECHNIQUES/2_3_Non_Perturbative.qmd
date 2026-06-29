@@ -188,7 +188,9 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 2-anonymity. I don't want to generalize the `keyVars` any further and for that reason decide to apply **local suppression**.
+Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 2-anonymity. This corresponds to the "Number of observations with higher risk than the main part of the data", as summarized as a risk measure in the output: Now, the majority of data confirm with 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were **especially** at risk (since all of them were at risk).
+
+I don't want to generalize the `keyVars` any further, and for that reason, I decide to apply **local suppression**.
 
 ```{r}
 sdc_nonpert <- localSuppression(
