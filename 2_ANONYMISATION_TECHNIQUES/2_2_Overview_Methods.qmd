@@ -33,7 +33,7 @@ Each family of techniques addresses different types of risk.
 
 For each anonymization technique, the **variable's scale level** needs to be taken into account. Some techniques only work for categorical variables (i.e., discrete variables; e.g., gender, highest level of education), others only for continuous variables (e.g., income, age), and some work for both. Make sure to check each technique's requirements before applying it to your data.
 
-In the following chapters, we will go through each family of techniques one by one. I will first explain the underlying idea of a family and will then provide hands-on exercises for selected techniques using the same simulated dataset from [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data) and the `sdcMicro` package. This way, you can see how each technique changes the data and its risk profile step by step.
+In the following chapters, we will go through each family of techniques one by one. I will first explain the underlying idea of a family and will then provide hands-on exercises for selected techniques using **our dataset** (introduced on the [landing page](../index.qmd)) and the `sdcMicro` package. This way, you can see how each technique changes the data and its risk profile step by step.
 
 After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in the [the chapter on choosing the right technique](../2_7_Choosing_technique).
 

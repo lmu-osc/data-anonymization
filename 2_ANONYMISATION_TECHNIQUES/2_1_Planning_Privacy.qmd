@@ -27,7 +27,7 @@ To achieve that, before starting the anonymization process, we will assess the l
 
 ## Exercise: Privacy Risks in the Example Data
 
-Take another look at our dataset where identifiers where removed from in [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data). Try to answer the following questions:
+Take another look at **our dataset**, as modified in the [exercise on the personal data page](../1_FOUNDATION/1_3_Personal_Data) where we removed the direct identifiers. Try to answer the following questions:
 
 -   Which combinations of indirect identifiers could potentially single out an individual?
 -   What attack scenarios are plausible? Think about who might try to re-identify someone in this dataset and what external information they might have access to.
@@ -123,7 +123,7 @@ For this object, we start with defining the following:
 
 ## Exercise: Assessing Privacy Risks With `sdcMicro`
 
-In this exercise, you will assess privacy risks with `sdcMicro` using the example data from the [chapter on personal data](../1_FOUNDATIONS/1_3_Personal_Data). We will work with the dataset `data_withoutdirectidentifiers`, using the same dataset loaded on the homepage and modified in the exercise on the personal data page which removed direct identifiers.
+In this exercise, you will assess privacy risks with `sdcMicro`. We will work with the dataset `data_withoutdirectidentifiers` - **our dataset** as loaded from the [landing page](../index.qmd) and modified in the [exercise on the personal data page](../1_FOUNDATION/1_3_Personal_Data), which removed the direct identifiers.
 
 1.  Create an object within sdcMicro that contains the relevant `keyVars` and `numVars` using the function `createSdcObj`. Inspect the object.
 2.  What k-anonymity level is currently reached?

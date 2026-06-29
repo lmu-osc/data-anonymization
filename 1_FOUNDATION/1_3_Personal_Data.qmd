@@ -51,29 +51,14 @@ In practice, this means you need to be **extra careful** with these variables wh
 
 # Exercise: Personal Data
 
-Here is a **simulated dataset** of 200 Germans. The data's purpose is to answer whether **certain political opinions are linked to religion**. This dataset will be used throughout the exercises.
-
-Download the dataset here:
+In this first exercise, we work with **our dataset** - the simulated dataset of 200 Germans introduced on the [landing page](../index.qmd), whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:
 
 ```{r}
-#| label: download-link
-#| echo: false
-# Generates a clickable download link for the GitHub Pages website
-xfun::embed_file(
-  here::here("SimulatedData.csv"),
-  text = "⬇️ Download SimulatedData.csv"
-)
-```
+#| label: data-setup
+#| include: false
 
-Copy this to a new Markdown file in RStudio to import the data for further analysis:
-
-```{r}
-#| label: data-import
-#| message: false
-
-# Load data based on downloaded file
+# Load the dataset downloaded from the landing page
 data <- read.csv(here::here("SimulatedData.csv")) # Change based on the location of your data file
-
 ```
 
 ::: {.callout-note collapse="false"}
@@ -95,7 +80,7 @@ data <- read.csv(here::here("SimulatedData.csv")) # Change based on the location
 | pol_redistribution | Likert item measuring opinion on redistribution of wealth | The government should reduce income differences between rich and poor. | Integer; 1-5 |
 | pol_eu_integration | Likert item measuring opinion on membership in EU | Our country benefits from being a member of the European Union. | Integer; 1-5 |
 | ip_address | IP address (version 4) of participant's device when answering survey | (collected in background) | String of characters |
-| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0–n |
+| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0-n |
 :::
 
 ## Exercise: Direct Identifiers, Indirect Identifiers, and Special Categories

@@ -27,7 +27,7 @@ If you publish your anonymization scripts (which is good practice for reproducib
 
 # Exercise
 
-Make changes to the data dictionary from [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data) in accordance with the anonymization steps you made in this tutorial.
+Make changes to the data dictionary from the [landing page](../index.qmd) in accordance with the anonymization steps you made in this tutorial.
 
 ::: {.callout-important collapse="true"}
 ## Solution
