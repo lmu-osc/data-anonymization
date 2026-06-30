@@ -11,11 +11,11 @@ bibliography: ../references.bib
 
 # What is Data Privacy?
 
-This question has troubled (and engaged) scholars in privacy research for decades - there is no one agreed-upon definition. It is mostly understood as **controlled disclosure** in some way, meaning that an individual can decide which information is shared.
+This question has troubled (and engaged) scholars in privacy research for decades; there is no one agreed-upon definition. It is mostly understood as **controlled disclosure** in some way, meaning that an individual can decide which information is shared.
 
 One quite influential way to formalize privacy is **Nissenbaum's framework of Contextual Integrity** [@nissenbaum2010], which I will explain shortly:
 
-Consider a common scenario in social science research: A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms - trusting that this information stays within the research context. The researcher publishes a dataset that is superficially anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant's manager downloads the open dataset and identifies her employee.
+Consider a common scenario in social science research: A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms, trusting that this information stays within the research context. The researcher publishes a dataset that is superficially anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant's manager downloads the open dataset and identifies her employee.
 
 Nothing was "leaked" in a traditional sense. The way this information was shared violated the norms of the context. This is exactly what Nissenbaum's framework captures: Privacy means that **contextual information norms are respected in all information flows**.
 
@@ -59,7 +59,7 @@ Take a moment to think about the following scenarios. For each one, consider: Wo
 3.  A research team asks you to share your browsing history for a study on information consumption. They promise that all data will be "anonymized" before publication.
 :::
 
-Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with us because they trust that we handle it responsibly. If that trust erodes - let's say, because a dataset gets re-identified or a data breach makes headlines - people become less willing to participate in research. And without participants, there is no empirical research.
+Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with us because they trust that we handle it responsibly. If that trust erodes—let's say, because a dataset gets re-identified or a data breach makes headlines—people become less willing to participate in research. And without participants, there is no empirical research.
 
 As researchers, our obligation towards data protection arises from two directions that overlap quite a bit: ethics and law.
 
@@ -96,7 +96,7 @@ Some useful contact for researchers at LMU Munich:
 
 So where does this leave us? Both ethics and law tell us the same thing: we need to protect the personal data of our participants. At the same time, sharing data is a cornerstone of good scientific practice. Open data makes research more transparent, reproducible, and efficient. It enables replication, secondary analyses, and meta-research. Funders and journals increasingly require it, and for good reason.
 
-These two goals - protecting privacy and sharing data - are not contradictory, but they do create a tension that needs to be managed thoughtfully. The guiding principle is: **"as open as possible, as closed as necessary."** What exactly this means will depend on your data, your participants, and the context of your research. There is no one-size-fits-all answer.
+These two goals—protecting privacy and sharing data—are not contradictory, but they do create a tension that needs to be managed thoughtfully. The guiding principle is: **"as open as possible, as closed as necessary."** What exactly this means will depend on your data, your participants, and the context of your research. There is no one-size-fits-all answer.
 
 The good news is that anonymization gives us the tools to navigate this tension. By learning how to properly anonymize data, you can share your research data openly while still protecting the people who made your research possible. That is what this tutorial is about.
 

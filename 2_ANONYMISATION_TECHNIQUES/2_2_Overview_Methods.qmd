@@ -23,7 +23,7 @@ In the next sections of the tutorial, I will present you with several groups of 
 
 Each family of techniques addresses different types of risk.
 
-**Non-perturbative techniques** primarily reduce **identity disclosure** risk by making individuals less unique in the dataset - for example, by grouping age values into broader categories.
+**Non-perturbative techniques** primarily reduce **identity disclosure** risk by making individuals less unique in the dataset—for example, by grouping age values into broader categories.
 
 **Perturbative techniques** protect against both **identity and attribute disclosure** because they change the actual data values: Even if someone is identified, the other values may no longer be accurate.
 

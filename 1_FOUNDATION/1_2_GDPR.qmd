@@ -11,7 +11,7 @@ bibliography: ../references.bib
 
 The General Data Protection Regulation (GDPR), in German "Datenschutz-Grundverordnung" (DSGVO), is the **central legal framework** for the protection of personal data in the **European Union**. It came into force in 2018 and applies to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland. In general, it also applies to researchers and universities, regardless of where they are based [@jarmul2023].
 
-As a researcher of human data, you almost certainly process personal data, and the GDPR applies to you. Understanding its core concepts helps you navigate ethics board requirements, data management plans, and - most importantly for this tutorial - why and when you need to anonymize data.
+As a researcher of human data, you almost certainly process personal data, and the GDPR applies to you. Understanding its core concepts helps you navigate ethics board requirements, data management plans, and—most importantly for this tutorial—why and when you need to anonymize data.
 
 This chapter gives you a **brief, research-focused overview**. I am not going to cover everything the GDPR has to say, but will focus on the parts that matter most for your work.
 
@@ -22,7 +22,7 @@ The GDPR defines several concepts that come up regularly in research. Let's go t
 ::: {.callout-warning collapse="false"}
 # Personal Data
 
-Any information relating to an identified or identifiable natural person. This includes obvious identifiers like names and email addresses, but also indirect identifiers like age, postal code, or job title - if they can be combined to single out an individual. See [the next chapter](1_3_Personal_Data) for a detailed explanation.
+Any information relating to an identified or identifiable natural person. This includes obvious identifiers like names and email addresses, but also indirect identifiers like age, postal code, or job title, if they can be combined to single out an individual. See [the next chapter](1_3_Personal_Data) for a detailed explanation.
 
 **In research:** Most survey and experimental data contain personal data, even if you never ask for a participant's name. A combination of demographic variables (age, gender, occupation, location) can be enough.
 :::
@@ -32,7 +32,7 @@ Any information relating to an identified or identifiable natural person. This i
 
 Any operation performed on personal data, whether automated or manual. This includes collecting, recording, organizing, storing, analyzing, sharing, and deleting data.
 
-**In research:** Essentially everything you do with your data - from the moment a participant fills in a survey to the moment you publish or archive the dataset - counts as processing.
+**In research:** Essentially everything you do with your data—from the moment a participant fills in a survey to the moment you publish or archive the dataset—counts as processing.
 :::
 
 ::: {.callout-warning collapse="false"}
@@ -40,7 +40,7 @@ Any operation performed on personal data, whether automated or manual. This incl
 
 The person or organization that determines the purposes and means of processing personal data.
 
-**In research:** This is typically the principal investigator (PI) or the research institution. If you design a study and decide what data to collect and why, you are the controller - and you carry the legal responsibility for data protection.
+**In research:** This is typically the principal investigator (PI) or the research institution. If you design a study and decide what data to collect and why, you are the controller, and you carry the legal responsibility for data protection.
 :::
 
 ::: {.callout-warning collapse="false"}
@@ -55,13 +55,13 @@ A person or organization that processes personal data on behalf of the controlle
 
 There are a few GDPR principles and provisions that are particularly relevant to researchers:
 
-**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *legitimate interest / public interest* (Art. 6(1)(e/f)). The GDPR sets strict requirements for what information participants must receive before giving consent (Art. 13/14) - including the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](1_4_Mechanisms).
+**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *legitimate interest / public interest* (Art. 6(1)(e/f)). The GDPR sets strict requirements for what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](1_4_Mechanisms).
 
-**Purpose limitation.** Data may only be collected for specified, explicit purposes. In research, this means you should be clear about what your data will be used for - and if you want to re-use data for a new purpose, you may need to check whether this is covered by the original consent. Luckily, for research purposes, the laws are more lenient than for private companies.
+**Purpose limitation.** Data may only be collected for specified, explicit purposes. In research, this means you should be clear about what your data will be used for, and if you want to re-use data for a new purpose, you may need to check whether this is covered by the original consent. Luckily, for research purposes, the laws are more lenient than for private companies.
 
-**Data minimization.** You should only collect data that is necessary for your research purpose. Collecting "nice-to-have" demographics without a clear reason is not just bad practice - it may also be a GDPR issue. We discuss this more in [the chapter on mechanisms of data protection](1_4_Mechanisms).
+**Data minimization.** You should only collect data that is necessary for your research purpose. Collecting "nice-to-have" demographics without a clear reason is not just bad practice—it may also be a GDPR issue. We discuss this more in [the chapter on mechanisms of data protection](1_4_Mechanisms).
 
-**Storage limitation.** Personal data should not be kept longer than necessary. For research, there are exceptions - data may be stored longer for archiving purposes in the public interest, scientific research, or statistical purposes (Art. 89), but this requires appropriate safeguards such as encryption and access control.
+**Storage limitation.** Personal data should not be kept longer than necessary. For research, there are exceptions: data may be stored longer for archiving purposes in the public interest, scientific research, or statistical purposes (Art. 89), but this requires appropriate safeguards such as encryption and access control.
 
 **The research exemption (Art. 89).** The GDPR acknowledges the importance of scientific research and provides some flexibility. For example, further processing of personal data for research purposes is generally considered compatible with the original purpose of collection.
 
@@ -89,7 +89,7 @@ But be careful: **pseudonymized** data (e.g., replacing names with codes while k
 
 The GDPR grants individuals (including your research participants) several rights regarding their data. The most relevant ones for research are:
 
--   **Right to be informed:** Participants must be told how their data is used - this is typically covered in your consent form.
+-   **Right to be informed:** Participants must be told how their data is used; this is typically covered in your consent form.
 -   **Right to access:** Participants can request to see what data you hold about them.
 -   **Right to erasure:** Participants can request that their data be deleted, though exceptions apply for research in the public interest.
 -   **Right to withdraw consent:** Participants can withdraw their consent at any time, and you must be able to honor that request (which is easier if your data is well-organized and pseudonymized, so you can find and remove specific records).
@@ -102,6 +102,6 @@ If you plan to anonymize and share your data, it is good practice to inform part
 
 #### Resources, Links, Examples
 
-Find the full text of the GDPR [here](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng).
+Read the [full text of the GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng).
 
 # References

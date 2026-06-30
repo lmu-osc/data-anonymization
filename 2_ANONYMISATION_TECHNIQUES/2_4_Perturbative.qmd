@@ -12,6 +12,7 @@ bibliography: ../references.bib
 ```{r Setup}
 #| include: false
 
+# Setup: load packages, data, and the saved sdcObject
 library(sdcMicro)
 library(tidyverse)
 
@@ -38,7 +39,7 @@ There are two main variants. **Record swapping** (also known as data swapping) a
 
 **Rank swapping** applies to continuous variables: values are only swapped with other values that are close in rank, which limits how much the distribution is distorted.
 
-The main **advantage** of swapping is that it removes the relationship between a record and the individual without introducing new values that never existed in the data. It can protect rare and unique values and works across variable types. On the **downside**, non-random swapping requires careful implementation, and swapping can produce unusual combinations of values that did not exist in the original data. It is also not effective against membership disclosure - an attacker who does not need to identify a specific record but just wants to learn something about a group will not be deterred.<!--which is better then? cite?-->
+The main **advantage** of swapping is that it removes the relationship between a record and the individual without introducing new values that never existed in the data. It can protect rare and unique values and works across variable types. On the **downside**, non-random swapping requires careful implementation, and swapping can produce unusual combinations of values that did not exist in the original data. It is also not effective against membership disclosure—an attacker who does not need to identify a specific record but just wants to learn something about a group will not be deterred.<!--which is better then? cite?-->
 
 ## Re-sampling
 
@@ -48,14 +49,14 @@ Re-sampling **replaces original values with averages** computed from bootstrap s
 
 Noise addition (also known as randomization) **adds a random value** to each original value. The most common form is **additive noise**: a random draw from a distribution (typically normal with mean 0) is added to the original value. **Multiplicative noise** works similarly but multiplies the original value by a random factor, which scales the perturbation to the magnitude of the variable.
 
-The noise can be uncorrelated - each value gets an independent random draw - or correlated with the original values, which better preserves the correlation structure between variables. Transformations of the variable (e.g., log-transforming income before adding noise) are also possible and can improve the result for skewed distributions.
+The noise can be uncorrelated—each value gets an independent random draw—or correlated with the original values, which better preserves the correlation structure between variables. Transformations of the variable (e.g., log-transforming income before adding noise) are also possible and can improve the result for skewed distributions.
 
 ::: {.callout-note collapse="false"}
 ## Differential Privacy
 
 <!--TODO Improve this-->
 
-Differential privacy is a **formal privacy guarantee** that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset - so the presence or absence of one person cannot be inferred from the result.
+Differential privacy is a **formal privacy guarantee** that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset—so the presence or absence of one person cannot be inferred from the result.
 
 In practice, this means adding carefully calibrated noise to query results or to the data itself, such that any individual's contribution is hidden within the noise.
 
@@ -66,7 +67,7 @@ For R users, the `diffpriv` package implements differential privacy mechanisms a
 
 ## Microaggregation
 
-Microaggregation **groups records by similarity on the variable of interest and replaces each value with a group aggregate** - usually the mean or median. Records within the same group end up sharing the same value, which makes it impossible to single out an individual based on that variable alone.
+Microaggregation **groups records by similarity on the variable of interest and replaces each value with a group aggregate**—usually the mean or median. Records within the same group end up sharing the same value, which makes it impossible to single out an individual based on that variable alone.
 
 The quality of the result depends on how homogeneous the groups are: the more similar the original values within a group, the less information is lost when replacing them with the group mean. This is why the grouping algorithm matters. The default in `sdcMicro`, `mdav` (Maximum Distance to Average Vector), tries to form compact groups to minimize distortion.
 
@@ -94,7 +95,7 @@ Pros:
 
 Cons:
 
--   Individual values are no longer accurate. This makes perturbative techniques unsuitable if exact values matter - for example, if a researcher needs to verify that a specific participant had a specific income.
+-   Individual values are no longer accurate. This makes perturbative techniques unsuitable if exact values matter—for example, if a researcher needs to verify that a specific participant had a specific income.
 -   Risk of reverse-engineering: if the perturbation method and its parameters are known, an attacker may be able to approximately reconstruct the original values.
 -   If applied too aggressively, perturbative techniques can distort subgroup statistics in ways that are hard to detect.
 
@@ -122,6 +123,7 @@ You cannot undo perturbation steps within the same `sdcObject`. Create a fresh c
 I start by applying microaggreagation with a group size of 5 on a new `sdcObject`.
 
 ```{r}
+# Microaggregation: replace income with group means (group size 5)
 sdc_micro <- microaggregation(
   obj    = sdc_nonpert,
   variables = "income",
@@ -142,6 +144,7 @@ As we can see in the output of the `sdcObject`, the disclosure risk is reduced f
 ### Additive noise
 
 ```{r}
+# Additive noise on income
 sdc_noise <- addNoise(
   obj    = sdc_nonpert,
   variables = "income",
@@ -157,6 +160,7 @@ sdc_noise
 Let's save these objects for now. We will later come back to inspect the utility of both methods in [the chapter on balancing utility and privacy](../3_PRIVACY_OPENNESS/3_1_Balancing).
 
 ```{r}
+# Save the perturbed sdcObjects for the balancing chapter
 saveRDS(sdc_micro, here::here("sdc_micro.rds"))
 saveRDS(sdc_noise, here::here("sdc_noise.rds"))
 

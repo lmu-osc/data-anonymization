@@ -13,21 +13,21 @@ There is no universal recipe for choosing an anonymization technique. The right 
 
 # Contextual Factors
 
-**Sampling strategy** affects both the level of risk and what techniques make sense. Random sampling from a large population reduces risk because an attacker cannot be certain a given individual is even in the released dataset. But if your sample covers an entire group - say, all first-year students in one subject at one university, or all employees of a company - membership is effectively known, and risk is considerably higher [@guo2025].
+**Sampling strategy** affects both the level of risk and what techniques make sense. Random sampling from a large population reduces risk because an attacker cannot be certain a given individual is even in the released dataset. But if your sample covers an entire group—say, all first-year students in one subject at one university, or all employees of a company—membership is effectively known, and risk is considerably higher [@guo2025].
 
 **Release type**: If the data will only be accessible to vetted researchers under a data use agreement, you can afford somewhat weaker anonymization than for a fully open public release. Some datasets may warrant restricted access rather than open publication [@Benschop_StatisticalDisclosureControl]. However, non-public access comes with many disadvantages; the biggest one is that it takes time and extra work for anyone who wants to access the work. I would therefore advice against restricting access and would only consider this as the absolute last resort.
 
 **Sensitivity level**: How sensitive is the data? Health data, political opinions, religious beliefs, and other special categories under GDPR Art. 9 require stronger protection than general demographics.
 
-**Intended use**: What analyses will users run on the anonymized data? If exact values matter - for example, income in a regression model - perturbative methods with low noise may be preferable to heavy generalization. If only group-level comparisons are needed, aggressive recoding may be perfectly fine.
+**Intended use**: What analyses will users run on the anonymized data? If exact values matter—for example, income in a regression model—perturbative methods with low noise may be preferable to heavy generalization. If only group-level comparisons are needed, aggressive recoding may be perfectly fine.
 
-**Attacker model**: Who might try to re-identify individuals, and what do they already know? A dataset about employees of one company faces very different risks than a nationally representative survey. Someone who knows a participant personally is more dangerous than a random adversary with no prior knowledge (see the section on [participation knowledge](2_1_Planning_Privacy#identifying-privacy-risks)).
+**Attacker model**: Who might try to re-identify individuals, and what do they already know? A dataset about employees of one company faces very different risks than a nationally representative survey. Someone who knows a participant personally is more dangerous than a random adversary with no prior knowledge (see the box on [participation knowledge](../1_FOUNDATION/1_5_Privacy_Concepts#participation-knowledge)).
 
 # Technical Constraints
 
 **Data type** determines which techniques are even applicable. Recoding and PRAM only work for categorical variables; noise addition and microaggregation target continuous ones. Suppression and sampling work for both. Always check whether your key variables are categorical or continuous before picking a technique.
 
-**Sample size** is a key constraint. Smaller datasets are harder to anonymize because individuals are more likely to have unique combinations of attributes. Techniques like sampling may remove too much data to be useful in small samples - you may need to accept lower k-anonymity or consider restricted access instead of full open publication.
+**Sample size** is a key constraint. Smaller datasets are harder to anonymize because individuals are more likely to have unique combinations of attributes. Techniques like sampling may remove too much data to be useful in small samples—you may need to accept lower k-anonymity or consider restricted access instead of full open publication.
 
 ::: {.callout-warning collapse="false"}
 ## Achieving k-Anonymity
@@ -44,7 +44,7 @@ Below are descriptions of three fictional datasets. For each, decide which anony
 ::: {.callout-important collapse="true"}
 ## Example Solution
 
-The large sample size works in your favor: with 10,000 records, most combinations of age group, gender, and federal state will not be unique. Start by checking k-anonymity across the key quasi-identifiers (age group, gender, federal state, income bracket). Political opinion is a sensitive variable under GDPR Art. 9, but it is also the core research variable - removing it is not an option. Instead, ensure all indirect identifiers are sufficiently generalized so that the combination does not single anyone out. Top-bottom code income at the extremes to protect very high and very low earners. A k-anonymity target of k = 3 is reasonable given the political sensitivity of the data on the one hand and the low participation knowledge risk on the other hand. Perturbative techniques are generally not needed here given the large sample (and since income is already in a bracket).
+The large sample size works in your favor: with 10,000 records, most combinations of age group, gender, and federal state will not be unique. Start by checking k-anonymity across the key quasi-identifiers (age group, gender, federal state, income bracket). Political opinion is a sensitive variable under GDPR Art. 9, but it is also the core research variable—removing it is not an option. Instead, ensure all indirect identifiers are sufficiently generalized so that the combination does not single anyone out. Top-bottom code income at the extremes to protect very high and very low earners. A k-anonymity target of k = 3 is reasonable given the political sensitivity of the data on the one hand and the low participation knowledge risk on the other hand. Perturbative techniques are generally not needed here given the large sample (and since income is already in a bracket).
 :::
 
 2\. A study on workplace bullying at a mid-sized company (n = 120). Every employee participated in the study. Variables: department, job level, years at company, bullying score, mental health score. The data will be published as a fully open dataset
@@ -52,9 +52,9 @@ The large sample size works in your favor: with 10,000 records, most combination
 ::: {.callout-important collapse="true"}
 ## Example Solution
 
-This is a high-risk case for several reasons: every employee participated (so participation knowledge is guaranteed for the entire dataset), the sample is small, and the topic is sensitive. Any colleague, manager, or HR staff member knows their coworkers are in the data - re-identification attempts are very plausible.
+This is a high-risk case for several reasons: every employee participated (so participation knowledge is guaranteed for the entire dataset), the sample is small, and the topic is sensitive. Any colleague, manager, or HR staff member knows their coworkers are in the data—re-identification attempts are very plausible.
 
-Recommended steps: combine small departments into broader groups, generalize job level and years at company into bands, and apply noise or microaggregation to the bullying and mental health scores to protect individual values. Aim for k-anonymity ≥ 5. Even after these steps, fully open publication of these data may not be appropriate here - consider synthesizing the data instead. The combination of guaranteed participation knowledge, small sample, and sensitive outcomes makes this scenario one of the harder cases.
+Recommended steps: combine small departments into broader groups, generalize job level and years at company into bands, and apply noise or microaggregation to the bullying and mental health scores to protect individual values. Aim for k-anonymity ≥ 5. Even after these steps, fully open publication of these data may not be appropriate here—consider synthesizing the data instead. The combination of guaranteed participation knowledge, small sample, and sensitive outcomes makes this scenario one of the harder cases.
 :::
 
 3\. A clinical trial dataset (n = 500) with diagnosis codes, treatment group, age, sex, and a rare genetic marker. The data will be published as a fully open dataset.

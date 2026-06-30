@@ -12,18 +12,18 @@ title: "Documentation"
 
 Thorough documentation of your anonymization process serves two purposes:
 
-1.  It provides an **internal record for auditing** - if questions arise later about how the data was handled, you can retrace every step.
+1.  It provides an **internal record for auditing**—if questions arise later about how the data was handled, you can retrace every step.
 2.  It provides transparency for **data users**, who need to understand what was changed in order to interpret the data correctly.
 
 # Internal Documentation
 
-Your internal documentation should describe the **full anonymization workflow**: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a **lab notebook** for your data processing. This document should be stored securely alongside the original data - it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). In our case, this is the full, well-commented **R script**.
+Your internal documentation should describe the **full anonymization workflow**: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a **lab notebook** for your data processing. This document should be stored securely alongside the original data—it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). In our case, this is the full, well-commented **R script**.
 
 # External Documentation in Data Dictionary
 
 The external documentation is what you **share alongside the anonymized dataset**. It should include a **data dictionary** describing every variable in the released dataset, including any changes from the original. For example, if `age` was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.
 
-If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values - for example, a line like `filter(country == "Liechtenstein")` tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible.
+If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values—for example, a line like `filter(country == "Liechtenstein")` tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible.
 
 # Exercise
 
@@ -36,9 +36,9 @@ The following variables were removed or modified during anonymization:
 
 | Variable Name | Status | Change |
 |------------------------|------------------------|------------------------|
-| `name` | **Removed** | Direct identifier - dropped before release |
-| `email` | **Removed** | Direct identifier - dropped before release |
-| `ip_address` | **Removed** | Direct identifier - dropped before release |
+| `name` | **Removed** | Direct identifier, dropped before release |
+| `email` | **Removed** | Direct identifier, dropped before release |
+| `ip_address` | **Removed** | Direct identifier, dropped before release |
 | `id` | Unchanged |  |
 | `age` | **Modified** | Recoded from exact age in years (Integer; 18-100) to age band (Factor; "18-29", "30-39", "40-49", "50-59", "60+") |
 | `plz` | **Modified** | Recoded from full 5-digit postal code to regional indicator (Factor; "8xxxx" for Munich/southwest German region, "other" for all other codes); local suppression of 2 values that violate 3-anonymity |
