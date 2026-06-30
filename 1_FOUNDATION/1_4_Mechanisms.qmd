@@ -151,7 +151,7 @@ The bulk of this tutorial is dedicated to teaching you these techniques and help
 Even during processing and analysis, participants retain their rights under the GDPR. The most relevant ones for this stage are:
 
 -   **Right to access:** Participants can ask to see what data you hold about them. This is easier to fulfill if your data is well-organized and pseudonymized (so you can look up individual records).
--   **Right to erasure:** Participants can request that their data be deleted, for example, if they withdraw consent. Again, this requires that you can identify their records - another reason for careful pseudonymization during the active research phase.
+-   **Right to erasure:** Participants can request that their data be deleted, for example, if they withdraw consent. Again, this requires that you can identify their records—another reason for careful pseudonymization during the active research phase.
 
 Once data is fully anonymized, these rights no longer apply (since you can no longer identify whose data is whose). Communicate your timeline transparently to participants during participation in the study.
 

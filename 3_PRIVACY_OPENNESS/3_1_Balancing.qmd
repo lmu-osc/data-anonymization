@@ -61,7 +61,7 @@ Both values are part of the standard `sdcMicro` output after applying any anonym
 
 ## Using `sdcMicro`'s Parameters
 
-Let's go back to the two `sdcObjects` we created in [the chapter on perturbative techniques](#0): `sdc_micro` (where we applied microaggregation) and `sdc_noise` (where we applied noise).
+Let's go back to the two `sdcObjects` we created in [the chapter on perturbative techniques](../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative): `sdc_micro` (where we applied microaggregation) and `sdc_noise` (where we applied noise).
 
 1.  Compare the utility with IL1 and the difference of eigenvalues. Which method do you prefer when looking at these utility indices?
 2.  Make a decision for one of the methods and export the data for further use.

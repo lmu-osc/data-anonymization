@@ -42,6 +42,8 @@ Depending on the specific data type and risk, different techniques are possible 
 
 Global recoding (also called generalization) replaces the exact values of a variable with **broader categories**—applied to **every row** in the dataset.
 
+![Global recoding: exact ages are replaced with age bands, applied to every row.](../pictures/Global-Recoding-cropped.png){fig-alt="A before-and-after table of five records; the exact ages are replaced with age bands such as 50-59 and 20-29, while the other columns stay the same."}
+
 **Examples**
 
 -   Replacing specific countries with world regions (e.g., "Germany", "France" → "Western Europe").
@@ -56,11 +58,15 @@ Local recoding **generalizes values only where needed**, rather than across the 
 
 **Example**: If only few participant are from Asia, you may recode only their values (e.g., "China", "India", "Nepal") to "Asia", keeping all others unchanged.
 
+![Local recoding: only the rare religion values are generalized (here to "christian"), while the rest stay unchanged.](../pictures/Local-Recoding-cropped.png){fig-alt="A before-and-after table where only two of the five records have their religion changed to christian; the other records are unchanged."}
+
 This means, that values are on different level (in this example: country vs. continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently—you need to be transparent about which categories were collapsed and why.
 
 ## Top-and-Bottom Coding
 
 Top-and-bottom coding is a special case of **recoding that applies to numerical variables**. Instead of grouping all values into bands, you **cap the extreme ends of the distribution**—replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value. <!-- TODO explain why this is non-perturbativee  -->
+
+![Top-coding: the single highest age is capped (here to ">60"), while the rest stay unchanged.](../pictures/Top-Bottom-Coding-cropped.png){fig-alt="A before-and-after table where the largest age value is replaced with a >60 cap; the other ages are unchanged."}
 
 **Examples**
 
@@ -73,6 +79,8 @@ How to determine the threshold: A common approach is to look at the distribution
 ## Suppression
 
 Suppression means **removing information entirely**—replacing a value with a missing value (`NA`) or dropping it altogether. This is also known as nulling. It is the most straightforward way to handle data that is too risky to release, but it also loses the most information.
+
+![Suppression: risky values (here the whole Gender column) are replaced with `NA`.](../pictures/Suppression-cropped.png){fig-alt="A before-and-after table where every value in the Gender column is replaced with NA, while the other columns are kept."}
 
 Suppression can occur on different levels:
 
@@ -89,6 +97,8 @@ Suppression is often used as a last resort after recoding: if recoding alone is 
 ## Sampling
 
 If your dataset covers an entire population—for example, all students enrolled in a particular program, or all employees of a specific company—then releasing it in full means that anyone who knows a person was part of that group can try to find their record. [Participation knowledge](../1_FOUNDATION/1_5_Privacy_Concepts#participation-knowledge) would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
+
+![Sampling: only a subset of records is released; here two rows are dropped from the published data.](../pictures/Sampling-cropped.png){fig-alt="A before-and-after table where two of the five rows are struck through to show they are not included in the released sample."}
 
 A sample can be randomly selected, but also based on conditions (e.g., quotas for study subjects).
 
@@ -116,7 +126,7 @@ The following `sdcMicro` functions are available to you:
 
 -   `globalRecode()` recodes a key variable into broader groups (e.g., exact age → age band)
 -   `topBotCoding()` caps extreme values at a given threshold
--   `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
+-   `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful wFlohen using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
 
 In addition, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from the R pakage `forcats`. This function lumps all categories below a certain group size together.
 

@@ -100,7 +100,7 @@ For this object, we start with defining the following:
 -   `sdcApp()`Opens the GUI: The GUI provides a nice overview of functions. In case you decide to use it (and I recommend to try it out), create an anonymization report and the end via "export data" to make your anonymization transparent.
 
 -   `AI_createSdcObj()` and `AI_applyAnonymization()`\
-    These new functions use LLMs to assist with the creation of an `sdcObject` and anonymization. [Here](https://cran.r-project.org/web/packages/sdcMicro/vignettes/ai_assisted_anonymization.html) is a tutorial on how to use them. We won't use these in the context of the tutorial, to learn the processes manually first.
+    These new functions use LLMs to assist with the creation of an `sdcObject` and anonymization. See [the sdcMicro vignette on AI-assisted anonymization](https://cran.r-project.org/web/packages/sdcMicro/vignettes/ai_assisted_anonymization.html) for how to use them. We won't use these in the context of the tutorial, to learn the processes manually first.
 :::
 
 ## Exercise: Assessing Privacy Risks With `sdcMicro`
