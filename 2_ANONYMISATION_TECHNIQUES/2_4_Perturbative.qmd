@@ -35,7 +35,7 @@ Swapping **exchanges values of a variable between participants**. Instead of alt
 
 There are two main variants. **Record swapping** (also known as data swapping) applies to categorical variables: values like gender or country of residence are swapped between records. A useful property here is t-order equivalence. For example, 1-order equivalence means the marginal frequencies are preserved (same number of males and females as before), and 2-order equivalence means joint frequencies are also preserved (same number of males and females from each country).
 
-![Record swapping: gender values are exchanged between records. The 1-order frequencies stay the same, but the 2-order (joint) frequencies can change.](../pictures/Swapping-cropped.png){fig-alt="A before-and-after table where gender values are swapped between records; frequency tables below show that 1-order frequencies stay equal while 2-order frequencies change."}
+![Record swapping: gender values are exchanged between records. In this case, the 1-order frequencies stay the same, but the 2-order frequencies change, meaning that only 1-order equivalence is reached.](../pictures/Swapping-cropped.png){fig-alt="A before-and-after table where gender values are swapped between records; frequency tables below show that 1-order frequencies stay equal while 2-order frequencies change."}
 
 **Rank swapping** applies to continuous variables: values are only swapped with other values that are close in rank, which limits how much the distribution is distorted.
 
@@ -43,9 +43,9 @@ The main **advantage** of swapping is that it removes the relationship between a
 
 ## Re-sampling
 
-Re-sampling **replaces original values with averages** computed from bootstrap samples. You draw multiple independent bootstrap samples from the original data, compute the statistic of interest (e.g., the mean) for each sample, and then replace the original value of each record with the bootstrapped estimate for that record. The result preserves the overall distribution but individual values no longer correspond to real observations.
+Re-sampling **replaces original values with averages** computed from bootstrap samples [@hundepool2026]. You draw multiple independent bootstrap samples from the original data with replacement, with the same sample size as your original data, and sort the values within each sample. You then compute the average of the smallest values across all samples, then of the second-smallest ones, and so forth, and replace the corresponding original values (i.e., the smallest original value with the average of the smallest values in the samples, etc.). The result preserves the overall distribution, but individual values no longer correspond to real observations.
 
-![Re-sampling: original ages are replaced with values drawn from bootstrap estimates.](../pictures/Re-sampling-cropped.png){fig-alt="A before-and-after table where the exact ages are replaced with re-sampled values."}
+![Re-sampling: original ages are replaced with averages of sorted values across t = 3 bootstrapped samples.](../pictures/Re-sampling-cropped.png){fig-alt="A before-and-after table where the exact ages are replaced with mean values of sub-samples."}
 
 ## Noise
 
