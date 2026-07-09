@@ -47,7 +47,7 @@ The GDPR (Art. 9) describes several categories of **sensitive data** that receiv
 
 In practice, this means you need to be **extra careful** with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
 
-**Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend to talk to your institution's data protection officer.
+**Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.
 
 # Exercise: Personal Data
 
@@ -131,7 +131,33 @@ The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_inte
 Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as `name`) is possible, it is considered personal data, and GDPR applies.
 :::
 
-As a first step, you always want to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators. <!-- TODO stronger recommendations here? raw data in a safe server, as read only, and preproccessed data (without direct identifiers, done through script)? @Felix?-->
+As a first step, you always want to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators.
+
+More generally, it helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The following is a good default:
+
+::: {#optimal-workflow .callout-tip collapse="false"}
+## An optimal workflow for handling identifiers
+
+1.  **Download** the raw data from your collection tool.
+
+2.  **Remove direct identifiers** as soon as you no longer need them—in *every* copy that exists (collection platform, cloud storage, collaborators' copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.
+
+3.  **Remove the pseudonym key** using the same logic. If either direct identifiers or a pseudonym key would serve the purpose, keep the key—it is the safer option—but store it *separately* from the data, with restricted access and a defined deletion date.
+
+4.  **Store a secure master copy** of the data without direct identifiers and pseudonyms—e.g., read-only on your institution's password-protected server. Generate your working copy from it with a script, so the cleaning step is reproducible and auditable.
+
+5.  **Analyze, write, and share with collaborators** using this identifier-free working copy.
+
+6.  **Anonymize** the data if needed, following the steps explained in this tutorial.
+
+7.  **Publish the anonymized version** of the data.
+:::
+
+::: {.callout-warning collapse="false"}
+## Myth: "The funder wants the full raw data"
+
+It is a common misconception that funding agencies require you to archive the complete raw dataset *including* direct identifiers. In reality, they almost always want the raw data *without* them. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.
+:::
 
 ## Exercise: Remove Direct Identifiers
 
@@ -161,7 +187,7 @@ Save the new file
 write.csv(data_withoutdirectidentifiers, here::here("SimulatedData_noidentifiers.csv"), row.names = FALSE)
 ```
 
-Delete the old file.<!-- TODO mmhh that info is needed for something otherwise why was it collected? minimally the name is needed to withdraw people's data if request it; and email if you detect a disease and need to inform them @Felix?-->
+Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not "always delete immediately" but "delete once the documented purpose is gone." Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.
 :::
 
 #### Resources, Links, Examples

@@ -125,15 +125,17 @@ These measures add layers of protection around your data while it is still in pe
 
 Pseudonymization is the process of replacing direct identifiers (like names) with artificial identifiers (like participant codes). It is an important first step, but it is crucial to understand its limits.
 
-The key point: **pseudonymized data is still personal data.** The GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (GDPR Recital 26). As long as a key file exists that links participant codes back to real identities—or as long as indirect identifiers in the data could allow re-identification—the data remains personal, and the GDPR fully applies.
+The key point: **pseudonymized data is still personal data.** The GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" ([GDPR Recital 26)](https://www.privacy-regulation.eu/en/recital-26-GDPR.htm). As long as a key file exists that links participant codes back to real identities—or as long as indirect identifiers in the data could allow re-identification—the data remains personal, and the GDPR fully applies.
 
 Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. We discussed this in [the chapter on personal data](1_3_Personal_Data), and we will look at it more formally in [the chapter on privacy concepts](1_5_Privacy_Concepts).
 
 The GDPR considers pseudonymization a useful safeguard and a step in the right direction—but it is not enough if your goal is to share data openly.
 
+For a practical, step-by-step workflow on when to remove direct identifiers and the pseudonym key across every copy of your data, see the [workflow callout in the chapter on personal data](1_3_Personal_Data.qmd#optimal-workflow).
+
 ## Anonymization
 
-Anonymization goes further than pseudonymization. The goal is to **transform personal data so that individuals can no longer be identified**—directly or indirectly—by any means reasonably likely to be used. When data is truly anonymized, it falls **outside the scope of the GDPR** (Recital 26), which means it can be shared, published, and reused without the legal restrictions that apply to personal data.
+Anonymization goes further than pseudonymization. The goal is to **transform personal data so that individuals can no longer be identified**—directly or indirectly—by any means reasonably likely to be used. When data is truly anonymized, it falls **outside the scope of the GDPR** ([Recital 26)](https://www.privacy-regulation.eu/en/recital-26-GDPR.htm), which means it can be shared, published, and reused without the legal restrictions that apply to personal data.
 
 This sounds straightforward, but in practice, **true anonymization is hard to achieve**. Simply removing names and email addresses is usually not enough—indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a **process that requires careful analysis of risks and the application of specific techniques**.
 
