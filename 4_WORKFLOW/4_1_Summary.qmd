@@ -10,40 +10,145 @@ After completing this part of the tutorial, you will understand the anonymizatio
 
 This chapter summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data.
 
-*Add a flowchart to the process*
+```{=html}
+<style>
+.wf { max-width: 820px; margin: 1.4rem auto 0.6rem; }
+.wf-step {
+  position: relative;
+  display: flex; align-items: center; gap: 0.85rem;
+  background: #EAF4EE;
+  border: 1.5px solid #00883A;
+  border-radius: 12px;
+  padding: 0.6rem 1rem 0.6rem 0.6rem;
+  transition: box-shadow .15s ease, transform .15s ease;
+}
+.wf-step:hover { box-shadow: 0 4px 12px rgba(0,136,58,.28); transform: translateY(-1px); }
+.wf-step.wf-static:hover { box-shadow: none; transform: none; }
+.wf-num {
+  flex: 0 0 auto;
+  width: 2.1rem; height: 2.1rem;
+  background: #00883A; color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.05rem;
+}
+.wf-body { display: flex; flex-direction: column; }
+.wf-title {
+  font-weight: 700; font-size: 1.02rem; color: #006426;
+  text-decoration: none;
+}
+.wf-title:hover { text-decoration: underline; }
+/* stretched link: whole card is clickable */
+.wf-title::after {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+}
+.wf-desc { font-size: 0.9rem; color: #333; margin-top: .15rem; line-height: 1.35; }
+/* links inside the description sit above the stretched overlay */
+.wf-desc a { position: relative; z-index: 1;
+  color: #00883A; font-weight: 600; text-decoration: none;
+  border-bottom: 1px dotted #00883A; padding: 0 1px;
+}
+.wf-desc a:hover { background: #00883A; color: #fff; border-radius: 3px; }
+.wf-arrow { text-align: center; color: #00883A; font-size: 1.05rem; line-height: 1; margin: .18rem 0; }
+.wf-loop { color: #00883A; font-weight: 600; }
+</style>
 
-# Step 1: Implement Data Privacy Before and During Data Collection
+<div class="wf">
 
-Check whether public data is available for reuse to answer your research question. If not, start with privacy by design: minimize the data you collect, plan your storage and access controls, and write a data management plan. Think about anonymization before you collect a single data point.
+  <div class="wf-step" id="wf-1">
+    <span class="wf-num">1</span>
+    <div class="wf-body">
+      <a class="wf-title" href="../1_FOUNDATION/1_1_Introduction_data_privacy.html">Implement Data Privacy</a>
+      <span class="wf-desc">Privacy by design before &amp; during collection: minimize data, plan storage/access, write a DMP.</span>
+    </div>
+  </div>
+  <div class="wf-arrow">&#9660;</div>
 
-# Step 2: Collect Data
+  <div class="wf-step" id="wf-2">
+    <span class="wf-num">2</span>
+    <div class="wf-body">
+      <a class="wf-title" href="../1_FOUNDATION/1_3_Personal_Data.html">Collect Data &amp; Handle Identifiers</a>
+      <span class="wf-desc">Use informed consent and pseudonymize early. Remove direct identifiers from every copy, store the pseudonym key separately, and work from a secure identifier-free copy.</span>
+    </div>
+  </div>
+  <div class="wf-arrow">&#9660;</div>
 
-Collect only what you need. Use informed consent forms that clearly state how data will be used and whether it will be shared. Pseudonymize data as early as possible by replacing direct identifiers with codes.
+  <div class="wf-step wf-static" id="wf-3">
+    <span class="wf-num">3</span>
+    <div class="wf-body">
+      <span class="wf-title">Run Analysis</span>
+      <span class="wf-desc">Do your analysis, writing, and collaborator sharing on the identifier-free working copy.</span>
+    </div>
+  </div>
+  <div class="wf-arrow">&#9660;</div>
 
-# Step 3: Analyze Attack Scenarios
+  <div class="wf-step" id="wf-4">
+    <span class="wf-num">4</span>
+    <div class="wf-body">
+      <a class="wf-title" href="../1_FOUNDATION/1_5_Privacy_Concepts.html">Analyze Attack Scenarios</a>
+      <span class="wf-desc">Consider adversaries and disclosure risks (identity, attribute, inference, membership); set a k-anonymity goal.</span>
+    </div>
+  </div>
+  <div class="wf-arrow">&#9660;</div>
 
-Before anonymizing, think about who might try to re-identify individuals and what external information they could use. Consider identity disclosure, attribute disclosure, inference disclosure, and membership disclosure risks. Choose a k-anonymity goal based on contextual factors.
+  <div class="wf-step" id="wf-5">
+    <span class="wf-num">5</span>
+    <div class="wf-body">
+      <a class="wf-title" href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Calculate Disclosure Risk &amp; Utility</a>
+      <span class="wf-desc">Measure k-anonymity and risk metrics; establish a utility baseline (e.g.&nbsp;sdcMicro).</span>
+    </div>
+  </div>
+  <div class="wf-arrow">&#9660;</div>
 
-# Step 4: Calculate Disclosure Risk and Utility
+  <div class="wf-step" id="wf-6">
+    <span class="wf-num">6</span>
+    <div class="wf-body">
+      <a class="wf-title" href="../2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html">Choose Anonymization Measures</a>
+      <span class="wf-desc">Select a technique:
+        <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html">non-perturbative</a>,
+        <a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.html">perturbative</a>,
+        <a href="../2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html">de-associative</a>, or
+        <a href="../2_ANONYMISATION_TECHNIQUES/2_6_Synthetic.html">synthetic</a>.
+      </span>
+    </div>
+  </div>
+  <div class="wf-arrow">&#9660;</div>
 
-Use tools like `sdcMicro` to measure k-anonymity and other risk metrics on your dataset. Also, establish a baseline for data utility so you can compare later.
+  <div class="wf-step" id="wf-7">
+    <span class="wf-num">7</span>
+    <div class="wf-body">
+      <a class="wf-title" href="../2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.html">Apply Anonymization Techniques</a>
+      <span class="wf-desc">Apply chosen techniques step by step; track changes with sdcMicro.</span>
+    </div>
+  </div>
+  <div class="wf-arrow">&#9660;</div>
 
-# Step 5: Choose Anonymization Measures
+  <div class="wf-step" id="wf-8">
+    <span class="wf-num">8</span>
+    <div class="wf-body">
+      <a class="wf-title" href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Recalculate Risk &amp; Utility</a>
+      <span class="wf-desc">Re-measure after each step. If the balance is not satisfactory,
+        <a href="#wf-4" class="wf-loop">&#8635; return to Step 4</a> and iterate.</span>
+    </div>
+  </div>
+  <div class="wf-arrow">&#9660;</div>
 
-Based on your risk assessment, select appropriate techniques: non-perturbative (e.g., generalization, suppression), perturbative (e.g., noise, microaggregation), de-associative, or synthetic data generation.
+  <div class="wf-step" id="wf-9">
+    <span class="wf-num">9</span>
+    <div class="wf-body">
+      <a class="wf-title" href="../3_PRIVACY_OPENNESS/3_2_Documentation.html">Document the Process</a>
+      <span class="wf-desc">Internal (auditing) and external (data dictionary) documentation; review scripts.</span>
+    </div>
+  </div>
+  <div class="wf-arrow">&#9660;</div>
 
-# Step 6: Apply Anonymization Techniques
+  <div class="wf-step" id="wf-10">
+    <span class="wf-num">10</span>
+    <div class="wf-body">
+      <a class="wf-title" href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">Publish Data</a>
+      <span class="wf-desc">Share anonymized data + documentation; pick repository &amp; access level (fully open is best).</span>
+    </div>
+  </div>
 
-Apply your chosen techniques, working through them step by step. Use the `sdcMicro` package or equivalent tools to keep track of changes.
-
-# Step 7: Recalculate Disclosure Risk and Utility
-
-After each anonymization step, re-measure risk and utility. If the balance is not satisfactory, go back to Step 3 and adjust your approach. This is an iterative process.
-
-# Step 8: Document the Process
-
-Create both internal documentation (full details for auditing) and external documentation (e.g., in the data dictionary). Review your scripts to ensure they do not accidentally reveal sensitive information.
-
-# Step 9: Publish Data
-
-Share your anonymized dataset along with the external documentation. Choose an appropriate repository and access level based on the remaining risk (the best option is fully open).
+</div>
+```
