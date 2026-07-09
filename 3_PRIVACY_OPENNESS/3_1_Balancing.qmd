@@ -98,21 +98,6 @@ data_anonymized <- data_anonymized %>%
 ```
 :::
 
-As a last anonymization step, I will now **generalize rare religion categories** using `fct_lump_min()` from `forcats`. Since `religion` is not a variable in the `sdcObject`<!--TODO Decide on including this-->, I apply this directly to the dataset as an additional layer, protecting individuals with rare religions.
-
-```{r}
-# Generalize rare religion categories into "Other"
-# Inspect counts first
-table(data_anonymized$religion)
-
-data_anonymized <- data_anonymized %>%
-  mutate(religion = fct_lump_min(as.factor(religion), min = 10, other_level = "Other"))
-
-table(data_anonymized$religion)
-```
-
-`fct_lump_min(religion, min = 10)` merges any category with fewer than 10 observations into `"Other"`. Groups like "Judaism" or "Buddhism" which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes.
-
 ## Using Statistics
 
 For non-numeric variables that were recoded or suppressed, there is **no single formal measure**—but you can compare frequency tables before and after. For example, comparing the distribution of age bands or religion categories tells you whether the recoding preserved the overall composition of the sample.
@@ -169,7 +154,7 @@ data_anonymized %>%
   summarise(across(c(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, .names = "mean_{.col}"))
 ```
 
-The group-level means should be very the same between the original and anonymized datasets. The key research question—whether religion predicts political opinion—is still answerable. Note that some small religion categories have been merged into "Other", which changes the granularity of analysis but preserves the main patterns. Other than that, we did not change anything regarding these variables.
+The group-level means should be very the same between the original and anonymized datasets. The key research question—whether religion predicts political opinion—is still answerable. We did not change anything regarding these variables.
 
 **Reflection**
 
