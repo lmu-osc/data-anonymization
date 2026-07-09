@@ -25,7 +25,7 @@ There is no universal recipe for choosing an anonymization technique. The right 
 
 # Technical Constraints
 
-**Data type** determines which techniques are even applicable. Recoding and PRAM only work for categorical variables; noise addition and microaggregation target continuous ones. Suppression and sampling work for both. Always check whether your key variables are categorical or continuous before picking a technique.
+The **data type** determines which techniques are even applicable. For example, PRAM only works for categorical variables; noise addition and microaggregation target continuous ones. Suppression, swapping, recoding, and sampling work for both. Always check whether your key variables are categorical or continuous before picking a technique.
 
 **Sample size** is a key constraint. Smaller datasets are harder to anonymize because individuals are more likely to have unique combinations of attributes. Techniques like sampling may remove too much data to be useful in small samples—you may need to accept lower k-anonymity or consider restricted access instead of full open publication.
 
