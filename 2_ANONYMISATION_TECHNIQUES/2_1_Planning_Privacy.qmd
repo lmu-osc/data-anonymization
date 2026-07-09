@@ -56,12 +56,6 @@ To formally measure privacy risks (and for most of the following exercises), we 
 
 `sdcMicro` is an R package specialized in the anonymization of micro (small) data sets. `sdcMicro` offers a command line and a Graphical User interface (GUI).
 
-```{r}
-#| eval: false
-# Install the sdcMicro package
-install.packages("sdcMicro")
-```
-
 ## Using `sdcMicro` to Assess Privacy Risks
 
 Let's start by creating a sdcMicro object of the class `sdcMicroObj`, using the function `createSdcObj`. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores
@@ -161,7 +155,7 @@ individualrisk <- get.sdcMicroObj(sdc_data, "risk")$individual
 The individual risk shows a risk estimate for each individual in the dataset. `fk` is the frequency count in the sample and shows how many individuals share the same combination of key variables currently in our sdcObject. We can see that this is 1 for all participants except the IDs 94 and 122 I discussed above. `Fk` is the estimated frequency in the population; this only differs from `fk` in case of pre-defined sampling weights.
 :::
 
-::: {.callout-warning collapse="false"}
+::: {.callout-warning collapse="true"}
 ## There Is No One Correct Variable Assignment
 
 How you assign variables to `keyVars` and `numVars` is a judgment call—there is no universally correct answer. It depends on who you think is likely to try to re-identify someone, and what information they would already have.

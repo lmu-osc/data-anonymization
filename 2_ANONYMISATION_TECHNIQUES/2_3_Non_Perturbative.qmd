@@ -8,8 +8,8 @@ bibliography: ../references.bib
 
 After completing this part of the tutorial, you will be able to
 
--   choose an appropriate non-perturbative technique
--   apply simple non-perturbative techniques
+-   choose an appropriate non-perturbative technique.
+-   apply simple non-perturbative techniques.
 :::
 
 ```{r Setup}
@@ -66,7 +66,7 @@ This means, that values are on different level (in this example: country vs. con
 
 Top-and-bottom coding is a special case of **recoding that applies to numerical variables**. Instead of grouping all values into bands, you **cap the extreme ends of the distribution**—replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value. <!-- TODO explain why this is non-perturbativee  -->
 
-![Top-coding: the single highest age is capped (here to ">60"), while the rest stay unchanged.](../pictures/Top-Bottom-Coding-cropped.png){fig-alt="A before-and-after table where the largest age value is replaced with a >60 cap; the other ages are unchanged."}
+![Top-coding: the single highest age is capped (here to "\>60"), while the rest stay unchanged.](../pictures/Top-Bottom-Coding-cropped.png){fig-alt="A before-and-after table where the largest age value is replaced with a >60 cap; the other ages are unchanged."}
 
 **Examples**
 
