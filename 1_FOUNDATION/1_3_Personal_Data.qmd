@@ -25,52 +25,40 @@ An individual is considered **identifiable** if they can be recognized, either d
 
 The assessment of whether a person is identifiable takes into account all **means reasonably likely to be used** by the data controller or another person to identify the natural person, including methods such as "singling out". This "reasonably likely" criterion considers objective factors such as costs, time, effort, and the technological means available at the time of processing, as well as potential future technological developments. For instance, a dynamic IP address can qualify as personal data if it can be linked to a specific person, even if that linking capability resides with an Internet Service Provider and requires a court order [@breyer2016].
 
-In a research context, this means that even **datasets without names or email addresses can contain personal data**. A dataset with age, gender, postal code, and occupation might seem harmless - but in the case of rare occupations, an attacker might be able to single individuals out using just these variables. This is especially relevant for **smaller or more specialized samples** (e.g., employees of a specific company, students in a specific program) where combinations of demographic variables become more unique. It is also relevant when your data contains grouped observations - for example, couples, families, or school classes - since group members share certain attributes and may use their knowledge about other members to identify them in the dataset.
+In a research context, this means that even **datasets without names or email addresses can contain personal data**. A dataset with age, gender, postal code, and occupation might seem harmless—but in the case of rare occupations, an attacker might be able to single individuals out using just these variables. This is especially relevant for **smaller or more specialized samples** (e.g., employees of a specific company, students in a specific program) where combinations of demographic variables become more unique. It is also relevant when your data contains grouped observations—for example, couples, families, or school classes—since group members share certain attributes and may use their knowledge about other members to identify them in the dataset.
 
 ## Special Types of Personal Data
 
 The GDPR (Art. 9) describes several categories of **sensitive data** that receive heightened protection:
 
 -   racial or ethnic origin,
+
 -   political opinions,
+
 -   religious or philosophical beliefs,
+
 -   trade union membership,
+
 -   genetic data, biometric data (for unique identification),
+
 -   health data,
+
 -   and data concerning a natural person's sex life or sexual orientation.
 
-Otherwise sensitive data include:
+In practice, this means you need to be **extra careful** with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
 
--   information about criminal convictions and offenses
--   financial data
-
-In practice, this means you need to be **extra careful** with these variables when sharing data - they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
+**Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.
 
 # Exercise: Personal Data
 
-Here is a **simulated dataset** of 200 Germans. The data's purpose is to answer whether **certain political opinions are linked to religion**. This dataset will be used throughout the exercises.
-
-Download the dataset here:
+In this first exercise, we work with **our dataset**—the simulated dataset of 200 Germans introduced on the [landing page](../index.qmd), whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:
 
 ```{r}
-#| label: download-link
-#| echo: false
-# Generates a clickable download link for the GitHub Pages website
-xfun::embed_file(
-  "../SimulatedData.csv",
-  text = "⬇️ Download SimulatedData.csv"
-)
-```
+#| label: data-setup
+#| include: false
 
-Copy this to a new Markdown file in RStudio to import the data for further analysis:
-
-```{r}
-#| label: data-import
-#| message: false
-
-# Load data based on downloaded file
-data <- read.csv("../SimulatedData.csv") # Change based on the location of your data file
-
+# Load the dataset downloaded from the landing page
+data <- read.csv(here::here("SimulatedData.csv")) # Change based on the location of your data file
 ```
 
 ::: {.callout-note collapse="false"}
@@ -92,7 +80,7 @@ data <- read.csv("../SimulatedData.csv") # Change based on the location of your 
 | pol_redistribution | Likert item measuring opinion on redistribution of wealth | The government should reduce income differences between rich and poor. | Integer; 1-5 |
 | pol_eu_integration | Likert item measuring opinion on membership in EU | Our country benefits from being a member of the European Union. | Integer; 1-5 |
 | ip_address | IP address (version 4) of participant's device when answering survey | (collected in background) | String of characters |
-| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0–n |
+| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0-n |
 :::
 
 ## Exercise: Direct Identifiers, Indirect Identifiers, and Special Categories
@@ -110,7 +98,7 @@ Inspect the dataset `data`. Answer the following questions:
 
 **Email addresses** are considered direct identifiers since they often contain names and therefore, clearly specify certain individuals. However, even when not containing names, they can act as indirect identifiers by linking to an account or revealing a person's organization.
 
-**IP addresses** can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the ISP [@breyer2016]. In a research context, they should be treated as direct identifiers.
+**IP addresses** can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the Internet service provider [@breyer2016]. In a research context, they should be treated as direct identifiers.
 :::
 
 2\. Which columns contain **indirect identifiers**?
@@ -120,7 +108,7 @@ Inspect the dataset `data`. Answer the following questions:
 
 ### Indirect identifiers: `gender`, `age`, `education`, `income`, `plz`, `years_in_job`
 
-**Gender**, **age**, **education**, **postal code**, **income**, and **years in job** are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be **linked** with each other or external knowledge. When an attacker knows of a person who participated in the study and knows their education level, they could identify the person in the data.
+**Gender**, **age**, **education**, **postal code**, **income**, and **years in job** are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be **linked** with each other or external knowledge. When an attacker knows of a person who participated in the study and, for instance, knows their education level, they could identify the person in the data.
 :::
 
 3\. Which columns contain **special categories of personal data** (= sensitive data)?
@@ -145,6 +133,32 @@ Any data that can be linked to an individual is considered personal data. As lon
 
 As a first step, you always want to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators.
 
+More generally, it helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The following is a good default:
+
+::: {#optimal-workflow .callout-tip collapse="false"}
+## An optimal workflow for handling identifiers
+
+1.  **Download** the raw data from your collection tool.
+
+2.  **Remove direct identifiers** as soon as you no longer need them—in *every* copy that exists (collection platform, cloud storage, collaborators' copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.
+
+3.  **Remove the pseudonym key** using the same logic. If either direct identifiers or a pseudonym key would serve the purpose, keep the key—it is the safer option—but store it *separately* from the data, with restricted access and a defined deletion date.
+
+4.  **Store a secure master copy** of the data without direct identifiers and pseudonyms—e.g., read-only on your institution's password-protected server. Generate your working copy from it with a script, so the cleaning step is reproducible and auditable.
+
+5.  **Analyze, write, and share with collaborators** using this identifier-free working copy.
+
+6.  **Anonymize** the data if needed, following the steps explained in this tutorial.
+
+7.  **Publish the anonymized version** of the data.
+:::
+
+::: {.callout-warning collapse="false"}
+## Myth: "The funder wants the full raw data"
+
+It is a common misconception that funding agencies require you to archive the complete raw dataset *including* direct identifiers. In reality, they almost always want the raw data *without* them. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.
+:::
+
 ## Exercise: Remove Direct Identifiers
 
 Now, delete all direct identifiers from the dataset.
@@ -155,7 +169,10 @@ Now, delete all direct identifiers from the dataset.
 Any solution that deletes the name, email address, and IP address is correct. I use tidyverse syntax:
 
 ```{r}
-#| echo: false
+#| warning: FALSE
+#| message: FALSE
+
+# Remove direct identifiers from the dataset
 library(tidyverse)
 
 data_withoutdirectidentifiers <- data %>%
@@ -166,10 +183,11 @@ data_withoutdirectidentifiers <- data %>%
 Save the new file
 
 ```{r}
-write.csv(data_withoutdirectidentifiers, "../SimulatedData_noidentifiers.csv", row.names = FALSE)
+# Save the dataset without direct identifiers
+write.csv(data_withoutdirectidentifiers, here::here("SimulatedData_noidentifiers.csv"), row.names = FALSE)
 ```
 
-Delete the old file.
+Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not "always delete immediately" but "delete once the documented purpose is gone." Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.
 :::
 
 #### Resources, Links, Examples
