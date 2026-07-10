@@ -428,12 +428,13 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 <p>As we have seen, anonymization techniques are all about hiding or obscuring the data or links within the data. This, of course, comes at a cost: The data may lose some of its <strong>utility</strong>.</p>
-<p>We therefore need to find a well-calibrated balance between utility and anonymization, the famous sweet spot where we share data “as open as possible, as closed as necessary.” To achieve this, we can utilize various measures - many of which we have already seen in <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the chapter on assessing privacy risks</a> and in various <code>sdcMicro</code> outputs.</p>
+<p>We therefore need to find a well-calibrated balance between utility and anonymization, the famous sweet spot where we share data “as open as possible, as closed as necessary.” To achieve this, we can utilize various measures—many of which we have already seen in <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the chapter on assessing privacy risks</a> and in various <code>sdcMicro</code> outputs.</p>
 <section id="measuring-privacy" class="level1">
 <h1>Measuring Privacy</h1>
-<p>The most straightforward way to measure privacy after anonymization is to compare k-anonymity before and after. In <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the chapter on assessing privacy risks</a>, we found that nearly every participant in the original dataset had a unique combination of key variables. After applying non-perturbative techniques in <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative">the chapter on non-perturbative techniques</a>, we achieved 3-anonymity - every record shares its key variable combination with at least two others. Printing the <code>sdcObject</code> gives you the current k-anonymity level directly:</p>
+<p>The most straightforward way to measure privacy after anonymization is to compare k-anonymity before and after applying an anonimization technique. In <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the chapter on assessing privacy risks</a>, we found that nearly every participant in the original dataset had a unique combination of key variables. After applying non-perturbative techniques in <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative">the chapter on non-perturbative techniques</a>, we achieved 3-anonymity—every record shares its key variable combination with at least two others. Printing the <code>sdcObject</code> gives you the current k-anonymity level directly:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the current k-anonymity level</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -515,8 +516,8 @@ Current Information Loss in modified data (0.00% in original data):
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>AI tools are increasingly being used to <strong>re-identify individuals from datasets that were considered anonymous</strong>. Recent research shows that large language models (LLMs) can match anonymous text profiles to named individuals across platforms - for example, linking an anonymous forum post to a person’s identified social media account <span class="citation" data-cites="lermen">(<a href="#ref-lermen" role="doc-biblioref">Lermen et al., n.d.</a>)</span>. Separately, research has shown that individuals can be re-identified from behavioral traces alone, including web browsing history, geolocation data, and even face scans, by combining datasets that each seem innocuous on their own <span class="citation" data-cites="rocher2025">(<a href="#ref-rocher2025" role="doc-biblioref">Rocher et al. 2025</a>)</span>.</p>
-<p>For <strong>quantitative survey</strong> or experimental data of the kind covered in this tutorial, I do not expect AI tools to fundamentally change the re-identification risk - the attack surface is just not the same as for text or behavioral data. That said, AI can make an <strong>attacker more efficient</strong>: tasks like searching for external information, generating plausible attack combinations, or automating record linkage are all easier with modern AI tools.</p>
+<p>AI tools are increasingly being used to <strong>re-identify individuals from datasets that were considered anonymous</strong>. Recent research shows that large language models (LLMs) can match anonymous text profiles to named individuals across platforms—for example, linking an anonymous forum post to a person’s identified social media account <span class="citation" data-cites="lermen">(<a href="#ref-lermen" role="doc-biblioref">Lermen et al., n.d.</a>)</span>. Separately, research has shown that individuals can be re-identified from behavioral traces alone, including web browsing history, geolocation data, and even face scans, by combining datasets that each seem innocuous on their own <span class="citation" data-cites="rocher2025">(<a href="#ref-rocher2025" role="doc-biblioref">Rocher et al. 2025</a>)</span>.</p>
+<p>For <strong>quantitative survey</strong> or experimental data of the kind covered in this tutorial, I do not expect AI tools to fundamentally change the re-identification risk—the attack surface is just not the same as for text or behavioral data. That said, AI can make an <strong>attacker more efficient</strong>: tasks like searching for external information, generating plausible attack combinations, or automating record linkage are all easier with modern AI tools.</p>
 </div>
 </div>
 </div>
@@ -524,14 +525,14 @@ Current Information Loss in modified data (0.00% in original data):
 <section id="measuring-utility" class="level1">
 <h1>Measuring Utility</h1>
 <p>How do we know whether our anonymized data is still useful? There are several approaches to <strong>measuring utility</strong>, ranging from simple comparisons to formal indices.</p>
-<p><code>sdcMicro</code> provides two built-in information loss measures for numeric variables. <strong>IL1</strong> is the average absolute difference between original and anonymized values, relative to the original. A value of 0 means no change; higher values mean more distortion. The <strong>eigenvalue ratio</strong> compares the eigenvalues of the original and anonymized data. Values close to 0 indicate the least changes. These indicators are primarily useful to compare different anonymization methods with each other.</p>
+<p><code>sdcMicro</code> provides two built-in information loss measures for numeric variables. <strong>IL1</strong> is the sum of absolute differences between original and anonymized values, relative to the original. A value of 0 means no change; higher values mean more distortion. The <strong>eigenvalue ratio</strong> compares the eigenvalues of the original covariance matrix to the eigenvalues of the anonymized data’s covariance matrix. Values close to 0 indicate the least changes. These indicators are primarily useful to compare different anonymization methods with each other.</p>
 <p>Both values are part of the standard <code>sdcMicro</code> output after applying any anonymization technique.</p>
 </section>
 <section id="exercise-evaluating-data-utility" class="level1">
 <h1>Exercise: Evaluating Data Utility</h1>
 <section id="using-sdcmicros-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="using-sdcmicros-parameters">Using <code>sdcMicro</code>’s Parameters</h2>
-<p>Let’s go back to the two <code>sdcObjects</code> we created in <a href="#0">the chapter on perturbative techniques</a>: <code>sdc_micro</code> (where we applied microaggregation) and <code>sdc_noise</code> (where we applied noise).</p>
+<p>Let’s go back to the two <code>sdcObjects</code> we created in <a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative">the chapter on perturbative techniques</a>: <code>sdc_micro</code> (where we applied microaggregation) and <code>sdc_noise</code> (where we applied noise).</p>
 <ol type="1">
 <li>Compare the utility with IL1 and the difference of eigenvalues. Which method do you prefer when looking at these utility indices?</li>
 <li>Make a decision for one of the methods and export the data for further use.</li>
@@ -548,9 +549,10 @@ Current Information Loss in modified data (0.00% in original data):
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Simply inspect the <code>sdcObjects</code> to see the values of IL1 and the eigenvalue difference:</p>
+<p>Inspect the <code>sdcObjects</code> to see the values of IL1 and the eigenvalue difference:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sdc_micro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare utility: IL1 and eigenvalue difference</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sdc_micro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -567,16 +569,16 @@ Note: NA (missings) are counted as seperate categories!</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> Key Variable Number of categories        Mean size         
        &lt;char&gt;               &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;
-       gender                    4    (3)    64.667 (66.667)
-          age                    5   (52)    40.000  (3.846)
-    education                    5    (5)    32.000 (40.000)
-          plz                    3  (152)    99.000  (1.316)
+       gender                    3    (3)    66.667 (66.667)
+          age                   52   (52)     3.846  (3.846)
+    education                    5    (5)    40.000 (40.000)
+          plz                  152  (152)     1.316  (1.316)
  Size of smallest (&gt;0)       
                 &lt;char&gt; &lt;char&gt;
-                     4   (10)
-                    23    (1)
-                     5    (9)
-                    90    (1)</code></pre>
+                    10   (10)
+                     1    (1)
+                     9    (9)
+                     1    (1)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>----------------------------------------------------------------------</code></pre>
@@ -585,38 +587,23 @@ Note: NA (missings) are counted as seperate categories!</code></pre>
 <pre><code>Infos on 2/3-Anonymity:
 
 Number of observations violating
-  - 2-anonymity: 0 (0.000%) | in original data: 198 (99.000%)
-  - 3-anonymity: 0 (0.000%) | in original data: 200 (100.000%)
-  - 5-anonymity: 29 (14.500%) | in original data: 200 (100.000%)
+  - 2-anonymity: 198 (99.000%)
+  - 3-anonymity: 200 (100.000%)
+  - 5-anonymity: 200 (100.000%)
 
 ----------------------------------------------------------------------</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Numerical key variables: income, years_in_job
 
-Disclosure risk (~100.00% in original data):
-  modified data: [0.00%; 77.50%]
+Disclosure risk is currently between [0.00%; 100.00%]
 
-Current Information Loss in modified data (0.00% in original data):
-  IL1: 1029.80
-  Difference of Eigenvalues: 6.100%
+Current Information Loss:
+  - IL1: 0.00
+  - Difference of Eigenvalues: 0.000%
 ----------------------------------------------------------------------</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Local suppression:</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    KeyVar      | Suppressions (#)      | Suppressions (%)
-    &lt;char&gt; &lt;char&gt;            &lt;int&gt; &lt;char&gt;           &lt;char&gt;
-    gender      |                4      |            2.000
-       age      |                0      |            0.000
- education      |               12      |            6.000
-       plz      |                0      |            0.000</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>----------------------------------------------------------------------</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sdc_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sdc_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -686,47 +673,26 @@ Current Information Loss in modified data (0.00% in original data):
 <p>Both indices prefer the microaggregation approach: The IL1 is much smaller, indicating that values are closer to the original data, and the difference of eigenvalues is slightly smaller, also indicating that microaggregation preserves the most utility.</p>
 <p>Now I can extract the dataset from the <code>sdc_micro</code> object. Because <code>sdcMicro</code> stores recoded key variables as integer codes internally, I need to restore the labels manually using <code>mutate</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdc_micro)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore labels for variables recoded inside sdcMicro</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>age_labels    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"18-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60+"</span>)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>plz_labels    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"8xxxx"</span>, <span class="st">"other"</span>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="ot">&lt;-</span> data_anonymized <span class="sc">%&gt;%</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">factor</span>(age, <span class="at">levels =</span> <span class="fu">seq_along</span>(age_labels), <span class="at">labels =</span> age_labels),</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">plz =</span> <span class="fu">factor</span>(plz, <span class="at">levels =</span> <span class="fu">seq_along</span>(plz_labels), <span class="at">labels =</span> plz_labels)</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the anonymized data and restore category labels</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdc_micro)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore labels for variables recoded inside sdcMicro</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>age_labels    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"18-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60+"</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>plz_labels    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"8xxxx"</span>, <span class="st">"other"</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="ot">&lt;-</span> data_anonymized <span class="sc">%&gt;%</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">factor</span>(age, <span class="at">levels =</span> <span class="fu">seq_along</span>(age_labels), <span class="at">labels =</span> age_labels),</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plz =</span> <span class="fu">factor</span>(plz, <span class="at">levels =</span> <span class="fu">seq_along</span>(plz_labels), <span class="at">labels =</span> plz_labels)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
-<p>As a last anonymization step, I will now <strong>generalize rare religion categories</strong> using <code>fct_lump_min()</code> from <code>forcats</code>. Since <code>religion</code> is not a variable in the <code>sdcObject</code>, I apply this directly to the dataset as an additional layer, protecting individuals with rare religions.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect counts first</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-         Buddhism       Catholicism Eastern Orthodoxy             Islam 
-                3                56                 1                13 
-          Judaism              None     Protestantism 
-                2                75                50 </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="ot">&lt;-</span> data_anonymized <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_lump_min</span>(<span class="fu">as.factor</span>(religion), <span class="at">min =</span> <span class="dv">10</span>, <span class="at">other_level =</span> <span class="st">"Other"</span>))</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  Catholicism         Islam          None Protestantism         Other 
-           56            13            75            50             6 </code></pre>
-</div>
-</div>
-<p><code>fct_lump_min(religion, min = 10)</code> merges any category with fewer than 10 observations into <code>"Other"</code>. Groups like “Judaism” or “Buddhism” which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes.</p>
 </section>
 <section id="using-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="using-statistics">Using Statistics</h2>
-<p>For non-numeric variables that were recoded or suppressed, there is <strong>no single formal measure</strong> - but you can compare frequency tables before and after. For example, comparing the distribution of age bands or religion categories tells you whether the recoding preserved the overall composition of the sample.</p>
+<p>For non-numeric variables that were recoded or suppressed, there is <strong>no single formal measure</strong>—but you can compare frequency tables before and after. For example, comparing the distribution of age bands or religion categories tells you whether the recoding preserved the overall composition of the sample.</p>
 <p>Beyond these built-in measures, the most <strong>practically relevant utility check is simply to re-run the analysis</strong> that motivated data collection on both the original and anonymized datasets and compare the results. For our dataset, that means checking whether the association between religion and political opinion is similar to before anonymization. If the key result holds, the anonymized data is fit for purpose.</p>
 <ol type="1">
 <li>Compare descriptive statistics on the indirect identifiers age, gender, education, income, plz, and years in job before and after anonymization.</li>
@@ -748,8 +714,9 @@ Current Information Loss in modified data (0.00% in original data):
 <p><strong>Descriptive statistics on indirect identifiers</strong></p>
 <p>Compare distributions before and after using <code>summary()</code> and frequency tables:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Before anonymization</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare descriptive statistics before and after anonymization</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Before anonymization</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      age            income        years_in_job  
  Min.   :18.00   Min.   :  1508   Min.   : 0.00  
@@ -759,13 +726,13 @@ Current Information Loss in modified data (0.00% in original data):
  3rd Qu.:50.00   3rd Qu.: 64582   3rd Qu.: 8.00  
  Max.   :70.00   Max.   :902234   Max.   :32.00  </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>) <span class="co"># Make sure to show NAs as well</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>) <span class="co"># Make sure to show NAs as well</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     female       male non-binary       &lt;NA&gt; 
        104         86         10          0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 doctoral title    high school      no degree   trade school     university 
@@ -773,7 +740,7 @@ doctoral title    high school      no degree   trade school     university
           &lt;NA&gt; 
              0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  1445  1587  2763  3253  4416  4821  6132  6217  6847  7806  7985  8141  8324 
@@ -801,52 +768,55 @@ doctoral title    high school      no degree   trade school     university
 94538 96176 96277 97222 97505 97922 97944 99706 99830  &lt;NA&gt; 
     1     1     1     1     1     1     1     1     1     0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After anonymization</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_anonymized[, <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After anonymization</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_anonymized[, <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     income       years_in_job  
- Min.   : 3576   Min.   : 0.00  
- 1st Qu.:37246   1st Qu.: 2.00  
- Median :52156   Median : 4.00  
- Mean   :51130   Mean   : 5.16  
- 3rd Qu.:64451   3rd Qu.: 8.00  
- Max.   :89186   Max.   :15.00  </code></pre>
+<pre><code>     income        years_in_job  
+ Min.   :  1508   Min.   : 0.00  
+ 1st Qu.: 36964   1st Qu.: 2.00  
+ Median : 52219   Median : 4.00  
+ Mean   : 60789   Mean   : 5.34  
+ 3rd Qu.: 64582   3rd Qu.: 8.00  
+ Max.   :902234   Max.   :32.00  </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>age, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>age, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 18-29 30-39 40-49 50-59   60+  &lt;NA&gt; 
-   47    43    58    29    23     0 </code></pre>
+    0     0     0     0     0   200 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     female       male non-binary       &lt;NA&gt; 
-       104         86          4          6 </code></pre>
+       104         86         10          0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-doctoral title    high school   trade school     university           &lt;NA&gt; 
-             5            106             22             27             40 </code></pre>
+doctoral title    high school      no degree   trade school     university 
+             9            108             10             36             37 
+          &lt;NA&gt; 
+             0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 8xxxx other  &lt;NA&gt; 
-  108    90     2 </code></pre>
+    0     0   200 </code></pre>
 </div>
 </div>
-<p>Age and postal code are now categorical bands, so the numeric summary is no longer meaningful - use frequency tables instead. Income and years in job are still numeric after microaggregation; their medians are very close to the original, but especially income’s mean is lower now - this is due to the extreme outliers that were top-coded.</p>
+<p>Age and postal code are now categorical bands, so the numeric summary is no longer meaningful—use frequency tables instead. Income and years in job are still numeric after microaggregation; their medians are very close to the original, but especially income’s mean is lower now—this is due to the extreme outliers that were top-coded.</p>
 <p>For gender, 6 non-binary individuals’ data was suppressed to achieve necessary k-anonymity.</p>
 <p>For education, all individuals without a degree were recoded to NA; in each other category, few individuals’s data was suppressed. This might be a problem for data utility, especially if our goal was to show that we reached individuals from all educational levels. If this was the case, I’d recommend to go back to applying local suppression and to prioritize that educational level stays non-suppressed.</p>
 <p>We lost, as intended, a lot of information on plz and age. For our use case, this is okay.</p>
 <p><strong>Religion and political opinions</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Before</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare religion vs. political opinion before and after anonymization</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Before</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 5
   religion      mean_pol_immigration mean_pol_environment mean_pol_redistribut…¹
@@ -861,26 +831,28 @@ doctoral title    high school   trade school     university           &lt;NA&gt;
 # ℹ abbreviated name: ¹​mean_pol_redistribution
 # ℹ 1 more variable: mean_pol_eu_integration &lt;dbl&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="sc">%&gt;%</span></span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 5
+<pre><code># A tibble: 7 × 5
   religion      mean_pol_immigration mean_pol_environment mean_pol_redistribut…¹
-  &lt;fct&gt;                        &lt;dbl&gt;                &lt;dbl&gt;                  &lt;dbl&gt;
-1 Catholicism                   2.73                 3.07                   2.79
-2 Islam                         2.69                 2.92                   3.23
-3 None                          2.97                 3.03                   3.17
-4 Protestantism                 3.04                 3.2                    3.12
-5 Other                         3.17                 3.17                   3.17
+  &lt;chr&gt;                        &lt;dbl&gt;                &lt;dbl&gt;                  &lt;dbl&gt;
+1 Buddhism                      4                    3.33                   3.33
+2 Catholicism                   2.73                 3.07                   2.79
+3 Eastern Orth…                 4                    2                      3   
+4 Islam                         2.69                 2.92                   3.23
+5 Judaism                       1.5                  3.5                    3   
+6 None                          2.97                 3.03                   3.17
+7 Protestantism                 3.04                 3.2                    3.12
 # ℹ abbreviated name: ¹​mean_pol_redistribution
 # ℹ 1 more variable: mean_pol_eu_integration &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>The group-level means should be very the same between the original and anonymized datasets. The key research question - whether religion predicts political opinion - is still answerable. Note that some small religion categories have been merged into “Other”, which changes the granularity of analysis but preserves the main patterns. Other than that, we did not change anything regarding these variables.</p>
+<p>The group-level means should be very the same between the original and anonymized datasets. The key research question—whether religion predicts political opinion—is still answerable. We did not change anything regarding these variables.</p>
 <p><strong>Reflection</strong></p>
-<p>For the purpose of this dataset - studying the relationship between religion and political opinion - utility is well-preserved. The main variable of interest (religion) is still present, just with fewer fine-grained categories. The political opinion variables are unchanged. Income and years in job show very similar distributions after microaggregation.</p>
+<p>For the purpose of this dataset—studying the relationship between religion and political opinion—utility is well-preserved. The main variable of interest (religion) is still present, just with fewer fine-grained categories. The political opinion variables are unchanged. Income and years in job show very similar distributions after microaggregation.</p>
 </div>
 </div>
 </div>
@@ -888,14 +860,41 @@ doctoral title    high school   trade school     university           &lt;NA&gt;
 </section>
 <section id="striking-the-right-balance" class="level1">
 <h1>Striking the Right Balance</h1>
-<p>Balancing privacy and utility is not a one-shot decision - it is an <strong>iterative process</strong>. After measuring both, you may find that your current anonymization is too aggressive (data is well-protected but the key analysis no longer works) or too lenient (utility is preserved but too many records are still unique). In either case, you go back to the anonymization steps and adjust: changing recoding thresholds, relaxing or tightening the k-anonymity target, or choosing a different perturbative technique.</p>
+<p>Balancing privacy and utility is not a one-shot decision—it is an <strong>iterative process</strong>. After measuring both, you may find that your current anonymization is too aggressive (data is well-protected but the key analysis no longer works) or too lenient (utility is preserved but too many records are still unique). In either case, you go back to the anonymization steps and adjust: changing recoding thresholds, relaxing or tightening the k-anonymity target, or choosing a different perturbative technique.</p>
 <p>For our dataset, a reasonable workflow looks like this: start by checking the k-anonymity level and disclosure risk on <code>sdc_nonpert</code> (from <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative">the chapter on non-perturbative techniques</a>), then check the information loss after applying perturbative techniques on <code>sdc_micro</code> or <code>sdc_noise</code> (from <a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative">the chapter on perturbative techniques</a>), and finally compare the religion-political opinion analysis on original and anonymized data. If the analysis still holds and k-anonymity is at least 3, the anonymization is likely sufficient for sharing.</p>
-<p>There are <strong>no universal thresholds</strong> for “good enough” privacy or utility. A commonly used rule of thumb is that k-anonymity should be at least 3-5 for most research datasets, meaning every combination of indirect identifiers appears at least 3-5 times (see discussion above). For utility, IL1 values eigenvalue differences close to 0 indicate low distortion. But ultimately, the right balance depends on your specific context: how sensitive is the data, who will have access, and what analyses need to be supported. When in doubt, consult your institution’s data protection officer (<a href="https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-representatives-and-contact-persons/data-protection-officer.html">here at LMU</a>), data steward (or a local research data management team, <a href="https://www.ub.lmu.de/en/open-access-publishing/research-data/">here at LMU</a>), or open science team (<a href="https://www.osc.lmu.de/">here</a> at LMU).</p>
-<p>Let’s keep in mind, that while there is a <strong>tension between data protection and openness</strong>, in practice, these principles <strong>enable</strong> each other: Sharing data builds trust in research findings, while protecting participants builds trust in researchers. When done well, <strong>anonymization is the bridge</strong> between these goals - it lets you share data openly while honoring the privacy expectations of the people who provided it <span class="citation" data-cites="Jansen2025_TensionOpenData">(<a href="#ref-Jansen2025_TensionOpenData" role="doc-biblioref">Jansen et al. 2025</a>)</span>.</p>
+<p>There are <strong>no universal thresholds</strong> for “good enough” privacy or utility. A commonly used rule of thumb is that k-anonymity should be at least 3-5 for most research datasets, meaning every combination of indirect identifiers appears at least 3-5 times (see discussion above). For utility, IL1 values and eigenvalue differences close to 0 indicate low distortion. But ultimately, the right balance depends on your specific context: how sensitive is the data, who will have access, and what analyses need to be supported. When in doubt, consult your institution’s data protection officer (<a href="https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-representatives-and-contact-persons/data-protection-officer.html">LMU Munich data protection office</a>), data steward (or a local research data management team, <a href="https://www.ub.lmu.de/en/open-access-publishing/research-data/">LMU Munich research data management team</a>), or open science team (<a href="https://www.osc.lmu.de/">LMU Open Science Center</a>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Who Is Responsible If Someone Is Re-Identified Anyway?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><em>Disclaimer: We do not represent LMU Munich, and we do not have the authority to give legal advice or to approve your anonymization. What follows is our personal reading of the legal situation, intended as orientation—for binding answers, contact your institution’s data protection officer.</em></p>
+<p>You might ask yourself: “What if I do everything right, and someone still gets re-identified? Am I liable?” We don’t think you are responsible for two reasons:</p>
+<p>First, the <strong>legal standard is not zero risk</strong>. Under the GDPR (<a href="https://gdpr-info.eu/recitals/no-26/">Recital 26</a>), data counts as anonymous if re-identification is not <em>reasonably likely</em>, considering cost, time, and available technology. Absolute anonymization is usually neither possible nor required—it is sufficient that re-identification is practically infeasible or requires disproportionate effort. The relevant question is therefore not “Could someone ever be re-identified?” but “<strong>Was the anonymization decision reasonable at the time?</strong>”. A later re-identification does not retroactively prove your procedure was negligent.</p>
+<p>Second, <strong>legally, who is responsible?</strong> Not you personally, in most cases: the <em>controller</em> under the GDPR is typically your institution (e.g., the university), not the individual researcher. The data protection officer advises and monitors compliance—they do not carry the responsibility alone either, and their approval is not a magic shield. What protects you is a documented, institutionally backed process. <strong>You are safe if you followed:</strong></p>
+<ol type="1">
+<li>a written anonymization plan, agreed on before release;</li>
+<li>the advice of your data protection officer (and, where required, a data protection impact assessment);</li>
+<li>a documented risk assessment (attack scenarios, indirect identifiers, external linkage, a k-anonymity target or comparable metric—keeping in mind that no k-value is a magic legal threshold);</li>
+<li>a deliberate release decision (fully open, restricted access, or another access model);</li>
+<li>and did not deviate from the approved plan.</li>
+</ol>
+<p>If someone is re-identified anyway, that is an institutional matter—reassessing the dataset, restricting access, notifying where required—not evidence of your personal fault. In our <strong>personal opinion</strong>, researchers who follow an approved, documented procedure have fulfilled their obligations and are not at fault. The circular logic of “someone was re-identified, therefore your anonymization was too lenient” gets it backward.</p>
+</div>
+</div>
+</div>
+<p>Let’s keep in mind that, while there is a <strong>tension between data protection and openness</strong>, in practice, these principles <strong>enable</strong> each other: Sharing data builds trust in research findings, while protecting participants builds trust in researchers. When done well, <strong>anonymization is the bridge</strong> between these goals—it lets you share data openly while honoring the privacy expectations of the people who provided it <span class="citation" data-cites="Jansen2025_TensionOpenData">(<a href="#ref-Jansen2025_TensionOpenData" role="doc-biblioref">Jansen et al. 2025</a>)</span>.</p>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 <ul>
-<li>Examples of decisions for balancing utility and privacy from the UK are documented <a href="https://ukdataservice.ac.uk/deposit-data/sharing-experiences/">here</a>.</li>
+<li><a href="https://ukdataservice.ac.uk/deposit-data/sharing-experiences/">Examples of decisions for balancing utility and privacy from the UK</a>.</li>
 </ul>
 </section>
 </section>

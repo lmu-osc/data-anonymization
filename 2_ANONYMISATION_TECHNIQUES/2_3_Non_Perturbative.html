@@ -424,14 +424,15 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>After completing this part of the tutorial, you will be able to</p>
 <ul>
-<li>After completing this part of the tutorial, you will be able to choose an appropriate non-perturbative technique</li>
-<li>After completing this part of the tutorial, you will be able to apply simple non-perturbative techniques</li>
+<li>choose an appropriate non-perturbative technique.</li>
+<li>apply simple non-perturbative techniques.</li>
 </ul>
 </div>
 </div>
 </div>
-<p>Non-perturbative techniques reduce re-identification risk <strong>without distorting the underlying values</strong> - they either remove information or make it less specific. What stays in the dataset is still true; there is just <strong>less</strong> of it. This is what sets them apart from perturbative techniques, which add noise or swap values to obscure the original data.</p>
+<p>Non-perturbative techniques reduce re-identification risk <strong>without distorting the underlying values</strong>—they either remove information or make it less specific. What stays in the dataset is still true; there is just <strong>less</strong> of it. This is what sets them apart from perturbative techniques, which add noise or swap values to obscure the original data.</p>
 <p>Non-perturbative techniques include all techniques referred to as data masking, suppression, and deletion.</p>
 <p>Non-perturbative techniques are usually the <strong>right starting point</strong>. They are easy to explain, easy to document, and easy to verify. For many research datasets, they are enough on their own.</p>
 <p>Depending on the specific data type and risk, different techniques are possible <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">(<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">Carvalho et al. 2023</a>)</span>:</p>
@@ -439,62 +440,92 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <h1>Examples of Non-Perturbative Techniques</h1>
 <section id="global-recoding" class="level2">
 <h2 class="anchored" data-anchor-id="global-recoding">Global Recoding</h2>
-<p>Global recoding (also called generalization) replaces the exact values of a variable with <strong>broader categories</strong> - applied to <strong>every row</strong> in the dataset.</p>
+<p>Global recoding (also called generalization) replaces the exact values of a variable with <strong>broader categories</strong>—applied to <strong>every row</strong> in the dataset.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../pictures/Global-Recoding-cropped.png" class="img-fluid figure-img" alt="A before-and-after table of five records; the exact ages are replaced with age bands such as 50-59 and 20-29, while the other columns stay the same."></p>
+<figcaption>Global recoding: exact ages are replaced with age bands, applied to every row.</figcaption>
+</figure>
+</div>
 <p><strong>Examples</strong></p>
 <ul>
 <li><p>Replacing specific countries with world regions (e.g., “Germany”, “France” → “Western Europe”).</p></li>
 <li><p>Recoding age in year to age in decade.</p></li>
 </ul>
-<p>The key decision is how broadly to generalize. Wider categories reduce risk more, but also lose more information. The right granularity depends on how many people share each combination - which is exactly what k-anonymity measures. You will practice this trade-off in the exercise below.</p>
+<p>The key decision is how broadly to generalize. Wider categories reduce risk more, but also lose more information. The right granularity depends on how many people share each combination—which is exactly what k-anonymity measures. You will practice this trade-off in the exercise below.</p>
 </section>
 <section id="local-recoding" class="level2">
 <h2 class="anchored" data-anchor-id="local-recoding">Local Recoding</h2>
 <p>Local recoding <strong>generalizes values only where needed</strong>, rather than across the whole dataset. This is useful when only a small subset of values is rare enough to create risk.</p>
 <p><strong>Example</strong>: If only few participant are from Asia, you may recode only their values (e.g., “China”, “India”, “Nepal”) to “Asia”, keeping all others unchanged.</p>
-<p>This means, that values are on different level (in this example: country vs.&nbsp;continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently - you need to be transparent about which categories were collapsed and why.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../pictures/Local-Recoding-cropped.png" class="img-fluid figure-img" alt="A before-and-after table where only two of the five records have their religion changed to christian; the other records are unchanged."></p>
+<figcaption>Local recoding: only the rare religion values are generalized (here to “christian”), while the rest stay unchanged.</figcaption>
+</figure>
+</div>
+<p>This means, that values are on different level (in this example: country vs.&nbsp;continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently—you need to be transparent about which categories were collapsed and why.</p>
 </section>
 <section id="top-and-bottom-coding" class="level2">
 <h2 class="anchored" data-anchor-id="top-and-bottom-coding">Top-and-Bottom Coding</h2>
-<p>Top-and-bottom coding is a special case of <strong>recoding that applies to numerical variables</strong>. Instead of grouping all values into bands, you <strong>cap the extreme ends of the distribution</strong> - replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value.</p>
+<p>Top-and-bottom coding is a special case of <strong>recoding that applies to numerical variables</strong>. Instead of grouping all values into bands, you <strong>cap the extreme ends of the distribution</strong>—replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value. Top-coding is a non-perturbative method because the exact value is only replaced with a coarser but still truthful one—no value is distorted, it is merely made less precise.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../pictures/Top-Bottom-Coding-cropped.png" class="img-fluid figure-img" alt="A before-and-after table where the largest age value is replaced with a >60 cap; the other ages are unchanged."></p>
+<figcaption>Top-coding: the single highest age is capped (here to “&gt;60”), while the rest stay unchanged.</figcaption>
+</figure>
+</div>
 <p><strong>Examples</strong></p>
 <ul>
 <li><p>Instead of reporting “6 children”, report “4+ children” for anyone above this threshold.</p></li>
 <li><p>All participants below the age of 20 years are coded as “&lt;20 years”.</p></li>
 </ul>
-<p>How to determine the threshold: A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles - capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.</p>
+<p>How to determine the threshold: A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles—capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.</p>
 </section>
 <section id="suppression" class="level2">
 <h2 class="anchored" data-anchor-id="suppression">Suppression</h2>
-<p>Suppression means <strong>removing information entirely</strong> - replacing a value with a missing value (<code>NA</code>) or dropping it altogether. This is also known as nulling. It is the most straightforward way to handle data that is too risky to release, but it also loses the most information.</p>
+<p>Suppression means <strong>removing information entirely</strong>—replacing a value with a missing value (<code>NA</code>) or dropping it altogether. This is also known as nulling. It is the most straightforward way to handle data that is too risky to release, but it also loses the most information.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../pictures/Suppression-cropped.png" class="img-fluid figure-img" alt="A before-and-after table where every value in the Gender column is replaced with NA, while the other columns are kept."></p>
+<figcaption>Suppression: risky values (here the whole Gender column) are replaced with <code>NA</code>.</figcaption>
+</figure>
+</div>
 <p>Suppression can occur on different levels:</p>
 <ul>
 <li><p><strong>Cell suppression</strong>: Remove a single risky value while keeping the rest of the record. For example, if one participant has a unique job title that makes them identifiable, you can set only that cell to <code>NA</code>.</p></li>
 <li><p><strong>Record suppression</strong>: Remove an entire participant’s data if their combination of attributes is so unique that no other technique can adequately protect them.</p></li>
-<li><p><strong>Variable suppression</strong>: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case - we already did this in <a href="../1_FOUNDATION/1_3_Personal_Data">the chapter on personal data</a>.</p></li>
+<li><p><strong>Variable suppression</strong>: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case—we already did this in <a href="../1_FOUNDATION/1_3_Personal_Data">the chapter on personal data</a>.</p></li>
 </ul>
 <p><strong>Example</strong>: Replacing credit card number values with XXX. In the credit card example, the application of the character masking technique can be <em>partial</em>, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.</p>
 <p>Suppression is often used as a last resort after recoding: if recoding alone is not enough to bring all records up to the required k-anonymity threshold, targeted cell suppression can close the remaining gaps.</p>
 </section>
 <section id="sampling" class="level2">
 <h2 class="anchored" data-anchor-id="sampling">Sampling</h2>
-<p>If your dataset covers an entire population - for example, all students enrolled in a particular program, or all employees of a specific company - then releasing it in full means that anyone who knows a person was part of that group can try to find their record. <a href="../2_1_Planning_Privacy#identifying-privacy-risks">Participation knowledge</a> would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.</p>
+<p>If your dataset covers an entire population—for example, all students enrolled in a particular program, or all employees of a specific company—then releasing it in full means that anyone who knows a person was part of that group can try to find their record. <a href="../1_FOUNDATION/1_5_Privacy_Concepts#participation-knowledge">Participation knowledge</a> would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../pictures/Sampling-cropped.png" class="img-fluid figure-img" alt="A before-and-after table where two of the five rows are struck through to show they are not included in the released sample."></p>
+<figcaption>Sampling: only a subset of records is released; here two rows are dropped from the published data.</figcaption>
+</figure>
+</div>
 <p>A sample can be randomly selected, but also based on conditions (e.g., quotas for study subjects).</p>
 <p>Sampling is most relevant for administrative datasets and registers. For typical survey-based research, where participation is voluntary and not exhaustively documented, it is less commonly needed. If you do use it, keep in mind that the sample size affects both privacy and the statistical representativeness of the data.</p>
 </section>
 </section>
 <section id="pro-and-contra-using-non-perturbative-techniques" class="level1">
 <h1>Pro and Contra Using Non-Perturbative Techniques</h1>
-<p>Pro</p>
+<p>Pros:</p>
 <ul>
-<li><p>original data values are preserved (no distortion of statistics within remaining cells)</p></li>
-<li><p>straightforward to implement and explain</p></li>
-<li><p>easy to document</p></li>
+<li>original data values are preserved (no distortion of statistics within remaining cells)</li>
+<li>straightforward to implement and explain</li>
+<li>easy to document</li>
 </ul>
-<p>Con</p>
+<p>Cons:</p>
 <ul>
-<li><p>information is lost (removed or coarsened)</p></li>
-<li><p>heavy suppression can make the dataset hard to use</p></li>
-<li><p>may not be sufficient on its own for high-risk data</p></li>
+<li>information is lost (removed or coarsened)</li>
+<li>heavy suppression can make the dataset hard to use</li>
+<li>may not be sufficient on its own for high-risk data</li>
 </ul>
 </section>
 <section id="exercise-applying-non-perturbative-techniques" class="level1">
@@ -504,11 +535,11 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <ul>
 <li><code>globalRecode()</code> recodes a key variable into broader groups (e.g., exact age → age band)</li>
 <li><code>topBotCoding()</code> caps extreme values at a given threshold</li>
-<li><code>localSuppression()</code> suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the <code>sdcObject</code>.</li>
+<li><code>localSuppression()</code> suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful wFlohen using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the <code>sdcObject</code>.</li>
 </ul>
-<p>In addition, you can recode data manually, e.g., by using <code>mutate</code>, or by using a function such as <code>fct_lump_min()</code> from <code>forcats</code>. This function lumps all categories below a certain group size together.</p>
+<p>In addition, you can recode data manually, e.g., by using <code>mutate</code>, or by using a function such as <code>fct_lump_min()</code> from the R pakage <code>forcats</code>. This function lumps all categories below a certain group size together.</p>
 <ol type="1">
-<li>Look at the key variables in <code>sdc_data</code> (<code>gender</code>, <code>age</code>, <code>education</code>, <code>plz</code>) and decide which technique is appropriate for each. There is no single correct solution - choose thresholds and groupings that make sense given the data, and be prepared to justify your choices.</li>
+<li>Look at the key variables in <code>sdc_data</code> (<code>gender</code>, <code>age</code>, <code>education</code>, <code>plz</code>) and decide which technique is appropriate for each. There is no single correct solution—choose thresholds and groupings that make sense given the data, and be prepared to justify your choices.</li>
 <li>Apply these techniques using the functions mentioned above.</li>
 <li>Compare the new risk summary to the one from the previous exercise.</li>
 </ol>
@@ -541,17 +572,18 @@ Tip
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Keep in mind that this is just an example solution - there are many ways to achieve similar levels of privacy.</p>
+<p>Keep in mind that this is just an example solution—there are many ways to achieve similar levels of privacy.</p>
 <p>I started by applying <strong>global recoding to age</strong>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_data,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column =</span> <span class="st">"age"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">29</span>, <span class="dv">39</span>, <span class="dv">49</span>, <span class="dv">59</span>, <span class="cn">Inf</span>), <span class="co"># Define breaks</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"18-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60+"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="co"># check summary after making the change</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Global recoding: bin age into roughly 10-year bands</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_data,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">column =</span> <span class="st">"age"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">29</span>, <span class="dv">39</span>, <span class="dv">49</span>, <span class="dv">59</span>, <span class="cn">Inf</span>), <span class="co"># Define breaks</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"18-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60+"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="co"># check summary after making the change</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -616,17 +648,18 @@ Expected number of re-identifications:
 </div>
 </div>
 <p>I started by dividing the age into five about 10-year breaks. This provides a mean of 40 persons per age break, while the smallest one still has 23. These breaks can be changed later if more privacy or more utility is needed.</p>
-<p>We see that k-anonymity values have not been influenced by the recoding of age so far - this is primarily due to the <code>plz</code> variable that is unique for most participants. I therefore decided to <strong>generalize the postal code</strong>.</p>
+<p>We see that k-anonymity values have not been influenced by the recoding of age so far—this is primarily due to the <code>plz</code> variable that is unique for most participants. I therefore decided to <strong>generalize the postal code</strong>.</p>
 <p>As a first step, I used <code>globalRecode()</code> to group postal codes into five broad regions:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_nonpert,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column =</span> <span class="st">"plz"</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">19999</span>, <span class="dv">39999</span>, <span class="dv">59999</span>, <span class="dv">79999</span>, <span class="dv">99999</span>),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'00-19'</span>, <span class="st">'20-39'</span>, <span class="st">'40-59'</span>, <span class="st">'60-79'</span>, <span class="st">'80-99'</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Global recoding: group postal codes into five broad regions</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_nonpert,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">column =</span> <span class="st">"plz"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">19999</span>, <span class="dv">39999</span>, <span class="dv">59999</span>, <span class="dv">79999</span>, <span class="dv">99999</span>),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'00-19'</span>, <span class="st">'20-39'</span>, <span class="st">'40-59'</span>, <span class="st">'60-79'</span>, <span class="st">'80-99'</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -692,19 +725,20 @@ Expected number of re-identifications:
 </div>
 <p>The new categories map loosely to north-east (00-19), north-central (20-39), west (40-59), south-west (60-79), and south-east (80-99) Germany.</p>
 <p>Looking at k-anonymity now, we see that there are still many unique observations. To reduce risk further, I will generalize <code>plz</code> even more. For this dataset, I mostly want to use <code>plz</code> to distinguish whether participants live in the Munich area or elsewhere in Germany. Postal codes starting with 8 cover roughly the areas surrounding Munich, so I will collapse <code>plz</code> into just two categories: <code>"8xxxx"</code> and <code>"other"</code>.</p>
-<p><code>globalRecode()</code> cannot do this directly since <code>cut()</code> only handles continuous intervals - and “other” spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the data stored with the <code>@manipKeyVars</code> slot of the <code>sdcObject</code> and recalculate risks:</p>
+<p><code>globalRecode()</code> cannot do this directly since <code>cut()</code> only handles continuous intervals—and “other” spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the data stored with the <code>@manipKeyVars</code> slot of the <code>sdcObject</code> and recalculate risks:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>sdc_nonpert<span class="sc">@</span>manipKeyVars<span class="sc">$</span>plz <span class="ot">&lt;-</span> <span class="fu">fct_collapse</span>(</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  sdc_nonpert<span class="sc">@</span>manipKeyVars<span class="sc">$</span>plz,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"8xxxx"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"80-99"</span>),</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"other"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"00-19"</span>, <span class="st">"20-39"</span>, <span class="st">"40-59"</span>, <span class="st">"60-79"</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">calcRisks</span>(sdc_nonpert) <span class="co"># After these manual changes, you have to update the risks on the sdcObject</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Collapse postal codes into Munich area (8xxxx) vs. other</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>sdc_nonpert<span class="sc">@</span>manipKeyVars<span class="sc">$</span>plz <span class="ot">&lt;-</span> <span class="fu">fct_collapse</span>(</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  sdc_nonpert<span class="sc">@</span>manipKeyVars<span class="sc">$</span>plz,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"8xxxx"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"80-99"</span>),</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"other"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"00-19"</span>, <span class="st">"20-39"</span>, <span class="st">"40-59"</span>, <span class="st">"60-79"</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">calcRisks</span>(sdc_nonpert) <span class="co"># After these manual changes, you have to update the risks on the sdcObject</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -768,15 +802,17 @@ Expected number of re-identifications:
   in original data: 199.00 (99.50 %)</code></pre>
 </div>
 </div>
-<p>Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 2-anonymity. I don’t want to generalize the <code>keyVars</code> any further and for that reason decide to apply <strong>local suppression</strong>.</p>
+<p>Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 2-anonymity. This corresponds to the “Number of observations with higher risk than the main part of the data”, as summarized as a risk measure in the output: Now, the majority of data confirm with 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were <strong>especially</strong> at risk (since all of them were at risk).</p>
+<p>I don’t want to generalize the <code>keyVars</code> any further, and for that reason, I decide to apply <strong>local suppression</strong>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">localSuppression</span>(</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  sdc_nonpert,</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">k =</span> <span class="dv">2</span>, <span class="co"># define wanted k-anonymity level, k = 2 is the default</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>) <span class="co"># this defines the order of importance; the algorithm begins suppressing on the variable marked as 4</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Local suppression to reach 2-anonymity</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">localSuppression</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  sdc_nonpert,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">k =</span> <span class="dv">2</span>, <span class="co"># define wanted k-anonymity level, k = 2 is the default</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>) <span class="co"># this defines the order of importance; the algorithm begins suppressing on the variable marked as 4</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -856,13 +892,14 @@ Expected number of re-identifications:
 </div>
 <p>The summary of the <code>sdcObject</code> shows us what the last local suppression step has achieved: It suppressed 28 values on the education variable and 2 each on gender and postal code. Now, 2-anonymity is reached for all participants. 16 entries violate 3-anonymity; I will try local suppression at k = 3 to see how much more suppression would be necessary to achieve this.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">localSuppression</span>(</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  sdc_nonpert,</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">k =</span> <span class="dv">3</span>, <span class="co"># define wanted k-anonymity level, k = 2 is the default</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>) <span class="co"># this defines the order of importance; the algorithm begins suppressing on the variable marked as 4</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Local suppression to reach 3-anonymity</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">localSuppression</span>(</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  sdc_nonpert,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">k =</span> <span class="dv">3</span>, <span class="co"># define wanted k-anonymity level, k = 2 is the default</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>) <span class="co"># this defines the order of importance; the algorithm begins suppressing on the variable marked as 4</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -947,14 +984,15 @@ Expected number of re-identifications:
 </section>
 <section id="further-anonymization-steps-using-perturbative-techniques" class="level1">
 <h1>Further Anonymization Steps Using Perturbative Techniques</h1>
-<p>Now that the key variables are in their final state, I applied <strong>top-coding to income</strong> and <strong>years in job</strong>.</p>
+<p>Now that the categorical key variables are in their final state, I applied <strong>top-coding</strong> to the continuous key variables income and years in job.</p>
 <p>My goal with income is to protect the few individuals with a very high income. I start by inspecting the distribution:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_withoutdirectidentifiers, <span class="fu">aes</span>(<span class="at">y =</span> income)) <span class="sc">+</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the income distribution</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_withoutdirectidentifiers, <span class="fu">aes</span>(<span class="at">y =</span> income)) <span class="sc">+</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -965,15 +1003,16 @@ Expected number of re-identifications:
 </div>
 <p>I see a few extreme outliers above 400 000 €. Choosing the 95th percentile at 8.9185848^{4}€ cuts these off. I’ll use <code>topBotCoding()</code> and set the value at the 95th percentile, replacing those values with that one.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">topBotCoding</span>(</span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj         =</span> sdc_nonpert,</span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column      =</span> <span class="st">"income"</span>,</span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value       =</span> <span class="fu">quantile</span>(data_withoutdirectidentifiers<span class="sc">$</span>income, <span class="fl">0.95</span>),</span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">replacement =</span> <span class="fu">quantile</span>(data_withoutdirectidentifiers<span class="sc">$</span>income, <span class="fl">0.95</span>),</span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">kind        =</span> <span class="st">"top"</span></span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Top-code income at the 95th percentile</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">topBotCoding</span>(</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj         =</span> sdc_nonpert,</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">column      =</span> <span class="st">"income"</span>,</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">value       =</span> <span class="fu">quantile</span>(data_withoutdirectidentifiers<span class="sc">$</span>income, <span class="fl">0.95</span>),</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">replacement =</span> <span class="fu">quantile</span>(data_withoutdirectidentifiers<span class="sc">$</span>income, <span class="fl">0.95</span>),</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">kind        =</span> <span class="st">"top"</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -1053,7 +1092,8 @@ Expected number of re-identifications:
 </div>
 <p>For <strong>years in job</strong>, I start by familiarizing myself with the data:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers<span class="sc">$</span>years_in_job)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the years_in_job distribution</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers<span class="sc">$</span>years_in_job)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    0.00    2.00    4.00    5.34    8.00   32.00 </code></pre>
@@ -1071,15 +1111,16 @@ Expected number of re-identifications:
 </div>
 <p>Based on the visualization, I decide to use 15 as a cut-off value, as this cuts off the extreme values.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">topBotCoding</span>(</span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj         =</span> sdc_nonpert,</span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column      =</span> <span class="st">"years_in_job"</span>,</span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value       =</span> <span class="dv">15</span>,</span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">replacement =</span> <span class="dv">15</span>,</span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">kind        =</span> <span class="st">"top"</span></span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Top-code years_in_job at 15</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert <span class="ot">&lt;-</span> <span class="fu">topBotCoding</span>(</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj         =</span> sdc_nonpert,</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">column      =</span> <span class="st">"years_in_job"</span>,</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">value       =</span> <span class="dv">15</span>,</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">replacement =</span> <span class="dv">15</span>,</span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">kind        =</span> <span class="st">"top"</span></span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -1157,10 +1198,11 @@ Expected number of re-identifications:
   in original data: 199.00 (99.50 %)</code></pre>
 </div>
 </div>
-<p>These techniques reduce the disclosure risk to up to 92% compared tot the original data.</p>
+<p>These techniques reduce the disclosure risk to up to 92% compared to the original data.</p>
 <p>Finally, I save the <code>sdcObject</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_nonpert, <span class="st">"../sdc_nonpert.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the sdcObject for the next chapter</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_nonpert, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"sdc_nonpert.rds"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="references" class="level1">

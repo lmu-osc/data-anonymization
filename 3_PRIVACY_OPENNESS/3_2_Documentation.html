@@ -372,22 +372,22 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <h1>Goals of Documentation of Anonymization</h1>
 <p>Thorough documentation of your anonymization process serves two purposes:</p>
 <ol type="1">
-<li>It provides an <strong>internal record for auditing</strong> - if questions arise later about how the data was handled, you can retrace every step.</li>
+<li>It provides an <strong>internal record for auditing</strong>—if questions arise later about how the data was handled, you can retrace every step.</li>
 <li>It provides transparency for <strong>data users</strong>, who need to understand what was changed in order to interpret the data correctly.</li>
 </ol>
 </section>
 <section id="internal-documentation" class="level1">
 <h1>Internal Documentation</h1>
-<p>Your internal documentation should describe the <strong>full anonymization workflow</strong>: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a <strong>lab notebook</strong> for your data processing. This document should be stored securely alongside the original data - it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). In our case, this is the full, well-commented <strong>R script</strong>.</p>
+<p>Your internal documentation should describe the <strong>full anonymization workflow</strong>: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a <strong>lab notebook</strong> for your data processing. This document should be stored securely alongside the original data—it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). In our case, this is the full, well-commented <strong>R script</strong>.</p>
 </section>
 <section id="external-documentation-in-data-dictionary" class="level1">
 <h1>External Documentation in Data Dictionary</h1>
 <p>The external documentation is what you <strong>share alongside the anonymized dataset</strong>. It should include a <strong>data dictionary</strong> describing every variable in the released dataset, including any changes from the original. For example, if <code>age</code> was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.</p>
-<p>If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values - for example, a line like <code>filter(country == "Liechtenstein")</code> tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible.</p>
+<p>If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values—for example, a line like <code>filter(country == "Liechtenstein")</code> tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible.</p>
 </section>
 <section id="exercise" class="level1">
 <h1>Exercise</h1>
-<p>Make changes to the data dictionary from <a href="../1_FOUNDATION/1_3_Personal_Data">the chapter on personal data</a> in accordance with the anonymization steps you made in this tutorial.</p>
+<p>Make changes to the data dictionary from the <a href="../index.html">landing page</a> in accordance with the anonymization steps you made in this tutorial.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -418,17 +418,17 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <tr class="odd">
 <td><code>name</code></td>
 <td><strong>Removed</strong></td>
-<td>Direct identifier - dropped before release</td>
+<td>Direct identifier, dropped before release</td>
 </tr>
 <tr class="even">
 <td><code>email</code></td>
 <td><strong>Removed</strong></td>
-<td>Direct identifier - dropped before release</td>
+<td>Direct identifier, dropped before release</td>
 </tr>
 <tr class="odd">
 <td><code>ip_address</code></td>
 <td><strong>Removed</strong></td>
-<td>Direct identifier - dropped before release</td>
+<td>Direct identifier, dropped before release</td>
 </tr>
 <tr class="even">
 <td><code>id</code></td>
@@ -496,8 +496,12 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 </div>
+<section id="resources-links-examples" class="level4">
+<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+<p>Learn how to create a data dictionary in R with a dedicated tutorial: <a href="https://lmu-osc.github.io/data-documentation-validation-R/">OSC tutorial on data validation and documentation</a>.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

@@ -410,20 +410,22 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>After completing this part of the tutorial, you will know</p>
 <ul>
-<li>After completing this part of the tutorial, you will know how data protection is integrated into the research process.</li>
-<li>After completing this part of the tutorial, you will know the difference between anonymization and pseudonymization.</li>
+<li>how data protection is integrated into the research process;</li>
+<li>the difference between anonymization and pseudonymization.</li>
 </ul>
 </div>
 </div>
 </div>
-<p>How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point - it is relevant at every stage. The graph below maps common data protection mechanisms to the stages of the research lifecycle:</p>
+<p>How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point—it is relevant at every stage. The graph below maps common data protection mechanisms to the stages of the research lifecycle:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../pictures/Mechanisms-cropped.svg" class="img-fluid figure-img"></p>
+<p><img src="../pictures/Mechanisms-cropped.svg" class="img-fluid figure-img" alt="This flow diagram shows the stages of research (plan, collect, process, analyze, preserve, publish, and re-use) with corresponding data protection measures as described in the following paragraphs."></p>
 <figcaption>Research Process and Mechanisms</figcaption>
 </figure>
 </div>
+<p><span style="font-size: 90%;"><em>Note</em>. TOMs = technical and organizational measures</span></p>
 <p>As you can see, some mechanisms (like anonymization) are relevant across many stages, while others (like informed consent) are specific to a particular point. Let’s walk through each stage.</p>
 <section id="stage-1-plan" class="level1">
 <h1>Stage 1: Plan</h1>
@@ -431,17 +433,21 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <h2 class="anchored" data-anchor-id="data-management-plan">Data Management Plan</h2>
 <p>A <strong>data management plan (DMP)</strong> is a document that describes how you will handle your data during and after your research project. It forces you to think about data protection early. It provides answers to questions such as:</p>
 <ul>
-<li><p>What data will you <strong>collect</strong>?</p></li>
-<li><p>How will you <strong>store</strong> the data?</p></li>
-<li><p><strong>Who</strong> will have <strong>access</strong> to the data?</p></li>
-<li><p>How will you <strong>share</strong> the data?</p></li>
+<li>What data will you <strong>collect</strong>?</li>
+<li>How will you <strong>store</strong> the data?</li>
+<li><strong>Who</strong> will have <strong>access</strong> to the data?</li>
+<li>How will you <strong>share</strong> the data?</li>
 </ul>
 <p>Many funders now require a DMP, and writing one is a good exercise in data minimization and purpose limitation. Also, invest some time in <strong>enforcing</strong> <strong>the DMP</strong>. Clearly <strong>assign responsibilities</strong> for data and its protection in case of collaboration among multiple researchers. Changes to the DMP at later stages are absolutely okay, but <strong>keep it regularly updated</strong>.</p>
-<p>A useful template for DMPs is available at <a href="https://zenodo.org/records/10782781">Zenodo</a>; a tutorial on how to use DMPs is <a href="https://lmu-osc.github.io/FAIR-Data-Management/dmp.html">here</a>.</p>
+<section id="resources-links-examples" class="level4">
+<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+<p>A useful template for a specific anonymization plan as part of a DMP is available on <a href="https://zenodo.org/records/10782781">Zenodo</a>.</p>
+<p>Learn more on how to create and take advantage of DMPs in the <a href="https://lmu-osc.github.io/FAIR-Data-Management/dmp.html">DMP tutorial of the OSC</a>.</p>
+</section>
 </section>
 <section id="institutional-review-board-irb-approval" class="level2">
 <h2 class="anchored" data-anchor-id="institutional-review-board-irb-approval">Institutional Review Board (IRB) Approval</h2>
-<p><strong>Ethics committees or IRBs</strong> review your study before data collection begins. Their focus is <strong>primarily ethical</strong> - does the study design respect participants’ rights and well-being? They may also consider data protection aspects, but they are typically not technical experts in anonymization or data security. Think of IRB approval as a <strong>necessary but not sufficient step</strong>: it gets you started on the right track, but you still need to handle the technical side of data protection yourself.</p>
+<p><strong>Ethics committees or IRBs</strong> review your study before data collection begins. Their focus is <strong>primarily ethical</strong>: does the study design respect participants’ rights and well-being? They may also consider data protection aspects, but they are typically not technical experts in anonymization or data security. Think of IRB approval as a <strong>necessary but not sufficient step</strong>: it gets you started on the right track, but you still need to handle the technical side of data protection yourself.</p>
 </section>
 <section id="privacy-by-design" class="level2">
 <h2 class="anchored" data-anchor-id="privacy-by-design">Privacy by Design</h2>
@@ -459,13 +465,13 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>PbD is primarily targeted at software products and less at research projects. Nevertheless, I think the principles can also guide us when designing a research study in a privacy-conscious way:</p>
+<p>PbD is primarily targeted at software products and less at research projects. Nevertheless, the principles can also guide us when designing a research study in a privacy-conscious way:</p>
 <ol type="1">
 <li><p><strong>Proactive, not reactive:</strong> Anticipate and prevent privacy risks before they occur. Don’t wait for a breach to think about data protection.</p></li>
 <li><p><strong>Privacy as the default:</strong> The maximum degree of privacy should be delivered automatically. If a participant or researcher takes no action, privacy should remain intact.</p></li>
 <li><p><strong>Privacy embedded into design:</strong> Privacy should be an integral part of your design, not an add-on. Plan your data collection, storage, and sharing with privacy in mind from the start.</p></li>
-<li><p><strong>Full functionality - positive-sum, not zero-sum:</strong> Privacy and utility are not opposites. The goal is to find approaches that serve both - enabling meaningful interactions with systems while protecting individuals.</p></li>
-<li><p><strong>End-to-end security:</strong> Data should be protected throughout its entire lifecycle - from collection to deletion. This includes secure storage, encrypted transfers, and proper disposal.</p></li>
+<li><p><strong>Full functionality—positive-sum, not zero-sum:</strong> Privacy and utility are not opposites. The goal is to find approaches that serve both—enabling meaningful interactions with systems while protecting individuals.</p></li>
+<li><p><strong>End-to-end security:</strong> Data should be protected throughout its entire lifecycle—from collection to deletion. This includes secure storage, encrypted transfers, and proper disposal.</p></li>
 <li><p><strong>Visibility and transparency:</strong> Keep your data protection practices open and documented. Participants and oversight bodies should be able to verify that privacy is being maintained.</p></li>
 <li><p><strong>Respect for user privacy:</strong> The interests of the individual should be kept central. In research, this means respecting participants’ autonomy, expectations, and rights regarding their data.</p></li>
 </ol>
@@ -486,7 +492,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <h2 class="anchored" data-anchor-id="data-minimization">Data Minimization</h2>
 <p>Data minimization (or in German, <em>Datensparsamkeit</em>) follows a simple principle: <strong>no data, no risk</strong>; or more realistically: less data, less risk. The GDPR requires that you only collect data that is “adequate, relevant and limited to what is necessary” for your purpose (Art. 5(1)(c)).</p>
 <p>In research, this means resisting the temptation to collect demographics or other variables “just in case” or “because we always do.” Every additional variable you collect increases the risk of re-identification when the data is shared.</p>
-<p>There is also a flip side to data minimization: whenever possible, <strong>reuse existing data</strong> instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles - making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody’s life easier (find a tutorial on FAIR data management <a href="https://lmu-osc.github.io/FAIR-Data-Management/">here</a>).</p>
+<p>There is also a flip side to data minimization: whenever possible, <strong>reuse existing data</strong> instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles—making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody’s life easier (feel free to review the <a href="https://lmu-osc.github.io/FAIR-Data-Management/">OSC tutorial on FAIR data management</a>).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -499,7 +505,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>The randomized response technique is a technique that <strong>transparently adds privacy at the stage of data collection</strong> <span class="citation" data-cites="moshagen2012">Warner (<a href="#ref-warner1965" role="doc-biblioref">1965</a>)</span>.</p>
+<p>The randomized response technique is a technique that <strong>transparently adds privacy at the stage of data collection</strong> <span class="citation" data-cites="moshagen2012 warner1965">(<a href="#ref-moshagen2012" role="doc-biblioref">Moshagen et al. 2012</a>; <a href="#ref-warner1965" role="doc-biblioref">Warner 1965</a>)</span>.</p>
 <p>For the collection of a sensitive attribute (e.g., abusive behavior), participants are instructed to:</p>
 <ul>
 <li><p>If they have abused a person in the past, answer a statement A (i.e., “I have abused a person in the past”)</p></li>
@@ -511,6 +517,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </ul>
 <p>This means that a “yes” to this question can be eithe<strong>r due to the person having abused someone before, or a person who has not done that but was randomly assigned to answer statement B</strong>. When the base rates of the random distribution are known (as is the case with birth months), one can <strong>calculate the true percentage of people who have physically abused someone</strong> in the past <strong>without being able to identify any individuals who have done so</strong>.</p>
 <p>This technique requires a larger sample size to estimate prevalence and severely limits the interpretability of relations between variables, but it transparently adds privacy from the outset of data collection.</p>
+<p>Randomized response is also an early example of what is now formalized as <strong>differential privacy</strong>—see the callout in <a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.html#differential-privacy">the chapter on perturbative techniques</a>.</p>
 </div>
 </div>
 </div>
@@ -522,25 +529,26 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <h2 class="anchored" data-anchor-id="technical-and-organizational-measures-toms">Technical and Organizational Measures (TOMs)</h2>
 <p>The GDPR requires controllers to implement “appropriate technical and organizational measures” to protect personal data (Art. 32). In a research context, this includes:</p>
 <ul>
-<li><strong>Secure storage:</strong> Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU, for example, the <a href="https://www.lrz.de">LRZ</a> provides cloud storage and sync services that keep data within Germany.</li>
+<li><strong>Secure storage:</strong> Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU Munich, for example, the <a href="https://www.lrz.de">LRZ</a> provides cloud storage and sync services that keep data within Germany.</li>
 <li><strong>Access control:</strong> Only people who need the data for the research should <strong>have</strong> access. Use role-based permissions where possible.</li>
 <li><strong>Storage limitation:</strong> Don’t keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to add a reminder to my calendar for dates when I need to delete data.</li>
-<li><strong>Transfer security:</strong> When sharing data with collaborators, use encrypted channels - not email attachments.</li>
+<li><strong>Transfer security:</strong> When sharing data with collaborators, use encrypted channels, not email attachments.</li>
 <li><strong>Pseudonymization</strong>: Replace direct identifiers (like names) with artificial identifiers (like participant codes). See below for more information.</li>
 </ul>
 <p>These measures add layers of protection around your data while it is still in personal form. They do not replace anonymization, but they are essential complements.</p>
 <section id="pseudonymization" class="level3">
 <h3 class="anchored" data-anchor-id="pseudonymization">Pseudonymization</h3>
 <p>Pseudonymization is the process of replacing direct identifiers (like names) with artificial identifiers (like participant codes). It is an important first step, but it is crucial to understand its limits.</p>
-<p>The key point: <strong>pseudonymized data is still personal data.</strong> The GDPR explicitly states that “personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person” (Recital 26). As long as a key file exists that links participant codes back to real identities - or as long as indirect identifiers in the data could allow re-identification - the data remains personal, and the GDPR fully applies.</p>
+<p>The key point: <strong>pseudonymized data is still personal data.</strong> The GDPR explicitly states that “personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person” (<a href="https://www.privacy-regulation.eu/en/recital-26-GDPR.htm">GDPR Recital 26)</a>. As long as a key file exists that links participant codes back to real identities—or as long as indirect identifiers in the data could allow re-identification—the data remains personal, and the GDPR fully applies.</p>
 <p>Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. We discussed this in <a href="1_3_Personal_Data">the chapter on personal data</a>, and we will look at it more formally in <a href="1_5_Privacy_Concepts">the chapter on privacy concepts</a>.</p>
-<p>The GDPR considers pseudonymization a useful safeguard and a step in the right direction - but it is not enough if your goal is to share data openly.</p>
+<p>The GDPR considers pseudonymization a useful safeguard and a step in the right direction—but it is not enough if your goal is to share data openly.</p>
+<p>For a practical, step-by-step workflow on when to remove direct identifiers and the pseudonym key across every copy of your data, see the <a href="../1_FOUNDATION/1_3_Personal_Data.html#optimal-workflow">workflow callout in the chapter on personal data</a>.</p>
 </section>
 </section>
 <section id="anonymization" class="level2">
 <h2 class="anchored" data-anchor-id="anonymization">Anonymization</h2>
-<p>Anonymization goes further than pseudonymization. The goal is to <strong>transform personal data so that individuals can no longer be identified</strong> - directly or indirectly - by any means reasonably likely to be used. When data is truly anonymized, it falls <strong>outside the scope of the GDPR</strong> (Recital 26), which means it can be shared, published, and reused without the legal restrictions that apply to personal data.</p>
-<p>This sounds straightforward, but in practice, <strong>true anonymization is hard to achieve</strong>. Simply removing names and email addresses is usually not enough - indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a <strong>process that requires careful analysis of risks and the application of specific techniques</strong>.</p>
+<p>Anonymization goes further than pseudonymization. The goal is to <strong>transform personal data so that individuals can no longer be identified</strong>—directly or indirectly—by any means reasonably likely to be used. When data is truly anonymized, it falls <strong>outside the scope of the GDPR</strong> (<a href="https://www.privacy-regulation.eu/en/recital-26-GDPR.htm">Recital 26)</a>, which means it can be shared, published, and reused without the legal restrictions that apply to personal data.</p>
+<p>This sounds straightforward, but in practice, <strong>true anonymization is hard to achieve</strong>. Simply removing names and email addresses is usually not enough—indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a <strong>process that requires careful analysis of risks and the application of specific techniques</strong>.</p>
 <p>The bulk of this tutorial is dedicated to teaching you these techniques and helping you assess whether your data is sufficiently anonymized for sharing. The key distinction to remember:</p>
 <table class="caption-top table">
 <colgroup>
@@ -584,7 +592,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <p>Even during processing and analysis, participants retain their rights under the GDPR. The most relevant ones for this stage are:</p>
 <ul>
 <li><strong>Right to access:</strong> Participants can ask to see what data you hold about them. This is easier to fulfill if your data is well-organized and pseudonymized (so you can look up individual records).</li>
-<li><strong>Right to erasure:</strong> Participants can request that their data be deleted, for example, if they withdraw consent. Again, this requires that you can identify their records - another reason for careful pseudonymization during the active research phase.</li>
+<li><strong>Right to erasure:</strong> Participants can request that their data be deleted, for example, if they withdraw consent. Again, this requires that you can identify their records—another reason for careful pseudonymization during the active research phase.</li>
 </ul>
 <p>Once data is fully anonymized, these rights no longer apply (since you can no longer identify whose data is whose). Communicate your timeline transparently to participants during participation in the study.</p>
 </section>
@@ -608,7 +616,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Pseudonymized</strong> - because the re-identification key still exists.</p>
+<p><strong>Pseudonymized</strong>—because the re-identification key still exists.</p>
 </div>
 </div>
 </div>
@@ -628,7 +636,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Anonymized</strong> - the data is aggregated, no individuals can be singled out.</p>
+<p><strong>Anonymized</strong>—the data is aggregated, no individuals can be singled out.</p>
 </div>
 </div>
 </div>
@@ -648,7 +656,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Not clear</strong> - technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.</p>
+<p><strong>Not clear</strong>—technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.</p>
 </div>
 </div>
 </div>
@@ -668,7 +676,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Pseudonymized</strong> - the student number acts as a pseudonym, and the university holds the key.</p>
+<p><strong>Pseudonymized</strong>—the student number acts as a pseudonym, and the university holds the key.</p>
 </div>
 </div>
 </div>
@@ -688,7 +696,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Not clear</strong> - identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.</p>
+<p><strong>Not clear</strong>—identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.</p>
 </div>
 </div>
 </div>
@@ -708,7 +716,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Not clear / borderline anonymized</strong> - no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.</p>
+<p><strong>Not clear / borderline anonymized</strong>—no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.</p>
 </div>
 </div>
 </div>
@@ -728,12 +736,12 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Pseudonymized</strong> - the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.</p>
+<p><strong>Pseudonymized</strong>—the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.</p>
 </div>
 </div>
 </div>
-<section id="resources-links-examples" class="level4">
-<h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
+<section id="resources-links-examples-1" class="level4">
+<h4 class="anchored" data-anchor-id="resources-links-examples-1">Resources, Links, Examples</h4>
 <p><a href="https://utrechtuniversity.github.io/dataprivacyhandbook/about.html">Utrecht University’s data privacy handbook</a> offers many insights into GDPR compliance, privacy by design, pseudonymisation, data minimization, encryption, and many other topics <span class="citation" data-cites="researchdatamanagementsupport">(<a href="#ref-researchdatamanagementsupport" role="doc-biblioref">Research Data Management Support et al., n.d.</a>)</span>.</p>
 
 

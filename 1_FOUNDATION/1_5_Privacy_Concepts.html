@@ -395,9 +395,10 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>After completing this part of the tutorial, you will understand</p>
 <ul>
-<li>After completing this part of the tutorial, you will understand essential privacy risks.</li>
-<li>After completing this part of the tutorial, you will understand the basic idea of k-anonymity.</li>
+<li>essential privacy risks;</li>
+<li>the basic idea of k-anonymity.</li>
 </ul>
 </div>
 </div>
@@ -405,21 +406,21 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <p>Before we get into the actual anonymization techniques (in the next part of this tutorial), we need to understand what exactly we are protecting against. This chapter introduces the <strong>types of privacy risks</strong> that exist in typical quantitative research datasets and the <strong>foundational concept of k-anonymity</strong>, which will guide our risk assessment later.</p>
 <section id="privacy-risks" class="level1">
 <h1>Privacy Risks</h1>
-<p>When we talk about the risk of releasing a dataset, we are talking about <strong>disclosure risks</strong> - the risk that someone could learn something about an individual from the data that they were not supposed to learn. <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span> distinguish four types of disclosure:</p>
+<p>When we talk about the risk of releasing a dataset, we are talking about <strong>disclosure risks</strong>, i.e.&nbsp;the risk that someone could learn something about an individual from the data that they were not supposed to learn. <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span> distinguish four types of disclosure:</p>
 <section id="identity-disclosure" class="level2">
 <h2 class="anchored" data-anchor-id="identity-disclosure">Identity Disclosure</h2>
 <p>Identity disclosure occurs when an attacker can determine that a <strong>specific row in the released dataset belongs to a known individual</strong>. This is the most intuitive type of risk: someone looks at the data and says, “That row is about person X.”</p>
-<p><strong>Research example:</strong> You publish a dataset from a survey of doctoral students at your department. The dataset contains age, gender, and research topic. A colleague recognizes that there is only one 28-year-old female working on computational linguistics - and now they can see her responses to all other questions in the dataset.</p>
+<p><strong>Research example:</strong> You publish a dataset from a survey of doctoral students from your department. The dataset contains age, gender, and research topic. A colleague recognizes that there is only one 28-year-old female working on computational linguistics—and now they can see her responses to all other questions in the dataset.</p>
 </section>
 <section id="attribute-disclosure" class="level2">
 <h2 class="anchored" data-anchor-id="attribute-disclosure">Attribute Disclosure</h2>
 <p>Attribute disclosure occurs when an attacker <strong>learns new information about an individual</strong> from the released data, even if they cannot pinpoint the exact row. This can happen when all individuals who share certain characteristics also share a sensitive attribute.</p>
-<p><strong>Research example:</strong> A dataset on employee well-being shows that all participants from a specific department who are aged 40-50 reported burnout symptoms. A manager who knows that their employee participated and is in that age range can now infer their burnout status - without needing to know exactly which row belongs to them.</p>
+<p><strong>Research example:</strong> A dataset on employee well-being shows that all participants from a specific department who are aged 40-50 reported burnout symptoms. A manager who knows that their employee participated and is in that age range can now infer their burnout status without needing to know exactly which row belongs to them.</p>
 </section>
 <section id="inferential-disclosure" class="level2">
 <h2 class="anchored" data-anchor-id="inferential-disclosure">Inferential Disclosure</h2>
 <p>Inferential disclosure occurs when an attacker can infer an individual’s private information with high confidence from <strong>statistical properties</strong> of the data. This is subtler and less common in research datasets because inferences are probabilistic, not certain, but it can still be a concern.</p>
-<p><strong>Research example:</strong> A published dataset reveals that 90% of female participants aged 40-50 in a particular occupation report burnout. If someone knows a person matching that profile who participated in the study, they can infer with high confidence that this person has burnout - even without identifying their specific row. Note that this type of inference can also extend to people who are <em>not</em> in the dataset but match the same profile.</p>
+<p><strong>Research example:</strong> A published dataset reveals that 90% of female participants aged 40-50 in a particular occupation report burnout. If someone knows a person matching that profile who participated in the study, they can infer with high confidence that this person has burnout—even without identifying their specific row. Note that this type of inference can also extend to people who are <em>not</em> in the dataset but match the same profile.</p>
 </section>
 <section id="membership-disclosure" class="level2">
 <h2 class="anchored" data-anchor-id="membership-disclosure">Membership Disclosure</h2>
@@ -448,14 +449,39 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <p>The most common de-anonymization scenario is a <strong>linkage attack</strong>: an attacker combines information from the released dataset with external information (from public records, social media, other datasets, or personal knowledge) to identify individuals.</p>
 <p>Where can this external information come from?</p>
 <ul>
-<li><strong>Public records:</strong> Voter registrations, professional directories, company websites, university staff pages</li>
-<li><strong>Social media:</strong> LinkedIn profiles, personal websites, public posts</li>
-<li><strong>Other datasets:</strong> Previously released datasets, administrative records, census data</li>
-<li><strong>Personal knowledge:</strong> A colleague, supervisor, or acquaintance who knows that a specific person participated in the study</li>
+<li><p><strong>Public records:</strong> Voter registrations, professional directories, company websites, university staff pages</p></li>
+<li><p><strong>Social media:</strong> LinkedIn profiles, personal websites, public posts</p></li>
+<li><p><strong>Other datasets:</strong> Previously released datasets, administrative records, census data</p></li>
+<li><p><strong>Personal knowledge:</strong> A colleague, supervisor, or acquaintance who knows that a specific person participated in the study</p></li>
 </ul>
-<p>The indirect identifiers that remain in a dataset - like age, gender, occupation, and location - are the bridge that connects the released data to external information.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div id="participation-knowledge" class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Participation Knowledge
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The “personal knowledge” case above is closely tied to <strong>participation knowledge</strong>: an attacker’s <strong>knowledge of whether a person’s data is in a specific dataset</strong>.</p>
+<p>In practice, participation knowledge is <strong>often not assumed</strong> in formal risk assessment <span class="citation" data-cites="guo2025">(<a href="#ref-guo2025" role="doc-biblioref">Guo et al. 2025</a>)</span>. The default is to treat every record as if the attacker does not know whether a specific person is in the dataset at all—making the risk assessment more conservative and manageable.</p>
+<p>However, participation knowledge should be taken into account in <strong>contexts where it is likely that participants disclose their participation to others or the public</strong> (e.g., on social media). Here are a few examples of studies where participation knowledge could be assumed to be present:</p>
+<ul>
+<li><p><strong>Snowball sampling or referral-based recruitment.</strong> When participants are actively encouraged to recruit others, word of participation spreads naturally. It is reasonable to assume that at least some participants know others who are also in the dataset.</p></li>
+<li><p><strong>Highly interventional or attention-grabbing studies.</strong> This could be co-design projects, clinical trials, or lifestyle interventions that require a big change in behavior (e.g., quitting smoking, not using one’s phone for a few weeks). People tend to talk about these—to friends, family, or on social media.</p></li>
+<li><p><strong>Studies where participation is something to list as experience.</strong> For example, when recruiting via freelancing or participant platforms, it is common for people to share prior study participation as part of their portfolio or work history. Others in their network may therefore be aware that they took part.</p></li>
+<li><p><strong>Grouped observations</strong> (e.g., couples, families, classmates, or colleagues) are an extreme case: Group members already know each other’s participation by definition and may share identifying attributes. Refer to the <a href="https://sdcpractice.readthedocs.io/en/latest/index.html">SDC Practice Guide</a> for specific guidance on handling grouped data.</p></li>
+</ul>
+<p>This is where k-anonymity comes into place: when individuals are not unique on their demographics, you cannot pinpoint someone’s data even if you know they participated. How high a level of k to aim for is its own question, which we return to in <a href="#reasonable-k">What is a Reasonable Level of k-Anonymity?</a> below.</p>
+</div>
+</div>
+</div>
+<p>The indirect identifiers that remain in a dataset—like age, gender, occupation, and location—are the bridge that connects the released data to external information.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -464,12 +490,12 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ul>
 <li><p><strong>Student data:</strong> A dataset on online behaviors contains demographic information of first-year students at a university. Another student recognizes a person with a unique combination of age, gender, and study subject (identity disclosure). They can then see which websites this student visits most frequently (attribute disclosure).</p></li>
 <li><p><strong>Politician mental health data:</strong> A dataset on the mental health of German politicians was released publicly. It contains age range, gender, and political function. A journalist links this to publicly available information about members of the Bundestag and re-identifies several politicians (identity disclosure), gaining access to their mental health data (attribute disclosure).</p></li>
-<li><p><strong>Latanya Sweeney’s classic demonstration:</strong> In the late 1990s, computer scientist Latanya Sweeney showed that 87% of the U.S. population could be uniquely identified by just three variables: date of birth, gender, and ZIP code. She famously re-identified the medical records of the Governor of Massachusetts by linking a “de-identified” hospital dataset with publicly available voter registration records <span class="citation" data-cites="Sweeney2000_SimpleDemographicsOften">Barth-Jones (<a href="#ref-Barth-Jones2012_ReIdentificationGovernorWilliam" role="doc-biblioref">2012</a>)</span>.</p></li>
+<li><p><strong>Latanya Sweeney’s classic demonstration:</strong> In the late 1990s, computer scientist Latanya Sweeney showed that 87% of the U.S. population could be uniquely identified by just three variables: date of birth, gender, and ZIP code. She famously re-identified the medical records of the Governor of Massachusetts by linking a “de-identified” hospital dataset with publicly available voter registration records <span class="citation" data-cites="Sweeney2000_SimpleDemographicsOften Barth-Jones2012_ReIdentificationGovernorWilliam">(<a href="#ref-Sweeney2000_SimpleDemographicsOften" role="doc-biblioref">Sweeney 2000</a>; <a href="#ref-Barth-Jones2012_ReIdentificationGovernorWilliam" role="doc-biblioref">Barth-Jones 2012</a>)</span>.</p></li>
 </ul>
 </div>
 </div>
@@ -477,9 +503,9 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </section>
 <section id="operationalizing-risk" class="level1">
 <h1>Operationalizing Risk</h1>
-<p>How do we move from “there might be a risk” to “this is how much risk there is”? In this tutorial, we focus on basic methods for quantifying re-identification risk for individuals. For more advanced approaches (e.g., group-level risks), see the <a href="https://sdcpractice.readthedocs.io/en/latest/measure_risk.html">sdcPractice documentation</a>.</p>
+<p>How do we move from “there might be a risk” to “this is how much risk there is”? In this tutorial, we focus on basic methods for quantifying re-identification risk for individuals. For more advanced approaches (e.g., group-level risks), see the <a href="https://sdcpractice.readthedocs.io/en/latest/measure_risk.html">Statistical Disclosure Control for Microdata: A Practice Guide. <em>Measuring Risk</em></a>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -488,7 +514,7 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>The inclusion of groups (e.g., school classes, partnerships, households) that share certain attributes introduces additional risk for individuals, since other group members may use shared knowledge to infer information about specific individuals in the dataset.</p>
 </div>
@@ -506,10 +532,26 @@ Warning
 <h2 class="anchored" data-anchor-id="definition">Definition</h2>
 <p>A dataset satisfies <strong>k-anonymity</strong> if, for every combination of indirect identifiers, <strong>there are at least <em>k</em> individuals sharing that same combination</strong>. In other words: no one is unique, and no one stands out from a group smaller than <em>k</em>.</p>
 <ul>
-<li>If <strong>k = 1</strong>, there is at least one individual who is unique on their indirect identifiers - meaning someone could potentially be singled out. This is the highest risk.</li>
-<li>If <strong>k = 5</strong>, every individual shares their combination of indirect identifiers with at least 4 others - making re-identification much harder.</li>
-<li>Higher values of <em>k</em> mean lower re-identification risk, but also potentially lower data utility (because more generalization or suppression is needed to achieve them).</li>
+<li>If <strong>k = 1</strong>, there is at least one individual who is unique on their indirect identifiers; meaning someone could potentially be singled out. This is the highest risk.</li>
+<li>If <strong>k = 5</strong>, every individual shares their combination of indirect identifiers with at least 4 others, making re-identification much harder.</li>
+<li>Higher values of <em>k</em> mean lower re-identification risk, but also potentially lower data utility (because more generalization or suppression is needed to achieve them as we will see later).</li>
 </ul>
+<div id="reasonable-k" class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>What is a Reasonable Level of k-Anonymity?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>How high should <em>k</em> be? It depends on the sensitivity of the data and the risk of <a href="#participation-knowledge">participation knowledge</a>. When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. <strong>I advise for a k-anonymity level of, generally, at least 3 and at least 5 in case of studies that come with a high risk of participation knowledge.</strong> In case of especially sensitive data, going up to a higher k (e.g., k = 10) is advisable.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
@@ -556,10 +598,10 @@ Warning
 </tr>
 </tbody>
 </table>
-<p>The first three rows share the same combination (34, Female, 80331), so they form a group of size 3. The last two rows share 51, Male, and 80333, forming a group of size 2. The smallest group has 2 individuals, so this dataset satisfies <strong>2-anonymity</strong> - but not 3-anonymity.</p>
+<p>The first three rows share the same combination (34, Female, 80331), so they form a group of size 3. The last two rows share 51, Male, and 80333, forming a group of size 2. The smallest group has 2 individuals, so this dataset satisfies <strong>2-anonymity</strong>—but not 3-anonymity.</p>
 <p>If an attacker knows that a 34-year-old woman living in 80331 is in the dataset, they can narrow it down to 3 possible rows, but cannot determine which one is hers.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -568,7 +610,7 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>Try this tool to find out how identifiable you are based on just a few demographic variables: <a href="https://aisp.doc.ic.ac.uk/individual-risk/">Individual Risk Explorer</a>. Using just gender, date of birth, and ZIP code, approximately 83% of the U.S. population can be uniquely identified.</p>
 </div>
@@ -582,8 +624,8 @@ Warning
 <li><strong>Homogeneity attack:</strong> If all <em>k</em> individuals in a group share the same sensitive attribute, then knowing someone is in that group reveals their sensitive value. For example, all three 34-year-old women from 80331 could have the same diagnosis.</li>
 <li><strong>Background knowledge attack:</strong> An attacker with additional knowledge (e.g., they know the person does <em>not</em> have a certain condition) can narrow down the possibilities further.</li>
 </ul>
-<p>Extensions like <strong>l-diversity</strong> (requiring diversity in sensitive values within each group) and <strong>t-closeness</strong> (requiring that the distribution of sensitive values within each group is close to the overall distribution) have been proposed to address these issues. For the scope of this tutorial, k-anonymity will be our main metric - but it is good to be aware that it is not a silver bullet. More information on l-diversity and t-closedness can be accessed in <a href="https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html">this practical tutorial by Utrecht university</a>.</p>
-<p>We will use k-anonymity practically in the <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the next chapter</a> of this tutorial, where we’ll calculate it using R and the <code>sdcMicro</code> package.</p>
+<p>Extensions like <strong>l-diversity</strong> (requiring diversity in sensitive values within each group) and <strong>t-closeness</strong> (requiring that the distribution of sensitive values within each group is close to the overall distribution) have been proposed to address these issues. For the scope of this tutorial, k-anonymity will be our main metric, but it is good to be aware that it is not a silver bullet. More information on l-diversity and t-closedness can be accessed in <a href="https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html">this practical tutorial by Utrecht university</a>.</p>
+<p>We will use k-anonymity practically in the <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">next chapter on assessing privacy risks</a>, where we’ll calculate it using R and the <code>sdcMicro</code> package.</p>
 </section>
 </section>
 <section id="further-reading" class="level1">
@@ -603,6 +645,9 @@ Barth-Jones, Daniel C. 2012. <span>“The ’<span>Re-Identification</span>’ o
 </div>
 <div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
 Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
+</div>
+<div id="ref-guo2025" class="csl-entry" role="listitem">
+Guo, Wentao, Paige Pepitone, Adam J Aviv, and Michelle L Mazurek. 2025. <span>“USENIX Security Symposium.”</span> (Seattle, WA, USA). <a href="https://www.usenix.org/system/files/usenixsecurity25-guo-wentao.pdf">https://www.usenix.org/system/files/usenixsecurity25-guo-wentao.pdf</a>.
 </div>
 <div id="ref-Sweeney2000_SimpleDemographicsOften" class="csl-entry" role="listitem">
 Sweeney, Latanya. 2000. <span>“Simple <span>Demographics Often Identify People Uniquely</span>.”</span> In <em>Data Privacy Lab</em>.
