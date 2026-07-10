@@ -37,9 +37,9 @@ This chapter summarizes the full anonymization workflow. Use it as a reference o
   font-weight: 700; font-size: 1.02rem; color: #006426;
   text-decoration: none;
 }
-.wf-title:hover { text-decoration: underline; }
-/* stretched link: whole card is clickable */
-.wf-title::after {
+a.wf-title:hover { text-decoration: underline; }
+/* stretched link: whole card is clickable (only for real links) */
+a.wf-title::after {
   content: ""; position: absolute; inset: 0; z-index: 0;
 }
 .wf-desc { font-size: 0.9rem; color: #333; margin-top: .15rem; line-height: 1.35; }
@@ -58,7 +58,7 @@ This chapter summarizes the full anonymization workflow. Use it as a reference o
   <div class="wf-step" id="wf-1">
     <span class="wf-num">1</span>
     <div class="wf-body">
-      <a class="wf-title" href="../1_FOUNDATION/1_1_Introduction_data_privacy.html">Implement Data Privacy</a>
+      <a class="wf-title" href="../1_FOUNDATION/1_4_Mechanisms.html">Implement Data Privacy</a>
       <span class="wf-desc">Privacy by design before &amp; during collection: minimize data, plan storage/access, write a DMP.</span>
     </div>
   </div>
@@ -126,7 +126,7 @@ This chapter summarizes the full anonymization workflow. Use it as a reference o
   <div class="wf-step" id="wf-8">
     <span class="wf-num">8</span>
     <div class="wf-body">
-      <a class="wf-title" href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Recalculate Risk &amp; Utility</a>
+      <a class="wf-title" href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">Recalculate Risk &amp; Utility</a>
       <span class="wf-desc">Re-measure after each step. If the balance is not satisfactory,
         <a href="#wf-4" class="wf-loop">&#8635; return to Step 4</a> and iterate.</span>
     </div>
