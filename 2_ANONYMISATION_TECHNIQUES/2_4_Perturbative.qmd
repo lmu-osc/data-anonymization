@@ -58,13 +58,11 @@ The noise can be uncorrelated—each value gets an independent random draw—or 
 ::: {.callout-note collapse="false"}
 ## Differential Privacy
 
-<!--TODO Improve this-->
+Noise addition leaves one question open: **how much noise is enough?** In this tutorial, we answer it empirically—add noise, then measure the remaining disclosure risk (as you will do in the exercise below). **Differential privacy** approaches the same question from the other direction: you first fix a privacy level, and the noise is then calibrated mathematically so that a formal guarantee holds. Importantly, this guarantee applies to an **algorithm**—the whole procedure of computing a result *and* adding noise to it—**not to a dataset**: the algorithm's output must be essentially the same whether or not any single individual's data is included, so an attacker learns (almost) nothing about anyone's participation. One consequence: you cannot look at a dataset and call it "differentially private"; the guarantee belongs to the process that produced an output.
 
-Differential privacy is a **formal privacy guarantee** that is usually implemented through noise addition. The idea is that the output of any analysis should be essentially the same whether or not any single individual is included in the dataset—so the presence or absence of one person cannot be inferred from the result.
+You already know a technique that provides this guarantee: the [randomized response technique](../1_FOUNDATION/1_4_Mechanisms.qmd#randomized-response-technique) from the chapter on mechanisms. Because each answer is randomized with known probabilities, a recorded "yes" proves nothing about any single person, yet the true prevalence can still be estimated.
 
-In practice, this means adding carefully calibrated noise to query results or to the data itself, such that any individual's contribution is hidden within the noise.
-
-For example, in a dataset with medical data and tests on HIV, even if the attacker already suspects a person X is the only possible HIV case in the dataset, the data does then not confirm or deny that suspicion.<!-- how?-->
+That example also shows a practical difference from an approach like k-anonymity, which requires a trusted party holding the complete dataset to anonymize it. With differential privacy, noise can instead be added **locally**—in the case of randomized response, by each participant themselves, before their data is even collected.
 
 For R users, the `diffpriv` package implements differential privacy mechanisms and is a good starting point for exploring this approach [@rubinstein2017].
 :::

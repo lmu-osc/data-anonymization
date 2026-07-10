@@ -105,6 +105,8 @@ For the collection of a sensitive attribute (e.g., abusive behavior), participan
 This means that a "yes" to this question can be eithe**r due to the person having abused someone before, or a person who has not done that but was randomly assigned to answer statement B**. When the base rates of the random distribution are known (as is the case with birth months), one can **calculate the true percentage of people who have physically abused someone** in the past **without being able to identify any individuals who have done so**.
 
 This technique requires a larger sample size to estimate prevalence and severely limits the interpretability of relations between variables, but it transparently adds privacy from the outset of data collection.
+
+Randomized response is also an early example of what is now formalized as **differential privacy**—see the callout in [the chapter on perturbative techniques](../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd#differential-privacy).
 :::
 
 # Stages 3-6: Process, Analyze, Preserve, and Publish
@@ -142,7 +144,7 @@ This sounds straightforward, but in practice, **true anonymization is hard to ac
 The bulk of this tutorial is dedicated to teaching you these techniques and helping you assess whether your data is sufficiently anonymized for sharing. The key distinction to remember:
 
 |   | Pseudonymization | Anonymization |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | **What?** | Replaces direct identifiers with codes | Removes or transforms data so that individuals cannot be identified |
 | **Does a key file exist?** | Yes (or re-identification is otherwise possible) | No (re-identification is not reasonably possible) |
 | **Is it still personal data?** | Yes | No |
