@@ -59,7 +59,7 @@ A researcher re-using the data can still answer questions like "what is the dist
 
 Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be [l-diverse](../1_FOUNDATION/1_5_Privacy_Concepts#limitations-of-k-anonymity)—it contains at least `l` different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone's group still faces at least `l` competing possibilities for their sensitive value.
 
-To build such groups, [@xiao2006] do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the `l` currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.
+To build such groups, @xiao2006 do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the `l` currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.
 
 Anatomization is particularly useful when the sensitive attribute is the main focus of the research question, and when preserving group-level patterns is more important than individual-level linkage. For our dataset—where the research question is about the relationship between religion and political opinion—anatomization could work well: group-level associations are preserved, but no individual's religion and political views can be read together.
 
@@ -67,7 +67,7 @@ However, anatomization does not protect against disclosure of attributes other t
 
 # Exercise: Applying Anatomization
 
-Let's implement anatomization step by step, following the algorithm proposed by [@xiao2006]. It is not available in `sdcMicro`, so we will build it ourselves with a lot of data wrangling. Because anatomization protects a *sensitive* attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, `religion`.
+Let's implement anatomization step by step, following the algorithm proposed by @xiao2006. It is not available in `sdcMicro`, so we will build it ourselves with a lot of data wrangling. Because anatomization protects a *sensitive* attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, `religion`.
 
 Our data does not really need this level of protection—we use it here purely for demonstration.
 
