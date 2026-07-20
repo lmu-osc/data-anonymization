@@ -49,7 +49,7 @@ In practice, this means you need to be **extra careful** with these variables wh
 
 **Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.
 
-# Exercise: Personal Data
+# Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories
 
 In this first exercise, we work with **our dataset**—the simulated dataset of 200 Germans introduced on the [landing page](../index.qmd), whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:
 
@@ -64,28 +64,27 @@ data <- read.csv(here::here("SimulatedData.csv")) # Change based on the location
 ::: {.callout-note collapse="false"}
 ## Data Dictionary
 
-| Variable Name | Description | Item | Values |
-|------------------|------------------|------------------|------------------|
-| id | Number assigned to each participant in order of participation | (assigned in background) | Integer; 1-200 |
-| name | First and last name of participant | Please indicate your full name (first and last name) | String of characters |
-| email | Email address of participant | What is your e-mail address? | String of characters |
-| plz | German postal code | What is your postal code? | String of characters |
-| gender | Gender of participant | What is your gender? | Factor; "male"/"female"/"non-binary" |
-| age | Age of participant in years | What is your age in years? | Integer; 18-100 |
-| income | Personal annual income in Euros | What was your income over the last twelve months | Integer |
-| religion | Religion of participant | What is your religion? | Factor; "Catholicism","Protestantism","Islam","Eastern Orthodoxy","Judaism", "Buddhism", "Hinduism", "Other", "None" |
-| education | Highest degree of education | What is your highest degree of education? | Factor; "no degree","trade school","high school", "university","doctoral title" |
-| pol_immigration | Likert item measuring opinion on immigration | The government should limit immigration more strictly than it currently does. | Integer; 1-5 |
-| pol_environment | Likert item measuring opinion on environment | Protecting the environment should be a top priority, even if it slows economic growth. | Integer; 1-5 |
-| pol_redistribution | Likert item measuring opinion on redistribution of wealth | The government should reduce income differences between rich and poor. | Integer; 1-5 |
-| pol_eu_integration | Likert item measuring opinion on membership in EU | Our country benefits from being a member of the European Union. | Integer; 1-5 |
-| ip_address | IP address (version 4) of participant's device when answering survey | (collected in background) | String of characters |
-| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0-n |
+| Variable Name      | Description                                                          | Item Text                                                                              | Values                                                                                                               |
+| ------------------ | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| id                 | Number assigned to each participant in order of participation        | (assigned in background)                                                               | Integer; 1-200                                                                                                       |
+| name               | First and last name of participant                                   | Please indicate your full name (first and last name)                                   | String of characters                                                                                                 |
+| email              | Email address of participant                                         | What is your e-mail address?                                                           | String of characters                                                                                                 |
+| plz                | German postal code                                                   | What is your postal code?                                                              | String of characters                                                                                                 |
+| gender             | Gender of participant                                                | What is your gender?                                                                   | Factor; "male"/"female"/"non-binary"                                                                                 |
+| age                | Age of participant in years                                          | What is your age in years?                                                             | Integer; 18-100                                                                                                      |
+| income             | Personal annual income in Euros                                      | What was your income over the last twelve months                                       | Integer                                                                                                              |
+| religion           | Religion of participant                                              | What is your religion?                                                                 | Factor; "Catholicism","Protestantism","Islam","Eastern Orthodoxy","Judaism", "Buddhism", "Hinduism", "Other", "None" |
+| education          | Highest degree of education                                          | What is your highest degree of education?                                              | Factor; "no degree","trade school","high school", "university","doctoral title"                                      |
+| pol_immigration    | Likert item measuring opinion on immigration                         | The government should limit immigration more strictly than it currently does.          | Integer; 1-5                                                                                                         |
+| pol_environment    | Likert item measuring opinion on environment                         | Protecting the environment should be a top priority, even if it slows economic growth. | Integer; 1-5                                                                                                         |
+| pol_redistribution | Likert item measuring opinion on redistribution of wealth            | The government should reduce income differences between rich and poor.                 | Integer; 1-5                                                                                                         |
+| pol_eu_integration | Likert item measuring opinion on membership in EU                    | Our country benefits from being a member of the European Union.                        | Integer; 1-5                                                                                                         |
+| ip_address         | IP address (version 4) of participant's device when answering survey | (collected in background)                                                              | String of characters                                                                                                 |
+| years_in_job       | Number of years the participant has been in their current job        | How many years have you been in your current job?                                      | Integer; 0-n                                                                                                         |
 :::
 
-## Exercise: Direct Identifiers, Indirect Identifiers, and Special Categories
 
-Inspect the dataset `data`. Answer the following questions:
+Now inspect the dataset `data`. Answer the following questions:
 
 1\. Which columns contain **direct identifiers**?
 
@@ -131,18 +130,19 @@ The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_inte
 Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as `name`) is possible, it is considered personal data, and GDPR applies.
 :::
 
-As a first step, you always want to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators.
+<!-- Moved this into a separate heading - this seems to be too important to "hide" it below an exercise -->
+# A default workflow for handling identifiers
 
-More generally, it helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The following is a good default:
+It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on *any* existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:
 
-::: {#optimal-workflow .callout-tip collapse="false"}
-## An optimal workflow for handling identifiers
+::: {#default-workflow .callout-tip collapse="false"}
+## An default workflow for handling identifiers
 
 1.  **Download** the raw data from your collection tool.
 
 2.  **Remove direct identifiers** as soon as you no longer need them—in *every* copy that exists (collection platform, cloud storage, collaborators' copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.
 
-3.  **Remove the pseudonym key** using the same logic. If either direct identifiers or a pseudonym key would serve the purpose, keep the key—it is the safer option—but store it *separately* from the data, with restricted access and a defined deletion date.
+3.  **Remove the pseudonym key** using the same logic. If there are concerete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key -- it is the safer option -- but store it *separately* from the data, with restricted access and a defined deletion date.
 
 4.  **Store a secure master copy** of the data without direct identifiers and pseudonyms—e.g., read-only on your institution's password-protected server. Generate your working copy from it with a script, so the cleaning step is reproducible and auditable.
 
