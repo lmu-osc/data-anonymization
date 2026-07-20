@@ -279,7 +279,7 @@ Pros:
 
 Cons:
 
--   complex and not implemented in functions of R packages
+-   complex and not implemented as predefined functions within a R package
 -   similar level of privacy can be reached by combining other techniques
 
 #### Resources, Links, Examples
