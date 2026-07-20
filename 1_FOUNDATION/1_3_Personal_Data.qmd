@@ -136,7 +136,7 @@ Any data that can be linked to an individual is considered personal data. As lon
 It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on *any* existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:
 
 ::: {#default-workflow .callout-tip collapse="false"}
-## An default workflow for handling identifiers
+## A default workflow for handling identifiers
 
 1.  **Download** the raw data from your collection tool.
 
