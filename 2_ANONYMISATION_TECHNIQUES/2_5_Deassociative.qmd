@@ -24,9 +24,9 @@ data_withoutidentifiers <- read.csv(here::here("SimulatedData_noidentifiers.csv"
 
 De-associative techniques protect privacy by **breaking the link between indirect identifiers and sensitive variables,** rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person's record based on their demographic attributes, they should not be able to learn their sensitive values from it.
 
-The simplest version of this is just **separating a dataset into two tables—one with the identifiers and one with the sensitive attributes**. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.
+The simplest version of this is just **separating a dataset into two tables—one with the identifiers and one with the sensitive attributes**, and randomizing the order of wors in one of them. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.
 
-![The simplest de-association: split the data into a table of identifiers and a separate table of sensitive values, with no link between them.](../pictures/Simple-De-Association-cropped.png){fig-alt="A diagram showing the original table split into an identifier table (ID, Age, Gender) and a separate Religion table, with no link between the two."}
+![The simplest de-association: split the data into a table of identifiers and a separate table of sensitive values, with no link between them.](../pictures/Simple-De-Association-cropped.png){fig-alt="A diagram showing the original table split into an identifier table (ID, Age, Gender) and a separate Religion table (with randomized order of rows), with no link between the two."}
 
 More useful are approaches that preserve some analytical structure while still breaking the individual-level link—the two main ones being bucketization and anatomization.
 

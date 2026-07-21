@@ -187,7 +187,7 @@ Save the new file
 write.csv(data_withoutdirectidentifiers, here::here("SimulatedData_noidentifiers.csv"), row.names = FALSE)
 ```
 
-Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not "always delete immediately" but "delete once the documented purpose is gone." Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.
+Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not "always delete immediately" but **"delete once the documented purpose is gone."** Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.
 :::
 
 #### Resources, Links, Examples
