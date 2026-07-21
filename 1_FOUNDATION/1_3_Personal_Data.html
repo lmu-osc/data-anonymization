@@ -126,6 +126,9 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <!-- Matomo -->
 <script>
 if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
@@ -670,14 +673,60 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p><strong>Download</strong> the raw data from your collection tool.</p></li>
+<li><p><strong>Download</strong> the primary raw data from your collection tool.</p></li>
 <li><p><strong>Remove direct identifiers</strong> as soon as you no longer need them—in <em>every</em> copy that exists (collection platform, cloud storage, collaborators’ copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.</p></li>
 <li><p><strong>Remove the pseudonym key</strong> using the same logic. If there are concerete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key – it is the safer option – but store it <em>separately</em> from the data, with restricted access and a defined deletion date.</p></li>
-<li><p><strong>Store a secure master copy</strong> of the data without direct identifiers and pseudonyms—e.g., read-only on your institution’s password-protected server. Generate your working copy from it with a script, so the cleaning step is reproducible and auditable.</p></li>
+<li><p><strong>Store a secure copy</strong> of the data with direct identifiers and pseudonyms that are really need, with read-only access, e.g., on your institution’s password-protected server. Delete the primary raw data.</p></li>
+<li><p><strong>Remove all identifiers left in the data</strong>, generating your working copy from the secure copy of the data with a script, so the cleaning step is reproducible and auditable. This data copy can still be non-anonymous, depending on the data left in the dataset.</p></li>
 <li><p><strong>Analyze, write, and share with collaborators</strong> using this identifier-free working copy.</p></li>
 <li><p><strong>Anonymize</strong> the data if needed, following the steps explained in this tutorial.</p></li>
 <li><p><strong>Publish the anonymized version</strong> of the data.</p></li>
 </ol>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">block-beta
+    columns 2
+
+A["Primary raw data"]
+A1["Delete after processing"]
+
+space:2
+
+B["Raw data with identifiers"]
+B1["Store securely, read-only"]
+
+space:2
+
+C["Raw data without identifiers (#quot;working copy#quot;;&lt;br&gt; still could be non-anonymous)"]
+C1["Use for analyses (read-only),&lt;br&gt;share with collaborators"]
+
+space:2
+
+D["Anonymous version"]
+D1["Share with public"]
+
+A --&gt; A1
+B --&gt; B1
+C --&gt; C1
+D --&gt; D1
+
+A -- "Remove unneeded identifiers" --&gt; B
+B -- "Remove all identifiers&lt;br&gt;and pseudonyms" --&gt; C
+C -- "Anonymize" --&gt; D
+
+style A1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
+style B1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
+style C1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
+style D1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
