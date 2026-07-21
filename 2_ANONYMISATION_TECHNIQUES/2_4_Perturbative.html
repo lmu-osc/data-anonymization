@@ -483,7 +483,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div class="callout-body-container callout-body">
 <p>Noise addition leaves one question open: <strong>how much noise is enough?</strong> In this tutorial, we answer it empirically—add noise, then measure the remaining disclosure risk (as you will do in the exercise below). <strong>Differential privacy</strong> approaches the same question from the other direction: you first fix a privacy level, and the noise is then calibrated mathematically so that a formal guarantee holds. Importantly, this guarantee applies to an <strong>algorithm</strong>—the whole procedure of computing a result <em>and</em> adding noise to it—<strong>not to a dataset</strong>: the algorithm’s output must be essentially the same whether or not any single individual’s data is included, so an attacker learns (almost) nothing about anyone’s participation. One consequence: you cannot look at a dataset and call it “differentially private”; the guarantee belongs to the process that produced an output.</p>
 <p>You already know a technique that provides this guarantee: the <a href="../1_FOUNDATION/1_4_Mechanisms.html#randomized-response-technique">randomized response technique</a> from the chapter on mechanisms. Because each answer is randomized with known probabilities, a recorded “yes” proves nothing about any single person, yet the true prevalence can still be estimated.</p>
-<p>That example also shows a practical difference from an approach like k-anonymity, which requires a trusted party holding the complete dataset to anonymize it. With differential privacy, noise can instead be added <strong>locally</strong>—in the case of randomized response, by each participant themselves, before their data is even collected.</p>
+<p>That example also shows a practical difference from an approach like <em>k</em>-anonymity, which requires a trusted party holding the complete dataset to anonymize it. With differential privacy, noise can instead be added <strong>locally</strong>—in the case of randomized response, by each participant themselves, before their data is even collected.</p>
 <p>For R users, the <code>diffpriv</code> package implements differential privacy mechanisms and is a good starting point for exploring this approach <span class="citation" data-cites="rubinstein2017">(<a href="#ref-rubinstein2017" role="doc-biblioref">Rubinstein and Alda 2017</a>)</span>.</p>
 </div>
 </div>
@@ -580,7 +580,7 @@ Tip
 <div class="callout-body-container callout-body">
 <section id="microaggregation-1" class="level3">
 <h3 class="anchored" data-anchor-id="microaggregation-1">Microaggregation</h3>
-<p>I start by applying microaggreagation with a group size of 5 on a new <code>sdcObject</code>.</p>
+<p>I start by applying microaggregation with a group size of 5 on a new <code>sdcObject</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Microaggregation: replace income with group means (group size 5)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sdc_micro <span class="ot">&lt;-</span> <span class="fu">microaggregation</span>(</span>

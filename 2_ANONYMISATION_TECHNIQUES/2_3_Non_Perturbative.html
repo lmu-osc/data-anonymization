@@ -535,7 +535,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <ul>
 <li><code>globalRecode()</code> recodes a key variable into broader groups (e.g., exact age → age band)</li>
 <li><code>topBotCoding()</code> caps extreme values at a given threshold</li>
-<li><code>localSuppression()</code> suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful wFlohen using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the <code>sdcObject</code>.</li>
+<li><code>localSuppression()</code> suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the <code>sdcObject</code>.</li>
 </ul>
 <p>In addition, you can recode data manually, e.g., by using <code>mutate</code>, or by using a function such as <code>fct_lump_min()</code> from the R pakage <code>forcats</code>. This function lumps all categories below a certain group size together.</p>
 <ol type="1">

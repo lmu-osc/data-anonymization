@@ -376,9 +376,9 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
    
   <ul>
   <li><a href="#special-types-of-personal-data" id="toc-special-types-of-personal-data" class="nav-link active" data-scroll-target="#special-types-of-personal-data">Special Types of Personal Data</a></li>
-  <li><a href="#exercise-personal-data" id="toc-exercise-personal-data" class="nav-link" data-scroll-target="#exercise-personal-data">Exercise: Personal Data</a>
+  <li><a href="#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories" id="toc-exercise-1-direct-identifiers-indirect-identifiers-and-special-categories" class="nav-link" data-scroll-target="#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories">Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories</a></li>
+  <li><a href="#a-default-workflow-for-handling-identifiers" id="toc-a-default-workflow-for-handling-identifiers" class="nav-link" data-scroll-target="#a-default-workflow-for-handling-identifiers">A default workflow for handling identifiers</a>
   <ul class="collapse">
-  <li><a href="#exercise-direct-identifiers-indirect-identifiers-and-special-categories" id="toc-exercise-direct-identifiers-indirect-identifiers-and-special-categories" class="nav-link" data-scroll-target="#exercise-direct-identifiers-indirect-identifiers-and-special-categories">Exercise: Direct Identifiers, Indirect Identifiers, and Special Categories</a></li>
   <li><a href="#exercise-remove-direct-identifiers" id="toc-exercise-remove-direct-identifiers" class="nav-link" data-scroll-target="#exercise-remove-direct-identifiers">Exercise: Remove Direct Identifiers</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -451,8 +451,8 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <p>In practice, this means you need to be <strong>extra careful</strong> with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.</p>
 <p><strong>Information on criminal convictions and offences</strong> is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution’s data protection officer.</p>
 </section>
-<section id="exercise-personal-data" class="level1">
-<h1>Exercise: Personal Data</h1>
+<section id="exercise-1-direct-identifiers-indirect-identifiers-and-special-categories" class="level1">
+<h1>Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories</h1>
 <p>In this first exercise, we work with <strong>our dataset</strong>—the simulated dataset of 200 Germans introduced on the <a href="../index.html">landing page</a>, whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
@@ -468,16 +468,16 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 6%">
+<col style="width: 23%">
+<col style="width: 29%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Variable Name</th>
 <th>Description</th>
-<th>Item</th>
+<th>Item Text</th>
 <th>Values</th>
 </tr>
 </thead>
@@ -577,9 +577,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 </div>
-<section id="exercise-direct-identifiers-indirect-identifiers-and-special-categories" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-direct-identifiers-indirect-identifiers-and-special-categories">Exercise: Direct Identifiers, Indirect Identifiers, and Special Categories</h2>
-<p>Inspect the dataset <code>data</code>. Answer the following questions:</p>
+<p>Now inspect the dataset <code>data</code>. Answer the following questions:</p>
 <p>1. Which columns contain <strong>direct identifiers</strong>?</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -654,15 +652,18 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </section>
 </div>
 </div>
-<p>As a first step, you always want to <strong>remove the direct identifiers</strong> as soon as you don’t need them anymore. I would recommend performing this step on any existing copy of the dataset. Remember to also check your data collection platform and data shared with collaborators.</p>
-<p>More generally, it helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The following is a good default:</p>
-<div id="optimal-workflow" class="callout callout-style-default callout-tip callout-titled">
+<!-- Moved this into a separate heading - this seems to be too important to "hide" it below an exercise -->
+</section>
+<section id="a-default-workflow-for-handling-identifiers" class="level1">
+<h1>A default workflow for handling identifiers</h1>
+<p>It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to <strong>remove the direct identifiers</strong> as soon as you don’t need them anymore. I would recommend performing this step on <em>any</em> existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:</p>
+<div id="default-workflow" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>An optimal workflow for handling identifiers
+<span class="screen-reader-only">Tip</span>A default workflow for handling identifiers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -671,7 +672,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <ol type="1">
 <li><p><strong>Download</strong> the raw data from your collection tool.</p></li>
 <li><p><strong>Remove direct identifiers</strong> as soon as you no longer need them—in <em>every</em> copy that exists (collection platform, cloud storage, collaborators’ copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.</p></li>
-<li><p><strong>Remove the pseudonym key</strong> using the same logic. If either direct identifiers or a pseudonym key would serve the purpose, keep the key—it is the safer option—but store it <em>separately</em> from the data, with restricted access and a defined deletion date.</p></li>
+<li><p><strong>Remove the pseudonym key</strong> using the same logic. If there are concerete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key – it is the safer option – but store it <em>separately</em> from the data, with restricted access and a defined deletion date.</p></li>
 <li><p><strong>Store a secure master copy</strong> of the data without direct identifiers and pseudonyms—e.g., read-only on your institution’s password-protected server. Generate your working copy from it with a script, so the cleaning step is reproducible and auditable.</p></li>
 <li><p><strong>Analyze, write, and share with collaborators</strong> using this identifier-free working copy.</p></li>
 <li><p><strong>Anonymize</strong> the data if needed, following the steps explained in this tutorial.</p></li>
@@ -696,7 +697,6 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 </div>
-</section>
 <section id="exercise-remove-direct-identifiers" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-remove-direct-identifiers">Exercise: Remove Direct Identifiers</h2>
 <p>Now, delete all direct identifiers from the dataset.</p>
@@ -725,7 +725,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset without direct identifiers</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data_withoutdirectidentifiers, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"SimulatedData_noidentifiers.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not “always delete immediately” but “delete once the documented purpose is gone.” Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.</p>
+<p>Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not “always delete immediately” but <strong>“delete once the documented purpose is gone.”</strong> Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.</p>
 </div>
 </div>
 </div>
