@@ -126,7 +126,7 @@ The following `sdcMicro` functions are available to you:
 
 -   `globalRecode()` recodes a key variable into broader groups (e.g., exact age → age band)
 -   `topBotCoding()` caps extreme values at a given threshold
--   `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful wFlohen using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
+-   `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
 
 In addition, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from the R pakage `forcats`. This function lumps all categories below a certain group size together.
 

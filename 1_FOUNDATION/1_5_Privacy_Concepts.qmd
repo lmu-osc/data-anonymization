@@ -124,6 +124,7 @@ A dataset satisfies **k-anonymity** if, for every combination of indirect identi
 How high should *k* be? It depends on the sensitivity of the data and the risk of [participation knowledge](#participation-knowledge). When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. **I advise for a k-anonymity level of, generally, at least 3 and at least 5 in case of studies that come with a high risk of participation knowledge.** In case of especially sensitive data, going up to a higher k (e.g., k = 10) is advisable.
 :::
 
+
 ## Example
 
 Imagine a dataset with three indirect identifiers: age, gender, and postal code.
