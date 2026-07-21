@@ -802,7 +802,7 @@ Expected number of re-identifications:
   in original data: 199.00 (99.50 %)</code></pre>
 </div>
 </div>
-<p>Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 2-anonymity. This corresponds to the “Number of observations with higher risk than the main part of the data”, as summarized as a risk measure in the output: Now, the majority of data confirm with 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were <strong>especially</strong> at risk (since all of them were at risk).</p>
+<p>Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 2-anonymity. This corresponds to the “Number of observations with higher risk than the main part of the data”, as summarized as a risk measure in the output: Now, the majority of data conform with 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were <strong>especially</strong> at risk (since all of them were at risk).</p>
 <p>I don’t want to generalize the <code>keyVars</code> any further, and for that reason, I decide to apply <strong>local suppression</strong>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Local suppression to reach 2-anonymity</span></span>

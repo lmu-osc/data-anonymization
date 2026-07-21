@@ -477,14 +477,14 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </figure>
 </div>
 <p>Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be <a href="../1_FOUNDATION/1_5_Privacy_Concepts#limitations-of-k-anonymity">l-diverse</a>—it contains at least <code>l</code> different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone’s group still faces at least <code>l</code> competing possibilities for their sensitive value.</p>
-<p>To build such groups, <span class="citation" data-cites="xiao2006">(<a href="#ref-xiao2006" role="doc-biblioref">Xiao and Tao 2006</a>)</span> do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the <code>l</code> currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.</p>
+<p>To build such groups, <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span> do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the <code>l</code> currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.</p>
 <p>Anatomization is particularly useful when the sensitive attribute is the main focus of the research question, and when preserving group-level patterns is more important than individual-level linkage. For our dataset—where the research question is about the relationship between religion and political opinion—anatomization could work well: group-level associations are preserved, but no individual’s religion and political views can be read together.</p>
 <p>However, anatomization does not protect against disclosure of attributes other than the sensitive variable since the indirect identifiers stay fully intact; it is therefore helpful, to combine it with other methods.</p>
 </section>
 </section>
 <section id="exercise-applying-anatomization" class="level1">
 <h1>Exercise: Applying Anatomization</h1>
-<p>Let’s implement anatomization step by step, following the algorithm proposed by <span class="citation" data-cites="xiao2006">(<a href="#ref-xiao2006" role="doc-biblioref">Xiao and Tao 2006</a>)</span>. It is not available in <code>sdcMicro</code>, so we will build it ourselves with a lot of data wrangling. Because anatomization protects a <em>sensitive</em> attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, <code>religion</code>.</p>
+<p>Let’s implement anatomization step by step, following the algorithm proposed by <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span>. It is not available in <code>sdcMicro</code>, so we will build it ourselves with a lot of data wrangling. Because anatomization protects a <em>sensitive</em> attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, <code>religion</code>.</p>
 <p>Our data does not really need this level of protection—we use it here purely for demonstration.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep all indirect identifiers and one sensitive attribute (religion)</span></span>
@@ -747,7 +747,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </ul>
 <p>Cons:</p>
 <ul>
-<li>complex and not implemented in functions of R packages</li>
+<li>complex and not implemented as predefined functions within a R package</li>
 <li>similar level of privacy can be reached by combining other techniques</li>
 </ul>
 <section id="resources-links-examples" class="level4">
