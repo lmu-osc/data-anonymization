@@ -6,7 +6,7 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   After completing this part of the tutorial, you will be able to distinguish between personal data and non-personal data, as well as sensitive and non-sensitive data, and be able to identify direct and indirect identifiers.
+- After completing this part of the tutorial, you will be able to distinguish between personal data and non-personal data, as well as sensitive and non-sensitive data, and be able to identify direct and indirect identifiers.
 :::
 
 Watch this 3-minute video that explains what personal data are:
@@ -19,9 +19,9 @@ According to Article 4(1) GDPR, **personal data** is defined as any information 
 
 An individual is considered **identifiable** if they can be recognized, either directly or indirectly, through various identifiers or factors. These identifiers can include:
 
--   **Direct identifiers**. These are information that can directly point out and identify an individual, such as address, social security number, bank accounts, or an email address.
+- **Direct identifiers**. These are information that can directly point out and identify an individual, such as address, social security number, bank accounts, or an email address.
 
--   **Indirect or quasi identifiers**. These are data that can, when combined with other pieces of data, lead to the identification of an individual. Examples include date of birth, age, gender, geographic location (like a ZIP or postal code), marital status, or details about events (e.g., hospital admission dates).
+- **Indirect or quasi identifiers**. These are data that can, when combined with other pieces of data, lead to the identification of an individual. Examples include date of birth, age, gender, geographic location (like a ZIP or postal code), marital status, or details about events (e.g., hospital admission dates).
 
 The assessment of whether a person is identifiable takes into account all **means reasonably likely to be used** by the data controller or another person to identify the natural person, including methods such as "singling out". This "reasonably likely" criterion considers objective factors such as costs, time, effort, and the technological means available at the time of processing, as well as potential future technological developments. For instance, a dynamic IP address can qualify as personal data if it can be linked to a specific person, even if that linking capability resides with an Internet Service Provider and requires a court order [@breyer2016].
 
@@ -31,19 +31,19 @@ In a research context, this means that even **datasets without names or email ad
 
 The GDPR (Art. 9) describes several categories of **sensitive data** that receive heightened protection:
 
--   racial or ethnic origin,
+- racial or ethnic origin,
 
--   political opinions,
+- political opinions,
 
--   religious or philosophical beliefs,
+- religious or philosophical beliefs,
 
--   trade union membership,
+- trade union membership,
 
--   genetic data, biometric data (for unique identification),
+- genetic data, biometric data (for unique identification),
 
--   health data,
+- health data,
 
--   and data concerning a natural person's sex life or sexual orientation.
+- and data concerning a natural person's sex life or sexual orientation.
 
 In practice, this means you need to be **extra careful** with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
 
@@ -138,19 +138,58 @@ More generally, it helps to follow a consistent workflow for handling identifier
 ::: {#optimal-workflow .callout-tip collapse="false"}
 ## An optimal workflow for handling identifiers
 
-1.  **Download** the raw data from your collection tool.
+1.  **Download** the primary raw data from your collection tool.
 
 2.  **Remove direct identifiers** as soon as you no longer need them—in *every* copy that exists (collection platform, cloud storage, collaborators' copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.
 
 3.  **Remove the pseudonym key** using the same logic. If either direct identifiers or a pseudonym key would serve the purpose, keep the key—it is the safer option—but store it *separately* from the data, with restricted access and a defined deletion date.
 
-4.  **Store a secure master copy** of the data without direct identifiers and pseudonyms—e.g., read-only on your institution's password-protected server. Generate your working copy from it with a script, so the cleaning step is reproducible and auditable.
+4.  **Store a secure copy** of the data with direct identifiers and pseudonyms that are really need, with read-only access, e.g., on your institution's password-protected server. Delete the primary raw data.
 
-5.  **Analyze, write, and share with collaborators** using this identifier-free working copy.
+5.  **Remove all identifiers left in the data**, generating your working copy from the secure copy of the data with a script, so the cleaning step is reproducible and auditable. This data copy can still be non-anonymous, depending on the data left in the dataset.
 
-6.  **Anonymize** the data if needed, following the steps explained in this tutorial.
+6.  **Analyze, write, and share with collaborators** using this identifier-free working copy.
 
-7.  **Publish the anonymized version** of the data.
+7.  **Anonymize** the data if needed, following the steps explained in this tutorial.
+
+8.  **Publish the anonymized version** of the data.
+
+```{mermaid}
+block-beta
+    columns 2
+
+A["Primary raw data"]
+A1["Delete after processing"]
+
+space:2
+
+B["Raw data with identifiers"]
+B1["Store securely, read-only"]
+
+space:2
+
+C["Raw data without identifiers (#quot;working copy#quot;;<br> still could be non-anonymous)"]
+C1["Use for analyses (read-only),<br>share with collaborators"]
+
+space:2
+
+D["Anonymous version"]
+D1["Share with public"]
+
+A --> A1
+B --> B1
+C --> C1
+D --> D1
+
+A -- "Remove unneeded identifiers" --> B
+B -- "Remove all identifiers<br>and pseudonyms" --> C
+C -- "Anonymize" --> D
+
+style A1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
+style B1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
+style C1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
+style D1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
+```
 :::
 
 ::: {.callout-warning collapse="false"}
@@ -192,6 +231,6 @@ Delete the old file—unless one of the retention purposes above applies. Direct
 
 #### Resources, Links, Examples
 
--   In their tutorial, @VanRavenzwaaij2025_DeidentificationWhenMaking present example datasets and how to categorize variables into these categories.
+- In their tutorial, @VanRavenzwaaij2025_DeidentificationWhenMaking present example datasets and how to categorize variables into these categories.
 
 # References
