@@ -16,15 +16,32 @@ author:
       - id: UNIBE
         name: University of Bern
         ror: https://ror.org/02k7v4d05
-        isni: 0000000107265157
     orcid: 0000-0001-8126-1306
+  - name: Felix Schönbrodt
+    roles: [funding acquisition, conceptualization, writing - editing & review]
+    degrees:
+      - Dr.
+    affiliation: 
+      - id: LMU Open Science Center
+        name: LMU Open Science Center
+        ror: https://ror.org/029e6qe04
+    orcid: 0000-0002-8282-3910
+  - name: Malika Ihle
+    roles: [funding acquisition, project administration, supervision, conceptualization, writing - editing & review]
+    degrees:
+      - Dr.
+    affiliation: 
+      - id: LMU Open Science Center
+        name: LMU Open Science Center
+        ror: https://ror.org/029e6qe04
+    orcid: 0000-0002-3242-5981
 google-scholar: true
 ---
 
 
 # Contributors
 
-This site was authored by Luisa Jansen, and edits/contributions were made by EDITORS/AUTHORS.
+This site was authored by Luisa Jansen, and edits/contributions were made by Johanna Bayer, Malika Ihle, and Felix Schönbrodt.
 
 # Licenses
 

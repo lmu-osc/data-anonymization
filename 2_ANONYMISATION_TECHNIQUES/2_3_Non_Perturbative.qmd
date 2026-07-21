@@ -126,7 +126,7 @@ The following `sdcMicro` functions are available to you:
 
 -   `globalRecode()` recodes a key variable into broader groups (e.g., exact age → age band)
 -   `topBotCoding()` caps extreme values at a given threshold
--   `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful wFlohen using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
+-   `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
 
 In addition, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from the R pakage `forcats`. This function lumps all categories below a certain group size together.
 
@@ -202,7 +202,7 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 2-anonymity. This corresponds to the "Number of observations with higher risk than the main part of the data", as summarized as a risk measure in the output: Now, the majority of data confirm with 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were **especially** at risk (since all of them were at risk).
+Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 2-anonymity. This corresponds to the "Number of observations with higher risk than the main part of the data", as summarized as a risk measure in the output: Now, the majority of data conform with 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were **especially** at risk (since all of them were at risk).
 
 I don't want to generalize the `keyVars` any further, and for that reason, I decide to apply **local suppression**.
 
