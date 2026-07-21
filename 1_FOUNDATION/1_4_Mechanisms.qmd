@@ -75,7 +75,7 @@ PbD is primarily targeted at software products and less at research projects. Ne
 
 Informed consent is both an **ethical and** (often) **a legal requirement**. Under the GDPR, consent is one possible legal basis for processing personal data (Art. 6(1)(a)). In any case, independent of the legal basis, participants have the **right to be informed** about how their data will be used at the point of collection.
 
-In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. Also, mention what rights participants have and who they can contact in case of issues. If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed.
+In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. Also, mention what rights participants have and who they can contact in case of issues. If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed. It is also helpful to tell participants about the intended level of anonymization and what it means for them (e.g., plausible deniability).
 
 Consent forms are often not read or not understood, which is why consent alone is **not** a **sufficient** data protection mechanism.
 

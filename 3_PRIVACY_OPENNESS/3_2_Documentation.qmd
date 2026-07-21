@@ -25,7 +25,16 @@ The external documentation is what you **share alongside the anonymized dataset*
 
 If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values—for example, a line like `filter(country == "Liechtenstein")` tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible.
 
-# Exercise
+::: {.callout-tip collapse="false"}
+## Recommended note for your README
+
+It is good practice to state upfront in your README or dataset metadata that the data has been anonymized. For example:
+
+> This dataset has been anonymized by removing or altering data, so results derived from it may differ slightly from those based on the original data. See the data dictionary for details on the modifications.
+
+:::
+
+# Exercise: Data Dictionary
 
 Make changes to the data dictionary from the [landing page](../index.qmd) in accordance with the anonymization steps you made in this tutorial.
 

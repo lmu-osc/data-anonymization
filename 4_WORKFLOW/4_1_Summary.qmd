@@ -126,7 +126,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-8">
     <span class="wf-num">8</span>
     <div class="wf-body">
-      <a class="wf-title" href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">Recalculate Risk &amp; Utility</a>
+      <a class="wf-title" href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">Recalculate Risk, Utility &amp; Statistics</a>
       <span class="wf-desc">Re-measure after each step. If the balance is not satisfactory,
         <a href="#wf-4" class="wf-loop">&#8635; return to Step 4</a> and iterate.</span>
     </div>
@@ -137,7 +137,7 @@ a.wf-title::after {
     <span class="wf-num">9</span>
     <div class="wf-body">
       <a class="wf-title" href="../3_PRIVACY_OPENNESS/3_2_Documentation.html">Document the Process</a>
-      <span class="wf-desc">Internal (auditing) and external (data dictionary) documentation; review scripts.</span>
+      <span class="wf-desc">Internal (auditing) and external (data dictionary) documentation; review scripts; inform that results may not be fully reproducible in README.</span>
     </div>
   </div>
   <div class="wf-arrow">&#9660;</div>

@@ -269,7 +269,7 @@ The only thing the two tables share is `group_id`. Neither table on its own—an
 
 A researcher can still study group-level patterns—for example, the religion distribution across age bands—by joining on `group_id`. But the individual link between a person and their religion is broken.
 
-If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. We will, however, not use this further and instead resume the tutorial with the data as anonymized in the last chapter (2_4).
+If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized in [the last chapter on perturbative techniques](2_4_Perturbative).
 
 # Pro and Contra De-Associative Techniques
 
@@ -281,6 +281,7 @@ Cons:
 
 -   complex and not implemented as predefined functions within a R package
 -   similar level of privacy can be reached by combining other techniques
+-   added level of complexity for analyses
 
 #### Resources, Links, Examples
 

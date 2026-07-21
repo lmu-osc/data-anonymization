@@ -39,7 +39,7 @@ The k-anonymity and disclosure risks are objective values, but always need to be
 
 In practice, it can be challenging to correctly assess these risks given the complexity of research projects and existing information. In such cases, red teaming the data anonymization can help [@Jansen2026_PuttingPrivacyTesta]: Another person (e.g., another member of your lab) is instructed to play the role of an attacker, by, e.g., searching for external information or singling out the least protected individuals.
 
-In general, it is worth to check the assumptions of the anonymization process every few years after publication of the data, especially if new techniques have emerged (see callout box below).
+In general, it is worth to check the assumptions of the anonymization process you routinely adapt every few years or so, especially if new techniques have emerged (see callout box below).
 
 ::: {.callout-note collapse="false"}
 ## Deanonymization Using AI
