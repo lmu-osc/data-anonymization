@@ -324,7 +324,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
   <li><a href="#goals-of-documentation-of-anonymization" id="toc-goals-of-documentation-of-anonymization" class="nav-link active" data-scroll-target="#goals-of-documentation-of-anonymization">Goals of Documentation of Anonymization</a></li>
   <li><a href="#internal-documentation" id="toc-internal-documentation" class="nav-link" data-scroll-target="#internal-documentation">Internal Documentation</a></li>
   <li><a href="#external-documentation-in-data-dictionary" id="toc-external-documentation-in-data-dictionary" class="nav-link" data-scroll-target="#external-documentation-in-data-dictionary">External Documentation in Data Dictionary</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
+  <li><a href="#exercise-data-dictionary" id="toc-exercise-data-dictionary" class="nav-link" data-scroll-target="#exercise-data-dictionary">Exercise: Data Dictionary</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-anonymization/edit/main/3_PRIVACY_OPENNESS/3_2_Documentation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-anonymization/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -384,12 +384,31 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <h1>External Documentation in Data Dictionary</h1>
 <p>The external documentation is what you <strong>share alongside the anonymized dataset</strong>. It should include a <strong>data dictionary</strong> describing every variable in the released dataset, including any changes from the original. For example, if <code>age</code> was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.</p>
 <p>If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values—for example, a line like <code>filter(country == "Liechtenstein")</code> tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Recommended note for your README
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>It is good practice to state upfront in your README or dataset metadata that the data has been anonymized. For example:</p>
+<blockquote class="blockquote">
+<p>This dataset has been anonymized by removing or altering data, so results derived from it may differ slightly from those based on the original data. See the data dictionary for details on the modifications.</p>
+</blockquote>
+</div>
+</div>
+</div>
 </section>
-<section id="exercise" class="level1">
-<h1>Exercise</h1>
+<section id="exercise-data-dictionary" class="level1">
+<h1>Exercise: Data Dictionary</h1>
 <p>Make changes to the data dictionary from the <a href="../index.html">landing page</a> in accordance with the anonymization steps you made in this tutorial.</p>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -398,7 +417,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The following variables were removed or modified during anonymization:</p>
 <table class="caption-top table">
