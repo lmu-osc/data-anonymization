@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -96,10 +99,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-02d0dbe1f8552461f7f6bff09344ad76.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4211e17c44d493e0d0cb8ccc0a43744b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -569,16 +572,16 @@ Note: NA (missings) are counted as seperate categories!</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> Key Variable Number of categories        Mean size         
        &lt;char&gt;               &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;
-       gender                    4    (3)    64.667 (66.667)
-          age                    5   (52)    40.000  (3.846)
-    education                    5    (5)    32.000 (40.000)
-          plz                    3  (152)    99.000  (1.316)
+       gender                    3    (3)    66.667 (66.667)
+          age                   52   (52)     3.846  (3.846)
+    education                    5    (5)    40.000 (40.000)
+          plz                  152  (152)     1.316  (1.316)
  Size of smallest (&gt;0)       
                 &lt;char&gt; &lt;char&gt;
-                     4   (10)
-                    23    (1)
-                     5    (9)
-                    90    (1)</code></pre>
+                    10   (10)
+                     1    (1)
+                     9    (9)
+                     1    (1)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>----------------------------------------------------------------------</code></pre>
@@ -587,38 +590,23 @@ Note: NA (missings) are counted as seperate categories!</code></pre>
 <pre><code>Infos on 2/3-Anonymity:
 
 Number of observations violating
-  - 2-anonymity: 0 (0.000%) | in original data: 198 (99.000%)
-  - 3-anonymity: 0 (0.000%) | in original data: 200 (100.000%)
-  - 5-anonymity: 29 (14.500%) | in original data: 200 (100.000%)
+  - 2-anonymity: 198 (99.000%)
+  - 3-anonymity: 200 (100.000%)
+  - 5-anonymity: 200 (100.000%)
 
 ----------------------------------------------------------------------</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Numerical key variables: income, years_in_job
 
-Disclosure risk (~100.00% in original data):
-  modified data: [0.00%; 77.50%]
+Disclosure risk is currently between [0.00%; 100.00%]
 
-Current Information Loss in modified data (0.00% in original data):
-  IL1: 1029.80
-  Difference of Eigenvalues: 6.100%
+Current Information Loss:
+  - IL1: 0.00
+  - Difference of Eigenvalues: 0.000%
 ----------------------------------------------------------------------</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Local suppression:</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    KeyVar      | Suppressions (#)      | Suppressions (%)
-    &lt;char&gt; &lt;char&gt;            &lt;int&gt; &lt;char&gt;           &lt;char&gt;
-    gender      |                4      |            2.000
-       age      |                0      |            0.000
- education      |               12      |            6.000
-       plz      |                0      |            0.000</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>----------------------------------------------------------------------</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sdc_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sdc_noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The input dataset consists of 200 rows and 12 variables.
   --&gt; Categorical key variables: gender, age, education, plz
@@ -688,18 +676,18 @@ Current Information Loss in modified data (0.00% in original data):
 <p>Both indices prefer the microaggregation approach: The IL1 is much smaller, indicating that values are closer to the original data, and the difference of eigenvalues is slightly smaller, also indicating that microaggregation preserves the most utility.</p>
 <p>Now I can extract the dataset from the <code>sdc_micro</code> object. Because <code>sdcMicro</code> stores recoded key variables as integer codes internally, I need to restore the labels manually using <code>mutate</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the anonymized data and restore category labels</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdc_micro)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore labels for variables recoded inside sdcMicro</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>age_labels    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"18-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60+"</span>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>plz_labels    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"8xxxx"</span>, <span class="st">"other"</span>)</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="ot">&lt;-</span> data_anonymized <span class="sc">%&gt;%</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">factor</span>(age, <span class="at">levels =</span> <span class="fu">seq_along</span>(age_labels), <span class="at">labels =</span> age_labels),</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plz =</span> <span class="fu">factor</span>(plz, <span class="at">levels =</span> <span class="fu">seq_along</span>(plz_labels), <span class="at">labels =</span> plz_labels)</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the anonymized data and restore category labels</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdc_micro)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore labels for variables recoded inside sdcMicro</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>age_labels    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"18-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60+"</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>plz_labels    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"8xxxx"</span>, <span class="st">"other"</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="ot">&lt;-</span> data_anonymized <span class="sc">%&gt;%</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">factor</span>(age, <span class="at">levels =</span> <span class="fu">seq_along</span>(age_labels), <span class="at">labels =</span> age_labels),</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plz =</span> <span class="fu">factor</span>(plz, <span class="at">levels =</span> <span class="fu">seq_along</span>(plz_labels), <span class="at">labels =</span> plz_labels)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -729,9 +717,9 @@ Current Information Loss in modified data (0.00% in original data):
 <p><strong>Descriptive statistics on indirect identifiers</strong></p>
 <p>Compare distributions before and after using <code>summary()</code> and frequency tables:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare descriptive statistics before and after anonymization</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Before anonymization</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare descriptive statistics before and after anonymization</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Before anonymization</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      age            income        years_in_job  
  Min.   :18.00   Min.   :  1508   Min.   : 0.00  
@@ -741,13 +729,13 @@ Current Information Loss in modified data (0.00% in original data):
  3rd Qu.:50.00   3rd Qu.: 64582   3rd Qu.: 8.00  
  Max.   :70.00   Max.   :902234   Max.   :32.00  </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>) <span class="co"># Make sure to show NAs as well</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>) <span class="co"># Make sure to show NAs as well</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     female       male non-binary       &lt;NA&gt; 
        104         86         10          0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 doctoral title    high school      no degree   trade school     university 
@@ -755,7 +743,7 @@ doctoral title    high school      no degree   trade school     university
           &lt;NA&gt; 
              0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  1445  1587  2763  3253  4416  4821  6132  6217  6847  7806  7985  8141  8324 
@@ -783,40 +771,42 @@ doctoral title    high school      no degree   trade school     university
 94538 96176 96277 97222 97505 97922 97944 99706 99830  &lt;NA&gt; 
     1     1     1     1     1     1     1     1     1     0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After anonymization</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_anonymized[, <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After anonymization</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_anonymized[, <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     income       years_in_job  
- Min.   : 3576   Min.   : 0.00  
- 1st Qu.:37246   1st Qu.: 2.00  
- Median :52156   Median : 4.00  
- Mean   :51130   Mean   : 5.16  
- 3rd Qu.:64451   3rd Qu.: 8.00  
- Max.   :89186   Max.   :15.00  </code></pre>
+<pre><code>     income        years_in_job  
+ Min.   :  1508   Min.   : 0.00  
+ 1st Qu.: 36964   1st Qu.: 2.00  
+ Median : 52219   Median : 4.00  
+ Mean   : 60789   Mean   : 5.34  
+ 3rd Qu.: 64582   3rd Qu.: 8.00  
+ Max.   :902234   Max.   :32.00  </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>age, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>age, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 18-29 30-39 40-49 50-59   60+  &lt;NA&gt; 
-   47    43    58    29    23     0 </code></pre>
+    0     0     0     0     0   200 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     female       male non-binary       &lt;NA&gt; 
-       104         86          4          6 </code></pre>
+       104         86         10          0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-doctoral title    high school   trade school     university           &lt;NA&gt; 
-             5            106             22             27             40 </code></pre>
+doctoral title    high school      no degree   trade school     university 
+             9            108             10             36             37 
+          &lt;NA&gt; 
+             0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 8xxxx other  &lt;NA&gt; 
-  108    90     2 </code></pre>
+    0     0   200 </code></pre>
 </div>
 </div>
 <p>Age and postal code are now categorical bands, so the numeric summary is no longer meaningful—use frequency tables instead. Income and years in job are still numeric after microaggregation; their medians are very close to the original, but especially income’s mean is lower now—this is due to the extreme outliers that were top-coded.</p>
@@ -825,11 +815,11 @@ doctoral title    high school   trade school     university           &lt;NA&gt;
 <p>We lost, as intended, a lot of information on plz and age. For our use case, this is okay.</p>
 <p><strong>Religion and political opinions</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare religion vs. political opinion before and after anonymization</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Before</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare religion vs. political opinion before and after anonymization</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Before</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 5
   religion      mean_pol_immigration mean_pol_environment mean_pol_redistribut…¹
@@ -844,10 +834,10 @@ doctoral title    high school   trade school     university           &lt;NA&gt;
 # ℹ abbreviated name: ¹​mean_pol_redistribution
 # ℹ 1 more variable: mean_pol_eu_integration &lt;dbl&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="sc">%&gt;%</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 5
   religion      mean_pol_immigration mean_pol_environment mean_pol_redistribut…¹
