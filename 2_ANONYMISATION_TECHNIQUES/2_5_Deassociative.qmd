@@ -67,7 +67,9 @@ However, anatomization does not protect against disclosure of attributes other t
 
 # Exercise: Applying Anatomization
 
-Let's implement anatomization step by step, following the algorithm proposed by @xiao2006. It is not available in `sdcMicro`, so we will build it ourselves with a lot of data wrangling. Because anatomization protects a *sensitive* attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, `religion`.
+Let's implement anatomization step by step, following the algorithm proposed by @xiao2006. It is not available in `sdcMicro`, so we will build it ourselves with a lot of data wrangling. The algorithm has 19 steps, but we will break them down in more workable chunks. 
+
+Because anatomization protects a *sensitive* attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, `religion`. Working this algorithm for the combination of all our sensitive attributes (including the political opinion items) is possible, but more complex. To keep it simple, we only focus on `religion`.
 
 Our data does not really need this level of protection—we use it here purely for demonstration.
 
@@ -115,13 +117,13 @@ bucket_sizes
 ::: {.callout-tip collapse="false"}
 ## Eligibility Condition
 
-A condition for anatomization to work is the eligibility condition. Anatomization can only place *every* record into an `l`-diverse group if no single religion is too common: the largest bucket must not exceed `n / l` records; otherwise, the specific `l`-value cannot be fully reached.
+A condition for anatomization to work is the eligibility condition. Anatomization can only place *every* record into an `l`-diverse group if no single religion is too common: the largest group must not exceed `n / l` records; otherwise, the specific `l`-value cannot be fully reached.
 
 Here, we can check that this is the case:
 
 ```{r}
 #| eval: false
-# Largest a bucket may be if we want to keep every record
+# Largest a group (bucket) may be if we want to keep every record
 n_total     <- nrow(data_ana)
 max_allowed <- n_total / l
 
@@ -133,6 +135,9 @@ eligibility <- bucket_sizes %>%
 Here, with `l = 2`, no group exceeds the limit of 100 (= 200 / 2). So we can make the dataset 2-diverse.
 
 If this were not the case (e.g., when choosing `l = 3`), we would have records that would be left over. To still achieve the targeted `l` we would then need to suppress selected values.
+
+TODO Add illustration of this issue
+
 :::
 
 ## Step 2: Build the l-diverse groups
@@ -142,10 +147,10 @@ If this were not the case (e.g., when choosing `l = 3`), we would have records t
 ::: {.callout-note collapse="true"}
 ## Solution
 
-Rather than juggling one data frame per bucket, we track group membership in a single new column, `group_id`. We shuffle the rows once up front so the groups don't follow the original row order, and set a seed so the result is reproducible.
+Rather than juggling one data frame per bucket, we track group membership in a single new column, `group_id`. We shuffle the rows once up front so the groups don't follow the original row order, and set a seed so the result is reproducible within this exercise. We could also, instead of shuffling at the beginning, pick random rows when assigning records to the groups; it is just important, that the original order can't be reverse-engineered by an attacker.
 
 ```{r}
-set.seed(2026)
+set.seed(2026) # to make the results reproducible within this exercise; delete for a real application (especially when publishing the script alongside the data)
 
 # One working table; group_id is filled in as we assign records.
 pool <- data_ana %>%
@@ -269,7 +274,7 @@ The only thing the two tables share is `group_id`. Neither table on its own—an
 
 A researcher can still study group-level patterns—for example, the religion distribution across age bands—by joining on `group_id`. But the individual link between a person and their religion is broken.
 
-If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized in [the last chapter on perturbative techniques](2_4_Perturbative).
+If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized within the `sdcObjects` `sdcNoise` and `sdcMicro`in [the last chapter on perturbative techniques](2_4_Perturbative).
 
 # Pro and Contra De-Associative Techniques
 
