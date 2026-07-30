@@ -36,7 +36,6 @@ Many funders now require a DMP, and writing one is a good exercise in data minim
 #### Resources, Links, Examples
 
 A useful template for a specific anonymization plan as part of a DMP is available on [Zenodo](https://zenodo.org/records/10782781).
-
 Learn more on how to create and take advantage of DMPs in the [DMP tutorial of the OSC](https://lmu-osc.github.io/FAIR-Data-Management/dmp.html).
 
 ## Institutional Review Board (IRB) Approval

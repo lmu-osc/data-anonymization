@@ -144,7 +144,7 @@ It helps to follow a consistent workflow for handling identifiers from the momen
 
 3.  **Remove the pseudonym key** using the same logic. If there are concrete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key—it is the safer option—but store it *separately* from the data, with restricted access and a defined deletion date.
 
-4.  **Store a secure copy** of the data with direct identifiers and pseudonyms that are really need, with read-only access, e.g., on your institution's password-protected server. Delete the primary raw data.
+4.  **Store a secure copy** of the data with direct identifiers and pseudonyms that are really needed, with read-only access, e.g., on your institution's password-protected server. Delete the primary raw data.
 
 5.  **Remove all identifiers left in the data**, generating your working copy from the secure copy of the data with a script, so the cleaning step is reproducible and auditable. This data copy can still be non-anonymous, depending on the data left in the dataset.
 
@@ -181,9 +181,9 @@ B --> B1
 C --> C1
 D --> D1
 
-A—"Remove unneeded identifiers" --> B
-B—"Remove all identifiers<br>and pseudonyms" --> C
-C—"Anonymize" --> D
+A -- "Remove unneeded identifiers" --> B
+B -- "Remove all identifiers<br>and pseudonyms" --> C
+C -- "Anonymize" --> D
 
 style A1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
 style B1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
@@ -195,7 +195,7 @@ style D1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
 ::: {.callout-warning collapse="false"}
 ## Myth: "The Funder Wants the Full Raw Data"
 
-It is a common misconception that funding agencies require you to archive the complete raw dataset *including* direct identifiers. In reality, they almost always want the raw data *without* them. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.
+It is a common misconception that funding agencies require you to archive the complete raw dataset *including* direct identifiers. In reality, they almost always want the **raw data *without* them**. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.
 :::
 
 ## Exercise: Remove Direct Identifiers
