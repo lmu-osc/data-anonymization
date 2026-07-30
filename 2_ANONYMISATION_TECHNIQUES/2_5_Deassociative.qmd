@@ -234,13 +234,16 @@ next_group   # number of groups created
 Each pass draws from `l` different buckets, so every group we just built contains exactly `l = 2` distinct religions.
 :::
 
-In this case, all participants have been assigned to one group, without any leftovers in `remaining`. This is not naturally the case; often times, the algorithm will leave you at this point with a few individuals that have not been assigned. For that case, you follow the third step:
+In this case, all participants have been assigned to a group, without any leftovers in `remaining`. This is not naturally the case; often times, the algorithm will leave you at this point with a few individuals that have not been assigned. For that case, you follow the third step:
 
 ## Step 3: Handle the Leftover Records (Skip in Case of No Leftovers)
 
 **Target:** Collect the still-unassigned records in a data frame `leftovers`, then update `pool` by slotting each leftover into an existing group that does not yet contain that religion value (e.g., a leftover record with religion `none` can be slotted into a group that does not contain any other records with religion `none`). Records that fit into no group are collected in `suppressed_ids` and dropped from `pool`.
 
 ![Step 3: each leftover record is slotted into the first existing group that does not yet contain its religion—here a leftover `protestant` record joins the first group without a `protestant`.](../pictures/Anatomization-Step3-cropped.png){fig-alt="A leftover record with religion protestant and no group ID is assigned to the first existing group that does not already contain a protestant record."}
+
+::: {.callout-note collapse="true"}
+## Solution
 
 Once fewer than `l` buckets remain, the loop in Step 2 stops with some records still unassigned. We handle them here.
 
@@ -284,6 +287,8 @@ length(suppressed_ids)   # how many records had to be dropped
 # Drop the suppressed records
 pool <- pool %>% filter(!(id %in% suppressed_ids))
 ```
+
+::: 
 
 In the last step, we split this one dataframe `pool` into two dataframes, the anatomized tables.
 
