@@ -383,7 +383,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
   <ul>
   <li><a href="#special-types-of-personal-data" id="toc-special-types-of-personal-data" class="nav-link active" data-scroll-target="#special-types-of-personal-data">Special Types of Personal Data</a></li>
   <li><a href="#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories" id="toc-exercise-1-direct-identifiers-indirect-identifiers-and-special-categories" class="nav-link" data-scroll-target="#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories">Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories</a></li>
-  <li><a href="#a-default-workflow-for-handling-identifiers" id="toc-a-default-workflow-for-handling-identifiers" class="nav-link" data-scroll-target="#a-default-workflow-for-handling-identifiers">A default workflow for handling identifiers</a>
+  <li><a href="#a-default-workflow-for-handling-identifiers" id="toc-a-default-workflow-for-handling-identifiers" class="nav-link" data-scroll-target="#a-default-workflow-for-handling-identifiers">A Default Workflow for Handling Identifiers</a>
   <ul class="collapse">
   <li><a href="#exercise-remove-direct-identifiers" id="toc-exercise-remove-direct-identifiers" class="nav-link" data-scroll-target="#exercise-remove-direct-identifiers">Exercise: Remove Direct Identifiers</a></li>
   </ul></li>
@@ -597,7 +597,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <section id="direct-identifiers-name-email-ip_address" class="level3 callout-body-container callout-body">
-<h3 class="anchored" data-anchor-id="direct-identifiers-name-email-ip_address">Direct identifiers: <code>name</code>, <code>email</code>, <code>ip_address</code></h3>
+<h3 class="anchored" data-anchor-id="direct-identifiers-name-email-ip_address">Direct Identifiers: <code>name</code>, <code>email</code>, <code>ip_address</code></h3>
 <p><strong>Name</strong> is probably the most obvious identifier there is.</p>
 <p><strong>Email addresses</strong> are considered direct identifiers since they often contain names and therefore, clearly specify certain individuals. However, even when not containing names, they can act as indirect identifiers by linking to an account or revealing a person’s organization.</p>
 <p><strong>IP addresses</strong> can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the Internet service provider <span class="citation" data-cites="breyer2016">(<a href="#ref-breyer2016" role="doc-biblioref"><em>Breyer v <span>Bundesrepublik Deutschland</span></em> 2016</a>)</span>. In a research context, they should be treated as direct identifiers.</p>
@@ -617,7 +617,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <section id="indirect-identifiers-gender-age-education-income-plz-years_in_job" class="level3 callout-body-container callout-body">
-<h3 class="anchored" data-anchor-id="indirect-identifiers-gender-age-education-income-plz-years_in_job">Indirect identifiers: <code>gender</code>, <code>age</code>, <code>education</code>, <code>income</code>, <code>plz</code>, <code>years_in_job</code></h3>
+<h3 class="anchored" data-anchor-id="indirect-identifiers-gender-age-education-income-plz-years_in_job">Indirect Identifiers: <code>gender</code>, <code>age</code>, <code>education</code>, <code>income</code>, <code>plz</code>, <code>years_in_job</code></h3>
 <p><strong>Gender</strong>, <strong>age</strong>, <strong>education</strong>, <strong>postal code</strong>, <strong>income</strong>, and <strong>years in job</strong> are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be <strong>linked</strong> with each other or external knowledge. When an attacker knows of a person who participated in the study and, for instance, knows their education level, they could identify the person in the data.</p>
 </section>
 </div>
@@ -635,7 +635,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <section id="special-category-data-all-pol_-variables-political-opinion-religion" class="level3 callout-body-container callout-body">
-<h3 class="anchored" data-anchor-id="special-category-data-all-pol_-variables-political-opinion-religion">Special category data: all <code>pol\_</code> variables (political opinion), <code>religion</code></h3>
+<h3 class="anchored" data-anchor-id="special-category-data-all-pol_-variables-political-opinion-religion">Special Category Data: All <code>pol\_</code> Variables (Political Opinion), <code>religion</code></h3>
 <p>The <code>pol_immigration</code>, <code>pol_environment</code>, <code>pol_redistribution</code>, and <code>pol_eu_integration</code> variables capture <strong>political opinions</strong>, and <code>religion</code> captures <strong>religious beliefs</strong>. Both categories are explicitly listed as sensitive data under Art. 9 GDPR. These variables require <strong>heightened protection</strong> because their disclosure could lead to discrimination or other harm for the individuals involved.</p>
 </section>
 </div>
@@ -653,7 +653,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <section id="personal-data-all-columns-contain-personal-data." class="level3 callout-body-container callout-body">
-<h3 class="anchored" data-anchor-id="personal-data-all-columns-contain-personal-data.">Personal data: All columns contain personal data.</h3>
+<h3 class="anchored" data-anchor-id="personal-data-all-columns-contain-personal-data.">Personal Data: All Columns Contain Personal Data.</h3>
 <p>Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as <code>name</code>) is possible, it is considered personal data, and GDPR applies.</p>
 </section>
 </div>
@@ -661,7 +661,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <!-- Moved this into a separate heading - this seems to be too important to "hide" it below an exercise -->
 </section>
 <section id="a-default-workflow-for-handling-identifiers" class="level1">
-<h1>A default workflow for handling identifiers</h1>
+<h1>A Default Workflow for Handling Identifiers</h1>
 <p>It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to <strong>remove the direct identifiers</strong> as soon as you don’t need them anymore. I would recommend performing this step on <em>any</em> existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:</p>
 <div id="default-workflow" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
@@ -669,7 +669,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>A default workflow for handling identifiers
+<span class="screen-reader-only">Tip</span>A Default Workflow for Handling Identifiers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -678,8 +678,8 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <ol type="1">
 <li><p><strong>Download</strong> the primary raw data from your collection tool.</p></li>
 <li><p><strong>Remove direct identifiers</strong> as soon as you no longer need them—in <em>every</em> copy that exists (collection platform, cloud storage, collaborators’ copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.</p></li>
-<li><p><strong>Remove the pseudonym key</strong> using the same logic. If there are concerete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key – it is the safer option – but store it <em>separately</em> from the data, with restricted access and a defined deletion date.</p></li>
-<li><p><strong>Store a secure copy</strong> of the data with direct identifiers and pseudonyms that are really need, with read-only access, e.g., on your institution’s password-protected server. Delete the primary raw data.</p></li>
+<li><p><strong>Remove the pseudonym key</strong> using the same logic. If there are concrete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key—it is the safer option—but store it <em>separately</em> from the data, with restricted access and a defined deletion date.</p></li>
+<li><p><strong>Store a secure copy</strong> of the data with direct identifiers and pseudonyms that are really needed, with read-only access, e.g., on your institution’s password-protected server. Delete the primary raw data.</p></li>
 <li><p><strong>Remove all identifiers left in the data</strong>, generating your working copy from the secure copy of the data with a script, so the cleaning step is reproducible and auditable. This data copy can still be non-anonymous, depending on the data left in the dataset.</p></li>
 <li><p><strong>Analyze, write, and share with collaborators</strong> using this identifier-free working copy.</p></li>
 <li><p><strong>Anonymize</strong> the data if needed, following the steps explained in this tutorial.</p></li>
@@ -739,13 +739,13 @@ style D1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Myth: “The funder wants the full raw data”
+<span class="screen-reader-only">Warning</span>Myth: “The Funder Wants the Full Raw Data”
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>It is a common misconception that funding agencies require you to archive the complete raw dataset <em>including</em> direct identifiers. In reality, they almost always want the raw data <em>without</em> them. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.</p>
+<p>It is a common misconception that funding agencies require you to archive the complete raw dataset <em>including</em> direct identifiers. In reality, they almost always want the <strong>raw data <em>without</em> them</strong>. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.</p>
 </div>
 </div>
 </div>

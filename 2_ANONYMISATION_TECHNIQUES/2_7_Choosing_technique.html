@@ -397,7 +397,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <p><strong>Release type</strong>: If the data will only be accessible to vetted researchers under a data use agreement, you can afford somewhat weaker anonymization than for a fully open public release. Some datasets may warrant restricted access rather than open publication <span class="citation" data-cites="Benschop_StatisticalDisclosureControl">(<a href="#ref-Benschop_StatisticalDisclosureControl" role="doc-biblioref">Benschop and Welch, n.d.</a>)</span>. However, non-public access comes with many disadvantages; the biggest one is that it takes time and extra work for anyone who wants to access the work. I would therefore advice against restricting access and would only consider this as the absolute last resort.</p>
 <p><strong>Sensitivity level</strong>: How sensitive is the data? Health data, political opinions, religious beliefs, and other special categories under GDPR Art. 9 require stronger protection than general demographics.</p>
 <p><strong>Intended use</strong>: What analyses will users run on the anonymized data? If exact values matter—for example, income in a regression model—perturbative methods with low noise may be preferable to heavy generalization. If only group-level comparisons are needed, aggressive recoding may be perfectly fine.</p>
-<p><strong>Attacker model</strong>: Who might try to re-identify individuals, and what do they already know? A dataset about employees of one company faces very different risks than a nationally representative survey. Someone who knows a participant personally is more dangerous than a random adversary with no prior knowledge (see the box on <a href="../1_FOUNDATION/1_5_Privacy_Concepts#participation-knowledge">participation knowledge</a>).</p>
+<p><strong>Attacker model</strong>: Who might try to re-identify individuals, and what do they already know? A dataset about employees of one company faces very different risks than a nationally representative survey. Someone who knows a participant personally is more dangerous than a random adversary with no prior knowledge (see the box on <a href="../1_FOUNDATION/1_5_Privacy_Concepts.html#participation-knowledge">participation knowledge</a>).</p>
 </section>
 <section id="technical-constraints" class="level1">
 <h1>Technical Constraints</h1>
@@ -416,6 +416,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>To achieve k-anonymity, use non-perturbative techniques on categorial indirect identifiers. Most other techniques add additional levels of protection.</p>
+<p><strong>When in doubt, aim for k-anonymity.</strong> It guards against the most basic risk—being singled out—and forms the backbone of any anonymization. The more elaborate methods that also protect the <em>sensitive</em> attribute itself (such as l-diversity, t-closeness, or anatomization) are only needed when an attacker could already know someone’s sensitive value and use it to locate them. If the sensitive attribute is not something an attacker would plausibly know in advance, k-anonymity on the indirect identifiers is usually protection enough.</p>
 </div>
 </div>
 </div>

@@ -434,7 +434,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <p>We therefore need to find a well-calibrated balance between utility and anonymization, the famous sweet spot where we share data “as open as possible, as closed as necessary.” To achieve this, we can utilize various measures—many of which we have already seen in <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the chapter on assessing privacy risks</a> and in various <code>sdcMicro</code> outputs.</p>
 <section id="measuring-privacy" class="level1">
 <h1>Measuring Privacy</h1>
-<p>The most straightforward way to measure privacy after anonymization is to compare k-anonymity before and after applying an anonimization technique. In <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the chapter on assessing privacy risks</a>, we found that nearly every participant in the original dataset had a unique combination of key variables. After applying non-perturbative techniques in <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative">the chapter on non-perturbative techniques</a>, we achieved 3-anonymity—every record shares its key variable combination with at least two others. Printing the <code>sdcObject</code> gives you the current k-anonymity level directly:</p>
+<p>The most straightforward way to measure privacy after anonymization is to compare k-anonymity before and after applying an anonymization technique. In <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy">the chapter on assessing privacy risks</a>, we found that nearly every participant in the original dataset had a unique combination of key variables. After applying non-perturbative techniques in <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative">the chapter on non-perturbative techniques</a>, we achieved 3-anonymity—every record shares its key variable combination with at least two others. Printing the <code>sdcObject</code> gives you the current k-anonymity level directly:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the current k-anonymity level</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sdc_nonpert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -513,7 +513,7 @@ Current Information Loss in modified data (0.00% in original data):
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Deanonymization Using AI
+<span class="screen-reader-only">Note</span>De-Anonymization Using AI
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -692,6 +692,31 @@ Current Information Loss in modified data (0.00% in original data):
 </div>
 </div>
 </div>
+<p><span id="rare-religion-step"></span></p>
+<p>As a last anonymization step, I will now <strong>generalize rare religion categories</strong> using <code>fct_lump_min()</code> from <code>forcats</code>. Since <code>religion</code> is not a variable in the <code>sdcObject</code>, I apply this directly to the dataset as an additional layer, protecting individuals with rare religions.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generalize rare religion categories into "Other"</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect counts first</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+         Buddhism       Catholicism Eastern Orthodoxy             Islam 
+                3                56                 1                13 
+          Judaism              None     Protestantism 
+                2                75                50 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="ot">&lt;-</span> data_anonymized <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_lump_min</span>(<span class="fu">as.factor</span>(religion), <span class="at">min =</span> <span class="dv">10</span>, <span class="at">other_level =</span> <span class="st">"Other"</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  Catholicism         Islam          None Protestantism         Other 
+           56            13            75            50             6 </code></pre>
+</div>
+</div>
+<p><code>fct_lump_min(religion, min = 10)</code> merges any category with fewer than 10 observations into <code>"Other"</code>. Groups like “Judaism” or “Buddhism” which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes.</p>
+<p>You might reasonably ask why <code>religion</code> was not simply added to the <code>sdcObject</code> as a key variable and covered by k-anonymity from the start, rather than patched in this separate step. There are two reasons: First, <code>religion</code> is the <strong>sensitive variable at the centre of our research question</strong>, so we want to keep it as fine-grained as possible. Treating it as a key variable would require k-anonymity to hold across every <em>age band × gender × postal region × religion</em> combination—this multiplies the number of equivalence classes and forces much heavier generalization and suppression across all key variables, degrading exactly the variable we care about most. Second, the residual risk is not spread evenly across religions but concentrated in the <strong>rare</strong> categories: common religions are shared by many people and single no one out, whereas someone with a rare religion could be recognizable from that attribute alone. Lumping only the rare categories therefore targets the real risk directly and proportionately, while leaving the common categories—and the overall religion distribution—untouched. See also the callout <a href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html#no-correct-assignment"><em>There is no one correct variable assignment</em></a> on choosing variables for anonymization.</p>
 </section>
 <section id="using-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="using-statistics">Using Statistics</h2>
@@ -717,9 +742,9 @@ Current Information Loss in modified data (0.00% in original data):
 <p><strong>Descriptive statistics on indirect identifiers</strong></p>
 <p>Compare distributions before and after using <code>summary()</code> and frequency tables:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare descriptive statistics before and after anonymization</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Before anonymization</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare descriptive statistics before and after anonymization</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Before anonymization</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_withoutdirectidentifiers[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      age            income        years_in_job  
  Min.   :18.00   Min.   :  1508   Min.   : 0.00  
@@ -729,13 +754,13 @@ Current Information Loss in modified data (0.00% in original data):
  3rd Qu.:50.00   3rd Qu.: 64582   3rd Qu.: 8.00  
  Max.   :70.00   Max.   :902234   Max.   :32.00  </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>) <span class="co"># Make sure to show NAs as well</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>) <span class="co"># Make sure to show NAs as well</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     female       male non-binary       &lt;NA&gt; 
        104         86         10          0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 doctoral title    high school      no degree   trade school     university 
@@ -743,7 +768,7 @@ doctoral title    high school      no degree   trade school     university
           &lt;NA&gt; 
              0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_withoutdirectidentifiers<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  1445  1587  2763  3253  4416  4821  6132  6217  6847  7806  7985  8141  8324 
@@ -771,8 +796,8 @@ doctoral title    high school      no degree   trade school     university
 94538 96176 96277 97222 97505 97922 97944 99706 99830  &lt;NA&gt; 
     1     1     1     1     1     1     1     1     1     0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After anonymization</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_anonymized[, <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After anonymization</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_anonymized[, <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     income        years_in_job  
  Min.   :  1508   Min.   : 0.00  
@@ -782,19 +807,19 @@ doctoral title    high school      no degree   trade school     university
  3rd Qu.: 64582   3rd Qu.: 8.00  
  Max.   :902234   Max.   :32.00  </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>age, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>age, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 18-29 30-39 40-49 50-59   60+  &lt;NA&gt; 
     0     0     0     0     0   200 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>gender, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     female       male non-binary       &lt;NA&gt; 
        104         86         10          0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>education, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 doctoral title    high school      no degree   trade school     university 
@@ -802,7 +827,7 @@ doctoral title    high school      no degree   trade school     university
           &lt;NA&gt; 
              0 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_anonymized<span class="sc">$</span>plz, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 8xxxx other  &lt;NA&gt; 
@@ -815,11 +840,11 @@ doctoral title    high school      no degree   trade school     university
 <p>We lost, as intended, a lot of information on plz and age. For our use case, this is okay.</p>
 <p><strong>Religion and political opinions</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare religion vs. political opinion before and after anonymization</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Before</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare religion vs. political opinion before and after anonymization</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Before</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 5
   religion      mean_pol_immigration mean_pol_environment mean_pol_redistribut…¹
@@ -834,26 +859,24 @@ doctoral title    high school      no degree   trade school     university
 # ℹ abbreviated name: ¹​mean_pol_redistribution
 # ℹ 1 more variable: mean_pol_eu_integration &lt;dbl&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="sc">%&gt;%</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>data_anonymized <span class="sc">%&gt;%</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 5
+<pre><code># A tibble: 5 × 5
   religion      mean_pol_immigration mean_pol_environment mean_pol_redistribut…¹
-  &lt;chr&gt;                        &lt;dbl&gt;                &lt;dbl&gt;                  &lt;dbl&gt;
-1 Buddhism                      4                    3.33                   3.33
-2 Catholicism                   2.73                 3.07                   2.79
-3 Eastern Orth…                 4                    2                      3   
-4 Islam                         2.69                 2.92                   3.23
-5 Judaism                       1.5                  3.5                    3   
-6 None                          2.97                 3.03                   3.17
-7 Protestantism                 3.04                 3.2                    3.12
+  &lt;fct&gt;                        &lt;dbl&gt;                &lt;dbl&gt;                  &lt;dbl&gt;
+1 Catholicism                   2.73                 3.07                   2.79
+2 Islam                         2.69                 2.92                   3.23
+3 None                          2.97                 3.03                   3.17
+4 Protestantism                 3.04                 3.2                    3.12
+5 Other                         3.17                 3.17                   3.17
 # ℹ abbreviated name: ¹​mean_pol_redistribution
 # ℹ 1 more variable: mean_pol_eu_integration &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>The group-level means should be very the same between the original and anonymized datasets. The key research question—whether religion predicts political opinion—is still answerable. We did not change anything regarding these variables.</p>
+<p>The group-level means should be the same between the original and anonymized datasets. The key research question—whether religion predicts political opinion—is still answerable. Note that some small religion categories have been merged into “Other”, which changes the granularity of analysis but preserves the main patterns. Other than that, we did not change anything regarding these variables.</p>
 <p><strong>Reflection</strong></p>
 <p>For the purpose of this dataset—studying the relationship between religion and political opinion—utility is well-preserved. The main variable of interest (religion) is still present, just with fewer fine-grained categories. The political opinion variables are unchanged. Income and years in job show very similar distributions after microaggregation.</p>
 </div>

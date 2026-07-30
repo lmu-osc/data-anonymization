@@ -383,14 +383,14 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
   <li><a href="#bucketization" id="toc-bucketization" class="nav-link" data-scroll-target="#bucketization">Bucketization</a></li>
   <li><a href="#anatomization" id="toc-anatomization" class="nav-link" data-scroll-target="#anatomization">Anatomization</a></li>
   </ul></li>
+  <li><a href="#pro-and-contra-of-using-de-associative-techniques" id="toc-pro-and-contra-of-using-de-associative-techniques" class="nav-link" data-scroll-target="#pro-and-contra-of-using-de-associative-techniques">Pro and Contra of Using De-Associative Techniques</a></li>
   <li><a href="#exercise-applying-anatomization" id="toc-exercise-applying-anatomization" class="nav-link" data-scroll-target="#exercise-applying-anatomization">Exercise: Applying Anatomization</a>
   <ul class="collapse">
-  <li><a href="#step-1-bucket-the-data-by-the-sensitive-value" id="toc-step-1-bucket-the-data-by-the-sensitive-value" class="nav-link" data-scroll-target="#step-1-bucket-the-data-by-the-sensitive-value">Step 1: Bucket the data by the sensitive value</a></li>
-  <li><a href="#step-2-build-the-l-diverse-groups" id="toc-step-2-build-the-l-diverse-groups" class="nav-link" data-scroll-target="#step-2-build-the-l-diverse-groups">Step 2: Build the l-diverse groups</a></li>
-  <li><a href="#step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers" id="toc-step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers" class="nav-link" data-scroll-target="#step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers">Step 3: Handle the leftover records (skip in case of no leftovers)</a></li>
-  <li><a href="#step-4-split-into-the-two-anatomized-tables" id="toc-step-4-split-into-the-two-anatomized-tables" class="nav-link" data-scroll-target="#step-4-split-into-the-two-anatomized-tables">Step 4: Split into the two anatomized tables</a></li>
+  <li><a href="#step-1-sort-the-data-into-buckets" id="toc-step-1-sort-the-data-into-buckets" class="nav-link" data-scroll-target="#step-1-sort-the-data-into-buckets">Step 1: Sort the Data Into Buckets</a></li>
+  <li><a href="#step-2-build-the-l-diverse-groups" id="toc-step-2-build-the-l-diverse-groups" class="nav-link" data-scroll-target="#step-2-build-the-l-diverse-groups">Step 2: Build the l-Diverse Groups</a></li>
+  <li><a href="#step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers" id="toc-step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers" class="nav-link" data-scroll-target="#step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers">Step 3: Handle the Leftover Records (Skip in Case of No Leftovers)</a></li>
+  <li><a href="#step-4-split-into-the-two-anatomized-tables" id="toc-step-4-split-into-the-two-anatomized-tables" class="nav-link" data-scroll-target="#step-4-split-into-the-two-anatomized-tables">Step 4: Split Into the Two Anatomized Tables</a></li>
   </ul></li>
-  <li><a href="#pro-and-contra-de-associative-techniques" id="toc-pro-and-contra-de-associative-techniques" class="nav-link" data-scroll-target="#pro-and-contra-de-associative-techniques">Pro and Contra De-Associative Techniques</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-anonymization/edit/main/2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-anonymization/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -460,8 +460,8 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <p>The shuffling in step 3 is what makes this a de-associative rather than a perturbative technique—the values themselves are unchanged, only the assignment between records and sensitive attributes is broken within each group.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../pictures/Bucketization-cropped.png" class="img-fluid figure-img" alt="A before-and-after table where the Religion values are permuted within groups defined by a Group ID; a bold line marks the shuffled sensitive column."></p>
-<figcaption>Bucketization: within each bucket (defined by a group ID), the sensitive values are shuffled among records.</figcaption>
+<p><img src="../pictures/Bucketization-cropped.png" class="img-fluid figure-img" alt="A multi-step diagram: the original table is generalized into age bands to form buckets with a Group ID, de-generalized back to original ages, and the Religion column is permuted within each group, marked by a bold vertical line."></p>
+<figcaption>Bucketization: the identifiers are generalized into buckets and assigned a group ID, de-generalized back to their original values, and the sensitive values are then shuffled within each group (bold line).</figcaption>
 </figure>
 </div>
 </section>
@@ -479,30 +479,91 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <figcaption>Anatomization: the data is split into a quasi-identifier table and a sensitive-attribute table, linked only by a group ID.</figcaption>
 </figure>
 </div>
-<p>Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be <a href="../1_FOUNDATION/1_5_Privacy_Concepts#limitations-of-k-anonymity">l-diverse</a>—it contains at least <code>l</code> different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone’s group still faces at least <code>l</code> competing possibilities for their sensitive value.</p>
+<p>Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be <a href="../1_FOUNDATION/1_5_Privacy_Concepts.html#limitations-of-k-anonymity">l-diverse</a>—it contains at least <code>l</code> different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone’s group still faces at least <code>l</code> competing possibilities for their sensitive value.</p>
 <p>To build such groups, <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span> do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the <code>l</code> currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.</p>
-<p>Anatomization is particularly useful when the sensitive attribute is the main focus of the research question, and when preserving group-level patterns is more important than individual-level linkage. For our dataset—where the research question is about the relationship between religion and political opinion—anatomization could work well: group-level associations are preserved, but no individual’s religion and political views can be read together.</p>
-<p>However, anatomization does not protect against disclosure of attributes other than the sensitive variable since the indirect identifiers stay fully intact; it is therefore helpful, to combine it with other methods.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>When Is Anatomization the Right Choice? (Almost Never)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Anatomization is a <strong>special-purpose technique, not a default</strong>. Its distinctive strength is that it distorts <em>no values</em>: unlike non-perturbative technqiues (which coarsen the indirect identifiers), perturbative techniques (which alter values), or synthetic data (which fabricates records), anatomization publishes only true values and destroys just one thing—the record-level link between the indirect identifiers and the sensitive variable. It is therefore a good fit only when <em>all</em> of the following hold:</p>
+<ul>
+<li>the research question concerns the sensitive attribute’s <strong>group-level distribution or associations</strong> instead of individual-level linkage, and you can accept the added imprecision (e.g., due to a large sample size);</li>
+<li>you specifically want to avoid coarsening or perturbing the values that are kept; and</li>
+<li><strong>identity disclosure is handled by other means</strong>—anatomization leaves the indirect identifiers fully intact and does <em>not</em> protect against singling someone out on them.</li>
+</ul>
+<p>For most questions these conditions do not all hold, and a perturbative method or synthetic data is the more practical choice: easier to analyze (a single table), better supported by tools like <code>sdcMicro</code>, and protective of the identifiers too. Our own dataset is a case in point—the research question is about the relationship between religion and political opinion, <em>two sensitive attributes</em>, which anatomization is not designed to serve: it de-associates the sensitive attribute from the indirect identifiers, not two sensitive attributes from each other. We still implement it below as an instructive example.</p>
+</div>
+</div>
+</div>
 </section>
+</section>
+<section id="pro-and-contra-of-using-de-associative-techniques" class="level1">
+<h1>Pro and Contra of Using De-Associative Techniques</h1>
+<p>Pros:</p>
+<ul>
+<li>can be highly privacy-preserving</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>complex and not implemented as predefined functions within a R package</li>
+<li>similar level of privacy can be reached by combining other techniques</li>
+<li>added level of complexity for analyses</li>
+</ul>
 </section>
 <section id="exercise-applying-anatomization" class="level1">
 <h1>Exercise: Applying Anatomization</h1>
-<p>Let’s implement anatomization step by step, following the algorithm proposed by <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span>. It is not available in <code>sdcMicro</code>, so we will build it ourselves with a lot of data wrangling. Because anatomization protects a <em>sensitive</em> attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, <code>religion</code>.</p>
+<p>Let’s implement anatomization step by step, following the algorithm proposed by <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span>. It is not available in <code>sdcMicro</code>, so we will build it ourselves with a lot of data wrangling. The algorithm has 19 steps, but we will break them down in more workable chunks.</p>
+<p>Because anatomization protects a <em>sensitive</em> attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, <code>religion</code>. Working this algorithm for the combination of all our sensitive attributes (including the political opinion items) is possible, but more complex. To keep it simple, we only focus on <code>religion</code>.</p>
 <p>Our data does not really need this level of protection—we use it here purely for demonstration.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep all indirect identifiers and one sensitive attribute (religion)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data_ana <span class="ot">&lt;-</span> data_withoutidentifiers <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, plz, gender, age, income, years_in_job, education, religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The algorithm needs one parameter: the target level of <strong>l-diversity</strong>. l-diversity strengthens <a href="../1_FOUNDATION/1_5_Privacy_Concepts#limitations-of-k-anonymity">k-anonymity</a>—it requires that every group contains at least <code>l</code> <em>different</em> values of the sensitive attribute, so that locating someone’s group still leaves <code>l</code> competing possibilities for their sensitive value. We aim for <code>l = 2</code>.</p>
+<p>The algorithm needs one parameter: the target level of <strong>l-diversity</strong>. l-diversity strengthens <a href="../1_FOUNDATION/1_5_Privacy_Concepts.html#limitations-of-k-anonymity">k-anonymity</a>—it requires that every group contains at least <code>l</code> <em>different</em> values of the sensitive attribute, so that locating someone’s group still leaves <code>l</code> competing possibilities for their sensitive value. We aim for <code>l = 2</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="dv">2</span>   <span class="co"># every group must contain at least 2 different religions</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="step-1-bucket-the-data-by-the-sensitive-value" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-bucket-the-data-by-the-sensitive-value">Step 1: Bucket the data by the sensitive value</h2>
-<p><strong>Target:</strong> Get an overview of the buckets. Create a character vector <code>religions</code> holding the distinct religion values, and a data frame <code>bucket_sizes</code> that counts how many records fall into each bucket.</p>
+<section id="step-1-sort-the-data-into-buckets" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-sort-the-data-into-buckets">Step 1: Sort the Data Into Buckets</h2>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Buckets vs.&nbsp;Groups
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Two terms recur throughout the exercise below, and it helps to keep them apart:</p>
+<ul>
+<li>A <strong>bucket</strong> collects all records that share the <em>same sensitive value</em>—here, one bucket per religion. These are the piles we draw from.</li>
+<li>A <strong>group</strong> is a finished, l-diverse set of records (identified by a <code>group_id</code>), built by taking one record from each of several different buckets.</li>
+</ul>
+<p>Note that this use of “bucket” differs from <em>bucketization</em> above, where a bucket groups records by their <em>indirect identifiers</em>. In anatomization, buckets are defined by the sensitive value instead.</p>
+</div>
+</div>
+</div>
+<p><strong>Target:</strong> Get an overview of the buckets (one per religion) we will draw from later. To that end, create a character vector <code>religions</code> holding the distinct religion values, and a data frame <code>bucket_sizes</code> with the frequency of each religion.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../pictures/Anatomization-Step1-cropped.png" class="img-fluid figure-img" alt="The original table on the left; on the right, a two-column table listing each religion and its count (muslim 1, none 2, catholic 1, protestant 1)."></p>
+<figcaption>Step 1: count how many records carry each religion—these counts define the buckets we will draw from.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -511,7 +572,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First, list all <code>religion</code> values that occur in the data. These define our buckets:</p>
 <div class="cell">
@@ -548,8 +609,8 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div id="eligibility-condition" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -558,9 +619,9 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>A condition for anatomization to work is the eligibility condition. Anatomization can only place <em>every</em> record into an <code>l</code>-diverse group if no single religion is too common: the largest bucket must not exceed <code>n / l</code> records; otherwise, the specific <code>l</code>-value cannot be fully reached.</p>
+<p>A condition for anatomization to work is the eligibility condition. Anatomization can only place <em>every</em> record into an l-diverse group if no single religion is too common: the largest bucket (i.e., the most frequent religion) must not exceed <code>n / l</code> records; otherwise, the specific <code>l</code>-value cannot be fully reached.</p>
 <p>Here, we can check that this is the case:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Largest a bucket may be if we want to keep every record</span></span>
@@ -571,17 +632,26 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">share        =</span> n <span class="sc">/</span> n_total,</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">within_limit =</span> n <span class="sc">&lt;=</span> max_allowed)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Here, with <code>l = 2</code>, no group exceeds the limit of 100 (= 200 / 2). So we can make the dataset 2-diverse.</p>
+<p>Here, with <code>l = 2</code>, no bucket exceeds the limit of 100 (= 200 / 2). So we can make the dataset 2-diverse.</p>
 <p>If this were not the case (e.g., when choosing <code>l = 3</code>), we would have records that would be left over. To still achieve the targeted <code>l</code> we would then need to suppress selected values.</p>
+<p>This can seem unintuitive: surely one repeated value within a group cannot do too much harm? The catch is that l-diversity, as used here, is not simply about having <code>l</code> <em>different</em> values present. Following <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span>, we use a rather strong, <strong>frequency-based</strong> definition: no single sensitive value may make up more than a <code>1/l</code> share of a group. This is deliberately stricter than the common “at least <code>l</code> distinct values” notion (<em>distinct</em> l-diversity), under which a repeated value would indeed look harmless.</p>
+<p>The reason for the stricter bar is the threat it guards against. l-diversity protects the <em>sensitive value</em>, not identity—the indirect identifiers stay fully intact anyway. Consider a group of three records, two with religion <code>none</code> and one <code>muslim</code>. Two different religions are present, so no one is uniquely identifiable. But an attacker who pins someone to this group would guess <code>none</code> and be right two out of three times (67%)—a <strong>probabilistic inference attack</strong>. That is well above the <code>1/l = 50%</code> ceiling that 2-diversity is meant to guarantee. Formally, the most frequent value covers <code>2/3</code> of the group, and <code>2/3 &gt; 1/l = 1/2</code>, so the group is not 2-diverse.</p>
+<p>This is also why the algorithm builds the <em>smallest possible</em> groups (here, exactly <code>l = 2</code> records, each with a different religion): every value then appears exactly once, i.e.&nbsp;at a <code>1/l</code> share, which both maximizes utility and keeps each group right at the diversity limit.&nbsp;</p>
 </div>
 </div>
 </div>
 </section>
 <section id="step-2-build-the-l-diverse-groups" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-build-the-l-diverse-groups">Step 2: Build the l-diverse groups</h2>
-<p><strong>Target:</strong> Create a working data frame <code>pool</code> — a copy of <code>data_ana</code> with an added <code>group_id</code> column — and fill in <code>group_id</code> by repeatedly opening a new group and taking one record from each of the <code>l</code> currently-largest buckets, until fewer than <code>l</code> buckets still have records. Because each record in a group comes from a different bucket, every group automatically holds <code>l</code> different religions.</p>
+<h2 class="anchored" data-anchor-id="step-2-build-the-l-diverse-groups">Step 2: Build the l-Diverse Groups</h2>
+<p><strong>Target:</strong> Create a working data frame <code>pool</code>—a shuffled copy of <code>data_ana</code> with an added <code>group_id</code> column (empty in the beginning) and fill in <code>group_id</code> by repeatedly opening a new group and taking one record from each of the <code>l</code> currently-largest buckets, until fewer than <code>l</code> buckets still have records. Because each record in a group comes from a different bucket, every group automatically holds <code>l</code> different religions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../pictures/Anatomization-Step2-cropped.png" class="img-fluid figure-img" alt="Three rounds of drawing: each round takes one record from each of the two largest religion buckets, stamps them with a new group ID, and reduces the remaining counts; the process stops once fewer than two buckets have records left."></p>
+<figcaption>Step 2: repeatedly open a new group and draw one record from each of the <code>l</code> largest buckets, decreasing the counts each round, until fewer than <code>l</code> buckets still have records (STOP).</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -590,11 +660,11 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Rather than juggling one data frame per bucket, we track group membership in a single new column, <code>group_id</code>. We shuffle the rows once up front so the groups don’t follow the original row order, and set a seed so the result is reproducible.</p>
+<p>Rather than juggling one data frame per bucket, we track group membership in a single new column, <code>group_id</code>. We shuffle the rows once up front so the groups don’t follow the original row order, and set a seed so the result is reproducible within this exercise. We could also, instead of shuffling at the beginning, pick random rows when assigning records to the groups; it is just important, that the original order can’t be reverse-engineered by an attacker who knows the algorithm.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>) <span class="co"># to make the results reproducible within this exercise; delete for a real application (especially when publishing the script alongside the data)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># One working table; group_id is filled in as we assign records.</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>pool <span class="ot">&lt;-</span> data_ana <span class="sc">%&gt;%</span></span>
@@ -643,18 +713,36 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 </div>
-<p>In this case, all participants have been assigned to one group, without any leftovers in <code>remaining</code>. This is not naturally the case; often times, the algorithm will leave you at this point with a few individuals that have not been assigned. For that case, you follow the third step:</p>
+<p>In this case, all participants have been assigned to a group, without any leftovers in <code>remaining</code>. This is not naturally the case; often times, the algorithm will leave you at this point with a few individuals that have not been assigned. For that case, you follow the third step:</p>
 </section>
 <section id="step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers">Step 3: Handle the leftover records (skip in case of no leftovers)</h2>
-<p><strong>Target:</strong> Collect the still-unassigned records in a data frame <code>leftovers</code>, then update <code>pool</code> by slotting each leftover into an existing group that does not yet contain its religion. Records that fit into no group are collected in <code>suppressed_ids</code> and dropped from <code>pool</code>.</p>
+<h2 class="anchored" data-anchor-id="step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers">Step 3: Handle the Leftover Records (Skip in Case of No Leftovers)</h2>
+<p><strong>Target:</strong> Collect the still-unassigned records in a data frame <code>leftovers</code>, then update <code>pool</code> by slotting each leftover into an existing group that does not yet contain that religion value (e.g., a leftover record with religion <code>none</code>&nbsp;can be slotted into a group that does not contain any other records with religion <code>none</code>). Records that fit into no group are collected in <code>suppressed_ids</code> and dropped from <code>pool</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../pictures/Anatomization-Step3-cropped.png" class="img-fluid figure-img" alt="A leftover record with religion protestant and no group ID is assigned to the first existing group that does not already contain a protestant record."></p>
+<figcaption>Step 3: each leftover record is slotted into the first existing group that does not yet contain its religion—here a leftover <code>protestant</code> record joins the first group without a <code>protestant</code>.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Once fewer than <code>l</code> buckets remain, the loop in Step 2 stops with some records still unassigned. We handle them here.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Records left over when fewer than l religions remained unassigned.</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>leftovers <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">is.na</span>(group_id))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>leftovers <span class="sc">%&gt;%</span> <span class="fu">count</span>(religion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>You then try to slot each one remaining participant into a group that has no one with the same sensitive value yet (so the group stays diverse). If no such group exists, the record cannot be released safely and has to be suppressed.</p>
+<p>You then try to slot each one remaining participant into a group that has no one with the same sensitive value yet (so the group stays diverse, see the <a href="#eligibility-condition">eligibility condition</a> above). If no such group exists, the record cannot be released safely and has to be suppressed.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>suppressed_ids <span class="ot">&lt;-</span> <span class="fu">integer</span>(<span class="dv">0</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -685,13 +773,22 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the suppressed records</span></span>
 <span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>pool <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>(id <span class="sc">%in%</span> suppressed_ids))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</div>
+</div>
+</div>
 <p>In the last step, we split this one dataframe <code>pool</code> into two dataframes, the anatomized tables.</p>
 </section>
 <section id="step-4-split-into-the-two-anatomized-tables" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-split-into-the-two-anatomized-tables">Step 4: Split into the two anatomized tables</h2>
+<h2 class="anchored" data-anchor-id="step-4-split-into-the-two-anatomized-tables">Step 4: Split Into the Two Anatomized Tables</h2>
 <p><strong>Target:</strong> Split <code>pool</code> into two data frames: <code>ii_table</code>, the <strong>indirect-identifier table</strong> (<code>id</code>, <code>group_id</code>, and all indirect identifiers, but no religion), and <code>sensitive_table</code>, the <strong>sensitive table</strong> (<code>group_id</code>, <code>religion</code>, and a per-group <code>count</code>, with no identifiers).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../pictures/Anatomization-Step4-cropped.png" class="img-fluid figure-img" alt="The grouped table is split into an indirect-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency), linked only by the group ID."></p>
+<figcaption>Step 4: split the finished table into an indirect-identifier table and a sensitive table, which share only the group ID.</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -700,7 +797,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Indirect identifiers table: indirect identifiers + group id, NO religion.</span></span>
@@ -739,28 +836,15 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 <p>A researcher can still study group-level patterns—for example, the religion distribution across age bands—by joining on <code>group_id</code>. But the individual link between a person and their religion is broken.</p>
-<p>If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized in <a href="2_4_Perturbative">the last chapter on perturbative techniques</a>.</p>
-</section>
-</section>
-<section id="pro-and-contra-de-associative-techniques" class="level1">
-<h1>Pro and Contra De-Associative Techniques</h1>
-<p>Pros:</p>
-<ul>
-<li>can be highly privacy-preserving</li>
-</ul>
-<p>Cons:</p>
-<ul>
-<li>complex and not implemented as predefined functions within a R package</li>
-<li>similar level of privacy can be reached by combining other techniques</li>
-<li>added level of complexity for analyses</li>
-</ul>
+<p>If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized within the <code>sdcObjects</code> <code>sdcNoise</code> and <code>sdcMicro</code>in <a href="2_4_Perturbative">the last chapter on perturbative techniques</a>.</p>
 <section id="resources-links-examples" class="level4">
 <h4 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h4>
 <ul>
 <li>See <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span> for more de-associative techniques.</li>
-<li>The anatomization algorithm we implemented here was introduced by <a href="https://dl.acm.org/doi/10.5555/1182635.1164141">Xiao &amp; Tao (2006), <em>Anatomy: Simple and Effective Privacy Preservation</em></a>.</li>
+<li>The anatomization algorithm we implemented here was introduced by <a href="https://dl.acm.org/doi/10.5555/1182635.1164141">Xiao &amp; Tao (2006), <em>Anatomy: Simple and Effective Privacy Preservation</em></a>.See their paper for more technical details.</li>
 <li>For more on l-diversity and t-closeness, see <a href="https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html">this practical tutorial by Utrecht University</a>.</li>
 </ul>
+</section>
 </section>
 </section>
 <section id="references" class="level1">
