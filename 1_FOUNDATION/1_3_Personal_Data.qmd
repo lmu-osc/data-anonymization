@@ -205,7 +205,7 @@ Now, delete all direct identifiers from the dataset.
 ::: {.callout-important collapse="true"}
 ## Solution
 
-Any solution that deletes the name, email address, and IP address is correct. I use tidyverse syntax:
+Any solution that deletes the name, email address, and IP address is correct. I use `tidyverse` syntax:
 
 ```{r}
 #| warning: FALSE
