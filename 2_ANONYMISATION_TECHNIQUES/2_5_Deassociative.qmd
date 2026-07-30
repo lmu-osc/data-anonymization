@@ -61,20 +61,29 @@ Anatomization builds on bucketization but adds a guarantee: each group is delibe
 
 To build such groups, @xiao2006 do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the `l` currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.
 
-::: callout-note
-## Buckets vs. groups
+::: {.callout-note collapse="false"}
+## When is anatomization the right choice? (Almost never)
 
-Two terms recur throughout the exercise below, and it helps to keep them apart:
+Anatomization is a **special-purpose technique, not a default**. Its distinctive strength is that it distorts *no values*: unlike non-perturbative technqiues (which coarsen the indirect identifiers), perturbative techniques (which alter values), or synthetic data (which fabricates records), anatomization publishes only true values and destroys just one thing — the record-level link between the indirect identifiers and the sensitive variable. It is therefore a good fit only when *all* of the following hold:
 
-- A **bucket** collects all records that share the *same sensitive value* — here, one bucket per religion. These are the piles we draw from.
-- A **group** is a finished, l-diverse set of records (identified by a `group_id`), built by taking one record from each of several different buckets.
+- the research question concerns the sensitive attribute's **group-level distribution or associations** instead of individual-level linkage, and you can accept the added imprecision (e.g., due to a large sample size);
+- you specifically want to avoid coarsening or perturbing the values that are kept; and
+- **identity disclosure is handled by other means** — anatomization leaves the indirect identifiers fully intact and does *not* protect against singling someone out on them.
 
-Note that this use of "bucket" differs from *bucketization* above, where a bucket groups records by their *indirect identifiers*. In anatomization, buckets are defined by the sensitive value instead.
+For most questions these conditions do not all hold, and a perturbative method or synthetic data is the more practical choice: easier to analyze (a single table), better supported by tools like `sdcMicro`, and protective of the identifiers too. Our own dataset is a case in point — the research question is about the relationship between religion and political opinion, *two sensitive attributes*, which anatomization is not designed to serve: it de-associates the sensitive attribute from the indirect identifiers, not two sensitive attributes from each other. We still implement it below as an instructive example.
 :::
 
-Anatomization is particularly useful when the sensitive attribute is the main focus of the research question, and when preserving group-level patterns is more important than individual-level linkage. For our dataset—where the research question is about the relationship between religion and political opinion—anatomization could work well: group-level associations are preserved, but no individual's religion and political views can be read together.
+# Pro and Contra De-Associative Techniques
 
-However, anatomization does not protect against disclosure of attributes other than the sensitive variable since the indirect identifiers stay fully intact; it is therefore helpful, to combine it with other methods.
+Pros:
+
+- can be highly privacy-preserving
+
+Cons:
+
+- complex and not implemented as predefined functions within a R package
+- similar level of privacy can be reached by combining other techniques
+- added level of complexity for analyses
 
 # Exercise: Applying Anatomization
 
@@ -97,6 +106,17 @@ l <- 2   # every group must contain at least 2 different religions
 ```
 
 ## Step 1: Sort the data into buckets
+
+::: {.callout-note collapse="false"}
+## Buckets vs. groups
+
+Two terms recur throughout the exercise below, and it helps to keep them apart:
+
+- A **bucket** collects all records that share the *same sensitive value* — here, one bucket per religion. These are the piles we draw from.
+- A **group** is a finished, l-diverse set of records (identified by a `group_id`), built by taking one record from each of several different buckets.
+
+Note that this use of "bucket" differs from *bucketization* above, where a bucket groups records by their *indirect identifiers*. In anatomization, buckets are defined by the sensitive value instead.
+:::
 
 **Target:** Get an overview of the buckets (one per religion) we will draw from later. To that end, create a character vector `religions` holding the distinct religion values, and a data frame `bucket_sizes` with the frequency of each religion.
 
@@ -298,17 +318,6 @@ A researcher can still study group-level patterns—for example, the religion di
 
 If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized within the `sdcObjects` `sdcNoise` and `sdcMicro`in [the last chapter on perturbative techniques](2_4_Perturbative).
 
-# Pro and Contra De-Associative Techniques
-
-Pros:
-
-- can be highly privacy-preserving
-
-Cons:
-
-- complex and not implemented as predefined functions within a R package
-- similar level of privacy can be reached by combining other techniques
-- added level of complexity for analyses
 
 #### Resources, Links, Examples
 
