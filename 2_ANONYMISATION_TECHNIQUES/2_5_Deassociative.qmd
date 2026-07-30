@@ -67,7 +67,7 @@ To build such groups, @xiao2006 do not group records by similarity. Instead, the
 Two terms recur throughout the exercise below, and it helps to keep them apart:
 
 - A **bucket** collects all records that share the *same sensitive value* — here, one bucket per religion. These are the piles we draw from.
-- A **group** is a finished, `l`-diverse set of records (identified by a `group_id`), built by taking one record from each of several different buckets.
+- A **group** is a finished, l-diverse set of records (identified by a `group_id`), built by taking one record from each of several different buckets.
 
 Note that this use of "bucket" differs from *bucketization* above, where a bucket groups records by their *indirect identifiers*. In anatomization, buckets are defined by the sensitive value instead.
 :::
@@ -130,7 +130,7 @@ bucket_sizes
 ::: {#eligibility-condition .callout-tip collapse="false"}
 ## Eligibility Condition
 
-A condition for anatomization to work is the eligibility condition. Anatomization can only place *every* record into an `l`-diverse group if no single religion is too common: the largest bucket (i.e., the most frequent religion) must not exceed `n / l` records; otherwise, the specific `l`-value cannot be fully reached.
+A condition for anatomization to work is the eligibility condition. Anatomization can only place *every* record into an l-diverse group if no single religion is too common: the largest bucket (i.e., the most frequent religion) must not exceed `n / l` records; otherwise, the specific `l`-value cannot be fully reached.
 
 Here, we can check that this is the case:
 
@@ -149,9 +149,9 @@ Here, with `l = 2`, no bucket exceeds the limit of 100 (= 200 / 2). So we can ma
 
 If this were not the case (e.g., when choosing `l = 3`), we would have records that would be left over. To still achieve the targeted `l` we would then need to suppress selected values.
 
-This can seem unintuitive: surely one repeated value within a group cannot do too much harm? The catch is that `l`-diversity, as used here, is not simply about having `l` *different* values present. Following @xiao2006, we use a rather strong, **frequency-based** definition: no single sensitive value may make up more than a `1/l` share of a group. This is deliberately stricter than the common "at least `l` distinct values" notion (*distinct* l-diversity), under which a repeated value would indeed look harmless.
+This can seem unintuitive: surely one repeated value within a group cannot do too much harm? The catch is that l-diversity, as used here, is not simply about having `l` *different* values present. Following @xiao2006, we use a rather strong, **frequency-based** definition: no single sensitive value may make up more than a `1/l` share of a group. This is deliberately stricter than the common "at least `l` distinct values" notion (*distinct* l-diversity), under which a repeated value would indeed look harmless.
 
-The reason for the stricter bar is the threat it guards against. `l`-diversity protects the *sensitive value*, not identity—the indirect identifiers stay fully intact anyway. Consider a group of three records, two with religion `none` and one `muslim`. Two different religions are present, so no one is uniquely identifiable. But an attacker who pins someone to this group would guess `none` and be right two out of three times (67%)—a **probabilistic inference attack**. That is well above the `1/l = 50%` ceiling that 2-diversity is meant to guarantee. Formally, the most frequent value covers `2/3` of the group, and `2/3 > 1/l = 1/2`, so the group is not 2-diverse.
+The reason for the stricter bar is the threat it guards against. l-diversity protects the *sensitive value*, not identity—the indirect identifiers stay fully intact anyway. Consider a group of three records, two with religion `none` and one `muslim`. Two different religions are present, so no one is uniquely identifiable. But an attacker who pins someone to this group would guess `none` and be right two out of three times (67%)—a **probabilistic inference attack**. That is well above the `1/l = 50%` ceiling that 2-diversity is meant to guarantee. Formally, the most frequent value covers `2/3` of the group, and `2/3 > 1/l = 1/2`, so the group is not 2-diverse.
 
 This is also why the algorithm builds the *smallest possible* groups (here, exactly `l = 2` records, each with a different religion): every value then appears exactly once, i.e. at a `1/l` share, which both maximizes utility and keeps each group right at the diversity limit. 
 :::
