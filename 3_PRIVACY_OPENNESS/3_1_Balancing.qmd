@@ -98,6 +98,25 @@ data_anonymized <- data_anonymized %>%
 ```
 :::
 
+[]{#rare-religion-step}
+
+As a last anonymization step, I will now **generalize rare religion categories** using `fct_lump_min()` from `forcats`. Since `religion` is not a variable in the `sdcObject`, I apply this directly to the dataset as an additional layer, protecting individuals with rare religions.
+
+```{r}
+# Generalize rare religion categories into "Other"
+# Inspect counts first
+table(data_anonymized$religion)
+
+data_anonymized <- data_anonymized %>%
+  mutate(religion = fct_lump_min(as.factor(religion), min = 10, other_level = "Other"))
+
+table(data_anonymized$religion)
+```
+
+`fct_lump_min(religion, min = 10)` merges any category with fewer than 10 observations into `"Other"`. Groups like "Judaism" or "Buddhism" which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes.
+
+You might reasonably ask why `religion` was not simply added to the `sdcObject` as a key variable and covered by k-anonymity from the start, rather than patched in this separate step. There are two reasons: First, `religion` is the **sensitive variable at the centre of our research question**, so we want to keep it as fine-grained as possible. Treating it as a key variable would require k-anonymity to hold across every *age band × gender × postal region × religion* combination — this multiplies the number of equivalence classes and forces much heavier generalization and suppression across all key variables, degrading exactly the variable we care about most. Second, the residual risk is not spread evenly across religions but concentrated in the **rare** categories: common religions are shared by many people and single no one out, whereas someone with a rare religion could be recognizable from that attribute alone. Lumping only the rare categories therefore targets the real risk directly and proportionately, while leaving the common categories — and the overall religion distribution — untouched. See also the callout [*There is no one correct variable assignment*](../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd#no-correct-assignment) on choosing variables for anonymization.
+
 ## Using Statistics
 
 For non-numeric variables that were recoded or suppressed, there is **no single formal measure**—but you can compare frequency tables before and after. For example, comparing the distribution of age bands or religion categories tells you whether the recoding preserved the overall composition of the sample.
@@ -154,7 +173,7 @@ data_anonymized %>%
   summarise(across(c(pol_immigration, pol_environment, pol_redistribution, pol_eu_integration), mean, .names = "mean_{.col}"))
 ```
 
-The group-level means should be very the same between the original and anonymized datasets. The key research question—whether religion predicts political opinion—is still answerable. We did not change anything regarding these variables.
+The group-level means should be the same between the original and anonymized datasets. The key research question—whether religion predicts political opinion—is still answerable. Note that some small religion categories have been merged into "Other", which changes the granularity of analysis but preserves the main patterns. Other than that, we did not change anything regarding these variables.
 
 **Reflection**
 
