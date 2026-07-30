@@ -9,7 +9,7 @@ bibliography: ../references.bib
 -   After completing this part of the tutorial, you will have a fundamental understanding of privacy and data protection.
 :::
 
-# What is Data Privacy?
+# What Is Data Privacy?
 
 This question has troubled (and engaged) scholars in privacy research for decades; there is no one agreed-upon definition. It is mostly understood as **controlled disclosure** in some way, meaning that an individual can decide which information is shared.
 
@@ -45,7 +45,7 @@ In this tutorial, I will show why we, as researchers, need to carefully consider
 
 Throughout this tutorial, I will use both the terms data protection and privacy. **Privacy** is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. **Data protection** is a term that is closely linked to actual techniques and is used in laws. Both translate (give or take) to "Datenschutz" in German.
 
-# Why is Data Protection Important?
+# Why Is Data Protection Important?
 
 ::: {.callout-tip collapse="false"}
 # Reflection

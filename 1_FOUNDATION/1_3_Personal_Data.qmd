@@ -91,7 +91,7 @@ Now inspect the dataset `data`. Answer the following questions:
 ::: {.callout-important collapse="true"}
 ## Solution
 
-### Direct identifiers: `name`, `email`, `ip_address`
+### Direct Identifiers: `name`, `email`, `ip_address`
 
 **Name** is probably the most obvious identifier there is.
 
@@ -105,7 +105,7 @@ Now inspect the dataset `data`. Answer the following questions:
 ::: {.callout-important collapse="true"}
 ## Solution
 
-### Indirect identifiers: `gender`, `age`, `education`, `income`, `plz`, `years_in_job`
+### Indirect Identifiers: `gender`, `age`, `education`, `income`, `plz`, `years_in_job`
 
 **Gender**, **age**, **education**, **postal code**, **income**, and **years in job** are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be **linked** with each other or external knowledge. When an attacker knows of a person who participated in the study and, for instance, knows their education level, they could identify the person in the data.
 :::
@@ -115,7 +115,7 @@ Now inspect the dataset `data`. Answer the following questions:
 ::: {.callout-important collapse="true"}
 ## Solution
 
-### Special category data: all `pol\_` variables (political opinion), `religion`
+### Special Category Data: All `pol\_` Variables (Political Opinion), `religion`
 
 The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_integration` variables capture **political opinions**, and `religion` captures **religious beliefs**. Both categories are explicitly listed as sensitive data under Art. 9 GDPR. These variables require **heightened protection** because their disclosure could lead to discrimination or other harm for the individuals involved.
 :::
@@ -125,26 +125,26 @@ The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_inte
 ::: {.callout-important collapse="true"}
 ## Solution
 
-### Personal data: All columns contain personal data.
+### Personal Data: All Columns Contain Personal Data.
 
 Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as `name`) is possible, it is considered personal data, and GDPR applies.
 :::
 
 <!-- Moved this into a separate heading - this seems to be too important to "hide" it below an exercise -->
-# A default workflow for handling identifiers
+# A Default Workflow for Handling Identifiers
 
 It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on *any* existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:
 
 ::: {#default-workflow .callout-tip collapse="false"}
-## A default workflow for handling identifiers
+## A Default Workflow for Handling Identifiers
 
 1.  **Download** the primary raw data from your collection tool.
 
 2.  **Remove direct identifiers** as soon as you no longer need them—in *every* copy that exists (collection platform, cloud storage, collaborators' copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.
 
-3.  **Remove the pseudonym key** using the same logic. If there are concerete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key -- it is the safer option -- but store it *separately* from the data, with restricted access and a defined deletion date.
+3.  **Remove the pseudonym key** using the same logic. If there are concrete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key—it is the safer option—but store it *separately* from the data, with restricted access and a defined deletion date.
 
-4.  **Store a secure copy** of the data with direct identifiers and pseudonyms that are really need, with read-only access, e.g., on your institution's password-protected server. Delete the primary raw data.
+4.  **Store a secure copy** of the data with direct identifiers and pseudonyms that are really needed, with read-only access, e.g., on your institution's password-protected server. Delete the primary raw data.
 
 5.  **Remove all identifiers left in the data**, generating your working copy from the secure copy of the data with a script, so the cleaning step is reproducible and auditable. This data copy can still be non-anonymous, depending on the data left in the dataset.
 
@@ -193,9 +193,9 @@ style D1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
 :::
 
 ::: {.callout-warning collapse="false"}
-## Myth: "The funder wants the full raw data"
+## Myth: "The Funder Wants the Full Raw Data"
 
-It is a common misconception that funding agencies require you to archive the complete raw dataset *including* direct identifiers. In reality, they almost always want the raw data *without* them. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.
+It is a common misconception that funding agencies require you to archive the complete raw dataset *including* direct identifiers. In reality, they almost always want the **raw data *without* them**. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.
 :::
 
 ## Exercise: Remove Direct Identifiers

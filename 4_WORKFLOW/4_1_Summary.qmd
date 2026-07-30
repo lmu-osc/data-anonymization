@@ -5,7 +5,7 @@ title: "Summary of the Anonymization Workflow"
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
-After completing this part of the tutorial, you will understand the anonymization workflow.
+- After completing this part of the tutorial, you will understand the anonymization workflow.
 :::
 
 This chapter summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data.
@@ -108,7 +108,7 @@ a.wf-title::after {
         <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html">non-perturbative</a>,
         <a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.html">perturbative</a>,
         <a href="../2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html">de-associative</a>, or
-        <a href="../2_ANONYMISATION_TECHNIQUES/2_6_Synthetic.html">synthetic</a>.
+        <a href="../2_ANONYMISATION_TECHNIQUES/2_6_Synthetic.html">synthetic</a>. In doubt, aim for k-anonymity: if attackers don't already know the sensitive attribute, it is usually protection enough.
       </span>
     </div>
   </div>

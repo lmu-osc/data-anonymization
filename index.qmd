@@ -2,8 +2,6 @@
 title: "Welcome to the Data Anonymization Course!"
 ---
 
-This website is a work in progress. Please come back later in 2026 :)
-
 # Tutorial Overview
 
 This **self-paced tutorial** on anonymization of quantitative research data is intended to take about three hours to complete.
@@ -36,7 +34,7 @@ Here are a few helpful links for other data types:
 
 # Prerequisites
 
--   You need basic R skills (e.g., loading data and packages). Experience with data wrangling with `tidyverse` is beneficial.
+You need basic R skills (e.g., loading data and packages). Experience with data wrangling with `tidyverse` is beneficial.
 
 # Required Software
 

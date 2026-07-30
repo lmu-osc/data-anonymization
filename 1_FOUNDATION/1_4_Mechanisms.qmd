@@ -4,7 +4,7 @@ bibliography: ../references.bib
 ---
 
 ::: {.callout-tip collapse="true"}
-## Learning Objective
+## Learning Objectives
 
 After completing this part of the tutorial, you will know
 
@@ -36,7 +36,6 @@ Many funders now require a DMP, and writing one is a good exercise in data minim
 #### Resources, Links, Examples
 
 A useful template for a specific anonymization plan as part of a DMP is available on [Zenodo](https://zenodo.org/records/10782781).
-
 Learn more on how to create and take advantage of DMPs in the [DMP tutorial of the OSC](https://lmu-osc.github.io/FAIR-Data-Management/dmp.html).
 
 ## Institutional Review Board (IRB) Approval
@@ -168,7 +167,7 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.
 
 ::: {.callout-important collapse="true"}
-# Solution
+## Solution
 
 **Pseudonymized**—because the re-identification key still exists.
 :::
@@ -178,7 +177,7 @@ A hospital removes names and addresses from patient files and replaces them with
 The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.
 
 ::: {.callout-important collapse="true"}
-# Solution
+## Solution
 
 **Anonymized**—the data is aggregated, no individuals can be singled out.
 :::
@@ -188,7 +187,7 @@ The council publishes aggregated statistics on recycling behavior, showing how m
 A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.
 
 ::: {.callout-important collapse="true"}
-# Solution
+## Solution
 
 **Not clear**—technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.
 :::
@@ -198,7 +197,7 @@ A company shares running and sleep data with researchers, with usernames replace
 Exam results are shared with teachers, identified only by student number. The university has the key to look up the names behind the numbers.
 
 ::: {.callout-important collapse="true"}
-# Solution
+## Solution
 
 **Pseudonymized**—the student number acts as a pseudonym, and the university holds the key.
 :::
@@ -208,7 +207,7 @@ Exam results are shared with teachers, identified only by student number. The un
 A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis.
 
 ::: {.callout-important collapse="true"}
-# Solution
+## Solution
 
 **Not clear**—identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.
 :::
@@ -218,7 +217,7 @@ A researcher collects product reviews from an online store, removes usernames an
 A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.
 
 ::: {.callout-important collapse="true"}
-# Solution
+## Solution
 
 **Not clear / borderline anonymized**—no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.
 :::
@@ -228,11 +227,11 @@ A dataset on accidents contains driver age, car model, and exact location + time
 DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.
 
 ::: {.callout-important collapse="true"}
-# Solution
+## Solution
 
 **Pseudonymized**—the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.
 :::
 
 #### Resources, Links, Examples
 
-[Utrecht University's data privacy handbook](https://utrechtuniversity.github.io/dataprivacyhandbook/about.html) offers many insights into GDPR compliance, privacy by design, pseudonymisation, data minimization, encryption, and many other topics [@researchdatamanagementsupport].
+[Utrecht University's data privacy handbook](https://utrechtuniversity.github.io/dataprivacyhandbook/about.html) offers many insights into GDPR compliance, privacy by design, pseudonymization, data minimization, encryption, and many other topics [@researchdatamanagementsupport].

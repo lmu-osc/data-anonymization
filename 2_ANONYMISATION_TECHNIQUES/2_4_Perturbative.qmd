@@ -44,7 +44,7 @@ There are two main variants. **Record swapping** (also known as data swapping) a
 
 The main **advantage** of swapping is that it removes the relationship between a record and the individual without introducing new values that never existed in the data. It can protect rare and unique values and works across variable types. On the **downside**, non-random swapping requires careful implementation, and swapping can produce unusual combinations of values that did not exist in the original data.
 
-## Re-sampling
+## Re-Sampling
 
 Re-sampling **replaces original values with averages** computed from bootstrap samples [@hundepool2026]. You draw multiple independent bootstrap samples from the original data with replacement, with the same sample size as your original data, and sort the values within each sample. You then compute the average of the smallest values across all samples, then of the second-smallest ones, and so forth, and replace the corresponding original values (i.e., the smallest original value with the average of the smallest values in the samples, etc.). The result preserves the overall distribution, but individual values no longer correspond to real observations.
 
@@ -152,7 +152,7 @@ data_micro <- extractManipData(sdc_micro) # Extract the manipulated data
 
 As we can see in the output of the `sdcObject`, the disclosure risk is reduced from up to 100% in the beginning to a range going only up to 77.5%.
 
-### Additive noise
+### Additive Noise
 
 ```{r}
 # Additive noise on income
