@@ -21,7 +21,7 @@ There is no universal recipe for choosing an anonymization technique. The right 
 
 **Intended use**: What analyses will users run on the anonymized data? If exact values matter—for example, income in a regression model—perturbative methods with low noise may be preferable to heavy generalization. If only group-level comparisons are needed, aggressive recoding may be perfectly fine.
 
-**Attacker model**: Who might try to re-identify individuals, and what do they already know? A dataset about employees of one company faces very different risks than a nationally representative survey. Someone who knows a participant personally is more dangerous than a random adversary with no prior knowledge (see the box on [participation knowledge](../1_FOUNDATION/1_5_Privacy_Concepts#participation-knowledge)).
+**Attacker model**: Who might try to re-identify individuals, and what do they already know? A dataset about employees of one company faces very different risks than a nationally representative survey. Someone who knows a participant personally is more dangerous than a random adversary with no prior knowledge (see the box on [participation knowledge](../1_FOUNDATION/1_5_Privacy_Concepts.qmd#participation-knowledge)).
 
 # Technical Constraints
 

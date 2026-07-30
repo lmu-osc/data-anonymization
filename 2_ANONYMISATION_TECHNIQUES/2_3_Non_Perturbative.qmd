@@ -4,7 +4,7 @@ bibliography: ../references.bib
 ---
 
 ::: {.callout-tip collapse="true"}
-## Learning Objective
+## Learning Objectives
 
 After completing this part of the tutorial, you will be able to
 
@@ -96,7 +96,7 @@ Suppression is often used as a last resort after recoding: if recoding alone is 
 
 ## Sampling
 
-If your dataset covers an entire population—for example, all students enrolled in a particular program, or all employees of a specific company—then releasing it in full means that anyone who knows a person was part of that group can try to find their record. [Participation knowledge](../1_FOUNDATION/1_5_Privacy_Concepts#participation-knowledge) would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
+If your dataset covers an entire population—for example, all students enrolled in a particular program, or all employees of a specific company—then releasing it in full means that anyone who knows a person was part of that group can try to find their record. [Participation knowledge](../1_FOUNDATION/1_5_Privacy_Concepts.qmd#participation-knowledge) would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
 
 ![Sampling: only a subset of records is released; here two rows are dropped from the published data.](../pictures/Sampling-cropped.png){fig-alt="A before-and-after table where two of the five rows are struck through to show they are not included in the released sample."}
 
@@ -104,7 +104,7 @@ A sample can be randomly selected, but also based on conditions (e.g., quotas fo
 
 Sampling is most relevant for administrative datasets and registers. For typical survey-based research, where participation is voluntary and not exhaustively documented, it is less commonly needed. If you do use it, keep in mind that the sample size affects both privacy and the statistical representativeness of the data.
 
-# Pro and Contra Using Non-Perturbative Techniques
+# Pro and Contra of Using Non-Perturbative Techniques
 
 Pros:
 

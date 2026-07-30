@@ -5,7 +5,7 @@ title: "Summary of the Anonymization Workflow"
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
-After completing this part of the tutorial, you will understand the anonymization workflow.
+- After completing this part of the tutorial, you will understand the anonymization workflow.
 :::
 
 This chapter summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data.

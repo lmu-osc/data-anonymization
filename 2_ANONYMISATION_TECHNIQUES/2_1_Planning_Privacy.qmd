@@ -39,11 +39,11 @@ Take another look at **our dataset**, as modified in the [exercise on the person
 
 Here are a few concrete attack scenarios to consider, based on our dataset of 200 individuals in Germany (with variables: gender, age, education, plz, income, religion, years_in_job, and political opinion variables):
 
-- A colleague knows that a specific person lives in a particular postal code area, holds a doctoral degree, and is 34 years old. If the combination of plz, education, and age is unique in the dataset, that colleague can identify the person and look up their income, political opinions, and religion. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see the box on [participation knowledge](../1_FOUNDATION/1_5_Privacy_Concepts#participation-knowledge)).
+- A colleague knows that a specific person lives in a particular postal code area, holds a doctoral degree, and is 34 years old. If the combination of plz, education, and age is unique in the dataset, that colleague can identify the person and look up their income, political opinions, and religion. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see the box on [participation knowledge](../1_FOUNDATION/1_5_Privacy_Concepts.qmd#participation-knowledge)).
 - A journalist cross-references the dataset with publicly available census or salary reports. By matching education level, income range, and age, they could narrow down candidates and potentially identify individuals—especially in smaller postal code areas where few people share the same combination of characteristics.
 - A neighbor knows that someone in their building participated in the study. They know the person's approximate age, gender, and religion. Even if they cannot pinpoint the exact row, they might learn something new about that person's income or political views. This is attribute disclosure—the attacker does not need to find the exact record, just a group of records that all share the same sensitive value.
 
-For this dateset, **identity and attribute disclosure** are most likely. Since there is not one single group that was recruited, membership disclosure is not possible.
+For this dataset, **identity and attribute disclosure** are most likely. Since there is not one single group that was recruited, membership disclosure is not possible.
 
 These are just a few examples; in general, the existence and likelihood of risks are very much dependent on the variables in the dataset, the sensitivity of data, the recruitment strategy, and many other factors (see [this chapter on choosing the right technique](../2_7_Choosing_technique) for more information).
 :::
@@ -67,7 +67,7 @@ Let's start by creating a sdcMicro object of the class `sdcMicroObj`, using the 
 - utility measures, and
 - the history of modifications.
 
-`sdcMicro` updates risk and utilty estimates after each anonymization step.
+`sdcMicro` updates risk and utility estimates after each anonymization step.
 
 For this object, we start with defining the following:
 

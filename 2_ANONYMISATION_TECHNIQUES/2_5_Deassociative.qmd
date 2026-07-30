@@ -57,23 +57,23 @@ A researcher re-using the data can still answer questions like "what is the dist
 
 ![Anatomization: the data is split into a quasi-identifier table and a sensitive-attribute table, linked only by a group ID.](../pictures/Anatomization-cropped.png){fig-alt="A diagram showing the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the Group ID."}
 
-Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be [l-diverse](../1_FOUNDATION/1_5_Privacy_Concepts#limitations-of-k-anonymity)—it contains at least `l` different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone's group still faces at least `l` competing possibilities for their sensitive value.
+Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be [l-diverse](../1_FOUNDATION/1_5_Privacy_Concepts.qmd#limitations-of-k-anonymity)—it contains at least `l` different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone's group still faces at least `l` competing possibilities for their sensitive value.
 
 To build such groups, @xiao2006 do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the `l` currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.
 
 ::: {.callout-note collapse="false"}
-## When is anatomization the right choice? (Almost never)
+## When Is Anatomization the Right Choice? (Almost Never)
 
-Anatomization is a **special-purpose technique, not a default**. Its distinctive strength is that it distorts *no values*: unlike non-perturbative technqiues (which coarsen the indirect identifiers), perturbative techniques (which alter values), or synthetic data (which fabricates records), anatomization publishes only true values and destroys just one thing — the record-level link between the indirect identifiers and the sensitive variable. It is therefore a good fit only when *all* of the following hold:
+Anatomization is a **special-purpose technique, not a default**. Its distinctive strength is that it distorts *no values*: unlike non-perturbative technqiues (which coarsen the indirect identifiers), perturbative techniques (which alter values), or synthetic data (which fabricates records), anatomization publishes only true values and destroys just one thing—the record-level link between the indirect identifiers and the sensitive variable. It is therefore a good fit only when *all* of the following hold:
 
 - the research question concerns the sensitive attribute's **group-level distribution or associations** instead of individual-level linkage, and you can accept the added imprecision (e.g., due to a large sample size);
 - you specifically want to avoid coarsening or perturbing the values that are kept; and
-- **identity disclosure is handled by other means** — anatomization leaves the indirect identifiers fully intact and does *not* protect against singling someone out on them.
+- **identity disclosure is handled by other means**—anatomization leaves the indirect identifiers fully intact and does *not* protect against singling someone out on them.
 
-For most questions these conditions do not all hold, and a perturbative method or synthetic data is the more practical choice: easier to analyze (a single table), better supported by tools like `sdcMicro`, and protective of the identifiers too. Our own dataset is a case in point — the research question is about the relationship between religion and political opinion, *two sensitive attributes*, which anatomization is not designed to serve: it de-associates the sensitive attribute from the indirect identifiers, not two sensitive attributes from each other. We still implement it below as an instructive example.
+For most questions these conditions do not all hold, and a perturbative method or synthetic data is the more practical choice: easier to analyze (a single table), better supported by tools like `sdcMicro`, and protective of the identifiers too. Our own dataset is a case in point—the research question is about the relationship between religion and political opinion, *two sensitive attributes*, which anatomization is not designed to serve: it de-associates the sensitive attribute from the indirect identifiers, not two sensitive attributes from each other. We still implement it below as an instructive example.
 :::
 
-# Pro and Contra De-Associative Techniques
+# Pro and Contra of Using De-Associative Techniques
 
 Pros:
 
@@ -99,20 +99,20 @@ data_ana <- data_withoutidentifiers %>%
   select(id, plz, gender, age, income, years_in_job, education, religion)
 ```
 
-The algorithm needs one parameter: the target level of **l-diversity**. l-diversity strengthens [k-anonymity](../1_FOUNDATION/1_5_Privacy_Concepts#limitations-of-k-anonymity)—it requires that every group contains at least `l` *different* values of the sensitive attribute, so that locating someone's group still leaves `l` competing possibilities for their sensitive value. We aim for `l = 2`.
+The algorithm needs one parameter: the target level of **l-diversity**. l-diversity strengthens [k-anonymity](../1_FOUNDATION/1_5_Privacy_Concepts.qmd#limitations-of-k-anonymity)—it requires that every group contains at least `l` *different* values of the sensitive attribute, so that locating someone's group still leaves `l` competing possibilities for their sensitive value. We aim for `l = 2`.
 
 ```{r}
 l <- 2   # every group must contain at least 2 different religions
 ```
 
-## Step 1: Sort the data into buckets
+## Step 1: Sort the Data Into Buckets
 
 ::: {.callout-note collapse="false"}
-## Buckets vs. groups
+## Buckets vs. Groups
 
 Two terms recur throughout the exercise below, and it helps to keep them apart:
 
-- A **bucket** collects all records that share the *same sensitive value* — here, one bucket per religion. These are the piles we draw from.
+- A **bucket** collects all records that share the *same sensitive value*—here, one bucket per religion. These are the piles we draw from.
 - A **group** is a finished, l-diverse set of records (identified by a `group_id`), built by taking one record from each of several different buckets.
 
 Note that this use of "bucket" differs from *bucketization* above, where a bucket groups records by their *indirect identifiers*. In anatomization, buckets are defined by the sensitive value instead.
@@ -120,7 +120,7 @@ Note that this use of "bucket" differs from *bucketization* above, where a bucke
 
 **Target:** Get an overview of the buckets (one per religion) we will draw from later. To that end, create a character vector `religions` holding the distinct religion values, and a data frame `bucket_sizes` with the frequency of each religion.
 
-![Step 1: count how many records carry each religion — these counts define the buckets we will draw from.](../pictures/Anatomization-Step1-cropped.png){fig-alt="The original table on the left; on the right, a two-column table listing each religion and its count (muslim 1, none 2, catholic 1, protestant 1)."}
+![Step 1: count how many records carry each religion—these counts define the buckets we will draw from.](../pictures/Anatomization-Step1-cropped.png){fig-alt="The original table on the left; on the right, a two-column table listing each religion and its count (muslim 1, none 2, catholic 1, protestant 1)."}
 
 ::: {.callout-note collapse="true"}
 ## Solution
@@ -176,9 +176,9 @@ The reason for the stricter bar is the threat it guards against. l-diversity pro
 This is also why the algorithm builds the *smallest possible* groups (here, exactly `l = 2` records, each with a different religion): every value then appears exactly once, i.e. at a `1/l` share, which both maximizes utility and keeps each group right at the diversity limit. 
 :::
 
-## Step 2: Build the l-diverse groups
+## Step 2: Build the l-Diverse Groups
 
-**Target:** Create a working data frame `pool` — a shuffled copy of `data_ana` with an added `group_id` column (empty in the beginning) and fill in `group_id` by repeatedly opening a new group and taking one record from each of the `l` currently-largest buckets, until fewer than `l` buckets still have records. Because each record in a group comes from a different bucket, every group automatically holds `l` different religions.
+**Target:** Create a working data frame `pool`—a shuffled copy of `data_ana` with an added `group_id` column (empty in the beginning) and fill in `group_id` by repeatedly opening a new group and taking one record from each of the `l` currently-largest buckets, until fewer than `l` buckets still have records. Because each record in a group comes from a different bucket, every group automatically holds `l` different religions.
 
 ![Step 2: repeatedly open a new group and draw one record from each of the `l` largest buckets, decreasing the counts each round, until fewer than `l` buckets still have records (STOP).](../pictures/Anatomization-Step2-cropped.png){fig-alt="Three rounds of drawing: each round takes one record from each of the two largest religion buckets, stamps them with a new group ID, and reduces the remaining counts; the process stops once fewer than two buckets have records left."}
 
@@ -236,11 +236,11 @@ Each pass draws from `l` different buckets, so every group we just built contain
 
 In this case, all participants have been assigned to one group, without any leftovers in `remaining`. This is not naturally the case; often times, the algorithm will leave you at this point with a few individuals that have not been assigned. For that case, you follow the third step:
 
-## Step 3: Handle the leftover records (skip in case of no leftovers)
+## Step 3: Handle the Leftover Records (Skip in Case of No Leftovers)
 
 **Target:** Collect the still-unassigned records in a data frame `leftovers`, then update `pool` by slotting each leftover into an existing group that does not yet contain that religion value (e.g., a leftover record with religion `none` can be slotted into a group that does not contain any other records with religion `none`). Records that fit into no group are collected in `suppressed_ids` and dropped from `pool`.
 
-![Step 3: each leftover record is slotted into the first existing group that does not yet contain its religion — here a leftover `protestant` record joins the first group without a `protestant`.](../pictures/Anatomization-Step3-cropped.png){fig-alt="A leftover record with religion protestant and no group ID is assigned to the first existing group that does not already contain a protestant record."}
+![Step 3: each leftover record is slotted into the first existing group that does not yet contain its religion—here a leftover `protestant` record joins the first group without a `protestant`.](../pictures/Anatomization-Step3-cropped.png){fig-alt="A leftover record with religion protestant and no group ID is assigned to the first existing group that does not already contain a protestant record."}
 
 Once fewer than `l` buckets remain, the loop in Step 2 stops with some records still unassigned. We handle them here.
 
@@ -287,7 +287,7 @@ pool <- pool %>% filter(!(id %in% suppressed_ids))
 
 In the last step, we split this one dataframe `pool` into two dataframes, the anatomized tables.
 
-## Step 4: Split into the two anatomized tables
+## Step 4: Split Into the Two Anatomized Tables
 
 **Target:** Split `pool` into two data frames: `ii_table`, the **indirect-identifier table** (`id`, `group_id`, and all indirect identifiers, but no religion), and `sensitive_table`, the **sensitive table** (`group_id`, `religion`, and a per-group `count`, with no identifiers).
 

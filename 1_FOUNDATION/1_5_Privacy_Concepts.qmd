@@ -4,7 +4,7 @@ bibliography: ../references.bib
 ---
 
 ::: {.callout-tip collapse="true"}
-## Learning Objective
+## Learning Objectives
 
 After completing this part of the tutorial, you will understand
 
@@ -119,7 +119,7 @@ A dataset satisfies **k-anonymity** if, for every combination of indirect identi
 - Higher values of *k* mean lower re-identification risk, but also potentially lower data utility (because more generalization or suppression is needed to achieve them as we will see later).
 
 ::: {#reasonable-k .callout-warning collapse="false"}
-## What is a Reasonable Level of k-Anonymity?
+## What Is a Reasonable Level of k-Anonymity?
 
 How high should *k* be? It depends on the sensitivity of the data and the risk of [participation knowledge](#participation-knowledge). When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. **I advise for a k-anonymity level of, generally, at least 3 and at least 5 in case of studies that come with a high risk of participation knowledge** (concurring with general guidance [@elemam2008]). In case of especially sensitive data (e.g., medical data), going up to a higher k (e.g., k = 10 or k = 11 as recommended by @external2025) is advisable.
 :::
