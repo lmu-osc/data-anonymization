@@ -9,7 +9,8 @@ bibliography: ../references.bib
 -   After completing this part of the tutorial, you will have an overview of the legal obligations when collecting and processing personal data according to the GDPR.
 :::
 
-The General Data Protection Regulation (GDPR), in German "Datenschutz-Grundverordnung" (DSGVO), is the **central legal framework** for the protection of personal data in the **European Union**. It came into force in 2018 and applies to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland. In general, it also applies to researchers and universities, regardless of where they are based [@jarmul2023].
+The General Data Protection Regulation (GDPR), in German "Datenschutz-Grundverordnung" (DSGVO), is the **central legal framework** for the protection of personal data in the **European Union**. <!-- COMMENT CS: Precision: the GDPR was adopted in 2016 and *applies* since 25 May 2018 (Art. 99(2)). "Came into force" is a littlbe bit vague. Also, GDPR was adopted by the EWR (No+Ice+Li) and with Brexit, they simply kept it (but now it starts to diverge). -->
+It came into force in 2018 and applies to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland. In general, it also applies to researchers and universities, regardless of where they are based [@jarmul2023].
 
 As a researcher of human data, you almost certainly process personal data, and the GDPR applies to you. Understanding its core concepts helps you navigate ethics board requirements, data management plans, and—most importantly for this tutorial—why and when you need to anonymize data.
 
@@ -40,6 +41,7 @@ Any operation performed on personal data, whether automated or manual. This incl
 
 The person or organization that determines the purposes and means of processing personal data.
 
+<!-- COMMENT CS: Legally, the controller is almost always the *institution* (university), not the individual PI. Researchers rarely qualify as controllers in their own right within an employment relationship. See also 3_1_Balancing. I would state the institution as controller and note the PI's operational responsibility. Also missing: joint controllership (Art. 26) for multi-site/collaborative studies, which is a common stumbling block in research consortia. -->
 **In research:** This is typically the principal investigator (PI) or the research institution. If you design a study and decide what data to collect and why, you are the controller, and you carry the legal responsibility for data protection.
 :::
 
@@ -55,7 +57,8 @@ A person or organization that processes personal data on behalf of the controlle
 
 There are a few GDPR principles and provisions that are particularly relevant to researchers:
 
-**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *legitimate interest / public interest* (Art. 6(1)(e/f)). The GDPR sets strict requirements for what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](1_4_Mechanisms).
+**Legal basis for processing.** You need a legal basis to process personal data. <!-- COMMENT CS: (1) Art. 6(1)(e) and (f) are distinct and should not be slashed together: I doubt that legitimate interest (f) is  available to public universities for tasks carried out in the exercise of official authority. General note: consent under Art. 6(1)(a) is fragile in research: it must be freely given (Art. 7(4)), which is doubtful in asymmetric settings (student–lecturer, patient–physician). Maybe worth a sentence. Also, Art. 6 - Articlne 9(2)(j) (research) interplay may be worth mentioning here. -->
+In research, this is usually either *informed consent* (Art. 6(1)(a)) or *legitimate interest / public interest* (Art. 6(1)(e/f)). The GDPR sets strict requirements for what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](1_4_Mechanisms).
 
 **Purpose limitation.** Data may only be collected for specified, explicit purposes. In research, this means you should be clear about what your data will be used for, and if you want to re-use data for a new purpose, you may need to check whether this is covered by the original consent. Luckily, for research purposes, the laws are more lenient than for private companies.
 
@@ -63,6 +66,7 @@ There are a few GDPR principles and provisions that are particularly relevant to
 
 **Storage limitation.** Personal data should not be kept longer than necessary. For research, there are exceptions: data may be stored longer for archiving purposes in the public interest, scientific research, or statistical purposes (Art. 89), but this requires appropriate safeguards such as encryption and access control.
 
+<!-- COMMENT CS: I am not 100% sure what you are trying to say here, but the purpose-compatibility presumption for research is Art. 5(1)(b), not Art. 89. Art. 89 is primarily a safeguards provision. Therefore, I think that calling Art. 89 an "exemption" is misleading -->
 **The research exemption (Art. 89).** The GDPR acknowledges the importance of scientific research and provides some flexibility. For example, further processing of personal data for research purposes is generally considered compatible with the original purpose of collection.
 
 ::: {.callout-note collapse="false"}
@@ -80,6 +84,7 @@ The good news: the core principles (purpose limitation, data minimization, stora
 ::: {.callout-warning collapse="false"}
 # When Does the GDPR Stop Applying?
 
+<!-- COMMENT CS: It could be worthwhile to mention that anonymization is itself a *processing operation* requiring a legal basis --> one cannot anonymize personal data "to escape" the GDPR; -->
 The GDPR applies to personal data. If data is **truly anonymized**—meaning individuals can no longer be identified, directly or indirectly—the GDPR no longer applies to that data. This is one of the main reasons why anonymization is so valuable for open data: it allows you to share data freely without the legal constraints of the GDPR.
 
 But be careful: **pseudonymized** data (e.g., replacing names with codes while keeping a key file) is still personal data under the GDPR. The regulation explicitly states this. We cover the distinction between anonymization and pseudonymization in [the chapter on mechanisms of data protection](1_4_Mechanisms).
@@ -91,6 +96,7 @@ The GDPR grants individuals (including your research participants) several right
 
 -   **Right to be informed:** Participants must be told how their data is used; this is typically covered in your consent form.
 -   **Right to access:** Participants can request to see what data you hold about them.
+<!-- COMMENT CS: Note: I feel that the blanket phrase "research in the public interest" overstates the exception. Could be worth adding the right to restriction (Art. 18) and the Art. 19 notification duty, both highly relevant when data has already been shared. -->
 -   **Right to erasure:** Participants can request that their data be deleted, though exceptions apply for research in the public interest.
 -   **Right to withdraw consent:** Participants can withdraw their consent at any time, and you must be able to honor that request (which is easier if your data is well-organized and pseudonymized, so you can find and remove specific records).
 

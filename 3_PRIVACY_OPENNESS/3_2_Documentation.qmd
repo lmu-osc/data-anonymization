@@ -10,6 +10,7 @@ title: "Documentation"
 
 # Goals of Documentation of Anonymization
 
+<!-- COMMENT CS: I would add a third, legal purpose (or at least make it more explicit): documentation is also an accountability obligation. Art. 5(2) and Art. 24 require the controller to demonstrate compliance, and the anonymization record is the core evidence for this. Framing documentation as accountability (not only audit/transparency) underscores this -->
 Thorough documentation of your anonymization process serves two purposes:
 
 1.  It provides an **internal record for auditing**—if questions arise later about how the data was handled, you can retrace every step.
