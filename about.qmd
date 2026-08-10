@@ -43,6 +43,8 @@ google-scholar: true
 
 This site was authored by Luisa Jansen, and edits/contributions were made by Johanna Bayer, Malika Ihle, and Felix Schönbrodt.
 
+François-Xavier Wicht reviewed the descriptions of the randomized response technique and differential privacy.
+
 # Licenses
 
 The overall project is available under the **[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)** license found at [LICENSE](LICENSE.md); all code without any narrative text is also (at your option) available under the **[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)** license found at [LICENSE-CODE](LICENSE-CODE.md).
