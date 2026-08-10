@@ -90,19 +90,17 @@ There is also a flip side to data minimization: whenever possible, **reuse exist
 ::: {.callout-note collapse="false"}
 ## Randomized Response Technique
 
-The randomized response technique is a technique that **transparently adds privacy at the stage of data collection** [@moshagen2012; @warner1965].
+The randomized response technique **transparently adds privacy at the stage of data collection** [@warner1965].
 
-For the collection of a sensitive attribute (e.g., abusive behavior), participants are instructed to:
+To collect a sensitive attribute (e.g., abusive behavior), participants are instructed to:
 
--   If they have abused a person in the past, answer a statement A (i.e., "I have abused a person in the past")
+-   Flip a coin.
+-   If it comes up heads: answer the item "I have abused a person in the past" truthfully.
+-   If it comes up tails: flip the coin again.
+    -   If it comes up heads: answer "yes", regardless of the truth.
+    -   If it comes up tails: answer "no", regardless of the truth.
 
--   If they have **never** abused a person, answer a specific statement following a random distribution of birth months:
-
-    -   In case of a birth month between January and April: the statement A (i.e., "I have abused a person in the past")
-
-    -   In case of a birth month between May and December: the statement B that is the negated version of statement A (i.e., "I have **never** abused a person")
-
-This means that a "yes" to this question can be eithe**r due to the person having abused someone before, or a person who has not done that but was randomly assigned to answer statement B**. When the base rates of the random distribution are known (as is the case with birth months), one can **calculate the true percentage of people who have physically abused someone** in the past **without being able to identify any individuals who have done so**.
+This means that a "yes" can come **either from a person who has abused someone, or from a person who has not but was randomly assigned to answer "yes"**. Because the base rates of the coin flips are known, one can **calculate the true percentage of people who have abused someone**—**without being able to identify any individual who has done so**.
 
 This technique requires a larger sample size to estimate prevalence and severely limits the interpretability of relations between variables, but it transparently adds privacy from the outset of data collection.
 
