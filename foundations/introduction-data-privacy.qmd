@@ -1,5 +1,6 @@
 ---
 title: "Introduction to Data Privacy"
+aliases: [1_FOUNDATION/1_1_Introduction_data_privacy.html]
 bibliography: ../references.bib
 ---
 
@@ -71,11 +72,11 @@ The ethical obligation to protect participants' data is deeply rooted in researc
 
 In practice, **institutional review boards** (IRBs) or ethics committees enforce these obligations before a study begins. However, their review typically focuses on the study design and informed consent. They rarely evaluate the technical details of how data will be stored, shared, or anonymized after collection. This gap is where the practical skills covered in this tutorial become relevant.
 
-One more thing worth mentioning: We tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully [@obar2020; @foe2016], and even when they do, they may not fully understand the implications of data sharing. Consent is necessary, but it is not sufficient. More on this in [the chapter on mechanisms of data protection](1_4_Mechanisms).
+One more thing worth mentioning: We tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully [@obar2020; @foe2016], and even when they do, they may not fully understand the implications of data sharing. Consent is necessary, but it is not sufficient. More on this in [the chapter on mechanisms of data protection](mechanisms).
 
 # Data Protection in Law
 
-Beyond ethics, data protection is also a **legal requirement**. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU, wherever your participants are located. We cover the GDPR in more detail in [the next chapter](1_2_GDPR).
+Beyond ethics, data protection is also a **legal requirement**. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU, wherever your participants are located. We cover the GDPR in more detail in [the next chapter](gdpr).
 
 Outside the EU, other frameworks exist. The US has sector-specific laws like [HIPAA](https://www.hhs.gov/hipaa/index.html) (for health data) and [FERPA](https://studentprivacy.ed.gov/) (for educational records), but no single comprehensive federal data protection law. Countries like Brazil ([LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)), Japan ([APPI](https://www.ppc.go.jp/en/legal/)), and South Korea ([PIPA](https://www.pipc.go.kr/eng/user/lgn/login.do)) have their own comprehensive frameworks, many of which share core principles with the GDPR.
 

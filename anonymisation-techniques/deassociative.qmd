@@ -1,5 +1,6 @@
 ---
 title: "De-Associative Techniques"
+aliases: [2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html]
 ---
 
 ::: {.callout-tip collapse="true"}
@@ -19,14 +20,14 @@ library(sdcMicro)
 library(tidyverse)
 library(dplyr)
 
-data_withoutidentifiers <- read.csv(here::here("SimulatedData_noidentifiers.csv")) # Change based on the location of your data file
+data_withoutidentifiers <- read.csv(here::here("simulated-data-noidentifiers.csv")) # Change based on the location of your data file
 ```
 
 De-associative techniques protect privacy by **breaking the link between indirect identifiers and sensitive variables,** rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person's record based on their demographic attributes, they should not be able to learn their sensitive values from it.
 
 The simplest version of this is just **separating a dataset into two tables—one with the identifiers and one with the sensitive attributes**, and randomizing the order of rows in one of them. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.
 
-![The simplest de-association: split the data into a table of identifiers and a separate table of sensitive values, with no link between them.](../pictures/Simple-De-Association-cropped.png){fig-alt="A diagram showing the original table split into an identifier table (ID, Age, Gender) and a separate Religion table (with randomized order of rows), with no link between the two."}
+![The simplest de-association: split the data into a table of identifiers and a separate table of sensitive values, with no link between them.](../pictures/simple-de-association-cropped.png){fig-alt="A diagram showing the original table split into an identifier table (ID, Age, Gender) and a separate Religion table (with randomized order of rows), with no link between the two."}
 
 More useful are approaches that preserve some analytical structure while still breaking the individual-level link—the two main ones being bucketization and anatomization.
 
@@ -44,7 +45,7 @@ The process works in three steps:
 
 The shuffling in step 3 is what makes this a de-associative rather than a perturbative technique—the values themselves are unchanged, only the assignment between records and sensitive attributes is broken within each group.
 
-![Bucketization: the identifiers are generalized into buckets and assigned a group ID, de-generalized back to their original values, and the sensitive values are then shuffled within each group (bold line).](../pictures/Bucketization-cropped.png){fig-alt="A multi-step diagram: the original table is generalized into age bands to form buckets with a Group ID, de-generalized back to original ages, and the Religion column is permuted within each group, marked by a bold vertical line."}
+![Bucketization: the identifiers are generalized into buckets and assigned a group ID, de-generalized back to their original values, and the sensitive values are then shuffled within each group (bold line).](../pictures/bucketization-cropped.png){fig-alt="A multi-step diagram: the original table is generalized into age bands to form buckets with a Group ID, de-generalized back to original ages, and the Religion column is permuted within each group, marked by a bold vertical line."}
 
 ## Anatomization
 
@@ -55,9 +56,9 @@ Anatomization is a cleaner alternative to bucketization that improves the proper
 
 A researcher re-using the data can still answer questions like "what is the distribution of political opinions among 30-44 year olds in postal region 8xxxx?" by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table—the individual-level association is gone. Within a group, every sensitive value is equally plausible for every member.
 
-![Anatomization: the data is split into a quasi-identifier table and a sensitive-attribute table, linked only by a group ID.](../pictures/Anatomization-cropped.png){fig-alt="A diagram showing the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the Group ID."}
+![Anatomization: the data is split into a quasi-identifier table and a sensitive-attribute table, linked only by a group ID.](../pictures/anatomization-cropped.png){fig-alt="A diagram showing the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the Group ID."}
 
-Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be [l-diverse](../1_FOUNDATION/1_5_Privacy_Concepts.qmd#limitations-of-k-anonymity)—it contains at least `l` different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone's group still faces at least `l` competing possibilities for their sensitive value.
+Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be [l-diverse](../foundations/privacy-concepts.qmd#limitations-of-k-anonymity)—it contains at least `l` different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone's group still faces at least `l` competing possibilities for their sensitive value.
 
 To build such groups, @xiao2006 do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the `l` currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.
 
@@ -99,7 +100,7 @@ data_ana <- data_withoutidentifiers %>%
   select(id, plz, gender, age, income, years_in_job, education, religion)
 ```
 
-The algorithm needs one parameter: the target level of **l-diversity**. l-diversity strengthens [k-anonymity](../1_FOUNDATION/1_5_Privacy_Concepts.qmd#limitations-of-k-anonymity)—it requires that every group contains at least `l` *different* values of the sensitive attribute, so that locating someone's group still leaves `l` competing possibilities for their sensitive value. We aim for `l = 2`.
+The algorithm needs one parameter: the target level of **l-diversity**. l-diversity strengthens [k-anonymity](../foundations/privacy-concepts.qmd#limitations-of-k-anonymity)—it requires that every group contains at least `l` *different* values of the sensitive attribute, so that locating someone's group still leaves `l` competing possibilities for their sensitive value. We aim for `l = 2`.
 
 ```{r}
 l <- 2   # every group must contain at least 2 different religions
@@ -120,7 +121,7 @@ Note that this use of "bucket" differs from *bucketization* above, where a bucke
 
 **Target:** Get an overview of the buckets (one per religion) we will draw from later. To that end, create a character vector `religions` holding the distinct religion values, and a data frame `bucket_sizes` with the frequency of each religion.
 
-![Step 1: count how many records carry each religion—these counts define the buckets we will draw from.](../pictures/Anatomization-Step1-cropped.png){fig-alt="The original table on the left; on the right, a two-column table listing each religion and its count (muslim 1, none 2, catholic 1, protestant 1)."}
+![Step 1: count how many records carry each religion—these counts define the buckets we will draw from.](../pictures/anatomization-step1-cropped.png){fig-alt="The original table on the left; on the right, a two-column table listing each religion and its count (muslim 1, none 2, catholic 1, protestant 1)."}
 
 ::: {.callout-note collapse="true"}
 ## Solution
@@ -180,7 +181,7 @@ This is also why the algorithm builds the *smallest possible* groups (here, exac
 
 **Target:** Create a working data frame `pool`—a shuffled copy of `data_ana` with an added `group_id` column (empty in the beginning) and fill in `group_id` by repeatedly opening a new group and taking one record from each of the `l` currently-largest buckets, until fewer than `l` buckets still have records. Because each record in a group comes from a different bucket, every group automatically holds `l` different religions.
 
-![Step 2: repeatedly open a new group and draw one record from each of the `l` largest buckets, decreasing the counts each round, until fewer than `l` buckets still have records (STOP).](../pictures/Anatomization-Step2-cropped.png){fig-alt="Three rounds of drawing: each round takes one record from each of the two largest religion buckets, stamps them with a new group ID, and reduces the remaining counts; the process stops once fewer than two buckets have records left."}
+![Step 2: repeatedly open a new group and draw one record from each of the `l` largest buckets, decreasing the counts each round, until fewer than `l` buckets still have records (STOP).](../pictures/anatomization-step2-cropped.png){fig-alt="Three rounds of drawing: each round takes one record from each of the two largest religion buckets, stamps them with a new group ID, and reduces the remaining counts; the process stops once fewer than two buckets have records left."}
 
 ::: {.callout-note collapse="true"}
 ## Solution
@@ -240,7 +241,7 @@ In this case, all participants have been assigned to a group, without any leftov
 
 **Target:** Collect the still-unassigned records in a data frame `leftovers`, then update `pool` by slotting each leftover into an existing group that does not yet contain that religion value (e.g., a leftover record with religion `none` can be slotted into a group that does not contain any other records with religion `none`). Records that fit into no group are collected in `suppressed_ids` and dropped from `pool`.
 
-![Step 3: each leftover record is slotted into the first existing group that does not yet contain its religion—here a leftover `protestant` record joins the first group without a `protestant`.](../pictures/Anatomization-Step3-cropped.png){fig-alt="A leftover record with religion protestant and no group ID is assigned to the first existing group that does not already contain a protestant record."}
+![Step 3: each leftover record is slotted into the first existing group that does not yet contain its religion—here a leftover `protestant` record joins the first group without a `protestant`.](../pictures/anatomization-step3-cropped.png){fig-alt="A leftover record with religion protestant and no group ID is assigned to the first existing group that does not already contain a protestant record."}
 
 ::: {.callout-note collapse="true"}
 ## Solution
@@ -296,7 +297,7 @@ In the last step, we split this one dataframe `pool` into two dataframes, the an
 
 **Target:** Split `pool` into two data frames: `ii_table`, the **indirect-identifier table** (`id`, `group_id`, and all indirect identifiers, but no religion), and `sensitive_table`, the **sensitive table** (`group_id`, `religion`, and a per-group `count`, with no identifiers).
 
-![Step 4: split the finished table into an indirect-identifier table and a sensitive table, which share only the group ID.](../pictures/Anatomization-Step4-cropped.png){fig-alt="The grouped table is split into an indirect-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency), linked only by the group ID."}
+![Step 4: split the finished table into an indirect-identifier table and a sensitive table, which share only the group ID.](../pictures/anatomization-step4-cropped.png){fig-alt="The grouped table is split into an indirect-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency), linked only by the group ID."}
 
 ::: {.callout-note collapse="true"}
 ## Solution
@@ -321,7 +322,7 @@ The only thing the two tables share is `group_id`. Neither table on its own—an
 
 A researcher can still study group-level patterns—for example, the religion distribution across age bands—by joining on `group_id`. But the individual link between a person and their religion is broken.
 
-If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized within the `sdcObjects` `sdcNoise` and `sdcMicro`in [the last chapter on perturbative techniques](2_4_Perturbative).
+If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized within the `sdcObjects` `sdcNoise` and `sdcMicro`in [the last chapter on perturbative techniques](perturbative).
 
 
 #### Resources, Links, Examples

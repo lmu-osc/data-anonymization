@@ -1,5 +1,6 @@
 ---
 title: "Overview Anonymization Techniques"
+aliases: [2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html]
 bibliography: ../references.bib
 ---
 
@@ -13,13 +14,13 @@ Anonymization transforms data so that **individuals can no longer be identified*
 
 In the next sections of the tutorial, I will present you with several groups of techniques for anonymization, following the taxonomy by @Carvalho2023_SurveyPrivacyPreservingTechniques.
 
--   **Non-perturbative techniques** are those that do not change data values but rather mask them. ![Non-perturbative techniques](../pictures/Non-perturbative-cropped.svg){fig-alt="An illustration of a non-perturbative technique: a small data table in which one identifying cell has been suppressed (left blank), while the other values stay unchanged."} *An example of a non-perturbative technique (i.e., cell suppression)*
+-   **Non-perturbative techniques** are those that do not change data values but rather mask them. ![Non-perturbative techniques](../pictures/non-perturbative-cropped.svg){fig-alt="An illustration of a non-perturbative technique: a small data table in which one identifying cell has been suppressed (left blank), while the other values stay unchanged."} *An example of a non-perturbative technique (i.e., cell suppression)*
 
--   **Perturbative techniques** involve modifying data values to anonymize the data. ![Perturbative techniques](../pictures/Perturbative-cropped.svg){fig-alt="An illustration of a perturbative technique: a small data table in which the numeric values are altered slightly by adding random noise."} *An example of a perturbative technique (i.e., additive noise)*
+-   **Perturbative techniques** involve modifying data values to anonymize the data. ![Perturbative techniques](../pictures/perturbative-cropped.svg){fig-alt="An illustration of a perturbative technique: a small data table in which the numeric values are altered slightly by adding random noise."} *An example of a perturbative technique (i.e., additive noise)*
 
--   **De-associative techniques** separate indirectly identifying parts of the data from the sensitive parts. ![De-associative techniques](../pictures/Anatomization-cropped.png){fig-alt="An illustration of a de-associative technique: the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the group ID."} *An example of a de-associative technique (i.e., anatomization)*
+-   **De-associative techniques** separate indirectly identifying parts of the data from the sensitive parts. ![De-associative techniques](../pictures/anatomization-cropped.png){fig-alt="An illustration of a de-associative technique: the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the group ID."} *An example of a de-associative technique (i.e., anatomization)*
 
--   **Synthesizing data** means creating new data with the same statistical properties as the original data. ![Synthetic data](../pictures/Synthetic-cropped.svg){fig-alt="An illustration of synthetic data: an original data table alongside a newly generated table with different records but the same statistical properties."} *An example of synthetic data*
+-   **Synthesizing data** means creating new data with the same statistical properties as the original data. ![Synthetic data](../pictures/synthetic-cropped.svg){fig-alt="An illustration of synthetic data: an original data table alongside a newly generated table with different records but the same statistical properties."} *An example of synthetic data*
 
 Each family of techniques addresses different types of risk.
 
@@ -35,7 +36,7 @@ For each anonymization technique, the **variable's scale level** needs to be tak
 
 In the following chapters, we will go through each family of techniques one by one. I will first explain the underlying idea of a family and will then provide hands-on exercises for selected techniques using **our dataset** (introduced on the [landing page](../index.qmd)) and the `sdcMicro` package. This way, you can see how each technique changes the data and its risk profile step by step.
 
-After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in the [the chapter on choosing the right technique](../2_7_Choosing_technique).
+After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in the [the chapter on choosing the right technique](choosing-technique).
 
 #### Resources, Links, Examples
 

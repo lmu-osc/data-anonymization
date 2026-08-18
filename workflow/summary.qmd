@@ -1,5 +1,6 @@
 ---
 title: "Summary of the Anonymization Workflow"
+aliases: [4_WORKFLOW/4_1_Summary.html]
 ---
 
 ::: {.callout-tip collapse="true"}
@@ -58,7 +59,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-1">
     <span class="wf-num">1</span>
     <div class="wf-body">
-      <a class="wf-title" href="../1_FOUNDATION/1_4_Mechanisms.html">Implement Data Privacy</a>
+      <a class="wf-title" href="../foundations/mechanisms.html">Implement Data Privacy</a>
       <span class="wf-desc">Privacy by design before &amp; during collection: minimize data, plan storage/access, write a DMP.</span>
     </div>
   </div>
@@ -67,7 +68,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-2">
     <span class="wf-num">2</span>
     <div class="wf-body">
-      <a class="wf-title" href="../1_FOUNDATION/1_3_Personal_Data.html">Collect Data &amp; Handle Identifiers</a>
+      <a class="wf-title" href="../foundations/personal-data.html">Collect Data &amp; Handle Identifiers</a>
       <span class="wf-desc">Use informed consent and pseudonymize early. Remove direct identifiers from every copy, store the pseudonym key separately, and work from a secure identifier-free copy.</span>
     </div>
   </div>
@@ -85,7 +86,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-4">
     <span class="wf-num">4</span>
     <div class="wf-body">
-      <a class="wf-title" href="../1_FOUNDATION/1_5_Privacy_Concepts.html">Analyze Attack Scenarios</a>
+      <a class="wf-title" href="../foundations/privacy-concepts.html">Analyze Attack Scenarios</a>
       <span class="wf-desc">Consider adversaries and disclosure risks (identity, attribute, inference, membership); set a k-anonymity goal.</span>
     </div>
   </div>
@@ -94,7 +95,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-5">
     <span class="wf-num">5</span>
     <div class="wf-body">
-      <a class="wf-title" href="../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html">Calculate Disclosure Risk &amp; Utility</a>
+      <a class="wf-title" href="../anonymisation-techniques/planning-privacy.html">Calculate Disclosure Risk &amp; Utility</a>
       <span class="wf-desc">Measure k-anonymity and risk metrics; establish a utility baseline (e.g.&nbsp;sdcMicro).</span>
     </div>
   </div>
@@ -103,12 +104,12 @@ a.wf-title::after {
   <div class="wf-step" id="wf-6">
     <span class="wf-num">6</span>
     <div class="wf-body">
-      <a class="wf-title" href="../2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html">Choose Anonymization Measures</a>
+      <a class="wf-title" href="../anonymisation-techniques/overview-methods.html">Choose Anonymization Measures</a>
       <span class="wf-desc">Select a technique:
-        <a href="../2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html">non-perturbative</a>,
-        <a href="../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.html">perturbative</a>,
-        <a href="../2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html">de-associative</a>, or
-        <a href="../2_ANONYMISATION_TECHNIQUES/2_6_Synthetic.html">synthetic</a>. In doubt, aim for k-anonymity: if attackers don't already know the sensitive attribute, it is usually protection enough.
+        <a href="../anonymisation-techniques/non-perturbative.html">non-perturbative</a>,
+        <a href="../anonymisation-techniques/perturbative.html">perturbative</a>,
+        <a href="../anonymisation-techniques/deassociative.html">de-associative</a>, or
+        <a href="../anonymisation-techniques/synthetic.html">synthetic</a>. In doubt, aim for k-anonymity: if attackers don't already know the sensitive attribute, it is usually protection enough.
       </span>
     </div>
   </div>
@@ -117,7 +118,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-7">
     <span class="wf-num">7</span>
     <div class="wf-body">
-      <a class="wf-title" href="../2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.html">Apply Anonymization Techniques</a>
+      <a class="wf-title" href="../anonymisation-techniques/choosing-technique.html">Apply Anonymization Techniques</a>
       <span class="wf-desc">Apply chosen techniques step by step; track changes with sdcMicro.</span>
     </div>
   </div>
@@ -126,7 +127,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-8">
     <span class="wf-num">8</span>
     <div class="wf-body">
-      <a class="wf-title" href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">Recalculate Risk, Utility &amp; Statistics</a>
+      <a class="wf-title" href="../privacy-openness/balancing.html">Recalculate Risk, Utility &amp; Statistics</a>
       <span class="wf-desc">Re-measure after each step. If the balance is not satisfactory,
         <a href="#wf-4" class="wf-loop">&#8635; return to Step 4</a> and iterate.</span>
     </div>
@@ -136,7 +137,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-9">
     <span class="wf-num">9</span>
     <div class="wf-body">
-      <a class="wf-title" href="../3_PRIVACY_OPENNESS/3_2_Documentation.html">Document the Process</a>
+      <a class="wf-title" href="../privacy-openness/documentation.html">Document the Process</a>
       <span class="wf-desc">Internal (auditing) and external (data dictionary) documentation; review scripts; inform that results may not be fully reproducible in README.</span>
     </div>
   </div>
@@ -145,7 +146,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-10">
     <span class="wf-num">10</span>
     <div class="wf-body">
-      <a class="wf-title" href="../3_PRIVACY_OPENNESS/3_1_Balancing.html">Publish Data</a>
+      <a class="wf-title" href="../privacy-openness/balancing.html">Publish Data</a>
       <span class="wf-desc">Share anonymized data + documentation; pick repository &amp; access level (fully open is best).</span>
     </div>
   </div>

@@ -1,5 +1,6 @@
 ---
 title: "Assessing Privacy Risks"
+aliases: [2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.html]
 bibliography: ../references.bib
 ---
 
@@ -13,22 +14,22 @@ bibliography: ../references.bib
 #| include: false
 
 # Setup: load the dataset without direct identifiers
-data_withoutdirectidentifiers <- read.csv(here::here("SimulatedData_noidentifiers.csv")) # Change based on the location of your data file
+data_withoutdirectidentifiers <- read.csv(here::here("simulated-data-noidentifiers.csv")) # Change based on the location of your data file
 ```
 
 In the previous chapters, we covered the foundations: What counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now we move to the practical part—actually anonymizing data. But before we jump into specific techniques, we first need to assess **how much risk** our data carries. That is what this chapter is about.
 
 Anonymization of data, in most cases, means masking or obscuring the data, which always results in a loss of information. However, when sharing data, we need to retain some of the data's utility; otherwise, they won't have any potential for reuse.
 
-The goal is to use the **appropriate anonymization techniques** to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also [the chapter on balancing privacy and utility](../3_PRIVACY_OPENNESS/3_1_Balancing)).
+The goal is to use the **appropriate anonymization techniques** to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also [the chapter on balancing privacy and utility](../privacy-openness/balancing)).
 
-To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, mobilizing what we have learned in the [last chapter](../1_FOUNDATION/1_5_Privacy_Concepts) and putting it into practice.
+To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, mobilizing what we have learned in the [last chapter](../foundations/privacy-concepts) and putting it into practice.
 
 # Identifying Privacy Risks
 
 ## Exercise: Privacy Risks in the Example Data
 
-Take another look at **our dataset**, as modified in the [exercise on the personal data page](../1_FOUNDATION/1_3_Personal_Data) where we removed the direct identifiers. Try to answer the following questions:
+Take another look at **our dataset**, as modified in the [exercise on the personal data page](../foundations/personal-data) where we removed the direct identifiers. Try to answer the following questions:
 
 - Which combinations of indirect identifiers could potentially single out an individual?
 - What attack scenarios are plausible? Think about who might try to re-identify someone in this dataset and what external information they might have access to.
@@ -39,13 +40,13 @@ Take another look at **our dataset**, as modified in the [exercise on the person
 
 Here are a few concrete attack scenarios to consider, based on our dataset of 200 individuals in Germany (with variables: gender, age, education, plz, income, religion, years_in_job, and political opinion variables):
 
-- A colleague knows that a specific person lives in a particular postal code area, holds a doctoral degree, and is 34 years old. If the combination of plz, education, and age is unique in the dataset, that colleague can identify the person and look up their income, political opinions, and religion. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see the box on [participation knowledge](../1_FOUNDATION/1_5_Privacy_Concepts.qmd#participation-knowledge)).
+- A colleague knows that a specific person lives in a particular postal code area, holds a doctoral degree, and is 34 years old. If the combination of plz, education, and age is unique in the dataset, that colleague can identify the person and look up their income, political opinions, and religion. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see the box on [participation knowledge](../foundations/privacy-concepts.qmd#participation-knowledge)).
 - A journalist cross-references the dataset with publicly available census or salary reports. By matching education level, income range, and age, they could narrow down candidates and potentially identify individuals—especially in smaller postal code areas where few people share the same combination of characteristics.
 - A neighbor knows that someone in their building participated in the study. They know the person's approximate age, gender, and religion. Even if they cannot pinpoint the exact row, they might learn something new about that person's income or political views. This is attribute disclosure—the attacker does not need to find the exact record, just a group of records that all share the same sensitive value.
 
 For this dataset, **identity and attribute disclosure** are most likely. Since there is not one single group that was recruited, membership disclosure is not possible.
 
-These are just a few examples; in general, the existence and likelihood of risks are very much dependent on the variables in the dataset, the sensitivity of data, the recruitment strategy, and many other factors (see [this chapter on choosing the right technique](../2_7_Choosing_technique) for more information).
+These are just a few examples; in general, the existence and likelihood of risks are very much dependent on the variables in the dataset, the sensitivity of data, the recruitment strategy, and many other factors (see [this chapter on choosing the right technique](choosing-technique) for more information).
 :::
 
 # Measuring Privacy Risks
@@ -99,7 +100,7 @@ For this object, we start with defining the following:
 
 ## Exercise: Assessing Privacy Risks With `sdcMicro`
 
-In this exercise, you will assess privacy risks with `sdcMicro`. We will work with the dataset `data_withoutdirectidentifiers`—**our dataset** as loaded from the [landing page](../index.qmd) and modified in the [exercise on the personal data page](../1_FOUNDATION/1_3_Personal_Data), which removed the direct identifiers.
+In this exercise, you will assess privacy risks with `sdcMicro`. We will work with the dataset `data_withoutdirectidentifiers`—**our dataset** as loaded from the [landing page](../index.qmd) and modified in the [exercise on the personal data page](../foundations/personal-data), which removed the direct identifiers.
 
 1.  Create an object within sdcMicro that contains the relevant `keyVars` and `numVars` using the function `createSdcObj`. Inspect the object.
 2.  What k-anonymity level is currently reached?
@@ -166,14 +167,14 @@ The most realistic attack scenario for this dataset is probably someone who know
 
 `years_in_job` is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in `keyVars` would be the conservative choice. In this case, I consider it less likely to be known exactly, which is why I put it into `numVars`
 
-The same logic applies to `religion`: if a plausible attacker is someone who knows the participant from a religious community, then `religion` belongs in `keyVars`, not treated as a sensitive outcome. **The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.** In this case, I think it is not likely to be known by an attacker; however, we will address `religion` again at a later stage to [protect very rare values](../3_PRIVACY_OPENNESS/3_1_Balancing.qmd#rare-religion-step).
+The same logic applies to `religion`: if a plausible attacker is someone who knows the participant from a religious community, then `religion` belongs in `keyVars`, not treated as a sensitive outcome. **The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.** In this case, I think it is not likely to be known by an attacker; however, we will address `religion` again at a later stage to [protect very rare values](../privacy-openness/balancing.qmd#rare-religion-step).
 :::
 
 Save the sdcObject for further anonymization steps.
 
 ```{r}
 # Save the sdcObject for the next chapter
-saveRDS(sdc_data, here::here("sdc_micro.rds"))
+saveRDS(sdc_data, here::here("sdc-micro.rds"))
 ```
 
 At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need to anonymize; you can skip to preparing your data for publication.

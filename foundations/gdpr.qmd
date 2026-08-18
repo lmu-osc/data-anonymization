@@ -1,5 +1,6 @@
 ---
 title: "The General Data Protection Regulation (GDPR)"
+aliases: [1_FOUNDATION/1_2_GDPR.html]
 bibliography: ../references.bib
 ---
 
@@ -22,7 +23,7 @@ The GDPR defines several concepts that come up regularly in research. Let's go t
 ::: {.callout-warning collapse="false"}
 # Personal Data
 
-Any information relating to an identified or identifiable natural person. This includes obvious identifiers like names and email addresses, but also indirect identifiers like age, postal code, or job title, if they can be combined to single out an individual. See [the next chapter](1_3_Personal_Data) for a detailed explanation.
+Any information relating to an identified or identifiable natural person. This includes obvious identifiers like names and email addresses, but also indirect identifiers like age, postal code, or job title, if they can be combined to single out an individual. See [the next chapter](personal-data) for a detailed explanation.
 
 **In research:** Most survey and experimental data contain personal data, even if you never ask for a participant's name. A combination of demographic variables (age, gender, occupation, location) can be enough.
 :::
@@ -55,11 +56,11 @@ A person or organization that processes personal data on behalf of the controlle
 
 There are a few GDPR principles and provisions that are particularly relevant to researchers:
 
-**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *legitimate interest / public interest* (Art. 6(1)(e/f)). The GDPR sets strict requirements for what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](1_4_Mechanisms).
+**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *legitimate interest / public interest* (Art. 6(1)(e/f)). The GDPR sets strict requirements for what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](mechanisms).
 
 **Purpose limitation.** Data may only be collected for specified, explicit purposes. In research, this means you should be clear about what your data will be used for, and if you want to re-use data for a new purpose, you may need to check whether this is covered by the original consent. Luckily, for research purposes, the laws are more lenient than for private companies.
 
-**Data minimization.** You should only collect data that is necessary for your research purpose. Collecting "nice-to-have" demographics without a clear reason is not just bad practice—it may also be a GDPR issue. We discuss this more in [the chapter on mechanisms of data protection](1_4_Mechanisms).
+**Data minimization.** You should only collect data that is necessary for your research purpose. Collecting "nice-to-have" demographics without a clear reason is not just bad practice—it may also be a GDPR issue. We discuss this more in [the chapter on mechanisms of data protection](mechanisms).
 
 **Storage limitation.** Personal data should not be kept longer than necessary. For research, there are exceptions: data may be stored longer for archiving purposes in the public interest, scientific research, or statistical purposes (Art. 89), but this requires appropriate safeguards such as encryption and access control.
 
@@ -82,7 +83,7 @@ The good news: the core principles (purpose limitation, data minimization, stora
 
 The GDPR applies to personal data. If data is **truly anonymized**—meaning individuals can no longer be identified, directly or indirectly—the GDPR no longer applies to that data. This is one of the main reasons why anonymization is so valuable for open data: it allows you to share data freely without the legal constraints of the GDPR.
 
-But be careful: **pseudonymized** data (e.g., replacing names with codes while keeping a key file) is still personal data under the GDPR. The regulation explicitly states this. We cover the distinction between anonymization and pseudonymization in [the chapter on mechanisms of data protection](1_4_Mechanisms).
+But be careful: **pseudonymized** data (e.g., replacing names with codes while keeping a key file) is still personal data under the GDPR. The regulation explicitly states this. We cover the distinction between anonymization and pseudonymization in [the chapter on mechanisms of data protection](mechanisms).
 :::
 
 # Participant Rights

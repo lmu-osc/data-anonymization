@@ -1,5 +1,6 @@
 ---
 title: "Personal Data"
+aliases: [1_FOUNDATION/1_3_Personal_Data.html]
 bibliography: ../references.bib
 ---
 
@@ -58,7 +59,7 @@ In this first exercise, we work with **our dataset**—the simulated dataset of 
 #| include: false
 
 # Load the dataset downloaded from the landing page
-data <- read.csv(here::here("SimulatedData.csv")) # Change based on the location of your data file
+data <- read.csv(here::here("simulated-data.csv")) # Change based on the location of your data file
 ```
 
 ::: {.callout-note collapse="false"}
@@ -223,7 +224,7 @@ Save the new file
 
 ```{r}
 # Save the dataset without direct identifiers
-write.csv(data_withoutdirectidentifiers, here::here("SimulatedData_noidentifiers.csv"), row.names = FALSE)
+write.csv(data_withoutdirectidentifiers, here::here("simulated-data-noidentifiers.csv"), row.names = FALSE)
 ```
 
 Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not "always delete immediately" but **"delete once the documented purpose is gone."** Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.

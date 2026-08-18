@@ -1,5 +1,6 @@
 ---
 title: "Documentation"
+aliases: [3_PRIVACY_OPENNESS/3_2_Documentation.html]
 ---
 
 ::: {.callout-tip collapse="true"}

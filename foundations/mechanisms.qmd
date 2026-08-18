@@ -1,5 +1,6 @@
 ---
 title: "Mechanisms of Data Protection in Research"
+aliases: [1_FOUNDATION/1_4_Mechanisms.html]
 bibliography: ../references.bib
 ---
 
@@ -14,7 +15,7 @@ After completing this part of the tutorial, you will know
 
 How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point—it is relevant at every stage. The graph below maps common data protection mechanisms to the stages of the research lifecycle:
 
-![Research Process and Mechanisms](../pictures/Mechanisms-cropped.svg){fig-alt="This flow diagram shows the stages of research (plan, collect, process, analyze, preserve, publish, and re-use) with corresponding data protection measures as described in the following paragraphs."}
+![Research Process and Mechanisms](../pictures/mechanisms-cropped.svg){fig-alt="This flow diagram shows the stages of research (plan, collect, process, analyze, preserve, publish, and re-use) with corresponding data protection measures as described in the following paragraphs."}
 
 [*Note*. TOMs = technical and organizational measures]{style="font-size: 90%;"}
 
@@ -105,7 +106,7 @@ This means that a "yes" to this question can be eithe**r due to the person havin
 
 This technique requires a larger sample size to estimate prevalence and severely limits the interpretability of relations between variables, but it transparently adds privacy from the outset of data collection.
 
-Randomized response is also an early example of what is now formalized as **differential privacy**—see the callout in [the chapter on perturbative techniques](../2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd#differential-privacy).
+Randomized response is also an early example of what is now formalized as **differential privacy**—see the callout in [the chapter on perturbative techniques](../anonymisation-techniques/perturbative.qmd#differential-privacy).
 :::
 
 # Stages 3-6: Process, Analyze, Preserve, and Publish
@@ -128,11 +129,11 @@ Pseudonymization is the process of replacing direct identifiers (like names) wit
 
 The key point: **pseudonymized data is still personal data.** The GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" ([GDPR Recital 26)](https://www.privacy-regulation.eu/en/recital-26-GDPR.htm). As long as a key file exists that links participant codes back to real identities—or as long as indirect identifiers in the data could allow re-identification—the data remains personal, and the GDPR fully applies.
 
-Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. We discussed this in [the chapter on personal data](1_3_Personal_Data), and we will look at it more formally in [the chapter on privacy concepts](1_5_Privacy_Concepts).
+Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. We discussed this in [the chapter on personal data](personal-data), and we will look at it more formally in [the chapter on privacy concepts](privacy-concepts).
 
 The GDPR considers pseudonymization a useful safeguard and a step in the right direction—but it is not enough if your goal is to share data openly.
 
-For a practical, step-by-step workflow on when to remove direct identifiers and the pseudonym key across every copy of your data, see the [workflow callout in the chapter on personal data](1_3_Personal_Data.qmd#optimal-workflow).
+For a practical, step-by-step workflow on when to remove direct identifiers and the pseudonym key across every copy of your data, see the [workflow callout in the chapter on personal data](personal-data.qmd#optimal-workflow).
 
 ## Anonymization
 

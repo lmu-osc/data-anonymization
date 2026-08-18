@@ -1,5 +1,6 @@
 ---
 title: "Privacy Concepts"
+aliases: [1_FOUNDATION/1_5_Privacy_Concepts.html]
 bibliography: ../references.bib
 ---
 
@@ -155,7 +156,7 @@ K-anonymity is a useful starting point, but it has known limitations:
 
 Extensions like **l-diversity** (requiring diversity in sensitive values within each group) and **t-closeness** (requiring that the distribution of sensitive values within each group is close to the overall distribution) have been proposed to address these issues. For the scope of this tutorial, k-anonymity will be our main metric, but it is good to be aware that it is not a silver bullet. More information on l-diversity and t-closedness can be accessed in [this practical tutorial by Utrecht university](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html).
 
-We will use k-anonymity practically in the [next chapter on assessing privacy risks](../2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy), where we'll calculate it using R and the `sdcMicro` package.
+We will use k-anonymity practically in the [next chapter on assessing privacy risks](../anonymisation-techniques/planning-privacy), where we'll calculate it using R and the `sdcMicro` package.
 
 # Further Reading
 

@@ -1,5 +1,6 @@
 ---
 title: "Synthetic Data"
+aliases: [2_ANONYMISATION_TECHNIQUES/2_6_Synthetic.html]
 ---
 
 ::: {.callout-tip collapse="true"}

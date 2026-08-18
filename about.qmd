@@ -5,8 +5,9 @@ citation:
   type: "webpage"
   title: "Data Anonymization Course"
   container-title: "LMU Open Science Center"
-  url: https://lmu-osc.github.io/
-  doi: "DOI HERE"
+  url: https://lmu-osc.github.io/data-anonymization/
+  doi: "10.5281/zenodo.XXXXXXX" # REPLACE once a DOI has been minted
+  version: 0.0.1
 author:
   - name: Luisa Jansen
     roles: [conceptualization, software, resources, visualization, writing - original draft, writing - editing & review]
@@ -52,4 +53,15 @@ Why two licenses? The CC BY-SA 4.0 license is for the content of the website, wh
 # Notes
 
 This tutorial was primarily written in 2026 using R (R version 4.5.3 (2026-03-11 ucrt)). Major changes to R can be found at the [R's website](https://www.r-project.org/) for the most up-to-date information, and to confirm that our tutorial is not out-of-date. 
+
+# Tutorial Template Quarto Extension
+
+This tutorial was written using the [`lmu-osc/tutorial-template`](https://github.com/lmu-osc/tutorial-template) Quarto extension [@callahan2026].
+
+::: {#refs}
+:::
+
+# How to Cite
+
+**To cite this tutorial, please refer to the project's [CITATION.cff](CITATION.cff) file or use the BibTeX citation provided in the appendix below.**
 

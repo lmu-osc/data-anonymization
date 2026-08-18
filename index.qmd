@@ -8,10 +8,10 @@ This **self-paced tutorial** on anonymization of quantitative research data is i
 
 The tutorial is split into the following sections:
 
-1.  [**FOUNDATIONS OF DATA PROTECTION**](1_FOUNDATION/1_1_Introduction_data_privacy) talks about data protection basics in ethics and law, mechanisms of data protection in research, and basic terms.
-2.  [**DATA ANONYMIZATION PROCESS**](2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy) walks you through the process of anonymizing your research data based on example data.
-3.  [**BALANCING DATA PROTECTION AND OPENNESS**](3_PRIVACY_OPENNESS/3_1_Balancing) presents methods for aligning your data protection and open science interests.
-4.  [**ANONYMIZATION WORKFLOW**](4_WORKFLOW/4_1_Summary) closes this tutorial by summarizing the learned workflow.
+1.  [**FOUNDATIONS OF DATA PROTECTION**](foundations/introduction-data-privacy) talks about data protection basics in ethics and law, mechanisms of data protection in research, and basic terms.
+2.  [**DATA ANONYMIZATION PROCESS**](anonymisation-techniques/planning-privacy) walks you through the process of anonymizing your research data based on example data.
+3.  [**BALANCING DATA PROTECTION AND OPENNESS**](privacy-openness/balancing) presents methods for aligning your data protection and open science interests.
+4.  [**ANONYMIZATION WORKFLOW**](workflow/summary) closes this tutorial by summarizing the learned workflow.
 
 # What You'll Learn
 
@@ -60,8 +60,8 @@ Throughout the tutorial, we work with the same **simulated dataset** of 200 Germ
 #| echo: false
 # Generates a clickable download link for the GitHub Pages website
 xfun::embed_file(
-  here::here("SimulatedData.csv"),
-  text = "⬇️ Download SimulatedData.csv"
+  here::here("simulated-data.csv"),
+  text = "⬇️ Download simulated-data.csv"
 )
 ```
 
@@ -72,7 +72,7 @@ Once downloaded, copy this into a new Markdown file in RStudio to import the dat
 #| message: false
 
 # Load data based on downloaded file
-data <- read.csv(here::here("SimulatedData.csv")) # Change based on the location of your data file
+data <- read.csv(here::here("simulated-data.csv")) # Change based on the location of your data file
 
 ```
 
@@ -99,3 +99,28 @@ The dataset contains the following variables:
 | ip_address | IP address (version 4) of participant's device when answering survey | (collected in background) | String of characters |
 | years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0-n |
 :::
+
+:::: {.columns}
+
+::: {.column width="47.5%"}
+
+::: {.callout-tip title="Support the LMU Open Science Center!"}
+
+**Like this tutorial? Be sure to give [the repository]({{< meta repo-url >}}) a star and [follow us on GitHub](https://github.com/lmu-osc)!**
+:::
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="47.5%"}
+
+
+::: {.callout-tip title="Questions about this tutorial?"}
+**If you have questions for the author of this tutorial, please take a look at the [About](about.qmd) page.**
+:::
+
+:::
+
+::::

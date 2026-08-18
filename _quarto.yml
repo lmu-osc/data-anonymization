@@ -1,29 +1,20 @@
 # Begin Project
 project:
-  type: website
-bibliography: references.bib
+  type: tutorial-template
+  # FYI: the tutorial-template project type is defined in the lmu-osc/tutorial-template extension
 # End Project
 
-
 # Begin Website
+repo-url: https://github.com/lmu-osc/data-anonymization
 website:
   title: "Data Anonymization Course"
-  page-footer: 
-    center: "© 2026 Luisa Jansen. Published by LMU Open Science Center. Licensed under CC BY-SA 4.0."
+  page-footer:
     border: false
-  search:
-    location: sidebar
+    center: © 2026 Luisa Jansen. Published by LMU Open Science Center. Licensed under CC BY-SA 4.0.
   repo-url: https://github.com/lmu-osc/data-anonymization
-  repo-actions: [edit, issue]
-  back-to-top-navigation: true
-  page-navigation: true
-  favicon: assets/LMU_OSC_favicon.jpg
-  margin-header: |
-    ![](/assets/LMU_OSC_logo.svg){width="175"}
-  
-  
+
   navbar:
-    right: 
+    right:
       - about.qmd
     left:
       - href: index.qmd
@@ -32,13 +23,12 @@ website:
       - icon: github
         menu:
           - text: Source Code
-            url:  https://github.com/lmu-osc/data-anonymization
+            href: https://github.com/lmu-osc/data-anonymization
           - text: Report a Bug
-            url:  https://github.com/lmu-osc/data-anonymization/issues
+            href: https://github.com/lmu-osc/data-anonymization/issues
       - icon: house-heart
         url: https://www.osc.lmu.de/
-   
-        
+
   sidebar:
     style: "docked"
     contents:
@@ -46,62 +36,62 @@ website:
         href: index.qmd
       - section: "FOUNDATIONS"
         contents:
-          - href: 1_FOUNDATION/1_1_Introduction_data_privacy.qmd
+          - href: foundations/introduction-data-privacy.qmd
             text: "Introduction"
-          - href: 1_FOUNDATION/1_2_GDPR.qmd
+          - href: foundations/gdpr.qmd
             text: "The GDPR"
-          - href: 1_FOUNDATION/1_3_Personal_Data.qmd
+          - href: foundations/personal-data.qmd
             text: "Personal Data"
-          - href: 1_FOUNDATION/1_4_Mechanisms.qmd
+          - href: foundations/mechanisms.qmd
             text: "Privacy Mechanisms in Research"
-          - href: 1_FOUNDATION/1_5_Privacy_Concepts.qmd
+          - href: foundations/privacy-concepts.qmd
             text: "Privacy Concepts"
       - section: "ANONYMIZATION PROCESS"
         contents:
-          - href: 2_ANONYMISATION_TECHNIQUES/2_1_Planning_Privacy.qmd
+          - href: anonymisation-techniques/planning-privacy.qmd
             text: "Assessing Privacy Risks"
-          - href: 2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.qmd
+          - href: anonymisation-techniques/overview-methods.qmd
             text: "Overview of Techniques"
-          - href: 2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.qmd
+          - href: anonymisation-techniques/non-perturbative.qmd
             text: "Non-Perturbative Techniques"
-          - href: 2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.qmd
+          - href: anonymisation-techniques/perturbative.qmd
             text: "Perturbative Techniques"
-          - href: 2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.qmd
+          - href: anonymisation-techniques/deassociative.qmd
             text: "De-Associative Techniques"
-          - href: 2_ANONYMISATION_TECHNIQUES/2_6_Synthetic.qmd
+          - href: anonymisation-techniques/synthetic.qmd
             text: "Synthetic Data"
-          - href: 2_ANONYMISATION_TECHNIQUES/2_7_Choosing_technique.qmd
+          - href: anonymisation-techniques/choosing-technique.qmd
             text: "Choosing the Right Technique"
       - section: "BALANCING DATA PROTECTION AND OPENNESS"
         contents:
-          - href: 3_PRIVACY_OPENNESS/3_1_Balancing.qmd
+          - href: privacy-openness/balancing.qmd
             text: "Balancing Tensions"
-          - href: 3_PRIVACY_OPENNESS/3_2_Documentation.qmd
+          - href: privacy-openness/documentation.qmd
             text: "Documentation"
       - section: "ANONYMIZATION WORKFLOW"
-        contents: 
-          - href: 4_WORKFLOW/4_1_Summary.qmd
-            text: "Summary"  
+        contents:
+          - href: workflow/summary.qmd
+            text: "Summary"
 # End Website
 
+# Begin Includes
+include-in-header:
+  - file: matomo-analytics.html
+include-after-body:
+  - file: footer/footer.html
+# End Includes
 
 # Begin Format
+# use only if needed. the default format for `tutorial-template` projects is tutorial-template-html+tutorial
+# we recommend just extending the definition below if you need to make format changes
 format:
-  html:
-    theme: 
-      - cosmo
-      - lmu-osc-custom.scss
-    css: 
-      - https://raw.githubusercontent.com/lmu-osc/branding-resources/refs/heads/main/lmu-osc-styles.css
-    toc: true
-    fontsize: 13pt
-    code-overflow: wrap
-    grid:
-      sidebar-width: 300px
-    include-in-header:
-      - file: matomo-analytics.html
+  tutorial-template-html+tutorial:
+    css:
+      - footer/footer-style.css
 # End Format
 
 # Begin Editor
 editor: source
 # End Editor
+
+bibliography: references.bib

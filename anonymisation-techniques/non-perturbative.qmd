@@ -1,5 +1,6 @@
 ---
 title: "Non-Perturbative Techniques"
+aliases: [2_ANONYMISATION_TECHNIQUES/2_3_Non_Perturbative.html]
 bibliography: ../references.bib
 ---
 
@@ -19,7 +20,7 @@ After completing this part of the tutorial, you will be able to
 library(sdcMicro)
 library(tidyverse)
 
-data_withoutdirectidentifiers <- read.csv(here::here("SimulatedData_noidentifiers.csv")) # Change based on the location of your data file
+data_withoutdirectidentifiers <- read.csv(here::here("simulated-data-noidentifiers.csv")) # Change based on the location of your data file
 
 sdc_data <- createSdcObj(
   dat     = data_withoutdirectidentifiers,
@@ -42,7 +43,7 @@ Depending on the specific data type and risk, different techniques are possible 
 
 Global recoding (also called generalization) replaces the exact values of a variable with **broader categories**—applied to **every row** in the dataset.
 
-![Global recoding: exact ages are replaced with age bands, applied to every row.](../pictures/Global-Recoding-cropped.png){fig-alt="A before-and-after table of five records; the exact ages are replaced with age bands such as 50-59 and 20-29, while the other columns stay the same."}
+![Global recoding: exact ages are replaced with age bands, applied to every row.](../pictures/global-recoding-cropped.png){fig-alt="A before-and-after table of five records; the exact ages are replaced with age bands such as 50-59 and 20-29, while the other columns stay the same."}
 
 **Examples**
 
@@ -58,7 +59,7 @@ Local recoding **generalizes values only where needed**, rather than across the 
 
 **Example**: If only few participant are from Asia, you may recode only their values (e.g., "China", "India", "Nepal") to "Asia", keeping all others unchanged.
 
-![Local recoding: only the rare religion values are generalized (here to "christian"), while the rest stay unchanged.](../pictures/Local-Recoding-cropped.png){fig-alt="A before-and-after table where only two of the five records have their religion changed to christian; the other records are unchanged."}
+![Local recoding: only the rare religion values are generalized (here to "christian"), while the rest stay unchanged.](../pictures/local-recoding-cropped.png){fig-alt="A before-and-after table where only two of the five records have their religion changed to christian; the other records are unchanged."}
 
 This means, that values are on different level (in this example: country vs. continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently—you need to be transparent about which categories were collapsed and why.
 
@@ -66,7 +67,7 @@ This means, that values are on different level (in this example: country vs. con
 
 Top-and-bottom coding is a special case of **recoding that applies to numerical variables**. Instead of grouping all values into bands, you **cap the extreme ends of the distribution**—replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value. Top-coding is a non-perturbative method because the exact value is only replaced with a coarser but still truthful one—no value is distorted, it is merely made less precise.
 
-![Top-coding: the single highest age is capped (here to "\>60"), while the rest stay unchanged.](../pictures/Top-Bottom-Coding-cropped.png){fig-alt="A before-and-after table where the largest age value is replaced with a >60 cap; the other ages are unchanged."}
+![Top-coding: the single highest age is capped (here to "\>60"), while the rest stay unchanged.](../pictures/top-bottom-coding-cropped.png){fig-alt="A before-and-after table where the largest age value is replaced with a >60 cap; the other ages are unchanged."}
 
 **Examples**
 
@@ -80,7 +81,7 @@ How to determine the threshold: A common approach is to look at the distribution
 
 Suppression means **removing information entirely**—replacing a value with a missing value (`NA`) or dropping it altogether. This is also known as nulling. It is the most straightforward way to handle data that is too risky to release, but it also loses the most information.
 
-![Suppression: risky values (here the whole Gender column) are replaced with `NA`.](../pictures/Suppression-cropped.png){fig-alt="A before-and-after table where every value in the Gender column is replaced with NA, while the other columns are kept."}
+![Suppression: risky values (here the whole Gender column) are replaced with `NA`.](../pictures/suppression-cropped.png){fig-alt="A before-and-after table where every value in the Gender column is replaced with NA, while the other columns are kept."}
 
 Suppression can occur on different levels:
 
@@ -88,7 +89,7 @@ Suppression can occur on different levels:
 
 -   **Record suppression**: Remove an entire participant's data if their combination of attributes is so unique that no other technique can adequately protect them.
 
--   **Variable suppression**: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case—we already did this in [the chapter on personal data](../1_FOUNDATION/1_3_Personal_Data).
+-   **Variable suppression**: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case—we already did this in [the chapter on personal data](../foundations/personal-data).
 
 **Example**: Replacing credit card number values with XXX. In the credit card example, the application of the character masking technique can be *partial*, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.
 
@@ -96,9 +97,9 @@ Suppression is often used as a last resort after recoding: if recoding alone is 
 
 ## Sampling
 
-If your dataset covers an entire population—for example, all students enrolled in a particular program, or all employees of a specific company—then releasing it in full means that anyone who knows a person was part of that group can try to find their record. [Participation knowledge](../1_FOUNDATION/1_5_Privacy_Concepts.qmd#participation-knowledge) would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
+If your dataset covers an entire population—for example, all students enrolled in a particular program, or all employees of a specific company—then releasing it in full means that anyone who knows a person was part of that group can try to find their record. [Participation knowledge](../foundations/privacy-concepts.qmd#participation-knowledge) would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
 
-![Sampling: only a subset of records is released; here two rows are dropped from the published data.](../pictures/Sampling-cropped.png){fig-alt="A before-and-after table where two of the five rows are struck through to show they are not included in the released sample."}
+![Sampling: only a subset of records is released; here two rows are dropped from the published data.](../pictures/sampling-cropped.png){fig-alt="A before-and-after table where two of the five rows are struck through to show they are not included in the released sample."}
 
 A sample can be randomly selected, but also based on conditions (e.g., quotas for study subjects).
 
@@ -299,7 +300,7 @@ Finally, I save the `sdcObject`.
 
 ```{r}
 # Save the sdcObject for the next chapter
-saveRDS(sdc_nonpert, here::here("sdc_nonpert.rds"))
+saveRDS(sdc_nonpert, here::here("sdc-nonpert.rds"))
 ```
 
 # References
