@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you refer to this tutorial, please cite it as below."
+authors:
+  - family-names: "Jansen"
+    given-names: "Luisa"
+    orcid: "https://orcid.org/0000-0001-8126-1306"
+    affiliation: "University of Bern"
+  - family-names: "Schönbrodt"
+    given-names: "Felix"
+    orcid: "https://orcid.org/0000-0002-8282-3910"
+    affiliation: "LMU Open Science Center"
+  - family-names: "Ihle"
+    given-names: "Malika"
+    orcid: "https://orcid.org/0000-0002-3242-5981"
+    affiliation: "LMU Open Science Center"
+title: "Data Anonymization Course"
+version: 0.0.1
+doi: "10.5281/zenodo.XXXXXXX" # REPLACE once a DOI has been minted
+date-released: 2026-07-09
+repository-code: "https://github.com/lmu-osc/data-anonymization"
+url: "https://lmu-osc.github.io/data-anonymization/"
