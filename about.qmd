@@ -1,13 +1,13 @@
 ---
 title: "About"
-date: 2026-07-09
+date: 2026-08-18
 citation:
   type: "webpage"
   title: "Data Anonymization Course"
   container-title: "LMU Open Science Center"
   url: https://lmu-osc.github.io/data-anonymization/
-  doi: "10.5281/zenodo.XXXXXXX" # REPLACE once a DOI has been minted
-  version: 0.0.1
+  doi: 10.5281/zenodo.21997425
+  version: 0.0.2
 author:
   - name: Luisa Jansen
     roles: [conceptualization, software, resources, visualization, writing - original draft, writing - editing & review]
