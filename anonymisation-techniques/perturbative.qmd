@@ -1,0 +1,182 @@
+---
+title: "Perturbative Techniques"
+aliases: [2_ANONYMISATION_TECHNIQUES/2_4_Perturbative.html]
+bibliography: ../references.bib
+execute:
+    cache: true
+---
+
+::: {.callout-tip collapse="true"}
+## Learning Objective
+
+-   After completing this part of the tutorial, you will be able to apply selected perturbative techniques in R.
+:::
+
+```{r setup}
+#| include: false
+
+# Setup: load packages, data, and the saved sdcObject
+library(sdcMicro)
+library(tidyverse)
+set.seed(1)
+
+data_withoutidentifiers <- read.csv(here::here("simulated-data-noidentifiers.csv")) # Change based on the location of your data file
+
+sdc_nonpert <- readRDS(here::here("sdc-nonpert.rds")) # Change based on the location of your Sdc-object file
+```
+
+The core idea behind perturbative techniques is to introduce **controlled changes to data values**. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but **alter the values themselves**. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.
+
+In general, perturbation does not increase k-anonymity, since values are not generalized but instead just changed. Recall that k-anonymity counts how many records share the same combination of indirect identifiers. It only goes up when distinct values are collapsed into shared, broader categories, the way recoding or suppression does. Perturbation works differently: it swaps each value for another *specific* value rather than a broader category, so a record that was unique on its quasi-identifiers stays unique—it just carries different numbers. It may reshuffle which records look unusual, but it does not merge them into the larger shared groups that a higher k requires. On top of that, we typically perturb continuous variables such as income, which are not even part of the categorical key that k-anonymity is calculated on in the first place. Perturbation therefore adds another layer of protection—especially for continuous variables—rather than raising k-anonymity.
+
+In this chapter, I will present a few perturbative techniques introduced in @Carvalho2023_SurveyPrivacyPreservingTechniques.
+
+## Examples of Perturbative Techniques
+
+### Swapping
+
+Swapping **exchanges values of a variable between participants**. Instead of altering the values themselves, it breaks the link between a record and the individual it belongs to.
+
+There are two main variants. **Record swapping** (also known as data swapping) applies to categorical variables: values like gender or country of residence are swapped between records. A useful property here is t-order equivalence. For example, 1-order equivalence means the marginal frequencies are preserved (same number of males and females as before), and 2-order equivalence means joint frequencies are also preserved (same number of males and females from each country).
+
+![Record swapping: gender values are exchanged between records. In this case, the 1-order frequencies stay the same, but the 2-order frequencies change, meaning that only 1-order equivalence is reached.](../pictures/swapping-cropped.png){fig-alt="A before-and-after table where gender values are swapped between records; frequency tables below show that 1-order frequencies stay equal while 2-order frequencies change."}
+
+**Rank swapping** applies to continuous variables: values are only swapped with other values that are close in rank, which limits how much the distribution is distorted.
+
+The main **advantage** of swapping is that it removes the relationship between a record and the individual without introducing new values that never existed in the data. It can protect rare and unique values and works across variable types. On the **downside**, non-random swapping requires careful implementation, and swapping can produce unusual combinations of values that did not exist in the original data.
+
+### Re-Sampling
+
+Re-sampling **replaces original values with averages** computed from bootstrap samples [@hundepool2026]. You draw multiple independent bootstrap samples from the original data with replacement, with the same sample size as your original data, and sort the values within each sample. You then compute the average of the smallest values across all samples, then of the second-smallest ones, and so forth, and replace the corresponding original values (i.e., the smallest original value with the average of the smallest values in the samples, etc.). The result preserves the overall distribution, but individual values no longer correspond to real observations.
+
+![Re-sampling: original ages are replaced with averages of sorted values across t = 3 bootstrapped samples.](../pictures/re-sampling-cropped.png){fig-alt="A before-and-after table where the exact ages are replaced with mean values of sub-samples."}
+
+### Noise
+
+Noise addition (also known as randomization) **adds a random value** to each original value. The most common form is **additive noise**: a random draw from a distribution (typically normal with mean 0) is added to the original value. **Multiplicative noise** works similarly but multiplies the original value by a random factor, which scales the perturbation to the magnitude of the variable.
+
+The noise can be uncorrelated—each value gets an independent random draw—or correlated with the original values, which better preserves the correlation structure between variables. Transformations of the variable (e.g., log-transforming income before adding noise) are also possible and can improve the result for skewed distributions.
+
+![Noise addition: a random value is added to each age, so every value changes slightly.](../pictures/noise-cropped.png){fig-alt="A before-and-after table where each age is replaced with a slightly different, noisy value."}
+
+::: {.callout-note collapse="false"}
+### Differential Privacy
+
+Noise addition leaves one question open: **how much noise is enough?** In this tutorial, we answer it empirically—add noise, then measure the remaining disclosure risk (as you will do in the exercise below). **Differential privacy** approaches the same question from the other direction: you first fix a privacy level, and the noise is then calibrated mathematically so that a formal guarantee holds. Importantly, this guarantee applies to an **algorithm**—the whole procedure of computing a result *and* adding noise to it—**not to a dataset**: the algorithm's output must be essentially the same whether or not any single individual's data is included, so an attacker learns (almost) nothing about anyone's participation. One consequence: you cannot look at a dataset and call it "differentially private"; the guarantee belongs to the process that produced an output.
+
+You already know a technique that provides this guarantee: the [randomized response technique](../foundations/mechanisms.qmd#randomized-response-technique) from the chapter on mechanisms. Because each answer is randomized with known probabilities, a recorded "yes" proves nothing about any single person, yet the true prevalence can still be estimated.
+
+That example also shows a practical difference from an approach like *k*-anonymity, which requires a trusted party holding the complete dataset to anonymize it. With differential privacy, noise can instead be added **locally**—in the case of randomized response, by each participant themselves, before their data is even collected.
+
+For R users, the `diffpriv` package implements differential privacy mechanisms and is a good starting point for exploring this approach [@rubinstein2017].
+:::
+
+### Microaggregation
+
+Microaggregation **groups records by similarity on the variable of interest and replaces each value with a group aggregate**—usually the mean or median. Records within the same group end up sharing the same value, which makes it impossible to single out an individual based on that variable alone.
+
+![Microaggregation: records are grouped and each age is replaced with its group's average, so records share the same value.](../pictures/microaggregation-cropped.png){fig-alt="A before-and-after table where ages are replaced with group averages, with several records sharing the same value."}
+
+The quality of the result depends on how homogeneous the groups are: the more similar the original values within a group, the less information is lost when replacing them with the group mean. This is why the grouping algorithm matters. The default in `sdcMicro`, `mdav` (Maximum Distance to Average Vector), tries to form compact groups to minimize distortion.
+
+### Rounding
+
+**Rounding replaces exact values with rounded versions**. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or looses quite a lot of data in case of larger ranges that are rounded to the same value.
+
+![Rounding: exact ages are replaced with rounded values (here to the nearest 10).](../pictures/rounding-cropped.png){fig-alt="A before-and-after table where ages are rounded to values such as 60, 20 and 30."}
+
+### PRAM
+
+PRAM (Post RAndomisation Method) applies to categorical variables. Each value is **randomly recoded to a different category with a certain probability** defined in a transition matrix. For example, a participant recorded as "male" might be recoded to "female" with probability 0.05 and kept as "male" with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.
+
+![PRAM: some categorical values (here gender) are randomly recoded to another category with a set probability.](../pictures/pram-cropped.png){fig-alt="A before-and-after table where two of the gender values are randomly changed to a different category."}
+
+This technique can be applied to the `keyVars` we defined in the `sdcObject` earlier, but does not improve k-anonymity indicators since it doesn't reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that `sdcMicro` indicators can not measure.
+
+## Keeping Utility
+
+After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover formal utility measures in [the chapter on balancing utility and privacy](../privacy-openness/balancing).
+
+## Pro and Contra of Using Perturbative Techniques
+
+Pros:
+
+-   No records or variables are removed; the dataset stays complete.
+-   Statistical properties like means, variances, and correlations can be largely preserved
+-   Easy to tune the privacy-utility trade-off by adjusting the noise level or group size.
+
+Cons:
+
+-   Individual values are no longer accurate. This makes perturbative techniques unsuitable if exact values matter—for example, if a researcher needs to verify that a specific participant had a specific income.
+-   Risk of reverse-engineering: if the perturbation method and its parameters are known, an attacker may be able to approximately reconstruct the original values.
+-   If applied too aggressively, perturbative techniques can distort subgroup statistics in ways that are hard to detect.
+
+## Exercise: Applying Perturbative Techniques
+
+Let's try out two common perturbative techniques: microaggregation and noise. Conveniently, both are available directly in `sdcMicro`.
+
+Continue working with `sdc_nonpert` from the previous exercise.
+
+1.  **Apply microaggregation** (with the function `microaggregation`) **to income** using the default method (`"mdav"`). Start with a group size of `aggr = 5`.
+
+2.  **Add additive noise to income** (with the function `adddNoise)` as an alternative. Start with a noise parameter of 1 .
+
+3.  **Compare the methods:** Which parameters do you need to achieve similar levels of protection?
+
+::: {.callout-tip collapse="false"}
+You cannot undo perturbation steps within the same `sdcObject`. Create a fresh copy of `sdc_nonpert` before trying the second method so you can compare them side-by-side.
+:::
+
+::: {.callout-important collapse="true"}
+### Solution
+
+#### Microaggregation
+
+I start by applying microaggregation with a group size of 5 on a new `sdcObject`.
+
+```{r}
+# Microaggregation: replace income with group means (group size 5)
+sdc_micro <- microaggregation(
+  obj    = sdc_nonpert,
+  variables = "income",
+  aggr   =  5,          # group size
+  method = "mdav"      # Maximum Distance to Average Vector
+)
+
+sdc_micro
+print(sdc_micro, type = "risk")
+
+data_micro <- extractManipData(sdc_micro) # Extract the manipulated data
+```
+
+`mdav` groups records by their distance to the group centroid, then replaces each value with the group mean. With `aggr = 5`, at least 5 records share the same income value, so singling out an individual is harder.
+
+As we can see in the output of the `sdcObject`, the disclosure risk is reduced from up to 100% in the beginning to a range going only up to 77.5%.
+
+#### Additive Noise
+
+```{r}
+# Additive noise on income
+sdc_noise <- addNoise(
+  obj    = sdc_nonpert,
+  variables = "income",
+  noise  = 3.5          # noise level as fraction of SD
+)
+
+print(sdc_noise, type = "risk")
+sdc_noise
+```
+
+`addNoise` draws from a normal distribution with mean 0 and standard deviation = `noise × sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income. When `noise = 3.5`, we achieve a disclosure risk between 0% and 75.5%, instead of one between 0% and 100% that we started with.
+
+Let's save these objects for now. We will later come back to inspect the utility of both methods in [the chapter on balancing utility and privacy](../privacy-openness/balancing).
+
+```{r}
+# Save the perturbed sdcObjects for the balancing chapter
+saveRDS(sdc_micro, here::here("sdc-micro.rds"))
+saveRDS(sdc_noise, here::here("sdc-noise.rds"))
+
+```
+:::
+
+## References

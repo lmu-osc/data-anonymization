@@ -50,7 +50,6 @@ rsconnect/
 
 # Quarto
 /.quarto/
-**_files/
 
 # Future-proofing: ignore commonly included files that should not be tracked
 # Inspired by usethis::git_vaccinate() options
@@ -59,8 +58,9 @@ rsconnect/
 .httr-oauth
 .quarto
 _site/
-.vscode/*
+**_files/
 
 **/*.quarto_ipynb
 
-*.code-workspace
+# ignore posi assistant settings
+.posit/assistant
