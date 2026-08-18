@@ -50,7 +50,7 @@ In practice, this means you need to be **extra careful** with these variables wh
 
 **Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.
 
-# Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories
+## Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories
 
 In this first exercise, we work with **our dataset**—the simulated dataset of 200 Germans introduced on the [landing page](../index.qmd), whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:
 
@@ -63,7 +63,7 @@ data <- read.csv(here::here("simulated-data.csv")) # Change based on the locatio
 ```
 
 ::: {.callout-note collapse="false"}
-## Data Dictionary
+### Data Dictionary
 
 | Variable Name      | Description                                                          | Item Text                                                                              | Values                                                                                                               |
 | ------------------ | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -90,9 +90,9 @@ Now inspect the dataset `data`. Answer the following questions:
 1\. Which columns contain **direct identifiers**?
 
 ::: {.callout-important collapse="true"}
-## Solution
+### Solution
 
-### Direct Identifiers: `name`, `email`, `ip_address`
+#### Direct Identifiers: `name`, `email`, `ip_address`
 
 **Name** is probably the most obvious identifier there is.
 
@@ -104,9 +104,9 @@ Now inspect the dataset `data`. Answer the following questions:
 2\. Which columns contain **indirect identifiers**?
 
 ::: {.callout-important collapse="true"}
-## Solution
+### Solution
 
-### Indirect Identifiers: `gender`, `age`, `education`, `income`, `plz`, `years_in_job`
+#### Indirect Identifiers: `gender`, `age`, `education`, `income`, `plz`, `years_in_job`
 
 **Gender**, **age**, **education**, **postal code**, **income**, and **years in job** are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be **linked** with each other or external knowledge. When an attacker knows of a person who participated in the study and, for instance, knows their education level, they could identify the person in the data.
 :::
@@ -114,9 +114,9 @@ Now inspect the dataset `data`. Answer the following questions:
 3\. Which columns contain **special categories of personal data** (= sensitive data)?
 
 ::: {.callout-important collapse="true"}
-## Solution
+### Solution
 
-### Special Category Data: All `pol\_` Variables (Political Opinion), `religion`
+#### Special Category Data: All `pol\_` Variables (Political Opinion), `religion`
 
 The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_integration` variables capture **political opinions**, and `religion` captures **religious beliefs**. Both categories are explicitly listed as sensitive data under Art. 9 GDPR. These variables require **heightened protection** because their disclosure could lead to discrimination or other harm for the individuals involved.
 :::
@@ -124,20 +124,20 @@ The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_inte
 4\. Is there any column that does **not** contain personal data?
 
 ::: {.callout-important collapse="true"}
-## Solution
+### Solution
 
-### Personal Data: All Columns Contain Personal Data.
+#### Personal Data: All Columns Contain Personal Data.
 
 Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as `name`) is possible, it is considered personal data, and GDPR applies.
 :::
 
 <!-- Moved this into a separate heading - this seems to be too important to "hide" it below an exercise -->
-# A Default Workflow for Handling Identifiers
+## A Default Workflow for Handling Identifiers
 
 It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on *any* existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:
 
 ::: {#default-workflow .callout-tip collapse="false"}
-## A Default Workflow for Handling Identifiers
+### A Default Workflow for Handling Identifiers
 
 1.  **Download** the primary raw data from your collection tool.
 
@@ -194,17 +194,17 @@ style D1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
 :::
 
 ::: {.callout-warning collapse="false"}
-## Myth: "The Funder Wants the Full Raw Data"
+### Myth: "The Funder Wants the Full Raw Data"
 
 It is a common misconception that funding agencies require you to archive the complete raw dataset *including* direct identifiers. In reality, they almost always want the **raw data *without* them**. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.
 :::
 
-## Exercise: Remove Direct Identifiers
+### Exercise: Remove Direct Identifiers
 
 Now, delete all direct identifiers from the dataset.
 
 ::: {.callout-important collapse="true"}
-## Solution
+### Solution
 
 Any solution that deletes the name, email address, and IP address is correct. I use `tidyverse` syntax:
 
@@ -230,8 +230,8 @@ write.csv(data_withoutdirectidentifiers, here::here("simulated-data-noidentifier
 Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not "always delete immediately" but **"delete once the documented purpose is gone."** Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.
 :::
 
-#### Resources, Links, Examples
+### Resources, Links, Examples
 
 - In their tutorial, @VanRavenzwaaij2025_DeidentificationWhenMaking present example datasets and how to categorize variables into these categories.
 
-# References
+## References

@@ -12,7 +12,7 @@ bibliography: ../references.bib
 
 There is no universal recipe for choosing an anonymization technique. The right approach depends on your data, your audience, and your specific risk context. This chapter walks you through the most important factors to consider.
 
-# Contextual Factors
+## Contextual Factors
 
 **Sampling strategy** affects both the level of risk and what techniques make sense. Random sampling from a large population reduces risk because an attacker cannot be certain a given individual is even in the released dataset. But if your sample covers an entire group—say, all first-year students in one subject at one university, or all employees of a company—membership is effectively known, and risk is considerably higher [@guo2025].
 
@@ -24,28 +24,28 @@ There is no universal recipe for choosing an anonymization technique. The right 
 
 **Attacker model**: Who might try to re-identify individuals, and what do they already know? A dataset about employees of one company faces very different risks than a nationally representative survey. Someone who knows a participant personally is more dangerous than a random adversary with no prior knowledge (see the box on [participation knowledge](../foundations/privacy-concepts.qmd#participation-knowledge)).
 
-# Technical Constraints
+## Technical Constraints
 
 The **data type** determines which techniques are even applicable. For example, PRAM only works for categorical variables; noise addition and microaggregation target continuous ones. Suppression, swapping, recoding, and sampling work for both. Always check whether your key variables are categorical or continuous before picking a technique.
 
 **Sample size** is a key constraint. Smaller datasets are harder to anonymize because individuals are more likely to have unique combinations of attributes. Techniques like sampling may remove too much data to be useful in small samples—you may need to accept lower k-anonymity or consider restricted access instead of full open publication.
 
 ::: {.callout-warning collapse="false"}
-## Achieving k-Anonymity
+### Achieving k-Anonymity
 
 To achieve k-anonymity, use non-perturbative techniques on categorial indirect identifiers. Most other techniques add additional levels of protection.
 
 **When in doubt, aim for k-anonymity.** It guards against the most basic risk—being singled out—and forms the backbone of any anonymization. The more elaborate methods that also protect the *sensitive* attribute itself (such as l-diversity, t-closeness, or anatomization) are only needed when an attacker could already know someone's sensitive value and use it to locate them. If the sensitive attribute is not something an attacker would plausibly know in advance, k-anonymity on the indirect identifiers is usually protection enough.
 :::
 
-# Exercise
+## Exercise
 
 Below are descriptions of three fictional datasets. For each, decide which anonymization technique(s) you would apply and why.
 
 1\. A national survey (n = 10,000) on voting behavior. Variables: age group, gender, federal state, party preference, income bracket. The data will be published as a fully open dataset.
 
 ::: {.callout-important collapse="true"}
-## Example Solution
+### Example Solution
 
 The large sample size works in your favor: with 10,000 records, most combinations of age group, gender, and federal state will not be unique. Start by checking k-anonymity across the key quasi-identifiers (age group, gender, federal state, income bracket). Political opinion is a sensitive variable under GDPR Art. 9, but it is also the core research variable—removing it is not an option. Instead, ensure all indirect identifiers are sufficiently generalized so that the combination does not single anyone out. Top-bottom code income at the extremes to protect very high and very low earners. A k-anonymity target of k = 3 is reasonable given the political sensitivity of the data on the one hand and the low participation knowledge risk on the other hand. Perturbative techniques are generally not needed here given the large sample (and since income is already in a bracket).
 :::
@@ -53,7 +53,7 @@ The large sample size works in your favor: with 10,000 records, most combination
 2\. A study on workplace bullying at a mid-sized company (n = 120). Every employee participated in the study. Variables: department, job level, years at company, bullying score, mental health score. The data will be published as a fully open dataset
 
 ::: {.callout-important collapse="true"}
-## Example Solution
+### Example Solution
 
 This is a high-risk case for several reasons: every employee participated (so participation knowledge is guaranteed for the entire dataset), the sample is small, and the topic is sensitive. Any colleague, manager, or HR staff member knows their coworkers are in the data—re-identification attempts are very plausible.
 
@@ -63,9 +63,9 @@ Recommended steps: combine small departments into broader groups, generalize job
 3\. A clinical trial dataset (n = 500) with diagnosis codes, treatment group, age, sex, and a rare genetic marker. The data will be published as a fully open dataset.
 
 ::: {.callout-important collapse="true"}
-## Example Solution
+### Example Solution
 
 The rare genetic marker is the most critical variable. If it applies to only a small subset of participants, it is likely unique enough on its own to identify individuals. Consider then to use a de-associative technique like anatomization to split the genetic marker and the other variables. Diagnosis codes should be generalized from specific illness codes to broader disease categories. Age should be recoded, probably to 10-year bands. Sex is low-risk on its own. Treatment group is needed for analysis and unlikely to cause identification issues. Check the k-anonymity across the indirect identifiers. Aim for k ≥ 5 given the health data sensitivity.
 :::
 
-# References
+## References

@@ -2,7 +2,7 @@
 title: "Welcome to the Data Anonymization Course!"
 ---
 
-# Tutorial Overview
+## Tutorial Overview
 
 This **self-paced tutorial** on anonymization of quantitative research data is intended to take about three hours to complete.
 
@@ -13,7 +13,7 @@ The tutorial is split into the following sections:
 3.  [**BALANCING DATA PROTECTION AND OPENNESS**](privacy-openness/balancing) presents methods for aligning your data protection and open science interests.
 4.  [**ANONYMIZATION WORKFLOW**](workflow/summary) closes this tutorial by summarizing the learned workflow.
 
-# What You'll Learn
+## What You'll Learn
 
 By the end of this tutorial, you will be able to:
 
@@ -22,7 +22,7 @@ By the end of this tutorial, you will be able to:
 -   **Apply anonymization techniques** using R in a coherent workflow
 -   **Make informed decisions when balancing the risks and utility** of the anonymized data
 
-# What You Will **NOT** Learn
+## What You Will **NOT** Learn
 
 You will not learn anything other than anonymization of quantitative tabular data.
 
@@ -32,11 +32,11 @@ Here are a few helpful links for other data types:
 -   Anonymizing qualitative textual data with the tool QualiAnon ([video tutorial](https://www.youtube.com/watch?v=RYQn4DjdKmo))
 -   Anonymizing sensitive qualitative data ([lecture recording](https://www.youtube.com/watch?v=-Pha3EINF3s&ab_channel=CenterforOpenScience) and [article](https:/doi.org/10.1037/tra0001358))
 
-# Prerequisites
+## Prerequisites
 
 You need basic R skills (e.g., loading data and packages). Experience with data wrangling with `tidyverse` is beneficial.
 
-# Required Software
+## Required Software
 
 To follow along with the hands-on exercises, you will need a recent version of [R](https://cran.r-project.org/) (version 4.1.0 or newer) and [RStudio](https://posit.co/download/rstudio-desktop/).
 
@@ -51,7 +51,7 @@ install.packages("knitr")     # render tables in the tutorial's examples
 install.packages("xfun")      # small helpers used in the tutorial's examples
 ```
 
-# The Example Dataset
+## The Example Dataset
 
 Throughout the tutorial, we work with the same **simulated dataset** of 200 Germans. The data's purpose is to answer whether **certain political opinions are linked to religion**. We will assess its privacy risks and then anonymize it step by step across the exercises. Download it here:
 
@@ -79,7 +79,7 @@ data <- read.csv(here::here("simulated-data.csv")) # Change based on the locatio
 The dataset contains the following variables:
 
 ::: {.callout-note collapse="true"}
-## Data Dictionary
+### Data Dictionary
 
 | Variable Name | Description | Item | Values |
 |----|----|----|----|

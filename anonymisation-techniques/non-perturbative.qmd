@@ -37,9 +37,9 @@ Non-perturbative techniques are usually the **right starting point**. They are e
 
 Depending on the specific data type and risk, different techniques are possible [@Carvalho2023_SurveyPrivacyPreservingTechniques]:
 
-# Examples of Non-Perturbative Techniques
+## Examples of Non-Perturbative Techniques
 
-## Global Recoding
+### Global Recoding
 
 Global recoding (also called generalization) replaces the exact values of a variable with **broader categories**—applied to **every row** in the dataset.
 
@@ -53,7 +53,7 @@ Global recoding (also called generalization) replaces the exact values of a vari
 
 The key decision is how broadly to generalize. Wider categories reduce risk more, but also lose more information. The right granularity depends on how many people share each combination—which is exactly what k-anonymity measures. You will practice this trade-off in the exercise below.
 
-## Local Recoding
+### Local Recoding
 
 Local recoding **generalizes values only where needed**, rather than across the whole dataset. This is useful when only a small subset of values is rare enough to create risk.
 
@@ -63,7 +63,7 @@ Local recoding **generalizes values only where needed**, rather than across the 
 
 This means, that values are on different level (in this example: country vs. continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently—you need to be transparent about which categories were collapsed and why.
 
-## Top-and-Bottom Coding
+### Top-and-Bottom Coding
 
 Top-and-bottom coding is a special case of **recoding that applies to numerical variables**. Instead of grouping all values into bands, you **cap the extreme ends of the distribution**—replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value. Top-coding is a non-perturbative method because the exact value is only replaced with a coarser but still truthful one—no value is distorted, it is merely made less precise.
 
@@ -77,7 +77,7 @@ Top-and-bottom coding is a special case of **recoding that applies to numerical 
 
 How to determine the threshold: A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles—capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.
 
-## Suppression
+### Suppression
 
 Suppression means **removing information entirely**—replacing a value with a missing value (`NA`) or dropping it altogether. This is also known as nulling. It is the most straightforward way to handle data that is too risky to release, but it also loses the most information.
 
@@ -95,7 +95,7 @@ Suppression can occur on different levels:
 
 Suppression is often used as a last resort after recoding: if recoding alone is not enough to bring all records up to the required k-anonymity threshold, targeted cell suppression can close the remaining gaps.
 
-## Sampling
+### Sampling
 
 If your dataset covers an entire population—for example, all students enrolled in a particular program, or all employees of a specific company—then releasing it in full means that anyone who knows a person was part of that group can try to find their record. [Participation knowledge](../foundations/privacy-concepts.qmd#participation-knowledge) would then be a given if the recruitment strategy is known. Releasing only a random sample of the data breaks this assumption: an attacker can no longer be certain whether a given individual is even in the released dataset.
 
@@ -105,7 +105,7 @@ A sample can be randomly selected, but also based on conditions (e.g., quotas fo
 
 Sampling is most relevant for administrative datasets and registers. For typical survey-based research, where participation is voluntary and not exhaustively documented, it is less commonly needed. If you do use it, keep in mind that the sample size affects both privacy and the statistical representativeness of the data.
 
-# Pro and Contra of Using Non-Perturbative Techniques
+## Pro and Contra of Using Non-Perturbative Techniques
 
 Pros:
 
@@ -119,7 +119,7 @@ Cons:
 -   heavy suppression can make the dataset hard to use
 -   may not be sufficient on its own for high-risk data
 
-# Exercise: Applying Non-Perturbative Techniques
+## Exercise: Applying Non-Perturbative Techniques
 
 In this exercise, you will apply non-perturbative techniques to the data to reduce re-identification risk.
 
@@ -142,7 +142,7 @@ All manual changes as with`forcat` functions like `fct_lump_min()` are applied t
 :::
 
 ::: {.callout-important collapse="true"}
-## Solution
+### Solution
 
 Keep in mind that this is just an example solution—there are many ways to achieve similar levels of privacy.
 
@@ -236,7 +236,7 @@ print(sdc_nonpert, type = "risk")
 With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymity. Only 29 entries remain, that violate 5-anonymity. To me, this is enough protection on k-anonymity, while still preserving most of utility, especially on the most interesting variables.
 :::
 
-# Further Anonymization Steps Using Perturbative Techniques
+## Further Anonymization Steps Using Perturbative Techniques
 
 Now that the categorical key variables are in their final state, I applied **top-coding** to the continuous key variables income and years in job.
 
@@ -303,4 +303,4 @@ Finally, I save the `sdcObject`.
 saveRDS(sdc_nonpert, here::here("sdc-nonpert.rds"))
 ```
 
-# References
+## References

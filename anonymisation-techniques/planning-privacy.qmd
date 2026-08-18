@@ -25,9 +25,9 @@ The goal is to use the **appropriate anonymization techniques** to achieve an ac
 
 To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, mobilizing what we have learned in the [last chapter](../foundations/privacy-concepts) and putting it into practice.
 
-# Identifying Privacy Risks
+## Identifying Privacy Risks
 
-## Exercise: Privacy Risks in the Example Data
+### Exercise: Privacy Risks in the Example Data
 
 Take another look at **our dataset**, as modified in the [exercise on the personal data page](../foundations/personal-data) where we removed the direct identifiers. Try to answer the following questions:
 
@@ -36,7 +36,7 @@ Take another look at **our dataset**, as modified in the [exercise on the person
 - What type of disclosure is most likely for this dataset: identity disclosure, attribute disclosure, or membership disclosure?
 
 ::: {.callout-important collapse="true"}
-## Solution
+### Solution
 
 Here are a few concrete attack scenarios to consider, based on our dataset of 200 individuals in Germany (with variables: gender, age, education, plz, income, religion, years_in_job, and political opinion variables):
 
@@ -49,15 +49,15 @@ For this dataset, **identity and attribute disclosure** are most likely. Since t
 These are just a few examples; in general, the existence and likelihood of risks are very much dependent on the variables in the dataset, the sensitivity of data, the recruitment strategy, and many other factors (see [this chapter on choosing the right technique](choosing-technique) for more information).
 :::
 
-# Measuring Privacy Risks
+## Measuring Privacy Risks
 
-## The `sdcMicro` Package
+### The `sdcMicro` Package
 
 To formally measure privacy risks (and for most of the following exercises), we will use the package `sdcMicro` in R [@templ2015].
 
 `sdcMicro` is an R package specialized in the anonymization of micro (small) data sets. `sdcMicro` offers a command line and a Graphical User interface (GUI).
 
-## Using `sdcMicro` to Assess Privacy Risks
+### Using `sdcMicro` to Assess Privacy Risks
 
 Let's start by creating a sdcMicro object of the class `sdcMicroObj`, using the function `createSdcObj`. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores
 
@@ -81,7 +81,7 @@ For this object, we start with defining the following:
 `sdcMicro` needs, at the least, the data and categorial indirect identifiers to assess risks.
 
 ::: {.callout-note collapse="false"}
-## More Functions of sdcMicro
+### More Functions of sdcMicro
 
 - `extractManipData(sdcObject)`\
   Extracts the anonymized dataset.
@@ -98,7 +98,7 @@ For this object, we start with defining the following:
   These new functions use LLMs to assist with the creation of an `sdcObject` and anonymization. See [the sdcMicro vignette on AI-assisted anonymization](https://cran.r-project.org/web/packages/sdcMicro/vignettes/ai_assisted_anonymization.html) for how to use them. We won't use these in the context of the tutorial, to learn the processes manually first.
 :::
 
-## Exercise: Assessing Privacy Risks With `sdcMicro`
+### Exercise: Assessing Privacy Risks With `sdcMicro`
 
 In this exercise, you will assess privacy risks with `sdcMicro`. We will work with the dataset `data_withoutdirectidentifiers`—**our dataset** as loaded from the [landing page](../index.qmd) and modified in the [exercise on the personal data page](../foundations/personal-data), which removed the direct identifiers.
 
@@ -106,7 +106,7 @@ In this exercise, you will assess privacy risks with `sdcMicro`. We will work wi
 2.  What k-anonymity level is currently reached?
 
 ::: {.callout-important collapse="true"}
-## Solution
+### Solution
 
 Create the object. Provide gender, age, education, and postal code as categorial variables of interest (`keyVars`). The only numerical variables we are interested in are income and years in job (`numVars`).
 
@@ -157,7 +157,7 @@ The individual risk shows a risk estimate for each individual in the dataset. `f
 :::
 
 ::: {#no-correct-assignment .callout-warning collapse="false"}
-## There Is No One Correct Variable Assignment
+### There Is No One Correct Variable Assignment
 
 How you assign variables to `keyVars` and `numVars` is a judgment call—there is no universally correct answer. It depends on who you think is likely to try to re-identify someone, and what information they would already have.
 
@@ -181,6 +181,6 @@ At this point, you decide whether the level of privacy risks is acceptable. If s
 
 If the risk is not acceptable—as is the case here—we will start with the actual anonymization process. To that end, I will present you with several techniques over the next few chapters.
 
-#### Resources, Links, Examples
+### Resources, Links, Examples
 
 More information on assessing risks for public research data: @morehouse2025

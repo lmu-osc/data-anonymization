@@ -10,7 +10,7 @@ bibliography: ../references.bib
 -   After completing this part of the tutorial, you will have a fundamental understanding of privacy and data protection.
 :::
 
-# What Is Data Privacy?
+## What Is Data Privacy?
 
 This question has troubled (and engaged) scholars in privacy research for decades; there is no one agreed-upon definition. It is mostly understood as **controlled disclosure** in some way, meaning that an individual can decide which information is shared.
 
@@ -27,7 +27,7 @@ Nothing was "leaked" in a traditional sense. The way this information was shared
 -   **Information norms** depend on the sender, recipient, information type, and conditions of the information flow (e.g., voluntary, with permission, confidentially; Nissenbaum calls this transmission principle). It may be normative or descriptive.
 
 ::: {.callout-note collapse="false"}
-# Applying Contextual Integrity
+## Applying Contextual Integrity
 
 In the example above, nothing was leaked in a traditional sense; yet most of us would call this a privacy violation. Nissenbaum's framework explains why:
 
@@ -46,10 +46,10 @@ In this tutorial, I will show why we, as researchers, need to carefully consider
 
 Throughout this tutorial, I will use both the terms data protection and privacy. **Privacy** is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. **Data protection** is a term that is closely linked to actual techniques and is used in laws. Both translate (give or take) to "Datenschutz" in German.
 
-# Why Is Data Protection Important?
+## Why Is Data Protection Important?
 
 ::: {.callout-tip collapse="false"}
-# Reflection
+## Reflection
 
 Take a moment to think about the following scenarios. For each one, consider: Would you share your data? What conditions would need to be met? Think about the role of the researcher, the institution, and the way your data is handled. You might want to jot down a few notes before reading on.
 
@@ -64,7 +64,7 @@ Data protection matters because research depends on trust. Participants share pe
 
 As researchers, our obligation towards data protection arises from two directions that overlap quite a bit: ethics and law.
 
-# Data Protection in Research Ethics
+## Data Protection in Research Ethics
 
 The ethical obligation to protect participants' data is deeply rooted in research ethics. The [Declaration of Helsinki](https://www.wma.net/policies-post/wma-declaration-of-helsinki-ethical-principles-for-medical-research-involving-human-subjects/) (1964, most recently revised in 2024), one of the most widely recognized **ethical guidelines for research involving human subjects**, explicitly requires that "every precaution must be taken to protect the privacy of research participants and the confidentiality of their personal information." While originally developed for medical research, its principles have been adopted across the social and behavioral sciences.
 
@@ -74,7 +74,7 @@ In practice, **institutional review boards** (IRBs) or ethics committees enforce
 
 One more thing worth mentioning: We tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully [@obar2020; @foe2016], and even when they do, they may not fully understand the implications of data sharing. Consent is necessary, but it is not sufficient. More on this in [the chapter on mechanisms of data protection](mechanisms).
 
-# Data Protection in Law
+## Data Protection in Law
 
 Beyond ethics, data protection is also a **legal requirement**. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU, wherever your participants are located. We cover the GDPR in more detail in [the next chapter](gdpr).
 
@@ -93,7 +93,7 @@ Some useful contact for researchers at LMU Munich:
 
 :::
 
-# Conclusion
+## Conclusion
 
 So where does this leave us? Both ethics and law tell us the same thing: we need to protect the personal data of our participants. At the same time, sharing data is a cornerstone of good scientific practice. Open data makes research more transparent, reproducible, and efficient. It enables replication, secondary analyses, and meta-research. Funders and journals increasingly require it, and for good reason.
 
@@ -103,4 +103,4 @@ The good news is that anonymization gives us the tools to navigate this tension.
 
 Next, we will dive deeper into privacy laws: They provide concrete rules that guide data protection throughout the whole research cycle.
 
-# References
+## References

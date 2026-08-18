@@ -38,8 +38,8 @@ In the following chapters, we will go through each family of techniques one by o
 
 After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in the [the chapter on choosing the right technique](choosing-technique).
 
-#### Resources, Links, Examples
+## Resources, Links, Examples
 
 See @Carvalho2023_SurveyPrivacyPreservingTechniques for detailed information on these techniques.
 
-# References
+## References

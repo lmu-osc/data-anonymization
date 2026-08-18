@@ -17,6 +17,6 @@ But: The quality of synthetic data depends entirely on the model used to generat
 
 For a guide on creating synthetic data, see the dedicated [OSC tutorial on synthesizing data](https://lmu-osc.github.io/synthetic-data-tutorial/)
 
-#### Resources, Links, Examples
+## Resources, Links, Examples
 
 [OSC tutorial on synthesizing data](https://lmu-osc.github.io/synthetic-data-tutorial/)
