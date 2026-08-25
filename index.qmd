@@ -2,6 +2,14 @@
 title: "Welcome to the Data Anonymization Course!"
 ---
 
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+library(downlit)
+library(xml2)
+```
+
 ## Tutorial Overview
 
 This **self-paced tutorial** on anonymization of quantitative research data is intended to take about three hours to complete.
@@ -44,11 +52,11 @@ You will also need a handful of R packages. Install them with:
 
 ```{r}
 #| eval: false
-install.packages("sdcMicro")  # measure re-identification risk and apply anonymization techniques
+install.packages("sdcMicro") # measure re-identification risk and apply anonymization techniques
 install.packages("tidyverse") # data wrangling and plotting, used throughout the exercises
-install.packages("here")      # locate your data file regardless of the working directory
-install.packages("knitr")     # render tables in the tutorial's examples
-install.packages("xfun")      # small helpers used in the tutorial's examples
+install.packages("here") # locate your data file regardless of the working directory
+install.packages("knitr") # render tables in the tutorial's examples
+install.packages("xfun") # small helpers used in the tutorial's examples
 ```
 
 ## The Example Dataset
@@ -73,7 +81,6 @@ Once downloaded, copy this into a new Markdown file in RStudio to import the dat
 
 # Load data based on downloaded file
 data <- read.csv(here::here("simulated-data.csv")) # Change based on the location of your data file
-
 ```
 
 The dataset contains the following variables:
