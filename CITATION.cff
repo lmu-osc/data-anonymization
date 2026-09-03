@@ -14,7 +14,7 @@ authors:
     orcid: "https://orcid.org/0000-0002-3242-5981"
     affiliation: "LMU Open Science Center"
 title: "Data Anonymization Course"
-version: 0.0.2
+version: 0.0.3
 doi: "10.5281/zenodo.21997425"
 date-released: 2026-08-18
 repository-code: "https://github.com/lmu-osc/data-anonymization"
