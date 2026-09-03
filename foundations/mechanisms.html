@@ -104,9 +104,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-3c3f1368ed8db972a012dae01a8e5220.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-188b87d2eecf63d90488fc07321c5074.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-eb085aa7c0f1d8411752f2c1fdfaa824.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-188b87d2eecf63d90488fc07321c5074.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1b5eaea64cccf5f2bea7f479051f272c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0263eb0704e1a60d2ddd91fea2fa9eac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-1b5eaea64cccf5f2bea7f479051f272c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -714,17 +714,18 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>The randomized response technique is a technique that <strong>transparently adds privacy at the stage of data collection</strong> <span class="citation" data-cites="moshagen2012 warner1965">(<a href="#ref-moshagen2012" role="doc-biblioref">Moshagen et al. 2012</a>; <a href="#ref-warner1965" role="doc-biblioref">Warner 1965</a>)</span>.</p>
-<p>For the collection of a sensitive attribute (e.g., abusive behavior), participants are instructed to:</p>
+<p>The randomized response technique <strong>transparently adds privacy at the stage of data collection</strong> <span class="citation" data-cites="warner1965">(<a href="#ref-warner1965" role="doc-biblioref">Warner 1965</a>)</span>.</p>
+<p>To collect a sensitive attribute (e.g., abusive behavior), participants are instructed to:</p>
 <ul>
-<li><p>If they have abused a person in the past, answer a statement A (i.e., “I have abused a person in the past”)</p></li>
-<li><p>If they have <strong>never</strong> abused a person, answer a specific statement following a random distribution of birth months:</p>
+<li>Flip a coin.</li>
+<li>If it comes up heads: answer the item “I have abused a person in the past” truthfully.</li>
+<li>If it comes up tails: flip the coin again.
 <ul>
-<li><p>In case of a birth month between January and April: the statement A (i.e., “I have abused a person in the past”)</p></li>
-<li><p>In case of a birth month between May and December: the statement B that is the negated version of statement A (i.e., “I have <strong>never</strong> abused a person”)</p></li>
+<li>If it comes up heads: answer “yes”, regardless of the truth.</li>
+<li>If it comes up tails: answer “no”, regardless of the truth.</li>
 </ul></li>
 </ul>
-<p>This means that a “yes” to this question can be eithe<strong>r due to the person having abused someone before, or a person who has not done that but was randomly assigned to answer statement B</strong>. When the base rates of the random distribution are known (as is the case with birth months), one can <strong>calculate the true percentage of people who have physically abused someone</strong> in the past <strong>without being able to identify any individuals who have done so</strong>.</p>
+<p>This means that a “yes” can come <strong>either from a person who has abused someone, or from a person who has not but was randomly assigned to answer “yes”</strong>. Because the base rates of the coin flips are known, one can <strong>calculate the true percentage of people who have abused someone</strong>—<strong>without being able to identify any individual who has done so</strong>.</p>
 <p>This technique requires a larger sample size to estimate prevalence and severely limits the interpretability of relations between variables, but it transparently adds privacy from the outset of data collection.</p>
 <p>Randomized response is also an early example of what is now formalized as <strong>differential privacy</strong>—see the callout in <a href="../anonymisation-techniques/perturbative.html#differential-privacy">the chapter on perturbative techniques</a>.</p>
 </div>
@@ -968,9 +969,6 @@ Cavoukian, Ann. 2011. <em>Privacy by Design in Law, Policy and Practice. <span>A
 </div>
 <div id="ref-Hallinan2023_InformationProvisionInformed" class="csl-entry" role="listitem">
 Hallinan, Dara, Franziska Boehm, Annika Külpmann, and Malte Elson. 2023. <span>“Information <span>Provision</span> for <span>Informed Consent Procedures</span> in <span>Psychological Research Under</span> the <span>General Data Protection Regulation</span>: <span>A Practical Guide</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 6 (1). <a href="https://doi.org/10.1177/25152459231151944">https://doi.org/10.1177/25152459231151944</a>.
-</div>
-<div id="ref-moshagen2012" class="csl-entry" role="listitem">
-Moshagen, Morten, Jochen Musch, and Edgar Erdfelder. 2012. <span>“A Stochastic Lie Detector.”</span> <em>Behavior Research Methods</em> 44 (1): 222–31. <a href="https://doi.org/10.3758/s13428-011-0144-2">https://doi.org/10.3758/s13428-011-0144-2</a>.
 </div>
 <div id="ref-researchdatamanagementsupport" class="csl-entry" role="listitem">
 Research Data Management Support, Dorien Huijser, Neha Moopen, et al. n.d. <em>Data Privacy Handbook</em>. <a href="https://doi.org/10.5281/ZENODO.8005847">https://doi.org/10.5281/ZENODO.8005847</a>.
@@ -1554,152 +1552,150 @@ Warner, Stanley L. 1965. <span>“Randomized Response: A Survey Technique for El
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="fu">### Randomized Response Technique</span></span>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>The randomized response technique is a technique that **transparently adds privacy at the stage of data collection** <span class="co">[</span><span class="ot">@moshagen2012; @warner1965</span><span class="co">]</span>.</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>The randomized response technique **transparently adds privacy at the stage of data collection** <span class="co">[</span><span class="ot">@warner1965</span><span class="co">]</span>.</span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>For the collection of a sensitive attribute (e.g., abusive behavior), participants are instructed to:</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>To collect a sensitive attribute (e.g., abusive behavior), participants are instructed to:</span>
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If they have abused a person in the past, answer a statement A (i.e., "I have abused a person in the past")</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If they have **never** abused a person, answer a specific statement following a random distribution of birth months:</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>In case of a birth month between January and April: the statement A (i.e., "I have abused a person in the past")</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Flip a coin.</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If it comes up heads: answer the item "I have abused a person in the past" truthfully.</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If it comes up tails: flip the coin again.</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>If it comes up heads: answer "yes", regardless of the truth.</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>If it comes up tails: answer "no", regardless of the truth.</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>In case of a birth month between May and December: the statement B that is the negated version of statement A (i.e., "I have **never** abused a person")</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>This means that a "yes" can come **either from a person who has abused someone, or from a person who has not but was randomly assigned to answer "yes"**. Because the base rates of the coin flips are known, one can **calculate the true percentage of people who have abused someone**—**without being able to identify any individual who has done so**.</span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>This means that a "yes" to this question can be eithe**r due to the person having abused someone before, or a person who has not done that but was randomly assigned to answer statement B**. When the base rates of the random distribution are known (as is the case with birth months), one can **calculate the true percentage of people who have physically abused someone** in the past **without being able to identify any individuals who have done so**.</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>This technique requires a larger sample size to estimate prevalence and severely limits the interpretability of relations between variables, but it transparently adds privacy from the outset of data collection.</span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>This technique requires a larger sample size to estimate prevalence and severely limits the interpretability of relations between variables, but it transparently adds privacy from the outset of data collection.</span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>Randomized response is also an early example of what is now formalized as **differential privacy**—see the callout in <span class="co">[</span><span class="ot">the chapter on perturbative techniques</span><span class="co">](../anonymisation-techniques/perturbative.qmd#differential-privacy)</span>.</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>Randomized response is also an early example of what is now formalized as **differential privacy**—see the callout in <span class="co">[</span><span class="ot">the chapter on perturbative techniques</span><span class="co">](../anonymisation-techniques/perturbative.qmd#differential-privacy)</span>.</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stages 3-6: Process, Analyze, Preserve, and Publish</span></span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stages 3-6: Process, Analyze, Preserve, and Publish</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### Technical and Organizational Measures (TOMs)</span></span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="fu">### Technical and Organizational Measures (TOMs)</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>The GDPR requires controllers to implement "appropriate technical and organizational measures" to protect personal data (Art. 32). In a research context, this includes:</span>
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>The GDPR requires controllers to implement "appropriate technical and organizational measures" to protect personal data (Art. 32). In a research context, this includes:</span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Secure storage:** Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU Munich, for example, the <span class="co">[</span><span class="ot">LRZ</span><span class="co">](https://www.lrz.de)</span> provides cloud storage and sync services that keep data within Germany.</span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Access control:** Only people who need the data for the research should **have** access. Use role-based permissions where possible.</span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Storage limitation:** Don't keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to add a reminder to my calendar for dates when I need to delete data.</span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Transfer security:** When sharing data with collaborators, use encrypted channels, not email attachments.</span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Pseudonymization**: Replace direct identifiers (like names) with artificial identifiers (like participant codes). See below for more information.</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Secure storage:** Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU Munich, for example, the <span class="co">[</span><span class="ot">LRZ</span><span class="co">](https://www.lrz.de)</span> provides cloud storage and sync services that keep data within Germany.</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Access control:** Only people who need the data for the research should **have** access. Use role-based permissions where possible.</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Storage limitation:** Don't keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to add a reminder to my calendar for dates when I need to delete data.</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Transfer security:** When sharing data with collaborators, use encrypted channels, not email attachments.</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Pseudonymization**: Replace direct identifiers (like names) with artificial identifiers (like participant codes). See below for more information.</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>These measures add layers of protection around your data while it is still in personal form. They do not replace anonymization, but they are essential complements.</span>
 <span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>These measures add layers of protection around your data while it is still in personal form. They do not replace anonymization, but they are essential complements.</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Pseudonymization</span></span>
 <span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Pseudonymization</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>Pseudonymization is the process of replacing direct identifiers (like names) with artificial identifiers (like participant codes). It is an important first step, but it is crucial to understand its limits.</span>
 <span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>Pseudonymization is the process of replacing direct identifiers (like names) with artificial identifiers (like participant codes). It is an important first step, but it is crucial to understand its limits.</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>The key point: **pseudonymized data is still personal data.** The GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (<span class="co">[</span><span class="ot">GDPR Recital 26)</span><span class="co">](https://www.privacy-regulation.eu/en/recital-26-GDPR.htm)</span>. As long as a key file exists that links participant codes back to real identities—or as long as indirect identifiers in the data could allow re-identification—the data remains personal, and the GDPR fully applies.</span>
 <span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>The key point: **pseudonymized data is still personal data.** The GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" (<span class="co">[</span><span class="ot">GDPR Recital 26)</span><span class="co">](https://www.privacy-regulation.eu/en/recital-26-GDPR.htm)</span>. As long as a key file exists that links participant codes back to real identities—or as long as indirect identifiers in the data could allow re-identification—the data remains personal, and the GDPR fully applies.</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. We discussed this in <span class="co">[</span><span class="ot">the chapter on personal data</span><span class="co">](personal-data)</span>, and we will look at it more formally in <span class="co">[</span><span class="ot">the chapter on privacy concepts</span><span class="co">](privacy-concepts)</span>.</span>
 <span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. We discussed this in <span class="co">[</span><span class="ot">the chapter on personal data</span><span class="co">](personal-data)</span>, and we will look at it more formally in <span class="co">[</span><span class="ot">the chapter on privacy concepts</span><span class="co">](privacy-concepts)</span>.</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>The GDPR considers pseudonymization a useful safeguard and a step in the right direction—but it is not enough if your goal is to share data openly.</span>
 <span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>The GDPR considers pseudonymization a useful safeguard and a step in the right direction—but it is not enough if your goal is to share data openly.</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>For a practical, step-by-step workflow on when to remove direct identifiers and the pseudonym key across every copy of your data, see the <span class="co">[</span><span class="ot">workflow callout in the chapter on personal data</span><span class="co">](personal-data.qmd#optimal-workflow)</span>.</span>
 <span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>For a practical, step-by-step workflow on when to remove direct identifiers and the pseudonym key across every copy of your data, see the <span class="co">[</span><span class="ot">workflow callout in the chapter on personal data</span><span class="co">](personal-data.qmd#optimal-workflow)</span>.</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="fu">### Anonymization</span></span>
 <span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="fu">### Anonymization</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>Anonymization goes further than pseudonymization. The goal is to **transform personal data so that individuals can no longer be identified**—directly or indirectly—by any means reasonably likely to be used. When data is truly anonymized, it falls **outside the scope of the GDPR** (<span class="co">[</span><span class="ot">Recital 26)</span><span class="co">](https://www.privacy-regulation.eu/en/recital-26-GDPR.htm)</span>, which means it can be shared, published, and reused without the legal restrictions that apply to personal data.</span>
 <span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>Anonymization goes further than pseudonymization. The goal is to **transform personal data so that individuals can no longer be identified**—directly or indirectly—by any means reasonably likely to be used. When data is truly anonymized, it falls **outside the scope of the GDPR** (<span class="co">[</span><span class="ot">Recital 26)</span><span class="co">](https://www.privacy-regulation.eu/en/recital-26-GDPR.htm)</span>, which means it can be shared, published, and reused without the legal restrictions that apply to personal data.</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>This sounds straightforward, but in practice, **true anonymization is hard to achieve**. Simply removing names and email addresses is usually not enough—indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a **process that requires careful analysis of risks and the application of specific techniques**.</span>
 <span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>This sounds straightforward, but in practice, **true anonymization is hard to achieve**. Simply removing names and email addresses is usually not enough—indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a **process that requires careful analysis of risks and the application of specific techniques**.</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>The bulk of this tutorial is dedicated to teaching you these techniques and helping you assess whether your data is sufficiently anonymized for sharing. The key distinction to remember:</span>
 <span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>The bulk of this tutorial is dedicated to teaching you these techniques and helping you assess whether your data is sufficiently anonymized for sharing. The key distinction to remember:</span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>   <span class="pp">|</span> Pseudonymization <span class="pp">|</span> Anonymization <span class="pp">|</span></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **What?** <span class="pp">|</span> Replaces direct identifiers with codes <span class="pp">|</span> Removes or transforms data so that individuals cannot be identified <span class="pp">|</span></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Does a key file exist?** <span class="pp">|</span> Yes (or re-identification is otherwise possible) <span class="pp">|</span> No (re-identification is not reasonably possible) <span class="pp">|</span></span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Is it still personal data?** <span class="pp">|</span> Yes <span class="pp">|</span> No <span class="pp">|</span></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Does GDPR apply?** <span class="pp">|</span> Yes <span class="pp">|</span> No <span class="pp">|</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>   <span class="pp">|</span> Pseudonymization <span class="pp">|</span> Anonymization <span class="pp">|</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **What?** <span class="pp">|</span> Replaces direct identifiers with codes <span class="pp">|</span> Removes or transforms data so that individuals cannot be identified <span class="pp">|</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Does a key file exist?** <span class="pp">|</span> Yes (or re-identification is otherwise possible) <span class="pp">|</span> No (re-identification is not reasonably possible) <span class="pp">|</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Is it still personal data?** <span class="pp">|</span> Yes <span class="pp">|</span> No <span class="pp">|</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Does GDPR apply?** <span class="pp">|</span> Yes <span class="pp">|</span> No <span class="pp">|</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Subject Rights</span></span>
 <span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Subject Rights</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>Even during processing and analysis, participants retain their rights under the GDPR. The most relevant ones for this stage are:</span>
 <span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>Even during processing and analysis, participants retain their rights under the GDPR. The most relevant ones for this stage are:</span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Right to access:** Participants can ask to see what data you hold about them. This is easier to fulfill if your data is well-organized and pseudonymized (so you can look up individual records).</span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Right to erasure:** Participants can request that their data be deleted, for example, if they withdraw consent. Again, this requires that you can identify their records—another reason for careful pseudonymization during the active research phase.</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Right to access:** Participants can ask to see what data you hold about them. This is easier to fulfill if your data is well-organized and pseudonymized (so you can look up individual records).</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Right to erasure:** Participants can request that their data be deleted, for example, if they withdraw consent. Again, this requires that you can identify their records—another reason for careful pseudonymization during the active research phase.</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>Once data is fully anonymized, these rights no longer apply (since you can no longer identify whose data is whose). Communicate your timeline transparently to participants during participation in the study.</span>
 <span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>Once data is fully anonymized, these rights no longer apply (since you can no longer identify whose data is whose). Communicate your timeline transparently to participants during participation in the study.</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
 <span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise: Anonymized, Pseudonymized, or Not Clear?</span></span>
 <span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise: Anonymized, Pseudonymized, or Not Clear?</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 1: Medical Records for Research</span></span>
 <span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 1: Medical Records for Research</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.</span>
 <span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.</span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>**Pseudonymized**—because the re-identification key still exists.</span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>**Pseudonymized**—because the re-identification key still exists.</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 2: City Council Survey</span></span>
 <span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 2: City Council Survey</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.</span>
 <span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.</span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>**Anonymized**—the data is aggregated, no individuals can be singled out.</span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>**Anonymized**—the data is aggregated, no individuals can be singled out.</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 3: Fitness Tracker Data</span></span>
 <span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 3: Fitness Tracker Data</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.</span>
 <span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.</span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>**Not clear**—technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.</span>
-<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>**Not clear**—technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 4: University Exam Scores</span></span>
 <span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 4: University Exam Scores</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>Exam results are shared with teachers, identified only by student number. The university has the key to look up the names behind the numbers.</span>
 <span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>Exam results are shared with teachers, identified only by student number. The university has the key to look up the names behind the numbers.</span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>**Pseudonymized**—the student number acts as a pseudonym, and the university holds the key.</span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>**Pseudonymized**—the student number acts as a pseudonym, and the university holds the key.</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 5: Online Store Reviews</span></span>
 <span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 5: Online Store Reviews</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis.</span>
 <span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis.</span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>**Not clear**—identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.</span>
-<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>**Not clear**—identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.</span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 6: Traffic Accident Database</span></span>
 <span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 6: Traffic Accident Database</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.</span>
 <span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.</span>
-<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>**Not clear / borderline anonymized**—no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.</span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>**Not clear / borderline anonymized**—no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 7: Genetic Study</span></span>
 <span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scenario 7: Genetic Study</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.</span>
 <span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.</span>
-<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>**Pseudonymized**—the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.</span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>**Pseudonymized**—the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources, Links, Examples</span></span>
 <span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources, Links, Examples</span></span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Utrecht University's data privacy handbook</span><span class="co">](https://utrechtuniversity.github.io/dataprivacyhandbook/about.html)</span> offers many insights into GDPR compliance, privacy by design, pseudonymization, data minimization, encryption, and many other topics <span class="co">[</span><span class="ot">@researchdatamanagementsupport</span><span class="co">]</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Utrecht University's data privacy handbook</span><span class="co">](https://utrechtuniversity.github.io/dataprivacyhandbook/about.html)</span> offers many insights into GDPR compliance, privacy by design, pseudonymization, data minimization, encryption, and many other topics <span class="co">[</span><span class="ot">@researchdatamanagementsupport</span><span class="co">]</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
