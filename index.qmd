@@ -21,6 +21,8 @@ The tutorial is split into the following sections:
 3.  [**BALANCING DATA PROTECTION AND OPENNESS**](privacy-openness/balancing) presents methods for aligning your data protection and open science interests.
 4.  [**ANONYMIZATION WORKFLOW**](workflow/summary) closes this tutorial by summarizing the learned workflow.
 
+For a quick reference, the [**summary workflow**](workflow/summary) condenses the whole process into a single checklist.
+
 ## What You'll Learn
 
 By the end of this tutorial, you will be able to:
@@ -63,7 +65,7 @@ install.packages("xfun") # small helpers used in the tutorial's examples
 
 ## The Example Dataset
 
-Throughout the tutorial, we work with the same **simulated dataset** of 200 Germans. The data's purpose is to answer whether **certain political opinions are linked to religion**. We will assess its privacy risks and then anonymize it step by step across the exercises. Download it here:
+Throughout the tutorial, we work with the same **simulated dataset** of 200 Germans. The data's purpose is to answer whether **certain political opinions are linked to religion**. We will assess its privacy risks and then anonymize it step by step across the exercises, beginning with the [first exercise](foundations/personal-data.qmd#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories) in the chapter on personal data. Download it here:
 
 ```{r}
 #| label: download-link
