@@ -7,10 +7,10 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
-- After completing this part of the tutorial, you will have an overview of the legal obligations when collecting and processing personal data according to the GDPR.
+- Get an overview of the **legal obligations** when collecting and processing personal data according to the **GDPR**.
 :::
 
-The General Data Protection Regulation (GDPR), in German "Datenschutz-Grundverordnung" (DSGVO), is the **central legal framework** for the protection of personal data in the **European Union**. It applies since May 2018, to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland (and, for the most part, in the UK). In general, it also applies to researchers and universities, regardless of where they are based [@jarmul2023].
+The General Data Protection Regulation (GDPR), in German "Datenschutz-Grundverordnung" (DSGVO), is the **central legal framework** for the protection of personal data in the **European Union**. It applies since May 2018, to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland (and, for the most part, in the UK). In general, this also applies to researchers and universities, regardless of where they are based, as soon as their participants live in that area [@jarmul2023].
 
 As a researcher of human data, you almost certainly process personal data, and the GDPR applies to you. Understanding its core concepts helps you navigate ethics board requirements, data management plans, and—most importantly for this tutorial—why and when you need to anonymize data.
 
