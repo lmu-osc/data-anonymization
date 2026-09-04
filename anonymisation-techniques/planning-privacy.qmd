@@ -127,9 +127,9 @@ sdc_data # Summarizes the risks overall
 
 For the **categorial key variables**, we get information on the numbers and sizes of categories. The more categories and the smaller the number of entries in each category, the easier the de-identification as we have many unique individual values.
 
-We also get information on k-anonymity of the combinations of these categorial variables: Currently, all observations breach 3- and 5-anonymity. There are only two persons in our dataset who share the same gender, age, education, plz, and years_in_job; therefore, our dataset also breaches 2-anonymity. 99% of participants are unique, meaning they have a unique combination on these demographic variables.
+We also get information on k-anonymity. Currently, all observations breach 3- and 5-anonymity. Only two persons in our dataset share the same combination of gender, age, education, and postal code; therefore, our dataset also breaches 2-anonymity. 99% of participants are unique, meaning they have a unique combination on these demographic variables.
 
-Upon closer inspection, these entries are IDs 94 and 122, who share many demographic details: both are 18 years old, live in Munich at postal code 80636, and have a high school degree. If I knew a 18-year-old male living at 80636 that had participated in this study, I could not identify him based on a combination of these data points alone. However, if I knew his exact income, I could still identify him. Let's keep this in mind for further analyses.
+Upon closer inspection, these entries are IDs 94 and 122, who share all four key variables: both are male, 18 years old, live in Munich at postal code 80636, and have a high school degree. If I knew a 18-year-old male living at 80636 that had participated in this study, I could not identify him based on a combination of these data points alone. However, if I knew his exact income, I could still identify him. Let's keep this in mind for further analyses.
 
 ```{r}
 # Show the two records that share a key-variable combination
