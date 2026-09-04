@@ -9,8 +9,8 @@ bibliography: ../references.bib
 
 After completing this part of the tutorial, you will be able to
 
--   choose an appropriate non-perturbative technique.
--   apply simple non-perturbative techniques.
+- choose an appropriate non-perturbative technique.
+- apply simple non-perturbative techniques.
 :::
 
 ```{r Setup}
@@ -47,9 +47,9 @@ Global recoding (also called generalization) replaces the exact values of a vari
 
 **Examples**
 
--   Replacing specific countries with world regions (e.g., "Germany", "France" → "Western Europe").
+- Replacing specific countries with world regions (e.g., "Germany", "France" → "Western Europe").
 
--   Recoding age in year to age in decade.
+- Recoding age in year to age in decade.
 
 The key decision is how broadly to generalize. Wider categories reduce risk more, but also lose more information. The right granularity depends on how many people share each combination—which is exactly what k-anonymity measures. You will practice this trade-off in the exercise below.
 
@@ -65,17 +65,21 @@ This means, that values are on different level (in this example: country vs. con
 
 ### Top-and-Bottom Coding
 
-Top-and-bottom coding is a special case of **recoding that applies to numerical variables**. Instead of grouping all values into bands, you **cap the extreme ends of the distribution**—replacing any value above a threshold with that threshold (top coding), or below it (bottom coding). This is useful when the bulk of your data is unremarkable, but a few unusual values are risky because they belong to a small number of people. In our dataset, very high incomes might apply to only one or two participants, making them easy to single out. Capping income at the 95th percentile, for example, means the highest earners all share the same reported value. Top-coding is a non-perturbative method because the exact value is only replaced with a coarser but still truthful one—no value is distorted, it is merely made less precise.
+Top-and-bottom coding is a special case of **recoding for numerical variables**. Instead of grouping all values into bands, you **cap the extreme ends of the distribution**: every value above a chosen threshold is replaced by that threshold (top coding), every value below one by that threshold (bottom coding).
+
+This helps when the bulk of the data is unremarkable and only a handful of extreme values are risky, because they belong to very few people. In our dataset, a very high income might apply to only one or two participants, which makes them easy to single out. Capping income at the 95th percentile means that all top earners share the same reported value instead.
+
+Top-and-bottom coding counts as non-perturbative: the capped value is not a wrong value, just a less precise one. It has to be read as "this much or more" rather than as an exact amount—which is why the cap needs to be documented as such (see the [note on labelling top-coded values](#top-coding-labels) below).
 
 ![Top-coding: the single highest age is capped (here to "\>60"), while the rest stay unchanged.](../pictures/top-bottom-coding-cropped.png){fig-alt="A before-and-after table where the largest age value is replaced with a >60 cap; the other ages are unchanged."}
 
 **Examples**
 
--   Instead of reporting "6 children", report "4+ children" for anyone above this threshold.
+- Instead of reporting "6 children", report "4+ children" for anyone above this threshold.
 
--   All participants below the age of 20 years are coded as "\<20 years".
+- All participants below the age of 20 years are coded as "\<20 years".
 
-How to determine the threshold: A common approach is to look at the distribution of the variable and choose a threshold where the remaining values above (or below) it are too few to guarantee anonymity. For example, if only 3 people in your dataset are older than 80, you might top-code at 80. You can also use percentiles—capping at the 95th or 99th percentile is a common starting point. The right threshold depends on your data and the level of k-anonymity you want to achieve.
+**How to determine the threshold?** A common approach is to look at the distribution of the variable and pick a point where too few values remain above (or below) it to be safe. If only 3 people in your dataset are older than 80, top-coding at 80 is a reasonable choice. Percentiles are another common starting point—typically the 95th or the 99th. The right threshold depends on your data and on how exposed the individuals at the extremes are.
 
 ### Suppression
 
@@ -85,11 +89,11 @@ Suppression means **removing information entirely**—replacing a value with a m
 
 Suppression can occur on different levels:
 
--   **Cell suppression**: Remove a single risky value while keeping the rest of the record. For example, if one participant has a unique job title that makes them identifiable, you can set only that cell to `NA`.
+- **Cell suppression**: Remove a single risky value while keeping the rest of the record. For example, if one participant has a unique job title that makes them identifiable, you can set only that cell to `NA`.
 
--   **Record suppression**: Remove an entire participant's data if their combination of attributes is so unique that no other technique can adequately protect them.
+- **Record suppression**: Remove an entire participant's data if their combination of attributes is so unique that no other technique can adequately protect them.
 
--   **Variable suppression**: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case—we already did this in [the chapter on personal data](../foundations/personal-data).
+- **Variable suppression**: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case—we already did this in [the chapter on personal data](../foundations/personal-data).
 
 **Example**: Replacing credit card number values with XXX. In the credit card example, the application of the character masking technique can be *partial*, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.
 
@@ -109,15 +113,15 @@ Sampling is most relevant for administrative datasets and registers. For typical
 
 Pros:
 
--   original data values are preserved (no distortion of statistics within remaining cells)
--   straightforward to implement and explain
--   easy to document
+- original data values are preserved (no distortion of statistics within remaining cells)
+- straightforward to implement and explain
+- easy to document
 
 Cons:
 
--   information is lost (removed or coarsened)
--   heavy suppression can make the dataset hard to use
--   may not be sufficient on its own for high-risk data
+- information is lost (removed or coarsened)
+- heavy suppression can make the dataset hard to use
+- may not be sufficient on its own for high-risk data
 
 ## Exercise: Applying Non-Perturbative Techniques
 
@@ -125,9 +129,9 @@ In this exercise, you will apply non-perturbative techniques to the data to redu
 
 The following `sdcMicro` functions are available to you:
 
--   `globalRecode()` recodes a key variable into broader groups (e.g., exact age → age band)
--   `topBotCoding()` caps extreme values at a given threshold
--   `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
+- `globalRecode()` recodes a key variable into broader groups (e.g., exact age → age band)
+- `topBotCoding()` caps extreme values at a given threshold
+- `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
 
 In addition, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from the R pakage `forcats`. This function lumps all categories below a certain group size together.
 
@@ -236,11 +240,11 @@ print(sdc_nonpert, type = "risk")
 With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymity. Only 29 entries remain, that violate 5-anonymity. To me, this is enough protection on k-anonymity, while still preserving most of utility, especially on the most interesting variables.
 :::
 
-## Further Anonymization Steps Using Perturbative Techniques
+## Further Anonymization Steps Using Non-Perturbative Techniques
 
-Now that the categorical key variables are in their final state, I applied **top-coding** to the continuous key variables income and years in job.
+Now that the categorical key variables are in their final state, I apply **top-coding** to the continuous key variables `income` and `years_in_job`.
 
-My goal with income is to protect the few individuals with a very high income. I start by inspecting the distribution:
+For income, my goal is to protect the few individuals who earn a lot more than the rest. I start by inspecting the distribution:
 
 ```{r}
 # Inspect the income distribution
@@ -251,7 +255,7 @@ ggplot(data_withoutdirectidentifiers, aes(y = income)) +
   theme_minimal()
 ```
 
-I see a few extreme outliers above 400 000 €. Choosing the 95th percentile at `r quantile(data_withoutdirectidentifiers$income, 0.95)`€ cuts these off. I'll use `topBotCoding()` and set the value at the 95th percentile, replacing those values with that one.
+The boxplot shows a few extreme outliers above 400 000 €. The 95th percentile, at `r quantile(data_withoutdirectidentifiers$income, 0.95)` €, cuts these off. `topBotCoding()` takes two arguments for this: `value` sets the threshold, and `replacement` the value written in its place. I set both to the 95th percentile, so every income above it is reported as exactly that amount.
 
 ```{r}
 # Top-code income at the 95th percentile
@@ -267,7 +271,7 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-For **years in job**, I start by familiarizing myself with the data:
+For **years in job**, I again start by looking at the distribution:
 
 ```{r}
 # Inspect the years_in_job distribution
@@ -278,7 +282,7 @@ ggplot(data_withoutdirectidentifiers, aes(y = years_in_job)) +
   theme_minimal()
 ```
 
-Based on the visualization, I decide to use 15 as a cut-off value, as this cuts off the extreme values.
+Based on the boxplot, I set the cut-off at 15 years, which trims the upper tail.
 
 ```{r}
 # Top-code years_in_job at 15
@@ -294,7 +298,19 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-These techniques reduce the disclosure risk to up to 92% compared to the original data.
+::: {#top-coding-labels .callout-warning collapse="false"}
+### Labelling Top-Coded Values
+
+There is a difference between the implementation here and the examples at the top of this page: there, the capped values were labelled "\>60" or "4+". Here, nothing in the cell itself shows that a value has been capped, so someone re-using the data could read a capped income as an exact one.
+
+There are two ways to prevent this:
+
+- **Document it in the codebook**: state which variables were top- or bottom-coded and at which threshold. The variable stays numeric and can be analyzed as usual.
+
+- **Mark it in the data**, e.g. as "\>60" or "4+". This is unmistakable, but turns the variable into text and makes further analysis more work.
+:::
+
+Together, these steps bring the disclosure risk down to a maximum of 92%, compared to the original data.
 
 Finally, I save the `sdcObject`.
 
