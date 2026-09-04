@@ -105,7 +105,7 @@ The inclusion of groups (e.g., school classes, partnerships, households) that sh
 
 ## K-Anonymity
 
-K-anonymity is the most widely used concept for measuring re-identification risk in quantitative research datasets, and it will be our primary tool for assessing risk throughout this tutorial.
+K-anonymity is the most widely used concept for measuring re-identification risk in quantitative research datasets, and it will be our primary tool for assessing risk throughout this tutorial. It is not anchored within the GDPR, but rather a useful heuristic for achieving the necessary anonymization.
 
 ### Origin
 

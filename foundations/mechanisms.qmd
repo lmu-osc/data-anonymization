@@ -75,7 +75,11 @@ PbD is primarily targeted at software products and less at research projects. Ne
 
 Informed consent is both an **ethical and** (often) **a legal requirement**. Under the GDPR, consent is one possible legal basis for processing personal data (Art. 6(1)(a)). In any case, independent of the legal basis, participants have the **right to be informed** about how their data will be used at the point of collection.
 
-In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. Also, mention what rights participants have and who they can contact in case of issues. If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed. It is also helpful to tell participants about the intended level of anonymization and what it means for them (e.g., plausible deniability).
+In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. Also, mention what rights participants have and who they can contact in case of issues. In accordance with the GDPR, it is okay to specify the purposes of data collection *broadly*, allowing participants to consent to areas of research instead of a specific purpose of one study (Recital 33). 
+
+If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed. It is also helpful to tell participants about the intended level of anonymization and what it means for them (e.g., plausible deniability).
+
+Consent needs to be **freely given** (Art. 4(11)); this can be tricky in research, when mixed with a power imbalance between the researcher and participant, as it may be the case when collecting data of students or patients. In that case, consent may be invalid as a legal basis for processing of data and relying on another basis is the best way (e.g., processing in the public interest, Art. 6 (1)(e)); your institution's DPO can advise you on this. 
 
 Consent forms are often not read or not understood, which is why consent alone is **not** a **sufficient** data protection mechanism.
 
@@ -148,6 +152,8 @@ The bulk of this tutorial is dedicated to teaching you these techniques and help
 | **Is it still personal data?** | Yes | No |
 | **Does GDPR apply?** | Yes | No |
 
+Importantly, this judgement is always relative to the context of sharing; as long as any person with access can re-identify the data, it is *not* anonymous! 
+
 ### Data Subject Rights
 
 Even during processing and analysis, participants retain their rights under the GDPR. The most relevant ones for this stage are:
@@ -178,7 +184,7 @@ The council publishes aggregated statistics on recycling behavior, showing how m
 ::: {.callout-important collapse="true"}
 ### Solution
 
-**Anonymized**—the data is aggregated, no individuals can be singled out.
+**Anonymized**—assuming big enough clusters of households, the data is aggregated and no individuals can be singled out.
 :::
 
 #### Scenario 3: Fitness Tracker Data
