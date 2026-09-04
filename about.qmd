@@ -44,7 +44,7 @@ google-scholar: true
 
 This site was authored by Luisa Jansen, and edits/contributions were made by Johanna Bayer, Malika Ihle, and Felix Schönbrodt.
 
-The tutorial was kindly reviewed by Christian Sillaber and François-Xavier Wicht.
+The tutorial was kindly reviewed by Christian Sillaber, François-Xavier Wicht, and Beth Clarke.
 
 ## Licenses
 
