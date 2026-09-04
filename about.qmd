@@ -44,8 +44,7 @@ google-scholar: true
 
 This site was authored by Luisa Jansen, and edits/contributions were made by Johanna Bayer, Malika Ihle, and Felix Schönbrodt.
 
-The legal sections were kindly reviewed by Christian Sillaber.
-François-Xavier Wicht reviewed the descriptions of the randomized response technique and differential privacy.
+The tutorial was kindly reviewed by Christian Sillaber and François-Xavier Wicht.
 
 ## Licenses
 
