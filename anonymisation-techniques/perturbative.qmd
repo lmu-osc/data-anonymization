@@ -160,14 +160,14 @@ As we can see in the output of the `sdcObject`, the disclosure risk is reduced f
 sdc_noise <- addNoise(
   obj    = sdc_nonpert,
   variables = "income",
-  noise  = 3.5          # noise level as fraction of SD
+  noise  = 3.5          # noise level as percentage of SD
 )
 
 print(sdc_noise, type = "risk")
 sdc_noise
 ```
 
-`addNoise` draws from a normal distribution with mean 0 and standard deviation = `noise × sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income. When `noise = 3.5`, we achieve a disclosure risk between 0% and 75.5%, instead of one between 0% and 100% that we started with.
+`addNoise` draws from a normal distribution with mean 0 and standard deviation = `noise × sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income. When `noise = 3.5`, we add up to 3.5% of income's standard deviation. In relation to the starting point, we achieve a disclosure risk between 0% and 75.5%.
 
 Let's save these objects for now. We will later come back to inspect the utility of both methods in [the chapter on balancing utility and privacy](../privacy-openness/balancing).
 
