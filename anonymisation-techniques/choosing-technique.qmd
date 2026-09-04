@@ -35,7 +35,7 @@ The **data type** determines which techniques are even applicable. For example, 
 
 To achieve k-anonymity, use non-perturbative techniques on categorial indirect identifiers. Most other techniques add additional levels of protection.
 
-**When in doubt, aim for k-anonymity.** It guards against the most basic risk—being singled out—and forms the backbone of any anonymization. The more elaborate methods that also protect the *sensitive* attribute itself (such as l-diversity, t-closeness, or anatomization) are only needed when an attacker could already know someone's sensitive value and use it to locate them. If the sensitive attribute is not something an attacker would plausibly know in advance, k-anonymity on the indirect identifiers is usually protection enough.
+**When in doubt, aim for k-anonymity.** It guards against the most basic risk—being singled out—and forms the backbone of any anonymization. The more elaborate methods that also protect the *sensitive* attribute itself (such as l-diversity, t-closeness, or anatomization) address what happens after an attacker has located someone's group through indirect identifiers: if everyone in that group shares the same sensitive value, k-anonymity does not stop the attacker from learning it. If the sensitive attribute is something an attacker would plausibly know in advance, treat the sensitive variable like any indirect identifier for k-anonymity applications.
 :::
 
 ## Exercise

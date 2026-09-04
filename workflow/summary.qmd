@@ -109,7 +109,7 @@ a.wf-title::after {
         <a href="../anonymisation-techniques/non-perturbative.html">non-perturbative</a>,
         <a href="../anonymisation-techniques/perturbative.html">perturbative</a>,
         <a href="../anonymisation-techniques/deassociative.html">de-associative</a>, or
-        <a href="../anonymisation-techniques/synthetic.html">synthetic</a>. In doubt, aim for k-anonymity: if attackers don't already know the sensitive attribute, it is usually protection enough.
+        <a href="../anonymisation-techniques/synthetic.html">synthetic</a>. In doubt, aim for k-anonymity.
       </span>
     </div>
   </div>
