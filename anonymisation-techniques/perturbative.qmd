@@ -9,7 +9,7 @@ execute:
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   Apply selected **perturbative techniques** in R.
+- Apply selected **perturbative techniques** in R.
 :::
 
 ```{r setup}
@@ -28,6 +28,24 @@ sdc_nonpert <- readRDS(here::here("sdc-nonpert.rds")) # Change based on the loca
 The core idea behind perturbative techniques is to introduce **controlled changes to data values**. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but **alter the values themselves**. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.
 
 In most cases, perturbation does not increase k-anonymity, since values are not generalized but instead just changed. Recall that k-anonymity counts how many records share the same combination of indirect identifiers. It only goes up when distinct values are collapsed into shared, broader categories, the way recoding or suppression does. Perturbation works differently: it swaps each value for another *specific* value rather than a broader category, so a record that was unique on its quasi-identifiers stays unique—it just carries different numbers. It may reshuffle which records look unusual, but it does not merge them into the larger shared groups that a higher k requires. On top of that, we typically perturb continuous variables such as income, which are not even part of the categorical key that k-anonymity is calculated on in the first place. Perturbation therefore adds another layer of protection—especially for continuous variables—rather than raising k-anonymity. Exemptions to this rule are microaggregation and rounding, that are perturbative, but also generalize data and therefore contribute to k-anonymity as well.
+
+::: {.callout-note collapse="false"}
+### Why Not Just Delete the Variable?
+
+Perturbation invites a fair objection: if the values you publish are not the real ones anymore, why keep the variable at all? Isn't deleting it more honest—and safer?
+
+The answer is that deletion and perturbation remove **different things**. Deleting a variable removes the information for everyone and for every purpose. Perturbation removes only the **precision** of individual values, which is usually where the risk sits, and keeps the structure that makes the variable worth having.
+
+Take `income` in our dataset. What makes a record identifiable is not that someone *has* an income—it is that one participant has exactly **€902,234.42**, more than seventeen times the sample median of about €52,000 and one of only three incomes above €110,000. Anyone who knows even vaguely that a particular participant is a top earner can pick that record out on sight. But almost no reuse of these data depends on that exact euro amount:
+
+- A colleague testing whether **income is related to political opinions** needs the association, not the individual values. After microaggregation or a modest amount of noise, the correlation and the regression coefficients stay close to those from the original data. With `income` deleted, this analysis is not possible at all.
+- A researcher **pooling your data with other studies** needs a comparable income variable. A slightly noisy one still merges; a missing one excludes your study from the pool.
+- Someone **checking your published results** needs to approximately reproduce your descriptives and models. A perturbed variable lets them get close; an absent one leaves nothing to check.
+
+`years_in_job` works the same way. The longest tenure in the sample is **32 years**, with the next-longest at 24—in a sample of 200, that makes a person very identifiable. But no plausible analysis needs "32" rather than "roughly 30, in the longest-tenure group." Deleting the variable would remove a legitimate predictor from every future analysis in order to protect a single record.
+
+This does not make perturbation the better choice by default. If a variable serves no plausible research purpose, **delete it**: data minimization comes first, and "we might need it someday" is not a reason to keep it. Perturbation is for the variables you actually do need.
+:::
 
 In this chapter, I will present a few perturbative techniques introduced in @Carvalho2023_SurveyPrivacyPreservingTechniques.
 
@@ -99,15 +117,15 @@ After applying any perturbative technique, you should compare key statistics (me
 
 Pros:
 
--   No records or variables are removed; the dataset stays complete.
--   Statistical properties like means, variances, and correlations can be largely preserved
--   Easy to tune the privacy-utility trade-off by adjusting the noise level or group size.
+- No records or variables are removed; the dataset stays complete.
+- Statistical properties like means, variances, and correlations can be largely preserved
+- Easy to tune the privacy-utility trade-off by adjusting the noise level or group size.
 
 Cons:
 
--   Individual values are no longer accurate. This makes perturbative techniques unsuitable if exact values matter—for example, if a researcher needs to verify that a specific participant had a specific income.
--   Risk of reverse-engineering: if the perturbation method and its parameters are known, an attacker may be able to approximately reconstruct the original values.
--   If applied too aggressively, perturbative techniques can distort subgroup statistics in ways that are hard to detect.
+- Individual values are no longer accurate. This makes perturbative techniques unsuitable if exact values matter—for example, if a researcher needs to verify that a specific participant had a specific income.
+- Risk of reverse-engineering: if the perturbation method and its parameters are known, an attacker may be able to approximately reconstruct the original values.
+- If applied too aggressively, perturbative techniques can distort subgroup statistics in ways that are hard to detect.
 
 ## Exercise: Applying Perturbative Techniques
 
@@ -176,6 +194,6 @@ saveRDS(sdc_noise, here::here("sdc-noise.rds"))
 ```
 :::
 
-Make sure never to publish the seed when you apply such methods. 
+Make sure never to publish the seed when you apply such methods.
 
 ## References
