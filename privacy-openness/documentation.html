@@ -85,9 +85,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-3c3f1368ed8db972a012dae01a8e5220.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1b5eaea64cccf5f2bea7f479051f272c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0263eb0704e1a60d2ddd91fea2fa9eac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-1b5eaea64cccf5f2bea7f479051f272c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0fd66a72018a63d913d6e27d7a0bd232.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -597,6 +597,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <ol type="1">
 <li>It provides an <strong>internal record for auditing</strong>—if questions arise later about how the data was handled, you can retrace every step.</li>
 <li>It provides transparency for <strong>data users</strong>, who need to understand what was changed in order to interpret the data correctly.</li>
+<li>It is, legally, an <strong>accountability obligation</strong>. Under the GDPR, the controller needs to be able to demonstrate compliance and an anonymization record is the core evidence for this.</li>
 </ol>
 </section>
 <section id="internal-documentation" class="level2">
@@ -1249,59 +1250,60 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>It provides an **internal record for auditing**—if questions arise later about how the data was handled, you can retrace every step.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>It provides transparency for **data users**, who need to understand what was changed in order to interpret the data correctly.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Internal Documentation</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Your internal documentation should describe the **full anonymization workflow**: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a **lab notebook** for your data processing. This document should be stored securely alongside the original data—it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). In our case, this is the full, well-commented **R script**.</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## External Documentation in Data Dictionary</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>The external documentation is what you **share alongside the anonymized dataset**. It should include a **data dictionary** describing every variable in the released dataset, including any changes from the original. For example, if <span class="in">`age`</span> was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values—for example, a line like <span class="in">`filter(country == "Liechtenstein")`</span> tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible. Also, make sure that you don't share a set seed within these scripts. </span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="false"}</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recommended Note for Your README</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>It is good practice to state upfront in your README or dataset metadata that the data has been anonymized. For example:</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; This dataset has been anonymized by removing or altering data, so results derived from it may differ slightly from those based on the original data. See the data dictionary for details on the modifications.</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Data Dictionary</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Make changes to the data dictionary from the <span class="co">[</span><span class="ot">landing page</span><span class="co">](../index.qmd)</span> in accordance with the anonymization steps you made in this tutorial.</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>The following variables were removed or modified during anonymization:</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variable Name <span class="pp">|</span> Status <span class="pp">|</span> Change <span class="pp">|</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------|------------------------|------------------------|</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`name`</span> <span class="pp">|</span> **Removed** <span class="pp">|</span> Direct identifier, dropped before release <span class="pp">|</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`email`</span> <span class="pp">|</span> **Removed** <span class="pp">|</span> Direct identifier, dropped before release <span class="pp">|</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`ip_address`</span> <span class="pp">|</span> **Removed** <span class="pp">|</span> Direct identifier, dropped before release <span class="pp">|</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`id`</span> <span class="pp">|</span> Unchanged <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`age`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Recoded from exact age in years (Integer; 18-100) to age band (Factor; "18-29", "30-39", "40-49", "50-59", "60+") <span class="pp">|</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`plz`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Recoded from full 5-digit postal code to regional indicator (Factor; "8xxxx" for Munich/southwest German region, "other" for all other codes); local suppression of 2 values that violate 3-anonymity <span class="pp">|</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`religion`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Categories with fewer than 10 observations merged into "Other" (Factor; "Catholicism", "Protestantism", "Islam", "None", "Other") <span class="pp">|</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`income`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Values replaced with group means via microaggregation; individual values no longer correspond to original responses (Integer) <span class="pp">|</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`years_in_job`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Values replaced with group means via microaggregation; individual values no longer correspond to original responses (Integer) <span class="pp">|</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`gender`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Local suppression of 6 values that violate 3-anonymity <span class="pp">|</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`education`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Local suppression of 40 values that violate 3-anonymity <span class="pp">|</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pol_immigration`</span> <span class="pp">|</span> Unchanged <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pol_environment`</span> <span class="pp">|</span> Unchanged <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pol_redistribution`</span> <span class="pp">|</span> Unchanged <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pol_eu_integration`</span> <span class="pp">|</span> Unchanged <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Note that the anonymization script used to produce this dataset is available alongside the data. Be aware that scripts themselves can reveal information about the original data (e.g., thresholds used for top-coding, or country names referenced in recoding steps). The released script uses generic category labels where possible to avoid this.</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources, Links, Examples</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Learn how to create a data dictionary in R with a dedicated tutorial: <span class="co">[</span><span class="ot">OSC tutorial on data validation and documentation</span><span class="co">](https://lmu-osc.github.io/data-documentation-validation-R/)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>It is, legally, an **accountability obligation**. Under the GDPR, the controller needs to be able to demonstrate compliance and an anonymization record is the core evidence for this.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Internal Documentation</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Your internal documentation should describe the **full anonymization workflow**: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a **lab notebook** for your data processing. This document should be stored securely alongside the original data—it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). In our case, this is the full, well-commented **R script**.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## External Documentation in Data Dictionary</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>The external documentation is what you **share alongside the anonymized dataset**. It should include a **data dictionary** describing every variable in the released dataset, including any changes from the original. For example, if <span class="in">`age`</span> was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values—for example, a line like <span class="in">`filter(country == "Liechtenstein")`</span> tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible. Also, make sure that you don't share a set seed within these scripts. </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="false"}</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recommended Note for Your README</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>It is good practice to state upfront in your README or dataset metadata that the data has been anonymized. For example:</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; This dataset has been anonymized by removing or altering data, so results derived from it may differ slightly from those based on the original data. See the data dictionary for details on the modifications.</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Data Dictionary</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Make changes to the data dictionary from the <span class="co">[</span><span class="ot">landing page</span><span class="co">](../index.qmd)</span> in accordance with the anonymization steps you made in this tutorial.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>The following variables were removed or modified during anonymization:</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variable Name <span class="pp">|</span> Status <span class="pp">|</span> Change <span class="pp">|</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------|------------------------|------------------------|</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`name`</span> <span class="pp">|</span> **Removed** <span class="pp">|</span> Direct identifier, dropped before release <span class="pp">|</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`email`</span> <span class="pp">|</span> **Removed** <span class="pp">|</span> Direct identifier, dropped before release <span class="pp">|</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`ip_address`</span> <span class="pp">|</span> **Removed** <span class="pp">|</span> Direct identifier, dropped before release <span class="pp">|</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`id`</span> <span class="pp">|</span> Unchanged <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`age`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Recoded from exact age in years (Integer; 18-100) to age band (Factor; "18-29", "30-39", "40-49", "50-59", "60+") <span class="pp">|</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`plz`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Recoded from full 5-digit postal code to regional indicator (Factor; "8xxxx" for Munich/southwest German region, "other" for all other codes); local suppression of 2 values that violate 3-anonymity <span class="pp">|</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`religion`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Categories with fewer than 10 observations merged into "Other" (Factor; "Catholicism", "Protestantism", "Islam", "None", "Other") <span class="pp">|</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`income`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Values replaced with group means via microaggregation; individual values no longer correspond to original responses (Integer) <span class="pp">|</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`years_in_job`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Values replaced with group means via microaggregation; individual values no longer correspond to original responses (Integer) <span class="pp">|</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`gender`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Local suppression of 6 values that violate 3-anonymity <span class="pp">|</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`education`</span> <span class="pp">|</span> **Modified** <span class="pp">|</span> Local suppression of 40 values that violate 3-anonymity <span class="pp">|</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pol_immigration`</span> <span class="pp">|</span> Unchanged <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pol_environment`</span> <span class="pp">|</span> Unchanged <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pol_redistribution`</span> <span class="pp">|</span> Unchanged <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pol_eu_integration`</span> <span class="pp">|</span> Unchanged <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>Note that the anonymization script used to produce this dataset is available alongside the data. Be aware that scripts themselves can reveal information about the original data (e.g., thresholds used for top-coding, or country names referenced in recoding steps). The released script uses generic category labels where possible to avoid this.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources, Links, Examples</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>Learn how to create a data dictionary in R with a dedicated tutorial: <span class="co">[</span><span class="ot">OSC tutorial on data validation and documentation</span><span class="co">](https://lmu-osc.github.io/data-documentation-validation-R/)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

@@ -100,9 +100,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-3c3f1368ed8db972a012dae01a8e5220.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1b5eaea64cccf5f2bea7f479051f272c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0263eb0704e1a60d2ddd91fea2fa9eac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-1b5eaea64cccf5f2bea7f479051f272c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0fd66a72018a63d913d6e27d7a0bd232.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -532,9 +532,8 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><ul>
 <li><a href="#special-types-of-personal-data" id="toc-special-types-of-personal-data" class="nav-link active" data-scroll-target="#special-types-of-personal-data">Special Types of Personal Data</a></li>
-  <li><a href="#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories" id="toc-exercise-1-direct-identifiers-indirect-identifiers-and-special-categories" class="nav-link" data-scroll-target="#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories">Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories</a></li>
   <li>
-<a href="#a-default-workflow-for-handling-identifiers" id="toc-a-default-workflow-for-handling-identifiers" class="nav-link" data-scroll-target="#a-default-workflow-for-handling-identifiers">A Default Workflow for Handling Identifiers</a>
+<a href="#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories" id="toc-exercise-1-direct-identifiers-indirect-identifiers-and-special-categories" class="nav-link" data-scroll-target="#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories">Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories</a>
   <ul class="collapse">
 <li><a href="#exercise-remove-direct-identifiers" id="toc-exercise-remove-direct-identifiers" class="nav-link" data-scroll-target="#exercise-remove-direct-identifiers">Exercise: Remove Direct Identifiers</a></li>
   <li><a href="#resources-links-examples" id="toc-resources-links-examples" class="nav-link" data-scroll-target="#resources-links-examples">Resources, Links, Examples</a></li>
@@ -599,6 +598,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <li><p>health data,</p></li>
 <li><p>and data concerning a natural person’s sex life or sexual orientation.</p></li>
 </ul>
+<p>These data are treated differently by GDPR: By default, their processing is prohibited (Art. 9(1)), and, only when an exemption applies, allowed—for example, when processing is necessary for scientific purposes (Art. 9(2)(j)) and special saefeguards are in place (see <a href="1_4_Mechanisms">the chapter on mechanisms of data protection</a>).</p>
 <p>In practice, this means you need to be <strong>extra careful</strong> with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.</p>
 <p><strong>Information on criminal convictions and offences</strong> is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution’s data protection officer.</p>
 </section><section id="exercise-1-direct-identifiers-indirect-identifiers-and-special-categories" class="level2"><h2 class="anchored" data-anchor-id="exercise-1-direct-identifiers-indirect-identifiers-and-special-categories">Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories</h2>
@@ -798,8 +798,6 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </section>
 </div>
 </div>
-<!-- Moved this into a separate heading - this seems to be too important to "hide" it below an exercise -->
-</section><section id="a-default-workflow-for-handling-identifiers" class="level2"><h2 class="anchored" data-anchor-id="a-default-workflow-for-handling-identifiers">A Default Workflow for Handling Identifiers</h2>
 <p>It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to <strong>remove the direct identifiers</strong> as soon as you don’t need them anymore. I would recommend performing this step on <em>any</em> existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:</p>
 <div id="default-workflow" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
@@ -1463,195 +1461,194 @@ Van Ravenzwaaij, Don, Marlon De Jong, Rink Hoekstra, et al. 2025. <span>“De-Id
 <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>and data concerning a natural person's sex life or sexual orientation.</span>
 <span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>In practice, this means you need to be **extra careful** with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>These data are treated differently by GDPR: By default, their processing is prohibited (Art. 9(1)), and, only when an exemption applies, allowed—for example, when processing is necessary for scientific purposes (Art. 9(2)(j)) and special saefeguards are in place (see <span class="co">[</span><span class="ot">the chapter on mechanisms of data protection</span><span class="co">](1_4_Mechanisms)</span>).</span>
 <span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>**Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>In practice, this means you need to be **extra careful** with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.</span>
 <span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>**Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.</span>
 <span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>In this first exercise, we work with **our dataset**—the simulated dataset of 200 Germans introduced on the <span class="co">[</span><span class="ot">landing page</span><span class="co">](../index.qmd)</span>, whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories</span></span>
 <span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: data-setup</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset downloaded from the landing page</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"simulated-data.csv"</span>)) <span class="co"># Change based on the location of your data file</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Dictionary</span></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variable Name      <span class="pp">|</span> Description                                                          <span class="pp">|</span> Item Text                                                                              <span class="pp">|</span> Values                                                                                                               <span class="pp">|</span></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="pp">| ------------------</span> <span class="pp">| --------------------------------------------------------------------</span> <span class="pp">| --------------------------------------------------------------------------------------</span> <span class="pp">| --------------------------------------------------------------------------------------------------------------------</span> <span class="pp">|</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> id                 <span class="pp">|</span> Number assigned to each participant in order of participation        <span class="pp">|</span> (assigned in background)                                                               <span class="pp">|</span> Integer; 1-200                                                                                                       <span class="pp">|</span></span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> name               <span class="pp">|</span> First and last name of participant                                   <span class="pp">|</span> Please indicate your full name (first and last name)                                   <span class="pp">|</span> String of characters                                                                                                 <span class="pp">|</span></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> email              <span class="pp">|</span> Email address of participant                                         <span class="pp">|</span> What is your e-mail address?                                                           <span class="pp">|</span> String of characters                                                                                                 <span class="pp">|</span></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> plz                <span class="pp">|</span> German postal code                                                   <span class="pp">|</span> What is your postal code?                                                              <span class="pp">|</span> String of characters                                                                                                 <span class="pp">|</span></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> gender             <span class="pp">|</span> Gender of participant                                                <span class="pp">|</span> What is your gender?                                                                   <span class="pp">|</span> Factor; "male"/"female"/"non-binary"                                                                                 <span class="pp">|</span></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> age                <span class="pp">|</span> Age of participant in years                                          <span class="pp">|</span> What is your age in years?                                                             <span class="pp">|</span> Integer; 18-100                                                                                                      <span class="pp">|</span></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> income             <span class="pp">|</span> Personal annual income in Euros                                      <span class="pp">|</span> What was your income over the last twelve months                                       <span class="pp">|</span> Integer                                                                                                              <span class="pp">|</span></span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> religion           <span class="pp">|</span> Religion of participant                                              <span class="pp">|</span> What is your religion?                                                                 <span class="pp">|</span> Factor; "Catholicism","Protestantism","Islam","Eastern Orthodoxy","Judaism", "Buddhism", "Hinduism", "Other", "None" <span class="pp">|</span></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> education          <span class="pp">|</span> Highest degree of education                                          <span class="pp">|</span> What is your highest degree of education?                                              <span class="pp">|</span> Factor; "no degree","trade school","high school", "university","doctoral title"                                      <span class="pp">|</span></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> pol_immigration    <span class="pp">|</span> Likert item measuring opinion on immigration                         <span class="pp">|</span> The government should limit immigration more strictly than it currently does.          <span class="pp">|</span> Integer; 1-5                                                                                                         <span class="pp">|</span></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> pol_environment    <span class="pp">|</span> Likert item measuring opinion on environment                         <span class="pp">|</span> Protecting the environment should be a top priority, even if it slows economic growth. <span class="pp">|</span> Integer; 1-5                                                                                                         <span class="pp">|</span></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> pol_redistribution <span class="pp">|</span> Likert item measuring opinion on redistribution of wealth            <span class="pp">|</span> The government should reduce income differences between rich and poor.                 <span class="pp">|</span> Integer; 1-5                                                                                                         <span class="pp">|</span></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> pol_eu_integration <span class="pp">|</span> Likert item measuring opinion on membership in EU                    <span class="pp">|</span> Our country benefits from being a member of the European Union.                        <span class="pp">|</span> Integer; 1-5                                                                                                         <span class="pp">|</span></span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ip_address         <span class="pp">|</span> IP address (version 4) of participant's device when answering survey <span class="pp">|</span> (collected in background)                                                              <span class="pp">|</span> String of characters                                                                                                 <span class="pp">|</span></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> years_in_job       <span class="pp">|</span> Number of years the participant has been in their current job        <span class="pp">|</span> How many years have you been in your current job?                                      <span class="pp">|</span> Integer; 0-n                                                                                                         <span class="pp">|</span></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>Now inspect the dataset <span class="in">`data`</span>. Answer the following questions:</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>In this first exercise, we work with **our dataset**—the simulated dataset of 200 Germans introduced on the <span class="co">[</span><span class="ot">landing page</span><span class="co">](../index.qmd)</span>, whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: data-setup</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset downloaded from the landing page</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"simulated-data.csv"</span>)) <span class="co"># Change based on the location of your data file</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Dictionary</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variable Name      <span class="pp">|</span> Description                                                          <span class="pp">|</span> Item Text                                                                              <span class="pp">|</span> Values                                                                                                               <span class="pp">|</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="pp">| ------------------</span> <span class="pp">| --------------------------------------------------------------------</span> <span class="pp">| --------------------------------------------------------------------------------------</span> <span class="pp">| --------------------------------------------------------------------------------------------------------------------</span> <span class="pp">|</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> id                 <span class="pp">|</span> Number assigned to each participant in order of participation        <span class="pp">|</span> (assigned in background)                                                               <span class="pp">|</span> Integer; 1-200                                                                                                       <span class="pp">|</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> name               <span class="pp">|</span> First and last name of participant                                   <span class="pp">|</span> Please indicate your full name (first and last name)                                   <span class="pp">|</span> String of characters                                                                                                 <span class="pp">|</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> email              <span class="pp">|</span> Email address of participant                                         <span class="pp">|</span> What is your e-mail address?                                                           <span class="pp">|</span> String of characters                                                                                                 <span class="pp">|</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> plz                <span class="pp">|</span> German postal code                                                   <span class="pp">|</span> What is your postal code?                                                              <span class="pp">|</span> String of characters                                                                                                 <span class="pp">|</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> gender             <span class="pp">|</span> Gender of participant                                                <span class="pp">|</span> What is your gender?                                                                   <span class="pp">|</span> Factor; "male"/"female"/"non-binary"                                                                                 <span class="pp">|</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> age                <span class="pp">|</span> Age of participant in years                                          <span class="pp">|</span> What is your age in years?                                                             <span class="pp">|</span> Integer; 18-100                                                                                                      <span class="pp">|</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> income             <span class="pp">|</span> Personal annual income in Euros                                      <span class="pp">|</span> What was your income over the last twelve months                                       <span class="pp">|</span> Integer                                                                                                              <span class="pp">|</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> religion           <span class="pp">|</span> Religion of participant                                              <span class="pp">|</span> What is your religion?                                                                 <span class="pp">|</span> Factor; "Catholicism","Protestantism","Islam","Eastern Orthodoxy","Judaism", "Buddhism", "Hinduism", "Other", "None" <span class="pp">|</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> education          <span class="pp">|</span> Highest degree of education                                          <span class="pp">|</span> What is your highest degree of education?                                              <span class="pp">|</span> Factor; "no degree","trade school","high school", "university","doctoral title"                                      <span class="pp">|</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> pol_immigration    <span class="pp">|</span> Likert item measuring opinion on immigration                         <span class="pp">|</span> The government should limit immigration more strictly than it currently does.          <span class="pp">|</span> Integer; 1-5                                                                                                         <span class="pp">|</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> pol_environment    <span class="pp">|</span> Likert item measuring opinion on environment                         <span class="pp">|</span> Protecting the environment should be a top priority, even if it slows economic growth. <span class="pp">|</span> Integer; 1-5                                                                                                         <span class="pp">|</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> pol_redistribution <span class="pp">|</span> Likert item measuring opinion on redistribution of wealth            <span class="pp">|</span> The government should reduce income differences between rich and poor.                 <span class="pp">|</span> Integer; 1-5                                                                                                         <span class="pp">|</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> pol_eu_integration <span class="pp">|</span> Likert item measuring opinion on membership in EU                    <span class="pp">|</span> Our country benefits from being a member of the European Union.                        <span class="pp">|</span> Integer; 1-5                                                                                                         <span class="pp">|</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ip_address         <span class="pp">|</span> IP address (version 4) of participant's device when answering survey <span class="pp">|</span> (collected in background)                                                              <span class="pp">|</span> String of characters                                                                                                 <span class="pp">|</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> years_in_job       <span class="pp">|</span> Number of years the participant has been in their current job        <span class="pp">|</span> How many years have you been in your current job?                                      <span class="pp">|</span> Integer; 0-n                                                                                                         <span class="pp">|</span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>1<span class="sc">\.</span> Which columns contain **direct identifiers**?</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>Now inspect the dataset <span class="in">`data`</span>. Answer the following questions:</span>
 <span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Direct Identifiers: `name`, `email`, `ip_address`</span></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>1<span class="sc">\.</span> Which columns contain **direct identifiers**?</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
 <span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>**Name** is probably the most obvious identifier there is.</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Direct Identifiers: `name`, `email`, `ip_address`</span></span>
 <span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>**Email addresses** are considered direct identifiers since they often contain names and therefore, clearly specify certain individuals. However, even when not containing names, they can act as indirect identifiers by linking to an account or revealing a person's organization.</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>**Name** is probably the most obvious identifier there is.</span>
 <span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>**IP addresses** can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the Internet service provider <span class="co">[</span><span class="ot">@breyer2016</span><span class="co">]</span>. In a research context, they should be treated as direct identifiers.</span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>2<span class="sc">\.</span> Which columns contain **indirect identifiers**?</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>**Email addresses** are considered direct identifiers since they often contain names and therefore, clearly specify certain individuals. However, even when not containing names, they can act as indirect identifiers by linking to an account or revealing a person's organization.</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>**IP addresses** can be linked back to specific devices and, through Internet service providers, to individuals. The Court of Justice of the EU has ruled that even dynamic IP addresses can constitute personal data when the entity holding them has the legal means to obtain identifying information from the Internet service provider <span class="co">[</span><span class="ot">@breyer2016</span><span class="co">]</span>. In a research context, they should be treated as direct identifiers.</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Indirect Identifiers: `gender`, `age`, `education`, `income`, `plz`, `years_in_job`</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>2<span class="sc">\.</span> Which columns contain **indirect identifiers**?</span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
 <span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>**Gender**, **age**, **education**, **postal code**, **income**, and **years in job** are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be **linked** with each other or external knowledge. When an attacker knows of a person who participated in the study and, for instance, knows their education level, they could identify the person in the data.</span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>3<span class="sc">\.</span> Which columns contain **special categories of personal data** (= sensitive data)?</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Indirect Identifiers: `gender`, `age`, `education`, `income`, `plz`, `years_in_job`</span></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>**Gender**, **age**, **education**, **postal code**, **income**, and **years in job** are indirect identifiers, since they cannot lead to the identification of an individual on their own, but may be **linked** with each other or external knowledge. When an attacker knows of a person who participated in the study and, for instance, knows their education level, they could identify the person in the data.</span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Special Category Data: All `pol\_` Variables (Political Opinion), `religion`</span></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>3<span class="sc">\.</span> Which columns contain **special categories of personal data** (= sensitive data)?</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
 <span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>The <span class="in">`pol_immigration`</span>, <span class="in">`pol_environment`</span>, <span class="in">`pol_redistribution`</span>, and <span class="in">`pol_eu_integration`</span> variables capture **political opinions**, and `religion` captures **religious beliefs**. Both categories are explicitly listed as sensitive data under Art. 9 GDPR. These variables require **heightened protection** because their disclosure could lead to discrimination or other harm for the individuals involved.</span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>4<span class="sc">\.</span> Is there any column that does **not** contain personal data?</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Special Category Data: All `pol\_` Variables (Political Opinion), `religion`</span></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>The <span class="in">`pol_immigration`</span>, <span class="in">`pol_environment`</span>, <span class="in">`pol_redistribution`</span>, and <span class="in">`pol_eu_integration`</span> variables capture **political opinions**, and `religion` captures **religious beliefs**. Both categories are explicitly listed as sensitive data under Art. 9 GDPR. These variables require **heightened protection** because their disclosure could lead to discrimination or other harm for the individuals involved.</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Personal Data: All Columns Contain Personal Data.</span></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>4<span class="sc">\.</span> Is there any column that does **not** contain personal data?</span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
 <span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as <span class="in">`name`</span>) is possible, it is considered personal data, and GDPR applies.</span>
-<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Moved this into a separate heading - this seems to be too important to "hide" it below an exercise --&gt;</span></span>
-<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## A Default Workflow for Handling Identifiers</span></span>
-<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on *any* existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:</span>
-<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>::: {#default-workflow .callout-tip collapse="false"}</span>
-<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a><span class="fu">### A Default Workflow for Handling Identifiers</span></span>
-<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Download** the primary raw data from your collection tool.</span>
-<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Remove direct identifiers** as soon as you no longer need them—in *every* copy that exists (collection platform, cloud storage, collaborators' copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.</span>
-<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Remove the pseudonym key** using the same logic. If there are concrete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key—it is the safer option—but store it *separately* from the data, with restricted access and a defined deletion date.</span>
-<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Store a secure copy** of the data with direct identifiers and pseudonyms that are really needed, with read-only access, e.g., on your institution's password-protected server. Delete the primary raw data.</span>
-<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Remove all identifiers left in the data**, generating your working copy from the secure copy of the data with a script, so the cleaning step is reproducible and auditable. This data copy can still be non-anonymous, depending on the data left in the dataset.</span>
-<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Analyze, write, and share with collaborators** using this identifier-free working copy.</span>
-<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>**Anonymize** the data if needed, following the steps explained in this tutorial.</span>
-<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>**Publish the anonymized version** of the data.</span>
-<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a>block-beta</span>
-<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a>    columns <span class="dv">2</span></span>
-<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>A[<span class="ot">"</span><span class="st">Primary raw data</span><span class="ot">"</span>]</span>
-<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a>A1[<span class="ot">"</span><span class="st">Delete after processing</span><span class="ot">"</span>]</span>
-<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a>space:<span class="dv">2</span></span>
-<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a>B[<span class="ot">"</span><span class="st">Raw data with identifiers</span><span class="ot">"</span>]</span>
-<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a>B1[<span class="ot">"</span><span class="st">Store securely, read-only</span><span class="ot">"</span>]</span>
-<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>space:<span class="dv">2</span></span>
-<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>C[<span class="ot">"</span><span class="st">Raw data without identifiers (#quot;working copy#quot;;&lt;br&gt; still could be non-anonymous)</span><span class="ot">"</span>]</span>
-<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>C1[<span class="ot">"</span><span class="st">Use for analyses (read-only),&lt;br&gt;share with collaborators</span><span class="ot">"</span>]</span>
-<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a>space:<span class="dv">2</span></span>
-<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>D[<span class="ot">"</span><span class="st">Anonymous version</span><span class="ot">"</span>]</span>
-<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>D1[<span class="ot">"</span><span class="st">Share with public</span><span class="ot">"</span>]</span>
-<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>A --&gt; A1</span>
-<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a>B --&gt; B1</span>
-<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>C --&gt; C1</span>
-<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a>D --&gt; D1</span>
-<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>A -- <span class="ot">"</span><span class="st">Remove unneeded identifiers</span><span class="ot">"</span> --&gt; B</span>
-<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>B -- <span class="ot">"</span><span class="st">Remove all identifiers&lt;br&gt;and pseudonyms</span><span class="ot">"</span> --&gt; C</span>
-<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>C -- <span class="ot">"</span><span class="st">Anonymize</span><span class="ot">"</span> --&gt; D</span>
-<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a>style A1 fill:<span class="co">#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px</span></span>
-<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a>style B1 fill:<span class="co">#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px</span></span>
-<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>style C1 fill:<span class="co">#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px</span></span>
-<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>style D1 fill:<span class="co">#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px</span></span>
-<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning collapse="false"}</span>
-<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### Myth: "The Funder Wants the Full Raw Data"</span></span>
-<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a>It is a common misconception that funding agencies require you to archive the complete raw dataset *including* direct identifiers. In reality, they almost always want the **raw data *without* them**. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.</span>
-<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise: Remove Direct Identifiers</span></span>
-<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>Now, delete all direct identifiers from the dataset.</span>
-<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a>Any solution that deletes the name, email address, and IP address is correct. I use <span class="in">`tidyverse`</span> syntax:</span>
-<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: FALSE</span></span>
-<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: FALSE</span></span>
-<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove direct identifiers from the dataset</span></span>
-<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>name, <span class="sc">-</span>email, <span class="sc">-</span>ip_address)</span>
-<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a>Save the new file</span>
-<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset without direct identifiers</span></span>
-<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data_withoutdirectidentifiers, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"simulated-data-noidentifiers.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a>Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not "always delete immediately" but **"delete once the documented purpose is gone."** Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.</span>
-<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources, Links, Examples</span></span>
-<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In their tutorial, @VanRavenzwaaij2025_DeidentificationWhenMaking present example datasets and how to categorize variables into these categories.</span>
-<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Personal Data: All Columns Contain Personal Data.</span></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as <span class="in">`name`</span>) is possible, it is considered personal data, and GDPR applies.</span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on *any* existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:</span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>::: {#default-workflow .callout-tip collapse="false"}</span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a><span class="fu">### A Default Workflow for Handling Identifiers</span></span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Download** the primary raw data from your collection tool.</span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Remove direct identifiers** as soon as you no longer need them—in *every* copy that exists (collection platform, cloud storage, collaborators' copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.</span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Remove the pseudonym key** using the same logic. If there are concrete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key—it is the safer option—but store it *separately* from the data, with restricted access and a defined deletion date.</span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Store a secure copy** of the data with direct identifiers and pseudonyms that are really needed, with read-only access, e.g., on your institution's password-protected server. Delete the primary raw data.</span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Remove all identifiers left in the data**, generating your working copy from the secure copy of the data with a script, so the cleaning step is reproducible and auditable. This data copy can still be non-anonymous, depending on the data left in the dataset.</span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Analyze, write, and share with collaborators** using this identifier-free working copy.</span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>**Anonymize** the data if needed, following the steps explained in this tutorial.</span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>**Publish the anonymized version** of the data.</span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a>block-beta</span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a>    columns <span class="dv">2</span></span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a>A[<span class="ot">"</span><span class="st">Primary raw data</span><span class="ot">"</span>]</span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>A1[<span class="ot">"</span><span class="st">Delete after processing</span><span class="ot">"</span>]</span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a>space:<span class="dv">2</span></span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a>B[<span class="ot">"</span><span class="st">Raw data with identifiers</span><span class="ot">"</span>]</span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a>B1[<span class="ot">"</span><span class="st">Store securely, read-only</span><span class="ot">"</span>]</span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a>space:<span class="dv">2</span></span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a>C[<span class="ot">"</span><span class="st">Raw data without identifiers (#quot;working copy#quot;;&lt;br&gt; still could be non-anonymous)</span><span class="ot">"</span>]</span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>C1[<span class="ot">"</span><span class="st">Use for analyses (read-only),&lt;br&gt;share with collaborators</span><span class="ot">"</span>]</span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>space:<span class="dv">2</span></span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>D[<span class="ot">"</span><span class="st">Anonymous version</span><span class="ot">"</span>]</span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>D1[<span class="ot">"</span><span class="st">Share with public</span><span class="ot">"</span>]</span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>A --&gt; A1</span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>B --&gt; B1</span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a>C --&gt; C1</span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>D --&gt; D1</span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a>A -- <span class="ot">"</span><span class="st">Remove unneeded identifiers</span><span class="ot">"</span> --&gt; B</span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>B -- <span class="ot">"</span><span class="st">Remove all identifiers&lt;br&gt;and pseudonyms</span><span class="ot">"</span> --&gt; C</span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>C -- <span class="ot">"</span><span class="st">Anonymize</span><span class="ot">"</span> --&gt; D</span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>style A1 fill:<span class="co">#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px</span></span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a>style B1 fill:<span class="co">#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px</span></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a>style C1 fill:<span class="co">#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px</span></span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>style D1 fill:<span class="co">#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px</span></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning collapse="false"}</span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a><span class="fu">### Myth: "The Funder Wants the Full Raw Data"</span></span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a>It is a common misconception that funding agencies require you to archive the complete raw dataset *including* direct identifiers. In reality, they almost always want the **raw data *without* them**. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.</span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise: Remove Direct Identifiers</span></span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a>Now, delete all direct identifiers from the dataset.</span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>Any solution that deletes the name, email address, and IP address is correct. I use <span class="in">`tidyverse`</span> syntax:</span>
+<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: FALSE</span></span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: FALSE</span></span>
+<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove direct identifiers from the dataset</span></span>
+<span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>name, <span class="sc">-</span>email, <span class="sc">-</span>ip_address)</span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a>Save the new file</span>
+<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset without direct identifiers</span></span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data_withoutdirectidentifiers, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"simulated-data-noidentifiers.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a>Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not "always delete immediately" but **"delete once the documented purpose is gone."** Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.</span>
+<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources, Links, Examples</span></span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In their tutorial, @VanRavenzwaaij2025_DeidentificationWhenMaking present example datasets and how to categorize variables into these categories.</span>
+<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

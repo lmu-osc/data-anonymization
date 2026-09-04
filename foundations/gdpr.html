@@ -104,9 +104,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-3c3f1368ed8db972a012dae01a8e5220.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1b5eaea64cccf5f2bea7f479051f272c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0263eb0704e1a60d2ddd91fea2fa9eac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-1b5eaea64cccf5f2bea7f479051f272c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0fd66a72018a63d913d6e27d7a0bd232.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -610,7 +610,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 </div>
-<p>The General Data Protection Regulation (GDPR), in German “Datenschutz-Grundverordnung” (DSGVO), is the <strong>central legal framework</strong> for the protection of personal data in the <strong>European Union</strong>. It came into force in 2018 and applies to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland. In general, it also applies to researchers and universities, regardless of where they are based <span class="citation" data-cites="jarmul2023">(<a href="#ref-jarmul2023" role="doc-biblioref">Jarmul 2023</a>)</span>.</p>
+<p>The General Data Protection Regulation (GDPR), in German “Datenschutz-Grundverordnung” (DSGVO), is the <strong>central legal framework</strong> for the protection of personal data in the <strong>European Union</strong>. It applies since May 2018, to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland (and, for the most part, in the UK). In general, it also applies to researchers and universities, regardless of where they are based <span class="citation" data-cites="jarmul2023">(<a href="#ref-jarmul2023" role="doc-biblioref">Jarmul 2023</a>)</span>.</p>
 <p>As a researcher of human data, you almost certainly process personal data, and the GDPR applies to you. Understanding its core concepts helps you navigate ethics board requirements, data management plans, and—most importantly for this tutorial—why and when you need to anonymize data.</p>
 <p>This chapter gives you a <strong>brief, research-focused overview</strong>. I am not going to cover everything the GDPR has to say, but will focus on the parts that matter most for your work.</p>
 <section id="key-concepts-for-researchers" class="level2">
@@ -663,7 +663,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>The person or organization that determines the purposes and means of processing personal data.</p>
-<p><strong>In research:</strong> This is typically the principal investigator (PI) or the research institution. If you design a study and decide what data to collect and why, you are the controller, and you carry the legal responsibility for data protection.</p>
+<p><strong>In research:</strong> This is typically the research institution, not you personally. Researchers are employed to do research, and when this includes data collection, the institution is, by extension, the controller and carries the legal responsibility, while the principal investigator (PI) carries operational responsibility in day-to-day research. This may differ, depending on contracts and exact projects, though. When you collaborate across different institutions, it gets more complicated: usually, this means that the involved institutions act as joint controllers (Art. 26), requiring them (or better: their DPOs) to allocate responsibilities between them within a written contract.</p>
 </div>
 </div>
 </div>
@@ -680,7 +680,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>A person or organization that processes personal data on behalf of the controller.</p>
-<p><strong>In research:</strong> If you use a third-party survey platform (like Qualtrics or SoSci Survey), a cloud storage provider, or a transcription service, these act as processors. You remain responsible for ensuring they handle data in compliance with the GDPR.</p>
+<p><strong>In research:</strong> If you use a third-party survey platform (like Qualtrics or SoSci Survey), a cloud storage provider, or a transcription service, these act as processors. The controller remains responsible for ensuring they handle data in compliance with the GDPR.</p>
 </div>
 </div>
 </div>
@@ -688,11 +688,11 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <section id="what-the-gdpr-means-for-your-research" class="level2">
 <h2 class="anchored" data-anchor-id="what-the-gdpr-means-for-your-research">What the GDPR Means for Your Research</h2>
 <p>There are a few GDPR principles and provisions that are particularly relevant to researchers:</p>
-<p><strong>Legal basis for processing.</strong> You need a legal basis to process personal data. In research, this is usually either <em>informed consent</em> (Art. 6(1)(a)) or <em>legitimate interest / public interest</em> (Art. 6(1)(e/f)). The GDPR sets strict requirements for what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in <a href="mechanisms">the chapter on mechanisms of data protection</a>.</p>
+<p><strong>Legal basis for processing.</strong> You need a legal basis to process personal data. In research, this is usually either <em>informed consent</em> (Art. 6(1)(a)) or <em>public interest</em> (Art. 6(1)(e)). The GDPR sets strict requirements for what counts as <em>informed</em> and <em>freely given</em> consent and what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in <a href="mechanisms">the chapter on mechanisms of data protection</a>.</p>
 <p><strong>Purpose limitation.</strong> Data may only be collected for specified, explicit purposes. In research, this means you should be clear about what your data will be used for, and if you want to re-use data for a new purpose, you may need to check whether this is covered by the original consent. Luckily, for research purposes, the laws are more lenient than for private companies.</p>
 <p><strong>Data minimization.</strong> You should only collect data that is necessary for your research purpose. Collecting “nice-to-have” demographics without a clear reason is not just bad practice—it may also be a GDPR issue. We discuss this more in <a href="mechanisms">the chapter on mechanisms of data protection</a>.</p>
 <p><strong>Storage limitation.</strong> Personal data should not be kept longer than necessary. For research, there are exceptions: data may be stored longer for archiving purposes in the public interest, scientific research, or statistical purposes (Art. 89), but this requires appropriate safeguards such as encryption and access control.</p>
-<p><strong>The research exemption (Art. 89).</strong> The GDPR acknowledges the importance of scientific research and provides some flexibility. For example, further processing of personal data for research purposes is generally considered compatible with the original purpose of collection.</p>
+<p><strong>Special position of research (Art. 5(1)(b)).</strong> The GDPR acknowledges the importance of scientific research and provides some flexibility. For example, further processing of personal data for research purposes is generally considered compatible with the original purpose of collection.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -724,7 +724,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>The GDPR applies to personal data. If data is <strong>truly anonymized</strong>—meaning individuals can no longer be identified, directly or indirectly—the GDPR no longer applies to that data. This is one of the main reasons why anonymization is so valuable for open data: it allows you to share data freely without the legal constraints of the GDPR.</p>
+<p>The GDPR applies to personal data. If data is <strong>truly anonymized</strong>—meaning individuals can no longer be identified, directly or indirectly—the GDPR no longer applies to that data. This is one of the main reasons why anonymization is so valuable for open data: it allows you to share data freely without the legal constraints of the GDPR. Notably, the process of anonymization also constitutes a <em>processing operation</em>, meaning the GDPR also applies at this stage.</p>
 <p>But be careful: <strong>pseudonymized</strong> data (e.g., replacing names with codes while keeping a key file) is still personal data under the GDPR. The regulation explicitly states this. We cover the distinction between anonymization and pseudonymization in <a href="mechanisms">the chapter on mechanisms of data protection</a>.</p>
 </div>
 </div>
@@ -736,7 +736,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <ul>
 <li><strong>Right to be informed:</strong> Participants must be told how their data is used; this is typically covered in your consent form.</li>
 <li><strong>Right to access:</strong> Participants can request to see what data you hold about them.</li>
-<li><strong>Right to erasure:</strong> Participants can request that their data be deleted, though exceptions apply for research in the public interest.</li>
+<li><strong>Right to erasure:</strong> Participants can request that their data be deleted, though some exceptions apply for research in the public interest.</li>
 <li><strong>Right to withdraw consent:</strong> Participants can withdraw their consent at any time, and you must be able to honor that request (which is easier if your data is well-organized and pseudonymized, so you can find and remove specific records).</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1266,10 +1266,10 @@ Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. 1st ed. O’Reilly Med
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objective</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After completing this part of the tutorial, you will have an overview of the legal obligations when collecting and processing personal data according to the GDPR.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>After completing this part of the tutorial, you will have an overview of the legal obligations when collecting and processing personal data according to the GDPR.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>The General Data Protection Regulation (GDPR), in German "Datenschutz-Grundverordnung" (DSGVO), is the **central legal framework** for the protection of personal data in the **European Union**. It came into force in 2018 and applies to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland. In general, it also applies to researchers and universities, regardless of where they are based <span class="co">[</span><span class="ot">@jarmul2023</span><span class="co">]</span>.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>The General Data Protection Regulation (GDPR), in German "Datenschutz-Grundverordnung" (DSGVO), is the **central legal framework** for the protection of personal data in the **European Union**. It applies since May 2018, to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland (and, for the most part, in the UK). In general, it also applies to researchers and universities, regardless of where they are based <span class="co">[</span><span class="ot">@jarmul2023</span><span class="co">]</span>.</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>As a researcher of human data, you almost certainly process personal data, and the GDPR applies to you. Understanding its core concepts helps you navigate ethics board requirements, data management plans, and—most importantly for this tutorial—why and when you need to anonymize data.</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
@@ -1300,7 +1300,7 @@ Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. 1st ed. O’Reilly Med
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>The person or organization that determines the purposes and means of processing personal data.</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**In research:** This is typically the principal investigator (PI) or the research institution. If you design a study and decide what data to collect and why, you are the controller, and you carry the legal responsibility for data protection.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**In research:** This is typically the research institution, not you personally. Researchers are employed to do research, and when this includes data collection, the institution is, by extension, the controller and carries the legal responsibility, while the principal investigator (PI) carries operational responsibility in day-to-day research. This may differ, depending on contracts and exact projects, though. When you collaborate across different institutions, it gets more complicated: usually, this means that the involved institutions act as joint controllers (Art. 26), requiring them (or better: their DPOs) to allocate responsibilities between them within a written contract.</span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning collapse="false"}</span>
@@ -1308,14 +1308,14 @@ Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. 1st ed. O’Reilly Med
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>A person or organization that processes personal data on behalf of the controller.</span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>**In research:** If you use a third-party survey platform (like Qualtrics or SoSci Survey), a cloud storage provider, or a transcription service, these act as processors. You remain responsible for ensuring they handle data in compliance with the GDPR.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>**In research:** If you use a third-party survey platform (like Qualtrics or SoSci Survey), a cloud storage provider, or a transcription service, these act as processors. The controller remains responsible for ensuring they handle data in compliance with the GDPR.</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## What the GDPR Means for Your Research</span></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>There are a few GDPR principles and provisions that are particularly relevant to researchers:</span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *legitimate interest / public interest* (Art. 6(1)(e/f)). The GDPR sets strict requirements for what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in <span class="co">[</span><span class="ot">the chapter on mechanisms of data protection</span><span class="co">](mechanisms)</span>.</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *public interest* (Art. 6(1)(e)). The GDPR sets strict requirements for what counts as *informed* and *freely given* consent and what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in <span class="co">[</span><span class="ot">the chapter on mechanisms of data protection</span><span class="co">](mechanisms)</span>.</span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>**Purpose limitation.** Data may only be collected for specified, explicit purposes. In research, this means you should be clear about what your data will be used for, and if you want to re-use data for a new purpose, you may need to check whether this is covered by the original consent. Luckily, for research purposes, the laws are more lenient than for private companies.</span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
@@ -1323,7 +1323,7 @@ Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. 1st ed. O’Reilly Med
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>**Storage limitation.** Personal data should not be kept longer than necessary. For research, there are exceptions: data may be stored longer for archiving purposes in the public interest, scientific research, or statistical purposes (Art. 89), but this requires appropriate safeguards such as encryption and access control.</span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>**The research exemption (Art. 89).** The GDPR acknowledges the importance of scientific research and provides some flexibility. For example, further processing of personal data for research purposes is generally considered compatible with the original purpose of collection.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>**Special position of research (Art. 5(1)(b)).** The GDPR acknowledges the importance of scientific research and provides some flexibility. For example, further processing of personal data for research purposes is generally considered compatible with the original purpose of collection.</span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Germany and Bavaria: Local Laws</span></span>
@@ -1340,7 +1340,7 @@ Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. 1st ed. O’Reilly Med
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning collapse="false"}</span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="fu">## When Does the GDPR Stop Applying?</span></span>
 <span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>The GDPR applies to personal data. If data is **truly anonymized**—meaning individuals can no longer be identified, directly or indirectly—the GDPR no longer applies to that data. This is one of the main reasons why anonymization is so valuable for open data: it allows you to share data freely without the legal constraints of the GDPR.</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>The GDPR applies to personal data. If data is **truly anonymized**—meaning individuals can no longer be identified, directly or indirectly—the GDPR no longer applies to that data. This is one of the main reasons why anonymization is so valuable for open data: it allows you to share data freely without the legal constraints of the GDPR. Notably, the process of anonymization also constitutes a *processing operation*, meaning the GDPR also applies at this stage.</span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>But be careful: **pseudonymized** data (e.g., replacing names with codes while keeping a key file) is still personal data under the GDPR. The regulation explicitly states this. We cover the distinction between anonymization and pseudonymization in <span class="co">[</span><span class="ot">the chapter on mechanisms of data protection</span><span class="co">](mechanisms)</span>.</span>
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>:::</span>
@@ -1349,10 +1349,10 @@ Jarmul, Katharine. 2023. <em>Practical Data Privacy</em>. 1st ed. O’Reilly Med
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>The GDPR grants individuals (including your research participants) several rights regarding their data. The most relevant ones for research are:</span>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Right to be informed:** Participants must be told how their data is used; this is typically covered in your consent form.</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Right to access:** Participants can request to see what data you hold about them.</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Right to erasure:** Participants can request that their data be deleted, though exceptions apply for research in the public interest.</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Right to withdraw consent:** Participants can withdraw their consent at any time, and you must be able to honor that request (which is easier if your data is well-organized and pseudonymized, so you can find and remove specific records).</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Right to be informed:** Participants must be told how their data is used; this is typically covered in your consent form.</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Right to access:** Participants can request to see what data you hold about them.</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Right to erasure:** Participants can request that their data be deleted, though some exceptions apply for research in the public interest.</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Right to withdraw consent:** Participants can withdraw their consent at any time, and you must be able to honor that request (which is easier if your data is well-organized and pseudonymized, so you can find and remove specific records).</span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="false"}</span>
 <span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practical Tip</span></span>
