@@ -56,11 +56,7 @@ A person or organization that processes personal data on behalf of the controlle
 
 There are a few GDPR principles and provisions that are particularly relevant to researchers:
 
-<<<<<<< HEAD:1_FOUNDATION/1_2_GDPR.qmd
-**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *public interest* (Art. 6(1)(e)). The GDPR sets strict requirements for what counts as *informed* and *freely given* consent and what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](1_4_Mechanisms).
-=======
-**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *legitimate interest / public interest* (Art. 6(1)(e/f)). The GDPR sets strict requirements for what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](mechanisms).
->>>>>>> origin/main:foundations/gdpr.qmd
+**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *public interest* (Art. 6(1)(e)). The GDPR sets strict requirements for what counts as *informed* and *freely given* consent and what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](mechanisms).
 
 **Purpose limitation.** Data may only be collected for specified, explicit purposes. In research, this means you should be clear about what your data will be used for, and if you want to re-use data for a new purpose, you may need to check whether this is covered by the original consent. Luckily, for research purposes, the laws are more lenient than for private companies.
 

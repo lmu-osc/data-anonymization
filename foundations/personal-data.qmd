@@ -133,13 +133,6 @@ The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_inte
 Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as `name`) is possible, it is considered personal data, and GDPR applies.
 :::
 
-<<<<<<< HEAD:1_FOUNDATION/1_3_Personal_Data.qmd
-# A Default Workflow for Handling Identifiers
-=======
-<!-- Moved this into a separate heading - this seems to be too important to "hide" it below an exercise -->
-## A Default Workflow for Handling Identifiers
->>>>>>> origin/main:foundations/personal-data.qmd
-
 It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on *any* existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:
 
 ::: {#default-workflow .callout-tip collapse="false"}
