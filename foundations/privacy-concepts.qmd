@@ -117,6 +117,8 @@ A dataset satisfies **k-anonymity** if, for every combination of indirect identi
 - If **k = 5**, every individual shares their combination of indirect identifiers with at least 4 others, making re-identification much harder.
 - Higher values of *k* mean lower re-identification risk, but also potentially lower data utility (because more generalization or suppression is needed to achieve them as we will see later).
 
+On the level of the dataset, *k* is set by the **smallest** group: when all participants but one share their combination with at least one other person, and that one person is completely unique, the dataset's *k* is only 1, **not** *k = 2*.
+
 ::: {#reasonable-k .callout-warning collapse="false"}
 ### What Is a Reasonable Level of k-Anonymity?
 
