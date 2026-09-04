@@ -144,7 +144,7 @@ If an attacker knows that a 34-year-old woman living in 80331 is in the dataset,
 ::: {.callout-tip collapse="false"}
 ## How Unique Are You?
 
-Try this tool to find out how identifiable you are based on just a few demographic variables: [Individual Risk Explorer](https://aisp.doc.ic.ac.uk/individual-risk/). Using just gender, date of birth, and ZIP code, approximately 83% of the U.S. population can be uniquely identified.
+Try this tool to find out how identifiable you are based on just a few demographic variables: [Individual Risk Explorer](https://aisp.doc.ic.ac.uk/individual-risk/). Based on 2000 data, using just gender, date of birth, and ZIP code, approximately 63% of the U.S. population could be uniquely identified [@golle2006].
 :::
 
 ### Limitations of K-Anonymity
