@@ -18,7 +18,7 @@ execute:
 # Setup: load packages, data, and the saved sdcObject
 library(sdcMicro)
 library(tidyverse)
-set.seed(1)
+set.seed(1) # only so the numbers in this tutorial stay the same on every render; delete for a real application
 
 data_withoutidentifiers <- read.csv(here::here("simulated-data-noidentifiers.csv")) # Change based on the location of your data file
 
@@ -175,5 +175,7 @@ saveRDS(sdc_micro, here::here("sdc-micro.rds"))
 saveRDS(sdc_noise, here::here("sdc-noise.rds"))
 ```
 :::
+
+Make sure never to publish the seed when you apply such methods. 
 
 ## References
