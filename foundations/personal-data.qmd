@@ -44,9 +44,9 @@ The GDPR (Art. 9) describes several categories of **sensitive data** that receiv
 
 - health data,
 
-- and data concerning a natural person's sex life or sexual orientation.
+- and data concerning a person's sex life or sexual orientation.
 
-These data are treated differently by GDPR: By default, their processing is prohibited (Art. 9(1)), and, only when an exemption applies, allowed—for example, when processing is necessary for scientific purposes (Art. 9(2)(j)) and special saefeguards are in place (see [the chapter on mechanisms of data protection](1_4_Mechanisms)).
+These data are treated differently by GDPR: By default, their processing is prohibited (Art. 9(1)), and, only when an exemption applies, allowed—for example, when processing is necessary for scientific purposes (Art. 9(2)(j)) and special safeguards are in place (see [the chapter on mechanisms of data protection](1_4_Mechanisms)).
 
 In practice, this means you need to be **extra careful** with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
 
@@ -67,25 +67,24 @@ data <- read.csv(here::here("simulated-data.csv")) # Change based on the locatio
 ::: {.callout-note collapse="false"}
 ### Data Dictionary
 
-| Variable Name      | Description                                                          | Item Text                                                                              | Values                                                                                                               |
-| ------------------ | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| id                 | Number assigned to each participant in order of participation        | (assigned in background)                                                               | Integer; 1-200                                                                                                       |
-| name               | First and last name of participant                                   | Please indicate your full name (first and last name)                                   | String of characters                                                                                                 |
-| email              | Email address of participant                                         | What is your e-mail address?                                                           | String of characters                                                                                                 |
-| plz                | German postal code                                                   | What is your postal code?                                                              | String of characters                                                                                                 |
-| gender             | Gender of participant                                                | What is your gender?                                                                   | Factor; "male"/"female"/"non-binary"                                                                                 |
-| age                | Age of participant in years                                          | What is your age in years?                                                             | Integer; 18-100                                                                                                      |
-| income             | Personal annual income in Euros                                      | What was your income over the last twelve months                                       | Integer                                                                                                              |
-| religion           | Religion of participant                                              | What is your religion?                                                                 | Factor; "Catholicism","Protestantism","Islam","Eastern Orthodoxy","Judaism", "Buddhism", "Hinduism", "Other", "None" |
-| education          | Highest degree of education                                          | What is your highest degree of education?                                              | Factor; "no degree","trade school","high school", "university","doctoral title"                                      |
-| pol_immigration    | Likert item measuring opinion on immigration                         | The government should limit immigration more strictly than it currently does.          | Integer; 1-5                                                                                                         |
-| pol_environment    | Likert item measuring opinion on environment                         | Protecting the environment should be a top priority, even if it slows economic growth. | Integer; 1-5                                                                                                         |
-| pol_redistribution | Likert item measuring opinion on redistribution of wealth            | The government should reduce income differences between rich and poor.                 | Integer; 1-5                                                                                                         |
-| pol_eu_integration | Likert item measuring opinion on membership in EU                    | Our country benefits from being a member of the European Union.                        | Integer; 1-5                                                                                                         |
-| ip_address         | IP address (version 4) of participant's device when answering survey | (collected in background)                                                              | String of characters                                                                                                 |
-| years_in_job       | Number of years the participant has been in their current job        | How many years have you been in your current job?                                      | Integer; 0-n                                                                                                         |
+| Variable Name | Description | Item Text | Values |
+|---------------|---------------|------------------|-------------------------|
+| id | Number assigned to each participant in order of participation | (assigned in background) | Integer; 1-200 |
+| name | First and last name of participant | Please indicate your full name (first and last name) | String of characters |
+| email | Email address of participant | What is your e-mail address? | String of characters |
+| plz | German postal code | What is your postal code? | String of characters |
+| gender | Gender of participant | What is your gender? | Factor; "male"/"female"/"non-binary" |
+| age | Age of participant in years | What is your age in years? | Integer; 18-100 |
+| income | Personal annual income in Euros | What was your income over the last twelve months | Integer |
+| religion | Religion of participant | What is your religion? | Factor; "Catholicism","Protestantism","Islam","Eastern Orthodoxy","Judaism", "Buddhism", "Hinduism", "Other", "None" |
+| education | Highest degree of education | What is your highest degree of education? | Factor; "no degree","trade school","high school", "university","doctoral title" |
+| pol_immigration | Likert item measuring opinion on immigration | The government should limit immigration more strictly than it currently does. | Integer; 1-5 |
+| pol_environment | Likert item measuring opinion on environment | Protecting the environment should be a top priority, even if it slows economic growth. | Integer; 1-5 |
+| pol_redistribution | Likert item measuring opinion on redistribution of wealth | The government should reduce income differences between rich and poor. | Integer; 1-5 |
+| pol_eu_integration | Likert item measuring opinion on membership in EU | Our country benefits from being a member of the European Union. | Integer; 1-5 |
+| ip_address | IP address (version 4) of participant's device when answering survey | (collected in background) | String of characters |
+| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0-n |
 :::
-
 
 Now inspect the dataset `data`. Answer the following questions:
 
@@ -140,11 +139,11 @@ It helps to follow a consistent workflow for handling identifiers from the momen
 
 1.  **Download** the primary raw data from your collection tool.
 
-2.  **Remove direct identifiers** as soon as you no longer need them—in *every* copy that exists (collection platform, cloud storage, collaborators' copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.
+2.  **Store a secure copy** of the data with direct identifiers and pseudonyms that are really needed, with read-only access, e.g., on your institution's password-protected server. Delete the primary raw data.
 
-3.  **Remove the pseudonym key** using the same logic. If there are concrete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key—it is the safer option—but store it *separately* from the data, with restricted access and a defined deletion date.
+3.  **Remove direct identifiers** as soon as you no longer need them—in *every* copy that exists (collection platform, cloud storage, collaborators' copies, your own machine). Only keep them if there is a concrete, documented purpose, such as accounting, returning results to participants, or a genuine third-party requirement.
 
-4.  **Store a secure copy** of the data with direct identifiers and pseudonyms that are really needed, with read-only access, e.g., on your institution's password-protected server. Delete the primary raw data.
+4.  **Remove the pseudonym key** using the same logic. If there are concrete reasons to keep identifiers or pseudonyms, and either would serve the purpose, keep the pseudonym key—it is the safer option—but store it *separately* from the data, with restricted access and a defined deletion date.
 
 5.  **Remove all identifiers left in the data**, generating your working copy from the secure copy of the data with a script, so the cleaning step is reproducible and auditable. This data copy can still be non-anonymous, depending on the data left in the dataset.
 
@@ -226,7 +225,9 @@ Save the new file
 write.csv(data_withoutdirectidentifiers, here::here("simulated-data-noidentifiers.csv"), row.names = FALSE)
 ```
 
-Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not "always delete immediately" but **"delete once the documented purpose is gone."** Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.
+Delete the old file—unless one of the retention purposes above applies. Direct identifiers are often collected for a reason (e.g., a name to honor a withdrawal request, or an email to return results or flag an incidental finding), so the rule is not "always delete immediately" but **"delete once the documented purpose is gone."** From a legal perspective, once the data is fully anonymized, access and deletion rights no longer apply (see [the chapter on mechanisms of data protection](mechanisms.qmd)). Communicate your timeline transparently to participants during participation in the study. 
+
+Where a purpose genuinely requires keeping identifiers or a pseudonym key, store that piece separately from the analysis data, restrict access to it, and set a date to delete it.
 :::
 
 ### Resources, Links, Examples
