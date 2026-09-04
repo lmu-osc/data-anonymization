@@ -6,7 +6,7 @@ aliases: [2_ANONYMISATION_TECHNIQUES/2_6_Synthetic.html]
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   After completing this part of the tutorial, you will understand the idea of synthesizing data for anonymization.
+-   Understand the idea of **synthesizing data** for anonymization.
 :::
 
 Synthetic data is data that is **generated from scratch using statistical models or machine learning algorithms trained on the original dataset**. The synthetic records do not correspond to any real individual—they are entirely artificial—but they reproduce the statistical patterns (distributions, correlations, group differences) of the original data.

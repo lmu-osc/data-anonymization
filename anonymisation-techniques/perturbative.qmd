@@ -9,7 +9,7 @@ execute:
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   After completing this part of the tutorial, you will be able to apply selected perturbative techniques in R.
+-   Apply selected **perturbative techniques** in R.
 :::
 
 ```{r setup}

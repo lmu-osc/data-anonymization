@@ -7,7 +7,7 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
-- After completing this part of the tutorial, you will be able to calculate individual privacy risks for continuous variables by utilizing k-anonymity.
+- Calculate **individual privacy risks** for continuous variables by utilizing **k-anonymity**.
 :::
 
 ```{r Setup}

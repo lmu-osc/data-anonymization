@@ -7,7 +7,7 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   After completing this part of the tutorial, you will be able to choose a suitable technique based on your data.
+-   Choose a **suitable technique** based on your data.
 :::
 
 There is no universal recipe for choosing an anonymization technique. The right approach depends on your data, your audience, and your specific risk context. This chapter walks you through the most important factors to consider.

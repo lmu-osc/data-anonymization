@@ -7,7 +7,7 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   After completing this part of the tutorial, you will have a fundamental understanding of privacy and data protection.
+-   Gain a fundamental understanding of **privacy** and **data protection**.
 :::
 
 ## What Is Data Privacy?

@@ -7,7 +7,7 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
-- After completing this part of the tutorial, you will be able to distinguish between personal data and non-personal data, as well as sensitive and non-sensitive data, and be able to identify direct and indirect identifiers.
+- Distinguish between **personal** and **non-personal data**, as well as **sensitive** and **non-sensitive data**, and identify **direct** and **indirect identifiers**.
 :::
 
 Watch this 3-minute video that explains what personal data are:

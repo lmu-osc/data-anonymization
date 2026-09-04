@@ -6,7 +6,7 @@ aliases: [4_WORKFLOW/4_1_Summary.html]
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
-- After completing this part of the tutorial, you will understand the anonymization workflow.
+- Understand the **anonymization workflow**.
 :::
 
 This chapter summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data.

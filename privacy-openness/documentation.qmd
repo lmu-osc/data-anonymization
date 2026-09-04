@@ -6,7 +6,7 @@ aliases: [3_PRIVACY_OPENNESS/3_2_Documentation.html]
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   After completing this part of the tutorial, you will know best practices on how to document your anonymization process.
+-   Know **best practices** for documenting your anonymization process.
 :::
 
 ## Goals of Documentation of Anonymization

@@ -7,10 +7,8 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objectives
 
-After completing this part of the tutorial, you will understand
-
-- essential privacy risks;
-- the basic idea of k-anonymity.
+- Understand essential **privacy risks**.
+- Explain the basic idea of **k-anonymity**.
 :::
 
 Before we get into the actual anonymization techniques (in the next part of this tutorial), we need to understand what exactly we are protecting against. This chapter introduces the **types of privacy risks** that exist in typical quantitative research datasets and the **foundational concept of k-anonymity**, which will guide our risk assessment later.

@@ -7,7 +7,7 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   After completing this part of the tutorial, you will be able to make informed decisions when balancing the risks and utility of the anonymized data.
+-   Make informed decisions when balancing the **risks** and **utility** of the anonymized data.
 :::
 
 ```{r}

@@ -7,10 +7,8 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objectives
 
-After completing this part of the tutorial, you will be able to
-
-- choose an appropriate non-perturbative technique.
-- apply simple non-perturbative techniques.
+- Choose an appropriate **non-perturbative technique**.
+- Apply simple **non-perturbative techniques**.
 :::
 
 ```{r Setup}

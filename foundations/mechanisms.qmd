@@ -7,10 +7,8 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objectives
 
-After completing this part of the tutorial, you will know
-
--   how data protection is integrated into the research process;
--   the difference between anonymization and pseudonymization.
+-   Understand how **data protection** is integrated into the research process.
+-   Know the difference between **anonymization** and **pseudonymization**.
 :::
 
 How can research protect (personal) data of participants throughout the research process? Data protection is not something that happens at a single point—it is relevant at every stage. The graph below maps common data protection mechanisms to the stages of the research lifecycle:

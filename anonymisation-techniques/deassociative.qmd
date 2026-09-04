@@ -6,10 +6,8 @@ aliases: [2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html]
 ::: {.callout-tip collapse="true"}
 ## Learning Objectives
 
-After completing this part of the tutorial, you will
-
-- know selected de-associative techniques.
-- apply anatomization as one de-associative technique in R.
+- Know selected **de-associative techniques**.
+- Apply **anatomization** as one de-associative technique in R.
 :::
 
 ```{r Setup}

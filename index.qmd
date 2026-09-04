@@ -30,6 +30,8 @@ By the end of this tutorial, you will be able to:
 -   **Apply anonymization techniques** using R in a coherent workflow
 -   **Make informed decisions when balancing the risks and utility** of the anonymized data
 
+Each chapter opens with a short list of **learning objectives** so you know what to expect before you start.
+
 ## What You Will **NOT** Learn
 
 You will not learn anything other than anonymization of quantitative tabular data.
