@@ -122,7 +122,7 @@ A dataset satisfies **k-anonymity** if, for every combination of indirect identi
 ::: {#reasonable-k .callout-warning collapse="false"}
 ### What Is a Reasonable Level of k-Anonymity?
 
-How high should *k* be? It depends on the sensitivity of the data and the risk of [participation knowledge](#participation-knowledge). When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. **I advise for a k-anonymity level of, generally, at least 3 and at least 5 in case of studies that come with a high risk of participation knowledge** (concurring with general guidance [@elemam2008]). In case of especially sensitive data (e.g., medical data), going up to a higher k (e.g., k = 10 or k = 11 as recommended by @external2025) is advisable.
+How high should *k* be? It depends on the sensitivity of the data and the risk of [participation knowledge](#participation-knowledge). Diversity within the groups helps: the more varied the sensitive values within a group, the less an attacker learns by placing someone in it. It does not rule attribute disclosure out, though—values can be different but still point in the same direction (see [Limitations of K-Anonymity](#limitations-of-k-anonymity) below). **I advise for a k-anonymity level of, generally, at least 3 and at least 5 in case of studies that come with a high risk of participation knowledge** (concurring with general guidance [@elemam2008]). In case of especially sensitive data (e.g., medical data), going up to a higher k (e.g., k = 10 or k = 11 as recommended by @external2025) is advisable.
 :::
 
 ### Example
@@ -154,7 +154,9 @@ K-anonymity is a useful starting point, but it has known limitations:
 - **Homogeneity attack:** If all *k* individuals in a group share the same sensitive attribute, then knowing someone is in that group reveals their sensitive value. For example, all three 34-year-old women from 80331 could have the same diagnosis.
 - **Background knowledge attack:** An attacker with additional knowledge (e.g., they know the person does *not* have a certain condition) can narrow down the possibilities further.
 
-Extensions like **l-diversity** (requiring diversity in sensitive values within each group) and **t-closeness** (requiring that the distribution of sensitive values within each group is close to the overall distribution) have been proposed to address these issues. For the scope of this tutorial, k-anonymity will be our main metric, but it is good to be aware that it is not a silver bullet. More information on l-diversity and t-closedness can be accessed in [this practical tutorial by Utrecht university](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html).
+Extensions have been proposed to address these issues. **l-diversity** requires that each group holds at least *l* different sensitive values, so that locating someone's group leaves several competing possibilities for their sensitive value. **t-closeness** additionally requires that the distribution of sensitive values within each group stays close to their distribution in the full dataset.
+
+For the scope of this tutorial, k-anonymity will be our main metric, but it is good to be aware that it is not a silver bullet. More information on l-diversity and t-closeness can be accessed in [this practical tutorial by Utrecht University](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html).
 
 We will use k-anonymity practically in the [next chapter on assessing privacy risks](../anonymisation-techniques/planning-privacy), where we'll calculate it using R and the `sdcMicro` package.
 
