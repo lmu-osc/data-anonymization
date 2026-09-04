@@ -46,7 +46,7 @@ The GDPR (Art. 9) describes several categories of **sensitive data** that receiv
 
 - and data concerning a person's sex life or sexual orientation.
 
-These data are treated differently by GDPR: By default, their processing is prohibited (Art. 9(1)), and, only when an exemption applies, allowed—for example, when processing is necessary for scientific purposes (Art. 9(2)(j)) and special safeguards are in place (see [the chapter on mechanisms of data protection](1_4_Mechanisms)).
+These data are treated differently by GDPR: By default, their processing is prohibited (Art. 9(1)), and, only when an exemption applies, allowed—for example, when processing is necessary for scientific purposes (Art. 9(2)(j)) and special safeguards are in place (see [the chapter on mechanisms of data protection](mechanisms.qmd)).
 
 In practice, this means you need to be **extra careful** with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
 
