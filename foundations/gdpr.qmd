@@ -41,7 +41,7 @@ Any operation performed on personal data, whether automated or manual. This incl
 
 The person or organization that determines the purposes and means of processing personal data.
 
-**In research:** This is typically the research institution, not you personally. Researchers are employed to do research, and when this includes data collection, the institution is, by extension, the controller and carries the legal responsibility, while the principal investigator (PI) carries operational responsibility in day-to-day research. This may differ, depending on contracts and exact projects, though. When you collaborate across different institutions, it gets more complicated: usually, this means that the involved institutions act as joint controllers (Art. 26), requiring them (or better: their DPOs) to allocate responsibilities between them within a written contract.
+**In research:** This is typically the research institution, not you personally. Researchers are employed to do research, and when this includes data collection, the institution is, by extension, the controller and carries the legal responsibility, while the principal investigator (PI) carries operational responsibility in day-to-day research. This may differ, depending on contracts and exact projects, though. When you collaborate across different institutions, it gets more complicated: usually, this means that the involved institutions act as joint controllers (Art. 26), requiring them (or better: their data protection officers) to allocate responsibilities between them within a written contract.
 :::
 
 ::: {.callout-warning collapse="false"}

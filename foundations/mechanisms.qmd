@@ -79,7 +79,7 @@ In practice, informed consent in research means telling participants what data y
 
 If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed. It is also helpful to tell participants about the intended level of anonymization and what it means for them (e.g., plausible deniability).
 
-Consent needs to be **freely given** (Art. 4(11)); this can be tricky in research, when mixed with a power imbalance between the researcher and participant, as it may be the case when collecting data of students or patients. In that case, consent may be invalid as a legal basis for processing of data and relying on another basis is the best way (e.g., processing in the public interest, Art. 6 (1)(e)); your institution's DPO can advise you on this. 
+Consent needs to be **freely given** (Art. 4(11)); this can be tricky in research, when mixed with a power imbalance between the researcher and participant, as it may be the case when collecting data of students or patients. In that case, consent may be invalid as a legal basis for processing of data and relying on another basis is the best way (e.g., processing in the public interest, Art. 6 (1)(e)); your institution's data protection officer can advise you on this. 
 
 Consent forms are often not read or not understood, which is why consent alone is **not** a **sufficient** data protection mechanism.
 
