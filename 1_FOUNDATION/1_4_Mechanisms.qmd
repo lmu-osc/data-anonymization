@@ -74,8 +74,11 @@ PbD is primarily targeted at software products and less at research projects. Ne
 
 Informed consent is both an **ethical and** (often) **a legal requirement**. Under the GDPR, consent is one possible legal basis for processing personal data (Art. 6(1)(a)). In any case, independent of the legal basis, participants have the **right to be informed** about how their data will be used at the point of collection.
 
-<!-- COMMENT CS: To me, it feels important to stress that (1) Consent must be *freely given* (Art. 4(11), 7(4)). In research this is often questionable where power asymmetries exist (students, employees, patients); mention that consent may then be invalid and another basis (e.g., Art. 6(1)(e) + a national research provisions) is preferable. (2) consent for research may be *broad* see Recital 33 (many researchers do not know this!!). -->
-In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. Also, mention what rights participants have and who they can contact in case of issues. If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed. It is also helpful to tell participants about the intended level of anonymization and what it means for them (e.g., plausible deniability).
+In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. Also, mention what rights participants have and who they can contact in case of issues. In accordance with the GDPR, it is okay to specify the purposes of data collection *broadly*, allowing participants to consent to areas of research instead of a specific purpose of one study (Recital 33). 
+
+If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed. It is also helpful to tell participants about the intended level of anonymization and what it means for them (e.g., plausible deniability).
+
+Consent needs to be **freely given** (Art. 4(11)); this can be tricky in research, when mixed with a power imbalance between the researcher and participant, as it may be the case when collecting data of students or patients. In that case, consent may be invalid as a legal basis for processing of data and relying on another basis is the best way (e.g., processing in the public interest, Art. 6 (1)(e)); your institution's DPO can advise you on this. 
 
 Consent forms are often not read or not understood, which is why consent alone is **not** a **sufficient** data protection mechanism.
 
@@ -133,7 +136,6 @@ Pseudonymized data is vulnerable to re-identification, especially through linkag
 
 The GDPR considers pseudonymization a useful safeguard and a step in the right direction—but it is not enough if your goal is to share data openly.
 
-<!-- COMMENT CS: The link looks broken on my end. Also, I would add one sentence here on Art. 30 records of processing: pseudonymization keys, their storage location, and access rights belong in the record (this is where most fail in practice) -->
 For a practical, step-by-step workflow on when to remove direct identifiers and the pseudonym key across every copy of your data, see the [workflow callout in the chapter on personal data](1_3_Personal_Data.qmd#optimal-workflow).
 
 ## Anonymization
@@ -149,8 +151,9 @@ The bulk of this tutorial is dedicated to teaching you these techniques and help
 | **What?** | Replaces direct identifiers with codes | Removes or transforms data so that individuals cannot be identified |
 | **Does a key file exist?** | Yes (or re-identification is otherwise possible) | No (re-identification is not reasonably possible) |
 | **Is it still personal data?** | Yes | No |
-<!-- COMMENT CS: The table's binary "No (re-identification is not reasonably possible)" for anonymization is fine, but I would add a footnote that this standard is *contextual and revisable*: data anonymous for one recipient may be personal data in the hands of another with different means (see recital 26 "by any person" wording, and the "famous" Breyer C-582/14 on relative identifiability). -->
 | **Does GDPR apply?** | Yes | No |
+
+Importantly, this judgement is always relative to the context of sharing; as long as any person with access can re-identify the data, it is *not* anonymous! 
 
 ## Data Subject Rights
 
@@ -182,8 +185,7 @@ The council publishes aggregated statistics on recycling behavior, showing how m
 ::: {.callout-important collapse="true"}
 ## Solution
 
-<!-- COMMENT CS: I feel that aggregated neighborhood statistics can still leak when group sizes are small (differencing attacks, small-cell disclosure). Saying "no individuals can be singled out" without mentioning cell-size thresholds could be the wrong lesson. -->
-**Anonymized**—the data is aggregated, no individuals can be singled out.
+**Anonymized**—assuming big enough clusters of households, the data is aggregated and no individuals can be singled out.
 :::
 
 ### Scenario 3: Fitness Tracker Data

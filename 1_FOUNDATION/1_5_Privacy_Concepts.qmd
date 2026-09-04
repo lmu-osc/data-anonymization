@@ -104,7 +104,7 @@ The inclusion of groups (e.g., school classes, partnerships, households) that sh
 
 # K-Anonymity
 
-K-anonymity is the most widely used concept for measuring re-identification risk in quantitative research datasets, and it will be our primary tool for assessing risk throughout this tutorial.
+K-anonymity is the most widely used concept for measuring re-identification risk in quantitative research datasets, and it will be our primary tool for assessing risk throughout this tutorial. It is not anchored within the GDPR, but rather a useful heuristic for achieving the necessary anonymization.
 
 ## Origin
 
@@ -121,8 +121,7 @@ A dataset satisfies **k-anonymity** if, for every combination of indirect identi
 ::: {#reasonable-k .callout-warning collapse="false"}
 ## What Is a Reasonable Level of k-Anonymity?
 
-How high should *k* be? It depends on the sensitivity of the data and the risk of [participation knowledge](#participation-knowledge). When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. <!-- COMMENT CS: I would mention here that k-anonymity has *no legal status*; there is no court or DPA endorsed k-value, (and satisfying k-anonymity does not itself render data anonymous (see Recital 26). Maybe framing it is a risk-management heuristic, not a compliance test makes more sense. See 3_1; -->
-**I advise for a k-anonymity level of, generally, at least 3 and at least 5 in case of studies that come with a high risk of participation knowledge** (concurring with general guidance [@elemam2008]). In case of especially sensitive data (e.g., medical data), going up to a higher k (e.g., k = 10 or k = 11 as recommended by @external2025) is advisable.
+How high should *k* be? It depends on the sensitivity of the data and the risk of [participation knowledge](#participation-knowledge). When the groups are diverse on the sensitive attribute, there is no attribute disclosure possible, even in case of participation knowledge. **I advise for a k-anonymity level of, generally, at least 3 and at least 5 in case of studies that come with a high risk of participation knowledge** (concurring with general guidance [@elemam2008]). In case of especially sensitive data (e.g., medical data), going up to a higher k (e.g., k = 10 or k = 11 as recommended by @external2025) is advisable.
 :::
 
 ## Example

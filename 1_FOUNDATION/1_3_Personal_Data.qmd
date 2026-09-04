@@ -45,7 +45,8 @@ The GDPR (Art. 9) describes several categories of **sensitive data** that receiv
 
 - and data concerning a natural person's sex life or sexual orientation.
 
-<!-- COMMENT CS: The chapter says "sensitive = handle carefully" but omits the legal consequence: processing Art. 9 data is *prohibited by default* (Art. 9(1)) unless an Art. 9(2) exception applies; prob.  Art. 9(2)(j) in conjunction with Art. 89(1) iA. This prohibition-plus-exception logic is structurally different from Art. 6. Could also be worth noting that Art. 9 data processing could trigger a DPIA. -->
+These data are treated differently by GDPR: By default, their processing is prohibited (Art. 9(1)), and, only when an exemption applies, allowed—for example, when processing is necessary for scientific purposes (Art. 9(2)(j)) and special saefeguards are in place (see [the chapter on mechanisms of data protection](1_4_Mechanisms)).
+
 In practice, this means you need to be **extra careful** with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
 
 **Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.
@@ -131,7 +132,6 @@ The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_inte
 Any data that can be linked to an individual is considered personal data. As long as identification (e.g., via direct identifiers such as `name`) is possible, it is considered personal data, and GDPR applies.
 :::
 
-<!-- Moved this into a separate heading - this seems to be too important to "hide" it below an exercise -->
 # A Default Workflow for Handling Identifiers
 
 It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on *any* existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:
