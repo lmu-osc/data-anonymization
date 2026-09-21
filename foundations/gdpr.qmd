@@ -22,8 +22,6 @@ The GDPR defines several concepts that come up regularly in research. The graph 
 
 ![Key GDPR Terms in a Research Project](../pictures/overview-terms-cropped.svg){fig-alt="Illustration of a house that stands for the research institution as controller. Inside it, participants fill in a survey; the survey contains personal data such as name, age, address, and sensitive information. An arrow leads from the survey to the researcher, who processes the data in a cycle of research stages: collect, process, analyze, preserve, and publish. A survey platform such as Qualtrics or LimeSurvey acts as processor at the collection stage."}
 
-Let's go through the most important ones.
-
 ::: {.callout-warning collapse="false"}
 ## Personal Data
 
