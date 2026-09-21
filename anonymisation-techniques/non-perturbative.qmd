@@ -55,11 +55,11 @@ The key decision is how broadly to generalize. Wider categories reduce risk more
 
 Local recoding **generalizes values only where needed**, rather than across the whole dataset. This is useful when only a small subset of values is rare enough to create risk.
 
-**Example**: If only few participant are from Asia, you may recode only their values (e.g., "China", "India", "Nepal") to "Asia", keeping all others unchanged.
-
-![Local recoding: only the rare religion values are generalized (here to "christian"), while the rest stay unchanged.](../pictures/local-recoding-cropped.png){fig-alt="A before-and-after table where only two of the five records have their religion changed to christian; the other records are unchanged."}
+![Local recoding: only the rare religion values are generalized (here to "christian"), while the rest stays unchanged.](../pictures/local-recoding-cropped.png){fig-alt="A before-and-after table where only two of the five records have their religion changed to christian; the other records are unchanged."}
 
 This means, that values are on different level (in this example: country vs. continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently—you need to be transparent about which categories were collapsed and why.
+
+**Example**: If only few participant are from Asia, you may recode only their values (e.g., "China", "India", "Nepal") to "Asia", keeping all others unchanged.
 
 ### Top-and-Bottom Coding
 
