@@ -18,7 +18,7 @@ There is no universal recipe for choosing an anonymization technique. The right 
 
 **Release type**: If the data will only be accessible to vetted researchers under a data use agreement, in a safe room or research data center, or through remote execution you can afford somewhat weaker anonymization than for a fully open public release. Some datasets may warrant restricted access rather than open publication [@Benschop_StatisticalDisclosureControl]. The GDPR treats such access controls as one of the recognized safeguards for research data (Art. 89(1)), and for highly sensitive data they are sometimes the only defensible way to share at all. From an openness standpoint, I would still opt for public release whenever possible. Restricted access comes with many disadvantages; the biggest one is that it takes time and extra work for anyone who wants to access the work. It also puts a gatekeeper between the data and any re-analysis, which is much of what open data is meant to remove. In general, I would therefore advice against restricting access.
 
-**Sensitivity level**: How sensitive is the data? Health data, political opinions, religious beliefs, and other special categories under GDPR Art. 9 require stronger protection than general demographics.
+**Sensitivity level**: Is the data sensitive? Health data, political opinions, religious beliefs, and other special categories under GDPR Art. 9 require stronger protection than general demographics.
 
 **Intended use**: What analyses will users run on the anonymized data? If exact values matter—for example, income in a regression model—perturbative methods with low noise may be preferable to heavy generalization. If only group-level comparisons are needed, aggressive recoding may be perfectly fine.
 

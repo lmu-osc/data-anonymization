@@ -28,6 +28,7 @@ A **data management plan (DMP)** is a document that describes how you will handl
 -   What data will you **collect**?
 -   How will you **store** the data?
 -   **Who** will have **access** to the data?
+-   when will you **delete** which parts of the data?
 -   How will you **share** the data?
 
 Many funders now require a DMP, and writing one is a good exercise in data minimization and purpose limitation. Also, invest some time in **enforcing** **the DMP**. Clearly **assign responsibilities** for data and its protection in case of collaboration among multiple researchers. Changes to the DMP at later stages are absolutely okay, but **keep it regularly updated**.
@@ -36,6 +37,7 @@ Many funders now require a DMP, and writing one is a good exercise in data minim
 
 A useful template for a specific anonymization plan as part of a DMP is available on [Zenodo](https://zenodo.org/records/10782781).
 Learn more on how to create and take advantage of DMPs in the [DMP tutorial of the OSC](https://lmu-osc.github.io/FAIR-Data-Management/dmp.html).
+This [research data management checklist](https://www.ub.unibe.ch/unibe/portal/unibiblio/content/e6304/e583799/e1659096/e1659099/pane1659102/e1777975/ForschungsdatenmanagementCheckliste_ger.pdf) of the University of Bern lists all critical points to plan before a project starts.
 
 ### Institutional Review Board (IRB) Approval
 
