@@ -19,7 +19,7 @@ data_withoutdirectidentifiers <- read.csv(here::here("simulated-data-noidentifie
 
 In the previous chapters, we covered the foundations: What counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now we move to the practical part—actually anonymizing data. But before we jump into specific techniques, we first need to assess **how much risk** our data carries. That is what this chapter is about.
 
-Anonymization of data, in most cases, means masking or obscuring the data, which always results in a loss of information. However, when sharing data, we need to retain some of the data's utility; otherwise, they won't have any potential for reuse.
+Anonymization of data, in most cases, means changing, obscuring, or deleting specific parts of the data, which always results in a loss of information. However, when sharing data, we need to retain some of the data's utility; otherwise, they won't have any potential for reuse.
 
 The goal is to use the **appropriate anonymization techniques** to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also [the chapter on balancing privacy and utility](../privacy-openness/balancing)).
 

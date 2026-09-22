@@ -20,7 +20,7 @@ In the next sections of the tutorial, I will present you with several groups of 
 
 -   **De-associative techniques** separate indirectly identifying parts of the data from the sensitive parts. ![De-associative techniques](../pictures/anatomization-cropped.png){fig-alt="An illustration of a de-associative technique: the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the group ID."} *An example of a de-associative technique (i.e., anatomization)*
 
--   **Synthesizing data** means creating new data with the same statistical properties as the original data. ![Synthetic data](../pictures/synthetic-cropped.svg){fig-alt="An illustration of synthetic data: an original data table alongside a newly generated table with different records but the same statistical properties."} *An example of synthetic data*
+-   **Synthesizing data** means creating new data with the same statistical properties as the original data. ![Synthetic data](../pictures/synthetic-cropped.svg){fig-alt="An illustration of synthetic data: an original data table alongside a newly generated table with different records but the same statistical properties."} *An example of synthetic data (the new dataset on the right has the same statistical properties)*
 
 Each family of techniques addresses different types of risk.
 
@@ -30,7 +30,7 @@ Each family of techniques addresses different types of risk.
 
 **De-associative techniques** break the link between identifiers and sensitive attributes, making it harder to connect a person to all data within the dataset.
 
-**Synthetic data aims to avoid disclosure risk** by generating new records based on the statistical properties of a real dataset. The records do not correspond to any real individuals but risks of statistical disclosure still needs to be assessed.
+**Synthetic data aims to avoid disclosure risk** by generating new records based on the statistical properties of a real dataset. The records do not correspond to any real individuals, but risks of statistical disclosure still needs to be assessed.
 
 For each anonymization technique, the **variable's scale level** needs to be taken into account. Some techniques only work for categorical variables (i.e., discrete variables; e.g., gender, highest level of education), others only for continuous variables (e.g., income, age), and some work for both. Make sure to check each technique's requirements before applying it to your data.
 
