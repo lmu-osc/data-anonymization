@@ -62,7 +62,7 @@ website:
             text: "Synthetic Data"
           - href: anonymisation-techniques/choosing-technique.qmd
             text: "Choosing the Right Technique"
-      - section: "BALANCING DATA PROTECTION AND OPENNESS"
+      - section: "BALANCING PRIVACY AND OPENNESS"
         contents:
           - href: privacy-openness/balancing.qmd
             text: "Balancing Tensions"

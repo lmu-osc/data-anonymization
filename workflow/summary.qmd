@@ -59,7 +59,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-1">
     <span class="wf-num">1</span>
     <div class="wf-body">
-      <a class="wf-title" href="../foundations/mechanisms.html">Implement Data Privacy</a>
+      <a class="wf-title" href="../foundations/mechanisms.html">Implement Data Protection</a>
       <span class="wf-desc">Privacy by design before &amp; during collection: minimize data, plan storage/access, write a DMP.</span>
     </div>
   </div>
