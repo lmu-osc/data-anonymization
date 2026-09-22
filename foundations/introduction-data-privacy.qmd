@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Data Privacy"
+title: "Introduction to Privacy and Data Protection"
 aliases: [1_FOUNDATION/1_1_Introduction_data_privacy.html]
 bibliography: ../references.bib
 ---
@@ -44,7 +44,7 @@ The contextual norm (i.e., the sum of context, information flow, and information
 
 In this tutorial, I will show why we, as researchers, need to carefully consider these contextual norms and how we can enable information flows of data (i.e., when sharing data).
 
-Throughout this tutorial, I will use both the terms data protection and (data) privacy. **Privacy** is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. **Data protection** is a term that is closely linked to actual techniques and is used in laws. Both translate (give or take) to "Datenschutz" in German.
+Throughout this tutorial, I will use both the terms data protection and (data) privacy. **Privacy** is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. **Data protection** is a term that is closely linked to organizational and legal mechanisms. Both translate (give or take) to "Datenschutz" in German.
 
 ## Why Is Data Protection Important?
 
