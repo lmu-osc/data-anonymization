@@ -108,7 +108,7 @@ The dataset contains the following variables:
 | pol_redistribution | Likert item measuring opinion on redistribution of wealth | The government should reduce income differences between rich and poor. | Integer; 1-5 |
 | pol_eu_integration | Likert item measuring opinion on membership in EU | Our country benefits from being a member of the European Union. | Integer; 1-5 |
 | ip_address | IP address (version 4) of participant's device when answering survey | (collected in background) | String of characters |
-| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0-n |
+| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0-100 |
 :::
 
 :::: {.columns}
