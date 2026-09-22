@@ -48,7 +48,7 @@ The GDPR (Art. 9) describes several categories of **sensitive data** that receiv
 
 These data are treated differently by GDPR: By default, their processing is prohibited (Art. 9(1)), and, only when an exemption applies, allowed—for example, when processing is necessary for scientific purposes (Art. 9(2)(j)) and special safeguards are in place (see [the chapter on mechanisms of data protection](mechanisms.qmd)).
 
-In practice, this means you need to be **extra careful** with these variables when sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
+In practice, this means you need to be **extra careful** with these variables when collecting, storing, analyzing, and sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
 
 **Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.
 
