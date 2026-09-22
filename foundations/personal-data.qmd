@@ -72,7 +72,7 @@ data <- read.csv(here::here("simulated-data.csv")) # Change based on the locatio
 | id | Number assigned to each participant in order of participation | (assigned in background) | Integer; 1-200 |
 | name | First and last name of participant | Please indicate your full name (first and last name) | String of characters |
 | email | Email address of participant | What is your e-mail address? | String of characters |
-| plz | German postal code | What is your postal code? | String of characters |
+| plz | German postal code ("Postleitzahl") | What is your postal code? | String of characters |
 | gender | Gender of participant | What is your gender? | Factor; "male"/"female"/"non-binary" |
 | age | Age of participant in years | What is your age in years? | Integer; 18-100 |
 | income | Personal annual income in Euros | What was your income over the last twelve months | Integer |
