@@ -99,7 +99,7 @@ The quality of the result depends on how homogeneous the groups are: the more si
 
 **Rounding replaces exact values with rounded versions**. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or looses quite a lot of data in case of larger ranges that are rounded to the same value.
 
-![Rounding: exact ages are replaced with rounded values (here to the nearest 10).](../pictures/rounding-cropped.png){fig-alt="A before-and-after table where ages are rounded to values such as 60, 20 and 30."}
+![Rounding: exact ages are replaced with rounded values (here to the nearest 5).](../pictures/rounding-cropped.png){fig-alt="A before-and-after table where ages are rounded to values such as 65, 20, and 30."}
 
 ### PRAM
 

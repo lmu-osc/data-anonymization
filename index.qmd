@@ -50,7 +50,7 @@ You need basic R skills (e.g., loading data and packages). Experience with data 
 
 ## Required Software
 
-To follow along with the hands-on exercises, you will need a recent version of [R](https://cran.r-project.org/) (version 4.1.0 or newer) and [RStudio](https://posit.co/download/rstudio-desktop/).
+To follow along with the hands-on exercises, you will need [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/). Please use a current version of R.
 
 You will also need a handful of R packages. Install them with:
 

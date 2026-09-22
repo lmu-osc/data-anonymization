@@ -50,7 +50,7 @@ Below are descriptions of three fictional datasets. For each, decide which anony
 The large sample size works in your favor: with 10,000 records, most combinations of age group, gender, and federal state will not be unique. Start by checking k-anonymity across the key quasi-identifiers (age group, gender, federal state, income bracket). Political opinion is a sensitive variable under GDPR [Art. 9](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_9), but it is also the core research variable—removing it is not an option. Instead, ensure all indirect identifiers are sufficiently generalized so that the combination does not single anyone out. Top-bottom code income at the extremes to protect very high and very low earners. A k-anonymity target of k = 3 is reasonable given the political sensitivity of the data on the one hand and the low participation knowledge risk on the other hand. Perturbative techniques are generally not needed here given the large sample (and since income is already in a bracket).
 :::
 
-2\. A study on workplace bullying at a mid-sized company (n = 120). Every employee participated in the study. Variables: department, job level, years at company, bullying score, mental health score. The data will be published as a fully open dataset
+2\. A study on workplace bullying at a mid-sized company (n = 120). Every employee participated in the study. Variables: department, job level, years at company, bullying score, mental health score. The data will be published as a fully open dataset.
 
 ::: {.callout-important collapse="true"}
 ### Example Solution

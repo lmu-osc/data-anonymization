@@ -253,7 +253,7 @@ ggplot(data_withoutdirectidentifiers, aes(y = income)) +
   theme_minimal()
 ```
 
-The boxplot shows a few extreme outliers above 400 000 €. The 95th percentile, at `r quantile(data_withoutdirectidentifiers$income, 0.95)` €, cuts these off. `topBotCoding()` takes two arguments for this: `value` sets the threshold, and `replacement` the value written in its place. I set both to the 95th percentile, so every income above it is reported as exactly that amount.
+The boxplot shows a few extreme outliers above 400 000 €. The 95th percentile, at `r format(round(quantile(data_withoutdirectidentifiers$income, 0.95)), big.mark = " ")` €, cuts these off. `topBotCoding()` takes two arguments for this: `value` sets the threshold, and `replacement` the value written in its place. I set both to the 95th percentile, so every income above it is reported as exactly that amount.
 
 ```{r}
 # Top-code income at the 95th percentile
