@@ -33,7 +33,7 @@ More useful are approaches that preserve some analytical structure while still b
 
 ### Bucketization
 
-Bucketization groups records into "buckets" based on their indirect identifiers (like age, gender, or postal code), with each bucket required to contain at least k records to satisfy k-anonymity. Within each bucket, the sensitive values—such as income or political opinions—are randomly shuffled among the records. The result is that an attacker might be able to narrow someone down to a bucket, but cannot tell which sensitive value belongs to which specific person within it.
+Bucketization groups records into "buckets" based on their indirect identifiers (like age, gender, or postal code), with each bucket required to contain at least k records to satisfy k-anonymity [@li2023]. Within each bucket, the sensitive values—such as income or political opinions—are randomly shuffled among the records. The result is that an attacker might be able to narrow someone down to a bucket, but cannot tell which sensitive value belongs to which specific person within it.
 
 The process works in three steps:
 
@@ -47,7 +47,7 @@ The shuffling in step 3 is what makes this a de-associative rather than a pertur
 
 ### Anatomization
 
-Anatomization is a cleaner alternative to bucketization that improves the properties of the resulting deassociation. Rather than shuffling values within buckets, anatomization splits the dataset into two separate tables:
+Anatomization is a cleaner alternative to bucketization that improves the properties of the resulting deassociation \[ @xiao2006\]. Rather than shuffling values within buckets, anatomization splits the dataset into two separate tables:
 
 - A **quasi-identifier table** containing the indirect identifiers (e.g., age, gender, postal code), with a group ID linking each record to its group.
 - A **sensitive table** containing the sensitive attributes and the same group ID, but with the individual record links removed. Instead of one row per person, it stores, for each group, how often each sensitive value occurs.
@@ -286,8 +286,7 @@ length(suppressed_ids)   # how many records had to be dropped
 # Drop the suppressed records
 pool <- pool %>% filter(!(id %in% suppressed_ids))
 ```
-
-::: 
+:::
 
 In the last step, we split this one dataframe `pool` into two dataframes, the anatomized tables.
 
@@ -321,7 +320,6 @@ The only thing the two tables share is `group_id`. Neither table on its own—an
 A researcher can still study group-level patterns—for example, the religion distribution across age bands—by joining on `group_id`. But the individual link between a person and their religion is broken.
 
 If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized within the `sdcObjects` `sdcNoise` and `sdcMicro`in [the last chapter on perturbative techniques](perturbative).
-
 
 ### Resources, Links, Examples
 
