@@ -42,7 +42,7 @@ Here are a few helpful links for other data types:
 
 -   Anonymizing neuroimaging metadata ([article](https://doi.org/10.1162/IMAG.a.1144))
 -   Anonymizing qualitative textual data with the tool QualiAnon ([video tutorial](https://www.youtube.com/watch?v=RYQn4DjdKmo))
--   Anonymizing sensitive qualitative data ([lecture recording](https://www.youtube.com/watch?v=-Pha3EINF3s&ab_channel=CenterforOpenScience) and [article](https:/doi.org/10.1037/tra0001358))
+-   Anonymizing sensitive qualitative data ([lecture recording](https://www.youtube.com/watch?v=-Pha3EINF3s&ab_channel=CenterforOpenScience) and [article](https://doi.org/10.1037/tra0001358))
 
 ## Prerequisites
 
