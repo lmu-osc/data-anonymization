@@ -45,7 +45,7 @@ This [research data management checklist](https://www.ub.unibe.ch/unibe/portal/u
 
 ### Privacy by Design
 
-Privacy by Design (PbD) is a **set of principles** that require privacy protection to be **built into the design** of systems and processes from the very beginning, rather than added as an afterthought [@Cavoukian2011_PrivacyDesignLaw]. It is also enshrined as a **principle in the GDPR** (Art. 25).
+Privacy by Design (PbD) is a **set of principles** that require privacy protection to be **built into the design** of systems and processes from the very beginning, rather than added as an afterthought [@Cavoukian2011_PrivacyDesignLaw]. It is also enshrined as a **principle in the GDPR** ([Art. 25](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_25)).
 
 For research, PbD means thinking about privacy before you start collecting data: What is the minimum data you need? How will you store it securely? When and how will you anonymize it? A detailed data management plan can be a great tool for putting PbD into practice.
 
@@ -73,19 +73,19 @@ PbD is primarily targeted at software products and less at research projects. Ne
 
 ### Informed Consent
 
-Informed consent is both an **ethical and** (often) **a legal requirement**. Under the GDPR, consent is one possible legal basis for processing personal data (Art. 6(1)(a)). In any case, independent of the legal basis, participants have the **right to be informed** about how their data will be used at the point of collection.
+Informed consent is both an **ethical and** (often) **a legal requirement**. Under the GDPR, consent is one possible legal basis for processing personal data ([Art. 6(1)(a)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_6)). In any case, independent of the legal basis, participants have the **right to be informed** about how their data will be used at the point of collection.
 
 In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. Also, mention what rights participants have and who they can contact in case of issues. In accordance with the GDPR, it is okay to specify the purposes of data collection *broadly*, allowing participants to consent to areas of research instead of a specific purpose of one study (Recital 33). 
 
 If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed. It is also helpful to tell participants about the intended level of anonymization and what it means for them (e.g., plausible deniability).
 
-Consent needs to be **freely given** (Art. 4(11)); this can be tricky in research, when mixed with a power imbalance between the researcher and participant, as it may be the case when collecting data of students or patients. In that case, consent may be invalid as a legal basis for processing of data and relying on another basis is the best way (e.g., processing in the public interest, Art. 6 (1)(e)); your institution's data protection officer can advise you on this. 
+Consent needs to be **freely given** ([Art. 4(11)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_4)); this can be tricky in research, when mixed with a power imbalance between the researcher and participant, as it may be the case when collecting data of students or patients. In that case, consent may be invalid as a legal basis for processing of data and relying on another basis is the best way (e.g., processing in the public interest, [Art. 6 (1)(e)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_6)); your institution's data protection officer can advise you on this. 
 
 Consent forms are often not read or not understood, which is why consent alone is **not** a **sufficient** data protection mechanism.
 
 ### Data Minimization
 
-Data minimization (or in German, *Datensparsamkeit*) follows a simple principle: **no data, no risk**; or more realistically: less data, less risk. The GDPR requires that you only collect data that is "adequate, relevant and limited to what is necessary" for your purpose (Art. 5(1)(c)).
+Data minimization (or in German, *Datensparsamkeit*) follows a simple principle: **no data, no risk**; or more realistically: less data, less risk. The GDPR requires that you only collect data that is "adequate, relevant and limited to what is necessary" for your purpose ([Art. 5(1)(c)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_5)).
 
 In research, this means resisting the temptation to collect demographics or other variables "just in case" or "because we always do." Every additional variable you collect increases the risk of re-identification when the data is shared.
 
@@ -115,7 +115,7 @@ Randomized response is also an early example of what is now formalized as **diff
 
 ### Technical and Organizational Measures (TOMs)
 
-The GDPR requires controllers to implement "appropriate technical and organizational measures" to protect personal data (Art. 32). In a research context, this includes:
+The GDPR requires controllers to implement "appropriate technical and organizational measures" to protect personal data ([Art. 32](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_32)). In a research context, this includes:
 
 -   **Secure storage:** Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU Munich, for example, the [LRZ](https://www.lrz.de) provides cloud storage and sync services that keep data within Germany.
 -   **Access control:** Only people who need the data for the research should **have** access. Use role-based permissions where possible.
@@ -236,7 +236,7 @@ DNA sequences are stored with no names but are coded with lab IDs. The original 
 ::: {.callout-important collapse="true"}
 ### Solution
 
-**Pseudonymized**—the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under Art. 9 GDPR.
+**Pseudonymized**—the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under [Art. 9](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_9) GDPR.
 :::
 
 ### Resources, Links, Examples

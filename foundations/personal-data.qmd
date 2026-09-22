@@ -16,7 +16,7 @@ Watch this 3-minute video that explains what personal data are:
 
 </iframe>
 
-According to Article 4(1) GDPR, **personal data** is defined as any information relating to an identified or identifiable natural person (also named *data subject*). This definition is a cornerstone of privacy regulations, particularly the GDPR, and extends far beyond obvious identifiers.
+According to [Article 4(1)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_4) GDPR, **personal data** is defined as any information relating to an identified or identifiable natural person (also named *data subject*). This definition is a cornerstone of privacy regulations, particularly the GDPR, and extends far beyond obvious identifiers.
 
 An individual is considered **identifiable** if they can be recognized, either directly or indirectly, through various identifiers or factors. These identifiers can include:
 
@@ -30,7 +30,7 @@ In a research context, this means that even **datasets without names or email ad
 
 ## Special Types of Personal Data
 
-The GDPR (Art. 9) describes several categories of **sensitive data** that receive heightened protection:
+The GDPR ([Art. 9](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_9)) describes several categories of **sensitive data** that receive heightened protection:
 
 - racial or ethnic origin,
 
@@ -46,11 +46,11 @@ The GDPR (Art. 9) describes several categories of **sensitive data** that receiv
 
 - and data concerning a person's sex life or sexual orientation.
 
-These data are treated differently by GDPR: By default, their processing is prohibited (Art. 9(1)), and, only when an exemption applies, allowed—for example, when processing is necessary for scientific purposes (Art. 9(2)(j)) and special safeguards are in place (see [the chapter on mechanisms of data protection](mechanisms.qmd)).
+These data are treated differently by GDPR: By default, their processing is prohibited ([Art. 9(1)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_9)), and, only when an exemption applies, allowed—for example, when processing is necessary for scientific purposes ([Art. 9(2)(j)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_9)) and special safeguards are in place (see [the chapter on mechanisms of data protection](mechanisms.qmd)).
 
 In practice, this means you need to be **extra careful** with these variables when collecting, storing, analyzing, and sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
 
-**Information on criminal convictions and offences** is a special case. Under Art. 10 GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.
+**Information on criminal convictions and offences** is a special case. Under [Art. 10](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_10) GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.
 
 ## Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories
 
@@ -119,7 +119,7 @@ Now inspect the dataset `data`. Answer the following questions:
 
 #### Special Category Data: All `pol\_` Variables (Political Opinion), `religion`
 
-The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_integration` variables capture **political opinions**, and `religion` captures **religious beliefs**. Both categories are explicitly listed as sensitive data under Art. 9 GDPR. These variables require **heightened protection** because their disclosure could lead to discrimination or other harm for the individuals involved.
+The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_integration` variables capture **political opinions**, and `religion` captures **religious beliefs**. Both categories are explicitly listed as sensitive data under [Art. 9](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_9) GDPR. These variables require **heightened protection** because their disclosure could lead to discrimination or other harm for the individuals involved.
 :::
 
 4\. Is there any column that does **not** contain personal data?
@@ -199,7 +199,7 @@ It is a common misconception that funding agencies require you to archive the co
 
 ### Exercise: Remove Direct Identifiers
 
-Now, delete all direct identifiers from the dataset.
+Now, write the R code to delete all direct identifiers from the dataset.
 
 ::: {.callout-important collapse="true"}
 ### Solution
