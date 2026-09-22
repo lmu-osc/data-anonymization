@@ -63,6 +63,8 @@ install.packages("knitr") # render tables in the tutorial's examples
 install.packages("xfun") # small helpers used in the tutorial's examples
 ```
 
+Make sure to load them, too.
+
 ## The Example Dataset
 
 Throughout the tutorial, we work with the same **simulated dataset** of 200 Germans. The data's purpose is to answer whether **certain political opinions are linked to religion**. We will assess its privacy risks and then anonymize it step by step across the exercises, beginning with the [first exercise](foundations/personal-data.qmd#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories) in the chapter on personal data. Download it here:
