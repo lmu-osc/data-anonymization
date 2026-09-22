@@ -85,7 +85,7 @@ The good news: the core principles (purpose limitation, data minimization, stora
 
 The GDPR applies to personal data. If data is **truly anonymized**—meaning individuals can no longer be identified, directly or indirectly—the GDPR no longer applies to that data. This is one of the main reasons why anonymization is so valuable for open data: it allows you to share data freely without the legal constraints of the GDPR. Notably, the process of anonymization also constitutes a *processing operation*, meaning the GDPR also applies at this stage.
 
-But be careful: **pseudonymized** data (e.g., replacing names with codes while keeping a key file) is still personal data under the GDPR. The regulation explicitly states this. We cover the distinction between anonymization and pseudonymization in [the chapter on mechanisms of data protection](mechanisms).
+But be careful: **pseudonymized** data (e.g., replacing names with codes while keeping a key file) is, in general, still personal data under the GDPR. The regulation explicitly states this. We cover the distinction between anonymization and pseudonymization in [the chapter on mechanisms of data protection](mechanisms).
 :::
 
 ## Participant Rights
