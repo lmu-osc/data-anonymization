@@ -25,6 +25,12 @@ The goal is to use the **appropriate anonymization techniques** to achieve an ac
 
 To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, mobilizing what we have learned in the [last chapter](../foundations/privacy-concepts) and putting it into practice.
 
+::: {#how-much-effort .callout-note collapse="false"}
+### Does It Always Take This Much Work?
+
+The next chapters cover a lot of techniques, and going through all of them for every dataset would take a lot of time. The good news: you rarely need all of them. How much effort is appropriate depends on how risky your data is. An online survey with a few broad demographic categories and no free-text answers may only need a quick risk check and one or two anonymization steps. Small samples, detailed demographics, or sensitive topics call for more care. It also gets faster with practice: once you have a working script, you can reuse and adapt it for your next dataset. And the biggest time-saver comes before anonymization even starts: data you [never collect](../foundations/mechanisms.qmd#data-minimization) doesn't need to be anonymized.
+:::
+
 ## Identifying Privacy Risks
 
 ### Exercise: Privacy Risks in the Example Data

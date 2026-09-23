@@ -9,7 +9,7 @@ aliases: [4_WORKFLOW/4_1_Summary.html]
 - Understand the **anonymization workflow**.
 :::
 
-This chapter summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data.
+This chapter summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data. Keep in mind that not every dataset needs every step in full; how much effort is appropriate depends on your data's risk (see [*Does It Always Take This Much Work?*](../anonymisation-techniques/planning-privacy.qmd#how-much-effort)).
 
 ```{=html}
 <style>
