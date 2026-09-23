@@ -23,6 +23,12 @@ data_withoutdirectidentifiers <- read.csv(here::here("simulated-data-noidentifie
 
 De-associative techniques protect privacy by **breaking the link between indirect identifiers and sensitive variables,** rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person's record based on their demographic attributes, they should not be able to learn their sensitive values from it.
 
+::: {#deassociative-effort .callout-note collapse="false"}
+### A Technique for Special Cases
+
+De-associative techniques require **a lot of effort**: they are not available as ready-made functions in `sdcMicro`, so you have to implement them yourself, and the resulting data is harder to analyze. They are **only rarely the best solution**. In most cases, [non-perturbative](non-perturbative.qmd) or [perturbative](perturbative.qmd) techniques reach a similar level of privacy with far less work. We still cover de-associative techniques here, so you know they exist and can recognize the rare cases where they fit.
+:::
+
 The simplest version of this is just **separating a dataset into two tables—one with the identifiers and one with the sensitive attributes**, and randomizing the order of rows in one of them. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.
 
 ![The simplest de-association: split the data into a table of identifiers and a separate table of sensitive values, with no link between them.](../pictures/simple-de-association-cropped.png){fig-alt="A diagram showing the original table split into an identifier table (ID, Age, Gender) and a separate Religion table (with randomized order of rows), with no link between the two."}
