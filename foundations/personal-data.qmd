@@ -22,7 +22,7 @@ An individual is considered **identifiable** if they can be recognized, either d
 
 - **Direct identifiers**. These are information that can directly point out and identify an individual, such as address, social security number, bank accounts, or an email address.
 
-- **Indirect or quasi identifiers**. These are data that can, when combined with other pieces of data, lead to the identification of an individual. Examples include date of birth, age, gender, geographic location (like a ZIP or postal code), marital status, or details about events (e.g., hospital admission dates).
+- **Indirect or quasi-identifiers**. These are data that can, when combined with other pieces of data, lead to the identification of an individual. Examples include date of birth, age, gender, geographic location (like a ZIP or postal code), marital status, or details about events (e.g., hospital admission dates).
 
 The assessment of whether a person is identifiable takes into account all **means reasonably likely to be used** by the data controller or another person to identify the natural person, including methods such as "singling out". This "reasonably likely" criterion considers objective factors such as costs, time, effort, and the technological means available at the time of processing, as well as potential future technological developments. For instance, a dynamic IP address can qualify as personal data if it can be linked to a specific person, even if that linking capability resides with an Internet Service Provider and requires a court order [@breyer2016].
 
@@ -50,11 +50,11 @@ These data are treated differently by GDPR: By default, their processing is proh
 
 In practice, this means you need to be **extra careful** with these variables when collecting, storing, analyzing, and sharing data—they require stronger protection measures, and in some cases, it may be advisable to remove them from a shared dataset entirely if they are not essential to the research question.
 
-**Information on criminal convictions and offences** is a special case. Under [Art. 10](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_10) GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.
+**Information on criminal convictions and offenses** is a special case. Under [Art. 10](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_10) GDPR, such data may only be processed under the control of an official authority. The GDPR leaves room for national exemptions, but Germany (and e.g., Bavaria) has not created a clear, general basis for processing this data in research. If your work requires collecting data on criminal convictions, I recommend talking to your institution's data protection officer.
 
 ## Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories
 
-In this first exercise, we work with **our dataset**—the simulated dataset of 200 Germans introduced on the [landing page](../index.qmd), whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:
+In this first exercise, you work with **the example dataset**—the simulated dataset of 200 Germans introduced on the [landing page](../index.qmd), whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:
 
 ```{r}
 #| label: data-setup
@@ -75,7 +75,7 @@ data <- read.csv(here::here("simulated-data.csv")) # Change based on the locatio
 | plz | German postal code ("Postleitzahl") | What is your postal code? | String of characters |
 | gender | Gender of participant | What is your gender? | Factor; "male"/"female"/"non-binary" |
 | age | Age of participant in years | What is your age in years? | Integer; 18-100 |
-| income | Personal annual income in Euros | What was your income over the last twelve months | Integer |
+| income | Personal annual income in Euros | What was your income over the last twelve months? | Integer |
 | religion | Religion of participant | What is your religion? | Factor; "Catholicism","Protestantism","Islam","Eastern Orthodoxy","Judaism", "Buddhism", "Hinduism", "Other", "None" |
 | education | Highest degree of education | What is your highest degree of education? | Factor; "no degree","trade school","high school", "university","doctoral title" |
 | pol_immigration | Likert item measuring opinion on immigration | The government should limit immigration more strictly than it currently does. | Integer; 1-5 |

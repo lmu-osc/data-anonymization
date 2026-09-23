@@ -96,7 +96,7 @@ a.wf-title::after {
     <span class="wf-num">5</span>
     <div class="wf-body">
       <a class="wf-title" href="../anonymisation-techniques/planning-privacy.html">Calculate Disclosure Risk &amp; Utility</a>
-      <span class="wf-desc">Measure k-anonymity and risk metrics; establish a utility baseline (e.g.&nbsp;sdcMicro).</span>
+      <span class="wf-desc">Measure k-anonymity and risk metrics; establish a utility baseline (e.g.,&nbsp;sdcMicro).</span>
     </div>
   </div>
   <div class="wf-arrow">&#9660;</div>
@@ -109,7 +109,7 @@ a.wf-title::after {
         <a href="../anonymisation-techniques/non-perturbative.html">non-perturbative</a>,
         <a href="../anonymisation-techniques/perturbative.html">perturbative</a>,
         <a href="../anonymisation-techniques/deassociative.html">de-associative</a>, or
-        <a href="../anonymisation-techniques/synthetic.html">synthetic</a>. In doubt, aim for k-anonymity.
+        <a href="../anonymisation-techniques/synthetic.html">synthetic</a>. When in doubt, aim for k-anonymity.
       </span>
     </div>
   </div>

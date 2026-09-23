@@ -11,7 +11,7 @@ aliases: [3_PRIVACY_OPENNESS/3_2_Documentation.html]
 
 ## Goals of Documentation of Anonymization
 
-Thorough documentation of your anonymization process serves two purposes:
+Thorough documentation of your anonymization process serves three purposes:
 
 1.  It provides an **internal record for auditing**—if questions arise later about how the data was handled, you can retrace every step.
 2.  It provides transparency for **data users**, who need to understand what was changed in order to interpret the data correctly.
@@ -19,7 +19,7 @@ Thorough documentation of your anonymization process serves two purposes:
 
 ## Internal Documentation
 
-Your internal documentation should describe the **full anonymization workflow**: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a **lab notebook** for your data processing. This document should be stored securely alongside the original data—it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). In our case, this is the full, well-commented **R script**.
+Your internal documentation should describe the **full anonymization workflow**: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a **lab notebook** for your data processing. This document should be stored securely alongside the original data—it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). For the example dataset, this is the full, well-commented **R script**.
 
 ## External Documentation in Data Dictionary
 

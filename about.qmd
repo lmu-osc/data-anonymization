@@ -54,7 +54,7 @@ Why two licenses? The CC BY-SA 4.0 license is for the content of the website, wh
 
 ## Notes
 
-This tutorial was primarily written in 2026 using R (R version 4.5.3 (2026-03-11 ucrt)). Major changes to R can be found at the [R's website](https://www.r-project.org/) for the most up-to-date information, and to confirm that our tutorial is not out-of-date. 
+This tutorial was primarily written in 2026 using R (R version 4.5.3 (2026-03-11 ucrt)). Major changes to R can be found at [R's website](https://www.r-project.org/) for the most up-to-date information, and to confirm that this tutorial is not out-of-date. 
 
 ## Tutorial Template Quarto Extension
 

@@ -67,7 +67,7 @@ Make sure to load them, too.
 
 ## The Example Dataset
 
-Throughout the tutorial, we work with the same **simulated dataset** of 200 Germans. The data's purpose is to answer whether **certain political opinions are linked to religion**. We will assess its privacy risks and then anonymize it step by step across the exercises, beginning with the [first exercise](foundations/personal-data.qmd#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories) in the chapter on personal data. Download it here:
+Throughout the tutorial, I work with the same **simulated dataset** of 200 Germans. The data's purpose is to answer whether **certain political opinions are linked to religion**. I will assess its privacy risks and then anonymize it step by step across the exercises, beginning with the [first exercise](foundations/personal-data.qmd#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories) in the chapter on personal data. Download it here:
 
 ```{r}
 #| label: download-link
@@ -102,7 +102,7 @@ The dataset contains the following variables:
 | plz | German postal code ("Postleitzahl") | What is your postal code? | String of characters |
 | gender | Gender of participant | What is your gender? | Factor; "male"/"female"/"non-binary" |
 | age | Age of participant in years | What is your age in years? | Integer; 18-100 |
-| income | Personal annual income in Euros | What was your income over the last twelve months | Integer |
+| income | Personal annual income in Euros | What was your income over the last twelve months? | Integer |
 | religion | Religion of participant | What is your religion? | Factor; "Catholicism","Protestantism","Islam","Eastern Orthodoxy","Judaism", "Buddhism", "Hinduism", "Other", "None" |
 | education | Highest degree of education | What is your highest degree of education? | Factor; "no degree","trade school","high school", "university","doctoral title" |
 | pol_immigration | Likert item measuring opinion on immigration | The government should limit immigration more strictly than it currently does. | Integer; 1-5 |

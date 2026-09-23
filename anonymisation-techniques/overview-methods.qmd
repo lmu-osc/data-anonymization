@@ -10,7 +10,7 @@ bibliography: ../references.bib
 -   Understand the **fundamental principles of anonymization techniques** and how they relate to one another.
 :::
 
-Anonymization transforms data so that **individuals can no longer be identified**, while keeping the data useful for analysis. The challenge is always a trade-off: stronger anonymization means better privacy protection, but it can also mean less detailed or less useful data. Finding the right balance is the core problem we will deal with throughout this tutorial.
+Anonymization transforms data so that **individuals can no longer be identified**, while keeping the data useful for analysis. The challenge is always a trade-off: stronger anonymization means better privacy protection, but it can also mean less detailed or less useful data. Finding the right balance is the core problem I will deal with throughout this tutorial.
 
 In the next sections of the tutorial, I will present you with several groups of techniques for anonymization, following the taxonomy by @Carvalho2023_SurveyPrivacyPreservingTechniques.
 
@@ -30,13 +30,13 @@ Each family of techniques addresses different types of risk.
 
 **De-associative techniques** break the link between identifiers and sensitive attributes, making it harder to connect a person to all data within the dataset.
 
-**Synthetic data aims to avoid disclosure risk** by generating new records based on the statistical properties of a real dataset. The records do not correspond to any real individuals, but risks of statistical disclosure still needs to be assessed.
+**Synthetic data aims to avoid disclosure risk** by generating new records based on the statistical properties of a real dataset. The records do not correspond to any real individuals, but risks of statistical disclosure still need to be assessed.
 
 For each anonymization technique, the **variable's scale level** needs to be taken into account. Some techniques only work for categorical variables (i.e., discrete variables; e.g., gender, highest level of education), others only for continuous variables (e.g., income, age), and some work for both. Make sure to check each technique's requirements before applying it to your data.
 
-In the following chapters, we will go through each family of techniques one by one. I will first explain the underlying idea of a family and will then provide hands-on exercises for selected techniques using **our dataset** (introduced on the [landing page](../index.qmd)) and the `sdcMicro` package. This way, you can see how each technique changes the data and its risk profile step by step.
+In the following chapters, I will go through each family of techniques one by one. I will first explain the underlying idea of a family and will then provide hands-on exercises for selected techniques using **the example dataset** (introduced on the [landing page](../index.qmd)) and the `sdcMicro` package. This way, you can see how each technique changes the data and its risk profile step by step.
 
-After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in the [the chapter on choosing the right technique](choosing-technique).
+After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in [the chapter on choosing the right technique](choosing-technique).
 
 ## Resources, Links, Examples
 

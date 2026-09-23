@@ -47,7 +47,7 @@ Global recoding (also called generalization) replaces the exact values of a vari
 
 - Replacing specific countries with world regions (e.g., "Germany", "France" → "Western Europe").
 
-- Recoding age in year to age in decade.
+- Recoding age in years to age in decades.
 
 The key decision is how broadly to generalize. Wider categories reduce risk more, but also lose more information. The right granularity depends on how many people share each combination—which is exactly what k-anonymity measures. You will practice this trade-off in the exercise below.
 
@@ -55,19 +55,19 @@ The key decision is how broadly to generalize. Wider categories reduce risk more
 
 Local recoding **generalizes values only where needed**, rather than across the whole dataset. This is useful when only a small subset of values is rare enough to create risk.
 
-![Local recoding: only the rare religion values are generalized (here to "christian"), while the rest stays unchanged.](../pictures/local-recoding-cropped.png){fig-alt="A before-and-after table where only two of the five records have their religion changed to christian; the other records are unchanged."}
+![Local recoding: only the rare religion values are generalized (here to "Christian"), while the rest stays unchanged.](../pictures/local-recoding-cropped.png){fig-alt="A before-and-after table where only two of the five records have their religion changed to Christian; the other records are unchanged."}
 
-This means, that values are on different level (in this example: country vs. continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently—you need to be transparent about which categories were collapsed and why.
+This means that values are on different levels (in this example: country vs. continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently—you need to be transparent about which categories were collapsed and why.
 
-**Example**: If only few participant are from Asia, you may recode only their values (e.g., "China", "India", "Nepal") to "Asia", keeping all others unchanged.
+**Example**: If only a few participants are from Asia, you may recode only their values (e.g., "China", "India", "Nepal") to "Asia", keeping all others unchanged.
 
 ### Top-and-Bottom Coding
 
 Top-and-bottom coding is a special case of **recoding for numerical variables**. Instead of grouping all values into bands, you **cap the extreme ends of the distribution**: every value above a chosen threshold is replaced by that threshold (top coding), every value below one by that threshold (bottom coding).
 
-This helps when the bulk of the data is unremarkable and only a handful of extreme values are risky, because they belong to very few people. In our dataset, a very high income might apply to only one or two participants, which makes them easy to single out. Capping income at the 95th percentile means that all top earners share the same reported value instead.
+This helps when the bulk of the data is unremarkable and only a handful of extreme values are risky, because they belong to very few people. In the example dataset, a very high income might apply to only one or two participants, which makes them easy to single out. Capping income at the 95th percentile means that all top earners share the same reported value instead.
 
-Top-and-bottom coding counts as non-perturbative: the capped value is not a wrong value, just a less precise one. It has to be read as "this much or more" rather than as an exact amount—which is why the cap needs to be documented as such (see the [note on labelling top-coded values](#top-coding-labels) below).
+Top-and-bottom coding counts as non-perturbative: the capped value is not a wrong value, just a less precise one. It has to be read as "this much or more" rather than as an exact amount—which is why the cap needs to be documented as such (see the [note on labeling top-coded values](#top-coding-labels) below).
 
 ![Top-coding: the single highest age is capped (here to "\>60"), while the rest stay unchanged.](../pictures/top-bottom-coding-cropped.png){fig-alt="A before-and-after table where the largest age value is replaced with a >60 cap; the other ages are unchanged."}
 
@@ -91,9 +91,9 @@ Suppression can occur on different levels:
 
 - **Record suppression**: Remove an entire participant's data if their combination of attributes is so unique that no other technique can adequately protect them.
 
-- **Variable suppression**: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case—we already did this in [the chapter on personal data](../foundations/personal-data).
+- **Variable suppression**: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case—I already did this in [the chapter on personal data](../foundations/personal-data).
 
-**Example**: Replacing credit card number values with XXX. In the credit card example, the application of the character masking technique can be *partial*, hence only the first 9 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.
+**Example**: Replacing credit card number values with XXX. In the credit card example, the application of the character masking technique can be *partial*, hence only the first 12 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.
 
 Suppression is often used as a last resort after recoding: if recoding alone is not enough to bring all records up to the required k-anonymity threshold, targeted cell suppression can close the remaining gaps.
 
@@ -129,9 +129,9 @@ The following `sdcMicro` functions are available to you:
 
 - `globalRecode()` recodes a key variable into broader groups (e.g., exact age → age band)
 - `topBotCoding()` caps extreme values at a given threshold
-- `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting datapoints). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
+- `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting data points). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
 
-In addition, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from the R pakage `forcats`. This function lumps all categories below a certain group size together.
+In addition, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from the R package `forcats`. This function lumps all categories below a certain group size together.
 
 1.  Look at the key variables in `sdc_data` (`gender`, `age`, `education`, `plz`) and decide which technique is appropriate for each. There is no single correct solution—choose thresholds and groupings that make sense given the data, and be prepared to justify your choices.
 2.  Apply these techniques using the functions mentioned above.
@@ -140,7 +140,7 @@ In addition, you can recode data manually, e.g., by using `mutate`, or by using 
 ::: {.callout-tip collapse="false"}
 The `sdcMicro` functions operate directly on the `sdc` object and update risk estimates automatically. Check `?globalRecode`, `?topBotCoding`, and `?localSuppression` for argument details.
 
-All manual changes as with`forcat` functions like `fct_lump_min()` are applied to the dataset itself. The `sdcObject` needs to be updated afterward.
+All manual changes as with `forcats` functions like `fct_lump_min()` are applied to the dataset itself. The `sdcObject` needs to be updated afterward.
 :::
 
 ::: {.callout-important collapse="true"}
@@ -166,7 +166,7 @@ print(sdc_nonpert, type = "risk") # check risk after making the change
 
 I started by dividing the age into five about 10-year breaks. This provides a mean of 40 persons per age break, while the smallest one still has 23. These breaks can be changed later if more privacy or more utility is needed.
 
-We see that k-anonymity values have not been influenced by the recoding of age so far—this is primarily due to the `plz` variable that is unique for most participants. I therefore decided to **generalize the postal code**.
+I see that k-anonymity values have not been influenced by the recoding of age so far—this is primarily due to the `plz` variable that is unique for most participants. I therefore decided to **generalize the postal code**.
 
 As a first step, I used `globalRecode()` to group postal codes into five broad regions:
 
@@ -185,7 +185,7 @@ print(sdc_nonpert, type = "risk")
 
 The new categories map loosely to north-east (00-19), north-central (20-39), west (40-59), south-west (60-79), and south-east (80-99) Germany.
 
-Looking at k-anonymity now, we see that there are still many unique observations. To reduce risk further, I will generalize `plz` even more. For this dataset, I mostly want to use `plz` to distinguish whether participants live in the Munich area or elsewhere in Germany. Postal codes starting with 8 cover roughly the areas surrounding Munich, so I will collapse `plz` into just two categories: `"8xxxx"` and `"other"`.
+Looking at k-anonymity now, I see that there are still many unique observations. To reduce risk further, I will generalize `plz` even more. For this dataset, I mostly want to use `plz` to distinguish whether participants live in the Munich area or elsewhere in Germany. Postal codes starting with 8 cover roughly the areas surrounding Munich, so I will collapse `plz` into just two categories: `"8xxxx"` and `"other"`.
 
 `globalRecode()` cannot do this directly since `cut()` only handles continuous intervals—and "other" spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the data stored with the `@manipKeyVars` slot of the `sdcObject` and recalculate risks:
 
@@ -205,7 +205,7 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 3-anonymity. These 32 correspond to the "Number of observations with higher risk than the main part of the data", as summarized as a risk measure in the output: Now, the majority of data conform with at least 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were **especially** at risk (since all of them were at risk).
+Currently, there are only 32 unique persons in the dataset and 60 persons that violate 3-anonymity. These 32 correspond to the "Number of observations with higher risk than the main part of the data", as summarized as a risk measure in the output: Now, the majority of data conform with at least 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were **especially** at risk (since all of them were at risk).
 
 I don't want to generalize the `keyVars` any further, and for that reason, I decide to apply **local suppression**.
 
@@ -221,7 +221,7 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-The summary of the `sdcObject` shows us what the last local suppression step has achieved: It suppressed 28 values on the education variable and 2 each on gender and postal code. Now, 2-anonymity is reached for all participants. 16 entries violate 3-anonymity; I will try local suppression at k = 3 to see how much more suppression would be necessary to achieve this.
+The summary of the `sdcObject` shows what the last local suppression step has achieved: It suppressed 28 values on the education variable and 2 each on gender and postal code. Now, 2-anonymity is reached for all participants. 16 entries violate 3-anonymity; I will try local suppression at k = 3 to see how much more suppression would be necessary to achieve this.
 
 ```{r}
 # Local suppression to reach 3-anonymity
@@ -235,7 +235,7 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymity. Only 29 entries remain, that violate 5-anonymity. To me, this is enough protection on k-anonymity, while still preserving most of utility, especially on the most interesting variables.
+With 12 more suppressions on education and 4 on gender, I can achieve 3-anonymity. Only 29 entries remain that violate 5-anonymity. To me, this is enough protection on k-anonymity, while still preserving most of the utility, especially on the most interesting variables.
 :::
 
 ## Further Anonymization Steps Using Non-Perturbative Techniques
@@ -297,15 +297,15 @@ print(sdc_nonpert, type = "risk")
 ```
 
 ::: {#top-coding-labels .callout-warning collapse="false"}
-### Labelling Top-Coded Values
+### Labeling Top-Coded Values
 
-There is a difference between the implementation here and the examples at the top of this page: there, the capped values were labelled "\>60" or "4+". Here, nothing in the cell itself shows that a value has been capped, so someone re-using the data could read a capped income as an exact one.
+There is a difference between the implementation here and the examples at the top of this page: there, the capped values were labeled "\>60" or "4+". Here, nothing in the cell itself shows that a value has been capped, so someone re-using the data could read a capped income as an exact one.
 
 There are two ways to prevent this:
 
 - **Document it in the codebook**: state which variables were top- or bottom-coded and at which threshold. The variable stays numeric and can be analyzed as usual.
 
-- **Mark it in the data**, e.g. as "\>60" or "4+". This is unmistakable, but turns the variable into text and makes further analysis more work.
+- **Mark it in the data**, e.g., as "\>60" or "4+". This is unmistakable, but turns the variable into text and makes further analysis more work.
 :::
 
 Together, these steps bring the disclosure risk down to a maximum of 92%, compared to the original data.
