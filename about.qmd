@@ -44,7 +44,7 @@ google-scholar: true
 
 This site was authored by Luisa Jansen, and edits/contributions were made by Johanna Bayer, Malika Ihle, and Felix Schönbrodt.
 
-The tutorial was kindly reviewed by [Beth Clarke](https://orcid.org/0000-0002-7355-6718), Sandra Grinschgl, Stefan Horstmann, [Christine Krebs](https://orcid.org/0000-0002-3609-3275), Roman Müller, Christian Sillaber, and [François-Xavier Wicht](https://orcid.org/0009-0005-6090-7901).
+The tutorial was kindly reviewed by [Beth Clarke](https://orcid.org/0000-0002-7355-6718), Sandra Grinschgl, Stefan Horstmann, [Christine Krebs](https://orcid.org/0000-0002-3609-3275), Lukas Jung, Roman Müller, Christian Sillaber, and [François-Xavier Wicht](https://orcid.org/0009-0005-6090-7901).
 
 ## Licenses
 
