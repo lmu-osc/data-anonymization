@@ -205,7 +205,7 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 2-anonymity. This corresponds to the "Number of observations with higher risk than the main part of the data", as summarized as a risk measure in the output: Now, the majority of data conform with 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were **especially** at risk (since all of them were at risk).
+Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 3-anonymity. These 32 correspond to the "Number of observations with higher risk than the main part of the data", as summarized as a risk measure in the output: Now, the majority of data conform with at least 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were **especially** at risk (since all of them were at risk).
 
 I don't want to generalize the `keyVars` any further, and for that reason, I decide to apply **local suppression**.
 
@@ -214,7 +214,7 @@ I don't want to generalize the `keyVars` any further, and for that reason, I dec
 sdc_nonpert <- localSuppression(
   sdc_nonpert,
   k = 2, # define wanted k-anonymity level, k = 2 is the default
-  importance = c(2, 1, 4, 3) # this defines the order of importance; the algorithm begins suppressing on the variable marked as 4
+  importance = c(2, 1, 4, 3) # this defines the order of importance; the algorithm begins suppressing on the variable marked as 4, as this is the least important of the four variables, followed by the one marked as 3 and so on
   )
 
 sdc_nonpert
@@ -228,7 +228,7 @@ The summary of the `sdcObject` shows us what the last local suppression step has
 sdc_nonpert <- localSuppression(
   sdc_nonpert,
   k = 3, # define wanted k-anonymity level, k = 2 is the default
-  importance = c(2, 1, 4, 3) # this defines the order of importance; the algorithm begins suppressing on the variable marked as 4
+  importance = c(2, 1, 4, 3) # this defines the order of importance; the algorithm begins suppressing on the variable marked as 4, as this is the least important of the four variables, followed by the one marked as 3 and so on
   )
 
 sdc_nonpert

@@ -120,7 +120,7 @@ The GDPR requires controllers to implement "appropriate technical and organizati
 -   **Secure storage:** Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU Munich, for example, the [LRZ](https://www.lrz.de) provides cloud storage and sync services that keep data within Germany.
 -   **Access control:** Only people who need the data for the research should **have** access. Use role-based permissions where possible.
 -   **Storage limitation:** Don't keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to add a reminder to my calendar for dates when I need to delete data.
--   **Transfer security:** When sharing data with collaborators, use encrypted channels, not email attachments.
+-   **Transfer security:** When sharing data with collaborators, use encrypted channels (e.g., a password-protected file sharing service), not email attachments.
 -   **Pseudonymization**: Replace direct identifiers (like names) with artificial identifiers (like participant codes). See below for more information.
 
 These measures add layers of protection around your data while it is still in personal form. They do not replace anonymization, but they are essential complements.
