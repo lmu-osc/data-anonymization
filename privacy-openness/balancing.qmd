@@ -192,9 +192,9 @@ There are **no universal thresholds** for "good enough" privacy or utility. A co
 ::: {.callout-note collapse="false"}
 ### Who Is Responsible If Someone Is Re-Identified Anyway?
 
-*Disclaimer: We do not represent LMU Munich, and we do not have the authority to give legal advice or to approve your anonymization. What follows is our personal reading of the legal situation, intended as orientation—for binding answers, contact your institution's data protection officer and legal department.*
+*Disclaimer: I do not represent LMU Munich, and I don't have the authority to give legal advice or to approve your anonymization. What follows is my personal reading of the legal situation, intended as orientation—for binding answers, contact your institution's data protection officer and legal department.*
 
-You might ask yourself: "What if I do everything right, and someone still gets re-identified? Am I liable?" We don't think you are responsible for two reasons:
+You might ask yourself: "What if I do everything right, and someone still gets re-identified? Am I liable?" I don't think you are responsible for two reasons:
 
 First, the **legal standard is not zero risk**. Under the GDPR ([Recital 26](https://gdpr-info.eu/recitals/no-26/)), data counts as anonymous if re-identification is not *reasonably likely*, considering cost, time, and available technology. Absolute anonymization is usually neither possible nor required—it is sufficient that re-identification is practically infeasible or requires disproportionate effort. The relevant question is therefore not "Could someone ever be re-identified?" but "**Was the anonymization decision reasonable at the time?**". A later re-identification does not retroactively prove your procedure was negligent. What counts as reasonable scales with the stakes: the more harm a re-identification could do, the more diligence is expected of you.
 
@@ -206,7 +206,9 @@ Second, **legally, who is responsible?** Not you personally, in most cases: the 
 4.  a deliberate release decision (fully open, restricted access, or another access model);
 5.  and did not deviate from the approved plan.
 
-If someone is re-identified anyway, that is an institutional matter—reassessing the dataset, restricting access, notifying where required—not evidence of your personal fault. In this case, the participant has a right to be compensated for damages ([Art. 82](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_82)) and the institution may need to pay administrative fines issued by the supervisory authority ([Art. 83](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_83)). In our **personal opinion**, researchers who follow an approved, documented procedure have fulfilled their obligations and are not at fault. The circular logic that "someone was re-identified, therefore your anonymization was too lenient" gets the causality backward.
+If someone is re-identified anyway, that is an institutional matter—reassessing the dataset, restricting access, notifying where required—not evidence of your personal fault. In this case, the participant has a right to be compensated for damages ([Art. 82](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_82)) and the institution may need to pay administrative fines issued by the supervisory authority ([Art. 83](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_83)). In my **personal opinion**, researchers who follow an approved, documented procedure have fulfilled their obligations and are not at fault. The circular logic that "someone was re-identified, therefore your anonymization was too lenient" gets the causality backward.
+
+It also helps to keep things in perspective: for typical research data, re-identification attacks are **quite unlikely**, since there is usually little for an attacker to gain. And as far as I know, there is **no publicly known case** of a researcher or institution getting into legal trouble because a shared research dataset was re-identified.
 :::
 
 Let's keep in mind that, while there is a **tension between data protection and openness**, in practice, these principles **enable** each other: Sharing data builds trust in research findings, while protecting participants builds trust in researchers. When done well, **anonymization is the bridge** between these goals—it lets you share data openly while honoring the privacy expectations of the people who provided it [@Jansen2025_TensionOpenData].
