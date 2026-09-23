@@ -131,7 +131,7 @@ The following `sdcMicro` functions are available to you:
 - `topBotCoding()` caps extreme values at a given threshold
 - `localSuppression()` suppresses individual cells in records that fall below a chosen k-anonymity threshold. I would be careful when using this function: It does a good job at finding individuals whose record is still unique, but applies cell suppression (i.e., deleting data points). This is more of a last resort. You see a summary of the last suppression step in the summary of the `sdcObject`.
 
-In addition, you can recode data manually, e.g., by using `mutate`, or by using a function such as `fct_lump_min()` from the R package `forcats`. This function lumps all categories below a certain group size together.
+In addition, you can recode data manually, e.g., by using `mutate()`, or by using a function such as `fct_lump_min()` from the R package `forcats`. This function lumps all categories below a certain group size together.
 
 1.  Look at the key variables in `sdc_data` (`gender`, `age`, `education`, `plz`) and decide which technique is appropriate for each. There is no single correct solution—choose thresholds and groupings that make sense given the data, and be prepared to justify your choices.
 2.  Apply these techniques using the functions mentioned above.
@@ -144,7 +144,7 @@ All manual changes as with `forcats` functions like `fct_lump_min()` are applied
 :::
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 Keep in mind that this is just an example solution—there are many ways to achieve similar levels of privacy.
 
@@ -297,7 +297,7 @@ print(sdc_nonpert, type = "risk")
 ```
 
 ::: {#top-coding-labels .callout-warning collapse="false"}
-### Labeling Top-Coded Values
+## Labeling Top-Coded Values
 
 There is a difference between the implementation here and the examples at the top of this page: there, the capped values were labeled "\>60" or "4+". Here, nothing in the cell itself shows that a value has been capped, so someone re-using the data could read a capped income as an exact one.
 

@@ -12,7 +12,7 @@ library(xml2)
 
 ## Tutorial Overview
 
-This **self-paced tutorial** on anonymization of quantitative research data is intended to take about three hours to complete.
+This **self-paced tutorial** of the Open Science Center of LMU Munich on anonymization of quantitative research data is intended to take about three hours to complete.
 
 The tutorial is split into the following sections:
 
@@ -46,7 +46,7 @@ Here are a few helpful links for other data types:
 
 ## Prerequisites
 
-You need basic R skills (e.g., loading data and packages). Experience with data wrangling with `tidyverse` is beneficial.
+You need basic R skills (e.g., loading data and packages). Experience in data wrangling with `tidyverse` is beneficial.
 
 ## Required Software
 
@@ -67,7 +67,7 @@ Make sure to load them, too.
 
 ## The Example Dataset
 
-Throughout the tutorial, I work with the same **simulated dataset** of 200 Germans. The data's purpose is to answer whether **certain political opinions are linked to religion**. I will assess its privacy risks and then anonymize it step by step across the exercises, beginning with the [first exercise](foundations/personal-data.qmd#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories) in the chapter on personal data. Download it here:
+Throughout the tutorial, I work with the same **simulated dataset** of 200 people from Germany. The data's purpose is to answer whether **certain political opinions are linked to religion**. I will assess its privacy risks and then anonymize it step by step across the exercises, beginning with the [first exercise](foundations/personal-data.qmd#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories) in the chapter on personal data. Download it here:
 
 ```{r}
 #| label: download-link
@@ -92,13 +92,13 @@ data <- read.csv(here::here("simulated-data.csv")) # Change in case of a differe
 The dataset contains the following variables:
 
 ::: {.callout-note collapse="true"}
-### Data Dictionary
+## Data Dictionary
 
 | Variable Name | Description | Item | Values |
 |----|----|----|----|
 | id | Number assigned to each participant in order of participation | (assigned in background) | Integer; 1-200 |
 | name | First and last name of participant | Please indicate your full name (first and last name) | String of characters |
-| email | Email address of participant | What is your e-mail address? | String of characters |
+| email | Email address of participant | What is your email address? | String of characters |
 | plz | German postal code ("Postleitzahl") | What is your postal code? | String of characters |
 | gender | Gender of participant | What is your gender? | Factor; "male"/"female"/"non-binary" |
 | age | Age of participant in years | What is your age in years? | Integer; 18-100 |

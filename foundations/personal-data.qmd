@@ -65,13 +65,13 @@ data <- read.csv(here::here("simulated-data.csv")) # Change based on the locatio
 ```
 
 ::: {.callout-note collapse="false"}
-### Data Dictionary
+## Data Dictionary
 
 | Variable Name | Description | Item Text | Values |
 |---------------|---------------|------------------|-------------------------|
 | id | Number assigned to each participant in order of participation | (assigned in background) | Integer; 1-200 |
 | name | First and last name of participant | Please indicate your full name (first and last name) | String of characters |
-| email | Email address of participant | What is your e-mail address? | String of characters |
+| email | Email address of participant | What is your email address? | String of characters |
 | plz | German postal code ("Postleitzahl") | What is your postal code? | String of characters |
 | gender | Gender of participant | What is your gender? | Factor; "male"/"female"/"non-binary" |
 | age | Age of participant in years | What is your age in years? | Integer; 18-100 |
@@ -91,7 +91,7 @@ Now inspect the dataset `data`. Answer the following questions:
 1\. Which columns contain **direct identifiers**?
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 #### Direct Identifiers: `name`, `email`, `ip_address`
 
@@ -105,7 +105,7 @@ Now inspect the dataset `data`. Answer the following questions:
 2\. Which columns contain **indirect identifiers**?
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 #### Indirect Identifiers: `gender`, `age`, `education`, `income`, `plz`, `years_in_job`
 
@@ -115,7 +115,7 @@ Now inspect the dataset `data`. Answer the following questions:
 3\. Which columns contain **special categories of personal data** (= sensitive data)?
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 #### Special Category Data: All `pol\_` Variables (Political Opinion), `religion`
 
@@ -125,7 +125,7 @@ The `pol_immigration`, `pol_environment`, `pol_redistribution`, and `pol_eu_inte
 4\. Is there any column that does **not** contain personal data?
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 #### Personal Data: All Columns Contain Personal Data.
 
@@ -135,7 +135,7 @@ Any data that can be linked to an individual is considered personal data. As lon
 It helps to follow a consistent workflow for handling identifiers from the moment data comes in until you publish. The first and most important step is to **remove the direct identifiers** as soon as you don't need them anymore. I would recommend performing this step on *any* existing copy of the dataset (remember to also check your data collection platform and data shared with collaborators). However, more steps follow after that:
 
 ::: {#default-workflow .callout-tip collapse="false"}
-### A Default Workflow for Handling Identifiers
+## A Default Workflow for Handling Identifiers
 
 1.  **Download** the primary raw data from your collection tool.
 
@@ -192,7 +192,7 @@ style D1 fill:#f2f2f2,stroke:#c7c7c7,color:#777777,stroke-width:1px
 :::
 
 ::: {.callout-warning collapse="false"}
-### Myth: "The Funder Wants the Full Raw Data"
+## Myth: "The Funder Wants the Full Raw Data"
 
 It is a common misconception that funding agencies require you to archive the complete raw dataset *including* direct identifiers. In reality, they almost always want the **raw data *without* them**. Never retain identifiers on this assumption—always verify that it is a real, written requirement before treating it as a reason to keep identifying information.
 :::
@@ -202,7 +202,7 @@ It is a common misconception that funding agencies require you to archive the co
 Now, write the R code to delete all direct identifiers from the dataset.
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 Any solution that deletes the name, email address, and IP address is correct. I use `tidyverse` syntax:
 

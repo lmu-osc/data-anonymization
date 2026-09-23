@@ -17,7 +17,7 @@ How can research protect (personal) data of participants throughout the research
 
 [*Note*. TOMs = technical and organizational measures (e.g., secure storage, pseudonymization)]{style="font-size: 90%;"}
 
-As you can see, some mechanisms (like anonymization) are relevant across many stages, while others (like informed consent) are specific to a particular point. Let's walk through each stage.
+As you can see, some mechanisms (like anonymization) are relevant across many stages, while others (like informed consent) are specific to a particular point. Let's go through each stage.
 
 ## Stage 1: Plan
 
@@ -75,7 +75,7 @@ PbD is primarily targeted at software products and less at research projects. Ne
 
 Informed consent is both an **ethical and** (often) **a legal requirement**. Under the GDPR, consent is one possible legal basis for processing personal data ([Art. 6(1)(a)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_6)). In any case, independent of the legal basis, participants have the **right to be informed** about how their data will be used at the point of collection.
 
-In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. Also, mention what rights participants have and who they can contact in case of issues. In accordance with the GDPR, it is okay to specify the purposes of data collection *broadly*, allowing participants to consent to areas of research instead of a specific purpose of one study (Recital 33). 
+In practice, informed consent in research means telling participants what data you collect, why, how it will be stored, who will have access, and whether it will be shared or published. Also, mention what rights participants have and who they can contact in case of issues. In accordance with the GDPR, it is okay to specify the purposes of data collection *broadly*, allowing participants to consent to areas of research instead of a specific purpose of one study ([Recital 33](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#rct_33)). 
 
 If you plan to anonymize and share the data, this should be stated in the consent form. A useful tutorial on writing GDPR-compliant consent forms for research is provided by @Hallinan2023_InformationProvisionInformed. It is also helpful to tell participants about the intended level of anonymization and what it means for them.
 
@@ -92,7 +92,7 @@ In research, this means resisting the temptation to collect demographics or othe
 There is also a flip side to data minimization: whenever possible, **reuse existing data** instead of collecting new data. No collection is the best kind of data protection. This also aligns with the FAIR principles—making your own data findable, accessible, interoperable, and reusable reduces the need for redundant data collection and makes everybody's life easier (feel free to review the [OSC tutorial on FAIR data management](https://lmu-osc.github.io/FAIR-Data-Management/)).
 
 ::: {.callout-note collapse="false"}
-### Randomized Response Technique
+## Randomized Response Technique
 
 The randomized response technique **transparently adds privacy at the stage of data collection** [@warner1965].
 
@@ -118,7 +118,7 @@ Randomized response is also an early example of what is now formalized as **diff
 The GDPR requires controllers to implement "appropriate technical and organizational measures" to protect personal data ([Art. 32](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_32)). In a research context, this includes:
 
 -   **Secure storage:** Keep data on encrypted drives or institutional servers with access controls, not on personal laptops or unencrypted USB sticks. At LMU Munich, for example, the [LRZ](https://www.lrz.de) provides cloud storage and sync services that keep data within Germany.
--   **Access control:** Only people who need the data for the research should **have** access. Use role-based permissions where possible.
+-   **Access control:** Only people who need the data for the research should **have** access. Use role-based access permissions where possible.
 -   **Storage limitation:** Don't keep personal data longer than necessary. Define retention periods in your data management plan and stick to them. I like to add a reminder to my calendar for dates when I need to delete data.
 -   **Transfer security:** When sharing data with collaborators, use encrypted channels (e.g., a password-protected file sharing service), not email attachments.
 -   **Pseudonymization**: Replace direct identifiers (like names) with artificial identifiers (like participant codes). See below for more information.
@@ -129,11 +129,11 @@ These measures add layers of protection around your data while it is still in pe
 
 Pseudonymization is the process of replacing direct identifiers (like names) with artificial identifiers (like participant codes). It is an important first step, but it is crucial to understand its limits.
 
-The key point: **pseudonymized data is still personal data.** The GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" ([GDPR Recital 26](https://www.privacy-regulation.eu/en/recital-26-GDPR.htm)). As long as a key file exists that links participant codes back to real identities—or as long as indirect identifiers in the data could allow re-identification—the data remains personal, and the GDPR fully applies.
+The key point: **pseudonymized data is still personal data.** The GDPR explicitly states that "personal data which have undergone pseudonymisation, which could be attributed to a natural person by the use of additional information should be considered to be information on an identifiable natural person" ([GDPR Recital 26](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#rct_26)). As long as a key file exists that links participant codes back to real identities—or as long as indirect identifiers in the data could allow re-identification—the data remains personal, and the GDPR fully applies.
 
 However, whether pseudonymized data still counts as personal data is relational: in September 2025 (EDPS v. SRB, C-413/23 P), the Court of Justice of the EU found that identifiability has to be assessed from the recipient's perspective. So the same dataset can be personal data for you and fall outside the GDPR for a recipient who has no realistic way to re-identify anyone ([summary of the decision](https://www.skadden.com/insights/publications/2025/11/in-a-landmark-decision-eu-court-clarifies)). How far this reasoning reaches is still a very much debated issue among legal scholars.
 
-Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. I discussed this in [the chapter on personal data](personal-data), and I will look at it more formally in [the chapter on privacy concepts](privacy-concepts).
+Pseudonymized data is vulnerable to re-identification, especially through linkage attacks. This is when someone combines indirect identifiers that remain in the dataset (like age, postal code, and gender) with external information to identify individuals. I discussed this in [the chapter on personal data](personal-data), and we will look at it more formally in [the chapter on privacy concepts](privacy-concepts).
 
 The GDPR considers pseudonymization a useful safeguard and a step in the right direction—but it is not enough if your goal is to share data openly.
 
@@ -141,7 +141,7 @@ For a practical, step-by-step workflow on when to remove direct identifiers and 
 
 ### Anonymization
 
-Anonymization goes further than pseudonymization. The goal is to **transform personal data so that individuals can no longer be identified**—directly or indirectly—by any means reasonably likely to be used. When data is truly anonymized, it falls **outside the scope of the GDPR** ([Recital 26](https://www.privacy-regulation.eu/en/recital-26-GDPR.htm)), which means it can be shared, published, and reused without the legal restrictions that apply to personal data.
+Anonymization goes further than pseudonymization. The goal is to **transform personal data so that individuals can no longer be identified**—directly or indirectly—by any means reasonably likely to be used. When data is truly anonymized, it falls **outside the scope of the GDPR** ([Recital 26](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#rct_26)), which means it can be shared, published, and reused without the legal restrictions that apply to personal data.
 
 This sounds straightforward, but in practice, **true anonymization is hard to achieve**. Simply removing names and email addresses is usually not enough—indirect identifiers (demographics, rare combinations of attributes, free-text responses) can still enable re-identification. This is why anonymization is not just a single step but a **process that requires careful analysis of risks and the application of specific techniques**.
 
@@ -174,7 +174,7 @@ Once data is fully anonymized, these rights no longer apply (since you can no lo
 A hospital removes names and addresses from patient files and replaces them with random patient codes. The hospital keeps a separate file that links codes to real identities.
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 **Pseudonymized**—because the re-identification key still exists.
 :::
@@ -184,7 +184,7 @@ A hospital removes names and addresses from patient files and replaces them with
 The council publishes aggregated statistics on recycling behavior, showing how many households recycle per neighborhood. No individual household identifiers are included.
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 **Anonymized**—assuming big enough clusters of households, the data is aggregated and no individuals can be singled out.
 :::
@@ -194,7 +194,7 @@ The council publishes aggregated statistics on recycling behavior, showing how m
 A company shares running and sleep data with researchers, with usernames replaced by random IDs. However, the dataset still contains exact GPS routes of daily runs.
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 **Pseudonymized**—pseudonymized, as GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.
 :::
@@ -204,7 +204,7 @@ A company shares running and sleep data with researchers, with usernames replace
 Exam results are shared with teachers, identified only by student number. The university has the key to look up the names behind the numbers.
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 **Pseudonymized**—the student number acts as a pseudonym, and the university holds the key.
 :::
@@ -214,7 +214,7 @@ Exam results are shared with teachers, identified only by student number. The un
 A researcher collects product reviews from an online store, removes usernames and profile links, and publishes the review texts for sentiment analysis.
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 **Not clear**—identifiers have been removed, but free-text reviews may contain personal information (mentions of location, profession, or experiences) that could allow re-identification. Free text is notoriously difficult to fully anonymize.
 :::
@@ -224,7 +224,7 @@ A researcher collects product reviews from an online store, removes usernames an
 A dataset on accidents contains driver age, car model, and exact location + time of each accident. Names and license plates are removed, and no key is kept.
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 **Not clear / borderline anonymized**—no key exists, but the combination of rare event details (exact time, location, car model) may still allow re-identification, especially for unusual accidents that were covered by the media.
 :::
@@ -234,7 +234,7 @@ A dataset on accidents contains driver age, car model, and exact location + time
 DNA sequences are stored with no names but are coded with lab IDs. The original lab still keeps the mapping file.
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 **Pseudonymized**—the lab can re-link the data using the mapping file. Additionally, genetic data is inherently identifying and receives special protection under [Art. 9](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_9) GDPR.
 :::

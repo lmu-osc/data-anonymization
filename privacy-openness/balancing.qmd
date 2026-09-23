@@ -29,7 +29,7 @@ You therefore need to find a well-calibrated balance between utility and anonymi
 
 ## Measuring Privacy
 
-The most straightforward way to measure privacy after anonymization is to compare k-anonymity before and after applying an anonymization technique. In [the chapter on assessing privacy risks](../anonymisation-techniques/planning-privacy), I found that nearly every participant in the original dataset had a unique combination of key variables. After applying non-perturbative techniques in [the chapter on non-perturbative techniques](../anonymisation-techniques/non-perturbative), I achieved 3-anonymity—every record shares its key variable combination with at least two others. Printing the `sdcObject` gives you the current k-anonymity level directly:
+The most straightforward way to measure privacy after anonymization is to compare k-anonymity before and after applying an anonymization technique. In [the chapter on assessing privacy risks](../anonymisation-techniques/planning-privacy), I found that nearly every participant in the original dataset had a unique combination of key variables. After applying [non-perturbative techniques in their own chapter](../anonymisation-techniques/non-perturbative), I achieved 3-anonymity—every record shares its key variable combination with at least two others. Printing the `sdcObject` gives you the current k-anonymity level directly:
 
 ```{r}
 # Check the current k-anonymity level
@@ -40,10 +40,10 @@ The k-anonymity and disclosure risks are objective values, but always need to be
 
 In practice, it can be challenging to correctly assess these risks given the complexity of research projects and existing information. In such cases, red teaming the data anonymization can help [@Jansen2026_PuttingPrivacyTesta]: Another person (e.g., another member of your lab) is instructed to play the role of an attacker, by, e.g., searching for external information or singling out the least protected individuals.
 
-In general, it is worth checking the assumptions of the anonymization process you routinely adapt every few years or so, especially if new techniques have emerged (see callout box below).
+In general, it is worth checking the assumptions of the anonymization process you routinely adapt every few years or so, especially if new techniques have emerged (see box below).
 
 ::: {.callout-note collapse="false"}
-### De-Anonymization Using AI
+## De-Anonymization Using AI
 
 AI tools are increasingly being used to **re-identify individuals from datasets that were considered anonymous**. Recent research shows that large language models (LLMs) can match anonymous text profiles to named individuals across platforms—for example, linking an anonymous forum post to a person's identified social media account [@lermen]. Separately, research has shown that individuals can be re-identified from behavioral traces alone, including web browsing history, geolocation data, and even face scans, by combining datasets that each seem innocuous on their own [@rocher2025], which is sped up when utilizing AI agents [@thees2026].
 
@@ -62,15 +62,15 @@ Both values are part of the standard `sdcMicro` output after applying any anonym
 
 ### Using `sdcMicro`'s Parameters
 
-Let's go back to the two `sdcObjects` I created in [the chapter on perturbative techniques](../anonymisation-techniques/perturbative): `sdc_micro` (where I applied microaggregation) and `sdc_noise` (where I applied noise).
+Let's go back to the two `sdcObject`s I created in [the chapter on perturbative techniques](../anonymisation-techniques/perturbative): `sdc_micro` (where I applied microaggregation) and `sdc_noise` (where I applied noise).
 
 1.  Compare the utility with IL1 and the difference of eigenvalues. Which method do you prefer when looking at these utility indices?
 2.  Make a decision for one of the methods and export the data for further use.
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
-Inspect the `sdcObjects` to see the values of IL1 and the eigenvalue difference:
+Inspect the `sdcObject`s to see the values of IL1 and the eigenvalue difference:
 
 ```{r}
 # Compare utility: IL1 and eigenvalue difference
@@ -80,7 +80,7 @@ sdc_noise
 
 Both indices prefer the microaggregation approach: The IL1 is much smaller, indicating that values are closer to the original data, and the difference of eigenvalues is slightly smaller, also indicating that microaggregation preserves the most utility.
 
-Now I can extract the dataset from the `sdc_micro` object. Because `sdcMicro` stores recoded key variables as integer codes internally, I need to restore the labels manually using `mutate`:
+Now I can extract the dataset from the `sdc_micro` object. Because `sdcMicro` stores recoded key variables as integer codes internally, I need to restore the labels manually using `mutate()`:
 
 ```{r}
 # Extract the anonymized data and restore category labels
@@ -114,7 +114,11 @@ table(data_anonymized$religion)
 
 `fct_lump_min(religion, min = 10)` merges any category with fewer than 10 observations into `"Other"`. Groups like "Judaism" or "Buddhism" which have very few members in this dataset are natural candidates for collapsing, since a person could potentially be identified through their combination of rare religion and other attributes.
 
-You might reasonably ask why `religion` was not simply added to the `sdcObject` as a key variable and covered by k-anonymity from the start, rather than patched in this separate step. There are two reasons: First, `religion` is the **sensitive variable at the center of the research question**, so I want to keep it as fine-grained as possible. Treating it as a key variable would require k-anonymity to hold across every *age band × gender × postal region × religion* combination—this multiplies the number of equivalence classes and forces much heavier generalization and suppression across all key variables, degrading exactly the variable I care about most. Second, the residual risk is not spread evenly across religions but concentrated in the **rare** categories: common religions are shared by many people and single no one out, whereas someone with a rare religion could be recognizable from that attribute alone. Lumping only the rare categories therefore targets the real risk directly and proportionately, while leaving the common categories—and the overall religion distribution—untouched. See also the callout [*There is no one correct variable assignment*](../anonymisation-techniques/planning-privacy.qmd#no-correct-assignment) on choosing variables for anonymization.
+You might reasonably ask why `religion` was not simply added to the `sdcObject` as a key variable and covered by k-anonymity from the start, rather than patched in this separate step. There are two reasons:
+
+First, `religion` is the **sensitive variable at the center of the research question**, so I want to keep it as fine-grained as possible. Treating it as a key variable would require k-anonymity to hold across every *age band × gender × postal region × religion* combination—this multiplies the number of equivalence classes and forces much heavier generalization and suppression across all key variables, degrading exactly the variable I care about most.
+
+Second, the residual risk is not spread evenly across religions but concentrated in the **rare** categories: common religions are shared by many people and single no one out, whereas someone with a rare religion could be recognizable from that attribute alone. Lumping only the rare categories therefore targets the real risk directly and proportionately, while leaving the common categories—and the overall religion distribution—untouched. See also the box [*There is no one correct variable assignment*](../anonymisation-techniques/planning-privacy.qmd#no-correct-assignment) on choosing variables for anonymization.
 
 ### Using Statistics
 
@@ -127,7 +131,7 @@ Beyond these built-in measures, the most **practically relevant utility check is
 3.  Reflect on these comparisons: Is utility well-enough preserved?
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 **Descriptive statistics on indirect identifiers**
 
@@ -188,23 +192,25 @@ For the example dataset, a reasonable workflow looks like this: start by checkin
 There are **no universal thresholds** for "good enough" privacy or utility. A commonly used rule of thumb is that k-anonymity should be at least 3-5 for most research datasets, meaning every combination of indirect identifiers appears at least 3-5 times (see [discussion above](../foundations/privacy-concepts.qmd#reasonable-k)). For utility, IL1 values and eigenvalue differences close to 0 indicate low distortion. But ultimately, the right balance depends on your specific context: how sensitive is the data, how much harm would a re-identification cause, who will have access, and what analyses need to be supported. When in doubt, consult your institution's data protection officer ([LMU Munich data protection office](https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-representatives-and-contact-persons/data-protection-officer.html)), data steward (or a local research data management team, or the [LMU Munich research data management team](https://www.ub.lmu.de/en/open-access-publishing/research-data/)).
 
 ::: {.callout-note collapse="false"}
-### Who Is Responsible If Someone Is Re-Identified Anyway?
+## Who Is Responsible If Someone Is Re-Identified Anyway?
 
-*Disclaimer: I do not represent LMU Munich, and I don't have the authority to give legal advice or to approve your anonymization. What follows is my personal reading of the legal situation, intended as orientation—for binding answers, contact your institution's data protection officer and legal department.*
+*Disclaimer: I do not represent the LMU Munich, and don't have amy authority to give legal advice or to approve your anonymization. This is my personal reading of the legal situation, intended as orientation—contact your institution's data protection officer and legal department for binding answers .*
 
-You might ask yourself: "What if I do everything right, and someone still gets re-identified? Am I liable?" I don't think you are responsible for two reasons:
+A common question by researchers is the one of responsibility: Am I liable, even if I've done everything right, but someone still gets re-identified?
 
-First, the **legal standard is not zero risk**. Under the GDPR ([Recital 26](https://gdpr-info.eu/recitals/no-26/)), data counts as anonymous if re-identification is not *reasonably likely*, considering cost, time, and available technology. Absolute anonymization is usually neither possible nor required—it is sufficient that re-identification is practically infeasible or requires disproportionate effort. The relevant question is therefore not "Could someone ever be re-identified?" but "**Was the anonymization decision reasonable at the time?**". A later re-identification does not retroactively prove your procedure was negligent. What counts as reasonable scales with the stakes: the more harm a re-identification could do, the more diligence is expected of you.
+I don't think you are responsible for two reasons:
 
-Second, **legally, who is responsible?** Not you personally, in most cases: the *controller* under the GDPR is typically your institution (e.g., the university), not the individual researcher; the institution is accountable ([Art. 5(2)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_5)). The data protection officer advises and monitors compliance—they do not carry the responsibility alone either, and their approval is not a magic shield. What protects you is a documented, institutionally backed process. **You are safe if you followed:**
+First, the **legal expectation is not zero risk**. Under the GDPR ([Recital 26](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#rct_26)), data counts as anonymous if re-identification is not reasonably likely, considering cost, time, and available technology. Absolute anonymization is usually not possible or necessary. It is absolutely sufficient that re-identification is practically infeasible. The relevant question is therefore "**Was the anonymization decision reasonable at the time?**". A later re-identification does not retroactively prove your procedure was negligent. And: what counts as reasonable scales with the stakes; the more harm a re-identification could do (see sensitive data), the more diligence is expected of you.
+
+Second, **who is actually responsible?** In most cases this is not you as the individual researcher. The controller under the GDPR is typically your institution (e.g., the university), and, therefore, the institution is accountable ([Art. 5(2)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_5)). The data protection officer advises and monitors an institution's compliance. What protects you is a documented, institutionally backed process. **You are really safe if you followed:**
 
 1.  a written anonymization plan, agreed on before release;
 2.  the advice of your data protection officer (and, where required, a data protection impact assessment);
-3.  a documented risk assessment (attack scenarios, indirect identifiers, external linkage, a k-anonymity target or comparable metric—keeping in mind that no k-value is a magic legal threshold);
-4.  a deliberate release decision (fully open, restricted access, or another access model);
+3.  a documented risk assessment (attack scenarios, indirect identifiers, external linkage, a k-anonymity target);
+4.  a logical release decision (fully open, restricted access, or another access model);
 5.  and did not deviate from the approved plan.
 
-If someone is re-identified anyway, that is an institutional matter—reassessing the dataset, restricting access, notifying where required—not evidence of your personal fault. In this case, the participant has a right to be compensated for damages ([Art. 82](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_82)) and the institution may need to pay administrative fines issued by the supervisory authority ([Art. 83](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_83)). In my **personal opinion**, researchers who follow an approved, documented procedure have fulfilled their obligations and are not at fault. The circular logic that "someone was re-identified, therefore your anonymization was too lenient" gets the causality backward.
+If someone is re-identified anyway, that is an institutional matter—reassessing the dataset, restricting access, notifying where required—not evidence of your personal fault. In this case, the participant has a right to be compensated for damages ([Art. 82](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_82)) and the institution may need to pay administrative fines issued by the supervisory authority ([Art. 83](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_83)). In my **personal opinion**, researchers who follow an approved, documented procedure have fulfilled their obligations and are not at fault. Even if a participant was re-identified, it does not necessarily mean that anonymization was too lenient.
 
 It also helps to keep things in perspective: for typical research data, re-identification attacks are **quite unlikely**, since there is usually little for an attacker to gain. And as far as I know, there is **no publicly known case** of a researcher or institution getting into legal trouble because a shared research dataset was re-identified.
 :::
