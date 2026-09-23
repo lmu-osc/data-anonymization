@@ -196,7 +196,7 @@ A company shares running and sleep data with researchers, with usernames replace
 ::: {.callout-important collapse="true"}
 ### Solution
 
-**Not clear**—technically pseudonymized (usernames are replaced), but GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.
+**Pseudonymized**—pseudonymized, as GPS traces of daily routines are highly unique and might allow re-identification even without the key. This is a good example of how removing direct identifiers is not always enough.
 :::
 
 #### Scenario 4: University Exam Scores

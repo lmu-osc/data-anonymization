@@ -31,13 +31,13 @@ Attribute disclosure occurs when an attacker **learns new information about an i
 
 ### Inferential Disclosure
 
-Inferential disclosure occurs when an attacker can infer an individual's private information with high confidence from **statistical properties** of the data. This is subtler and less common in research datasets because inferences are probabilistic, not certain, but it can still be a concern.
+Inferential disclosure occurs when an attacker can infer an individual's private information with high confidence from **statistical properties** of the data. This is subtler and less common in research datasets because inferences are probabilistic, not certain, but it can still be a concern. However, because these inferences come from the study's results rather than from individual records, anonymization can't prevent them.
 
 **Research example:** A published dataset reveals that 90% of female participants aged 40-50 in a particular occupation report burnout. If someone knows a person matching that profile who participated in the study, they can infer with high confidence that this person has burnout—even without identifying their specific row. Note that this type of inference can also extend to people who are *not* in the dataset but match the same profile.
 
 ### Membership Disclosure
 
-Membership disclosure occurs when an attacker can determine whether a particular individual's data is **present in the dataset at all**. This matters when the mere fact of being in a dataset reveals sensitive information.
+Membership disclosure occurs when an attacker can determine whether a particular individual's data is **present in the dataset at all**. This matters when the mere fact of being in a dataset reveals sensitive information. Logically, whenever identity disclosure occurs, that person's membership to the dataset is also revealed.
 
 **Research example:** A research team publishes a dataset from a study on undocumented immigrants. If someone can determine that a specific person is in the dataset, they have learned that person is an undocumented immigrant, without needing to identify which row in the dataset belongs to them.
 

@@ -7,7 +7,7 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   Make informed decisions when balancing the **risks** and **utility** of the anonymized data.
+- Make informed decisions when balancing the **risks** and **utility** of the anonymized data.
 :::
 
 ```{r}
@@ -23,7 +23,7 @@ sdc_micro <- readRDS(here::here("sdc-micro.rds"))
 data_withoutdirectidentifiers <- read.csv(here::here("simulated-data-noidentifiers.csv")) # Change based on the location of your data file
 ```
 
-As we have seen, anonymization techniques are all about hiding or obscuring the data or links within the data. This, of course, comes at a cost: The data  loses some of its **utility**.
+As we have seen, anonymization techniques are all about hiding or obscuring the data or links within the data. This, of course, comes at a cost: The data loses some of its **utility**.
 
 We therefore need to find a well-calibrated balance between utility and anonymization, the famous sweet spot where we share data "as open as possible, as closed as necessary." To achieve this, we can utilize various measures—many of which we have already seen in [the chapter on assessing privacy risks](../anonymisation-techniques/planning-privacy) and in various `sdcMicro` outputs.
 
@@ -45,7 +45,7 @@ In general, it is worth to check the assumptions of the anonymization process yo
 ::: {.callout-note collapse="false"}
 ### De-Anonymization Using AI
 
-AI tools are increasingly being used to **re-identify individuals from datasets that were considered anonymous**. Recent research shows that large language models (LLMs) can match anonymous text profiles to named individuals across platforms—for example, linking an anonymous forum post to a person's identified social media account [@lermen]. Separately, research has shown that individuals can be re-identified from behavioral traces alone, including web browsing history, geolocation data, and even face scans, by combining datasets that each seem innocuous on their own [@rocher2025].
+AI tools are increasingly being used to **re-identify individuals from datasets that were considered anonymous**. Recent research shows that large language models (LLMs) can match anonymous text profiles to named individuals across platforms—for example, linking an anonymous forum post to a person's identified social media account [@lermen]. Separately, research has shown that individuals can be re-identified from behavioral traces alone, including web browsing history, geolocation data, and even face scans, by combining datasets that each seem innocuous on their own [@rocher2025], which is sped up when utilizing AI agents [@thees2026].
 
 For **quantitative survey** or experimental data of the kind covered in this tutorial, I do not expect AI tools to fundamentally change the re-identification risk—the attack surface is just not the same as for text or behavioral data. That said, AI can make an **attacker more efficient**: tasks like searching for external information, generating plausible attack combinations, or automating record linkage are all easier with modern AI tools.
 :::
@@ -99,9 +99,7 @@ data_anonymized <- data_anonymized %>%
 ```
 :::
 
-[]{#rare-religion-step}
-
-As a last anonymization step, I will now **generalize rare religion categories** using `fct_lump_min()` from `forcats`. Since `religion` is not a variable in the `sdcObject`, I apply this directly to the dataset as an additional layer, protecting individuals with rare religions.
+As a last anonymization step, I will now **generalize rare religion categories** using `fct_lump_min()` from `forcats`. Since `religion` is not a variable in the `sdcObject`, I apply this directly to the dataset as an additional layer, protecting individuals with rare religions. Within `sdcMicro`, the function `groupAndRename()` achieves the same.
 
 ```{r}
 # Generalize rare religion categories into "Other"
@@ -215,6 +213,6 @@ Let's keep in mind that, while there is a **tension between data protection and 
 
 ### Resources, Links, Examples
 
--   [Examples of decisions for balancing utility and privacy from the UK](https://ukdataservice.ac.uk/deposit-data/sharing-experiences/).
+- [Examples of decisions for balancing utility and privacy from the UK](https://ukdataservice.ac.uk/deposit-data/sharing-experiences/).
 
 ## References
