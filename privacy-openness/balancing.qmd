@@ -99,7 +99,7 @@ data_anonymized <- data_anonymized %>%
 ```
 :::
 
-As a last anonymization step, I will now **generalize rare religion categories** using `fct_lump_min()` from `forcats`. Since `religion` is not a variable in the `sdcObject`, I apply this directly to the dataset as an additional layer, protecting individuals with rare religions. Within `sdcMicro`, the function `groupAndRename()` achieves the same.
+[]{#rare-religion-step}As a last anonymization step, I will now **generalize rare religion categories** using `fct_lump_min()` from `forcats`. Since `religion` is not a variable in the `sdcObject`, I apply this directly to the dataset as an additional layer, protecting individuals with rare religions. Within `sdcMicro`, the function `groupAndRename()` achieves the same.
 
 ```{r}
 # Generalize rare religion categories into "Other"
