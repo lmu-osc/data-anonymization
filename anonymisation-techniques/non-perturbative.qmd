@@ -33,7 +33,7 @@ Non-perturbative techniques include all techniques referred to as data masking, 
 
 Non-perturbative techniques are usually the **right starting point**. They are easy to explain, easy to document, and easy to verify. For many research datasets, they are enough on their own.
 
-Depending on the specific data type and risk, different techniques are possible [@Carvalho2023_SurveyPrivacyPreservingTechniques]:
+Depending on the specific data type and risk, different techniques are possible [@Carvalho2023_SurveyPrivacyPreservingTechniques].
 
 ## Examples of Non-Perturbative Techniques
 
@@ -57,7 +57,7 @@ Local recoding **generalizes values only where needed**, rather than across the 
 
 ![Local recoding: only the rare religion values are generalized (here to "Christian"), while the rest stays unchanged.](../pictures/local-recoding-cropped.png){fig-alt="A before-and-after table where only two of the five records have their religion changed to Christian; the other records are unchanged."}
 
-This means that values are on different levels (in this example: country vs. continent). Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently—you need to be transparent about which categories were collapsed and why.
+This means that values are on different levels. Compared to global recoding, local recoding is more targeted and loses less information, but it can be harder to justify and document consistently—you need to be transparent about which categories were collapsed and why.
 
 **Example**: If only a few participants are from Asia, you may recode only their values (e.g., "China", "India", "Nepal") to "Asia", keeping all others unchanged.
 
@@ -103,7 +103,7 @@ If your dataset covers an entire population—for example, all students enrolled
 
 ![Sampling: only a subset of records is released; here two rows are dropped from the published data.](../pictures/sampling-cropped.png){fig-alt="A before-and-after table where two of the five rows are struck through to show they are not included in the released sample."}
 
-A sample can be randomly selected, but also based on conditions (e.g., quotas for study subjects).
+A sample can be randomly selected or based on certain conditions (e.g., quotas for study subjects).
 
 Sampling is most relevant for administrative datasets and registers. For typical survey-based research, where participation is voluntary and not exhaustively documented, it is less commonly needed. If you do use it, keep in mind that the sample size affects both privacy and the statistical representativeness of the data.
 
@@ -308,7 +308,7 @@ There are two ways to prevent this:
 - **Mark it in the data**, e.g., as "\>60" or "4+". This is unmistakable, but turns the variable into text and makes further analysis more work.
 :::
 
-Together, these steps bring the disclosure risk down to a maximum of 92%, compared to the original data.
+Together, these steps bring the disclosure risk down to a maximum of 92%, compared to the original data. We will look at (the loss of) utility in [the chapter on balancing privacy and utility](../privacy-openness/balancing).
 
 Finally, I save the `sdcObject`.
 
