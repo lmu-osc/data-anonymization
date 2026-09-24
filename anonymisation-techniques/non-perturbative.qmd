@@ -27,7 +27,7 @@ sdc_data <- createSdcObj(
 )
 ```
 
-Non-perturbative techniques reduce re-identification risk **without distorting the underlying values**—they either remove information or make it less specific. What stays in the dataset is still true; there is just **less** of it. This is what sets them apart from perturbative techniques, which add noise or swap values to obscure the original data.
+Non-perturbative techniques reduce re-identification risk **without distorting the underlying values**—they either remove information or make it less specific. What stays in the dataset is still true; there is just **less** information. This is what sets them apart from perturbative techniques, which add noise or swap values to obscure the original data.
 
 Non-perturbative techniques include all techniques referred to as data masking, suppression, and deletion.
 

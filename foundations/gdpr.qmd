@@ -54,7 +54,7 @@ There are a few GDPR principles and provisions that are particularly relevant to
 
 **Purpose limitation.** Data may only be collected for specified, explicit purposes. In research, this means you should be clear about what your data will be used for, and if you want to re-use data for a new purpose, you may need to check whether this is covered by the original consent. Luckily, for research purposes, the laws are more lenient than for private companies.
 
-**Data minimization.** You should only collect data that is necessary for your research purpose. Collecting "nice-to-have" demographics without a clear reason is not just bad practice—it may also be a GDPR issue. I discuss this more in [the chapter on mechanisms of data protection](mechanisms).
+**Data minimization.** You should only collect data that is necessary for your research purpose. Collecting "nice-to-have" demographics without a clear reason is bad practice and, potentially, a GDPR issue. I discuss this more in [the chapter on mechanisms of data protection](mechanisms).
 
 **Storage limitation.** Personal data should not be kept longer than necessary. For research, there are exceptions: data may be stored longer for archiving purposes in the public interest, scientific research, or statistical purposes ([Art. 89](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_89)), but this requires appropriate safeguards such as encryption and access control. For personal data that is transferred outside the EU, special regulations apply ([Art. 44](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_44)).
 
@@ -67,7 +67,7 @@ The GDPR allows EU member states to adopt more specific rules in certain areas. 
 
 Bavaria, as a German state, has its own [Bavarian Data Protection Act (BayDSG)](https://www.datenschutz-bayern.de/datenschutzreform2018/BayDSG.pdf), which applies to public institutions, including universities like LMU Munich. In practice, this means that researchers at Bavarian universities are subject to the GDPR, the BDSG, *and* the BayDSG.
 
-The good news: the core principles (purpose limitation, data minimization, storage limitation) are **consistent across all three**. Contact your institution's data protection officer for any questions, for example, regarding legal bases for data collection other than consent.
+Luckily for us, the core principles (purpose limitation, data minimization, storage limitation) are **consistent across all three**. Contact your institution's data protection officer for any questions, for example, regarding legal bases for data collection other than consent.
 
 [Contact the LMU Munich data protection office.](https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-representatives-and-contact-persons/data-protection-officer.html)
 :::

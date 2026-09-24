@@ -27,26 +27,23 @@ sdc_nonpert <- readRDS(here::here("sdc-nonpert.rds")) # Change based on the loca
 
 The core idea behind perturbative techniques is to introduce **controlled changes to data values**. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but **alter the values themselves**. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.
 
-In most cases, perturbation does not increase k-anonymity, since values are not generalized but instead just changed. Recall that k-anonymity counts how many records share the same combination of indirect identifiers. It only goes up when distinct values are collapsed into shared, broader categories, the way recoding or suppression does. Perturbation works differently: it swaps each value for another *specific* value rather than a broader category, so a record that was unique on its quasi-identifiers stays unique—it just carries different numbers. It may reshuffle which records look unusual, but it does not merge them into the larger shared groups that a higher k requires.
+In most cases, perturbation does not increase k-anonymity, since values are not generalized but instead just changed. Recall that k-anonymity counts how many records share the same combination of indirect identifiers. It only goes up when distinct values are collapsed into shared, broader categories, the way recoding or suppression does. Perturbation works differently: it swaps each value for another *specific* value rather than a broader category, so a record that was unique on its indirect identifiers stays unique, the only difference is that its values change. It may reshuffle which records look unusual, but it does not merge them into the larger shared groups that a higher k requires.
 
 On top of that, you typically perturb continuous variables such as income, which are not even part of the categorical key that k-anonymity is calculated on in the first place. Perturbation therefore adds another layer of protection—especially for continuous variables—rather than raising k-anonymity. Exceptions to this rule are microaggregation and rounding, which are perturbative, but also generalize data and therefore contribute to k-anonymity as well.
 
 ::: {.callout-note collapse="false"}
-## Why Not Just Delete the Variable?
+## Can I Just Delete the Variable Instead?
 
-Perturbation invites a fair objection: if the values you publish are not the real ones anymore, why keep the variable at all? Isn't deleting it more honest—and safer?
+If the values you publish are not the real ones anymore, why keep the variable at all?
 
-The answer is that deletion and perturbation remove **different things**. Deleting a variable removes the information for everyone and for every purpose. Perturbation removes only the **precision** of individual values, which is usually where the risk sits, and keeps the structure that makes the variable worth having.
+The answer is that deletion and perturbation remove **different things**. Deleting a variable removes the information for everyone and for every purpose. Perturbation removes only the **precision** of individual values, which is usually where the risk sits, and keeps the structure that is of interest for research.
 
-Take `income` in the example dataset. What makes a record identifiable is not that someone *has* an income—it is that one participant has exactly **€902,234.42**, more than seventeen times the sample median of about €52,000 and one of only three incomes above €110,000. Anyone who knows even vaguely that a particular participant is a top earner can pick that record out on sight. But almost no reuse of these data depends on that exact euro amount:
+Let's take `income` in our dataset as an example. What makes a datapoint identifiable is not that someone *has* an income—it is that one participant has exactly **€902,234.42**, more than seventeen times the sample median of about €52,000 and one of only three incomes above €110,000. Anyone who knows even vaguely that a particular participant is a top earner can easily point to that individual. But almost no reuse of these data depends on that exact amount:
 
 - A colleague testing whether **income is related to political opinions** needs the association, not the individual values. After microaggregation or a modest amount of noise, the correlation and the regression coefficients stay close to those from the original data. With `income` deleted, this analysis is not possible at all.
-- A researcher **pooling your data with other studies** needs a comparable income variable. A slightly noisy one still merges; a missing one excludes your study from the pool.
-- Someone **checking your published results** needs to approximately reproduce your descriptives and models. A perturbed variable lets them get close; an absent one leaves nothing to check.
+- A researcher **pooling your data with other studies** needs a comparable income variable. A slightly noisy one still works; a missing one excludes your study from the pool.
 
 `years_in_job` works the same way. The longest tenure in the sample is **32 years**, with the next-longest at 24—in a sample of 200, that makes a person very identifiable. But no plausible analysis needs "32" rather than "roughly 30, in the longest-tenure group." Deleting the variable would remove a legitimate predictor from every future analysis in order to protect a single record.
-
-This does not make perturbation the better choice by default. If a variable serves no plausible research purpose, **delete it**: data minimization comes first, and "we might need it someday" is not a reason to keep it. Perturbation is for the variables you actually do need.
 :::
 
 In this chapter, I will present a few perturbative techniques introduced in @Carvalho2023_SurveyPrivacyPreservingTechniques.
@@ -82,7 +79,7 @@ The noise can be uncorrelated—each value gets an independent random draw—or 
 ::: {.callout-note collapse="false"}
 ## Differential Privacy
 
-**How much noise is enough?** In this tutorial, we answer this question empirically—add noise, then measure the remaining disclosure risk (as you will do in the exercise below). **Differential privacy** approaches the same question from another perspective: you set a privacy level first, and the noise is then calibrated mathematically so that a formal guarantee holds. This guarantee applies to an **algorithm**, **not to the dataset itself**: the algorithm's output must be essentially the same whether or not any single individual's data is included, so an attacker learns (almost) nothing about anyone's participation. However, this still achieves a certain privacy level for this one dataset.
+**How much noise is enough?** In this tutorial, we look at this question empirically—add noise, then measure the remaining risk (as you will do in the exercise below). **Differential privacy** approaches the same question from another perspective: you set a privacy level first, and the noise is then calibrated mathematically so that a formal guarantee holds. This guarantee applies to an **algorithm**, **not to the dataset itself**: the algorithm's output must be essentially the same whether or not any single individual's data is included, so an attacker learns (almost) nothing about anyone's participation. However, this still achieves a certain privacy level for this one dataset.
 
 You already know a technique that provides this guarantee: the [randomized response technique](../foundations/mechanisms.qmd#randomized-response-technique) from the chapter on mechanisms. Because each answer is randomized with known probabilities, a "yes" says nothing about any individual, yet the true prevalence can still be estimated.
 

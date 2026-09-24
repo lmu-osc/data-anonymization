@@ -17,7 +17,7 @@ bibliography: ../references.bib
 data_withoutdirectidentifiers <- read.csv(here::here("simulated-data-noidentifiers.csv")) # Change based on the location of your data file
 ```
 
-In the previous chapters, I covered the foundations: What counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now I move to the practical part—actually anonymizing data. But before I jump into specific techniques, I first need to assess **how much risk** the data carries. That is what this chapter is about.
+In the previous chapters, we covered the foundations: What counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now I move to the practical part—actually anonymizing data. But before we jump into specific techniques, we first need to assess **how much risk** the data carries. That is what this chapter is about.
 
 Anonymization of data, in most cases, means changing, obscuring, or deleting specific parts of the data, which always results in a loss of information. However, when sharing data, you need to retain some of the data's utility; otherwise, they won't have any potential for reuse.
 
@@ -28,7 +28,7 @@ To achieve that, before starting the anonymization process, I will assess the le
 ::: {#how-much-effort .callout-note collapse="false"}
 ## Does It Always Take This Much Work?
 
-The next chapters cover a lot of techniques, and going through all of them for every dataset would take a lot of time. The good news: you rarely need all of them. How much effort is appropriate depends on how risky your data is. An online survey with a few broad demographic categories and no free-text answers may only need a quick risk check and one or two anonymization steps. Small samples, detailed demographics, or sensitive topics call for more care. It also gets faster with practice: once you have a working script, you can reuse and adapt it for your next dataset. And the biggest time-saver comes before anonymization even starts: data you [never collect](../foundations/mechanisms.qmd#data-minimization) doesn't need to be anonymized.
+The next chapters cover a lot of techniques. Going through all of them for every dataset would take a lot of time. Luckily, in practice, you rarely need all of them. How much effort is appropriate depends on how risky your data is. An online survey with a few broad demographic categories and no free-text answers may only need a quick risk check and one or two anonymization steps. Small samples, detailed demographics, or sensitive topics call for more care. It also gets faster with practice: once you have a working script, you can reuse and adapt it for your next dataset. You can make it especially for you at the study design phase: data you [never collect](../foundations/mechanisms.qmd#data-minimization) doesn't need to be anonymized.
 :::
 
 ## Identifying Privacy Risks

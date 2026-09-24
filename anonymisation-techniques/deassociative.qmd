@@ -65,7 +65,7 @@ Anatomization is a cleaner alternative to bucketization that improves the proper
 - A **quasi-identifier table** containing the indirect identifiers (e.g., age, gender, postal code), with a group ID linking each record to its group.
 - A **sensitive table** containing the sensitive attributes and the same group ID, but with the individual record links removed. Instead of one row per person, it stores, for each group, how often each sensitive value occurs.
 
-A researcher re-using the data can still answer questions like "what is the distribution of political opinions among 30-44 year olds in postal region 8xxxx?" by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table—the individual-level association is gone. Within a group, every sensitive value is equally plausible for every member.
+A researcher re-using the data can still answer questions like "what is the distribution of political opinions among 30-44 year olds in postal region 8xxxx?" by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table as the association on individual level is gone. Within a group, every sensitive value is equally plausible for every member.
 
 ![Anatomization: the data is split into a quasi-identifier table and a sensitive-attribute table, linked only by a group ID.](../pictures/anatomization-cropped.png){fig-alt="A diagram showing the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the Group ID."}
 
@@ -181,7 +181,7 @@ Here, with l = 2, no bucket exceeds the limit of 100 (= 200 / 2). So I can make 
 
 If this were not the case (e.g., when choosing l = 3), there would be records left over. To still achieve the targeted l, I would then need to suppress selected values.
 
-This can seem unintuitive: how can one repeated value within a group do much harm? l-diversity, as used here, is not simply about having l different values present. Following @xiao2006, we use a rather strong, **frequency-based** definition: no single sensitive value may make up more than a 1/l share of a group. This is deliberately stricter than the common rule of distinct l-diversity, where at least l distinct values need to be presented, under which one repeated value wouldn't be an issue.
+Intuitively, it may seem as if one repeat didn't cause a lot harm. But, l-diversity, as used here, is not simply about having l different values present. Following @xiao2006, we use a rather strong, **frequency-based** definition: no single sensitive value may make up more than a 1/l share of a group. This is deliberately stricter than the common rule of distinct l-diversity, where at least l distinct values need to be presented, under which one repeated value wouldn't be an issue.
 
 The stricter rule can protect against probabilistic inference attacks: l-diversity protects the sensitive value. In a group of three persons, two with religion `none` and one `muslim`, two different religions are present, so no one is uniquely identifiable. But an attacker who pins someone to this group would guess `none` and be right two out of three times (67%). That is well above the 1/l = 50% ceiling that 2-diversity is meant to guarantee. Formally, the most frequent value covers 2/3 of the group, and 2/3 \> 1/l = 1/2, so the group is not 2-diverse.
 

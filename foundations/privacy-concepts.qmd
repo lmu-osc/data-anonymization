@@ -19,7 +19,7 @@ When I talk about the risk of releasing a dataset, I am talking about **disclosu
 
 ### Identity Disclosure
 
-Identity disclosure occurs when an attacker can determine that a **specific row in the released dataset belongs to a known individual**. This is the most intuitive type of risk: someone looks at the data and says, "That row is about person X."
+Identity disclosure occurs when an attacker can determine that a **specific row in the released dataset belongs to a known individual**. This is the most intuitive type of risk: someone looks at the data and can with certainty state that that one row is about that person X.
 
 **Research example:** You publish a dataset from a survey of doctoral students from your department. The dataset contains age, gender, and research topic. A colleague recognizes that there is only one 28-year-old female working on computational linguistics—and now they can see her responses to all other questions in the dataset.
 
@@ -158,7 +158,7 @@ K-anonymity is a useful starting point, but it has known limitations:
 
 Extensions have been proposed to address these issues. **l-diversity** requires that each group holds at least l different sensitive values, so that locating someone's group leaves several competing possibilities for their sensitive value. **t-closeness** additionally requires that the distribution of sensitive values within each group stays close to their distribution in the full dataset.
 
-For the scope of this tutorial, k-anonymity will be the main metric, but it is good to be aware that it is not a silver bullet. More information on l-diversity and t-closeness can be accessed in [this practical tutorial by Utrecht University](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html).
+For the scope of this tutorial, k-anonymity will be the main metric, but it is good to be aware that it is not without its limitations. More information on l-diversity and t-closeness can be accessed in [this practical tutorial by Utrecht University](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html).
 
 You will use k-anonymity practically in the [next chapter on assessing privacy risks](../anonymisation-techniques/planning-privacy), where you will calculate it using R and the `sdcMicro` package.
 
