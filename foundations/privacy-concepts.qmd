@@ -11,15 +11,15 @@ bibliography: ../references.bib
 - Explain the basic idea of **k-anonymity**.
 :::
 
-Before I get into the actual anonymization techniques (in the next part of this tutorial), you need to understand what exactly you are protecting against. This chapter introduces the **types of privacy risks** that exist in typical quantitative research datasets and the **foundational concept of k-anonymity**, which will guide the risk assessment later.
+Before we get into the actual anonymization techniques (in the next part of this tutorial), we need to understand what exactly we are protecting against. This chapter introduces the **types of privacy risks** that exist in typical quantitative research datasets and the **foundational concept of k-anonymity**, which will guide our risk assessment later.
 
 ## Privacy Risks
 
-When I talk about the risk of releasing a dataset, I am talking about **disclosure risks**, i.e., the risk that someone could learn something about an individual from the data that they were not supposed to learn. @Carvalho2023_SurveyPrivacyPreservingTechniques distinguish four types of disclosure:
+When we talk about the risk of releasing a dataset, we are talking about **disclosure risks**, i.e., the risk that someone could learn something about an individual from the data that they were not supposed to learn. @Carvalho2023_SurveyPrivacyPreservingTechniques distinguish four types of disclosure:
 
 ### Identity Disclosure
 
-Identity disclosure occurs when an attacker can determine that a **specific row in the released dataset belongs to a known individual**. This is the most intuitive type of risk: someone looks at the data and can with certainty state that that one row is about that person X.
+Identity disclosure occurs when an attacker can determine that a **specific row in the released dataset belongs to a known individual**. This is the most intuitive type of risk: someone looks at the data and can state with certainty that one specific row is about person X.
 
 **Research example:** You publish a dataset from a survey of doctoral students from your department. The dataset contains age, gender, and research topic. A colleague recognizes that there is only one 28-year-old female working on computational linguistics—and now they can see her responses to all other questions in the dataset.
 
@@ -37,7 +37,7 @@ Inferential disclosure occurs when an attacker can infer an individual's private
 
 ### Membership Disclosure
 
-Membership disclosure occurs when an attacker can determine whether a particular individual's data is **present in the dataset at all**. This matters when the mere fact of being in a dataset reveals sensitive information. Logically, whenever identity disclosure occurs, that person's membership to the dataset is also revealed.
+Membership disclosure occurs when an attacker can determine whether a particular individual's data is **present in the dataset at all**. This matters when the mere fact of being in a dataset reveals sensitive information. Logically, whenever identity disclosure occurs, that person's membership in the dataset is also revealed.
 
 **Research example:** A research team publishes a dataset from a study on undocumented immigrants. If someone can determine that a specific person is in the dataset, they have learned that person is an undocumented immigrant, without needing to identify which row in the dataset belongs to them.
 
@@ -95,7 +95,7 @@ The indirect identifiers that remain in a dataset—like age, gender, occupation
 
 ## Operationalizing Risk
 
-How do I move from "there might be a risk" to "this is how much risk there is"? In this tutorial, I focus on basic methods for quantifying re-identification risk for individuals. For more advanced approaches (e.g., group-level risks), see the [Statistical Disclosure Control for Microdata: A Practice Guide. *Measuring Risk*](https://sdcpractice.readthedocs.io/en/latest/measure_risk.html).
+How do we move from "there might be a risk" to "this is how much risk there is"? In this tutorial, I focus on basic methods for quantifying re-identification risk for individuals. For more advanced approaches (e.g., group-level risks), see the [Statistical Disclosure Control for Microdata: A Practice Guide. *Measuring Risk*](https://sdcpractice.readthedocs.io/en/latest/measure_risk.html).
 
 ::: {.callout-warning collapse="false"}
 ## Grouped Data
@@ -105,7 +105,7 @@ The inclusion of groups (e.g., school classes, partnerships, households) that sh
 
 ## K-Anonymity
 
-K-anonymity is the most widely used concept for measuring re-identification risk in quantitative research datasets, and it will be the primary tool for assessing risk throughout this tutorial. It is not anchored within the GDPR, but rather a useful heuristic for achieving the necessary anonymization.
+K-anonymity is the most widely used concept for measuring re-identification risk in quantitative research datasets, and it will be our primary tool for assessing risk throughout this tutorial. It is not anchored within the GDPR, but rather a useful heuristic for achieving the necessary anonymization.
 
 ### Origin
 
@@ -115,7 +115,7 @@ K-anonymity was developed by computer scientist Latanya Sweeney after her demons
 
 A dataset satisfies **k-anonymity** if, for every combination of indirect identifiers, **there are at least k individuals sharing that same combination**. In other words: no one is unique, and no one stands out from a group smaller than k.
 
-- If **k = 1**, there is at least one individual who is unique on their indirect identifiers; meaning someone could potentially be singled out. This is the highest risk.
+- If **k = 1**, there is at least one individual who is unique on their indirect identifiers, meaning someone could potentially be singled out. This is the highest risk.
 - If **k = 5**, every individual shares their combination of indirect identifiers with at least 4 others, making re-identification much harder.
 - Higher values of k mean lower re-identification risk, but also potentially lower data utility (because more generalization or suppression is needed to achieve them, as I will show later).
 
@@ -124,7 +124,7 @@ On the level of the dataset, k is set by the **smallest** group: when all partic
 ::: {#reasonable-k .callout-warning collapse="false"}
 ## What Is a Reasonable Level of k-Anonymity?
 
-How high should k be? It depends on the sensitivity of the data and the risk of [participation knowledge](#participation-knowledge). Diversity within the groups helps: the more varied the sensitive values within a group, the less an attacker learns by placing someone in it. It does not rule attribute disclosure out, though—values can be different but still point in the same direction (see [Limitations of K-Anonymity](#limitations-of-k-anonymity) below). **I advise for a k-anonymity level of, generally, at least 3 and at least 5 in case of studies that come with a high risk of participation knowledge** (concurring with general guidance [@elemam2008]). In case of especially sensitive data (e.g., medical data), going up to a higher k (e.g., k = 10 or k = 11 as recommended by @external2025) is advisable.
+How high should k be? It depends on the sensitivity of the data and the risk of [participation knowledge](#participation-knowledge). Diversity within the groups helps: the more varied the sensitive values within a group, the less an attacker learns by placing someone in it. It does not rule attribute disclosure out, though—values can be different but still point in the same direction (see [Limitations of K-Anonymity](#limitations-of-k-anonymity) below). **I recommend a k-anonymity level of at least 3 in general, and at least 5 in case of studies that come with a high risk of participation knowledge** (concurring with general guidance [@elemam2008]). In case of especially sensitive data (e.g., medical data), going up to a higher k (e.g., k = 10 or k = 11 as recommended by @external2025) is advisable.
 :::
 
 ### Example
@@ -158,9 +158,9 @@ K-anonymity is a useful starting point, but it has known limitations:
 
 Extensions have been proposed to address these issues. **l-diversity** requires that each group holds at least l different sensitive values, so that locating someone's group leaves several competing possibilities for their sensitive value. **t-closeness** additionally requires that the distribution of sensitive values within each group stays close to their distribution in the full dataset.
 
-For the scope of this tutorial, k-anonymity will be the main metric, but it is good to be aware that it is not without its limitations. More information on l-diversity and t-closeness can be accessed in [this practical tutorial by Utrecht University](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html).
+For the scope of this tutorial, k-anonymity will be our main metric, but it is good to be aware that it is not without its limitations. More information on l-diversity and t-closeness can be accessed in [this practical tutorial by Utrecht University](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html).
 
-You will use k-anonymity practically in the [next chapter on assessing privacy risks](../anonymisation-techniques/planning-privacy), where you will calculate it using R and the `sdcMicro` package.
+We will use k-anonymity practically in the [next chapter on assessing privacy risks](../anonymisation-techniques/planning-privacy), where we will calculate it using R and the `sdcMicro` package.
 
 ## Further Reading
 

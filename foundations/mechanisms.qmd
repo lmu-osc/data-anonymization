@@ -36,7 +36,7 @@ Many funders now require a DMP, and writing one is a good exercise in data minim
 ### Resources, Links, Examples
 
 A useful template for a specific anonymization plan as part of a DMP is available on [Zenodo](https://zenodo.org/records/10782781).
-Learn more on how to create and take advantage of DMPs in the [DMP tutorial of the OSC](https://lmu-osc.github.io/FAIR-Data-Management/dmp.html).
+Learn more about how to create and take advantage of DMPs in the [DMP tutorial of the OSC](https://lmu-osc.github.io/FAIR-Data-Management/dmp.html).
 This [research data management checklist](https://www.ub.unibe.ch/unibe/portal/unibiblio/content/e6304/e583799/e1659096/e1659099/pane1659102/e1777975/ForschungsdatenmanagementCheckliste_ger.pdf) of the University of Bern lists all critical points to plan before a project starts.
 
 ### Institutional Review Board (IRB) Approval
@@ -52,7 +52,7 @@ For research, PbD means thinking about privacy before you start collecting data:
 ::: {.callout-note collapse="false"}
 ## The Seven Principles of Privacy by Design [@Cavoukian2011_PrivacyDesignLaw]
 
-PbD is primarily targeted at software products and less at research projects. Nevertheless, the principles can also guide you when designing a research study in a privacy-conscious way:
+PbD is primarily targeted at software products and less at research projects. Nevertheless, the principles can also guide us when designing a research study in a privacy-conscious way:
 
 1.  **Proactive, not reactive:** Anticipate and prevent privacy risks before they occur. Don't wait for a breach to think about data protection.
 

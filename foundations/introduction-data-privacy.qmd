@@ -42,9 +42,9 @@ The information type and sender haven't changed, but the recipient has changed (
 The contextual norm (i.e., the sum of context, information flow, and information norms) is violated. This is a privacy violation, not because a name was exposed, but because information flowed in a way that didn't match the norms of the context in which it was shared. And in turn, this led to the disclosure of an individual's identity as well as sensitive information about them and their work life.
 :::
 
-In this tutorial, I will show why you, as a researcher, need to carefully consider these contextual norms and how you can enable information flows of data (i.e., when sharing data).
+In this tutorial, I will show why we, as researchers, need to carefully consider these contextual norms and how we can enable information flows of data (i.e., when sharing data).
 
-Throughout this tutorial, I will use both the terms data protection and (data) privacy. **Privacy** is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. **Data protection** is a term that is closely linked to organizational and legal mechanisms. Both translate (give or take) to "Datenschutz" in German.
+Throughout this tutorial, I will use both the terms data protection and (data) privacy. **Privacy** is a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. **Data protection** is a term that is closely linked to organizational and legal mechanisms. Both translate (give or take) to "Datenschutz" in German.
 
 ## Why Is Data Protection Important?
 
@@ -60,9 +60,9 @@ Take a moment to think about the following scenarios. For each one, consider: As
 3.  A research team asks you to share your browsing history for a study on information consumption. They promise that all data will be "anonymized" before publication.
 :::
 
-Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with researchers because they trust that researchers handle it responsibly. If that trust erodes—let's say, because a dataset gets re-identified or a data breach makes headlines—people, likely, become less willing to participate in research. And, of course, without any participants, we hardly can conduct empirical research.
+Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with us because they trust that we handle it responsibly. If that trust erodes—let's say, because a dataset gets re-identified or a data breach makes headlines—people likely become less willing to participate in research. And, of course, without any participants, we can hardly conduct empirical research.
 
-For researchers, the obligation towards data protection arises from two sources that overlap quite a bit: ethics and law.
+As researchers, our obligation towards data protection arises from two sources that overlap quite a bit: ethics and law.
 
 ## Data Protection in Research Ethics
 
@@ -72,7 +72,7 @@ The ethical obligation to protect participants' data is deeply rooted in researc
 
 In practice, **institutional review boards** (IRBs) or ethics committees enforce these obligations before a study begins. However, their review typically focuses on the study design and informed consent. They rarely evaluate the technical details of how data will be stored, shared, or anonymized after collection. This gap is where the practical skills covered in this tutorial become relevant.
 
-One more thing worth mentioning: Researchers tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully [@obar2020; @foe2016], and even when they do, they may not fully understand the implications of data sharing. So, consent is necessary, but not sufficient on its own. More on this in [the chapter on mechanisms of data protection](mechanisms).
+One more thing worth mentioning: We tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully [@obar2020; @foe2016], and even when they do, they may not fully understand the implications of data sharing. So, consent is necessary, but not sufficient on its own. More on this in [the chapter on mechanisms of data protection](mechanisms).
 
 ## Data Protection in Law
 
@@ -95,12 +95,12 @@ Some useful contacts for researchers at LMU Munich (and other institutions usual
 
 ## Conclusion
 
-So where does this leave you? Both ethics and law tell you the same thing: you need to protect the personal data of your participants. At the same time, sharing data is a cornerstone of good scientific practice. Open data makes research more transparent, reproducible, and efficient. It enables replication, secondary analyses, and meta-research. For good reason, funders and journals increasingly require it.
+So where does this leave us? Both ethics and law tell us the same thing: we need to protect the personal data of our participants. At the same time, sharing data is a cornerstone of good scientific practice. Open data makes research more transparent, reproducible, and efficient. It enables replication, secondary analyses, and meta-research. For good reason, funders and journals increasingly require it.
 
 These two goals—protecting privacy and sharing data—are not contradictory, but rather create a tension that needs to be managed thoughtfully. The guiding principle is: **"as open as possible, as closed as necessary."** What exactly this means will depend on your data, your participants, and the context of your research. There is no one-size-fits-all answer.
 
-The good news is that anonymization gives you the tools to navigate this tension. By learning how to properly anonymize data, you can share your research data openly while still protecting the people who made your research possible. That is what this tutorial is about.
+The good news is that anonymization gives us the tools to navigate this tension. By learning how to properly anonymize data, you can share your research data openly while still protecting the people who made your research possible. That is what this tutorial is about.
 
-Next, I will dive deeper into privacy laws: They provide concrete rules that guide data protection throughout the whole research cycle.
+Next, we will dive deeper into privacy laws: They provide concrete rules that guide data protection throughout the whole research cycle.
 
 ## References

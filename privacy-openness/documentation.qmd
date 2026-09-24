@@ -19,7 +19,7 @@ Thorough documentation of your anonymization process serves three purposes:
 
 ## Internal Documentation
 
-Your internal documentation should describe the **full anonymization workflow**: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a **lab notebook** for your data processing. This document should be stored securely alongside the original data—it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). For the example dataset, this is the full, well-commented **R script**.
+Your internal documentation should describe the **full anonymization workflow**: which variables were modified, which techniques were applied (and with what parameters), what risk levels were measured before and after, and who made the decisions. Think of it as a **lab notebook** for your data processing. This document should be stored securely alongside the original data—it is not meant for publication, since it may contain information that could aid re-identification (e.g., the exact thresholds used for top-coding). In our case, this is the full, well-commented **R script**.
 
 ## External Documentation in Data Dictionary
 

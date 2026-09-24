@@ -20,7 +20,7 @@ According to [Article 4(1)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#ar
 
 An individual is considered **identifiable** if they can be recognized, either directly or indirectly, through various identifiers or factors. These identifiers can include:
 
-- **Direct identifiers**. These are information that can directly point out and identify an individual, such as address, social security number, bank accounts, or an email address.
+- **Direct identifiers**. These are pieces of information that can directly point out and identify an individual, such as address, social security number, bank accounts, or an email address.
 
 - **Indirect or quasi-identifiers**. These are data that can, when combined with other pieces of data, lead to the identification of an individual. Examples include date of birth, age, gender, geographic location (like a ZIP or postal code), marital status, or details about events (e.g., hospital admission dates).
 
@@ -40,7 +40,7 @@ The GDPR ([Art. 9](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_9)) des
 
 - trade union membership,
 
-- genetic data, biometric data (for unique identification),
+- genetic data, biometric data,
 
 - health data,
 
@@ -54,7 +54,7 @@ In practice, this means you need to be **extra careful** with these variables wh
 
 ## Exercise 1: Direct Identifiers, Indirect Identifiers, and Special Categories
 
-In this first exercise, you work with **the example dataset**—the simulated dataset of 200 Germans introduced on the [landing page](../index.qmd), whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:
+In this first exercise, we work with **our dataset**—the simulated dataset of 200 Germans introduced on the [landing page](../index.qmd), whose purpose is to answer whether certain political opinions are linked to religion. If you have not done so yet, download it and import it into R as described there. As a reminder, here is its data dictionary:
 
 ```{r}
 #| label: data-setup

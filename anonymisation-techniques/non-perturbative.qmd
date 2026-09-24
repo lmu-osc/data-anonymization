@@ -65,7 +65,7 @@ This means that values are on different levels (in this example: country vs. con
 
 Top-and-bottom coding is a special case of **recoding for numerical variables**. Instead of grouping all values into bands, you **cap the extreme ends of the distribution**: every value above a chosen threshold is replaced by that threshold (top coding), every value below one by that threshold (bottom coding).
 
-This helps when the bulk of the data is unremarkable and only a handful of extreme values are risky, because they belong to very few people. In the example dataset, a very high income might apply to only one or two participants, which makes them easy to single out. Capping income at the 95th percentile means that all top earners share the same reported value instead.
+This helps when the bulk of the data is unremarkable and only a handful of extreme values are risky, because they belong to very few people. In our dataset, a very high income might apply to only one or two participants, which makes them easy to single out. Capping income at the 95th percentile means that all top earners share the same reported value instead.
 
 Top-and-bottom coding counts as non-perturbative: the capped value is not a wrong value, just a less precise one. It has to be read as "this much or more" rather than as an exact amount—which is why the cap needs to be documented as such (see the [note on labeling top-coded values](#top-coding-labels) below).
 
@@ -91,7 +91,7 @@ Suppression can occur on different levels:
 
 - **Record suppression**: Remove an entire participant's data if their combination of attributes is so unique that no other technique can adequately protect them.
 
-- **Variable suppression**: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case—I already did this in [the chapter on personal data](../foundations/personal-data).
+- **Variable suppression**: Drop a whole variable from the released dataset if it is too risky to include at all. Direct identifiers like name and email address are a clear case—we already did this in [the chapter on personal data](../foundations/personal-data).
 
 **Example**: Replacing credit card number values with XXX. In the credit card example, the application of the character masking technique can be *partial*, hence only the first 12 numbers are replaced. Further, the overall number of characters stays the same, hence: XXXX XXXX XXXX 1234.
 
@@ -164,9 +164,9 @@ print(sdc_nonpert, type = "risk") # check risk after making the change
 
 ```
 
-I started by dividing the age into five about 10-year breaks. This provides a mean of 40 persons per age break, while the smallest one still has 23. These breaks can be changed later if more privacy or more utility is needed.
+I started by dividing the age into five breaks of about 10 years each. This provides a mean of 40 persons per age break, while the smallest one still has 23. These breaks can be changed later if more privacy or more utility is needed.
 
-I see that k-anonymity values have not been influenced by the recoding of age so far—this is primarily due to the `plz` variable that is unique for most participants. I therefore decided to **generalize the postal code**.
+We see that k-anonymity values have not been influenced by the recoding of age so far—this is primarily due to the `plz` variable that is unique for most participants. I therefore decided to **generalize the postal code**.
 
 As a first step, I used `globalRecode()` to group postal codes into five broad regions:
 
@@ -185,7 +185,7 @@ print(sdc_nonpert, type = "risk")
 
 The new categories map loosely to north-east (00-19), north-central (20-39), west (40-59), south-west (60-79), and south-east (80-99) Germany.
 
-Looking at k-anonymity now, I see that there are still many unique observations. To reduce risk further, I will generalize `plz` even more. For this dataset, I mostly want to use `plz` to distinguish whether participants live in the Munich area or elsewhere in Germany. Postal codes starting with 8 cover roughly the areas surrounding Munich, so I will collapse `plz` into just two categories: `"8xxxx"` and `"other"`.
+Looking at k-anonymity now, we see that there are still many unique observations. To reduce risk further, I will generalize `plz` even more. For this dataset, I mostly want to use `plz` to distinguish whether participants live in the Munich area or elsewhere in Germany. Postal codes starting with 8 cover roughly the areas surrounding Munich, so I will collapse `plz` into just two categories: `"8xxxx"` and `"other"`.
 
 `globalRecode()` cannot do this directly since `cut()` only handles continuous intervals—and "other" spans two separate ranges (00000-79999 and 90000-99999). Instead, I directly modify the data stored with the `@manipKeyVars` slot of the `sdcObject` and recalculate risks:
 
@@ -205,7 +205,7 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-Currently, there are only 32 unique persons in the dataset and 60 persons that violate 3-anonymity. These 32 correspond to the "Number of observations with higher risk than the main part of the data", as summarized as a risk measure in the output: Now, the majority of data conform with at least 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were **especially** at risk (since all of them were at risk).
+Currently, we are at only 32 unique persons in our dataset and 60 persons that violate 3-anonymity. These 32 correspond to the "Number of observations with higher risk than the main part of the data", as summarized as a risk measure in the output: Now, the majority of data conform with at least 2-anonymity, but for 32 participants, the risk is still higher, as they are unique in the dataset. Previously, in the original data, the majority of participants were unique, meaning none were **especially** at risk (since all of them were at risk).
 
 I don't want to generalize the `keyVars` any further, and for that reason, I decide to apply **local suppression**.
 
@@ -221,7 +221,7 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-The summary of the `sdcObject` shows what the last local suppression step has achieved: It suppressed 28 values on the education variable and 2 each on gender and postal code. Now, 2-anonymity is reached for all participants. 16 entries violate 3-anonymity; I will try local suppression at k = 3 to see how much more suppression would be necessary to achieve this.
+The summary of the `sdcObject` shows us what the last local suppression step has achieved: It suppressed 28 values on the education variable and 2 each on gender and postal code. Now, 2-anonymity is reached for all participants. 16 entries violate 3-anonymity; I will try local suppression at k = 3 to see how much more suppression would be necessary to achieve this.
 
 ```{r}
 # Local suppression to reach 3-anonymity
@@ -235,7 +235,7 @@ sdc_nonpert
 print(sdc_nonpert, type = "risk")
 ```
 
-With 12 more suppressions on education and 4 on gender, I can achieve 3-anonymity. Only 29 entries remain that violate 5-anonymity. To me, this is enough protection on k-anonymity, while still preserving most of the utility, especially on the most interesting variables.
+With 12 more suppressions on education and 4 on gender, we can achieve 3-anonymity. Only 29 entries remain that violate 5-anonymity. To me, this is enough protection on k-anonymity, while still preserving most of the utility, especially on the most interesting variables.
 :::
 
 ## Further Anonymization Steps Using Non-Perturbative Techniques

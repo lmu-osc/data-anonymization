@@ -29,7 +29,7 @@ The core idea behind perturbative techniques is to introduce **controlled change
 
 In most cases, perturbation does not increase k-anonymity, since values are not generalized but instead just changed. Recall that k-anonymity counts how many records share the same combination of indirect identifiers. It only goes up when distinct values are collapsed into shared, broader categories, the way recoding or suppression does. Perturbation works differently: it swaps each value for another *specific* value rather than a broader category, so a record that was unique on its indirect identifiers stays unique, the only difference is that its values change. It may reshuffle which records look unusual, but it does not merge them into the larger shared groups that a higher k requires.
 
-On top of that, you typically perturb continuous variables such as income, which are not even part of the categorical key that k-anonymity is calculated on in the first place. Perturbation therefore adds another layer of protection—especially for continuous variables—rather than raising k-anonymity. Exceptions to this rule are microaggregation and rounding, which are perturbative, but also generalize data and therefore contribute to k-anonymity as well.
+On top of that, we typically perturb continuous variables such as income, which are not even part of the categorical key that k-anonymity is calculated on in the first place. Perturbation therefore adds another layer of protection—especially for continuous variables—rather than raising k-anonymity. Exceptions to this rule are microaggregation and rounding, which are perturbative, but also generalize data and therefore contribute to k-anonymity as well.
 
 ::: {.callout-note collapse="false"}
 ## Can I Just Delete the Variable Instead?
@@ -38,7 +38,7 @@ If the values you publish are not the real ones anymore, why keep the variable a
 
 The answer is that deletion and perturbation remove **different things**. Deleting a variable removes the information for everyone and for every purpose. Perturbation removes only the **precision** of individual values, which is usually where the risk sits, and keeps the structure that is of interest for research.
 
-Let's take `income` in our dataset as an example. What makes a datapoint identifiable is not that someone *has* an income—it is that one participant has exactly **€902,234.42**, more than seventeen times the sample median of about €52,000 and one of only three incomes above €110,000. Anyone who knows even vaguely that a particular participant is a top earner can easily point to that individual. But almost no reuse of these data depends on that exact amount:
+Let's take `income` in our dataset as an example. What makes a data point identifiable is not that someone *has* an income—it is that one participant has exactly **€902,234.42**, more than seventeen times the sample median of about €52,000 and one of only three incomes above €110,000. Anyone who knows even vaguely that a particular participant is a top earner can easily point to that individual. But almost no reuse of these data depends on that exact amount:
 
 - A colleague testing whether **income is related to political opinions** needs the association, not the individual values. After microaggregation or a modest amount of noise, the correlation and the regression coefficients stay close to those from the original data. With `income` deleted, this analysis is not possible at all.
 - A researcher **pooling your data with other studies** needs a comparable income variable. A slightly noisy one still works; a missing one excludes your study from the pool.
@@ -64,7 +64,7 @@ The main **advantage** of swapping is that it removes the relationship between a
 
 ### Re-Sampling
 
-Re-sampling **replaces original values with averages** computed from bootstrap samples [@hundepool2026]. You draw t multiple independent bootstrap samples from the original data with replacement, with the same sample size as your original data, and sort the values within each sample. You then compute the average of the smallest values across all samples, then of the second-smallest ones, and so forth, and replace the corresponding original values (i.e., the smallest original value with the average of the smallest values in the samples, etc.). The result preserves the overall distribution, but individual values no longer correspond to real observations.
+Re-sampling **replaces original values with averages** computed from bootstrap samples [@hundepool2026]. You draw multiple independent bootstrap samples from the original data with replacement, with the same sample size as your original data, and sort the values within each sample. You then compute the average of the smallest values across all samples, then of the second-smallest ones, and so forth, and replace the corresponding original values (i.e., the smallest original value with the average of the smallest values in the samples, etc.). The result preserves the overall distribution, but individual values no longer correspond to real observations.
 
 ![Re-sampling: original ages are replaced with averages of sorted values across t = 3 bootstrapped samples.](../pictures/re-sampling-cropped.png){fig-alt="A before-and-after table where the exact ages are replaced with mean values of sub-samples."}
 
@@ -111,7 +111,7 @@ PRAM (Post RAndomization Method) applies to categorical variables. Each value is
 
 ![PRAM: some categorical values (here gender) are randomly recoded to another category with a set probability.](../pictures/pram-cropped.png){fig-alt="A before-and-after table where two of the gender values are randomly changed to a different category."}
 
-This technique can be applied to the `keyVars` I defined in the `sdcObject` earlier, but does not improve k-anonymity indicators since it doesn't reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that `sdcMicro` indicators cannot measure.
+This technique can be applied to the `keyVars` we defined in the `sdcObject` earlier, but does not improve k-anonymity indicators since it doesn't reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that `sdcMicro` indicators cannot measure.
 
 ## Keeping Utility
 
@@ -189,9 +189,9 @@ print(sdc_noise, type = "risk")
 sdc_noise
 ```
 
-`addNoise()` draws from a normal distribution with mean 0 and standard deviation = `noise * sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income. When `noise = 3.5`, I add up to 3.5% of income's standard deviation. In relation to the starting point, I achieve a disclosure risk between 0% and 75.5%.
+`addNoise()` draws from a normal distribution with mean 0 and standard deviation = `noise * sd(income)` and adds it to each value. Every record gets a unique (slightly wrong) income. When `noise = 3.5`, we add up to 3.5% of income's standard deviation. In relation to the starting point, we achieve a disclosure risk between 0% and 75.5%.
 
-Let's save these objects for now. I will later come back to inspect the utility of both methods in [the chapter on balancing utility and privacy](../privacy-openness/balancing).
+Let's save these objects for now. We will later come back to inspect the utility of both methods in [the chapter on balancing utility and privacy](../privacy-openness/balancing).
 
 ```{r}
 # Save the perturbed sdcObjects for the balancing chapter
