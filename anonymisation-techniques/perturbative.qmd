@@ -64,7 +64,7 @@ The main **advantage** of swapping is that it removes the relationship between a
 
 ### Re-Sampling
 
-Re-sampling **replaces original values with averages** computed from bootstrap samples [@hundepool2026]. You draw multiple independent bootstrap samples from the original data with replacement, with the same sample size as your original data, and sort the values within each sample. You then compute the average of the smallest values across all samples, then of the second-smallest ones, and so forth, and replace the corresponding original values (i.e., the smallest original value with the average of the smallest values in the samples, etc.). The result preserves the overall distribution, but individual values no longer correspond to real observations.
+Re-sampling **replaces original values with averages** computed from bootstrap samples [@hundepool2026]. You draw t multiple independent bootstrap samples from the original data with replacement, with the same sample size as your original data, and sort the values within each sample. You then compute the average of the smallest values across all samples, then of the second-smallest ones, and so forth, and replace the corresponding original values (i.e., the smallest original value with the average of the smallest values in the samples, etc.). The result preserves the overall distribution, but individual values no longer correspond to real observations.
 
 ![Re-sampling: original ages are replaced with averages of sorted values across t = 3 bootstrapped samples.](../pictures/re-sampling-cropped.png){fig-alt="A before-and-after table where the exact ages are replaced with mean values of sub-samples."}
 
