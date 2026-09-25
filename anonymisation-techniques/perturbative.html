@@ -100,9 +100,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-3c3f1368ed8db972a012dae01a8e5220.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0fd66a72018a63d913d6e27d7a0bd232.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-29f470653e47eca4888459144373f9ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -420,7 +420,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../foundations/mechanisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Privacy Mechanisms in Research</span></a>
+ <span class="menu-text">Data Protection Mechanisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -487,7 +487,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">BALANCING DATA PROTECTION AND OPENNESS</span></a>
+ <span class="menu-text">BALANCING PRIVACY AND OPENNESS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -576,13 +576,37 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>After completing this part of the tutorial, you will be able to apply selected perturbative techniques in R.</li>
+<li>Apply selected <strong>perturbative techniques</strong> in R.</li>
 </ul>
 </div>
 </div>
 </div>
 <p>The core idea behind perturbative techniques is to introduce <strong>controlled changes to data values</strong>. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but <strong>alter the values themselves</strong>. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.</p>
-<p>In general, perturbation does not increase k-anonymity, since values are not generalized but instead just changed. Recall that k-anonymity counts how many records share the same combination of indirect identifiers. It only goes up when distinct values are collapsed into shared, broader categories, the way recoding or suppression does. Perturbation works differently: it swaps each value for another <em>specific</em> value rather than a broader category, so a record that was unique on its quasi-identifiers stays unique—it just carries different numbers. It may reshuffle which records look unusual, but it does not merge them into the larger shared groups that a higher k requires. On top of that, we typically perturb continuous variables such as income, which are not even part of the categorical key that k-anonymity is calculated on in the first place. Perturbation therefore adds another layer of protection—especially for continuous variables—rather than raising k-anonymity.</p>
+<p>In most cases, perturbation does not increase k-anonymity, since values are not generalized but instead just changed. Recall that k-anonymity counts how many records share the same combination of indirect identifiers. It only goes up when distinct values are collapsed into shared, broader categories, the way recoding or suppression does. Perturbation works differently: it swaps each value for another <em>specific</em> value rather than a broader category, so a record that was unique on its indirect identifiers stays unique, the only difference is that its values change. It may reshuffle which records look unusual, but it does not merge them into the larger shared groups that a higher k requires.</p>
+<p>On top of that, we typically perturb continuous variables such as income, which are not even part of the categorical key that k-anonymity is calculated on in the first place. Perturbation therefore adds another layer of protection—especially for continuous variables—rather than raising k-anonymity. Exceptions to this rule are microaggregation and rounding, which are perturbative, but also generalize data and therefore contribute to k-anonymity as well.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Can I Just Delete the Variable Instead?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>If the values you publish are not the real ones anymore, why keep the variable at all?</p>
+<p>The answer is that deletion and perturbation remove <strong>different things</strong>. Deleting a variable removes the information for everyone and for every purpose. Perturbation removes only the <strong>precision</strong> of individual values, which is usually where the risk sits, and keeps the structure that is of interest for research.</p>
+<p>Let’s take <code>income</code> in our dataset as an example. What makes a data point identifiable is not that someone <em>has</em> an income—it is that one participant has exactly <strong>€902,234.42</strong>, more than seventeen times the sample median of about €52,000 and one of only three incomes above €110,000. Anyone who knows even vaguely that a particular participant is a top earner can easily point to that individual. But almost no reuse of these data depends on that exact amount:</p>
+<ul>
+<li>A colleague testing whether <strong>income is related to political opinions</strong> needs the association, not the individual values. After microaggregation or a modest amount of noise, the correlation and the regression coefficients stay close to those from the original data. With <code>income</code> deleted, this analysis is not possible at all.</li>
+<li>A researcher <strong>pooling your data with other studies</strong> needs a comparable income variable. A slightly noisy one still works; a missing one excludes your study from the pool.</li>
+</ul>
+<p><code>years_in_job</code> works the same way. The longest tenure in the sample is <strong>32 years</strong>, with the next-longest at 24—in a sample of 200, that makes a person very identifiable. But no plausible analysis needs “32” rather than “roughly 30, in the longest-tenure group.” Deleting the variable would remove a legitimate predictor from every future analysis in order to protect a single record.</p>
+</div>
+</div>
+</div>
 <p>In this chapter, I will present a few perturbative techniques introduced in <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span>.</p>
 <section id="examples-of-perturbative-techniques" class="level2"><h2 class="anchored" data-anchor-id="examples-of-perturbative-techniques">Examples of Perturbative Techniques</h2>
 <section id="swapping" class="level3"><h3 class="anchored" data-anchor-id="swapping">Swapping</h3>
@@ -608,7 +632,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <figcaption>Noise addition: a random value is added to each age, so every value changes slightly.</figcaption></figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -617,12 +641,16 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>Noise addition leaves one question open: <strong>how much noise is enough?</strong> In this tutorial, we answer it empirically—add noise, then measure the remaining disclosure risk (as you will do in the exercise below). <strong>Differential privacy</strong> approaches the same question from the other direction: you first fix a privacy level, and the noise is then calibrated mathematically so that a formal guarantee holds. Importantly, this guarantee applies to an <strong>algorithm</strong>—the whole procedure of computing a result <em>and</em> adding noise to it—<strong>not to a dataset</strong>: the algorithm’s output must be essentially the same whether or not any single individual’s data is included, so an attacker learns (almost) nothing about anyone’s participation. One consequence: you cannot look at a dataset and call it “differentially private”; the guarantee belongs to the process that produced an output.</p>
-<p>You already know a technique that provides this guarantee: the <a href="../foundations/mechanisms.html#randomized-response-technique">randomized response technique</a> from the chapter on mechanisms. Because each answer is randomized with known probabilities, a recorded “yes” proves nothing about any single person, yet the true prevalence can still be estimated.</p>
-<p>That example also shows a practical difference from an approach like <em>k</em>-anonymity, which requires a trusted party holding the complete dataset to anonymize it. With differential privacy, noise can instead be added <strong>locally</strong>—in the case of randomized response, by each participant themselves, before their data is even collected.</p>
-<p>For R users, the <code>diffpriv</code> package implements differential privacy mechanisms and is a good starting point for exploring this approach <span class="citation" data-cites="rubinstein2017">(<a href="#ref-rubinstein2017" role="doc-biblioref">Rubinstein and Alda 2017</a>)</span>.</p>
+<p><strong>How much noise is enough?</strong> In this tutorial, we look at this question empirically—add noise, then measure the remaining risk (as you will do in the exercise below). <strong>Differential privacy</strong> approaches the same question from another perspective: you set a privacy level first, and the noise is then calibrated mathematically so that a formal guarantee holds. This guarantee applies to an <strong>algorithm</strong>, <strong>not to the dataset itself</strong>: the algorithm’s output must be essentially the same whether or not any single individual’s data is included, so an attacker learns (almost) nothing about anyone’s participation. However, this still achieves a certain privacy level for this one dataset.</p>
+<p>You already know a technique that provides this guarantee: the <a href="../foundations/mechanisms.html#randomized-response-technique">randomized response technique</a> from the chapter on mechanisms. Because each answer is randomized with known probabilities, a “yes” says nothing about any individual, yet the true prevalence can still be estimated.</p>
+<p>That example also shows a practical difference from an approach like k-anonymity, which requires a trusted party holding the complete dataset to anonymize it. With differential privacy, noise can instead be added <strong>locally</strong>—in the case of randomized response, by each participant themselves, before their data is even collected.</p>
+<p><strong>Helpful resources:</strong></p>
+<ul>
+<li>The R package <a href="https://cran.r-project.org/web/packages/DPpack/index.html">DPpack</a> provides functions for applying differential privacy to common statistical analyses in R.</li>
+<li>For an accessible introduction to the concepts behind differential privacy, see this book <span class="citation" data-cites="dwork2014">(<a href="#ref-dwork2014" role="doc-biblioref">Dwork and Roth 2014</a>)</span>.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -634,25 +662,25 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <p>The quality of the result depends on how homogeneous the groups are: the more similar the original values within a group, the less information is lost when replacing them with the group mean. This is why the grouping algorithm matters. The default in <code>sdcMicro</code>, <code>mdav</code> (Maximum Distance to Average Vector), tries to form compact groups to minimize distortion.</p>
 </section><section id="rounding" class="level3"><h3 class="anchored" data-anchor-id="rounding">Rounding</h3>
-<p><strong>Rounding replaces exact values with rounded versions</strong>. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or looses quite a lot of data in case of larger ranges that are rounded to the same value.</p>
+<p><strong>Rounding replaces exact values with rounded versions</strong>. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or loses quite a lot of data in case of larger ranges that are rounded to the same value.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../pictures/rounding-cropped.png" class="img-fluid figure-img" alt="A before-and-after table where ages are rounded to values such as 60, 20 and 30."></p>
-<figcaption>Rounding: exact ages are replaced with rounded values (here to the nearest 10).</figcaption></figure>
+<figure class="figure"><p><img src="../pictures/rounding-cropped.png" class="img-fluid figure-img" alt="A before-and-after table where ages are rounded to values such as 65, 20, and 30."></p>
+<figcaption>Rounding: exact ages are replaced with rounded values (here to the nearest 5).</figcaption></figure>
 </div>
 </section><section id="pram" class="level3"><h3 class="anchored" data-anchor-id="pram">PRAM</h3>
-<p>PRAM (Post RAndomisation Method) applies to categorical variables. Each value is <strong>randomly recoded to a different category with a certain probability</strong> defined in a transition matrix. For example, a participant recorded as “male” might be recoded to “female” with probability 0.05 and kept as “male” with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.</p>
+<p>PRAM (Post RAndomization Method) applies to categorical variables. Each value is <strong>randomly recoded to a different category with a certain probability</strong> defined in a transition matrix. For example, a participant recorded as “male” might be recoded to “female” with probability 0.05 and kept as “male” with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="../pictures/pram-cropped.png" class="img-fluid figure-img" alt="A before-and-after table where two of the gender values are randomly changed to a different category."></p>
 <figcaption>PRAM: some categorical values (here gender) are randomly recoded to another category with a set probability.</figcaption></figure>
 </div>
-<p>This technique can be applied to the <code>keyVars</code> we defined in the <code>sdcObject</code> earlier, but does not improve k-anonymity indicators since it doesn’t reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that <code>sdcMicro</code> indicators can not measure.</p>
+<p>This technique can be applied to the <code>keyVars</code> we defined in the <code>sdcObject</code> earlier, but does not improve k-anonymity indicators since it doesn’t reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that <code>sdcMicro</code> indicators cannot measure.</p>
 </section></section><section id="keeping-utility" class="level2"><h2 class="anchored" data-anchor-id="keeping-utility">Keeping Utility</h2>
-<p>After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover formal utility measures in <a href="../privacy-openness/balancing">the chapter on balancing utility and privacy</a>.</p>
+<p>After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. I cover formal utility measures in <a href="../privacy-openness/balancing">the chapter on balancing utility and privacy</a>.</p>
 </section><section id="pro-and-contra-of-using-perturbative-techniques" class="level2"><h2 class="anchored" data-anchor-id="pro-and-contra-of-using-perturbative-techniques">Pro and Contra of Using Perturbative Techniques</h2>
 <p>Pros:</p>
 <ul>
 <li>No records or variables are removed; the dataset stays complete.</li>
-<li>Statistical properties like means, variances, and correlations can be largely preserved</li>
+<li>Statistical properties like means, variances, and correlations can be largely preserved.</li>
 <li>Easy to tune the privacy-utility trade-off by adjusting the noise level or group size.</li>
 </ul>
 <p>Cons:</p>
@@ -664,28 +692,28 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <p>Let’s try out two common perturbative techniques: microaggregation and noise. Conveniently, both are available directly in <code>sdcMicro</code>.</p>
 <p>Continue working with <code>sdc_nonpert</code> from the previous exercise.</p>
 <ol type="1">
-<li><p><strong>Apply microaggregation</strong> (with the function <code>microaggregation</code>) <strong>to income</strong> using the default method (<code>"mdav"</code>). Start with a group size of <code>aggr = 5</code>.</p></li>
-<li><p><strong>Add additive noise to income</strong> (with the function <code>adddNoise)</code> as an alternative. Start with a noise parameter of 1 .</p></li>
+<li><p><strong>Apply microaggregation</strong> (with the function <code>microaggregation()</code>) <strong>to income</strong> using the default method (<code>"mdav"</code>). Start with a group size of <code>aggr = 5</code>.</p></li>
+<li><p><strong>Add additive noise to income</strong> (with the function <code>addNoise()</code>) as an alternative. Start with a noise parameter of 1.</p></li>
 <li><p><strong>Compare the methods:</strong> Which parameters do you need to achieve similar levels of protection?</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+<span class="screen-reader-only">Tip</span>Work on Separate Copies
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>You cannot undo perturbation steps within the same <code>sdcObject</code>. Create a fresh copy of <code>sdc_nonpert</code> before trying the second method so you can compare them side-by-side.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -694,17 +722,17 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <section id="microaggregation-1" class="level4"><h4 class="anchored" data-anchor-id="microaggregation-1">Microaggregation</h4>
 <p>I start by applying microaggregation with a group size of 5 on a new <code>sdcObject</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Microaggregation: replace income with group means (group size 5)</span></span>
 <span><span class="va">sdc_micro</span> <span class="op">&lt;-</span> <span class="fu">microaggregation</span><span class="op">(</span></span>
-<span>  obj    <span class="op">=</span> <span class="va">sdc_nonpert</span>,</span>
+<span>  obj       <span class="op">=</span> <span class="va">sdc_nonpert</span>,</span>
 <span>  variables <span class="op">=</span> <span class="st">"income"</span>,</span>
-<span>  aggr   <span class="op">=</span>  <span class="fl">5</span>,          <span class="co"># group size</span></span>
-<span>  method <span class="op">=</span> <span class="st">"mdav"</span>      <span class="co"># Maximum Distance to Average Vector</span></span>
+<span>  aggr      <span class="op">=</span>  <span class="fl">5</span>,         <span class="co"># group size</span></span>
+<span>  method    <span class="op">=</span> <span class="st">"mdav"</span>      <span class="co"># Maximum Distance to Average Vector</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">sdc_micro</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -787,14 +815,14 @@ Expected number of re-identifications:
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_micro</span> <span class="op">&lt;-</span> <span class="fu">extractManipData</span><span class="op">(</span><span class="va">sdc_micro</span><span class="op">)</span> <span class="co"># Extract the manipulated data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>mdav</code> groups records by their distance to the group centroid, then replaces each value with the group mean. With <code>aggr = 5</code>, at least 5 records share the same income value, so singling out an individual is harder.</p>
-<p>As we can see in the output of the <code>sdcObject</code>, the disclosure risk is reduced from up to 100% in the beginning to a range going only up to 77.5%.</p>
+<p>As the output of the <code>sdcObject</code> shows, the disclosure risk is reduced from up to 100% in the beginning to a range going only up to 77.5%.</p>
 </section><section id="additive-noise" class="level4"><h4 class="anchored" data-anchor-id="additive-noise">Additive Noise</h4>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Additive noise on income</span></span>
 <span><span class="va">sdc_noise</span> <span class="op">&lt;-</span> <span class="fu">addNoise</span><span class="op">(</span></span>
-<span>  obj    <span class="op">=</span> <span class="va">sdc_nonpert</span>,</span>
+<span>  obj       <span class="op">=</span> <span class="va">sdc_nonpert</span>,</span>
 <span>  variables <span class="op">=</span> <span class="st">"income"</span>,</span>
-<span>  noise  <span class="op">=</span> <span class="fl">3.5</span>          <span class="co"># noise level as fraction of SD</span></span>
+<span>  noise     <span class="op">=</span> <span class="fl">3.5</span>          <span class="co"># noise level as percentage of SD</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sdc_noise</span>, type <span class="op">=</span> <span class="st">"risk"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -875,7 +903,7 @@ Current Information Loss in modified data (0.00% in original data):
 <pre><code>----------------------------------------------------------------------</code></pre>
 </div>
 </div>
-<p><code>addNoise</code> draws from a normal distribution with mean 0 and standard deviation = <code>noise × sd(income)</code> and adds it to each value. Every record gets a unique (slightly wrong) income. When <code>noise = 3.5</code>, we achieve a disclosure risk between 0% and 75.5%, instead of one between 0% and 100% that we started with.</p>
+<p><code>addNoise()</code> draws from a normal distribution with mean 0 and standard deviation = <code>noise * sd(income)</code> and adds it to each value. Every record gets a unique (slightly wrong) income. When <code>noise = 3.5</code>, we add up to 3.5% of income’s standard deviation. In relation to the starting point, we achieve a disclosure risk between 0% and 75.5%.</p>
 <p>Let’s save these objects for now. We will later come back to inspect the utility of both methods in <a href="../privacy-openness/balancing">the chapter on balancing utility and privacy</a>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Save the perturbed sdcObjects for the balancing chapter</span></span>
@@ -886,6 +914,7 @@ Current Information Loss in modified data (0.00% in original data):
 </div>
 </div>
 </div>
+<p>Make sure never to publish the seed when you apply such methods.</p>
 </section><section id="references" class="level2">
 
 
@@ -896,11 +925,11 @@ Current Information Loss in modified data (0.00% in original data):
 <div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
 Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
 </div>
+<div id="ref-dwork2014" class="csl-entry" role="listitem">
+Dwork, Cynthia, and Aaron Roth. 2014. <span>“The Algorithmic Foundations of Differential Privacy.”</span> <em>Foundations and Trends® in Theoretical Computer Science</em> 9 (3-4): 211–487. <a href="https://doi.org/10.1561/0400000042">https://doi.org/10.1561/0400000042</a>.
+</div>
 <div id="ref-hundepool2026" class="csl-entry" role="listitem">
 Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, et al. 2026. <em>Handbook on Statistical Disclosure Control</em>. 2. <a href="https://sdctools.github.io/HandbookSDC/">https://sdctools.github.io/HandbookSDC/</a>.
-</div>
-<div id="ref-rubinstein2017" class="csl-entry" role="listitem">
-Rubinstein, Benjamin I. P., and Francesco Alda. 2017. <span>“Pain-Free Random Differential Privacy with Sensitivity Sampling.”</span>
 </div>
 </div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1394,7 +1423,7 @@ Rubinstein, Benjamin I. P., and Francesco Alda. 2017. <span>“Pain-Free Random 
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objective</span></span>
 <span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After completing this part of the tutorial, you will be able to apply selected perturbative techniques in R.</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Apply selected **perturbative techniques** in R.</span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
@@ -1403,7 +1432,7 @@ Rubinstein, Benjamin I. P., and Francesco Alda. 2017. <span>“Pain-Free Random 
 <span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup: load packages, data, and the saved sdcObject</span></span>
 <span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdcMicro)</span>
 <span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># only so the numbers in this tutorial stay the same on every render; delete for a real application</span></span>
 <span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>data_withoutidentifiers <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"simulated-data-noidentifiers.csv"</span>)) <span class="co"># Change based on the location of your data file</span></span>
 <span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a></span>
@@ -1412,159 +1441,182 @@ Rubinstein, Benjamin I. P., and Francesco Alda. 2017. <span>“Pain-Free Random 
 <span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>The core idea behind perturbative techniques is to introduce **controlled changes to data values**. Unlike non-perturbative techniques that hide or remove information, perturbative methods keep all records and variables in the dataset but **alter the values themselves**. The key requirement is that the changes should be large enough to prevent re-identification but small enough that the overall statistical properties of the data (means, variances, correlations) are preserved.</span>
 <span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>In general, perturbation does not increase k-anonymity, since values are not generalized but instead just changed. Recall that k-anonymity counts how many records share the same combination of indirect identifiers. It only goes up when distinct values are collapsed into shared, broader categories, the way recoding or suppression does. Perturbation works differently: it swaps each value for another *specific* value rather than a broader category, so a record that was unique on its quasi-identifiers stays unique—it just carries different numbers. It may reshuffle which records look unusual, but it does not merge them into the larger shared groups that a higher k requires. On top of that, we typically perturb continuous variables such as income, which are not even part of the categorical key that k-anonymity is calculated on in the first place. Perturbation therefore adds another layer of protection—especially for continuous variables—rather than raising k-anonymity.</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>In most cases, perturbation does not increase k-anonymity, since values are not generalized but instead just changed. Recall that k-anonymity counts how many records share the same combination of indirect identifiers. It only goes up when distinct values are collapsed into shared, broader categories, the way recoding or suppression does. Perturbation works differently: it swaps each value for another *specific* value rather than a broader category, so a record that was unique on its indirect identifiers stays unique, the only difference is that its values change. It may reshuffle which records look unusual, but it does not merge them into the larger shared groups that a higher k requires.</span>
 <span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>In this chapter, I will present a few perturbative techniques introduced in @Carvalho2023_SurveyPrivacyPreservingTechniques.</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>On top of that, we typically perturb continuous variables such as income, which are not even part of the categorical key that k-anonymity is calculated on in the first place. Perturbation therefore adds another layer of protection—especially for continuous variables—rather than raising k-anonymity. Exceptions to this rule are microaggregation and rounding, which are perturbative, but also generalize data and therefore contribute to k-anonymity as well.</span>
 <span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Examples of Perturbative Techniques</span></span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Swapping</span></span>
-<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>Swapping **exchanges values of a variable between participants**. Instead of altering the values themselves, it breaks the link between a record and the individual it belongs to.</span>
-<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>There are two main variants. **Record swapping** (also known as data swapping) applies to categorical variables: values like gender or country of residence are swapped between records. A useful property here is t-order equivalence. For example, 1-order equivalence means the marginal frequencies are preserved (same number of males and females as before), and 2-order equivalence means joint frequencies are also preserved (same number of males and females from each country).</span>
-<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a><span class="al">![Record swapping: gender values are exchanged between records. In this case, the 1-order frequencies stay the same, but the 2-order frequencies change, meaning that only 1-order equivalence is reached.](../pictures/swapping-cropped.png)</span>{fig-alt="A before-and-after table where gender values are swapped between records; frequency tables below show that 1-order frequencies stay equal while 2-order frequencies change."}</span>
-<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a>**Rank swapping** applies to continuous variables: values are only swapped with other values that are close in rank, which limits how much the distribution is distorted.</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Can I Just Delete the Variable Instead?</span></span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>If the values you publish are not the real ones anymore, why keep the variable at all?</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>The answer is that deletion and perturbation remove **different things**. Deleting a variable removes the information for everyone and for every purpose. Perturbation removes only the **precision** of individual values, which is usually where the risk sits, and keeps the structure that is of interest for research.</span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>Let's take <span class="in">`income`</span> in our dataset as an example. What makes a data point identifiable is not that someone *has* an income—it is that one participant has exactly **€902,234.42**, more than seventeen times the sample median of about €52,000 and one of only three incomes above €110,000. Anyone who knows even vaguely that a particular participant is a top earner can easily point to that individual. But almost no reuse of these data depends on that exact amount:</span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A colleague testing whether **income is related to political opinions** needs the association, not the individual values. After microaggregation or a modest amount of noise, the correlation and the regression coefficients stay close to those from the original data. With <span class="in">`income`</span> deleted, this analysis is not possible at all.</span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A researcher **pooling your data with other studies** needs a comparable income variable. A slightly noisy one still works; a missing one excludes your study from the pool.</span>
 <span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>The main **advantage** of swapping is that it removes the relationship between a record and the individual without introducing new values that never existed in the data. It can protect rare and unique values and works across variable types. On the **downside**, non-random swapping requires careful implementation, and swapping can produce unusual combinations of values that did not exist in the original data.</span>
-<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a><span class="fu">### Re-Sampling</span></span>
-<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a>Re-sampling **replaces original values with averages** computed from bootstrap samples <span class="co">[</span><span class="ot">@hundepool2026</span><span class="co">]</span>. You draw multiple independent bootstrap samples from the original data with replacement, with the same sample size as your original data, and sort the values within each sample. You then compute the average of the smallest values across all samples, then of the second-smallest ones, and so forth, and replace the corresponding original values (i.e., the smallest original value with the average of the smallest values in the samples, etc.). The result preserves the overall distribution, but individual values no longer correspond to real observations.</span>
-<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a><span class="al">![Re-sampling: original ages are replaced with averages of sorted values across t = 3 bootstrapped samples.](../pictures/re-sampling-cropped.png)</span>{fig-alt="A before-and-after table where the exact ages are replaced with mean values of sub-samples."}</span>
-<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Noise</span></span>
-<span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a>Noise addition (also known as randomization) **adds a random value** to each original value. The most common form is **additive noise**: a random draw from a distribution (typically normal with mean 0) is added to the original value. **Multiplicative noise** works similarly but multiplies the original value by a random factor, which scales the perturbation to the magnitude of the variable.</span>
-<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a>The noise can be uncorrelated—each value gets an independent random draw—or correlated with the original values, which better preserves the correlation structure between variables. Transformations of the variable (e.g., log-transforming income before adding noise) are also possible and can improve the result for skewed distributions.</span>
-<span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a><span class="al">![Noise addition: a random value is added to each age, so every value changes slightly.](../pictures/noise-cropped.png)</span>{fig-alt="A before-and-after table where each age is replaced with a slightly different, noisy value."}</span>
-<span id="cb27-61"><a href="#cb27-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-62"><a href="#cb27-62" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
-<span id="cb27-63"><a href="#cb27-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### Differential Privacy</span></span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a><span class="in">`years_in_job`</span> works the same way. The longest tenure in the sample is **32 years**, with the next-longest at 24—in a sample of 200, that makes a person very identifiable. But no plausible analysis needs "32" rather than "roughly 30, in the longest-tenure group." Deleting the variable would remove a legitimate predictor from every future analysis in order to protect a single record.</span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>In this chapter, I will present a few perturbative techniques introduced in @Carvalho2023_SurveyPrivacyPreservingTechniques.</span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Examples of Perturbative Techniques</span></span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Swapping</span></span>
+<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a>Swapping **exchanges values of a variable between participants**. Instead of altering the values themselves, it breaks the link between a record and the individual it belongs to.</span>
+<span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a>There are two main variants. **Record swapping** (also known as data swapping) applies to categorical variables: values like gender or country of residence are swapped between records. A useful property here is t-order equivalence. For example, 1-order equivalence means the marginal frequencies are preserved (same number of males and females as before), and 2-order equivalence means joint frequencies are also preserved (same number of males and females from each country).</span>
+<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a><span class="al">![Record swapping: gender values are exchanged between records. In this case, the 1-order frequencies stay the same, but the 2-order frequencies change, meaning that only 1-order equivalence is reached.](../pictures/swapping-cropped.png)</span>{fig-alt="A before-and-after table where gender values are swapped between records; frequency tables below show that 1-order frequencies stay equal while 2-order frequencies change."}</span>
+<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-61"><a href="#cb27-61" aria-hidden="true" tabindex="-1"></a>**Rank swapping** applies to continuous variables: values are only swapped with other values that are close in rank, which limits how much the distribution is distorted.</span>
+<span id="cb27-62"><a href="#cb27-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-63"><a href="#cb27-63" aria-hidden="true" tabindex="-1"></a>The main **advantage** of swapping is that it removes the relationship between a record and the individual without introducing new values that never existed in the data. It can protect rare and unique values and works across variable types. On the **downside**, non-random swapping requires careful implementation, and swapping can produce unusual combinations of values that did not exist in the original data.</span>
 <span id="cb27-64"><a href="#cb27-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-65"><a href="#cb27-65" aria-hidden="true" tabindex="-1"></a>Noise addition leaves one question open: **how much noise is enough?** In this tutorial, we answer it empirically—add noise, then measure the remaining disclosure risk (as you will do in the exercise below). **Differential privacy** approaches the same question from the other direction: you first fix a privacy level, and the noise is then calibrated mathematically so that a formal guarantee holds. Importantly, this guarantee applies to an **algorithm**—the whole procedure of computing a result *and* adding noise to it—**not to a dataset**: the algorithm's output must be essentially the same whether or not any single individual's data is included, so an attacker learns (almost) nothing about anyone's participation. One consequence: you cannot look at a dataset and call it "differentially private"; the guarantee belongs to the process that produced an output.</span>
+<span id="cb27-65"><a href="#cb27-65" aria-hidden="true" tabindex="-1"></a><span class="fu">### Re-Sampling</span></span>
 <span id="cb27-66"><a href="#cb27-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-67"><a href="#cb27-67" aria-hidden="true" tabindex="-1"></a>You already know a technique that provides this guarantee: the <span class="co">[</span><span class="ot">randomized response technique</span><span class="co">](../foundations/mechanisms.qmd#randomized-response-technique)</span> from the chapter on mechanisms. Because each answer is randomized with known probabilities, a recorded "yes" proves nothing about any single person, yet the true prevalence can still be estimated.</span>
+<span id="cb27-67"><a href="#cb27-67" aria-hidden="true" tabindex="-1"></a>Re-sampling **replaces original values with averages** computed from bootstrap samples <span class="co">[</span><span class="ot">@hundepool2026</span><span class="co">]</span>. You draw multiple independent bootstrap samples from the original data with replacement, with the same sample size as your original data, and sort the values within each sample. You then compute the average of the smallest values across all samples, then of the second-smallest ones, and so forth, and replace the corresponding original values (i.e., the smallest original value with the average of the smallest values in the samples, etc.). The result preserves the overall distribution, but individual values no longer correspond to real observations.</span>
 <span id="cb27-68"><a href="#cb27-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-69"><a href="#cb27-69" aria-hidden="true" tabindex="-1"></a>That example also shows a practical difference from an approach like *k*-anonymity, which requires a trusted party holding the complete dataset to anonymize it. With differential privacy, noise can instead be added **locally**—in the case of randomized response, by each participant themselves, before their data is even collected.</span>
+<span id="cb27-69"><a href="#cb27-69" aria-hidden="true" tabindex="-1"></a><span class="al">![Re-sampling: original ages are replaced with averages of sorted values across t = 3 bootstrapped samples.](../pictures/re-sampling-cropped.png)</span>{fig-alt="A before-and-after table where the exact ages are replaced with mean values of sub-samples."}</span>
 <span id="cb27-70"><a href="#cb27-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-71"><a href="#cb27-71" aria-hidden="true" tabindex="-1"></a>For R users, the <span class="in">`diffpriv`</span> package implements differential privacy mechanisms and is a good starting point for exploring this approach <span class="co">[</span><span class="ot">@rubinstein2017</span><span class="co">]</span>.</span>
-<span id="cb27-72"><a href="#cb27-72" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb27-73"><a href="#cb27-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-74"><a href="#cb27-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### Microaggregation</span></span>
-<span id="cb27-75"><a href="#cb27-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-76"><a href="#cb27-76" aria-hidden="true" tabindex="-1"></a>Microaggregation **groups records by similarity on the variable of interest and replaces each value with a group aggregate**—usually the mean or median. Records within the same group end up sharing the same value, which makes it impossible to single out an individual based on that variable alone.</span>
-<span id="cb27-77"><a href="#cb27-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-78"><a href="#cb27-78" aria-hidden="true" tabindex="-1"></a><span class="al">![Microaggregation: records are grouped and each age is replaced with its group's average, so records share the same value.](../pictures/microaggregation-cropped.png)</span>{fig-alt="A before-and-after table where ages are replaced with group averages, with several records sharing the same value."}</span>
-<span id="cb27-79"><a href="#cb27-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-80"><a href="#cb27-80" aria-hidden="true" tabindex="-1"></a>The quality of the result depends on how homogeneous the groups are: the more similar the original values within a group, the less information is lost when replacing them with the group mean. This is why the grouping algorithm matters. The default in <span class="in">`sdcMicro`</span>, <span class="in">`mdav`</span> (Maximum Distance to Average Vector), tries to form compact groups to minimize distortion.</span>
+<span id="cb27-71"><a href="#cb27-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### Noise</span></span>
+<span id="cb27-72"><a href="#cb27-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-73"><a href="#cb27-73" aria-hidden="true" tabindex="-1"></a>Noise addition (also known as randomization) **adds a random value** to each original value. The most common form is **additive noise**: a random draw from a distribution (typically normal with mean 0) is added to the original value. **Multiplicative noise** works similarly but multiplies the original value by a random factor, which scales the perturbation to the magnitude of the variable.</span>
+<span id="cb27-74"><a href="#cb27-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-75"><a href="#cb27-75" aria-hidden="true" tabindex="-1"></a>The noise can be uncorrelated—each value gets an independent random draw—or correlated with the original values, which better preserves the correlation structure between variables. Transformations of the variable (e.g., log-transforming income before adding noise) are also possible and can improve the result for skewed distributions.</span>
+<span id="cb27-76"><a href="#cb27-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-77"><a href="#cb27-77" aria-hidden="true" tabindex="-1"></a><span class="al">![Noise addition: a random value is added to each age, so every value changes slightly.](../pictures/noise-cropped.png)</span>{fig-alt="A before-and-after table where each age is replaced with a slightly different, noisy value."}</span>
+<span id="cb27-78"><a href="#cb27-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-79"><a href="#cb27-79" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
+<span id="cb27-80"><a href="#cb27-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## Differential Privacy</span></span>
 <span id="cb27-81"><a href="#cb27-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-82"><a href="#cb27-82" aria-hidden="true" tabindex="-1"></a><span class="fu">### Rounding</span></span>
+<span id="cb27-82"><a href="#cb27-82" aria-hidden="true" tabindex="-1"></a>**How much noise is enough?** In this tutorial, we look at this question empirically—add noise, then measure the remaining risk (as you will do in the exercise below). **Differential privacy** approaches the same question from another perspective: you set a privacy level first, and the noise is then calibrated mathematically so that a formal guarantee holds. This guarantee applies to an **algorithm**, **not to the dataset itself**: the algorithm's output must be essentially the same whether or not any single individual's data is included, so an attacker learns (almost) nothing about anyone's participation. However, this still achieves a certain privacy level for this one dataset.</span>
 <span id="cb27-83"><a href="#cb27-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-84"><a href="#cb27-84" aria-hidden="true" tabindex="-1"></a>**Rounding replaces exact values with rounded versions**. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or looses quite a lot of data in case of larger ranges that are rounded to the same value.</span>
+<span id="cb27-84"><a href="#cb27-84" aria-hidden="true" tabindex="-1"></a>You already know a technique that provides this guarantee: the <span class="co">[</span><span class="ot">randomized response technique</span><span class="co">](../foundations/mechanisms.qmd#randomized-response-technique)</span> from the chapter on mechanisms. Because each answer is randomized with known probabilities, a "yes" says nothing about any individual, yet the true prevalence can still be estimated.</span>
 <span id="cb27-85"><a href="#cb27-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-86"><a href="#cb27-86" aria-hidden="true" tabindex="-1"></a><span class="al">![Rounding: exact ages are replaced with rounded values (here to the nearest 10).](../pictures/rounding-cropped.png)</span>{fig-alt="A before-and-after table where ages are rounded to values such as 60, 20 and 30."}</span>
+<span id="cb27-86"><a href="#cb27-86" aria-hidden="true" tabindex="-1"></a>That example also shows a practical difference from an approach like k-anonymity, which requires a trusted party holding the complete dataset to anonymize it. With differential privacy, noise can instead be added **locally**—in the case of randomized response, by each participant themselves, before their data is even collected.</span>
 <span id="cb27-87"><a href="#cb27-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-88"><a href="#cb27-88" aria-hidden="true" tabindex="-1"></a><span class="fu">### PRAM</span></span>
+<span id="cb27-88"><a href="#cb27-88" aria-hidden="true" tabindex="-1"></a>**Helpful resources:**</span>
 <span id="cb27-89"><a href="#cb27-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-90"><a href="#cb27-90" aria-hidden="true" tabindex="-1"></a>PRAM (Post RAndomisation Method) applies to categorical variables. Each value is **randomly recoded to a different category with a certain probability** defined in a transition matrix. For example, a participant recorded as "male" might be recoded to "female" with probability 0.05 and kept as "male" with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.</span>
-<span id="cb27-91"><a href="#cb27-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-92"><a href="#cb27-92" aria-hidden="true" tabindex="-1"></a><span class="al">![PRAM: some categorical values (here gender) are randomly recoded to another category with a set probability.](../pictures/pram-cropped.png)</span>{fig-alt="A before-and-after table where two of the gender values are randomly changed to a different category."}</span>
+<span id="cb27-90"><a href="#cb27-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The R package <span class="co">[</span><span class="ot">DPpack</span><span class="co">](https://cran.r-project.org/web/packages/DPpack/index.html)</span> provides functions for applying differential privacy to common statistical analyses in R.</span>
+<span id="cb27-91"><a href="#cb27-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For an accessible introduction to the concepts behind differential privacy, see this book <span class="co">[</span><span class="ot">@dwork2014</span><span class="co">]</span>.</span>
+<span id="cb27-92"><a href="#cb27-92" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-93"><a href="#cb27-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-94"><a href="#cb27-94" aria-hidden="true" tabindex="-1"></a>This technique can be applied to the <span class="in">`keyVars`</span> we defined in the <span class="in">`sdcObject`</span> earlier, but does not improve k-anonymity indicators since it doesn't reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that <span class="in">`sdcMicro`</span> indicators can not measure.</span>
+<span id="cb27-94"><a href="#cb27-94" aria-hidden="true" tabindex="-1"></a><span class="fu">### Microaggregation</span></span>
 <span id="cb27-95"><a href="#cb27-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-96"><a href="#cb27-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Keeping Utility</span></span>
+<span id="cb27-96"><a href="#cb27-96" aria-hidden="true" tabindex="-1"></a>Microaggregation **groups records by similarity on the variable of interest and replaces each value with a group aggregate**—usually the mean or median. Records within the same group end up sharing the same value, which makes it impossible to single out an individual based on that variable alone.</span>
 <span id="cb27-97"><a href="#cb27-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-98"><a href="#cb27-98" aria-hidden="true" tabindex="-1"></a>After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. We cover formal utility measures in <span class="co">[</span><span class="ot">the chapter on balancing utility and privacy</span><span class="co">](../privacy-openness/balancing)</span>.</span>
+<span id="cb27-98"><a href="#cb27-98" aria-hidden="true" tabindex="-1"></a><span class="al">![Microaggregation: records are grouped and each age is replaced with its group's average, so records share the same value.](../pictures/microaggregation-cropped.png)</span>{fig-alt="A before-and-after table where ages are replaced with group averages, with several records sharing the same value."}</span>
 <span id="cb27-99"><a href="#cb27-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-100"><a href="#cb27-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pro and Contra of Using Perturbative Techniques</span></span>
+<span id="cb27-100"><a href="#cb27-100" aria-hidden="true" tabindex="-1"></a>The quality of the result depends on how homogeneous the groups are: the more similar the original values within a group, the less information is lost when replacing them with the group mean. This is why the grouping algorithm matters. The default in <span class="in">`sdcMicro`</span>, <span class="in">`mdav`</span> (Maximum Distance to Average Vector), tries to form compact groups to minimize distortion.</span>
 <span id="cb27-101"><a href="#cb27-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-102"><a href="#cb27-102" aria-hidden="true" tabindex="-1"></a>Pros:</span>
+<span id="cb27-102"><a href="#cb27-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### Rounding</span></span>
 <span id="cb27-103"><a href="#cb27-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-104"><a href="#cb27-104" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>No records or variables are removed; the dataset stays complete.</span>
-<span id="cb27-105"><a href="#cb27-105" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Statistical properties like means, variances, and correlations can be largely preserved</span>
-<span id="cb27-106"><a href="#cb27-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Easy to tune the privacy-utility trade-off by adjusting the noise level or group size.</span>
+<span id="cb27-104"><a href="#cb27-104" aria-hidden="true" tabindex="-1"></a>**Rounding replaces exact values with rounded versions**. For example, one can round income to the nearest €1,000, or age to the nearest 5 years. It is the simplest perturbative technique and is easy to explain and verify. The downside is that it provides relatively weak protection on its own, since the original value can often be guessed within a small range, or loses quite a lot of data in case of larger ranges that are rounded to the same value.</span>
+<span id="cb27-105"><a href="#cb27-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-106"><a href="#cb27-106" aria-hidden="true" tabindex="-1"></a><span class="al">![Rounding: exact ages are replaced with rounded values (here to the nearest 5).](../pictures/rounding-cropped.png)</span>{fig-alt="A before-and-after table where ages are rounded to values such as 65, 20, and 30."}</span>
 <span id="cb27-107"><a href="#cb27-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-108"><a href="#cb27-108" aria-hidden="true" tabindex="-1"></a>Cons:</span>
+<span id="cb27-108"><a href="#cb27-108" aria-hidden="true" tabindex="-1"></a><span class="fu">### PRAM</span></span>
 <span id="cb27-109"><a href="#cb27-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-110"><a href="#cb27-110" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Individual values are no longer accurate. This makes perturbative techniques unsuitable if exact values matter—for example, if a researcher needs to verify that a specific participant had a specific income.</span>
-<span id="cb27-111"><a href="#cb27-111" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Risk of reverse-engineering: if the perturbation method and its parameters are known, an attacker may be able to approximately reconstruct the original values.</span>
-<span id="cb27-112"><a href="#cb27-112" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If applied too aggressively, perturbative techniques can distort subgroup statistics in ways that are hard to detect.</span>
+<span id="cb27-110"><a href="#cb27-110" aria-hidden="true" tabindex="-1"></a>PRAM (Post RAndomization Method) applies to categorical variables. Each value is **randomly recoded to a different category with a certain probability** defined in a transition matrix. For example, a participant recorded as "male" might be recoded to "female" with probability 0.05 and kept as "male" with probability 0.95. The transition probabilities are chosen so that the distribution of the variable is approximately preserved, even though individual values may have changed.</span>
+<span id="cb27-111"><a href="#cb27-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-112"><a href="#cb27-112" aria-hidden="true" tabindex="-1"></a><span class="al">![PRAM: some categorical values (here gender) are randomly recoded to another category with a set probability.](../pictures/pram-cropped.png)</span>{fig-alt="A before-and-after table where two of the gender values are randomly changed to a different category."}</span>
 <span id="cb27-113"><a href="#cb27-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-114"><a href="#cb27-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Applying Perturbative Techniques</span></span>
+<span id="cb27-114"><a href="#cb27-114" aria-hidden="true" tabindex="-1"></a>This technique can be applied to the <span class="in">`keyVars`</span> we defined in the <span class="in">`sdcObject`</span> earlier, but does not improve k-anonymity indicators since it doesn't reduce the amount of unique combinations but rather changes the accuracy of those combinations. It is therefore an additional level of protection that <span class="in">`sdcMicro`</span> indicators cannot measure.</span>
 <span id="cb27-115"><a href="#cb27-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-116"><a href="#cb27-116" aria-hidden="true" tabindex="-1"></a>Let's try out two common perturbative techniques: microaggregation and noise. Conveniently, both are available directly in <span class="in">`sdcMicro`</span>.</span>
+<span id="cb27-116"><a href="#cb27-116" aria-hidden="true" tabindex="-1"></a><span class="fu">## Keeping Utility</span></span>
 <span id="cb27-117"><a href="#cb27-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-118"><a href="#cb27-118" aria-hidden="true" tabindex="-1"></a>Continue working with <span class="in">`sdc_nonpert`</span> from the previous exercise.</span>
+<span id="cb27-118"><a href="#cb27-118" aria-hidden="true" tabindex="-1"></a>After applying any perturbative technique, you should compare key statistics (means, standard deviations, correlations, regression coefficients) between the original and perturbed datasets. If the differences are small enough for your purposes, the perturbation has preserved utility. I cover formal utility measures in <span class="co">[</span><span class="ot">the chapter on balancing utility and privacy</span><span class="co">](../privacy-openness/balancing)</span>.</span>
 <span id="cb27-119"><a href="#cb27-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-120"><a href="#cb27-120" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Apply microaggregation** (with the function `microaggregation`) **to income** using the default method (<span class="in">`"mdav"`</span>). Start with a group size of <span class="in">`aggr = 5`</span>.</span>
+<span id="cb27-120"><a href="#cb27-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pro and Contra of Using Perturbative Techniques</span></span>
 <span id="cb27-121"><a href="#cb27-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-122"><a href="#cb27-122" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Add additive noise to income** (with the function <span class="in">`adddNoise)`</span> as an alternative. Start with a noise parameter of 1 .</span>
+<span id="cb27-122"><a href="#cb27-122" aria-hidden="true" tabindex="-1"></a>Pros:</span>
 <span id="cb27-123"><a href="#cb27-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-124"><a href="#cb27-124" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Compare the methods:** Which parameters do you need to achieve similar levels of protection?</span>
-<span id="cb27-125"><a href="#cb27-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-126"><a href="#cb27-126" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="false"}</span>
-<span id="cb27-127"><a href="#cb27-127" aria-hidden="true" tabindex="-1"></a>You cannot undo perturbation steps within the same <span class="in">`sdcObject`</span>. Create a fresh copy of <span class="in">`sdc_nonpert`</span> before trying the second method so you can compare them side-by-side.</span>
-<span id="cb27-128"><a href="#cb27-128" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-124"><a href="#cb27-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>No records or variables are removed; the dataset stays complete.</span>
+<span id="cb27-125"><a href="#cb27-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Statistical properties like means, variances, and correlations can be largely preserved.</span>
+<span id="cb27-126"><a href="#cb27-126" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Easy to tune the privacy-utility trade-off by adjusting the noise level or group size.</span>
+<span id="cb27-127"><a href="#cb27-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-128"><a href="#cb27-128" aria-hidden="true" tabindex="-1"></a>Cons:</span>
 <span id="cb27-129"><a href="#cb27-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-130"><a href="#cb27-130" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb27-131"><a href="#cb27-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb27-132"><a href="#cb27-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-133"><a href="#cb27-133" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Microaggregation</span></span>
-<span id="cb27-134"><a href="#cb27-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-135"><a href="#cb27-135" aria-hidden="true" tabindex="-1"></a>I start by applying microaggregation with a group size of 5 on a new <span class="in">`sdcObject`</span>.</span>
-<span id="cb27-136"><a href="#cb27-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-139"><a href="#cb27-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb27-140"><a href="#cb27-140" aria-hidden="true" tabindex="-1"></a><span class="co"># Microaggregation: replace income with group means (group size 5)</span></span>
-<span id="cb27-141"><a href="#cb27-141" aria-hidden="true" tabindex="-1"></a>sdc_micro <span class="ot">&lt;-</span> <span class="fu">microaggregation</span>(</span>
-<span id="cb27-142"><a href="#cb27-142" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_nonpert,</span>
-<span id="cb27-143"><a href="#cb27-143" aria-hidden="true" tabindex="-1"></a>  <span class="at">variables =</span> <span class="st">"income"</span>,</span>
-<span id="cb27-144"><a href="#cb27-144" aria-hidden="true" tabindex="-1"></a>  <span class="at">aggr   =</span>  <span class="dv">5</span>,          <span class="co"># group size</span></span>
-<span id="cb27-145"><a href="#cb27-145" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"mdav"</span>      <span class="co"># Maximum Distance to Average Vector</span></span>
-<span id="cb27-146"><a href="#cb27-146" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-147"><a href="#cb27-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-148"><a href="#cb27-148" aria-hidden="true" tabindex="-1"></a>sdc_micro</span>
-<span id="cb27-149"><a href="#cb27-149" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_micro, <span class="at">type =</span> <span class="st">"risk"</span>)</span>
-<span id="cb27-150"><a href="#cb27-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-151"><a href="#cb27-151" aria-hidden="true" tabindex="-1"></a>data_micro <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdc_micro) <span class="co"># Extract the manipulated data</span></span>
-<span id="cb27-152"><a href="#cb27-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb27-153"><a href="#cb27-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-154"><a href="#cb27-154" aria-hidden="true" tabindex="-1"></a><span class="in">`mdav`</span> groups records by their distance to the group centroid, then replaces each value with the group mean. With <span class="in">`aggr = 5`</span>, at least 5 records share the same income value, so singling out an individual is harder.</span>
-<span id="cb27-155"><a href="#cb27-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-156"><a href="#cb27-156" aria-hidden="true" tabindex="-1"></a>As we can see in the output of the <span class="in">`sdcObject`</span>, the disclosure risk is reduced from up to 100% in the beginning to a range going only up to 77.5%.</span>
-<span id="cb27-157"><a href="#cb27-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-158"><a href="#cb27-158" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Additive Noise</span></span>
-<span id="cb27-159"><a href="#cb27-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-162"><a href="#cb27-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb27-163"><a href="#cb27-163" aria-hidden="true" tabindex="-1"></a><span class="co"># Additive noise on income</span></span>
-<span id="cb27-164"><a href="#cb27-164" aria-hidden="true" tabindex="-1"></a>sdc_noise <span class="ot">&lt;-</span> <span class="fu">addNoise</span>(</span>
-<span id="cb27-165"><a href="#cb27-165" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj    =</span> sdc_nonpert,</span>
-<span id="cb27-166"><a href="#cb27-166" aria-hidden="true" tabindex="-1"></a>  <span class="at">variables =</span> <span class="st">"income"</span>,</span>
-<span id="cb27-167"><a href="#cb27-167" aria-hidden="true" tabindex="-1"></a>  <span class="at">noise  =</span> <span class="fl">3.5</span>          <span class="co"># noise level as fraction of SD</span></span>
+<span id="cb27-130"><a href="#cb27-130" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Individual values are no longer accurate. This makes perturbative techniques unsuitable if exact values matter—for example, if a researcher needs to verify that a specific participant had a specific income.</span>
+<span id="cb27-131"><a href="#cb27-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Risk of reverse-engineering: if the perturbation method and its parameters are known, an attacker may be able to approximately reconstruct the original values.</span>
+<span id="cb27-132"><a href="#cb27-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>If applied too aggressively, perturbative techniques can distort subgroup statistics in ways that are hard to detect.</span>
+<span id="cb27-133"><a href="#cb27-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-134"><a href="#cb27-134" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Applying Perturbative Techniques</span></span>
+<span id="cb27-135"><a href="#cb27-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-136"><a href="#cb27-136" aria-hidden="true" tabindex="-1"></a>Let's try out two common perturbative techniques: microaggregation and noise. Conveniently, both are available directly in <span class="in">`sdcMicro`</span>.</span>
+<span id="cb27-137"><a href="#cb27-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-138"><a href="#cb27-138" aria-hidden="true" tabindex="-1"></a>Continue working with <span class="in">`sdc_nonpert`</span> from the previous exercise.</span>
+<span id="cb27-139"><a href="#cb27-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-140"><a href="#cb27-140" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Apply microaggregation** (with the function `microaggregation()`) **to income** using the default method (<span class="in">`"mdav"`</span>). Start with a group size of <span class="in">`aggr = 5`</span>.</span>
+<span id="cb27-141"><a href="#cb27-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-142"><a href="#cb27-142" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Add additive noise to income** (with the function <span class="in">`addNoise()`</span>) as an alternative. Start with a noise parameter of 1.</span>
+<span id="cb27-143"><a href="#cb27-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-144"><a href="#cb27-144" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Compare the methods:** Which parameters do you need to achieve similar levels of protection?</span>
+<span id="cb27-145"><a href="#cb27-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-146"><a href="#cb27-146" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="false"}</span>
+<span id="cb27-147"><a href="#cb27-147" aria-hidden="true" tabindex="-1"></a><span class="fu">## Work on Separate Copies</span></span>
+<span id="cb27-148"><a href="#cb27-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-149"><a href="#cb27-149" aria-hidden="true" tabindex="-1"></a>You cannot undo perturbation steps within the same <span class="in">`sdcObject`</span>. Create a fresh copy of <span class="in">`sdc_nonpert`</span> before trying the second method so you can compare them side-by-side.</span>
+<span id="cb27-150"><a href="#cb27-150" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-151"><a href="#cb27-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-152"><a href="#cb27-152" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb27-153"><a href="#cb27-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solution</span></span>
+<span id="cb27-154"><a href="#cb27-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-155"><a href="#cb27-155" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Microaggregation</span></span>
+<span id="cb27-156"><a href="#cb27-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-157"><a href="#cb27-157" aria-hidden="true" tabindex="-1"></a>I start by applying microaggregation with a group size of 5 on a new <span class="in">`sdcObject`</span>.</span>
+<span id="cb27-158"><a href="#cb27-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-161"><a href="#cb27-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-162"><a href="#cb27-162" aria-hidden="true" tabindex="-1"></a><span class="co"># Microaggregation: replace income with group means (group size 5)</span></span>
+<span id="cb27-163"><a href="#cb27-163" aria-hidden="true" tabindex="-1"></a>sdc_micro <span class="ot">&lt;-</span> <span class="fu">microaggregation</span>(</span>
+<span id="cb27-164"><a href="#cb27-164" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj       =</span> sdc_nonpert,</span>
+<span id="cb27-165"><a href="#cb27-165" aria-hidden="true" tabindex="-1"></a>  <span class="at">variables =</span> <span class="st">"income"</span>,</span>
+<span id="cb27-166"><a href="#cb27-166" aria-hidden="true" tabindex="-1"></a>  <span class="at">aggr      =</span>  <span class="dv">5</span>,         <span class="co"># group size</span></span>
+<span id="cb27-167"><a href="#cb27-167" aria-hidden="true" tabindex="-1"></a>  <span class="at">method    =</span> <span class="st">"mdav"</span>      <span class="co"># Maximum Distance to Average Vector</span></span>
 <span id="cb27-168"><a href="#cb27-168" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb27-169"><a href="#cb27-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-170"><a href="#cb27-170" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_noise, <span class="at">type =</span> <span class="st">"risk"</span>)</span>
-<span id="cb27-171"><a href="#cb27-171" aria-hidden="true" tabindex="-1"></a>sdc_noise</span>
-<span id="cb27-172"><a href="#cb27-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb27-173"><a href="#cb27-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-174"><a href="#cb27-174" aria-hidden="true" tabindex="-1"></a><span class="in">`addNoise`</span> draws from a normal distribution with mean 0 and standard deviation = <span class="in">`noise × sd(income)`</span> and adds it to each value. Every record gets a unique (slightly wrong) income. When <span class="in">`noise = 3.5`</span>, we achieve a disclosure risk between 0% and 75.5%, instead of one between 0% and 100% that we started with.</span>
+<span id="cb27-170"><a href="#cb27-170" aria-hidden="true" tabindex="-1"></a>sdc_micro</span>
+<span id="cb27-171"><a href="#cb27-171" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_micro, <span class="at">type =</span> <span class="st">"risk"</span>)</span>
+<span id="cb27-172"><a href="#cb27-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-173"><a href="#cb27-173" aria-hidden="true" tabindex="-1"></a>data_micro <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdc_micro) <span class="co"># Extract the manipulated data</span></span>
+<span id="cb27-174"><a href="#cb27-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-175"><a href="#cb27-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-176"><a href="#cb27-176" aria-hidden="true" tabindex="-1"></a>Let's save these objects for now. We will later come back to inspect the utility of both methods in <span class="co">[</span><span class="ot">the chapter on balancing utility and privacy</span><span class="co">](../privacy-openness/balancing)</span>.</span>
+<span id="cb27-176"><a href="#cb27-176" aria-hidden="true" tabindex="-1"></a><span class="in">`mdav`</span> groups records by their distance to the group centroid, then replaces each value with the group mean. With <span class="in">`aggr = 5`</span>, at least 5 records share the same income value, so singling out an individual is harder.</span>
 <span id="cb27-177"><a href="#cb27-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-180"><a href="#cb27-180" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb27-181"><a href="#cb27-181" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the perturbed sdcObjects for the balancing chapter</span></span>
-<span id="cb27-182"><a href="#cb27-182" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_micro, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"sdc-micro.rds"</span>))</span>
-<span id="cb27-183"><a href="#cb27-183" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_noise, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"sdc-noise.rds"</span>))</span>
-<span id="cb27-184"><a href="#cb27-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-185"><a href="#cb27-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb27-186"><a href="#cb27-186" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb27-187"><a href="#cb27-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-188"><a href="#cb27-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb27-178"><a href="#cb27-178" aria-hidden="true" tabindex="-1"></a>As the output of the <span class="in">`sdcObject`</span> shows, the disclosure risk is reduced from up to 100% in the beginning to a range going only up to 77.5%.</span>
+<span id="cb27-179"><a href="#cb27-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-180"><a href="#cb27-180" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Additive Noise</span></span>
+<span id="cb27-181"><a href="#cb27-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-184"><a href="#cb27-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-185"><a href="#cb27-185" aria-hidden="true" tabindex="-1"></a><span class="co"># Additive noise on income</span></span>
+<span id="cb27-186"><a href="#cb27-186" aria-hidden="true" tabindex="-1"></a>sdc_noise <span class="ot">&lt;-</span> <span class="fu">addNoise</span>(</span>
+<span id="cb27-187"><a href="#cb27-187" aria-hidden="true" tabindex="-1"></a>  <span class="at">obj       =</span> sdc_nonpert,</span>
+<span id="cb27-188"><a href="#cb27-188" aria-hidden="true" tabindex="-1"></a>  <span class="at">variables =</span> <span class="st">"income"</span>,</span>
+<span id="cb27-189"><a href="#cb27-189" aria-hidden="true" tabindex="-1"></a>  <span class="at">noise     =</span> <span class="fl">3.5</span>          <span class="co"># noise level as percentage of SD</span></span>
+<span id="cb27-190"><a href="#cb27-190" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb27-191"><a href="#cb27-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-192"><a href="#cb27-192" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_noise, <span class="at">type =</span> <span class="st">"risk"</span>)</span>
+<span id="cb27-193"><a href="#cb27-193" aria-hidden="true" tabindex="-1"></a>sdc_noise</span>
+<span id="cb27-194"><a href="#cb27-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-195"><a href="#cb27-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-196"><a href="#cb27-196" aria-hidden="true" tabindex="-1"></a><span class="in">`addNoise()`</span> draws from a normal distribution with mean 0 and standard deviation = <span class="in">`noise * sd(income)`</span> and adds it to each value. Every record gets a unique (slightly wrong) income. When <span class="in">`noise = 3.5`</span>, we add up to 3.5% of income's standard deviation. In relation to the starting point, we achieve a disclosure risk between 0% and 75.5%.</span>
+<span id="cb27-197"><a href="#cb27-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-198"><a href="#cb27-198" aria-hidden="true" tabindex="-1"></a>Let's save these objects for now. We will later come back to inspect the utility of both methods in <span class="co">[</span><span class="ot">the chapter on balancing utility and privacy</span><span class="co">](../privacy-openness/balancing)</span>.</span>
+<span id="cb27-199"><a href="#cb27-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-202"><a href="#cb27-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-203"><a href="#cb27-203" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the perturbed sdcObjects for the balancing chapter</span></span>
+<span id="cb27-204"><a href="#cb27-204" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_micro, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"sdc-micro.rds"</span>))</span>
+<span id="cb27-205"><a href="#cb27-205" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_noise, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"sdc-noise.rds"</span>))</span>
+<span id="cb27-206"><a href="#cb27-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-207"><a href="#cb27-207" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-208"><a href="#cb27-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-209"><a href="#cb27-209" aria-hidden="true" tabindex="-1"></a>Make sure never to publish the seed when you apply such methods.</span>
+<span id="cb27-210"><a href="#cb27-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-211"><a href="#cb27-211" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

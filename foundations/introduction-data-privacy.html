@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Data Privacy – Data Anonymization Course</title>
+<title>Introduction to Privacy and Data Protection – Data Anonymization Course</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -104,9 +104,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-3c3f1368ed8db972a012dae01a8e5220.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0fd66a72018a63d913d6e27d7a0bd232.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-29f470653e47eca4888459144373f9ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -446,7 +446,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../foundations/mechanisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Privacy Mechanisms in Research</span></a>
+ <span class="menu-text">Data Protection Mechanisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -513,7 +513,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">BALANCING DATA PROTECTION AND OPENNESS</span></a>
+ <span class="menu-text">BALANCING PRIVACY AND OPENNESS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -574,7 +574,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../foundations/introduction-data-privacy.html">FOUNDATIONS</a></li><li class="breadcrumb-item"><a href="../foundations/introduction-data-privacy.html">Introduction</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Introduction to Data Privacy</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Introduction to Privacy and Data Protection</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -604,21 +604,21 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>After completing this part of the tutorial, you will have a fundamental understanding of privacy and data protection.</li>
+<li>Gain a basic understanding of <strong>privacy</strong> and <strong>data protection</strong>.</li>
 </ul>
 </div>
 </div>
 </div>
 <section id="what-is-data-privacy" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-data-privacy">What Is Data Privacy?</h2>
-<p>This question has troubled (and engaged) scholars in privacy research for decades; there is no one agreed-upon definition. It is mostly understood as <strong>controlled disclosure</strong> in some way, meaning that an individual can decide which information is shared.</p>
-<p>One quite influential way to formalize privacy is <strong>Nissenbaum’s framework of Contextual Integrity</strong> <span class="citation" data-cites="nissenbaum2010">(<a href="#ref-nissenbaum2010" role="doc-biblioref">Nissenbaum 2010</a>)</span>, which I will explain shortly:</p>
-<p>Consider a common scenario in social science research: A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms, trusting that this information stays within the research context. The researcher publishes a dataset that is superficially anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant’s manager downloads the open dataset and identifies her employee.</p>
-<p>Nothing was “leaked” in a traditional sense. The way this information was shared violated the norms of the context. This is exactly what Nissenbaum’s framework captures: Privacy means that <strong>contextual information norms are respected in all information flows</strong>.</p>
+<p>This question has troubled (and engaged) scholars in privacy research for decades; there is no one agreed-upon definition. It is mostly understood as <strong>controlled disclosure</strong> <span class="citation" data-cites="pfleeger2015">(<a href="#ref-pfleeger2015" role="doc-biblioref">Pfleeger et al. 2015</a>)</span> in some way, meaning that an individual can decide which information is shared.</p>
+<p>One quite influential way to formalize privacy is <strong>Nissenbaum’s framework of Contextual Integrity</strong> <span class="citation" data-cites="nissenbaum2010">(<a href="#ref-nissenbaum2010" role="doc-biblioref">Nissenbaum 2010</a>)</span>, which is as follows:</p>
+<p>Consider a common scenario in social science research: <em>A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms, trusting that this information stays within the research context. The researcher publishes a dataset that is superficially anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant’s manager downloads the open dataset and identifies her employee.</em></p>
+<p>Nothing was “leaked” in a traditional sense. The way this information was shared violated the norms of the context. This is what Nissenbaum’s framework captures: Privacy means that <strong>contextual information norms are respected in all information flows</strong>.</p>
 <ul>
 <li><p>A <strong>context</strong> carries certain information, such as norms in your culture, laws, the people involved, and the situation you are in.</p></li>
 <li><p>An <strong>information flow</strong> means the act of transferring information in any way.</p></li>
-<li><p><strong>Information norms</strong> depend on the sender, recipient, information type, and conditions of the information flow (e.g., voluntary, with permission, confidentially; Nissenbaum calls this transmission principle). It may be normative or descriptive.</p></li>
+<li><p><strong>Information norms</strong> depend on the <strong>sender</strong>, <strong>recipient</strong>, <strong>information type</strong>, and conditions of the information flow (e.g., voluntary, with permission, confidentially; Nissenbaum calls this <strong>transmission principle</strong>). It may be normative or descriptive.</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
@@ -632,7 +632,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>In the example above, nothing was leaked in a traditional sense; yet most of us would call this a privacy violation. Nissenbaum’s framework explains why:</p>
+<p>In the example above, nothing was leaked in a traditional sense; yet most people would call this a privacy violation. Nissenbaum’s framework explains why:</p>
 <ul>
 <li><strong>Context:</strong> Academic research, governed by ethics board approval and norms of confidentiality</li>
 <li><strong>Sender:</strong> Survey participant (employee)</li>
@@ -646,7 +646,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 <p>In this tutorial, I will show why we, as researchers, need to carefully consider these contextual norms and how we can enable information flows of data (i.e., when sharing data).</p>
-<p>Throughout this tutorial, I will use both the terms data protection and privacy. <strong>Privacy</strong> is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. <strong>Data protection</strong> is a term that is closely linked to actual techniques and is used in laws. Both translate (give or take) to “Datenschutz” in German.</p>
+<p>Throughout this tutorial, I will use both the terms data protection and (data) privacy. <strong>Privacy</strong> is a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. <strong>Data protection</strong> is a term that is closely linked to organizational and legal mechanisms. Both translate (give or take) to “Datenschutz” in German.</p>
 </section>
 <section id="why-is-data-protection-important" class="level2">
 <h2 class="anchored" data-anchor-id="why-is-data-protection-important">Why Is Data Protection Important?</h2>
@@ -662,7 +662,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>Take a moment to think about the following scenarios. For each one, consider: Would you share your data? What conditions would need to be met? Think about the role of the researcher, the institution, and the way your data is handled. You might want to jot down a few notes before reading on.</p>
+<p>Take a moment to think about the following scenarios. For each one, consider: As a participant, would you share your data? What conditions would need to be met? Think about the role of the researcher, the institution, and the way your data is handled. You might want to jot down a few notes before reading on.</p>
 <ol type="1">
 <li><p>You participate in an interview on research integrity as part of a study. The interviewer asks you about any ethical transgressions you may have committed during your work and about your mental health.</p></li>
 <li><p>You fill out an online survey about your political opinions and voting behavior. The survey also asks for your age, gender, postal code, and occupation.</p></li>
@@ -671,38 +671,38 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 </div>
-<p>Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with us because they trust that we handle it responsibly. If that trust erodes—let’s say, because a dataset gets re-identified or a data breach makes headlines—people become less willing to participate in research. And without participants, there is no empirical research.</p>
-<p>As researchers, our obligation towards data protection arises from two directions that overlap quite a bit: ethics and law.</p>
+<p>Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with us because they trust that we handle it responsibly. If that trust erodes—let’s say, because a dataset gets re-identified or a data breach makes headlines—people likely become less willing to participate in research. And, of course, without any participants, we can hardly conduct empirical research.</p>
+<p>As researchers, our obligation towards data protection arises from two sources that overlap quite a bit: ethics and law.</p>
 </section>
 <section id="data-protection-in-research-ethics" class="level2">
 <h2 class="anchored" data-anchor-id="data-protection-in-research-ethics">Data Protection in Research Ethics</h2>
 <p>The ethical obligation to protect participants’ data is deeply rooted in research ethics. The <a href="https://www.wma.net/policies-post/wma-declaration-of-helsinki-ethical-principles-for-medical-research-involving-human-subjects/">Declaration of Helsinki</a> (1964, most recently revised in 2024), one of the most widely recognized <strong>ethical guidelines for research involving human subjects</strong>, explicitly requires that “every precaution must be taken to protect the privacy of research participants and the confidentiality of their personal information.” While originally developed for medical research, its principles have been adopted across the social and behavioral sciences.</p>
 <p><strong>Professional codes of conduct</strong> reinforce these obligations. Psychologists, for example, are bound by the <a href="https://www.apa.org/ethics/code">Ethical Principles of Psychologists and Code of Conduct</a> (APA) or corresponding national guidelines (e.g., the <a href="https://www.dgps.de/die-dgps/ethikkommission/">Code of Ethics of the German Psychological Society</a>) that require the protection of confidential information. Similar codes exist for sociologists, medical professionals, and other disciplines that regularly work with personal data.</p>
 <p>In practice, <strong>institutional review boards</strong> (IRBs) or ethics committees enforce these obligations before a study begins. However, their review typically focuses on the study design and informed consent. They rarely evaluate the technical details of how data will be stored, shared, or anonymized after collection. This gap is where the practical skills covered in this tutorial become relevant.</p>
-<p>One more thing worth mentioning: We tend to assume that <strong>informed consent</strong> solves the privacy problem. But research shows that participants rarely read consent forms carefully <span class="citation" data-cites="obar2020 foe2016">(<a href="#ref-obar2020" role="doc-biblioref">Obar and Oeldorf-Hirsch 2020</a>; <a href="#ref-foe2016" role="doc-biblioref">Foe and Larson 2016</a>)</span>, and even when they do, they may not fully understand the implications of data sharing. Consent is necessary, but it is not sufficient. More on this in <a href="mechanisms">the chapter on mechanisms of data protection</a>.</p>
+<p>One more thing worth mentioning: We tend to assume that <strong>informed consent</strong> solves the privacy problem. But research shows that participants rarely read consent forms carefully <span class="citation" data-cites="obar2020 foe2016">(<a href="#ref-obar2020" role="doc-biblioref">Obar and Oeldorf-Hirsch 2020</a>; <a href="#ref-foe2016" role="doc-biblioref">Foe and Larson 2016</a>)</span>, and even when they do, they may not fully understand the implications of data sharing. So, consent is necessary, but not sufficient on its own. More on this in <a href="mechanisms">the chapter on mechanisms of data protection</a>.</p>
 </section>
 <section id="data-protection-in-law" class="level2">
 <h2 class="anchored" data-anchor-id="data-protection-in-law">Data Protection in Law</h2>
-<p>Beyond ethics, data protection is also a <strong>legal requirement</strong>. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the <strong>General Data Protection Regulation (GDPR)</strong>, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU, wherever your participants are located. We cover the GDPR in more detail in <a href="gdpr">the next chapter</a>.</p>
-<p>Outside the EU, other frameworks exist. The US has sector-specific laws like <a href="https://www.hhs.gov/hipaa/index.html">HIPAA</a> (for health data) and <a href="https://studentprivacy.ed.gov/">FERPA</a> (for educational records), but no single comprehensive federal data protection law. Countries like Brazil (<a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">LGPD</a>), Japan (<a href="https://www.ppc.go.jp/en/legal/">APPI</a>), and South Korea (<a href="https://www.pipc.go.kr/eng/user/lgn/login.do">PIPA</a>) have their own comprehensive frameworks, many of which share core principles with the GDPR.</p>
-<p>For this tutorial, we focus on the GDPR. It is one of the most stringent and widely applicable frameworks. However, the anonymization techniques we cover later are relevant regardless of which specific law applies.</p>
-<p>Next to data protection laws, there are other legal reasons for not sharing information. To name the two most important ones: <a href="https://www.dpma.de/english/services/ip_rights_briefly_explained/index.html">Intellectual property interests</a> of other people, covering mostly technical inventions, and <a href="https://www.bafa.de/EN/Foreign_Trade/Export_Control/export_control_node.html">export controls</a>, covering products and knowledge with military significance. If you fear your research topic may touch any of these laws, contact your institution’s knowledge security office or legal department.</p>
+<p>Beyond ethics, data protection is also a <strong>legal requirement</strong>. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the <strong>General Data Protection Regulation (GDPR)</strong>, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU, wherever your participants are located. I cover the GDPR in more detail in <a href="gdpr">the next chapter</a>.</p>
+<p>Outside the EU, other frameworks exist. The US has sector-specific laws like <a href="https://www.hhs.gov/hipaa/index.html">HIPAA</a> for health data and <a href="https://studentprivacy.ed.gov/">FERPA</a> for educational records, and local laws, most importantly the <a href="https://oag.ca.gov/privacy/ccpa">CCPA</a> (applying to all residents of California), but no single comprehensive federal data protection law. Countries like Brazil (<a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">LGPD</a>), Japan (<a href="https://www.ppc.go.jp/en/legal/">APPI</a>), and South Korea (<a href="https://www.pipc.go.kr/eng/user/lgn/login.do">PIPA</a>) have their own comprehensive frameworks, many of which share core principles with the GDPR.</p>
+<p>For this tutorial, I focus on the GDPR. It is one of the most stringent and widely applicable frameworks. However, the anonymization techniques I cover later are relevant regardless of which specific law applies.</p>
+<p>In addition to data protection laws, there are other legal reasons for not sharing information. To name the two most important ones: <a href="https://www.dpma.de/english/services/ip_rights_briefly_explained/index.html">Intellectual property interests</a> of other people, covering mostly technical inventions, and <a href="https://www.bafa.de/EN/Foreign_Trade/Export_Control/export_control_node.html">export controls</a>, covering products and knowledge with military significance. If you fear your research topic may touch any of these laws, contact your institution’s knowledge security office or legal department.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Contacts for Researchers at LMU
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>Some useful contact for researchers at LMU Munich:</p>
+<p>Some useful contacts for researchers at LMU Munich (and other institutions usually have similar roles):</p>
 <ul>
 <li><a href="https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-representatives-and-contact-persons/data-protection-officer.html">LMU Data Protection Office</a></li>
-<li><a href="https://www.lmu.de/en/research/research-transfer/inventions-patents-and-exploitation-rights/">LMU intellectual Property office</a></li>
+<li><a href="https://www.lmu.de/en/research/research-transfer/inventions-patents-and-exploitation-rights/">LMU Intellectual Property Office</a></li>
 <li><a href="mailto:Exportkontrolle@Verwaltung.Uni-Muenchen.DE">LMU Export Control</a></li>
 </ul>
 </div>
@@ -711,8 +711,8 @@ Note
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>So where does this leave us? Both ethics and law tell us the same thing: we need to protect the personal data of our participants. At the same time, sharing data is a cornerstone of good scientific practice. Open data makes research more transparent, reproducible, and efficient. It enables replication, secondary analyses, and meta-research. Funders and journals increasingly require it, and for good reason.</p>
-<p>These two goals—protecting privacy and sharing data—are not contradictory, but they do create a tension that needs to be managed thoughtfully. The guiding principle is: <strong>“as open as possible, as closed as necessary.”</strong> What exactly this means will depend on your data, your participants, and the context of your research. There is no one-size-fits-all answer.</p>
+<p>So where does this leave us? Both ethics and law tell us the same thing: we need to protect the personal data of our participants. At the same time, sharing data is a cornerstone of good scientific practice. Open data makes research more transparent, reproducible, and efficient. It enables replication, secondary analyses, and meta-research. For good reason, funders and journals increasingly require it.</p>
+<p>These two goals—protecting privacy and sharing data—are not contradictory, but rather create a tension that needs to be managed thoughtfully. The guiding principle is: <strong>“as open as possible, as closed as necessary.”</strong> What exactly this means will depend on your data, your participants, and the context of your research. There is no one-size-fits-all answer.</p>
 <p>The good news is that anonymization gives us the tools to navigate this tension. By learning how to properly anonymize data, you can share your research data openly while still protecting the people who made your research possible. That is what this tutorial is about.</p>
 <p>Next, we will dive deeper into privacy laws: They provide concrete rules that guide data protection throughout the whole research cycle.</p>
 </section>
@@ -734,6 +734,9 @@ Nissenbaum, Helen Fay. 2010. <em>Privacy in context</em>. Standford University P
 </div>
 <div id="ref-obar2020" class="csl-entry" role="listitem">
 Obar, Jonathan A., and Anne Oeldorf-Hirsch. 2020. <span>“The Biggest Lie on the Internet: Ignoring the Privacy Policies and Terms of Service Policies of Social Networking Services.”</span> <em>Information, Communication &amp; Society</em> 23 (1): 128–47. <a href="https://doi.org/10.1080/1369118X.2018.1486870">https://doi.org/10.1080/1369118X.2018.1486870</a>.
+</div>
+<div id="ref-pfleeger2015" class="csl-entry" role="listitem">
+Pfleeger, Charles P., Shari Lawrence Pfleeger, and Jonathan Margulies. 2015. <em>Security in Computing</em>. 5th ed. Prentice Hall.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1220,7 +1223,7 @@ Obar, Jonathan A., and Anne Oeldorf-Hirsch. 2020. <span>“The Biggest Lie on th
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Introduction to Data Privacy"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Introduction to Privacy and Data Protection"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">aliases:</span><span class="co"> [1_FOUNDATION/1_1_Introduction_data_privacy.html]</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> ../references.bib</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
@@ -1228,35 +1231,35 @@ Obar, Jonathan A., and Anne Oeldorf-Hirsch. 2020. <span>“The Biggest Lie on th
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objective</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After completing this part of the tutorial, you will have a fundamental understanding of privacy and data protection.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Gain a basic understanding of **privacy** and **data protection**.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## What Is Data Privacy?</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>This question has troubled (and engaged) scholars in privacy research for decades; there is no one agreed-upon definition. It is mostly understood as **controlled disclosure** in some way, meaning that an individual can decide which information is shared.</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>This question has troubled (and engaged) scholars in privacy research for decades; there is no one agreed-upon definition. It is mostly understood as **controlled disclosure** <span class="co">[</span><span class="ot">@pfleeger2015</span><span class="co">]</span> in some way, meaning that an individual can decide which information is shared.</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>One quite influential way to formalize privacy is **Nissenbaum's framework of Contextual Integrity** <span class="co">[</span><span class="ot">@nissenbaum2010</span><span class="co">]</span>, which I will explain shortly:</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>One quite influential way to formalize privacy is **Nissenbaum's framework of Contextual Integrity** <span class="co">[</span><span class="ot">@nissenbaum2010</span><span class="co">]</span>, which is as follows:</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Consider a common scenario in social science research: A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms, trusting that this information stays within the research context. The researcher publishes a dataset that is superficially anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant's manager downloads the open dataset and identifies her employee.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Consider a common scenario in social science research: *A PhD student recruits participants for a study on workplace stress. Participants complete a survey listing their employer, job title, and burnout symptoms, trusting that this information stays within the research context. The researcher publishes a dataset that is superficially anonymized: no names, no email addresses. But the dataset includes employer, job title, age, and department. A participant's manager downloads the open dataset and identifies her employee.*</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Nothing was "leaked" in a traditional sense. The way this information was shared violated the norms of the context. This is exactly what Nissenbaum's framework captures: Privacy means that **contextual information norms are respected in all information flows**.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Nothing was "leaked" in a traditional sense. The way this information was shared violated the norms of the context. This is what Nissenbaum's framework captures: Privacy means that **contextual information norms are respected in all information flows**.</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A **context** carries certain information, such as norms in your culture, laws, the people involved, and the situation you are in.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A **context** carries certain information, such as norms in your culture, laws, the people involved, and the situation you are in.</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>An **information flow** means the act of transferring information in any way.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>An **information flow** means the act of transferring information in any way.</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Information norms** depend on the sender, recipient, information type, and conditions of the information flow (e.g., voluntary, with permission, confidentially; Nissenbaum calls this transmission principle). It may be normative or descriptive.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Information norms** depend on the **sender**, **recipient**, **information type**, and conditions of the information flow (e.g., voluntary, with permission, confidentially; Nissenbaum calls this **transmission principle**). It may be normative or descriptive.</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Applying Contextual Integrity</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>In the example above, nothing was leaked in a traditional sense; yet most of us would call this a privacy violation. Nissenbaum's framework explains why:</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>In the example above, nothing was leaked in a traditional sense; yet most people would call this a privacy violation. Nissenbaum's framework explains why:</span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Context:** Academic research, governed by ethics board approval and norms of confidentiality</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Sender:** Survey participant (employee)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Recipient:** Researcher → later, the broader public via open data (including, unexpectedly, the participant's manager)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Information type:** Sensitive personal disclosures (burnout, workplace stress)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Transmission principle:** Voluntary, under expectation of anonymity and confidentiality</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Context:** Academic research, governed by ethics board approval and norms of confidentiality</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Sender:** Survey participant (employee)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Recipient:** Researcher → later, the broader public via open data (including, unexpectedly, the participant's manager)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Information type:** Sensitive personal disclosures (burnout, workplace stress)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Transmission principle:** Voluntary, under expectation of anonymity and confidentiality</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>The information type and sender haven't changed, but the recipient has changed (from "Researchers" to "Anybody", in particular the participant's manager) and also the transmission principle has changed (from the expectation of anonymity towards a situation where the participant could be re-identified).</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
@@ -1265,14 +1268,14 @@ Obar, Jonathan A., and Anne Oeldorf-Hirsch. 2020. <span>“The Biggest Lie on th
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>In this tutorial, I will show why we, as researchers, need to carefully consider these contextual norms and how we can enable information flows of data (i.e., when sharing data).</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Throughout this tutorial, I will use both the terms data protection and privacy. **Privacy** is both a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. **Data protection** is a term that is closely linked to actual techniques and is used in laws. Both translate (give or take) to "Datenschutz" in German.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Throughout this tutorial, I will use both the terms data protection and (data) privacy. **Privacy** is a broader term that encompasses values, attitudes, and behaviors, but is also used in the context of technical mechanisms. **Data protection** is a term that is closely linked to organizational and legal mechanisms. Both translate (give or take) to "Datenschutz" in German.</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why Is Data Protection Important?</span></span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="false"}</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reflection</span></span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Take a moment to think about the following scenarios. For each one, consider: Would you share your data? What conditions would need to be met? Think about the role of the researcher, the institution, and the way your data is handled. You might want to jot down a few notes before reading on.</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Take a moment to think about the following scenarios. For each one, consider: As a participant, would you share your data? What conditions would need to be met? Think about the role of the researcher, the institution, and the way your data is handled. You might want to jot down a few notes before reading on.</span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>You participate in an interview on research integrity as part of a study. The interviewer asks you about any ethical transgressions you may have committed during your work and about your mental health.</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
@@ -1281,9 +1284,9 @@ Obar, Jonathan A., and Anne Oeldorf-Hirsch. 2020. <span>“The Biggest Lie on th
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>A research team asks you to share your browsing history for a study on information consumption. They promise that all data will be "anonymized" before publication.</span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with us because they trust that we handle it responsibly. If that trust erodes—let's say, because a dataset gets re-identified or a data breach makes headlines—people become less willing to participate in research. And without participants, there is no empirical research.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>Data protection matters because research depends on trust. Participants share personal, sometimes sensitive, information with us because they trust that we handle it responsibly. If that trust erodes—let's say, because a dataset gets re-identified or a data breach makes headlines—people likely become less willing to participate in research. And, of course, without any participants, we can hardly conduct empirical research.</span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>As researchers, our obligation towards data protection arises from two directions that overlap quite a bit: ethics and law.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>As researchers, our obligation towards data protection arises from two sources that overlap quite a bit: ethics and law.</span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Protection in Research Ethics</span></span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
@@ -1293,32 +1296,32 @@ Obar, Jonathan A., and Anne Oeldorf-Hirsch. 2020. <span>“The Biggest Lie on th
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>In practice, **institutional review boards** (IRBs) or ethics committees enforce these obligations before a study begins. However, their review typically focuses on the study design and informed consent. They rarely evaluate the technical details of how data will be stored, shared, or anonymized after collection. This gap is where the practical skills covered in this tutorial become relevant.</span>
 <span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>One more thing worth mentioning: We tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully <span class="co">[</span><span class="ot">@obar2020; @foe2016</span><span class="co">]</span>, and even when they do, they may not fully understand the implications of data sharing. Consent is necessary, but it is not sufficient. More on this in <span class="co">[</span><span class="ot">the chapter on mechanisms of data protection</span><span class="co">](mechanisms)</span>.</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>One more thing worth mentioning: We tend to assume that **informed consent** solves the privacy problem. But research shows that participants rarely read consent forms carefully <span class="co">[</span><span class="ot">@obar2020; @foe2016</span><span class="co">]</span>, and even when they do, they may not fully understand the implications of data sharing. So, consent is necessary, but not sufficient on its own. More on this in <span class="co">[</span><span class="ot">the chapter on mechanisms of data protection</span><span class="co">](mechanisms)</span>.</span>
 <span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Protection in Law</span></span>
 <span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>Beyond ethics, data protection is also a **legal requirement**. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU, wherever your participants are located. We cover the GDPR in more detail in <span class="co">[</span><span class="ot">the next chapter</span><span class="co">](gdpr)</span>.</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>Beyond ethics, data protection is also a **legal requirement**. Many countries and regions have enacted data protection laws, and as a researcher, you need to be aware of the ones that apply to you. The most relevant regulation for researchers working in or with data from the European Union is the **General Data Protection Regulation (GDPR)**, which has been in effect since 2018. It applies whenever you process personal data of individuals in the EU, regardless of where you or your institution is located; it also applies when your institution is based in the EU, wherever your participants are located. I cover the GDPR in more detail in <span class="co">[</span><span class="ot">the next chapter</span><span class="co">](gdpr)</span>.</span>
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>Outside the EU, other frameworks exist. The US has sector-specific laws like <span class="co">[</span><span class="ot">HIPAA</span><span class="co">](https://www.hhs.gov/hipaa/index.html)</span> (for health data) and <span class="co">[</span><span class="ot">FERPA</span><span class="co">](https://studentprivacy.ed.gov/)</span> (for educational records), but no single comprehensive federal data protection law. Countries like Brazil (<span class="co">[</span><span class="ot">LGPD</span><span class="co">](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)</span>), Japan (<span class="co">[</span><span class="ot">APPI</span><span class="co">](https://www.ppc.go.jp/en/legal/)</span>), and South Korea (<span class="co">[</span><span class="ot">PIPA</span><span class="co">](https://www.pipc.go.kr/eng/user/lgn/login.do)</span>) have their own comprehensive frameworks, many of which share core principles with the GDPR.</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>Outside the EU, other frameworks exist. The US has sector-specific laws like <span class="co">[</span><span class="ot">HIPAA</span><span class="co">](https://www.hhs.gov/hipaa/index.html)</span> for health data and <span class="co">[</span><span class="ot">FERPA</span><span class="co">](https://studentprivacy.ed.gov/)</span> for educational records, and local laws, most importantly the <span class="co">[</span><span class="ot">CCPA</span><span class="co">](https://oag.ca.gov/privacy/ccpa)</span> (applying to all residents of California), but no single comprehensive federal data protection law. Countries like Brazil (<span class="co">[</span><span class="ot">LGPD</span><span class="co">](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)</span>), Japan (<span class="co">[</span><span class="ot">APPI</span><span class="co">](https://www.ppc.go.jp/en/legal/)</span>), and South Korea (<span class="co">[</span><span class="ot">PIPA</span><span class="co">](https://www.pipc.go.kr/eng/user/lgn/login.do)</span>) have their own comprehensive frameworks, many of which share core principles with the GDPR.</span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>For this tutorial, we focus on the GDPR. It is one of the most stringent and widely applicable frameworks. However, the anonymization techniques we cover later are relevant regardless of which specific law applies. </span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>For this tutorial, I focus on the GDPR. It is one of the most stringent and widely applicable frameworks. However, the anonymization techniques I cover later are relevant regardless of which specific law applies.</span>
 <span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>Next to data protection laws, there are other legal reasons for not sharing information. To name the two most important ones: <span class="co">[</span><span class="ot">Intellectual property interests</span><span class="co">](https://www.dpma.de/english/services/ip_rights_briefly_explained/index.html)</span> of other people, covering mostly technical inventions, and <span class="co">[</span><span class="ot">export controls</span><span class="co">](https://www.bafa.de/EN/Foreign_Trade/Export_Control/export_control_node.html)</span>, covering products and knowledge with military significance. If you fear your research topic may touch any of these laws, contact your institution's knowledge security office or legal department.</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>In addition to data protection laws, there are other legal reasons for not sharing information. To name the two most important ones: <span class="co">[</span><span class="ot">Intellectual property interests</span><span class="co">](https://www.dpma.de/english/services/ip_rights_briefly_explained/index.html)</span> of other people, covering mostly technical inventions, and <span class="co">[</span><span class="ot">export controls</span><span class="co">](https://www.bafa.de/EN/Foreign_Trade/Export_Control/export_control_node.html)</span>, covering products and knowledge with military significance. If you fear your research topic may touch any of these laws, contact your institution's knowledge security office or legal department.</span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>Some useful contact for researchers at LMU Munich:</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">LMU Data Protection Office</span><span class="co">](https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-representatives-and-contact-persons/data-protection-officer.html)</span></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">LMU intellectual Property office</span><span class="co">](https://www.lmu.de/en/research/research-transfer/inventions-patents-and-exploitation-rights/)</span></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">LMU Export Control</span><span class="co">](mailto:Exportkontrolle@Verwaltung.Uni-Muenchen.DE)</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contacts for Researchers at LMU</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>Some useful contacts for researchers at LMU Munich (and other institutions usually have similar roles):</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">LMU Data Protection Office</span><span class="co">](https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-representatives-and-contact-persons/data-protection-officer.html)</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">LMU Intellectual Property Office</span><span class="co">](https://www.lmu.de/en/research/research-transfer/inventions-patents-and-exploitation-rights/)</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">LMU Export Control</span><span class="co">](mailto:Exportkontrolle@Verwaltung.Uni-Muenchen.DE)</span></span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>So where does this leave us? Both ethics and law tell us the same thing: we need to protect the personal data of our participants. At the same time, sharing data is a cornerstone of good scientific practice. Open data makes research more transparent, reproducible, and efficient. It enables replication, secondary analyses, and meta-research. Funders and journals increasingly require it, and for good reason.</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>So where does this leave us? Both ethics and law tell us the same thing: we need to protect the personal data of our participants. At the same time, sharing data is a cornerstone of good scientific practice. Open data makes research more transparent, reproducible, and efficient. It enables replication, secondary analyses, and meta-research. For good reason, funders and journals increasingly require it.</span>
 <span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>These two goals—protecting privacy and sharing data—are not contradictory, but they do create a tension that needs to be managed thoughtfully. The guiding principle is: **"as open as possible, as closed as necessary."** What exactly this means will depend on your data, your participants, and the context of your research. There is no one-size-fits-all answer.</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>These two goals—protecting privacy and sharing data—are not contradictory, but rather create a tension that needs to be managed thoughtfully. The guiding principle is: **"as open as possible, as closed as necessary."** What exactly this means will depend on your data, your participants, and the context of your research. There is no one-size-fits-all answer.</span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>The good news is that anonymization gives us the tools to navigate this tension. By learning how to properly anonymize data, you can share your research data openly while still protecting the people who made your research possible. That is what this tutorial is about.</span>
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>

@@ -100,9 +100,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-3c3f1368ed8db972a012dae01a8e5220.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0fd66a72018a63d913d6e27d7a0bd232.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-29f470653e47eca4888459144373f9ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -420,7 +420,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../foundations/mechanisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Privacy Mechanisms in Research</span></a>
+ <span class="menu-text">Data Protection Mechanisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -487,7 +487,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">BALANCING DATA PROTECTION AND OPENNESS</span></a>
+ <span class="menu-text">BALANCING PRIVACY AND OPENNESS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -576,15 +576,31 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>After completing this part of the tutorial, you will be able to calculate individual privacy risks for continuous variables by utilizing k-anonymity.</li>
+<li>Calculate <strong>individual privacy risks</strong> for continuous variables by utilizing <strong>k-anonymity</strong>.</li>
 </ul>
 </div>
 </div>
 </div>
 <p>In the previous chapters, we covered the foundations: What counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now we move to the practical part—actually anonymizing data. But before we jump into specific techniques, we first need to assess <strong>how much risk</strong> our data carries. That is what this chapter is about.</p>
-<p>Anonymization of data, in most cases, means masking or obscuring the data, which always results in a loss of information. However, when sharing data, we need to retain some of the data’s utility; otherwise, they won’t have any potential for reuse.</p>
+<p>Anonymization of data, in most cases, means changing, obscuring, or deleting specific parts of the data, which always results in a loss of information. However, when sharing data, we need to retain some of the data’s utility; otherwise, they won’t have any potential for reuse.</p>
 <p>The goal is to use the <strong>appropriate anonymization techniques</strong> to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also <a href="../privacy-openness/balancing">the chapter on balancing privacy and utility</a>).</p>
 <p>To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, mobilizing what we have learned in the <a href="../foundations/privacy-concepts">last chapter</a> and putting it into practice.</p>
+<div id="how-much-effort" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Does It Always Take This Much Work?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The next chapters cover a lot of techniques. Going through all of them for every dataset would take a lot of time. Luckily, in practice, you rarely need all of them. How much effort is appropriate depends on how risky your data is. An online survey with a few broad demographic categories and no free-text answers may only need a quick risk check and one or two anonymization steps. Small samples, detailed demographics, or sensitive topics call for more care. It also gets faster with practice: once you have a working script, you can reuse and adapt it for your next dataset. You can make it especially easy for yourself at the study design phase: data you <a href="../foundations/mechanisms.html#data-minimization">never collect</a> doesn’t need to be anonymized.</p>
+</div>
+</div>
+</div>
 <section id="identifying-privacy-risks" class="level2"><h2 class="anchored" data-anchor-id="identifying-privacy-risks">Identifying Privacy Risks</h2>
 <section id="exercise-privacy-risks-in-the-example-data" class="level3"><h3 class="anchored" data-anchor-id="exercise-privacy-risks-in-the-example-data">Exercise: Privacy Risks in the Example Data</h3>
 <p>Take another look at <strong>our dataset</strong>, as modified in the <a href="../foundations/personal-data">exercise on the personal data page</a> where we removed the direct identifiers. Try to answer the following questions:</p>
@@ -594,7 +610,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <li>What type of disclosure is most likely for this dataset: identity disclosure, attribute disclosure, or membership disclosure?</li>
 </ul>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -603,11 +619,11 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Here are a few concrete attack scenarios to consider, based on our dataset of 200 individuals in Germany (with variables: gender, age, education, plz, income, religion, years_in_job, and political opinion variables):</p>
 <ul>
-<li>A colleague knows that a specific person lives in a particular postal code area, holds a doctoral degree, and is 34 years old. If the combination of plz, education, and age is unique in the dataset, that colleague can identify the person and look up their income, political opinions, and religion. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see the box on <a href="../foundations/privacy-concepts.html#participation-knowledge">participation knowledge</a>).</li>
+<li>A colleague knows that a specific person lives in a particular postal code area, holds a doctoral degree, and is 34 years old. If the combination of plz (postal code), education, and age is unique in the dataset, that colleague can identify the person and look up their income, political opinions, and religion. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see the box on <a href="../foundations/privacy-concepts.html#participation-knowledge">participation knowledge</a>).</li>
 <li>A journalist cross-references the dataset with publicly available census or salary reports. By matching education level, income range, and age, they could narrow down candidates and potentially identify individuals—especially in smaller postal code areas where few people share the same combination of characteristics.</li>
 <li>A neighbor knows that someone in their building participated in the study. They know the person’s approximate age, gender, and religion. Even if they cannot pinpoint the exact row, they might learn something new about that person’s income or political views. This is attribute disclosure—the attacker does not need to find the exact record, just a group of records that all share the same sensitive value.</li>
 </ul>
@@ -619,9 +635,9 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </section></section><section id="measuring-privacy-risks" class="level2"><h2 class="anchored" data-anchor-id="measuring-privacy-risks">Measuring Privacy Risks</h2>
 <section id="the-sdcmicro-package" class="level3"><h3 class="anchored" data-anchor-id="the-sdcmicro-package">The <code>sdcMicro</code> Package</h3>
 <p>To formally measure privacy risks (and for most of the following exercises), we will use the package <code>sdcMicro</code> in R <span class="citation" data-cites="templ2015">(<a href="#ref-templ2015" role="doc-biblioref">Templ et al. 2015</a>)</span>.</p>
-<p><code>sdcMicro</code> is an R package specialized in the anonymization of micro (small) data sets. <code>sdcMicro</code> offers a command line and a Graphical User interface (GUI).</p>
+<p><code>sdcMicro</code> is an R package specialized in the anonymization of micro datasets. <code>sdcMicro</code> offers a graphical user interface (GUI) in addition to code.</p>
 </section><section id="using-sdcmicro-to-assess-privacy-risks" class="level3"><h3 class="anchored" data-anchor-id="using-sdcmicro-to-assess-privacy-risks">Using <code>sdcMicro</code> to Assess Privacy Risks</h3>
-<p>Let’s start by creating a sdcMicro object of the class <code>sdcMicroObj</code>, using the function <code>createSdcObj</code>. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores</p>
+<p>Let’s start by creating an sdcMicro object of the class <code>sdcMicroObj</code>, using the function <code><a href="https://rdrr.io/pkg/sdcMicro/man/sdcMicroObj-class.html">createSdcObj()</a></code>. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores</p>
 <ul>
 <li>the original dataset,</li>
 <li>the roles of variables within the dataset,</li>
@@ -631,15 +647,15 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <li>the history of modifications.</li>
 </ul>
 <p><code>sdcMicro</code> updates risk and utility estimates after each anonymization step.</p>
-<p>For this object, we start with defining the following:</p>
+<p>For this object, we start by defining the following:</p>
 <ul>
 <li><p><code>dat</code>: the dataset we are working with</p></li>
-<li><p><code>keyVars</code>: indirect identifiers that are categorial (i.e., have categories) we want to assess the risk of (e.g., age, gender)</p></li>
+<li><p><code>keyVars</code>: indirect identifiers that are categorical (i.e., have categories with certain pre-defined values) we want to assess the risk of (e.g., age, gender)</p></li>
 <li><p><code>numVars</code>: continuous (i.e., numeric) indirect identifiers (e.g., income)</p></li>
 </ul>
-<p><code>sdcMicro</code> needs, at the least, the data and categorial indirect identifiers to assess risks.</p>
+<p><code>sdcMicro</code> needs, at the least, the data and categorical indirect identifiers to assess risks.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -648,7 +664,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ul>
 <li><p><code>extractManipData(sdcObject)</code><br>
@@ -657,22 +673,23 @@ Extracts the anonymized dataset.</p></li>
 Reverts the last anonymization step.</p></li>
 <li><p><code><a href="https://rdrr.io/pkg/sdcMicro/man/get.sdcMicroObj.html">get.sdcMicroObj()</a></code><br>
 Accesses internal components of the object.</p></li>
-<li><p><code><a href="https://rdrr.io/pkg/sdcMicro/man/sdcApp.html">sdcApp()</a></code>Opens the GUI: The GUI provides a nice overview of functions. In case you decide to use it (and I recommend to try it out), create an anonymization report and the end via “export data” to make your anonymization transparent.</p></li>
+<li><p><code><a href="https://rdrr.io/pkg/sdcMicro/man/sdcApp.html">sdcApp()</a></code><br>
+Opens the GUI: The GUI provides a nice overview of functions. In case you decide to use it (and I recommend trying it out), create an anonymization report at the end via “export data” to make your anonymization transparent.</p></li>
 <li><p><code><a href="https://rdrr.io/pkg/sdcMicro/man/AI_createSdcObj.html">AI_createSdcObj()</a></code> and <code><a href="https://rdrr.io/pkg/sdcMicro/man/AI_applyAnonymization.html">AI_applyAnonymization()</a></code><br>
-These new functions use LLMs to assist with the creation of an <code>sdcObject</code> and anonymization. See <a href="https://cran.r-project.org/web/packages/sdcMicro/vignettes/ai_assisted_anonymization.html">the sdcMicro vignette on AI-assisted anonymization</a> for how to use them. We won’t use these in the context of the tutorial, to learn the processes manually first.</p></li>
+These new functions use LLMs to assist with the creation of an <code>sdcObject</code> and anonymization. See <a href="https://cran.r-project.org/web/packages/sdcMicro/vignettes/ai_assisted_anonymization.html">the sdcMicro vignette on AI-assisted anonymization</a> for how to use them. I won’t use these in the context of the tutorial, to learn the processes manually first.</p></li>
 </ul>
 </div>
 </div>
 </div>
 </section><section id="exercise-assessing-privacy-risks-with-sdcmicro" class="level3"><h3 class="anchored" data-anchor-id="exercise-assessing-privacy-risks-with-sdcmicro">Exercise: Assessing Privacy Risks With <code>sdcMicro</code>
 </h3>
-<p>In this exercise, you will assess privacy risks with <code>sdcMicro</code>. We will work with the dataset <code>data_withoutdirectidentifiers</code>—<strong>our dataset</strong> as loaded from the <a href="../index.html">landing page</a> and modified in the <a href="../foundations/personal-data">exercise on the personal data page</a>, which removed the direct identifiers.</p>
+<p>In this exercise, you will learn how to assess privacy risks with the <code>sdcMicro</code> package. We will work with the dataset <code>data_withoutdirectidentifiers</code>—<strong>our dataset</strong> as loaded from the <a href="../index.html">landing page</a> and modified in the <a href="../foundations/personal-data">exercise on the personal data page</a>, which removed the direct identifiers.</p>
 <ol type="1">
-<li>Create an object within sdcMicro that contains the relevant <code>keyVars</code> and <code>numVars</code> using the function <code>createSdcObj</code>. Inspect the object.</li>
+<li>Create an object within sdcMicro that contains the relevant <code>keyVars</code> and <code>numVars</code> using the function <code><a href="https://rdrr.io/pkg/sdcMicro/man/sdcMicroObj-class.html">createSdcObj()</a></code>. Inspect the object.</li>
 <li>What k-anonymity level is currently reached?</li>
 </ol>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -681,9 +698,9 @@ These new functions use LLMs to assist with the creation of an <code>sdcObject</
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Create the object. Provide gender, age, education, and postal code as categorial variables of interest (<code>keyVars</code>). The only numerical variables we are interested in are income and years in job (<code>numVars</code>).</p>
+<p>Create the object. Provide gender, age, education, and postal code as categorical variables of interest (<code>keyVars</code>). The only numerical variables I am interested in are income and years in job (<code>numVars</code>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sdcTools/sdcMicro">sdcMicro</a></span><span class="op">)</span></span>
 <span></span>
@@ -746,10 +763,10 @@ Current Information Loss:
 ----------------------------------------------------------------------</code></pre>
 </div>
 </div>
-<p><code>sdcMicro</code> shows us the unmodified, original parameters in parentheses within the summary of the <code>sdcObject</code>. Right now, the original parameters are, of course, identical to the current parameters as we have not made any changes yet.</p>
-<p>For the <strong>categorial key variables</strong>, we get information on the numbers and sizes of categories. The more categories and the smaller the number of entries in each category, the easier the de-identification as we have many unique individual values.</p>
-<p>We also get information on k-anonymity of the combinations of these categorial variables: Currently, all observations breach 3- and 5-anonymity. There are only two persons in our dataset who share the same gender, age, education, plz, and years_in_job; therefore, our dataset also breaches 2-anonymity. 99% of participants are unique, meaning they have a unique combination on these demographic variables.</p>
-<p>Upon closer inspection, these entries are IDs 94 and 122, who share many demographic details: both are 18 years old, live in Munich at postal code 80636, and have a high school degree. If I knew a 18-year-old male living at 80636 that had participated in this study, I could not identify him based on a combination of these data points alone. However, if I knew his exact income, I could still identify him. Let’s keep this in mind for further analyses.</p>
+<p><code>sdcMicro</code> shows the unmodified, original parameters in parentheses within the summary of the <code>sdcObject</code>. Right now, the original parameters are, of course, identical to the current parameters as we have not made any changes yet.</p>
+<p>For the <strong>categorical key variables</strong>, we get information on the numbers and sizes of categories. The more categories and the smaller the number of entries in each category, the easier the de-identification, as there are many unique individual values.</p>
+<p>We also get information on k-anonymity. Currently, all observations breach 3- and 5-anonymity. Only two persons in our dataset share the same combination of gender, age, education, and postal code; therefore, our dataset also breaches 2-anonymity. 99% of participants are unique, meaning they have a unique combination on these demographic variables.</p>
+<p>Upon closer inspection, these entries are IDs 94 and 122, who share all four key variables: both are male, 18 years old, live in Munich at postal code 80636, and have a high school degree. If I knew an 18-year-old male living at 80636 that had participated in this study, I could not identify him based on a combination of these data points alone. However, if I knew his exact income, I could still identify him. Let’s keep this in mind for further analyses.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Show the two records that share a key-variable combination</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">data_withoutdirectidentifiers</span><span class="op">[</span><span class="va">data_withoutdirectidentifiers</span><span class="op">$</span><span class="va">id</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">94</span>, <span class="fl">122</span><span class="op">)</span>, <span class="op">]</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -841,7 +858,7 @@ Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 </div>
 </div>
 <div id="no-correct-assignment" class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -850,20 +867,19 @@ Expected number of re-identifications: 199.00 (99.50 %)</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>How you assign variables to <code>keyVars</code> and <code>numVars</code> is a judgment call—there is no universally correct answer. It depends on who you think is likely to try to re-identify someone, and what information they would already have.</p>
-<p>The most realistic attack scenario for this dataset is probably someone who knows a study participant personally—a colleague, friend, or family member. Such a person would most likely know basic demographic attributes: the participant’s gender, approximate age, postal code, and level of education. These are the variables an attacker is most plausibly able to use to find a specific record, which is why we treat them as <code>keyVars</code>.</p>
+<p>The most realistic attack scenario for this dataset is probably someone who knows a study participant personally—a colleague, friend, or family member. Such a person would most likely know basic demographic attributes: the participant’s gender, approximate age, postal code, and level of education. These are the variables an attacker is most plausibly able to use to find a specific record, which is why I treat them as <code>keyVars</code>.</p>
 <p><code>income</code> is placed in <code>numVars</code> as it is a continuous variable.</p>
-<p><code>years_in_job</code> is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in <code>keyVars</code> would be the conservative choice. In this case, I consider it less likely to be known exactly, which is why I put it into <code>numVars</code></p>
-<p>The same logic applies to <code>religion</code>: if a plausible attacker is someone who knows the participant from a religious community, then <code>religion</code> belongs in <code>keyVars</code>, not treated as a sensitive outcome. <strong>The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.</strong> In this case, I think it is not likely to be known by an attacker; however, we will address <code>religion</code>&nbsp;again at a later stage to <a href="../privacy-openness/balancing.html#rare-religion-step">protect very rare values</a>.</p>
+<p><code>years_in_job</code> is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in <code>keyVars</code> would be the conservative choice. In this case, I consider it less likely to be known exactly, which is why I put it into <code>numVars</code>.</p>
+<p>The same logic applies to <code>religion</code>: if a plausible attacker is someone who knows the participant from a religious community, then <code>religion</code> should go into <code>keyVars</code>, rather than being treated as a sensitive outcome. <strong>The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.</strong> In this case, I think it is not likely to be known by an attacker; however, I will address <code>religion</code> again at a later stage to <a href="../privacy-openness/balancing.html#rare-religion-step">protect very rare values</a>.</p>
 </div>
 </div>
 </div>
 <p>Save the sdcObject for further anonymization steps.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Save the sdcObject for the next chapter</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">sdc_data</span>, <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"sdc-micro.rds"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">sdc_data</span>, <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"sdc-micro.rds"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need to anonymize; you can skip to preparing your data for publication.</p>
 <p>If the risk is not acceptable—as is the case here—we will start with the actual anonymization process. To that end, I will present you with several techniques over the next few chapters.</p>
@@ -1371,7 +1387,7 @@ Templ, Matthias, Alexander Kowarik, and Bernhard Meindl. 2015. <span>“Statisti
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objective</span></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>After completing this part of the tutorial, you will be able to calculate individual privacy risks for continuous variables by utilizing k-anonymity.</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calculate **individual privacy risks** for continuous variables by utilizing **k-anonymity**.</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Setup}</span></span>
@@ -1383,171 +1399,177 @@ Templ, Matthias, Alexander Kowarik, and Bernhard Meindl. 2015. <span>“Statisti
 <span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>In the previous chapters, we covered the foundations: What counts as personal data, what the GDPR requires, what anonymization mechanisms exist, and what privacy risks look like. Now we move to the practical part—actually anonymizing data. But before we jump into specific techniques, we first need to assess **how much risk** our data carries. That is what this chapter is about.</span>
 <span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>Anonymization of data, in most cases, means masking or obscuring the data, which always results in a loss of information. However, when sharing data, we need to retain some of the data's utility; otherwise, they won't have any potential for reuse.</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>Anonymization of data, in most cases, means changing, obscuring, or deleting specific parts of the data, which always results in a loss of information. However, when sharing data, we need to retain some of the data's utility; otherwise, they won't have any potential for reuse.</span>
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>The goal is to use the **appropriate anonymization techniques** to achieve an acceptable level of risk for each individual, while at the same time, keeping utility as high as possible (see also <span class="co">[</span><span class="ot">the chapter on balancing privacy and utility</span><span class="co">](../privacy-openness/balancing)</span>).</span>
 <span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>To achieve that, before starting the anonymization process, we will assess the level of privacy risk in our data and investigate potential risks, mobilizing what we have learned in the <span class="co">[</span><span class="ot">last chapter</span><span class="co">](../foundations/privacy-concepts)</span> and putting it into practice.</span>
 <span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identifying Privacy Risks</span></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise: Privacy Risks in the Example Data</span></span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>Take another look at **our dataset**, as modified in the <span class="co">[</span><span class="ot">exercise on the personal data page</span><span class="co">](../foundations/personal-data)</span> where we removed the direct identifiers. Try to answer the following questions:</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>::: {#how-much-effort .callout-note collapse="false"}</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Does It Always Take This Much Work?</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>The next chapters cover a lot of techniques. Going through all of them for every dataset would take a lot of time. Luckily, in practice, you rarely need all of them. How much effort is appropriate depends on how risky your data is. An online survey with a few broad demographic categories and no free-text answers may only need a quick risk check and one or two anonymization steps. Small samples, detailed demographics, or sensitive topics call for more care. It also gets faster with practice: once you have a working script, you can reuse and adapt it for your next dataset. You can make it especially easy for yourself at the study design phase: data you <span class="co">[</span><span class="ot">never collect</span><span class="co">](../foundations/mechanisms.qmd#data-minimization)</span> doesn't need to be anonymized.</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Which combinations of indirect identifiers could potentially single out an individual?</span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What attack scenarios are plausible? Think about who might try to re-identify someone in this dataset and what external information they might have access to.</span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What type of disclosure is most likely for this dataset: identity disclosure, attribute disclosure, or membership disclosure?</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identifying Privacy Risks</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise: Privacy Risks in the Example Data</span></span>
 <span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>Here are a few concrete attack scenarios to consider, based on our dataset of 200 individuals in Germany (with variables: gender, age, education, plz, income, religion, years_in_job, and political opinion variables):</span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A colleague knows that a specific person lives in a particular postal code area, holds a doctoral degree, and is 34 years old. If the combination of plz, education, and age is unique in the dataset, that colleague can identify the person and look up their income, political opinions, and religion. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see the box on <span class="co">[</span><span class="ot">participation knowledge</span><span class="co">](../foundations/privacy-concepts.qmd#participation-knowledge)</span>).</span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A journalist cross-references the dataset with publicly available census or salary reports. By matching education level, income range, and age, they could narrow down candidates and potentially identify individuals—especially in smaller postal code areas where few people share the same combination of characteristics.</span>
-<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A neighbor knows that someone in their building participated in the study. They know the person's approximate age, gender, and religion. Even if they cannot pinpoint the exact row, they might learn something new about that person's income or political views. This is attribute disclosure—the attacker does not need to find the exact record, just a group of records that all share the same sensitive value.</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>Take another look at **our dataset**, as modified in the <span class="co">[</span><span class="ot">exercise on the personal data page</span><span class="co">](../foundations/personal-data)</span> where we removed the direct identifiers. Try to answer the following questions:</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Which combinations of indirect identifiers could potentially single out an individual?</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What attack scenarios are plausible? Think about who might try to re-identify someone in this dataset and what external information they might have access to.</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What type of disclosure is most likely for this dataset: identity disclosure, attribute disclosure, or membership disclosure?</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solution</span></span>
 <span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>For this dataset, **identity and attribute disclosure** are most likely. Since there is not one single group that was recruited, membership disclosure is not possible.</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>Here are a few concrete attack scenarios to consider, based on our dataset of 200 individuals in Germany (with variables: gender, age, education, plz, income, religion, years_in_job, and political opinion variables):</span>
 <span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>These are just a few examples; in general, the existence and likelihood of risks are very much dependent on the variables in the dataset, the sensitivity of data, the recruitment strategy, and many other factors (see <span class="co">[</span><span class="ot">this chapter on choosing the right technique</span><span class="co">](choosing-technique)</span> for more information).</span>
-<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Measuring Privacy Risks</span></span>
-<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### The `sdcMicro` Package</span></span>
-<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>To formally measure privacy risks (and for most of the following exercises), we will use the package <span class="in">`sdcMicro`</span> in R <span class="co">[</span><span class="ot">@templ2015</span><span class="co">]</span>.</span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A colleague knows that a specific person lives in a particular postal code area, holds a doctoral degree, and is 34 years old. If the combination of plz (postal code), education, and age is unique in the dataset, that colleague can identify the person and look up their income, political opinions, and religion. This is identity disclosure. In this scenario, the attacker has the knowledge that his colleague has participated in the study. In practice, when calculating risks, we usually assume no such knowledge (see the box on <span class="co">[</span><span class="ot">participation knowledge</span><span class="co">](../foundations/privacy-concepts.qmd#participation-knowledge)</span>).</span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A journalist cross-references the dataset with publicly available census or salary reports. By matching education level, income range, and age, they could narrow down candidates and potentially identify individuals—especially in smaller postal code areas where few people share the same combination of characteristics.</span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A neighbor knows that someone in their building participated in the study. They know the person's approximate age, gender, and religion. Even if they cannot pinpoint the exact row, they might learn something new about that person's income or political views. This is attribute disclosure—the attacker does not need to find the exact record, just a group of records that all share the same sensitive value.</span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>For this dataset, **identity and attribute disclosure** are most likely. Since there is not one single group that was recruited, membership disclosure is not possible.</span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>These are just a few examples; in general, the existence and likelihood of risks are very much dependent on the variables in the dataset, the sensitivity of data, the recruitment strategy, and many other factors (see <span class="co">[</span><span class="ot">this chapter on choosing the right technique</span><span class="co">](choosing-technique)</span> for more information).</span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a><span class="in">`sdcMicro`</span> is an R package specialized in the anonymization of micro (small) data sets. <span class="in">`sdcMicro`</span> offers a command line and a Graphical User interface (GUI).</span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Measuring Privacy Risks</span></span>
 <span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Using `sdcMicro` to Assess Privacy Risks</span></span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### The `sdcMicro` Package</span></span>
 <span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>Let's start by creating a sdcMicro object of the class <span class="in">`sdcMicroObj`</span>, using the function <span class="in">`createSdcObj`</span>. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores</span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>To formally measure privacy risks (and for most of the following exercises), we will use the package <span class="in">`sdcMicro`</span> in R <span class="co">[</span><span class="ot">@templ2015</span><span class="co">]</span>.</span>
 <span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the original dataset,</span>
-<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the roles of variables within the dataset,</span>
-<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>risk measures,</span>
-<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>anonymized versions of the variables,</span>
-<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>utility measures, and</span>
-<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the history of modifications.</span>
-<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a><span class="in">`sdcMicro`</span> updates risk and utility estimates after each anonymization step.</span>
-<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>For this object, we start with defining the following:</span>
-<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dat`</span>: the dataset we are working with</span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a><span class="in">`sdcMicro`</span> is an R package specialized in the anonymization of micro datasets. <span class="in">`sdcMicro`</span> offers a graphical user interface (GUI) in addition to code.</span>
+<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a><span class="fu">### Using `sdcMicro` to Assess Privacy Risks</span></span>
+<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>Let's start by creating an sdcMicro object of the class <span class="in">`sdcMicroObj`</span>, using the function <span class="in">`createSdcObj()`</span>. The object becomes the working environment for all subsequent anonymization and risk assessment steps. It stores</span>
+<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the original dataset,</span>
+<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the roles of variables within the dataset,</span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>risk measures,</span>
+<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>anonymized versions of the variables,</span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>utility measures, and</span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the history of modifications.</span>
 <span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`keyVars`</span>: indirect identifiers that are categorial (i.e., have categories) we want to assess the risk of (e.g., age, gender)</span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a><span class="in">`sdcMicro`</span> updates risk and utility estimates after each anonymization step.</span>
 <span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`numVars`</span>: continuous (i.e., numeric) indirect identifiers (e.g., income)</span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>For this object, we start by defining the following:</span>
 <span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a><span class="in">`sdcMicro`</span> needs, at the least, the data and categorial indirect identifiers to assess risks.</span>
+<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dat`</span>: the dataset we are working with</span>
 <span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
-<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a><span class="fu">### More Functions of sdcMicro</span></span>
-<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`extractManipData(sdcObject)`</span>\</span>
-<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a>  Extracts the anonymized dataset.</span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`keyVars`</span>: indirect identifiers that are categorical (i.e., have categories with certain pre-defined values) we want to assess the risk of (e.g., age, gender)</span>
+<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`numVars`</span>: continuous (i.e., numeric) indirect identifiers (e.g., income)</span>
+<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a><span class="in">`sdcMicro`</span> needs, at the least, the data and categorical indirect identifiers to assess risks.</span>
 <span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`undolast(sdcObject)`</span>\</span>
-<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a>  Reverts the last anonymization step.</span>
+<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
+<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## More Functions of sdcMicro</span></span>
 <span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`get.sdcMicroObj()`</span>\</span>
-<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a>  Accesses internal components of the object.</span>
+<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`extractManipData(sdcObject)`</span>\</span>
+<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a>  Extracts the anonymized dataset.</span>
 <span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`sdcApp()`</span>Opens the GUI: The GUI provides a nice overview of functions. In case you decide to use it (and I recommend to try it out), create an anonymization report and the end via "export data" to make your anonymization transparent.</span>
-<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`AI_createSdcObj()`</span> and <span class="in">`AI_applyAnonymization()`</span>\</span>
-<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a>  These new functions use LLMs to assist with the creation of an <span class="in">`sdcObject`</span> and anonymization. See <span class="co">[</span><span class="ot">the sdcMicro vignette on AI-assisted anonymization</span><span class="co">](https://cran.r-project.org/web/packages/sdcMicro/vignettes/ai_assisted_anonymization.html)</span> for how to use them. We won't use these in the context of the tutorial, to learn the processes manually first.</span>
-<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`undolast(sdcObject)`</span>\</span>
+<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a>  Reverts the last anonymization step.</span>
+<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`get.sdcMicroObj()`</span>\</span>
+<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a>  Accesses internal components of the object.</span>
 <span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise: Assessing Privacy Risks With `sdcMicro`</span></span>
-<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a>In this exercise, you will assess privacy risks with <span class="in">`sdcMicro`</span>. We will work with the dataset <span class="in">`data_withoutdirectidentifiers`</span>—**our dataset** as loaded from the <span class="co">[</span><span class="ot">landing page</span><span class="co">](../index.qmd)</span> and modified in the <span class="co">[</span><span class="ot">exercise on the personal data page</span><span class="co">](../foundations/personal-data)</span>, which removed the direct identifiers.</span>
-<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Create an object within sdcMicro that contains the relevant <span class="in">`keyVars`</span> and <span class="in">`numVars`</span> using the function <span class="in">`createSdcObj`</span>. Inspect the object.</span>
-<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>What k-anonymity level is currently reached?</span>
+<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`sdcApp()`</span>\</span>
+<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a>  Opens the GUI: The GUI provides a nice overview of functions. In case you decide to use it (and I recommend trying it out), create an anonymization report at the end via "export data" to make your anonymization transparent.</span>
+<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`AI_createSdcObj()`</span> and <span class="in">`AI_applyAnonymization()`</span>\</span>
+<span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a>  These new functions use LLMs to assist with the creation of an <span class="in">`sdcObject`</span> and anonymization. See <span class="co">[</span><span class="ot">the sdcMicro vignette on AI-assisted anonymization</span><span class="co">](https://cran.r-project.org/web/packages/sdcMicro/vignettes/ai_assisted_anonymization.html)</span> for how to use them. I won't use these in the context of the tutorial, to learn the processes manually first.</span>
+<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
-<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a>Create the object. Provide gender, age, education, and postal code as categorial variables of interest (<span class="in">`keyVars`</span>). The only numerical variables we are interested in are income and years in job (<span class="in">`numVars`</span>).</span>
-<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdcMicro)</span>
+<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise: Assessing Privacy Risks With `sdcMicro`</span></span>
+<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a>In this exercise, you will learn how to assess privacy risks with the <span class="in">`sdcMicro`</span> package. We will work with the dataset <span class="in">`data_withoutdirectidentifiers`</span>—**our dataset** as loaded from the <span class="co">[</span><span class="ot">landing page</span><span class="co">](../index.qmd)</span> and modified in the <span class="co">[</span><span class="ot">exercise on the personal data page</span><span class="co">](../foundations/personal-data)</span>, which removed the direct identifiers.</span>
+<span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Create an object within sdcMicro that contains the relevant <span class="in">`keyVars`</span> and <span class="in">`numVars`</span> using the function <span class="in">`createSdcObj()`</span>. Inspect the object.</span>
+<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>What k-anonymity level is currently reached?</span>
+<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solution</span></span>
 <span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the sdcObject and assess privacy risks</span></span>
-<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a>sdc_data <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(</span>
-<span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a>  <span class="at">dat =</span> data_withoutdirectidentifiers,</span>
-<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a>  <span class="at">keyVars =</span> <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"age"</span>, <span class="st">"education"</span>, <span class="st">"plz"</span>),</span>
-<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a>  <span class="at">numVars =</span> <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)</span>
-<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a>Create the object. Provide gender, age, education, and postal code as categorical variables of interest (<span class="in">`keyVars`</span>). The only numerical variables I am interested in are income and years in job (<span class="in">`numVars`</span>).</span>
+<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdcMicro)</span>
 <span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a>sdc_data <span class="co"># Summarizes the risks overall</span></span>
-<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a><span class="in">`sdcMicro`</span> shows us the unmodified, original parameters in parentheses within the summary of the <span class="in">`sdcObject`</span>. Right now, the original parameters are, of course, identical to the current parameters as we have not made any changes yet.</span>
-<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a>For the **categorial key variables**, we get information on the numbers and sizes of categories. The more categories and the smaller the number of entries in each category, the easier the de-identification as we have many unique individual values.</span>
+<span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the sdcObject and assess privacy risks</span></span>
+<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a>sdc_data <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(</span>
+<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a>  <span class="at">dat =</span> data_withoutdirectidentifiers,</span>
+<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a>  <span class="at">keyVars =</span> <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"age"</span>, <span class="st">"education"</span>, <span class="st">"plz"</span>),</span>
+<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a>  <span class="at">numVars =</span> <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"years_in_job"</span>)</span>
+<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a>We also get information on k-anonymity of the combinations of these categorial variables: Currently, all observations breach 3- and 5-anonymity. There are only two persons in our dataset who share the same gender, age, education, plz, and years_in_job; therefore, our dataset also breaches 2-anonymity. 99% of participants are unique, meaning they have a unique combination on these demographic variables.</span>
-<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a>Upon closer inspection, these entries are IDs 94 and 122, who share many demographic details: both are 18 years old, live in Munich at postal code 80636, and have a high school degree. If I knew a 18-year-old male living at 80636 that had participated in this study, I could not identify him based on a combination of these data points alone. However, if I knew his exact income, I could still identify him. Let's keep this in mind for further analyses.</span>
-<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the two records that share a key-variable combination</span></span>
-<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(data_withoutdirectidentifiers[data_withoutdirectidentifiers<span class="sc">$</span>id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">94</span>, <span class="dv">122</span>), ])</span>
-<span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a>sdc_data <span class="co"># Summarizes the risks overall</span></span>
+<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a><span class="in">`sdcMicro`</span> shows the unmodified, original parameters in parentheses within the summary of the <span class="in">`sdcObject`</span>. Right now, the original parameters are, of course, identical to the current parameters as we have not made any changes yet.</span>
+<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a>For the **categorical key variables**, we get information on the numbers and sizes of categories. The more categories and the smaller the number of entries in each category, the easier the de-identification, as there are many unique individual values.</span>
+<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a>We also get information on k-anonymity. Currently, all observations breach 3- and 5-anonymity. Only two persons in our dataset share the same combination of gender, age, education, and postal code; therefore, our dataset also breaches 2-anonymity. 99% of participants are unique, meaning they have a unique combination on these demographic variables.</span>
+<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a>Upon closer inspection, these entries are IDs 94 and 122, who share all four key variables: both are male, 18 years old, live in Munich at postal code 80636, and have a high school degree. If I knew an 18-year-old male living at 80636 that had participated in this study, I could not identify him based on a combination of these data points alone. However, if I knew his exact income, I could still identify him. Let's keep this in mind for further analyses.</span>
 <span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a>This means that we currently do not reach any level of k-anonymity, since every other person has a unique combination.</span>
-<span id="cb13-144"><a href="#cb13-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a>For the **numerical key variables**, <span class="in">`sdcMicro`</span> shows the disclosure risk. This parameter is a relative measure: it shows how much the parameters were changed after anonymization. As we have not changed the original data yet, right now, <span class="in">`sdcMicro`</span> does not know anything about the disclosure risk and makes the non-estimate that it is somewhere between 0 and 1.</span>
-<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a>**Other risk estimates**</span>
-<span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-149"><a href="#cb13-149" aria-hidden="true" tabindex="-1"></a><span class="in">`sdcMicro`</span> offers even more risk estimates:</span>
-<span id="cb13-150"><a href="#cb13-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-153"><a href="#cb13-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-154"><a href="#cb13-154" aria-hidden="true" tabindex="-1"></a><span class="co"># Risk summary</span></span>
-<span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_data, <span class="at">type =</span> <span class="st">"risk"</span>)</span>
-<span id="cb13-156"><a href="#cb13-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-157"><a href="#cb13-157" aria-hidden="true" tabindex="-1"></a><span class="co"># Individual risk</span></span>
-<span id="cb13-158"><a href="#cb13-158" aria-hidden="true" tabindex="-1"></a>individualrisk <span class="ot">&lt;-</span> <span class="fu">get.sdcMicroObj</span>(sdc_data, <span class="st">"risk"</span>)<span class="sc">$</span>individual</span>
-<span id="cb13-159"><a href="#cb13-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-161"><a href="#cb13-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a>The individual risk shows a risk estimate for each individual in the dataset. <span class="in">`fk`</span> is the frequency count in the sample and shows how many individuals share the same combination of key variables currently in our sdcObject. We can see that this is 1 for all participants except the IDs 94 and 122 I discussed above. <span class="in">`Fk`</span> is the estimated frequency in the population; this only differs from <span class="in">`fk`</span> in case of pre-defined sampling weights.</span>
-<span id="cb13-163"><a href="#cb13-163" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-165"><a href="#cb13-165" aria-hidden="true" tabindex="-1"></a>::: {#no-correct-assignment .callout-warning collapse="false"}</span>
-<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a><span class="fu">### There Is No One Correct Variable Assignment</span></span>
-<span id="cb13-167"><a href="#cb13-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a>How you assign variables to <span class="in">`keyVars`</span> and <span class="in">`numVars`</span> is a judgment call—there is no universally correct answer. It depends on who you think is likely to try to re-identify someone, and what information they would already have.</span>
-<span id="cb13-169"><a href="#cb13-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a>The most realistic attack scenario for this dataset is probably someone who knows a study participant personally—a colleague, friend, or family member. Such a person would most likely know basic demographic attributes: the participant's gender, approximate age, postal code, and level of education. These are the variables an attacker is most plausibly able to use to find a specific record, which is why we treat them as <span class="in">`keyVars`</span>.</span>
+<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the two records that share a key-variable combination</span></span>
+<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(data_withoutdirectidentifiers[data_withoutdirectidentifiers<span class="sc">$</span>id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">94</span>, <span class="dv">122</span>), ])</span>
+<span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-149"><a href="#cb13-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-150"><a href="#cb13-150" aria-hidden="true" tabindex="-1"></a>This means that we currently do not reach any level of k-anonymity, since every other person has a unique combination.</span>
+<span id="cb13-151"><a href="#cb13-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-152"><a href="#cb13-152" aria-hidden="true" tabindex="-1"></a>For the **numerical key variables**, <span class="in">`sdcMicro`</span> shows the disclosure risk. This parameter is a relative measure: it shows how much the parameters were changed after anonymization. As we have not changed the original data yet, right now, <span class="in">`sdcMicro`</span> does not know anything about the disclosure risk and makes the non-estimate that it is somewhere between 0 and 1.</span>
+<span id="cb13-153"><a href="#cb13-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-154"><a href="#cb13-154" aria-hidden="true" tabindex="-1"></a>**Other risk estimates**</span>
+<span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-156"><a href="#cb13-156" aria-hidden="true" tabindex="-1"></a><span class="in">`sdcMicro`</span> offers even more risk estimates:</span>
+<span id="cb13-157"><a href="#cb13-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-161"><a href="#cb13-161" aria-hidden="true" tabindex="-1"></a><span class="co"># Risk summary</span></span>
+<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdc_data, <span class="at">type =</span> <span class="st">"risk"</span>)</span>
+<span id="cb13-163"><a href="#cb13-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a><span class="co"># Individual risk</span></span>
+<span id="cb13-165"><a href="#cb13-165" aria-hidden="true" tabindex="-1"></a>individualrisk <span class="ot">&lt;-</span> <span class="fu">get.sdcMicroObj</span>(sdc_data, <span class="st">"risk"</span>)<span class="sc">$</span>individual</span>
+<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-167"><a href="#cb13-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-169"><a href="#cb13-169" aria-hidden="true" tabindex="-1"></a>The individual risk shows a risk estimate for each individual in the dataset. <span class="in">`fk`</span> is the frequency count in the sample and shows how many individuals share the same combination of key variables currently in our sdcObject. We can see that this is 1 for all participants except the IDs 94 and 122 I discussed above. <span class="in">`Fk`</span> is the estimated frequency in the population; this only differs from <span class="in">`fk`</span> in case of pre-defined sampling weights.</span>
+<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb13-171"><a href="#cb13-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a><span class="in">`income`</span> is placed in <span class="in">`numVars`</span> as it is a continuous variable.</span>
-<span id="cb13-173"><a href="#cb13-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a><span class="in">`years_in_job`</span> is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in <span class="in">`keyVars`</span> would be the conservative choice. In this case, I consider it less likely to be known exactly, which is why I put it into <span class="in">`numVars`</span></span>
-<span id="cb13-175"><a href="#cb13-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a>The same logic applies to <span class="in">`religion`</span>: if a plausible attacker is someone who knows the participant from a religious community, then <span class="in">`religion`</span> belongs in <span class="in">`keyVars`</span>, not treated as a sensitive outcome. **The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.** In this case, I think it is not likely to be known by an attacker; however, we will address <span class="in">`religion`</span>&nbsp;again at a later stage to <span class="co">[</span><span class="ot">protect very rare values</span><span class="co">](../privacy-openness/balancing.qmd#rare-religion-step)</span>.</span>
-<span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a>::: {#no-correct-assignment .callout-warning collapse="false"}</span>
+<span id="cb13-173"><a href="#cb13-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## There Is No One Correct Variable Assignment</span></span>
+<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-175"><a href="#cb13-175" aria-hidden="true" tabindex="-1"></a>How you assign variables to <span class="in">`keyVars`</span> and <span class="in">`numVars`</span> is a judgment call—there is no universally correct answer. It depends on who you think is likely to try to re-identify someone, and what information they would already have.</span>
+<span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a>The most realistic attack scenario for this dataset is probably someone who knows a study participant personally—a colleague, friend, or family member. Such a person would most likely know basic demographic attributes: the participant's gender, approximate age, postal code, and level of education. These are the variables an attacker is most plausibly able to use to find a specific record, which is why I treat them as <span class="in">`keyVars`</span>.</span>
 <span id="cb13-178"><a href="#cb13-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-179"><a href="#cb13-179" aria-hidden="true" tabindex="-1"></a>Save the sdcObject for further anonymization steps.</span>
+<span id="cb13-179"><a href="#cb13-179" aria-hidden="true" tabindex="-1"></a><span class="in">`income`</span> is placed in <span class="in">`numVars`</span> as it is a continuous variable.</span>
 <span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the sdcObject for the next chapter</span></span>
-<span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_data, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"sdc-micro.rds"</span>))</span>
-<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-181"><a href="#cb13-181" aria-hidden="true" tabindex="-1"></a><span class="in">`years_in_job`</span> is a borderline case. It behaves like a continuous variable, but a colleague might know roughly how long someone has been in their job. Placing it in <span class="in">`keyVars`</span> would be the conservative choice. In this case, I consider it less likely to be known exactly, which is why I put it into <span class="in">`numVars`</span>.</span>
+<span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a>The same logic applies to <span class="in">`religion`</span>: if a plausible attacker is someone who knows the participant from a religious community, then <span class="in">`religion`</span> should go into <span class="in">`keyVars`</span>, rather than being treated as a sensitive outcome. **The variables you choose as keys should reflect the attack scenario you consider most realistic for your specific sample and context.** In this case, I think it is not likely to be known by an attacker; however, I will address <span class="in">`religion`</span> again at a later stage to <span class="co">[</span><span class="ot">protect very rare values</span><span class="co">](../privacy-openness/balancing.qmd#rare-religion-step)</span>.</span>
+<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a>Save the sdcObject for further anonymization steps.</span>
 <span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-188"><a href="#cb13-188" aria-hidden="true" tabindex="-1"></a>At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need to anonymize; you can skip to preparing your data for publication.</span>
-<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a>If the risk is not acceptable—as is the case here—we will start with the actual anonymization process. To that end, I will present you with several techniques over the next few chapters.</span>
-<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources, Links, Examples</span></span>
+<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(sdc_data, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"sdc-micro.rds"</span>))</span>
+<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a>More information on assessing risks for public research data: @morehouse2025</span>
+<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a>At this point, you decide whether the level of privacy risks is acceptable. If so, you do not need to anonymize; you can skip to preparing your data for publication.</span>
+<span id="cb13-195"><a href="#cb13-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-196"><a href="#cb13-196" aria-hidden="true" tabindex="-1"></a>If the risk is not acceptable—as is the case here—we will start with the actual anonymization process. To that end, I will present you with several techniques over the next few chapters.</span>
+<span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-198"><a href="#cb13-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources, Links, Examples</span></span>
+<span id="cb13-199"><a href="#cb13-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-200"><a href="#cb13-200" aria-hidden="true" tabindex="-1"></a>More information on assessing risks for public research data: @morehouse2025</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Overview Anonymization Techniques – Data Anonymization Course</title>
+<title>Overview of Anonymization Techniques – Data Anonymization Course</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -104,9 +104,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-3c3f1368ed8db972a012dae01a8e5220.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0fd66a72018a63d913d6e27d7a0bd232.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-29f470653e47eca4888459144373f9ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -446,7 +446,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../foundations/mechanisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Privacy Mechanisms in Research</span></a>
+ <span class="menu-text">Data Protection Mechanisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -513,7 +513,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">BALANCING DATA PROTECTION AND OPENNESS</span></a>
+ <span class="menu-text">BALANCING PRIVACY AND OPENNESS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -570,7 +570,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../anonymisation-techniques/planning-privacy.html">ANONYMIZATION PROCESS</a></li><li class="breadcrumb-item"><a href="../anonymisation-techniques/overview-methods.html">Overview of Techniques</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Overview Anonymization Techniques</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Overview of Anonymization Techniques</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -600,27 +600,27 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>After completing this part of the tutorial, you will understand the fundamental principles of anonymization techniques and how they relate to one another.</li>
+<li>Understand the <strong>fundamental principles of anonymization techniques</strong> and how they relate to one another.</li>
 </ul>
 </div>
 </div>
 </div>
-<p>Anonymization transforms data so that <strong>individuals can no longer be identified</strong>, while keeping the data useful for analysis. The challenge is always a trade-off: stronger anonymization means better privacy protection, but it can also mean less detailed or less useful data. Finding the right balance is the core problem we will deal with throughout this tutorial.</p>
+<p>Anonymization transforms data so that <strong>individuals can no longer be identified</strong>, while keeping the data useful for analysis. The challenge is always a trade-off: stronger anonymization means better privacy protection, but it can also mean less detailed or less useful data. Finding the right balance is the core problem we will deal with throughout the rest of this tutorial.</p>
 <p>In the next sections of the tutorial, I will present you with several groups of techniques for anonymization, following the taxonomy by <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span>.</p>
 <ul>
-<li><p><strong>Non-perturbative techniques</strong> are those that do not change data values but rather mask them. <img src="../pictures/non-perturbative-cropped.svg" class="img-fluid" alt="An illustration of a non-perturbative technique: a small data table in which one identifying cell has been suppressed (left blank), while the other values stay unchanged."> <em>An example of a non-perturbative technique (i.e., cell suppression)</em></p></li>
-<li><p><strong>Perturbative techniques</strong> involve modifying data values to anonymize the data. <img src="../pictures/perturbative-cropped.svg" class="img-fluid" alt="An illustration of a perturbative technique: a small data table in which the numeric values are altered slightly by adding random noise."> <em>An example of a perturbative technique (i.e., additive noise)</em></p></li>
-<li><p><strong>De-associative techniques</strong> separate indirectly identifying parts of the data from the sensitive parts. <img src="../pictures/anatomization-cropped.png" class="img-fluid" alt="An illustration of a de-associative technique: the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the group ID."> <em>An example of a de-associative technique (i.e., anatomization)</em></p></li>
-<li><p><strong>Synthesizing data</strong> means creating new data with the same statistical properties as the original data. <img src="../pictures/synthetic-cropped.svg" class="img-fluid" alt="An illustration of synthetic data: an original data table alongside a newly generated table with different records but the same statistical properties."> <em>An example of synthetic data</em></p></li>
+<li><p><strong>Non-perturbative techniques</strong> are those that do not change data values but rather mask them. <img src="../pictures/non-perturbative-cropped.svg" class="img-fluid" alt="An illustration of a non-perturbative technique: a small data table in which one identifying cell has been suppressed (left blank), while the other values stay unchanged."> <em>An example of a non-perturbative technique (cell suppression)</em></p></li>
+<li><p><strong>Perturbative techniques</strong> involve modifying data values to anonymize the data. <img src="../pictures/perturbative-cropped.svg" class="img-fluid" alt="An illustration of a perturbative technique: a small data table in which the numeric values are altered slightly by adding random noise."> <em>An example of a perturbative technique (additive noise)</em></p></li>
+<li><p><strong>De-associative techniques</strong> separate indirectly identifying parts of the data from the sensitive parts. <img src="../pictures/anatomization-cropped.png" class="img-fluid" alt="An illustration of a de-associative technique: the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the group ID."> <em>An example of a de-associative technique (anatomization)</em></p></li>
+<li><p><strong>Synthesizing data</strong> means creating new data with the same statistical properties as the original data. <img src="../pictures/synthetic-cropped.svg" class="img-fluid" alt="An illustration of synthetic data: an original data table alongside a newly generated table with different records but the same statistical properties."> <em>An example of synthetic data (the new dataset on the right has the same statistical properties)</em></p></li>
 </ul>
 <p>Each family of techniques addresses different types of risk.</p>
 <p><strong>Non-perturbative techniques</strong> primarily reduce <strong>identity disclosure</strong> risk by making individuals less unique in the dataset—for example, by grouping age values into broader categories.</p>
 <p><strong>Perturbative techniques</strong> protect against both <strong>identity and attribute disclosure</strong> because they change the actual data values: Even if someone is identified, the other values may no longer be accurate.</p>
 <p><strong>De-associative techniques</strong> break the link between identifiers and sensitive attributes, making it harder to connect a person to all data within the dataset.</p>
-<p><strong>Synthetic data aims to avoid disclosure risk</strong> by generating new records based on the statistical properties of a real dataset. The records do not correspond to any real individuals but risks of statistical disclosure still needs to be assessed.</p>
+<p><strong>Synthetic data aims to avoid disclosure risk</strong> by generating new records based on the statistical properties of a real dataset. The records do not correspond to any real individuals, but risks of statistical disclosure still need to be assessed.</p>
 <p>For each anonymization technique, the <strong>variable’s scale level</strong> needs to be taken into account. Some techniques only work for categorical variables (i.e., discrete variables; e.g., gender, highest level of education), others only for continuous variables (e.g., income, age), and some work for both. Make sure to check each technique’s requirements before applying it to your data.</p>
 <p>In the following chapters, we will go through each family of techniques one by one. I will first explain the underlying idea of a family and will then provide hands-on exercises for selected techniques using <strong>our dataset</strong> (introduced on the <a href="../index.html">landing page</a>) and the <code>sdcMicro</code> package. This way, you can see how each technique changes the data and its risk profile step by step.</p>
-<p>After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in the <a href="choosing-technique">the chapter on choosing the right technique</a>.</p>
+<p>After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in <a href="choosing-technique">the chapter on choosing the right technique</a>.</p>
 <section id="resources-links-examples" class="level2">
 <h2 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h2>
 <p>See <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span> for detailed information on these techniques.</p>
@@ -1123,7 +1123,7 @@ Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Sur
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Overview Anonymization Techniques"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Overview of Anonymization Techniques"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">aliases:</span><span class="co"> [2_ANONYMISATION_TECHNIQUES/2_2_Overview_Methods.html]</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> ../references.bib</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
@@ -1131,20 +1131,20 @@ Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Sur
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objective</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After completing this part of the tutorial, you will understand the fundamental principles of anonymization techniques and how they relate to one another.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Understand the **fundamental principles of anonymization techniques** and how they relate to one another.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Anonymization transforms data so that **individuals can no longer be identified**, while keeping the data useful for analysis. The challenge is always a trade-off: stronger anonymization means better privacy protection, but it can also mean less detailed or less useful data. Finding the right balance is the core problem we will deal with throughout this tutorial.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Anonymization transforms data so that **individuals can no longer be identified**, while keeping the data useful for analysis. The challenge is always a trade-off: stronger anonymization means better privacy protection, but it can also mean less detailed or less useful data. Finding the right balance is the core problem we will deal with throughout the rest of this tutorial.</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>In the next sections of the tutorial, I will present you with several groups of techniques for anonymization, following the taxonomy by @Carvalho2023_SurveyPrivacyPreservingTechniques.</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Non-perturbative techniques** are those that do not change data values but rather mask them. <span class="al">![Non-perturbative techniques](../pictures/non-perturbative-cropped.svg)</span>{fig-alt="An illustration of a non-perturbative technique: a small data table in which one identifying cell has been suppressed (left blank), while the other values stay unchanged."} *An example of a non-perturbative technique (i.e., cell suppression)*</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Non-perturbative techniques** are those that do not change data values but rather mask them. <span class="al">![Non-perturbative techniques](../pictures/non-perturbative-cropped.svg)</span>{fig-alt="An illustration of a non-perturbative technique: a small data table in which one identifying cell has been suppressed (left blank), while the other values stay unchanged."} *An example of a non-perturbative technique (cell suppression)*</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Perturbative techniques** involve modifying data values to anonymize the data. <span class="al">![Perturbative techniques](../pictures/perturbative-cropped.svg)</span>{fig-alt="An illustration of a perturbative technique: a small data table in which the numeric values are altered slightly by adding random noise."} *An example of a perturbative technique (i.e., additive noise)*</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Perturbative techniques** involve modifying data values to anonymize the data. <span class="al">![Perturbative techniques](../pictures/perturbative-cropped.svg)</span>{fig-alt="An illustration of a perturbative technique: a small data table in which the numeric values are altered slightly by adding random noise."} *An example of a perturbative technique (additive noise)*</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**De-associative techniques** separate indirectly identifying parts of the data from the sensitive parts. <span class="al">![De-associative techniques](../pictures/anatomization-cropped.png)</span>{fig-alt="An illustration of a de-associative technique: the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the group ID."} *An example of a de-associative technique (i.e., anatomization)*</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**De-associative techniques** separate indirectly identifying parts of the data from the sensitive parts. <span class="al">![De-associative techniques](../pictures/anatomization-cropped.png)</span>{fig-alt="An illustration of a de-associative technique: the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the group ID."} *An example of a de-associative technique (anatomization)*</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Synthesizing data** means creating new data with the same statistical properties as the original data. <span class="al">![Synthetic data](../pictures/synthetic-cropped.svg)</span>{fig-alt="An illustration of synthetic data: an original data table alongside a newly generated table with different records but the same statistical properties."} *An example of synthetic data*</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Synthesizing data** means creating new data with the same statistical properties as the original data. <span class="al">![Synthetic data](../pictures/synthetic-cropped.svg)</span>{fig-alt="An illustration of synthetic data: an original data table alongside a newly generated table with different records but the same statistical properties."} *An example of synthetic data (the new dataset on the right has the same statistical properties)*</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Each family of techniques addresses different types of risk.</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
@@ -1154,13 +1154,13 @@ Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Sur
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>**De-associative techniques** break the link between identifiers and sensitive attributes, making it harder to connect a person to all data within the dataset.</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>**Synthetic data aims to avoid disclosure risk** by generating new records based on the statistical properties of a real dataset. The records do not correspond to any real individuals but risks of statistical disclosure still needs to be assessed.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>**Synthetic data aims to avoid disclosure risk** by generating new records based on the statistical properties of a real dataset. The records do not correspond to any real individuals, but risks of statistical disclosure still need to be assessed.</span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>For each anonymization technique, the **variable's scale level** needs to be taken into account. Some techniques only work for categorical variables (i.e., discrete variables; e.g., gender, highest level of education), others only for continuous variables (e.g., income, age), and some work for both. Make sure to check each technique's requirements before applying it to your data.</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>In the following chapters, we will go through each family of techniques one by one. I will first explain the underlying idea of a family and will then provide hands-on exercises for selected techniques using **our dataset** (introduced on the <span class="co">[</span><span class="ot">landing page</span><span class="co">](../index.qmd)</span>) and the <span class="in">`sdcMicro`</span> package. This way, you can see how each technique changes the data and its risk profile step by step.</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in the <span class="co">[</span><span class="ot">the chapter on choosing the right technique</span><span class="co">](choosing-technique)</span>.</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>After learning more about these techniques in the following chapters, I will explain how to decide which technique is the best for your data in <span class="co">[</span><span class="ot">the chapter on choosing the right technique</span><span class="co">](choosing-technique)</span>.</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resources, Links, Examples</span></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>

@@ -100,9 +100,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-3c3f1368ed8db972a012dae01a8e5220.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0fd66a72018a63d913d6e27d7a0bd232.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-29f470653e47eca4888459144373f9ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -420,7 +420,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../foundations/mechanisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Privacy Mechanisms in Research</span></a>
+ <span class="menu-text">Data Protection Mechanisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -487,7 +487,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">BALANCING DATA PROTECTION AND OPENNESS</span></a>
+ <span class="menu-text">BALANCING PRIVACY AND OPENNESS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -567,7 +567,11 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
   
 
 
-</header><div class="callout callout-style-default callout-tip callout-titled">
+</header><style>
+/* Show code operators such as <= exactly as typed (no font ligatures) */
+code, pre code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+</style>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -579,16 +583,31 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>After completing this part of the tutorial, you will</p>
 <ul>
-<li>know selected de-associative techniques.</li>
-<li>apply anatomization as one de-associative technique in R.</li>
+<li>Know selected <strong>de-associative techniques</strong>.</li>
+<li>Apply <strong>anatomization</strong> as one de-associative technique in R.</li>
 </ul>
 </div>
 </div>
 </div>
 <p>De-associative techniques protect privacy by <strong>breaking the link between indirect identifiers and sensitive variables,</strong> rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person’s record based on their demographic attributes, they should not be able to learn their sensitive values from it.</p>
-<p>The simplest version of this is just <strong>separating a dataset into two tables—one with the identifiers and one with the sensitive attributes</strong>, and randomizing the order of rows in one of them. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.</p>
+<div id="deassociative-effort" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A Technique for Special Cases
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>De-associative techniques require <strong>a lot of effort</strong>: they are not available as ready-made functions in <code>sdcMicro</code>, so you have to implement them yourself, and the resulting data is harder to analyze. They are <strong>only rarely the best solution</strong>. In most cases, <a href="../anonymisation-techniques/non-perturbative.html">non-perturbative</a> or <a href="../anonymisation-techniques/perturbative.html">perturbative</a> techniques reach a similar level of privacy with far less work. I still cover de-associative techniques here, so you know they exist and can recognize the rare cases where they fit.</p>
+</div>
+</div>
+</div>
+<p>The simplest version of this is just <strong>separating a dataset into two tables—one with the identifiers and one with the sensitive attributes</strong>, and randomizing the order of rows in one of them. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits which analyses can be done. It is more of a last resort than a practical technique for sharing research data.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="../pictures/simple-de-association-cropped.png" class="img-fluid figure-img" alt="A diagram showing the original table split into an identifier table (ID, Age, Gender) and a separate Religion table (with randomized order of rows), with no link between the two."></p>
 <figcaption>The simplest de-association: split the data into a table of identifiers and a separate table of sensitive values, with no link between them.</figcaption></figure>
@@ -596,7 +615,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <p>More useful are approaches that preserve some analytical structure while still breaking the individual-level link—the two main ones being bucketization and anatomization.</p>
 <section id="examples-of-de-associative-techniques" class="level2"><h2 class="anchored" data-anchor-id="examples-of-de-associative-techniques">Examples of De-Associative Techniques</h2>
 <section id="bucketization" class="level3"><h3 class="anchored" data-anchor-id="bucketization">Bucketization</h3>
-<p>Bucketization groups records into “buckets” based on their indirect identifiers (like age, gender, or postal code), with each bucket required to contain at least k records to satisfy k-anonymity. Within each bucket, the sensitive values—such as income or political opinions—are randomly shuffled among the records. The result is that an attacker might be able to narrow someone down to a bucket, but cannot tell which sensitive value belongs to which specific person within it.</p>
+<p>Bucketization groups records into “buckets” based on their indirect identifiers (like age, gender, or postal code), with each bucket required to contain at least k records to satisfy k-anonymity <span class="citation" data-cites="li2023">(<a href="#ref-li2023" role="doc-biblioref">Li and He 2023</a>)</span>. Within each bucket, the sensitive values—such as income or political opinions—are randomly shuffled among the records. The result is that an attacker might be able to narrow someone down to a bucket, but cannot tell which sensitive value belongs to which specific person within it.</p>
 <p>The process works in three steps:</p>
 <ol type="1">
 <li>Generalize the indirect identifiers to create buckets.</li>
@@ -606,23 +625,23 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <p>The shuffling in step 3 is what makes this a de-associative rather than a perturbative technique—the values themselves are unchanged, only the assignment between records and sensitive attributes is broken within each group.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="../pictures/bucketization-cropped.png" class="img-fluid figure-img" alt="A multi-step diagram: the original table is generalized into age bands to form buckets with a Group ID, de-generalized back to original ages, and the Religion column is permuted within each group, marked by a bold vertical line."></p>
-<figcaption>Bucketization: the identifiers are generalized into buckets and assigned a group ID, de-generalized back to their original values, and the sensitive values are then shuffled within each group (bold line).</figcaption></figure>
+<figcaption>Bucketization: the identifiers are generalized into buckets and assigned a group ID based on age and gender, de-generalized back to their original values, and the sensitive values are then shuffled within each group (bold line).</figcaption></figure>
 </div>
 </section><section id="anatomization" class="level3"><h3 class="anchored" data-anchor-id="anatomization">Anatomization</h3>
-<p>Anatomization is a cleaner alternative to bucketization that improves the properties of the resulting deassociation. Rather than shuffling values within buckets, anatomization splits the dataset into two separate tables:</p>
+<p>Anatomization is a cleaner alternative to bucketization that improves the properties of the resulting de-association <span class="citation" data-cites="xiao2006">(<a href="#ref-xiao2006" role="doc-biblioref">Xiao and Tao 2006</a>)</span>. Rather than shuffling values within buckets, anatomization splits the dataset into two separate tables:</p>
 <ul>
 <li>A <strong>quasi-identifier table</strong> containing the indirect identifiers (e.g., age, gender, postal code), with a group ID linking each record to its group.</li>
 <li>A <strong>sensitive table</strong> containing the sensitive attributes and the same group ID, but with the individual record links removed. Instead of one row per person, it stores, for each group, how often each sensitive value occurs.</li>
 </ul>
-<p>A researcher re-using the data can still answer questions like “what is the distribution of political opinions among 30-44 year olds in postal region 8xxxx?” by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table—the individual-level association is gone. Within a group, every sensitive value is equally plausible for every member.</p>
+<p>A researcher re-using the data can still answer questions like “what is the distribution of political opinions among 30- to 44-year-olds in postal region 8xxxx?” by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table as the association on the individual level is gone. Within a group, every sensitive value is equally plausible for every member.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="../pictures/anatomization-cropped.png" class="img-fluid figure-img" alt="A diagram showing the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the Group ID."></p>
 <figcaption>Anatomization: the data is split into a quasi-identifier table and a sensitive-attribute table, linked only by a group ID.</figcaption></figure>
 </div>
-<p>Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be <a href="../foundations/privacy-concepts.html#limitations-of-k-anonymity">l-diverse</a>—it contains at least <code>l</code> different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone’s group still faces at least <code>l</code> competing possibilities for their sensitive value.</p>
-<p>To build such groups, <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span> do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the <code>l</code> currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.</p>
+<p>Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be <a href="../foundations/privacy-concepts.html#limitations-of-k-anonymity">l-diverse</a>—it contains at least l different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone’s group still faces at least l competing possibilities for their sensitive value.</p>
+<p>To build such groups, <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span> do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the l currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -631,16 +650,16 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>Anatomization is a <strong>special-purpose technique, not a default</strong>. Its distinctive strength is that it distorts <em>no values</em>: unlike non-perturbative technqiues (which coarsen the indirect identifiers), perturbative techniques (which alter values), or synthetic data (which fabricates records), anatomization publishes only true values and destroys just one thing—the record-level link between the indirect identifiers and the sensitive variable. It is therefore a good fit only when <em>all</em> of the following hold:</p>
+<p>Anatomization is a <strong>special-purpose technique</strong>. I wouldn’t recommend it as a default. Its main advantage is that it doesn’t distort any values: unlike non-perturbative techniques (which coarsen information of the indirect identifiers), perturbative techniques (which alter values), or synthetic data (which fabricates data), anatomization publishes only true values and destroys “just” the participant-level link between the indirect identifiers and the sensitive variable. This link is usually quite important, so only use the technique if all of these apply:</p>
 <ul>
-<li>the research question concerns the sensitive attribute’s <strong>group-level distribution or associations</strong> instead of individual-level linkage, and you can accept the added imprecision (e.g., due to a large sample size);</li>
-<li>you specifically want to avoid coarsening or perturbing the values that are kept; and</li>
+<li>the research question concerns the sensitive variable’s <strong>group-level distribution or associations</strong> instead of individual-level linkage, and you can accept the added imprecision (e.g., due to an overly large sample size);</li>
+<li>you specifically want to avoid changing any values that are kept; and</li>
 <li>
-<strong>identity disclosure is handled by other means</strong>—anatomization leaves the indirect identifiers fully intact and does <em>not</em> protect against singling someone out on them.</li>
+<strong>identity disclosure is no concern</strong>, since anatomization leaves the indirect identifiers fully intact.</li>
 </ul>
-<p>For most questions these conditions do not all hold, and a perturbative method or synthetic data is the more practical choice: easier to analyze (a single table), better supported by tools like <code>sdcMicro</code>, and protective of the identifiers too. Our own dataset is a case in point—the research question is about the relationship between religion and political opinion, <em>two sensitive attributes</em>, which anatomization is not designed to serve: it de-associates the sensitive attribute from the indirect identifiers, not two sensitive attributes from each other. We still implement it below as an instructive example.</p>
+<p>For most questions these conditions do not all hold, and a perturbative method or synthetic data is the more practical choice: easier to analyze (a single table), better supported by tools like <code>sdcMicro</code>, and protective of the identifiers too. This is the case for our example dataset, too. I still implement anatomization for that dataset below as an instructive example.</p>
 </div>
 </div>
 </div>
@@ -651,25 +670,25 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </ul>
 <p>Cons:</p>
 <ul>
-<li>complex and not implemented as predefined functions within a R package</li>
-<li>similar level of privacy can be reached by combining other techniques</li>
+<li>complex and not implemented as predefined functions within an R package</li>
+<li>a similar level of privacy can be reached by combining other techniques</li>
 <li>added level of complexity for analyses</li>
 </ul></section><section id="exercise-applying-anatomization" class="level2"><h2 class="anchored" data-anchor-id="exercise-applying-anatomization">Exercise: Applying Anatomization</h2>
-<p>Let’s implement anatomization step by step, following the algorithm proposed by <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span>. It is not available in <code>sdcMicro</code>, so we will build it ourselves with a lot of data wrangling. The algorithm has 19 steps, but we will break them down in more workable chunks.</p>
-<p>Because anatomization protects a <em>sensitive</em> attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, <code>religion</code>. Working this algorithm for the combination of all our sensitive attributes (including the political opinion items) is possible, but more complex. To keep it simple, we only focus on <code>religion</code>.</p>
-<p>Our data does not really need this level of protection—we use it here purely for demonstration.</p>
+<p>Let’s implement anatomization step by step, following the algorithm proposed by <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span>. It is not available in <code>sdcMicro</code>, so we will build it ourselves with a lot of data wrangling. The algorithm has 19 steps, but I will break them down into more workable chunks.</p>
+<p>Because anatomization protects a <em>sensitive</em> attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, <code>religion</code>. Working this algorithm for the combination of all sensitive attributes (including the political opinion items) is possible, but more complex. To keep it simple, I only focus on <code>religion</code>.</p>
+<p>Our data does not really need this level of protection—I use it here purely for demonstration.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Keep all indirect identifiers and one sensitive attribute (religion)</span></span>
-<span><span class="va">data_ana</span> <span class="op">&lt;-</span> <span class="va">data_withoutidentifiers</span> <span class="op">%&gt;%</span></span>
+<span><span class="va">data_ana</span> <span class="op">&lt;-</span> <span class="va">data_withoutdirectidentifiers</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">select</span><span class="op">(</span><span class="va">id</span>, <span class="va">plz</span>, <span class="va">gender</span>, <span class="va">age</span>, <span class="va">income</span>, <span class="va">years_in_job</span>, <span class="va">education</span>, <span class="va">religion</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The algorithm needs one parameter: the target level of <strong>l-diversity</strong>. l-diversity strengthens <a href="../foundations/privacy-concepts.html#limitations-of-k-anonymity">k-anonymity</a>—it requires that every group contains at least <code>l</code> <em>different</em> values of the sensitive attribute, so that locating someone’s group still leaves <code>l</code> competing possibilities for their sensitive value. We aim for <code>l = 2</code>.</p>
+<p>The algorithm needs one parameter: the target level of <strong>l-diversity</strong>. l-diversity strengthens <a href="../foundations/privacy-concepts.html#limitations-of-k-anonymity">k-anonymity</a>—it requires that every group contains at least l <em>different</em> values of the sensitive attribute, so that locating someone’s group still leaves l competing possibilities for their sensitive value. I aim for l = 2.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">l</span> <span class="op">&lt;-</span> <span class="fl">2</span>   <span class="co"># every group must contain at least 2 different religions</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="step-1-sort-the-data-into-buckets" class="level3"><h3 class="anchored" data-anchor-id="step-1-sort-the-data-into-buckets">Step 1: Sort the Data Into Buckets</h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -678,24 +697,24 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>Two terms recur throughout the exercise below, and it helps to keep them apart:</p>
+<p>Throughout this exercise, I use both the terms “buckets” and “groups”:</p>
 <ul>
-<li>A <strong>bucket</strong> collects all records that share the <em>same sensitive value</em>—here, one bucket per religion. These are the piles we draw from.</li>
-<li>A <strong>group</strong> is a finished, l-diverse set of records (identified by a <code>group_id</code>), built by taking one record from each of several different buckets.</li>
+<li>A <strong>bucket</strong> collects all records that share the same sensitive value (e.g., one bucket per religion). These are the divisions we draw from within the algorithm.</li>
+<li>A <strong>group</strong> is a finished, l-diverse set of records (identified by a <code>group_id</code>), built by taking one participant’s data from each of several different buckets.</li>
 </ul>
-<p>Note that this use of “bucket” differs from <em>bucketization</em> above, where a bucket groups records by their <em>indirect identifiers</em>. In anatomization, buckets are defined by the sensitive value instead.</p>
+<p>To add to the confusion, this use of “bucket” differs from the bucketization technique above, where a bucket groups data by indirect identifiers. In anatomization, buckets are defined by the sensitive value instead.</p>
 </div>
 </div>
 </div>
 <p><strong>Target:</strong> Get an overview of the buckets (one per religion) we will draw from later. To that end, create a character vector <code>religions</code> holding the distinct religion values, and a data frame <code>bucket_sizes</code> with the frequency of each religion.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="../pictures/anatomization-step1-cropped.png" class="img-fluid figure-img" alt="The original table on the left; on the right, a two-column table listing each religion and its count (muslim 1, none 2, catholic 1, protestant 1)."></p>
-<figcaption>Step 1: count how many records carry each religion—these counts define the buckets we will draw from.</figcaption></figure>
+<figcaption>Step 1: count how many records carry each religion—these counts define the buckets to draw from.</figcaption></figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -704,9 +723,9 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>First, list all <code>religion</code> values that occur in the data. These define our buckets:</p>
+<p>First, list all <code>religion</code> values that occur in the data. These define the buckets:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># All distinct values of the sensitive attribute</span></span>
 <span><span class="va">religions</span> <span class="op">&lt;-</span> <span class="va">data_ana</span> <span class="op">%&gt;%</span> </span>
@@ -742,7 +761,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 <div id="eligibility-condition" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -751,12 +770,12 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>A condition for anatomization to work is the eligibility condition. Anatomization can only place <em>every</em> record into an l-diverse group if no single religion is too common: the largest bucket (i.e., the most frequent religion) must not exceed <code>n / l</code> records; otherwise, the specific <code>l</code>-value cannot be fully reached.</p>
+<p>A condition for anatomization to work is the eligibility condition. Anatomization can only place every record into an l-diverse group if no single religion is too common: the largest bucket (i.e., the most frequent religion) must not exceed n / l records; otherwise, the specific l-value cannot be fully reached.</p>
 <p>Here, we can check that this is the case:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Largest a bucket may be if we want to keep every record</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Largest a bucket may be if I want to keep every record</span></span>
 <span><span class="va">n_total</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_ana</span><span class="op">)</span></span>
 <span><span class="va">max_allowed</span> <span class="op">&lt;-</span> <span class="va">n_total</span> <span class="op">/</span> <span class="va">l</span></span>
 <span></span>
@@ -764,22 +783,22 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <span>  <span class="fu">mutate</span><span class="op">(</span>share        <span class="op">=</span> <span class="va">n</span> <span class="op">/</span> <span class="va">n_total</span>,</span>
 <span>         within_limit <span class="op">=</span> <span class="va">n</span> <span class="op">&lt;=</span> <span class="va">max_allowed</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Here, with <code>l = 2</code>, no bucket exceeds the limit of 100 (= 200 / 2). So we can make the dataset 2-diverse.</p>
-<p>If this were not the case (e.g., when choosing <code>l = 3</code>), we would have records that would be left over. To still achieve the targeted <code>l</code> we would then need to suppress selected values.</p>
-<p>This can seem unintuitive: surely one repeated value within a group cannot do too much harm? The catch is that l-diversity, as used here, is not simply about having <code>l</code> <em>different</em> values present. Following <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span>, we use a rather strong, <strong>frequency-based</strong> definition: no single sensitive value may make up more than a <code>1/l</code> share of a group. This is deliberately stricter than the common “at least <code>l</code> distinct values” notion (<em>distinct</em> l-diversity), under which a repeated value would indeed look harmless.</p>
-<p>The reason for the stricter bar is the threat it guards against. l-diversity protects the <em>sensitive value</em>, not identity—the indirect identifiers stay fully intact anyway. Consider a group of three records, two with religion <code>none</code> and one <code>muslim</code>. Two different religions are present, so no one is uniquely identifiable. But an attacker who pins someone to this group would guess <code>none</code> and be right two out of three times (67%)—a <strong>probabilistic inference attack</strong>. That is well above the <code>1/l = 50%</code> ceiling that 2-diversity is meant to guarantee. Formally, the most frequent value covers <code>2/3</code> of the group, and <code>2/3 &gt; 1/l = 1/2</code>, so the group is not 2-diverse.</p>
-<p>This is also why the algorithm builds the <em>smallest possible</em> groups (here, exactly <code>l = 2</code> records, each with a different religion): every value then appears exactly once, i.e.&nbsp;at a <code>1/l</code> share, which both maximizes utility and keeps each group right at the diversity limit.&nbsp;</p>
+<p>Here, with l = 2, no bucket exceeds the limit of 100 (= 200 / 2). So we can make the dataset 2-diverse.</p>
+<p>If this were not the case (e.g., when choosing l = 3), there would be records left over. To still achieve the targeted l, we would then need to suppress selected values.</p>
+<p>Intuitively, it may seem as if one repeated value wouldn’t cause a lot of harm. But l-diversity, as used here, is not simply about having l different values present. Following <span class="citation" data-cites="xiao2006">Xiao and Tao (<a href="#ref-xiao2006" role="doc-biblioref">2006</a>)</span>, we use a rather strong, <strong>frequency-based</strong> definition: no single sensitive value may make up more than a 1/l share of a group. This is deliberately stricter than the common rule of distinct l-diversity, where at least l distinct values need to be present, under which one repeated value wouldn’t be an issue.</p>
+<p>The stricter rule can protect against probabilistic inference attacks: l-diversity protects the sensitive value. In a group of three persons, two with religion <code>none</code> and one <code>muslim</code>, two different religions are present, so no one is uniquely identifiable. But an attacker who pins someone to this group would guess <code>none</code> and be right two out of three times (67%). That is well above the 1/l = 50% ceiling that 2-diversity is meant to guarantee. Formally, the most frequent value covers 2/3 of the group, and 2/3 &gt; 1/l = 1/2, so the group is not 2-diverse.</p>
+<p>This is also why the algorithm builds the smallest possible groups (here, exactly l = 2 records, each with a different religion): every value then appears exactly once, i.e., at a 1/l share, which both maximizes utility and keeps each group at the diversity limit.&nbsp;</p>
 </div>
 </div>
 </div>
 </section><section id="step-2-build-the-l-diverse-groups" class="level3"><h3 class="anchored" data-anchor-id="step-2-build-the-l-diverse-groups">Step 2: Build the l-Diverse Groups</h3>
-<p><strong>Target:</strong> Create a working data frame <code>pool</code>—a shuffled copy of <code>data_ana</code> with an added <code>group_id</code> column (empty in the beginning) and fill in <code>group_id</code> by repeatedly opening a new group and taking one record from each of the <code>l</code> currently-largest buckets, until fewer than <code>l</code> buckets still have records. Because each record in a group comes from a different bucket, every group automatically holds <code>l</code> different religions.</p>
+<p><strong>Target:</strong> Create a working data frame <code>pool</code>—a shuffled copy of <code>data_ana</code> with an added <code>group_id</code> column (empty in the beginning) and fill in <code>group_id</code> by repeatedly opening a new group and taking one record from each of the l currently-largest buckets, until fewer than l buckets still have records. Because each record in a group comes from a different bucket, every group automatically holds l different religions.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="../pictures/anatomization-step2-cropped.png" class="img-fluid figure-img" alt="Three rounds of drawing: each round takes one record from each of the two largest religion buckets, stamps them with a new group ID, and reduces the remaining counts; the process stops once fewer than two buckets have records left."></p>
-<figcaption>Step 2: repeatedly open a new group and draw one record from each of the <code>l</code> largest buckets, decreasing the counts each round, until fewer than <code>l</code> buckets still have records (STOP).</figcaption></figure>
+<figcaption>Step 2: repeatedly open a new group and draw one record from each of the l largest buckets, decreasing the counts each round, until fewer than l buckets still have records (STOP).</figcaption></figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -788,16 +807,17 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Rather than juggling one data frame per bucket, we track group membership in a single new column, <code>group_id</code>. We shuffle the rows once up front so the groups don’t follow the original row order, and set a seed so the result is reproducible within this exercise. We could also, instead of shuffling at the beginning, pick random rows when assigning records to the groups; it is just important, that the original order can’t be reverse-engineered by an attacker who knows the algorithm.</p>
+<p>Rather than juggling one data frame per bucket, I track group membership in a single new column, <code>group_id</code>. I shuffle the rows once up front so the groups don’t follow the original row order, and set a seed so the result is reproducible within this exercise. I could also, instead of shuffling at the beginning, pick random rows when assigning records to the groups; it is just important that the original order can’t be reverse-engineered by an attacker who knows the algorithm.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2026</span><span class="op">)</span> <span class="co"># to make the results reproducible within this exercise; delete for a real application (especially when publishing the script alongside the data)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2026</span><span class="op">)</span> <span class="co"># to make the results reproducible within this exercise; </span></span>
+<span><span class="co"># delete for a real application (especially when publishing the script alongside the data)</span></span>
 <span></span>
-<span><span class="co"># One working table; group_id is filled in as we assign records.</span></span>
+<span><span class="co"># One working table; group_id is filled in as I assign records.</span></span>
 <span><span class="va">pool</span> <span class="op">&lt;-</span> <span class="va">data_ana</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">slice_sample</span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>          <span class="co"># shuffle the rows once</span></span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>group_id <span class="op">=</span> <span class="cn">NA_integer_</span><span class="op">)</span>      <span class="co"># NA = not yet assigned</span></span>
+<span>  <span class="fu">slice_sample</span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>  <span class="co"># shuffle the rows once</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>group_id <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>       <span class="co"># NA = not yet assigned</span></span>
 <span></span>
 <span><span class="va">next_group</span> <span class="op">&lt;-</span> <span class="fl">0L</span></span>
 <span></span>
@@ -837,11 +857,11 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <pre><code>[1] 100</code></pre>
 </div>
 </div>
-<p>Each pass draws from <code>l</code> different buckets, so every group we just built contains exactly <code>l = 2</code> distinct religions.</p>
+<p>Each pass draws from l different buckets, so every group we just built contains exactly l = 2 distinct religions.</p>
 </div>
 </div>
 </div>
-<p>In this case, all participants have been assigned to a group, without any leftovers in <code>remaining</code>. This is not naturally the case; often times, the algorithm will leave you at this point with a few individuals that have not been assigned. For that case, you follow the third step:</p>
+<p>In this case, all participants have been assigned to a group, without any leftovers in <code>remaining</code>. This is not naturally the case; oftentimes, the algorithm will leave you at this point with a few individuals that have not been assigned. For that case, you follow the third step:</p>
 </section><section id="step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers" class="level3"><h3 class="anchored" data-anchor-id="step-3-handle-the-leftover-records-skip-in-case-of-no-leftovers">Step 3: Handle the Leftover Records (Skip in Case of No Leftovers)</h3>
 <p><strong>Target:</strong> Collect the still-unassigned records in a data frame <code>leftovers</code>, then update <code>pool</code> by slotting each leftover into an existing group that does not yet contain that religion value (e.g., a leftover record with religion <code>none</code>&nbsp;can be slotted into a group that does not contain any other records with religion <code>none</code>). Records that fit into no group are collected in <code>suppressed_ids</code> and dropped from <code>pool</code>.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -849,7 +869,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <figcaption>Step 3: each leftover record is slotted into the first existing group that does not yet contain its religion—here a leftover <code>protestant</code> record joins the first group without a <code>protestant</code>.</figcaption></figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -858,21 +878,23 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Once fewer than <code>l</code> buckets remain, the loop in Step 2 stops with some records still unassigned. We handle them here.</p>
+<p>Once fewer than l buckets remain, the loop in Step 2 stops with some records still unassigned. We handle them here.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Records left over when fewer than l religions remained unassigned.</span></span>
 <span><span class="va">leftovers</span> <span class="op">&lt;-</span> <span class="va">pool</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">group_id</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">leftovers</span> <span class="op">%&gt;%</span> <span class="fu">count</span><span class="op">(</span><span class="va">religion</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>You then try to slot each one remaining participant into a group that has no one with the same sensitive value yet (so the group stays diverse, see the <a href="#eligibility-condition">eligibility condition</a> above). If no such group exists, the record cannot be released safely and has to be suppressed.</p>
+<p>You then try to slot each remaining participant into a group that has no one with the same sensitive value yet (so the group stays diverse, see the <a href="#eligibility-condition">eligibility condition</a> above). If no such group exists, the record cannot be released safely and has to be suppressed.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">suppressed_ids</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">rec_id</span> <span class="kw">in</span> <span class="va">leftovers</span><span class="op">$</span><span class="va">id</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co"># this record's religion</span></span>
-<span>  <span class="va">rel</span> <span class="op">&lt;-</span> <span class="va">pool</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">id</span> <span class="op">==</span> <span class="va">rec_id</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">pull</span><span class="op">(</span><span class="va">religion</span><span class="op">)</span></span>
+<span>  <span class="va">rel</span> <span class="op">&lt;-</span> <span class="va">pool</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">id</span> <span class="op">==</span> <span class="va">rec_id</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">pull</span><span class="op">(</span><span class="va">religion</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="co"># existing groups that do NOT yet contain this religion</span></span>
 <span>  <span class="va">open_groups</span> <span class="op">&lt;-</span> <span class="va">pool</span> <span class="op">%&gt;%</span></span>
@@ -895,7 +917,8 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">suppressed_ids</span><span class="op">)</span>   <span class="co"># how many records had to be dropped</span></span>
 <span></span>
 <span><span class="co"># Drop the suppressed records</span></span>
-<span><span class="va">pool</span> <span class="op">&lt;-</span> <span class="va">pool</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">id</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">suppressed_ids</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="va">pool</span> <span class="op">&lt;-</span> <span class="va">pool</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">id</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">suppressed_ids</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -908,7 +931,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <figcaption>Step 4: split the finished table into an indirect-identifier table and a sensitive table, which share only the group ID.</figcaption></figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -917,7 +940,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Indirect identifiers table: indirect identifiers + group id, NO religion.</span></span>
@@ -956,11 +979,11 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </div>
 </div>
 <p>A researcher can still study group-level patterns—for example, the religion distribution across age bands—by joining on <code>group_id</code>. But the individual link between a person and their religion is broken.</p>
-<p>If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized within the <code>sdcObjects</code> <code>sdcNoise</code> and <code>sdcMicro</code>in <a href="perturbative">the last chapter on perturbative techniques</a>.</p>
+<p>If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized within the <code>sdcObject</code>s <code>sdc_noise</code> and <code>sdc_micro</code> in <a href="perturbative">the last chapter on perturbative techniques</a>.</p>
 </section><section id="resources-links-examples" class="level3"><h3 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h3>
 <ul>
 <li>See <span class="citation" data-cites="Carvalho2023_SurveyPrivacyPreservingTechniques">Carvalho et al. (<a href="#ref-Carvalho2023_SurveyPrivacyPreservingTechniques" role="doc-biblioref">2023</a>)</span> for more de-associative techniques.</li>
-<li>The anatomization algorithm we implemented here was introduced by <a href="https://dl.acm.org/doi/10.5555/1182635.1164141">Xiao &amp; Tao (2006), <em>Anatomy: Simple and Effective Privacy Preservation</em></a>.See their paper for more technical details.</li>
+<li>The anatomization algorithm we implemented here was introduced by <a href="https://dl.acm.org/doi/10.5555/1182635.1164141">Xiao &amp; Tao (2006), <em>Anatomy: Simple and Effective Privacy Preservation</em></a>. See their paper for more technical details.</li>
 <li>For more on l-diversity and t-closeness, see <a href="https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html">this practical tutorial by Utrecht University</a>.</li>
 </ul></section></section><section id="references" class="level2">
 
@@ -971,6 +994,9 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 </section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Carvalho2023_SurveyPrivacyPreservingTechniques" class="csl-entry" role="listitem">
 Carvalho, Tânia, Nuno Moniz, Pedro Faria, and Luís Antunes. 2023. <span>“Survey on <span>Privacy-Preserving Techniques</span> for <span>Microdata Publication</span>.”</span> <em>ACM Computing Surveys</em> 55 (14s): 1–42. <a href="https://doi.org/10.1145/3588765">https://doi.org/10.1145/3588765</a>.
+</div>
+<div id="ref-li2023" class="csl-entry" role="listitem">
+Li, Boyu, and Kun He. 2023. <span>“Local Generalization and Bucketization Technique for Personalized Privacy Preservation.”</span> <em>Journal of King Saud University - Computer and Information Sciences</em> 35 (1): 393–404. <a href="https://doi.org/10.1016/j.jksuci.2022.12.008">https://doi.org/10.1016/j.jksuci.2022.12.008</a>.
 </div>
 <div id="ref-xiao2006" class="csl-entry" role="listitem">
 Xiao, Xiaokui, and Yufei Tao. 2006. <span>“Anatomy: Simple and Effective Privacy Preservation.”</span> <em>VLBD ’06</em>, September 12. <a href="https://dl.acm.org/doi/10.5555/1182635.1164141">https://dl.acm.org/doi/10.5555/1182635.1164141</a>.
@@ -1461,335 +1487,348 @@ Xiao, Xiaokui, and Yufei Tao. 2006. <span>“Anatomy: Simple and Effective Priva
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="an">aliases:</span><span class="co"> [2_ANONYMISATION_TECHNIQUES/2_5_Deassociative.html]</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objectives</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>After completing this part of the tutorial, you will</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>know selected de-associative techniques.</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>apply anatomization as one de-associative technique in R.</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Setup}</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup: load packages, data, and the saved sdcObject</span></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdcMicro)</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;style&gt;</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="in">/* Show code operators such as &lt;= exactly as typed (no font ligatures) */</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="in">code, pre code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objectives</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Know selected **de-associative techniques**.</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Apply **anatomization** as one de-associative technique in R.</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Setup}</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
 <span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>data_withoutidentifiers <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"simulated-data-noidentifiers.csv"</span>)) <span class="co"># Change based on the location of your data file</span></span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>De-associative techniques protect privacy by **breaking the link between indirect identifiers and sensitive variables,** rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person's record based on their demographic attributes, they should not be able to learn their sensitive values from it.</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup: load packages, data, and the saved sdcObject</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdcMicro)</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>The simplest version of this is just **separating a dataset into two tables—one with the identifiers and one with the sensitive attributes**, and randomizing the order of rows in one of them. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits what analyses can be done. It is more of a last resort than a practical technique for sharing research data.</span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="al">![The simplest de-association: split the data into a table of identifiers and a separate table of sensitive values, with no link between them.](../pictures/simple-de-association-cropped.png)</span>{fig-alt="A diagram showing the original table split into an identifier table (ID, Age, Gender) and a separate Religion table (with randomized order of rows), with no link between the two."}</span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>More useful are approaches that preserve some analytical structure while still breaking the individual-level link—the two main ones being bucketization and anatomization.</span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Examples of De-Associative Techniques</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>data_withoutdirectidentifiers <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"simulated-data-noidentifiers.csv"</span>)) <span class="co"># Change based on the location of your data file</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>De-associative techniques protect privacy by **breaking the link between indirect identifiers and sensitive variables,** rather than altering the values themselves. The underlying idea is that even if an attacker can identify a person's record based on their demographic attributes, they should not be able to learn their sensitive values from it.</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>::: {#deassociative-effort .callout-note collapse="false"}</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## A Technique for Special Cases</span></span>
 <span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bucketization</span></span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>Bucketization groups records into "buckets" based on their indirect identifiers (like age, gender, or postal code), with each bucket required to contain at least k records to satisfy k-anonymity. Within each bucket, the sensitive values—such as income or political opinions—are randomly shuffled among the records. The result is that an attacker might be able to narrow someone down to a bucket, but cannot tell which sensitive value belongs to which specific person within it.</span>
-<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>The process works in three steps:</span>
-<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Generalize the indirect identifiers to create buckets.</span>
-<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>De-generalize the identifiers within each bucket back to their original values.</span>
-<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Permute the sensitive values randomly within each bucket.</span>
-<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>The shuffling in step 3 is what makes this a de-associative rather than a perturbative technique—the values themselves are unchanged, only the assignment between records and sensitive attributes is broken within each group.</span>
-<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a><span class="al">![Bucketization: the identifiers are generalized into buckets and assigned a group ID, de-generalized back to their original values, and the sensitive values are then shuffled within each group (bold line).](../pictures/bucketization-cropped.png)</span>{fig-alt="A multi-step diagram: the original table is generalized into age bands to form buckets with a Group ID, de-generalized back to original ages, and the Religion column is permuted within each group, marked by a bold vertical line."}</span>
-<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### Anatomization</span></span>
-<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>Anatomization is a cleaner alternative to bucketization that improves the properties of the resulting deassociation. Rather than shuffling values within buckets, anatomization splits the dataset into two separate tables:</span>
-<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A **quasi-identifier table** containing the indirect identifiers (e.g., age, gender, postal code), with a group ID linking each record to its group.</span>
-<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A **sensitive table** containing the sensitive attributes and the same group ID, but with the individual record links removed. Instead of one row per person, it stores, for each group, how often each sensitive value occurs.</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>De-associative techniques require **a lot of effort**: they are not available as ready-made functions in `sdcMicro`, so you have to implement them yourself, and the resulting data is harder to analyze. They are **only rarely the best solution**. In most cases, <span class="co">[</span><span class="ot">non-perturbative</span><span class="co">](non-perturbative.qmd)</span> or <span class="co">[</span><span class="ot">perturbative</span><span class="co">](perturbative.qmd)</span> techniques reach a similar level of privacy with far less work. I still cover de-associative techniques here, so you know they exist and can recognize the rare cases where they fit.</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>The simplest version of this is just **separating a dataset into two tables—one with the identifiers and one with the sensitive attributes**, and randomizing the order of rows in one of them. The problem is that this makes it impossible to link any demographic context to the sensitive values, which severely limits which analyses can be done. It is more of a last resort than a practical technique for sharing research data.</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="al">![The simplest de-association: split the data into a table of identifiers and a separate table of sensitive values, with no link between them.](../pictures/simple-de-association-cropped.png)</span>{fig-alt="A diagram showing the original table split into an identifier table (ID, Age, Gender) and a separate Religion table (with randomized order of rows), with no link between the two."}</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>More useful are approaches that preserve some analytical structure while still breaking the individual-level link—the two main ones being bucketization and anatomization.</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Examples of De-Associative Techniques</span></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bucketization</span></span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>Bucketization groups records into "buckets" based on their indirect identifiers (like age, gender, or postal code), with each bucket required to contain at least k records to satisfy k-anonymity <span class="co">[</span><span class="ot">@li2023</span><span class="co">]</span>. Within each bucket, the sensitive values—such as income or political opinions—are randomly shuffled among the records. The result is that an attacker might be able to narrow someone down to a bucket, but cannot tell which sensitive value belongs to which specific person within it.</span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>The process works in three steps:</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Generalize the indirect identifiers to create buckets.</span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>De-generalize the identifiers within each bucket back to their original values.</span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Permute the sensitive values randomly within each bucket.</span>
 <span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>A researcher re-using the data can still answer questions like "what is the distribution of political opinions among 30-44 year olds in postal region 8xxxx?" by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table—the individual-level association is gone. Within a group, every sensitive value is equally plausible for every member.</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>The shuffling in step 3 is what makes this a de-associative rather than a perturbative technique—the values themselves are unchanged, only the assignment between records and sensitive attributes is broken within each group.</span>
 <span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a><span class="al">![Anatomization: the data is split into a quasi-identifier table and a sensitive-attribute table, linked only by a group ID.](../pictures/anatomization-cropped.png)</span>{fig-alt="A diagram showing the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the Group ID."}</span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a><span class="al">![Bucketization: the identifiers are generalized into buckets and assigned a group ID based on age and gender, de-generalized back to their original values, and the sensitive values are then shuffled within each group (bold line).](../pictures/bucketization-cropped.png)</span>{fig-alt="A multi-step diagram: the original table is generalized into age bands to form buckets with a Group ID, de-generalized back to original ages, and the Religion column is permuted within each group, marked by a bold vertical line."}</span>
 <span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be <span class="co">[</span><span class="ot">l-diverse</span><span class="co">](../foundations/privacy-concepts.qmd#limitations-of-k-anonymity)</span>—it contains at least <span class="in">`l`</span> different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone's group still faces at least <span class="in">`l`</span> competing possibilities for their sensitive value.</span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### Anatomization</span></span>
 <span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>To build such groups, @xiao2006 do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the <span class="in">`l`</span> currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.</span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>Anatomization is a cleaner alternative to bucketization that improves the properties of the resulting de-association <span class="co">[</span><span class="ot">@xiao2006</span><span class="co">]</span>. Rather than shuffling values within buckets, anatomization splits the dataset into two separate tables:</span>
 <span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
-<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a><span class="fu">### When Is Anatomization the Right Choice? (Almost Never)</span></span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A **quasi-identifier table** containing the indirect identifiers (e.g., age, gender, postal code), with a group ID linking each record to its group.</span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A **sensitive table** containing the sensitive attributes and the same group ID, but with the individual record links removed. Instead of one row per person, it stores, for each group, how often each sensitive value occurs.</span>
 <span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>Anatomization is a **special-purpose technique, not a default**. Its distinctive strength is that it distorts *no values*: unlike non-perturbative technqiues (which coarsen the indirect identifiers), perturbative techniques (which alter values), or synthetic data (which fabricates records), anatomization publishes only true values and destroys just one thing—the record-level link between the indirect identifiers and the sensitive variable. It is therefore a good fit only when *all* of the following hold:</span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>A researcher re-using the data can still answer questions like "what is the distribution of political opinions among 30- to 44-year-olds in postal region 8xxxx?" by joining on the group ID. But they cannot link any specific row in the sensitive table back to a specific individual in the quasi-identifier table as the association on the individual level is gone. Within a group, every sensitive value is equally plausible for every member.</span>
 <span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the research question concerns the sensitive attribute's **group-level distribution or associations** instead of individual-level linkage, and you can accept the added imprecision (e.g., due to a large sample size);</span>
-<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>you specifically want to avoid coarsening or perturbing the values that are kept; and</span>
-<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**identity disclosure is handled by other means**—anatomization leaves the indirect identifiers fully intact and does *not* protect against singling someone out on them.</span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a><span class="al">![Anatomization: the data is split into a quasi-identifier table and a sensitive-attribute table, linked only by a group ID.](../pictures/anatomization-cropped.png)</span>{fig-alt="A diagram showing the original table split into a quasi-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency) that share only the Group ID."}</span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>Anatomization builds on bucketization but adds a guarantee: each group is deliberately constructed to be <span class="co">[</span><span class="ot">l-diverse</span><span class="co">](../foundations/privacy-concepts.qmd#limitations-of-k-anonymity)</span>—it contains at least l different sensitive values. This is what protects against attribute disclosure: even an attacker who pins down someone's group still faces at least l competing possibilities for their sensitive value.</span>
 <span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>For most questions these conditions do not all hold, and a perturbative method or synthetic data is the more practical choice: easier to analyze (a single table), better supported by tools like <span class="in">`sdcMicro`</span>, and protective of the identifiers too. Our own dataset is a case in point—the research question is about the relationship between religion and political opinion, *two sensitive attributes*, which anatomization is not designed to serve: it de-associates the sensitive attribute from the indirect identifiers, not two sensitive attributes from each other. We still implement it below as an instructive example.</span>
-<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pro and Contra of Using De-Associative Techniques</span></span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>To build such groups, @xiao2006 do not group records by similarity. Instead, they sort the records into one bucket per sensitive value, then repeatedly form a new group by drawing one record from each of the l currently-largest buckets. This spreads the most common values across as many groups as possible and keeps every group diverse.</span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## When Is Anatomization the Right Choice? (Almost Never)</span></span>
 <span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>Pros:</span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>Anatomization is a **special-purpose technique**. I wouldn't recommend it as a default. Its main advantage is that it doesn't distort any values: unlike non-perturbative techniques (which coarsen information of the indirect identifiers), perturbative techniques (which alter values), or synthetic data (which fabricates data), anatomization publishes only true values and destroys "just" the participant-level link between the indirect identifiers and the sensitive variable. This link is usually quite important, so only use the technique if all of these apply:</span>
 <span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>can be highly privacy-preserving</span>
-<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a>Cons:</span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the research question concerns the sensitive variable's **group-level distribution or associations** instead of individual-level linkage, and you can accept the added imprecision (e.g., due to an overly large sample size);</span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>you specifically want to avoid changing any values that are kept; and</span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**identity disclosure is no concern**, since anatomization leaves the indirect identifiers fully intact.</span>
 <span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>complex and not implemented as predefined functions within a R package</span>
-<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>similar level of privacy can be reached by combining other techniques</span>
-<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>added level of complexity for analyses</span>
-<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Applying Anatomization</span></span>
-<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a>Let's implement anatomization step by step, following the algorithm proposed by @xiao2006. It is not available in <span class="in">`sdcMicro`</span>, so we will build it ourselves with a lot of data wrangling. The algorithm has 19 steps, but we will break them down in more workable chunks.</span>
-<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a>Because anatomization protects a *sensitive* attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, <span class="in">`religion`</span>. Working this algorithm for the combination of all our sensitive attributes (including the political opinion items) is possible, but more complex. To keep it simple, we only focus on <span class="in">`religion`</span>.</span>
-<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a>Our data does not really need this level of protection—we use it here purely for demonstration.</span>
-<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep all indirect identifiers and one sensitive attribute (religion)</span></span>
-<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a>data_ana <span class="ot">&lt;-</span> data_withoutidentifiers <span class="sc">%&gt;%</span></span>
-<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, plz, gender, age, income, years_in_job, education, religion)</span>
-<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a>The algorithm needs one parameter: the target level of **l-diversity**. l-diversity strengthens <span class="co">[</span><span class="ot">k-anonymity</span><span class="co">](../foundations/privacy-concepts.qmd#limitations-of-k-anonymity)</span>—it requires that every group contains at least <span class="in">`l`</span> *different* values of the sensitive attribute, so that locating someone's group still leaves <span class="in">`l`</span> competing possibilities for their sensitive value. We aim for <span class="in">`l = 2`</span>.</span>
-<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="dv">2</span>   <span class="co"># every group must contain at least 2 different religions</span></span>
-<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Sort the Data Into Buckets</span></span>
-<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
-<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a><span class="fu">### Buckets vs. Groups</span></span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a>For most questions these conditions do not all hold, and a perturbative method or synthetic data is the more practical choice: easier to analyze (a single table), better supported by tools like <span class="in">`sdcMicro`</span>, and protective of the identifiers too. This is the case for our example dataset, too. I still implement anatomization for that dataset below as an instructive example.</span>
+<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pro and Contra of Using De-Associative Techniques</span></span>
+<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a>Pros:</span>
+<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>can be highly privacy-preserving</span>
+<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a>Cons:</span>
+<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>complex and not implemented as predefined functions within an R package</span>
+<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a similar level of privacy can be reached by combining other techniques</span>
+<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>added level of complexity for analyses</span>
+<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Applying Anatomization</span></span>
+<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>Let's implement anatomization step by step, following the algorithm proposed by @xiao2006. It is not available in <span class="in">`sdcMicro`</span>, so we will build it ourselves with a lot of data wrangling. The algorithm has 19 steps, but I will break them down into more workable chunks.</span>
+<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a>Because anatomization protects a *sensitive* attribute rather than the indirect identifiers, we work on a subset of the data that keeps all indirect identifiers plus one sensitive variable, <span class="in">`religion`</span>. Working this algorithm for the combination of all sensitive attributes (including the political opinion items) is possible, but more complex. To keep it simple, I only focus on <span class="in">`religion`</span>.</span>
+<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a>Our data does not really need this level of protection—I use it here purely for demonstration.</span>
+<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep all indirect identifiers and one sensitive attribute (religion)</span></span>
+<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a>data_ana <span class="ot">&lt;-</span> data_withoutdirectidentifiers <span class="sc">%&gt;%</span></span>
+<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, plz, gender, age, income, years_in_job, education, religion)</span>
+<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a>The algorithm needs one parameter: the target level of **l-diversity**. l-diversity strengthens <span class="co">[</span><span class="ot">k-anonymity</span><span class="co">](../foundations/privacy-concepts.qmd#limitations-of-k-anonymity)</span>—it requires that every group contains at least l *different* values of the sensitive attribute, so that locating someone's group still leaves l competing possibilities for their sensitive value. I aim for l = 2.</span>
 <span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a>Two terms recur throughout the exercise below, and it helps to keep them apart:</span>
-<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A **bucket** collects all records that share the *same sensitive value*—here, one bucket per religion. These are the piles we draw from.</span>
-<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A **group** is a finished, l-diverse set of records (identified by a <span class="in">`group_id`</span>), built by taking one record from each of several different buckets.</span>
-<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a>Note that this use of "bucket" differs from *bucketization* above, where a bucket groups records by their *indirect identifiers*. In anatomization, buckets are defined by the sensitive value instead.</span>
-<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="dv">2</span>   <span class="co"># every group must contain at least 2 different religions</span></span>
+<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Sort the Data Into Buckets</span></span>
 <span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a>**Target:** Get an overview of the buckets (one per religion) we will draw from later. To that end, create a character vector <span class="in">`religions`</span> holding the distinct religion values, and a data frame <span class="in">`bucket_sizes`</span> with the frequency of each religion.</span>
-<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a><span class="al">![Step 1: count how many records carry each religion—these counts define the buckets we will draw from.](../pictures/anatomization-step1-cropped.png)</span>{fig-alt="The original table on the left; on the right, a two-column table listing each religion and its count (muslim 1, none 2, catholic 1, protestant 1)."}</span>
-<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a>First, list all <span class="in">`religion`</span> values that occur in the data. These define our buckets:</span>
-<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a><span class="co"># All distinct values of the sensitive attribute</span></span>
-<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a>religions <span class="ot">&lt;-</span> data_ana <span class="sc">%&gt;%</span> </span>
-<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(religion) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(religion)</span>
-<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a>religions</span>
-<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="false"}</span>
+<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a><span class="fu">## Buckets vs. Groups</span></span>
+<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a>Throughout this exercise, I use both the terms "buckets" and "groups":</span>
+<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A **bucket** collects all records that share the same sensitive value (e.g., one bucket per religion). These are the divisions we draw from within the algorithm.</span>
+<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A **group** is a finished, l-diverse set of records (identified by a <span class="in">`group_id`</span>), built by taking one participant's data from each of several different buckets.</span>
+<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a>To add to the confusion, this use of "bucket" differs from the bucketization technique above, where a bucket groups data by indirect identifiers. In anatomization, buckets are defined by the sensitive value instead.</span>
+<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a>**Target:** Get an overview of the buckets (one per religion) we will draw from later. To that end, create a character vector <span class="in">`religions`</span> holding the distinct religion values, and a data frame <span class="in">`bucket_sizes`</span> with the frequency of each religion.</span>
+<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a><span class="al">![Step 1: count how many records carry each religion—these counts define the buckets to draw from.](../pictures/anatomization-step1-cropped.png)</span>{fig-alt="The original table on the left; on the right, a two-column table listing each religion and its count (muslim 1, none 2, catholic 1, protestant 1)."}</span>
+<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solution</span></span>
+<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a>First, list all <span class="in">`religion`</span> values that occur in the data. These define the buckets:</span>
 <span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a>Now count how many records fall into each bucket:</span>
-<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a><span class="co"># Bucket sizes, largest first</span></span>
-<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a>bucket_sizes <span class="ot">&lt;-</span> data_ana <span class="sc">%&gt;%</span> </span>
-<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(religion, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a>bucket_sizes</span>
-<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a><span class="co"># All distinct values of the sensitive attribute</span></span>
+<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a>religions <span class="ot">&lt;-</span> data_ana <span class="sc">%&gt;%</span> </span>
+<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(religion) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(religion)</span>
+<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a>religions</span>
+<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a>Now count how many records fall into each bucket:</span>
 <span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a>::: {#eligibility-condition .callout-tip collapse="false"}</span>
-<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a><span class="fu">### Eligibility Condition</span></span>
-<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a>A condition for anatomization to work is the eligibility condition. Anatomization can only place *every* record into an l-diverse group if no single religion is too common: the largest bucket (i.e., the most frequent religion) must not exceed <span class="in">`n / l`</span> records; otherwise, the specific <span class="in">`l`</span>-value cannot be fully reached.</span>
-<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a>Here, we can check that this is the case:</span>
+<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a><span class="co"># Bucket sizes, largest first</span></span>
+<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a>bucket_sizes <span class="ot">&lt;-</span> data_ana <span class="sc">%&gt;%</span> </span>
+<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(religion, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a><span class="co"># Largest a bucket may be if we want to keep every record</span></span>
-<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a>n_total     <span class="ot">&lt;-</span> <span class="fu">nrow</span>(data_ana)</span>
-<span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a>max_allowed <span class="ot">&lt;-</span> n_total <span class="sc">/</span> l</span>
-<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a>eligibility <span class="ot">&lt;-</span> bucket_sizes <span class="sc">%&gt;%</span></span>
-<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">share        =</span> n <span class="sc">/</span> n_total,</span>
-<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a>         <span class="at">within_limit =</span> n <span class="sc">&lt;=</span> max_allowed)</span>
-<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a>Here, with <span class="in">`l = 2`</span>, no bucket exceeds the limit of 100 (= 200 / 2). So we can make the dataset 2-diverse.</span>
-<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a>If this were not the case (e.g., when choosing <span class="in">`l = 3`</span>), we would have records that would be left over. To still achieve the targeted <span class="in">`l`</span> we would then need to suppress selected values.</span>
-<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a>This can seem unintuitive: surely one repeated value within a group cannot do too much harm? The catch is that l-diversity, as used here, is not simply about having <span class="in">`l`</span> *different* values present. Following @xiao2006, we use a rather strong, **frequency-based** definition: no single sensitive value may make up more than a `1/l` share of a group. This is deliberately stricter than the common "at least `l` distinct values" notion (*distinct* l-diversity), under which a repeated value would indeed look harmless.</span>
+<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a>bucket_sizes</span>
+<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a>::: {#eligibility-condition .callout-tip collapse="false"}</span>
+<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## Eligibility Condition</span></span>
+<span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a>A condition for anatomization to work is the eligibility condition. Anatomization can only place every record into an l-diverse group if no single religion is too common: the largest bucket (i.e., the most frequent religion) must not exceed n / l records; otherwise, the specific l-value cannot be fully reached.</span>
+<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>Here, we can check that this is the case:</span>
+<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a><span class="co"># Largest a bucket may be if I want to keep every record</span></span>
+<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a>n_total     <span class="ot">&lt;-</span> <span class="fu">nrow</span>(data_ana)</span>
+<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a>max_allowed <span class="ot">&lt;-</span> n_total <span class="sc">/</span> l</span>
 <span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a>The reason for the stricter bar is the threat it guards against. l-diversity protects the *sensitive value*, not identity—the indirect identifiers stay fully intact anyway. Consider a group of three records, two with religion `none` and one `muslim`. Two different religions are present, so no one is uniquely identifiable. But an attacker who pins someone to this group would guess `none` and be right two out of three times (67%)—a **probabilistic inference attack**. That is well above the <span class="in">`1/l = 50%`</span> ceiling that 2-diversity is meant to guarantee. Formally, the most frequent value covers <span class="in">`2/3`</span> of the group, and <span class="in">`2/3 &gt; 1/l = 1/2`</span>, so the group is not 2-diverse.</span>
-<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a>This is also why the algorithm builds the *smallest possible* groups (here, exactly <span class="in">`l = 2`</span> records, each with a different religion): every value then appears exactly once, i.e. at a <span class="in">`1/l`</span> share, which both maximizes utility and keeps each group right at the diversity limit.&nbsp;</span>
-<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a>eligibility <span class="ot">&lt;-</span> bucket_sizes <span class="sc">%&gt;%</span></span>
+<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">share        =</span> n <span class="sc">/</span> n_total,</span>
+<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a>         <span class="at">within_limit =</span> n <span class="sc">&lt;=</span> max_allowed)</span>
+<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: Build the l-Diverse Groups</span></span>
+<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a>Here, with l = 2, no bucket exceeds the limit of 100 (= 200 / 2). So we can make the dataset 2-diverse.</span>
 <span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a>**Target:** Create a working data frame <span class="in">`pool`</span>—a shuffled copy of <span class="in">`data_ana`</span> with an added <span class="in">`group_id`</span> column (empty in the beginning) and fill in <span class="in">`group_id`</span> by repeatedly opening a new group and taking one record from each of the <span class="in">`l`</span> currently-largest buckets, until fewer than <span class="in">`l`</span> buckets still have records. Because each record in a group comes from a different bucket, every group automatically holds <span class="in">`l`</span> different religions.</span>
+<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a>If this were not the case (e.g., when choosing l = 3), there would be records left over. To still achieve the targeted l, we would then need to suppress selected values.</span>
 <span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a><span class="al">![Step 2: repeatedly open a new group and draw one record from each of the `l` largest buckets, decreasing the counts each round, until fewer than `l` buckets still have records (STOP).](../pictures/anatomization-step2-cropped.png)</span>{fig-alt="Three rounds of drawing: each round takes one record from each of the two largest religion buckets, stamps them with a new group ID, and reduces the remaining counts; the process stops once fewer than two buckets have records left."}</span>
+<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a>Intuitively, it may seem as if one repeated value wouldn't cause a lot of harm. But l-diversity, as used here, is not simply about having l different values present. Following @xiao2006, we use a rather strong, **frequency-based** definition: no single sensitive value may make up more than a 1/l share of a group. This is deliberately stricter than the common rule of distinct l-diversity, where at least l distinct values need to be present, under which one repeated value wouldn't be an issue.</span>
 <span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a>Rather than juggling one data frame per bucket, we track group membership in a single new column, <span class="in">`group_id`</span>. We shuffle the rows once up front so the groups don't follow the original row order, and set a seed so the result is reproducible within this exercise. We could also, instead of shuffling at the beginning, pick random rows when assigning records to the groups; it is just important, that the original order can't be reverse-engineered by an attacker who knows the algorithm.</span>
+<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a>The stricter rule can protect against probabilistic inference attacks: l-diversity protects the sensitive value. In a group of three persons, two with religion <span class="in">`none`</span> and one <span class="in">`muslim`</span>, two different religions are present, so no one is uniquely identifiable. But an attacker who pins someone to this group would guess <span class="in">`none`</span> and be right two out of three times (67%). That is well above the 1/l = 50% ceiling that 2-diversity is meant to guarantee. Formally, the most frequent value covers 2/3 of the group, and 2/3 <span class="sc">\&gt;</span> 1/l = 1/2, so the group is not 2-diverse.</span>
+<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a>This is also why the algorithm builds the smallest possible groups (here, exactly l = 2 records, each with a different religion): every value then appears exactly once, i.e., at a 1/l share, which both maximizes utility and keeps each group at the diversity limit.&nbsp;</span>
+<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>) <span class="co"># to make the results reproducible within this exercise; delete for a real application (especially when publishing the script alongside the data)</span></span>
-<span id="cb16-205"><a href="#cb16-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a><span class="co"># One working table; group_id is filled in as we assign records.</span></span>
-<span id="cb16-207"><a href="#cb16-207" aria-hidden="true" tabindex="-1"></a>pool <span class="ot">&lt;-</span> data_ana <span class="sc">%&gt;%</span></span>
-<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span>          <span class="co"># shuffle the rows once</span></span>
-<span id="cb16-209"><a href="#cb16-209" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group_id =</span> <span class="cn">NA_integer_</span>)      <span class="co"># NA = not yet assigned</span></span>
-<span id="cb16-210"><a href="#cb16-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a>next_group <span class="ot">&lt;-</span> <span class="dv">0</span>L</span>
-<span id="cb16-212"><a href="#cb16-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-213"><a href="#cb16-213" aria-hidden="true" tabindex="-1"></a><span class="co"># Grouping: while at least l religions still have unassigned records, open a new group and take one record from each of the l currently-largest buckets.</span></span>
-<span id="cb16-214"><a href="#cb16-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
-<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a>  <span class="co"># counts of still-unassigned records per religion, largest first</span></span>
-<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a>  remaining <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
-<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">is.na</span>(group_id)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(religion, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a>  <span class="co"># stop when fewer than l religions still have records</span></span>
-<span id="cb16-222"><a href="#cb16-222" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">nrow</span>(remaining) <span class="sc">&lt;</span> l) <span class="cf">break</span></span>
-<span id="cb16-223"><a href="#cb16-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-224"><a href="#cb16-224" aria-hidden="true" tabindex="-1"></a>  next_group <span class="ot">&lt;-</span> next_group <span class="sc">+</span> <span class="dv">1</span>L</span>
-<span id="cb16-225"><a href="#cb16-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the l religions with the most remaining records</span></span>
-<span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a>  top_religions <span class="ot">&lt;-</span> remaining <span class="sc">%&gt;%</span> </span>
-<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_head</span>(<span class="at">n =</span> l) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(religion)</span>
-<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a>  <span class="co"># take exactly one still-unassigned record from each of those religions</span></span>
-<span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a>  picks <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
-<span id="cb16-233"><a href="#cb16-233" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">is.na</span>(group_id), religion <span class="sc">%in%</span> top_religions) <span class="sc">%&gt;%</span></span>
-<span id="cb16-234"><a href="#cb16-234" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
-<span id="cb16-235"><a href="#cb16-235" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb16-237"><a href="#cb16-237" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(id)</span>
-<span id="cb16-238"><a href="#cb16-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-239"><a href="#cb16-239" aria-hidden="true" tabindex="-1"></a>  <span class="co"># stamp those records with the new group id</span></span>
-<span id="cb16-240"><a href="#cb16-240" aria-hidden="true" tabindex="-1"></a>  pool <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
-<span id="cb16-241"><a href="#cb16-241" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">group_id =</span> <span class="fu">if_else</span>(id <span class="sc">%in%</span> picks, next_group, group_id))</span>
-<span id="cb16-242"><a href="#cb16-242" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb16-243"><a href="#cb16-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-244"><a href="#cb16-244" aria-hidden="true" tabindex="-1"></a>next_group   <span class="co"># number of groups created</span></span>
-<span id="cb16-245"><a href="#cb16-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-246"><a href="#cb16-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a>Each pass draws from <span class="in">`l`</span> different buckets, so every group we just built contains exactly <span class="in">`l = 2`</span> distinct religions.</span>
-<span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-250"><a href="#cb16-250" aria-hidden="true" tabindex="-1"></a>In this case, all participants have been assigned to a group, without any leftovers in <span class="in">`remaining`</span>. This is not naturally the case; often times, the algorithm will leave you at this point with a few individuals that have not been assigned. For that case, you follow the third step:</span>
-<span id="cb16-251"><a href="#cb16-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 3: Handle the Leftover Records (Skip in Case of No Leftovers)</span></span>
-<span id="cb16-253"><a href="#cb16-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a>**Target:** Collect the still-unassigned records in a data frame <span class="in">`leftovers`</span>, then update <span class="in">`pool`</span> by slotting each leftover into an existing group that does not yet contain that religion value (e.g., a leftover record with religion <span class="in">`none`</span>&nbsp;can be slotted into a group that does not contain any other records with religion <span class="in">`none`</span>). Records that fit into no group are collected in <span class="in">`suppressed_ids`</span> and dropped from <span class="in">`pool`</span>.</span>
+<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: Build the l-Diverse Groups</span></span>
+<span id="cb16-202"><a href="#cb16-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a>**Target:** Create a working data frame <span class="in">`pool`</span>—a shuffled copy of <span class="in">`data_ana`</span> with an added <span class="in">`group_id`</span> column (empty in the beginning) and fill in <span class="in">`group_id`</span> by repeatedly opening a new group and taking one record from each of the l currently-largest buckets, until fewer than l buckets still have records. Because each record in a group comes from a different bucket, every group automatically holds l different religions.</span>
+<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-205"><a href="#cb16-205" aria-hidden="true" tabindex="-1"></a><span class="al">![Step 2: repeatedly open a new group and draw one record from each of the l largest buckets, decreasing the counts each round, until fewer than l buckets still have records (STOP).](../pictures/anatomization-step2-cropped.png)</span>{fig-alt="Three rounds of drawing: each round takes one record from each of the two largest religion buckets, stamps them with a new group ID, and reduces the remaining counts; the process stops once fewer than two buckets have records left."}</span>
+<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-207"><a href="#cb16-207" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solution</span></span>
+<span id="cb16-209"><a href="#cb16-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-210"><a href="#cb16-210" aria-hidden="true" tabindex="-1"></a>Rather than juggling one data frame per bucket, I track group membership in a single new column, <span class="in">`group_id`</span>. I shuffle the rows once up front so the groups don't follow the original row order, and set a seed so the result is reproducible within this exercise. I could also, instead of shuffling at the beginning, pick random rows when assigning records to the groups; it is just important that the original order can't be reverse-engineered by an attacker who knows the algorithm.</span>
+<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-214"><a href="#cb16-214" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>) <span class="co"># to make the results reproducible within this exercise; </span></span>
+<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a><span class="co"># delete for a real application (especially when publishing the script alongside the data)</span></span>
+<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a><span class="co"># One working table; group_id is filled in as I assign records.</span></span>
+<span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a>pool <span class="ot">&lt;-</span> data_ana <span class="sc">%&gt;%</span></span>
+<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span>  <span class="co"># shuffle the rows once</span></span>
+<span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group_id =</span> <span class="cn">NA</span>)       <span class="co"># NA = not yet assigned</span></span>
+<span id="cb16-222"><a href="#cb16-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-223"><a href="#cb16-223" aria-hidden="true" tabindex="-1"></a>next_group <span class="ot">&lt;-</span> <span class="dv">0</span>L</span>
+<span id="cb16-224"><a href="#cb16-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-225"><a href="#cb16-225" aria-hidden="true" tabindex="-1"></a><span class="co"># Grouping: while at least l religions still have unassigned records, open a new group and take one record from each of the l currently-largest buckets.</span></span>
+<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
+<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a>  <span class="co"># counts of still-unassigned records per religion, largest first</span></span>
+<span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a>  remaining <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
+<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">is.na</span>(group_id)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(religion, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-233"><a href="#cb16-233" aria-hidden="true" tabindex="-1"></a>  <span class="co"># stop when fewer than l religions still have records</span></span>
+<span id="cb16-234"><a href="#cb16-234" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">nrow</span>(remaining) <span class="sc">&lt;</span> l) <span class="cf">break</span></span>
+<span id="cb16-235"><a href="#cb16-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a>  next_group <span class="ot">&lt;-</span> next_group <span class="sc">+</span> <span class="dv">1</span>L</span>
+<span id="cb16-237"><a href="#cb16-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-238"><a href="#cb16-238" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the l religions with the most remaining records</span></span>
+<span id="cb16-239"><a href="#cb16-239" aria-hidden="true" tabindex="-1"></a>  top_religions <span class="ot">&lt;-</span> remaining <span class="sc">%&gt;%</span> </span>
+<span id="cb16-240"><a href="#cb16-240" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_head</span>(<span class="at">n =</span> l) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-241"><a href="#cb16-241" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(religion)</span>
+<span id="cb16-242"><a href="#cb16-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-243"><a href="#cb16-243" aria-hidden="true" tabindex="-1"></a>  <span class="co"># take exactly one still-unassigned record from each of those religions</span></span>
+<span id="cb16-244"><a href="#cb16-244" aria-hidden="true" tabindex="-1"></a>  picks <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
+<span id="cb16-245"><a href="#cb16-245" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">is.na</span>(group_id), religion <span class="sc">%in%</span> top_religions) <span class="sc">%&gt;%</span></span>
+<span id="cb16-246"><a href="#cb16-246" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(id)</span>
+<span id="cb16-250"><a href="#cb16-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-251"><a href="#cb16-251" aria-hidden="true" tabindex="-1"></a>  <span class="co"># stamp those records with the new group id</span></span>
+<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a>  pool <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
+<span id="cb16-253"><a href="#cb16-253" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">group_id =</span> <span class="fu">if_else</span>(id <span class="sc">%in%</span> picks, next_group, group_id))</span>
+<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb16-255"><a href="#cb16-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a><span class="al">![Step 3: each leftover record is slotted into the first existing group that does not yet contain its religion—here a leftover `protestant` record joins the first group without a `protestant`.](../pictures/anatomization-step3-cropped.png)</span>{fig-alt="A leftover record with religion protestant and no group ID is assigned to the first existing group that does not already contain a protestant record."}</span>
-<span id="cb16-257"><a href="#cb16-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb16-260"><a href="#cb16-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a>Once fewer than <span class="in">`l`</span> buckets remain, the loop in Step 2 stops with some records still unassigned. We handle them here.</span>
-<span id="cb16-262"><a href="#cb16-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a><span class="co"># Records left over when fewer than l religions remained unassigned.</span></span>
-<span id="cb16-268"><a href="#cb16-268" aria-hidden="true" tabindex="-1"></a>leftovers <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">is.na</span>(group_id))</span>
-<span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a>leftovers <span class="sc">%&gt;%</span> <span class="fu">count</span>(religion)</span>
-<span id="cb16-270"><a href="#cb16-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-271"><a href="#cb16-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-272"><a href="#cb16-272" aria-hidden="true" tabindex="-1"></a>You then try to slot each one remaining participant into a group that has no one with the same sensitive value yet (so the group stays diverse, see the <span class="co">[</span><span class="ot">eligibility condition</span><span class="co">](#eligibility-condition)</span> above). If no such group exists, the record cannot be released safely and has to be suppressed.</span>
-<span id="cb16-273"><a href="#cb16-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-276"><a href="#cb16-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-277"><a href="#cb16-277" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb16-278"><a href="#cb16-278" aria-hidden="true" tabindex="-1"></a>suppressed_ids <span class="ot">&lt;-</span> <span class="fu">integer</span>(<span class="dv">0</span>)</span>
-<span id="cb16-279"><a href="#cb16-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (rec_id <span class="cf">in</span> leftovers<span class="sc">$</span>id) {</span>
-<span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this record's religion</span></span>
-<span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a>  rel <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span> <span class="fu">filter</span>(id <span class="sc">==</span> rec_id) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(religion)</span>
+<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a>next_group   <span class="co"># number of groups created</span></span>
+<span id="cb16-257"><a href="#cb16-257" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a>Each pass draws from l different buckets, so every group we just built contains exactly l = 2 distinct religions.</span>
+<span id="cb16-260"><a href="#cb16-260" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-262"><a href="#cb16-262" aria-hidden="true" tabindex="-1"></a>In this case, all participants have been assigned to a group, without any leftovers in <span class="in">`remaining`</span>. This is not naturally the case; oftentimes, the algorithm will leave you at this point with a few individuals that have not been assigned. For that case, you follow the third step:</span>
+<span id="cb16-263"><a href="#cb16-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-264"><a href="#cb16-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 3: Handle the Leftover Records (Skip in Case of No Leftovers)</span></span>
+<span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a>**Target:** Collect the still-unassigned records in a data frame <span class="in">`leftovers`</span>, then update <span class="in">`pool`</span> by slotting each leftover into an existing group that does not yet contain that religion value (e.g., a leftover record with religion <span class="in">`none`</span>&nbsp;can be slotted into a group that does not contain any other records with religion <span class="in">`none`</span>). Records that fit into no group are collected in <span class="in">`suppressed_ids`</span> and dropped from <span class="in">`pool`</span>.</span>
+<span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-268"><a href="#cb16-268" aria-hidden="true" tabindex="-1"></a><span class="al">![Step 3: each leftover record is slotted into the first existing group that does not yet contain its religion—here a leftover `protestant` record joins the first group without a `protestant`.](../pictures/anatomization-step3-cropped.png)</span>{fig-alt="A leftover record with religion protestant and no group ID is assigned to the first existing group that does not already contain a protestant record."}</span>
+<span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-270"><a href="#cb16-270" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb16-271"><a href="#cb16-271" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solution</span></span>
+<span id="cb16-272"><a href="#cb16-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-273"><a href="#cb16-273" aria-hidden="true" tabindex="-1"></a>Once fewer than l buckets remain, the loop in Step 2 stops with some records still unassigned. We handle them here.</span>
+<span id="cb16-274"><a href="#cb16-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-277"><a href="#cb16-277" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-278"><a href="#cb16-278" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb16-279"><a href="#cb16-279" aria-hidden="true" tabindex="-1"></a><span class="co"># Records left over when fewer than l religions remained unassigned.</span></span>
+<span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a>leftovers <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">is.na</span>(group_id))</span>
+<span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a>leftovers <span class="sc">%&gt;%</span> <span class="fu">count</span>(religion)</span>
+<span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-283"><a href="#cb16-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-284"><a href="#cb16-284" aria-hidden="true" tabindex="-1"></a>  <span class="co"># existing groups that do NOT yet contain this religion</span></span>
-<span id="cb16-285"><a href="#cb16-285" aria-hidden="true" tabindex="-1"></a>  open_groups <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
-<span id="cb16-286"><a href="#cb16-286" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(group_id)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-287"><a href="#cb16-287" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(group_id) <span class="sc">%&gt;%</span></span>
-<span id="cb16-288"><a href="#cb16-288" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">has_rel =</span> <span class="fu">any</span>(religion <span class="sc">==</span> rel), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-289"><a href="#cb16-289" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>has_rel) <span class="sc">%&gt;%</span></span>
-<span id="cb16-290"><a href="#cb16-290" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(group_id)</span>
+<span id="cb16-284"><a href="#cb16-284" aria-hidden="true" tabindex="-1"></a>You then try to slot each remaining participant into a group that has no one with the same sensitive value yet (so the group stays diverse, see the <span class="co">[</span><span class="ot">eligibility condition</span><span class="co">](#eligibility-condition)</span> above). If no such group exists, the record cannot be released safely and has to be suppressed.</span>
+<span id="cb16-285"><a href="#cb16-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-288"><a href="#cb16-288" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-289"><a href="#cb16-289" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb16-290"><a href="#cb16-290" aria-hidden="true" tabindex="-1"></a>suppressed_ids <span class="ot">&lt;-</span> <span class="fu">integer</span>(<span class="dv">0</span>)</span>
 <span id="cb16-291"><a href="#cb16-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-292"><a href="#cb16-292" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(open_groups) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb16-293"><a href="#cb16-293" aria-hidden="true" tabindex="-1"></a>    <span class="co"># place it in the first eligible group</span></span>
-<span id="cb16-294"><a href="#cb16-294" aria-hidden="true" tabindex="-1"></a>    pool <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
-<span id="cb16-295"><a href="#cb16-295" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">group_id =</span> <span class="fu">if_else</span>(id <span class="sc">==</span> rec_id, open_groups[<span class="dv">1</span>], group_id))</span>
-<span id="cb16-296"><a href="#cb16-296" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb16-297"><a href="#cb16-297" aria-hidden="true" tabindex="-1"></a>    <span class="co"># nowhere safe to put it → mark for suppression</span></span>
-<span id="cb16-298"><a href="#cb16-298" aria-hidden="true" tabindex="-1"></a>    suppressed_ids <span class="ot">&lt;-</span> <span class="fu">c</span>(suppressed_ids, rec_id)</span>
-<span id="cb16-299"><a href="#cb16-299" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb16-300"><a href="#cb16-300" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb16-301"><a href="#cb16-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-302"><a href="#cb16-302" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(suppressed_ids)   <span class="co"># how many records had to be dropped</span></span>
-<span id="cb16-303"><a href="#cb16-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-304"><a href="#cb16-304" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the suppressed records</span></span>
-<span id="cb16-305"><a href="#cb16-305" aria-hidden="true" tabindex="-1"></a>pool <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>(id <span class="sc">%in%</span> suppressed_ids))</span>
-<span id="cb16-306"><a href="#cb16-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-307"><a href="#cb16-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-308"><a href="#cb16-308" aria-hidden="true" tabindex="-1"></a>::: </span>
-<span id="cb16-309"><a href="#cb16-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-310"><a href="#cb16-310" aria-hidden="true" tabindex="-1"></a>In the last step, we split this one dataframe <span class="in">`pool`</span> into two dataframes, the anatomized tables.</span>
-<span id="cb16-311"><a href="#cb16-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-312"><a href="#cb16-312" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4: Split Into the Two Anatomized Tables</span></span>
-<span id="cb16-313"><a href="#cb16-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-314"><a href="#cb16-314" aria-hidden="true" tabindex="-1"></a>**Target:** Split `pool` into two data frames: `ii_table`, the **indirect-identifier table** (`id`, `group_id`, and all indirect identifiers, but no religion), and `sensitive_table`, the **sensitive table** (<span class="in">`group_id`</span>, <span class="in">`religion`</span>, and a per-group <span class="in">`count`</span>, with no identifiers).</span>
+<span id="cb16-292"><a href="#cb16-292" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (rec_id <span class="cf">in</span> leftovers<span class="sc">$</span>id) {</span>
+<span id="cb16-293"><a href="#cb16-293" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this record's religion</span></span>
+<span id="cb16-294"><a href="#cb16-294" aria-hidden="true" tabindex="-1"></a>  rel <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
+<span id="cb16-295"><a href="#cb16-295" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(id <span class="sc">==</span> rec_id) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-296"><a href="#cb16-296" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(religion)</span>
+<span id="cb16-297"><a href="#cb16-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-298"><a href="#cb16-298" aria-hidden="true" tabindex="-1"></a>  <span class="co"># existing groups that do NOT yet contain this religion</span></span>
+<span id="cb16-299"><a href="#cb16-299" aria-hidden="true" tabindex="-1"></a>  open_groups <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
+<span id="cb16-300"><a href="#cb16-300" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(group_id)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-301"><a href="#cb16-301" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(group_id) <span class="sc">%&gt;%</span></span>
+<span id="cb16-302"><a href="#cb16-302" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">has_rel =</span> <span class="fu">any</span>(religion <span class="sc">==</span> rel), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-303"><a href="#cb16-303" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>has_rel) <span class="sc">%&gt;%</span></span>
+<span id="cb16-304"><a href="#cb16-304" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(group_id)</span>
+<span id="cb16-305"><a href="#cb16-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-306"><a href="#cb16-306" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(open_groups) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb16-307"><a href="#cb16-307" aria-hidden="true" tabindex="-1"></a>    <span class="co"># place it in the first eligible group</span></span>
+<span id="cb16-308"><a href="#cb16-308" aria-hidden="true" tabindex="-1"></a>    pool <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
+<span id="cb16-309"><a href="#cb16-309" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">group_id =</span> <span class="fu">if_else</span>(id <span class="sc">==</span> rec_id, open_groups[<span class="dv">1</span>], group_id))</span>
+<span id="cb16-310"><a href="#cb16-310" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb16-311"><a href="#cb16-311" aria-hidden="true" tabindex="-1"></a>    <span class="co"># nowhere safe to put it → mark for suppression</span></span>
+<span id="cb16-312"><a href="#cb16-312" aria-hidden="true" tabindex="-1"></a>    suppressed_ids <span class="ot">&lt;-</span> <span class="fu">c</span>(suppressed_ids, rec_id)</span>
+<span id="cb16-313"><a href="#cb16-313" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-314"><a href="#cb16-314" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb16-315"><a href="#cb16-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-316"><a href="#cb16-316" aria-hidden="true" tabindex="-1"></a><span class="al">![Step 4: split the finished table into an indirect-identifier table and a sensitive table, which share only the group ID.](../pictures/anatomization-step4-cropped.png)</span>{fig-alt="The grouped table is split into an indirect-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency), linked only by the group ID."}</span>
+<span id="cb16-316"><a href="#cb16-316" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(suppressed_ids)   <span class="co"># how many records had to be dropped</span></span>
 <span id="cb16-317"><a href="#cb16-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-318"><a href="#cb16-318" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb16-319"><a href="#cb16-319" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution</span></span>
-<span id="cb16-320"><a href="#cb16-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-323"><a href="#cb16-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-324"><a href="#cb16-324" aria-hidden="true" tabindex="-1"></a><span class="co"># Indirect identifiers table: indirect identifiers + group id, NO religion.</span></span>
-<span id="cb16-325"><a href="#cb16-325" aria-hidden="true" tabindex="-1"></a>ii_table <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
-<span id="cb16-326"><a href="#cb16-326" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, group_id, plz, gender, age, income, years_in_job, education) <span class="sc">%&gt;%</span></span>
-<span id="cb16-327"><a href="#cb16-327" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(group_id, id)</span>
-<span id="cb16-328"><a href="#cb16-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-329"><a href="#cb16-329" aria-hidden="true" tabindex="-1"></a><span class="co"># Sensitive table: for each group, which religions occur and how often.</span></span>
-<span id="cb16-330"><a href="#cb16-330" aria-hidden="true" tabindex="-1"></a>sensitive_table <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
-<span id="cb16-331"><a href="#cb16-331" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(group_id, religion, <span class="at">name =</span> <span class="st">"count"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-332"><a href="#cb16-332" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(group_id, religion)</span>
-<span id="cb16-333"><a href="#cb16-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-334"><a href="#cb16-334" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ii_table)</span>
-<span id="cb16-335"><a href="#cb16-335" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sensitive_table)</span>
-<span id="cb16-336"><a href="#cb16-336" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-337"><a href="#cb16-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-338"><a href="#cb16-338" aria-hidden="true" tabindex="-1"></a>The only thing the two tables share is <span class="in">`group_id`</span>. Neither table on its own—and no join between them—reveals which religion belongs to which person.</span>
-<span id="cb16-339"><a href="#cb16-339" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-340"><a href="#cb16-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-341"><a href="#cb16-341" aria-hidden="true" tabindex="-1"></a>A researcher can still study group-level patterns—for example, the religion distribution across age bands—by joining on <span class="in">`group_id`</span>. But the individual link between a person and their religion is broken.</span>
+<span id="cb16-318"><a href="#cb16-318" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the suppressed records</span></span>
+<span id="cb16-319"><a href="#cb16-319" aria-hidden="true" tabindex="-1"></a>pool <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span> </span>
+<span id="cb16-320"><a href="#cb16-320" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(id <span class="sc">%in%</span> suppressed_ids))</span>
+<span id="cb16-321"><a href="#cb16-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-322"><a href="#cb16-322" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-323"><a href="#cb16-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-324"><a href="#cb16-324" aria-hidden="true" tabindex="-1"></a>In the last step, we split this one dataframe <span class="in">`pool`</span> into two dataframes, the anatomized tables.</span>
+<span id="cb16-325"><a href="#cb16-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-326"><a href="#cb16-326" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4: Split Into the Two Anatomized Tables</span></span>
+<span id="cb16-327"><a href="#cb16-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-328"><a href="#cb16-328" aria-hidden="true" tabindex="-1"></a>**Target:** Split `pool` into two data frames: `ii_table`, the **indirect-identifier table** (`id`, `group_id`, and all indirect identifiers, but no religion), and `sensitive_table`, the **sensitive table** (<span class="in">`group_id`</span>, <span class="in">`religion`</span>, and a per-group <span class="in">`count`</span>, with no identifiers).</span>
+<span id="cb16-329"><a href="#cb16-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-330"><a href="#cb16-330" aria-hidden="true" tabindex="-1"></a><span class="al">![Step 4: split the finished table into an indirect-identifier table and a sensitive table, which share only the group ID.](../pictures/anatomization-step4-cropped.png)</span>{fig-alt="The grouped table is split into an indirect-identifier table (ID, Group ID, Age, Gender) and a sensitive table (Group ID, Religion, Frequency), linked only by the group ID."}</span>
+<span id="cb16-331"><a href="#cb16-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-332"><a href="#cb16-332" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb16-333"><a href="#cb16-333" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solution</span></span>
+<span id="cb16-334"><a href="#cb16-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-337"><a href="#cb16-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-338"><a href="#cb16-338" aria-hidden="true" tabindex="-1"></a><span class="co"># Indirect identifiers table: indirect identifiers + group id, NO religion.</span></span>
+<span id="cb16-339"><a href="#cb16-339" aria-hidden="true" tabindex="-1"></a>ii_table <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
+<span id="cb16-340"><a href="#cb16-340" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, group_id, plz, gender, age, income, years_in_job, education) <span class="sc">%&gt;%</span></span>
+<span id="cb16-341"><a href="#cb16-341" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(group_id, id)</span>
 <span id="cb16-342"><a href="#cb16-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-343"><a href="#cb16-343" aria-hidden="true" tabindex="-1"></a>If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized within the <span class="in">`sdcObjects`</span> <span class="in">`sdcNoise`</span> and <span class="in">`sdcMicro`</span>in <span class="co">[</span><span class="ot">the last chapter on perturbative techniques</span><span class="co">](perturbative)</span>.</span>
-<span id="cb16-344"><a href="#cb16-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-345"><a href="#cb16-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-346"><a href="#cb16-346" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources, Links, Examples</span></span>
+<span id="cb16-343"><a href="#cb16-343" aria-hidden="true" tabindex="-1"></a><span class="co"># Sensitive table: for each group, which religions occur and how often.</span></span>
+<span id="cb16-344"><a href="#cb16-344" aria-hidden="true" tabindex="-1"></a>sensitive_table <span class="ot">&lt;-</span> pool <span class="sc">%&gt;%</span></span>
+<span id="cb16-345"><a href="#cb16-345" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(group_id, religion, <span class="at">name =</span> <span class="st">"count"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-346"><a href="#cb16-346" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(group_id, religion)</span>
 <span id="cb16-347"><a href="#cb16-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-348"><a href="#cb16-348" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>See @Carvalho2023_SurveyPrivacyPreservingTechniques for more de-associative techniques.</span>
-<span id="cb16-349"><a href="#cb16-349" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The anatomization algorithm we implemented here was introduced by <span class="co">[</span><span class="ot">Xiao &amp; Tao (2006), *Anatomy: Simple and Effective Privacy Preservation*</span><span class="co">](https://dl.acm.org/doi/10.5555/1182635.1164141)</span>.See their paper for more technical details.</span>
-<span id="cb16-350"><a href="#cb16-350" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For more on l-diversity and t-closeness, see <span class="co">[</span><span class="ot">this practical tutorial by Utrecht University</span><span class="co">](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html)</span>.</span>
+<span id="cb16-348"><a href="#cb16-348" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ii_table)</span>
+<span id="cb16-349"><a href="#cb16-349" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sensitive_table)</span>
+<span id="cb16-350"><a href="#cb16-350" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-351"><a href="#cb16-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-352"><a href="#cb16-352" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb16-352"><a href="#cb16-352" aria-hidden="true" tabindex="-1"></a>The only thing the two tables share is <span class="in">`group_id`</span>. Neither table on its own—and no join between them—reveals which religion belongs to which person.</span>
+<span id="cb16-353"><a href="#cb16-353" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-354"><a href="#cb16-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-355"><a href="#cb16-355" aria-hidden="true" tabindex="-1"></a>A researcher can still study group-level patterns—for example, the religion distribution across age bands—by joining on <span class="in">`group_id`</span>. But the individual link between a person and their religion is broken.</span>
+<span id="cb16-356"><a href="#cb16-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-357"><a href="#cb16-357" aria-hidden="true" tabindex="-1"></a>If this was the technique you would use for your dataset, you would save the two dataframes now and publish them like this, potentially with additional measures in place. Note that having two datasets complicates the analysis process. In this tutorial, we will, however, not use this further and instead resume with the data as anonymized within the <span class="in">`sdcObject`</span>s <span class="in">`sdc_noise`</span> and <span class="in">`sdc_micro`</span> in <span class="co">[</span><span class="ot">the last chapter on perturbative techniques</span><span class="co">](perturbative)</span>.</span>
+<span id="cb16-358"><a href="#cb16-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-359"><a href="#cb16-359" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources, Links, Examples</span></span>
+<span id="cb16-360"><a href="#cb16-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-361"><a href="#cb16-361" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>See @Carvalho2023_SurveyPrivacyPreservingTechniques for more de-associative techniques.</span>
+<span id="cb16-362"><a href="#cb16-362" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The anatomization algorithm we implemented here was introduced by <span class="co">[</span><span class="ot">Xiao &amp; Tao (2006), *Anatomy: Simple and Effective Privacy Preservation*</span><span class="co">](https://dl.acm.org/doi/10.5555/1182635.1164141)</span>. See their paper for more technical details.</span>
+<span id="cb16-363"><a href="#cb16-363" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For more on l-diversity and t-closeness, see <span class="co">[</span><span class="ot">this practical tutorial by Utrecht University</span><span class="co">](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html)</span>.</span>
+<span id="cb16-364"><a href="#cb16-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-365"><a href="#cb16-365" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

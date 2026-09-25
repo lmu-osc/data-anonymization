@@ -85,9 +85,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-3c3f1368ed8db972a012dae01a8e5220.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0fd66a72018a63d913d6e27d7a0bd232.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-15209287336beec7429ab397f8192adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-29f470653e47eca4888459144373f9ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-086ab9d7f12d77a34f94d2bc5610e28c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -427,7 +427,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../foundations/mechanisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Privacy Mechanisms in Research</span></a>
+ <span class="menu-text">Data Protection Mechanisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -494,7 +494,7 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">BALANCING DATA PROTECTION AND OPENNESS</span></a>
+ <span class="menu-text">BALANCING PRIVACY AND OPENNESS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -580,15 +580,15 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>After completing this part of the tutorial, you will understand the idea of synthesizing data for anonymization.</li>
+<li>Understand the idea of <strong>synthesizing data</strong> for anonymization.</li>
 </ul>
 </div>
 </div>
 </div>
-<p>Synthetic data is data that is <strong>generated from scratch using statistical models or machine learning algorithms trained on the original dataset</strong>. The synthetic records do not correspond to any real individual—they are entirely artificial—but they reproduce the statistical patterns (distributions, correlations, group differences) of the original data.</p>
-<p>The big advantage in terms of anonymization is that, since no real individual’s data appears in the synthetic dataset, the <strong>risk of re-identification is fundamentally different from other techniques</strong> but there is still a risk of statistical disclosure. Synthetic data can be shared freely, and the data preserves some of its <strong>analytical utility</strong> if the generating model is good enough.</p>
+<p>Synthetic data is <strong>not altered data, but a new dataset that is generated using statistical models or machine learning algorithms trained on the original dataset</strong>. The synthetic records do not correspond to any real individual—they are entirely artificial—but they reproduce the statistical patterns (distributions, correlations, group differences) of the original data.</p>
+<p>The big advantage in terms of anonymization is that, since no real individual’s data appears in the synthetic dataset, the <strong>risk of re-identification is fundamentally different from other techniques</strong> but there is still a risk of statistical disclosure. Synthetic data can be shared freely, and the data preserves some of its <strong>analytical utility</strong> if the generating model conforms to the use case at hand.</p>
 <p>But: The quality of synthetic data depends entirely on the model used to generate it. If the model misses important patterns (e.g., non-linear relationships, rare subgroups), the synthetic data will not be a faithful stand-in for the original. Generating high-quality synthetic data also requires technical expertise.</p>
-<p>For a guide on creating synthetic data, see the dedicated <a href="https://lmu-osc.github.io/synthetic-data-tutorial/">OSC tutorial on synthesizing data</a></p>
+<p>For a guide on creating synthetic data, see the dedicated <a href="https://lmu-osc.github.io/synthetic-data-tutorial/">OSC tutorial on synthesizing data</a>.</p>
 <section id="resources-links-examples" class="level2">
 <h2 class="anchored" data-anchor-id="resources-links-examples">Resources, Links, Examples</h2>
 <p><a href="https://lmu-osc.github.io/synthetic-data-tutorial/">OSC tutorial on synthesizing data</a></p>
@@ -1090,16 +1090,16 @@ if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objective</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After completing this part of the tutorial, you will understand the idea of synthesizing data for anonymization.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Understand the idea of **synthesizing data** for anonymization.</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Synthetic data is data that is **generated from scratch using statistical models or machine learning algorithms trained on the original dataset**. The synthetic records do not correspond to any real individual—they are entirely artificial—but they reproduce the statistical patterns (distributions, correlations, group differences) of the original data.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Synthetic data is **not altered data, but a new dataset that is generated using statistical models or machine learning algorithms trained on the original dataset**. The synthetic records do not correspond to any real individual—they are entirely artificial—but they reproduce the statistical patterns (distributions, correlations, group differences) of the original data.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The big advantage in terms of anonymization is that, since no real individual's data appears in the synthetic dataset, the **risk of re-identification is fundamentally different from other techniques** but there is still a risk of statistical disclosure. Synthetic data can be shared freely, and the data preserves some of its **analytical utility** if the generating model is good enough.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The big advantage in terms of anonymization is that, since no real individual's data appears in the synthetic dataset, the **risk of re-identification is fundamentally different from other techniques** but there is still a risk of statistical disclosure. Synthetic data can be shared freely, and the data preserves some of its **analytical utility** if the generating model conforms to the use case at hand.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>But: The quality of synthetic data depends entirely on the model used to generate it. If the model misses important patterns (e.g., non-linear relationships, rare subgroups), the synthetic data will not be a faithful stand-in for the original. Generating high-quality synthetic data also requires technical expertise.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>For a guide on creating synthetic data, see the dedicated <span class="co">[</span><span class="ot">OSC tutorial on synthesizing data</span><span class="co">](https://lmu-osc.github.io/synthetic-data-tutorial/)</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>For a guide on creating synthetic data, see the dedicated <span class="co">[</span><span class="ot">OSC tutorial on synthesizing data</span><span class="co">](https://lmu-osc.github.io/synthetic-data-tutorial/)</span>.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resources, Links, Examples</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
