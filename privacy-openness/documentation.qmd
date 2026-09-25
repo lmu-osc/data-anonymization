@@ -6,16 +6,16 @@ aliases: [3_PRIVACY_OPENNESS/3_2_Documentation.html]
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
--   After completing this part of the tutorial, you will know best practices on how to document your anonymization process.
+-   Know **best practices** for documenting your anonymization process.
 :::
 
 ## Goals of Documentation of Anonymization
 
-Thorough documentation of your anonymization process serves two purposes:
+Thorough documentation of your anonymization process serves three purposes:
 
 1.  It provides an **internal record for auditing**—if questions arise later about how the data was handled, you can retrace every step.
 2.  It provides transparency for **data users**, who need to understand what was changed in order to interpret the data correctly.
-3.  It is, legally, an **accountability obligation**. Under the GDPR, the controller needs to be able to demonstrate compliance and an anonymization record is the core evidence for this.
+3.  It is, legally, an **accountability obligation**. Under the GDPR, the controller needs to be able to demonstrate compliance; an anonymization record is the core evidence for this.
 
 ## Internal Documentation
 
@@ -23,12 +23,12 @@ Your internal documentation should describe the **full anonymization workflow**:
 
 ## External Documentation in Data Dictionary
 
-The external documentation is what you **share alongside the anonymized dataset**. It should include a **data dictionary** describing every variable in the released dataset, including any changes from the original. For example, if `age` was recoded from exact years to age bands, the codebook should state this clearly. Be careful not to reveal details that could help reverse the anonymization.
+The external documentation is what you **share alongside the anonymized dataset**. It should include a **data dictionary** describing every variable in the released dataset, including any changes from the original. For example, if `age` was recoded from exact years to age bands, the data dictionary should state this clearly. Be careful not to reveal details that could help reverse the anonymization.
 
-If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values—for example, a line like `filter(country == "Liechtenstein")` tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible. Also, make sure that you don't share a set seed within these scripts. 
+If you publish your anonymization scripts (which is good practice for reproducibility), review them carefully. Scripts can accidentally reveal information about suppressed or recoded values—for example, a line like `filter(country == "Liechtenstein")` tells an attacker that someone from Liechtenstein was in the original data. Use generic variable references where possible. Also, make sure that you **don't share a set seed** within these scripts as this may reveal exact values of, for example, added noise, meaning your anonymization can be reversed. 
 
 ::: {.callout-tip collapse="false"}
-### Recommended Note for Your README
+## Recommended Note for Your README
 
 It is good practice to state upfront in your README or dataset metadata that the data has been anonymized. For example:
 
@@ -41,7 +41,7 @@ It is good practice to state upfront in your README or dataset metadata that the
 Make changes to the data dictionary from the [landing page](../index.qmd) in accordance with the anonymization steps you made in this tutorial.
 
 ::: {.callout-important collapse="true"}
-### Solution
+## Solution
 
 The following variables were removed or modified during anonymization:
 

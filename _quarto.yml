@@ -43,7 +43,7 @@ website:
           - href: foundations/personal-data.qmd
             text: "Personal Data"
           - href: foundations/mechanisms.qmd
-            text: "Privacy Mechanisms in Research"
+            text: "Data Protection Mechanisms"
           - href: foundations/privacy-concepts.qmd
             text: "Privacy Concepts"
       - section: "ANONYMIZATION PROCESS"
@@ -62,7 +62,7 @@ website:
             text: "Synthetic Data"
           - href: anonymisation-techniques/choosing-technique.qmd
             text: "Choosing the Right Technique"
-      - section: "BALANCING DATA PROTECTION AND OPENNESS"
+      - section: "BALANCING PRIVACY AND OPENNESS"
         contents:
           - href: privacy-openness/balancing.qmd
             text: "Balancing Tensions"

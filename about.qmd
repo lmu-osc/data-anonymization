@@ -44,8 +44,7 @@ google-scholar: true
 
 This site was authored by Luisa Jansen, and edits/contributions were made by Johanna Bayer, Malika Ihle, and Felix Schönbrodt.
 
-The legal sections were kindly reviewed by Christian Sillaber.
-François-Xavier Wicht reviewed the descriptions of the randomized response technique and differential privacy.
+The tutorial was kindly reviewed by [Beth Clarke](https://orcid.org/0000-0002-7355-6718), [Sandra Grinschgl](https://orcid.org/0000-0001-6666-9426), [Stefan Horstmann](https://orcid.org/0000-0002-4053-0706), [Christine Krebs](https://orcid.org/0000-0002-3609-3275), [Lukas Jung](https://orcid.org/0009-0007-9174-1494), [Roman Müller](https://orcid.org/0009-0007-2142-3896), Christian Sillaber, and [François-Xavier Wicht](https://orcid.org/0009-0005-6090-7901).
 
 ## Licenses
 
@@ -55,7 +54,7 @@ Why two licenses? The CC BY-SA 4.0 license is for the content of the website, wh
 
 ## Notes
 
-This tutorial was primarily written in 2026 using R (R version 4.5.3 (2026-03-11 ucrt)). Major changes to R can be found at the [R's website](https://www.r-project.org/) for the most up-to-date information, and to confirm that our tutorial is not out-of-date. 
+This tutorial was primarily written in 2026 using R (R version 4.5.3 (2026-03-11 ucrt)). Major changes to R can be found at [R's website](https://www.r-project.org/) for the most up-to-date information, and to confirm that this tutorial is not out-of-date. 
 
 ## Tutorial Template Quarto Extension
 

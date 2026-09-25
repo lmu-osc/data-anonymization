@@ -12,14 +12,16 @@ library(xml2)
 
 ## Tutorial Overview
 
-This **self-paced tutorial** on anonymization of quantitative research data is intended to take about three hours to complete.
+This **self-paced tutorial** of the Open Science Center of LMU Munich on anonymization of quantitative research data is intended to take about three hours to complete.
 
 The tutorial is split into the following sections:
 
-1.  [**FOUNDATIONS OF DATA PROTECTION**](foundations/introduction-data-privacy) talks about data protection basics in ethics and law, mechanisms of data protection in research, and basic terms.
+1.  [**FOUNDATIONS OF DATA PROTECTION AND PRIVACY**](foundations/introduction-data-privacy) talks about data protection basics in ethics and law, mechanisms of data protection in research, and basic terms.
 2.  [**DATA ANONYMIZATION PROCESS**](anonymisation-techniques/planning-privacy) walks you through the process of anonymizing your research data based on example data.
-3.  [**BALANCING DATA PROTECTION AND OPENNESS**](privacy-openness/balancing) presents methods for aligning your data protection and open science interests.
+3.  [**BALANCING PRIVACY AND OPENNESS**](privacy-openness/balancing) presents methods for aligning your data protection and open science interests.
 4.  [**ANONYMIZATION WORKFLOW**](workflow/summary) closes this tutorial by summarizing the learned workflow.
+
+For a quick reference, the [**summary workflow**](workflow/summary) condenses the whole process into a single checklist.
 
 ## What You'll Learn
 
@@ -30,6 +32,8 @@ By the end of this tutorial, you will be able to:
 -   **Apply anonymization techniques** using R in a coherent workflow
 -   **Make informed decisions when balancing the risks and utility** of the anonymized data
 
+Each chapter opens with a short list of **learning objectives** so you know what to expect before you start.
+
 ## What You Will **NOT** Learn
 
 You will not learn anything other than anonymization of quantitative tabular data.
@@ -38,15 +42,15 @@ Here are a few helpful links for other data types:
 
 -   Anonymizing neuroimaging metadata ([article](https://doi.org/10.1162/IMAG.a.1144))
 -   Anonymizing qualitative textual data with the tool QualiAnon ([video tutorial](https://www.youtube.com/watch?v=RYQn4DjdKmo))
--   Anonymizing sensitive qualitative data ([lecture recording](https://www.youtube.com/watch?v=-Pha3EINF3s&ab_channel=CenterforOpenScience) and [article](https:/doi.org/10.1037/tra0001358))
+-   Anonymizing sensitive qualitative data ([lecture recording](https://www.youtube.com/watch?v=-Pha3EINF3s&ab_channel=CenterforOpenScience) and [article](https://doi.org/10.1037/tra0001358))
 
 ## Prerequisites
 
-You need basic R skills (e.g., loading data and packages). Experience with data wrangling with `tidyverse` is beneficial.
+You need basic R skills (e.g., loading data and packages). Experience in data wrangling with `tidyverse` is beneficial.
 
 ## Required Software
 
-To follow along with the hands-on exercises, you will need a recent version of [R](https://cran.r-project.org/) (version 4.1.0 or newer) and [RStudio](https://posit.co/download/rstudio-desktop/).
+To follow along with the hands-on exercises, you will need [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/). Please use a current version of R.
 
 You will also need a handful of R packages. Install them with:
 
@@ -59,9 +63,11 @@ install.packages("knitr") # render tables in the tutorial's examples
 install.packages("xfun") # small helpers used in the tutorial's examples
 ```
 
+Make sure to load them, too.
+
 ## The Example Dataset
 
-Throughout the tutorial, we work with the same **simulated dataset** of 200 Germans. The data's purpose is to answer whether **certain political opinions are linked to religion**. We will assess its privacy risks and then anonymize it step by step across the exercises. Download it here:
+Throughout the tutorial, we work with the same **simulated dataset** of 200 people from Germany. The data's purpose is to answer whether **certain political opinions are linked to religion**. We will assess its privacy risks and then anonymize it step by step across the exercises, beginning with the [first exercise](foundations/personal-data.qmd#exercise-1-direct-identifiers-indirect-identifiers-and-special-categories) in the chapter on personal data. Download it here:
 
 ```{r}
 #| label: download-link
@@ -80,23 +86,23 @@ Once downloaded, copy this into a new Markdown file in RStudio to import the dat
 #| message: false
 
 # Load data based on downloaded file
-data <- read.csv(here::here("simulated-data.csv")) # Change based on the location of your data file
+data <- read.csv(here::here("simulated-data.csv")) # Change in case of a different location of your data file
 ```
 
 The dataset contains the following variables:
 
 ::: {.callout-note collapse="true"}
-### Data Dictionary
+## Data Dictionary
 
 | Variable Name | Description | Item | Values |
 |----|----|----|----|
 | id | Number assigned to each participant in order of participation | (assigned in background) | Integer; 1-200 |
 | name | First and last name of participant | Please indicate your full name (first and last name) | String of characters |
-| email | Email address of participant | What is your e-mail address? | String of characters |
-| plz | German postal code | What is your postal code? | String of characters |
+| email | Email address of participant | What is your email address? | String of characters |
+| plz | German postal code ("Postleitzahl") | What is your postal code? | String of characters |
 | gender | Gender of participant | What is your gender? | Factor; "male"/"female"/"non-binary" |
 | age | Age of participant in years | What is your age in years? | Integer; 18-100 |
-| income | Personal annual income in Euros | What was your income over the last twelve months | Integer |
+| income | Personal annual income in Euros | What was your income over the last twelve months? | Integer |
 | religion | Religion of participant | What is your religion? | Factor; "Catholicism","Protestantism","Islam","Eastern Orthodoxy","Judaism", "Buddhism", "Hinduism", "Other", "None" |
 | education | Highest degree of education | What is your highest degree of education? | Factor; "no degree","trade school","high school", "university","doctoral title" |
 | pol_immigration | Likert item measuring opinion on immigration | The government should limit immigration more strictly than it currently does. | Integer; 1-5 |
@@ -104,7 +110,7 @@ The dataset contains the following variables:
 | pol_redistribution | Likert item measuring opinion on redistribution of wealth | The government should reduce income differences between rich and poor. | Integer; 1-5 |
 | pol_eu_integration | Likert item measuring opinion on membership in EU | Our country benefits from being a member of the European Union. | Integer; 1-5 |
 | ip_address | IP address (version 4) of participant's device when answering survey | (collected in background) | String of characters |
-| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0-n |
+| years_in_job | Number of years the participant has been in their current job | How many years have you been in your current job? | Integer; 0-100 |
 :::
 
 :::: {.columns}

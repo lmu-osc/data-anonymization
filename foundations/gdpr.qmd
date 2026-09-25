@@ -7,10 +7,10 @@ bibliography: ../references.bib
 ::: {.callout-tip collapse="true"}
 ## Learning Objective
 
-- After completing this part of the tutorial, you will have an overview of the legal obligations when collecting and processing personal data according to the GDPR.
+- Get an overview of the **legal obligations** when collecting and processing personal data according to the **GDPR**.
 :::
 
-The General Data Protection Regulation (GDPR), in German "Datenschutz-Grundverordnung" (DSGVO), is the **central legal framework** for the protection of personal data in the **European Union**. It applies since May 2018, to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland (and, for the most part, in the UK). In general, it also applies to researchers and universities, regardless of where they are based [@jarmul2023].
+The General Data Protection Regulation (GDPR), in German "Datenschutz-Grundverordnung" (DSGVO), is the **central legal framework** for the protection of personal data in the **European Union**. It has applied since May 2018 to anyone who processes personal data of individuals in the EU and in Norway, Liechtenstein, and Iceland (and, for the most part, in the UK). In general, this also applies to researchers and universities, regardless of where they are based, as soon as their participants live in that area [@jarmul2023].
 
 As a researcher of human data, you almost certainly process personal data, and the GDPR applies to you. Understanding its core concepts helps you navigate ethics board requirements, data management plans, and—most importantly for this tutorial—why and when you need to anonymize data.
 
@@ -18,62 +18,56 @@ This chapter gives you a **brief, research-focused overview**. I am not going to
 
 ## Key Concepts for Researchers
 
-The GDPR defines several concepts that come up regularly in research. Let's go through the most important ones.
+The GDPR defines several concepts that come up regularly in research. The graph below shows how they relate to each other in a typical research project:
 
-::: {.callout-warning collapse="false"}
-## Personal Data
+![Key GDPR Terms in a Research Project](../pictures/overview-terms-cropped.svg){fig-alt="Illustration of a house that stands for the research institution as controller. Inside it, participants fill in a survey; the survey contains personal data such as name, age, address, and sensitive information. An arrow leads from the survey to the researcher, who processes the data in a cycle of research stages: collect, process, analyze, preserve, and publish. A survey platform such as Qualtrics or LimeSurvey acts as processor at the collection stage."}
+
+### Personal Data
 
 Any information relating to an identified or identifiable natural person. This includes obvious identifiers like names and email addresses, but also indirect identifiers like age, postal code, or job title, if they can be combined to single out an individual. See [the next chapter](personal-data) for a detailed explanation.
 
-**In research:** Most survey and experimental data contain personal data, even if you never ask for a participant's name. A combination of demographic variables (age, gender, occupation, location) can be enough.
-:::
+**In research:** Most survey and experimental data contain personal data, even if you never ask for a participant's name. A combination of demographic variables (age, gender, occupation, location) can be enough to narrow things down to a specific individual.
 
-::: {.callout-warning collapse="false"}
-## Processing
+### Processing
 
 Any operation performed on personal data, whether automated or manual. This includes collecting, recording, organizing, storing, analyzing, sharing, and deleting data.
 
 **In research:** Essentially everything you do with your data—from the moment a participant fills in a survey to the moment you publish or archive the dataset—counts as processing.
-:::
 
-::: {.callout-warning collapse="false"}
-## Controller
+### Controller
 
 The person or organization that determines the purposes and means of processing personal data.
 
-**In research:** This is typically the research institution, not you personally. Researchers are employed to do research, and when this includes data collection, the institution is, by extension, the controller and carries the legal responsibility, while the principal investigator (PI) carries operational responsibility in day-to-day research. This may differ, depending on contracts and exact projects, though. When you collaborate across different institutions, it gets more complicated: usually, this means that the involved institutions act as joint controllers (Art. 26), requiring them (or better: their DPOs) to allocate responsibilities between them within a written contract.
-:::
+**In research:** This is typically the research institution, not you personally. Researchers are employed to do research, and when this includes data collection, the institution is, by extension, the controller and carries the legal responsibility, while the principal investigator (PI) carries operational responsibility in day-to-day research. This may differ, depending on contracts and exact projects, though. When you collaborate across different institutions, it gets more complicated: usually, this means that the institutions involved act as joint controllers ([Art. 26](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_26)), requiring them (or better: their data protection officers) to allocate responsibilities between them within a written contract.
 
-::: {.callout-warning collapse="false"}
-## Processor
+### Processor
 
 A person or organization that processes personal data on behalf of the controller.
 
-**In research:** If you use a third-party survey platform (like Qualtrics or SoSci Survey), a cloud storage provider, or a transcription service, these act as processors. The controller remains responsible for ensuring they handle data in compliance with the GDPR.
-:::
+**In research:** If you use a third-party survey platform (like Qualtrics or SoSci Survey), a cloud storage provider (e.g., OneDrive), or a transcription service, these act as processors. The controller remains responsible for ensuring they handle data in compliance with the GDPR.
 
 ## What the GDPR Means for Your Research
 
 There are a few GDPR principles and provisions that are particularly relevant to researchers:
 
-**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* (Art. 6(1)(a)) or *public interest* (Art. 6(1)(e)). The GDPR sets strict requirements for what counts as *informed* and *freely given* consent and what information participants must receive before giving consent (Art. 13/14): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](mechanisms).
+**Legal basis for processing.** You need a legal basis to process personal data. In research, this is usually either *informed consent* ([Art. 6(1)(a)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_6)) or *public interest* ([Art. 6(1)(e)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_6)). The GDPR sets strict requirements for what counts as *informed* and *freely given* consent and what information participants must receive before giving consent ([Art. 13](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_13)/[14](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_14)): the purpose of processing, who will have access, how long data will be stored, and what rights participants have. I discuss informed consent further in [the chapter on mechanisms of data protection](mechanisms).
 
 **Purpose limitation.** Data may only be collected for specified, explicit purposes. In research, this means you should be clear about what your data will be used for, and if you want to re-use data for a new purpose, you may need to check whether this is covered by the original consent. Luckily, for research purposes, the laws are more lenient than for private companies.
 
-**Data minimization.** You should only collect data that is necessary for your research purpose. Collecting "nice-to-have" demographics without a clear reason is not just bad practice—it may also be a GDPR issue. We discuss this more in [the chapter on mechanisms of data protection](mechanisms).
+**Data minimization.** You should only collect data that is necessary for your research purpose. Collecting "nice-to-have" demographics without a clear reason is bad practice and, potentially, a GDPR issue. I discuss this more in [the chapter on mechanisms of data protection](mechanisms).
 
-**Storage limitation.** Personal data should not be kept longer than necessary. For research, there are exceptions: data may be stored longer for archiving purposes in the public interest, scientific research, or statistical purposes (Art. 89), but this requires appropriate safeguards such as encryption and access control.
+**Storage limitation.** Personal data should not be kept longer than necessary. For research, there are exceptions: data may be stored longer for archiving purposes in the public interest, scientific research, or statistical purposes ([Art. 89](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_89)), but this requires appropriate safeguards such as encryption and access control. For personal data that is transferred outside the EU, special regulations apply ([Art. 44](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_44)).
 
-**Special position of research (Art. 5(1)(b)).** The GDPR acknowledges the importance of scientific research and provides some flexibility. For example, further processing of personal data for research purposes is generally considered compatible with the original purpose of collection.
+**Special position of research ([Art. 5(1)(b)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#art_5)).** The GDPR acknowledges the importance of scientific research and provides some flexibility. For example, further processing of personal data for research purposes is generally considered compatible with the original purpose of collection.
 
 ::: {.callout-note collapse="false"}
 ## Germany and Bavaria: Local Laws
 
-The GDPR allows EU member states to adopt more specific rules in certain areas. Germany has done this through its [Federal Data Protection Act (BDSG)](https://www.bmi.bund.de/EN/topics/constitution/data-protection/federal-data-protection-act/federal-data-protection-act-node.html), which adds provisions for research (§ 27 BDSG). For example, it allows processing of special categories of personal data (like health data) for scientific research without explicit consent, provided that appropriate safeguards are in place and the research interest substantially outweighs the interests of the data subject.
+The GDPR allows EU member states to adopt more specific rules in certain areas. Germany has done so through its [Federal Data Protection Act (BDSG)](https://www.bmi.bund.de/EN/topics/constitution/data-protection/federal-data-protection-act/federal-data-protection-act-node.html), which adds provisions for research (§ 27 BDSG). For example, it allows processing of special categories of personal data (such as health data) for scientific research without explicit consent, provided that appropriate safeguards are in place and the research interest substantially outweighs the interests of the data subject.
 
 Bavaria, as a German state, has its own [Bavarian Data Protection Act (BayDSG)](https://www.datenschutz-bayern.de/datenschutzreform2018/BayDSG.pdf), which applies to public institutions, including universities like LMU Munich. In practice, this means that researchers at Bavarian universities are subject to the GDPR, the BDSG, *and* the BayDSG.
 
-The good news: the core principles (purpose limitation, data minimization, storage limitation) are **consistent across all three**. Contact your institution's data protection officer for any questions, for example, regarding other legal bases for data collection than consent.
+Luckily for us, the core principles (purpose limitation, data minimization, storage limitation) are **consistent across all three**. Contact your institution's data protection officer for any questions, for example, regarding legal bases for data collection other than consent.
 
 [Contact the LMU Munich data protection office.](https://www.lmu.de/en/about-lmu/structure/organizational-structure/officers-representatives-and-contact-persons/data-protection-officer.html)
 :::
@@ -83,7 +77,7 @@ The good news: the core principles (purpose limitation, data minimization, stora
 
 The GDPR applies to personal data. If data is **truly anonymized**—meaning individuals can no longer be identified, directly or indirectly—the GDPR no longer applies to that data. This is one of the main reasons why anonymization is so valuable for open data: it allows you to share data freely without the legal constraints of the GDPR. Notably, the process of anonymization also constitutes a *processing operation*, meaning the GDPR also applies at this stage.
 
-But be careful: **pseudonymized** data (e.g., replacing names with codes while keeping a key file) is still personal data under the GDPR. The regulation explicitly states this. We cover the distinction between anonymization and pseudonymization in [the chapter on mechanisms of data protection](mechanisms).
+But be careful: **pseudonymized** data (e.g., replacing names with codes while keeping a key file) is, in general, still personal data under the GDPR. The regulation explicitly states this. I cover the distinction between anonymization and pseudonymization in [the chapter on mechanisms of data protection](mechanisms).
 :::
 
 ## Participant Rights
