@@ -305,7 +305,7 @@ There are two ways to prevent this:
 
 - **Document it in the codebook**: state which variables were top- or bottom-coded and at which threshold. The variable stays numeric and can be analyzed as usual.
 
-- **Mark it in the data**, e.g., as "\>60" or "4+". This is unmistakable, but turns the variable into text and makes further analysis more work.
+- **Mark it in the data**, e.g., as "\>60" or "4+". This is unmistakable, but turns the variable into text and makes more work for further analysis.
 :::
 
 Together, these steps bring the disclosure risk down to a maximum of 92%, compared to the original data. We will look at (the loss of) utility in [the chapter on balancing privacy and utility](../privacy-openness/balancing).
