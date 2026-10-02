@@ -2,90 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lmu-osc.github.io/data-anonymization/foundations/personal-data.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
+    <lastmod>2026-10-02T06:00:16.562Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-anonymization/foundations/introduction-data-privacy.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
+    <lastmod>2026-10-02T06:00:16.562Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-anonymization/foundations/privacy-concepts.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
+    <lastmod>2026-10-02T06:00:16.562Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-anonymization/privacy-openness/balancing.html</loc>
-    <lastmod>2026-10-02T05:57:23.093Z</lastmod>
+    <lastmod>2026-10-02T06:00:16.582Z</lastmod>
   </url>
   <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/workflow/summary.html</loc>
-    <lastmod>2026-10-02T05:57:23.096Z</lastmod>
+    <loc>https://lmu-osc.github.io/data-anonymization/anonymization-techniques/deassociative.html</loc>
+    <lastmod>2026-10-02T06:00:16.561Z</lastmod>
   </url>
   <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/LICENSE.html</loc>
-    <lastmod>2026-10-02T05:57:23.073Z</lastmod>
+    <loc>https://lmu-osc.github.io/data-anonymization/anonymization-techniques/synthetic.html</loc>
+    <lastmod>2026-10-02T06:00:16.561Z</lastmod>
   </url>
   <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/footer/privacy.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/index.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/anonymisation-techniques/deassociative.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/anonymisation-techniques/synthetic.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/anonymisation-techniques/perturbative.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/anonymisation-techniques/non-perturbative.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/anonymisation-techniques/overview-methods.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/anonymisation-techniques/choosing-technique.html</loc>
-    <lastmod>2026-10-02T05:57:23.074Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/anonymisation-techniques/planning-privacy.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/footer/imprint.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/footer/accessibilty.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-anonymization/LICENSE-CODE.html</loc>
-    <lastmod>2026-10-02T05:57:23.073Z</lastmod>
+    <loc>https://lmu-osc.github.io/data-anonymization/anonymization-techniques/perturbative.html</loc>
+    <lastmod>2026-10-02T06:00:16.561Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-anonymization/about.html</loc>
-    <lastmod>2026-10-02T05:57:23.074Z</lastmod>
+    <lastmod>2026-10-02T06:00:16.560Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/LICENSE-CODE.html</loc>
+    <lastmod>2026-10-02T06:00:16.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/footer/accessibilty.html</loc>
+    <lastmod>2026-10-02T06:00:16.561Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/footer/imprint.html</loc>
+    <lastmod>2026-10-02T06:00:16.561Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/index.html</loc>
+    <lastmod>2026-10-02T06:00:16.562Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/footer/privacy.html</loc>
+    <lastmod>2026-10-02T06:00:16.561Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/LICENSE.html</loc>
+    <lastmod>2026-10-02T06:00:16.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/workflow/summary.html</loc>
+    <lastmod>2026-10-02T06:00:16.585Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/anonymization-techniques/non-perturbative.html</loc>
+    <lastmod>2026-10-02T06:00:16.561Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/anonymization-techniques/overview-methods.html</loc>
+    <lastmod>2026-10-02T06:00:16.561Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/anonymization-techniques/choosing-technique.html</loc>
+    <lastmod>2026-10-02T06:00:16.560Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-anonymization/anonymization-techniques/planning-privacy.html</loc>
+    <lastmod>2026-10-02T06:00:16.561Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-anonymization/privacy-openness/documentation.html</loc>
-    <lastmod>2026-10-02T05:57:23.094Z</lastmod>
+    <lastmod>2026-10-02T06:00:16.583Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-anonymization/foundations/mechanisms.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
+    <lastmod>2026-10-02T06:00:16.562Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-anonymization/foundations/gdpr.html</loc>
-    <lastmod>2026-10-02T05:57:23.075Z</lastmod>
+    <lastmod>2026-10-02T06:00:16.561Z</lastmod>
   </url>
 </urlset>
