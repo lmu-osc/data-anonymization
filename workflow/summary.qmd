@@ -9,7 +9,7 @@ aliases: [4_WORKFLOW/4_1_Summary.html]
 - Understand the **anonymization workflow**.
 :::
 
-This overview summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data. Keep in mind that not every dataset needs every step in full; how much effort is appropriate depends on your data's risk (see [*Does It Always Take This Much Work?*](../anonymisation-techniques/planning-privacy.qmd#how-much-effort)).
+This overview summarizes the full anonymization workflow. Use it as a reference or checklist when you work through your own data. Keep in mind that not every dataset needs every step in full; how much effort is appropriate depends on your data's risk (see [*Does It Always Take This Much Work?*](../anonymization-techniques/planning-privacy.qmd#how-much-effort)).
 
 ```{=html}
 <style>
@@ -95,7 +95,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-5">
     <span class="wf-num">5</span>
     <div class="wf-body">
-      <a class="wf-title" href="../anonymisation-techniques/planning-privacy.html">Calculate Disclosure Risk &amp; Utility</a>
+      <a class="wf-title" href="../anonymization-techniques/planning-privacy.html">Calculate Disclosure Risk &amp; Utility</a>
       <span class="wf-desc">Measure k-anonymity and risk metrics; establish a utility baseline (e.g.,&nbsp;using sdcMicro).</span>
     </div>
   </div>
@@ -104,12 +104,12 @@ a.wf-title::after {
   <div class="wf-step" id="wf-6">
     <span class="wf-num">6</span>
     <div class="wf-body">
-      <a class="wf-title" href="../anonymisation-techniques/overview-methods.html">Choose Anonymization Measures</a>
+      <a class="wf-title" href="../anonymization-techniques/overview-methods.html">Choose Anonymization Measures</a>
       <span class="wf-desc">Select a technique:
-        <a href="../anonymisation-techniques/non-perturbative.html">non-perturbative</a>,
-        <a href="../anonymisation-techniques/perturbative.html">perturbative</a>,
-        <a href="../anonymisation-techniques/deassociative.html">de-associative</a>, or
-        <a href="../anonymisation-techniques/synthetic.html">synthetic</a>. When in doubt, aim for k-anonymity.
+        <a href="../anonymization-techniques/non-perturbative.html">non-perturbative</a>,
+        <a href="../anonymization-techniques/perturbative.html">perturbative</a>,
+        <a href="../anonymization-techniques/deassociative.html">de-associative</a>, or
+        <a href="../anonymization-techniques/synthetic.html">synthetic</a>. When in doubt, aim for k-anonymity.
       </span>
     </div>
   </div>
@@ -118,7 +118,7 @@ a.wf-title::after {
   <div class="wf-step" id="wf-7">
     <span class="wf-num">7</span>
     <div class="wf-body">
-      <a class="wf-title" href="../anonymisation-techniques/choosing-technique.html">Apply Anonymization Techniques</a>
+      <a class="wf-title" href="../anonymization-techniques/choosing-technique.html">Apply Anonymization Techniques</a>
       <span class="wf-desc">Apply chosen techniques step by step; track changes with sdcMicro.</span>
     </div>
   </div>

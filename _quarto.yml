@@ -34,7 +34,7 @@ website:
     contents:
       - text: "Overview"
         href: index.qmd
-      - section: "FOUNDATIONS"
+      - section: "Foundations"
         contents:
           - href: foundations/introduction-data-privacy.qmd
             text: "Introduction"
@@ -46,29 +46,29 @@ website:
             text: "Data Protection Mechanisms"
           - href: foundations/privacy-concepts.qmd
             text: "Privacy Concepts"
-      - section: "ANONYMIZATION PROCESS"
+      - section: "Anonymization Process"
         contents:
-          - href: anonymisation-techniques/planning-privacy.qmd
+          - href: anonymization-techniques/planning-privacy.qmd
             text: "Assessing Privacy Risks"
-          - href: anonymisation-techniques/overview-methods.qmd
+          - href: anonymization-techniques/overview-methods.qmd
             text: "Overview of Techniques"
-          - href: anonymisation-techniques/non-perturbative.qmd
+          - href: anonymization-techniques/non-perturbative.qmd
             text: "Non-Perturbative Techniques"
-          - href: anonymisation-techniques/perturbative.qmd
+          - href: anonymization-techniques/perturbative.qmd
             text: "Perturbative Techniques"
-          - href: anonymisation-techniques/deassociative.qmd
+          - href: anonymization-techniques/deassociative.qmd
             text: "De-Associative Techniques"
-          - href: anonymisation-techniques/synthetic.qmd
+          - href: anonymization-techniques/synthetic.qmd
             text: "Synthetic Data"
-          - href: anonymisation-techniques/choosing-technique.qmd
+          - href: anonymization-techniques/choosing-technique.qmd
             text: "Choosing the Right Technique"
-      - section: "BALANCING PRIVACY AND OPENNESS"
+      - section: "Balancing Privacy and Openness"
         contents:
           - href: privacy-openness/balancing.qmd
             text: "Balancing Tensions"
           - href: privacy-openness/documentation.qmd
             text: "Documentation"
-      - section: "ANONYMIZATION WORKFLOW"
+      - section: "Anonymization Workflow"
         contents:
           - href: workflow/summary.qmd
             text: "Summary"

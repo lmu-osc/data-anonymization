@@ -108,7 +108,7 @@ This means that a "yes" can come **either from a person who has abused someone, 
 
 This technique requires a larger sample size to estimate prevalence and severely limits the interpretability of relations between variables, but it transparently adds privacy from the outset of data collection.
 
-Randomized response is also an early example of what is now formalized as **differential privacy**—see the callout in [the chapter on perturbative techniques](../anonymisation-techniques/perturbative.qmd#differential-privacy).
+Randomized response is also an early example of what is now formalized as **differential privacy**—see the callout in [the chapter on perturbative techniques](../anonymization-techniques/perturbative.qmd#differential-privacy).
 :::
 
 ## Stages 3-6: Process, Analyze, Preserve, and Publish

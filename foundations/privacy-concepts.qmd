@@ -160,7 +160,7 @@ Extensions have been proposed to address these issues. **l-diversity** requires 
 
 For the scope of this tutorial, k-anonymity will be our main metric, but it is good to be aware that it is not without its limitations. More information on l-diversity and t-closeness can be accessed in [this practical tutorial by Utrecht University](https://utrechtuniversity.github.io/dataprivacyhandbook/k-l-t-anonymity.html).
 
-We will use k-anonymity practically in the [next chapter on assessing privacy risks](../anonymisation-techniques/planning-privacy), where we will calculate it using R and the `sdcMicro` package.
+We will use k-anonymity practically in the [next chapter on assessing privacy risks](../anonymization-techniques/planning-privacy), where we will calculate it using R and the `sdcMicro` package.
 
 ## Further Reading
 
